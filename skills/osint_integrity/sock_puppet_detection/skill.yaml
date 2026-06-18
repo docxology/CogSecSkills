@@ -1,0 +1,81 @@
+id: osint_integrity.sock_puppet_detection
+name: Sock-Puppet Detection
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Identify inauthentic personas from behavioral, temporal, and network signals.
+description: Sock-puppet detection identifies inauthentic online personas — accounts
+  created to simulate independent real people — by analyzing behavioral, temporal,
+  network, and content signals that distinguish coordinated inauthentic behavior from
+  organic activity. The technique is a core defensive OSINT practice used to assess
+  whether an apparent grassroots voice is actually a manufactured identity. Detection
+  relies on converging indicators rather than any single signature, since sophisticated
+  operations deliberately vary surface features to evade heuristics.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- influence-operations
+triggers:
+- is this account real
+- detect sock puppets
+- coordinated inauthentic behavior
+- fake accounts
+- identify bot or sock puppet
+- check if this user is genuine
+- sock puppet detection
+tools:
+- verb: read
+  purpose: ingest the account profile, post history, and any network or interaction
+    data available
+- verb: web
+  purpose: query account metadata, cross-platform identity traces, profile image reverse-search,
+    and related accounts via OSINT sources
+- verb: reason
+  purpose: apply the behavioral, temporal, network, and content indicator framework
+    to assess inauthenticity
+- verb: write
+  purpose: produce a structured assessment with flagged indicators, confidence level,
+    and recommended disposition
+inputs:
+- name: account_identifier
+  type: text
+  required: true
+  description: Username, URL, or account ID on the platform being investigated
+- name: platform
+  type: text
+  required: true
+  description: The social media platform or online community where the account operates
+- name: related_accounts
+  type: list
+  required: false
+  description: Other accounts suspected of being part of the same coordinated network,
+    if already identified
+- name: narrative_context
+  type: text
+  required: false
+  description: The information operation or narrative environment where the account
+    is being encountered
+outputs:
+- name: indicator_assessment
+  type: table
+  description: Table of evaluated indicators across behavioral, temporal, network,
+    and content dimensions, each rated as present, absent, or unknown
+- name: inauthenticity_report
+  type: markdown
+  description: 'Structured report: flagged indicators, alternative explanations considered,
+    confidence tier, and recommended action'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Nimmo, B. (2020). The Breakout Scale: Measuring the Impact of Influence Operations.
+  Brookings Institution.'
+- Stanford Internet Observatory (2021). SIO Coordinated Inauthentic Behavior Reports.
+  cyber.fsi.stanford.edu.
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as Collaborative Work:
+  Surfacing the Participatory Nature of Strategic Information Operations. CSCW.'
+- Ferrara, E. et al. (2016). The Rise of Social Bots. Communications of the ACM, 59(7),
+  96–104.

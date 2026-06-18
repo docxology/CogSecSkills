@@ -1,0 +1,82 @@
+id: osint_integrity.dataset_provenance_audit
+name: Dataset Provenance Audit
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Audit a dataset's origin, licensing, sampling, and integrity before analytic
+  use.
+description: Dataset provenance audit systematically examines a dataset's origin,
+  collection methodology, licensing terms, sampling frame, and integrity before it
+  is used as an analytic input. Datasets used in OSINT and cognitive-security analysis
+  are often scraped, crowd-sourced, or re-packaged — making undisclosed biases, legal
+  encumbrances, and integrity failures common failure modes. The audit surfaces whether
+  the dataset accurately represents what it claims to represent, whether the analyst
+  has legal right to use it, and whether any transformations between origin and current
+  form may have introduced errors or distortions. It is the due-diligence gate before
+  any dataset is trusted in an analytic product.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- data-quality
+- provenance
+triggers:
+- audit this dataset
+- where did this data come from
+- check dataset provenance
+- can we trust this data
+- verify dataset origin and licensing
+tools:
+- verb: read
+  purpose: ingest the dataset, its documentation, licensing files, and any prior audit
+    records
+- verb: search
+  purpose: locate the original source publication, license terms, and any known issues
+    or retractions
+- verb: exec
+  purpose: run integrity checks — hash verification, schema validation, duplicate
+    detection, and sampling-frame tests on the dataset
+- verb: reason
+  purpose: assess coverage gaps, sampling bias, transformation history, and fitness-for-purpose
+    given the analytic question
+- verb: write
+  purpose: produce the provenance audit report with fitness assessment, identified
+    limitations, and a use/no-use recommendation
+inputs:
+- name: dataset
+  type: text
+  required: true
+  description: The dataset under audit — a file path, URL, or description of the data
+    to be examined
+- name: analytic_question
+  type: text
+  required: true
+  description: The specific question the dataset will be used to answer, so fitness-for-purpose
+    can be assessed
+- name: dataset_documentation
+  type: text
+  required: false
+  description: Any accompanying data dictionary, methodology notes, README, or prior
+    audit records for the dataset
+outputs:
+- name: provenance_audit_report
+  type: markdown
+  description: Structured audit report covering origin, collection methodology, licensing,
+    sampling frame, transformation history, integrity checks, identified limitations,
+    and use/no-use recommendation
+- name: integrity_check_results
+  type: table
+  description: 'Row-level results of automated integrity checks: hash status, schema
+    conformance, duplicate rates, and sampling coverage'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Gebru, T. et al. (2021). Datasheets for Datasets. Communications of the ACM, 64(12),
+  86-92.
+- Miceli, M., Posada, M. & Yang, T. (2022). Documenting the Limits of Data. Proceedings
+  of FAccT.
+- 'EUROPOL (2020). Internet Organised Crime Threat Assessment: Open Source Intelligence.
+  Europol.'

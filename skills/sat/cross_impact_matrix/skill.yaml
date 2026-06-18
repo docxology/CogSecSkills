@@ -1,0 +1,80 @@
+id: sat.cross_impact_matrix
+name: Cross-Impact Matrix
+group: sat
+version: 0.1.0
+status: implemented
+summary: Assess how each driver influences every other to find leverage and feedback.
+description: The Cross-Impact Matrix is a structured technique for mapping how each
+  driver, trend, or variable in a system affects every other one, enabling analysts
+  to identify reinforcing feedback loops, inhibitory relationships, and high-leverage
+  nodes whose change cascades through the system. Cells in the matrix record the direction
+  and magnitude of influence (positive, negative, neutral, conditional) rather than
+  independent assessments of each factor. The technique is widely used in scenario
+  planning, strategic foresight, and systemic-threat analysis to surface non-obvious
+  interdependencies that single-variable analysis misses.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- systems-analysis
+triggers:
+- how do these factors interact
+- cross-impact matrix
+- which variables drive the others
+- find feedback loops
+- map the interdependencies
+tools:
+- verb: read
+  purpose: ingest the list of key drivers, trends, or variables and any existing analysis
+    of each
+- verb: reason
+  purpose: assess pairwise influence relationships, identify feedback loops, and rank
+    leverage points
+- verb: write
+  purpose: produce the filled matrix, loop inventory, leverage ranking, and analytic
+    narrative
+inputs:
+- name: driver_list
+  type: list
+  required: true
+  description: A set of 4–12 named drivers, trends, variables, or actors to be cross-analyzed
+    (e.g., from a prior brainstorm or key-drivers step)
+- name: influence_scale
+  type: text
+  required: false
+  description: 'Optional scoring convention: e.g., +2 (strong positive), +1 (weak
+    positive), 0 (negligible), -1 (weak negative), -2 (strong negative), C (conditional)'
+- name: focal_question
+  type: text
+  required: true
+  description: The analytic question or planning scenario for which interdependencies
+    matter
+outputs:
+- name: cross_impact_matrix
+  type: table
+  description: N×N matrix where cell (i,j) records the influence of driver i on driver
+    j, scored and briefly annotated
+- name: loop_inventory
+  type: markdown
+  description: Identified reinforcing and balancing feedback loops, with the chain
+    of drivers forming each loop
+- name: leverage_ranking
+  type: table
+  description: Drivers ranked by aggregate outgoing influence score (active) and incoming
+    influence score (passive), identifying high-leverage and highly-sensitive variables
+- name: analytic_narrative
+  type: markdown
+  description: Interpretation of the most significant loops and leverage points relative
+    to the focal question
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Gordon, T. J., & Hayward, H. (1968). Initial experiments with the cross impact matrix
+  method of forecasting. Futures, 1(2), 100–116.
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 3rd ed. CQ Press.
+- 'Bishop, P., Hines, A., & Collins, T. (2007). The current state of scenario development:
+  An overview of techniques. Foresight, 9(1), 5–25.'

@@ -1,0 +1,80 @@
+id: critical_review.claim_evidence_audit
+name: Claim-Evidence Audit
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Bind every claim to its supporting evidence; flag overclaims and unsupported
+  assertions.
+description: 'Claim-Evidence Audit is a structured review technique that walks through
+  every substantive claim in a document, identifies the evidence offered in support,
+  and renders a verdict on the strength and sufficiency of that support. It distinguishes
+  overclaims (conclusions that exceed what the evidence can bear), underclaims (conclusions
+  hedged beyond what strong evidence warrants), unsupported assertions (claims with
+  no evidence offered), and well-supported claims. In cognitive-security work, this
+  technique is a primary defense against epistemic manipulation: fabricated confidence,
+  cherry-picked data, and rhetorical amplification all fail a rigorous claim-evidence
+  audit.'
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- epistemic-integrity
+- overclaim-detection
+triggers:
+- claim evidence audit
+- check the evidence
+- overclaim
+- unsupported assertion
+- bind claims to evidence
+- evidence audit
+- what supports this claim
+- confidence calibration review
+tools:
+- verb: read
+  purpose: ingest the document and systematically extract every substantive claim
+    and the evidence offered for it
+- verb: reason
+  purpose: evaluate the logical relationship between each claim and its offered evidence,
+    assess sufficiency, and detect overclaim or unsupported assertion
+- verb: write
+  purpose: emit the claim-evidence audit table and a calibrated summary with severity
+    ratings and recommendations
+inputs:
+- name: document
+  type: text
+  required: true
+  description: The document, report, or argument to be audited — should contain substantive
+    claims with some accompanying evidence or citations
+- name: claim_taxonomy
+  type: list
+  required: false
+  description: Optional list of claim types to focus on (e.g., causal, predictive,
+    quantitative, policy-recommendation) if a targeted audit is desired
+outputs:
+- name: claim_evidence_table
+  type: table
+  description: 'A table with one row per substantive claim: claim text, evidence offered,
+    evidence type (data/citation/inference/authority/none), sufficiency verdict (well-supported
+    / hedged-adequately / overclaim / underclaim / unsupported), severity rating,
+    and recommended correction'
+- name: audit_summary
+  type: markdown
+  description: A narrative summary identifying the overall claim integrity level,
+    the most serious overclaims and unsupported assertions, patterns of rhetorical
+    amplification or evidence cherry-picking, and a recommendation on whether the
+    document's conclusions can be trusted as stated
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter on Argument Mapping and Evidence Evaluation.
+- Toulmin, S. (1958). The Uses of Argument. Cambridge University Press. (Foundational
+  claim-warrant-evidence framework.)
+- Walton, D. (2006). Fundamentals of Critical Argumentation. Cambridge University
+  Press.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown Publishers. (On calibration and overclaiming.)'
+- Nguyen, C. T. (2020). Echo chambers and epistemic bubbles. Episteme, 17(2), 141–161.

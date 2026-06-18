@@ -1,0 +1,81 @@
+id: cognitive_security.cognitive_bias_audit
+name: Cognitive Bias Audit
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Scan an analysis or decision for the specific biases most likely to distort
+  it.
+description: Cognitive Bias Audit applies a structured checklist of well-documented
+  cognitive biases — drawn from the intelligence analysis, behavioral economics, and
+  judgment-and-decision-making literature — to a specific analysis or decision to
+  identify which biases are most likely operating and how they may be distorting conclusions.
+  The technique is derived from Richards Heuer's work on structured analytic techniques
+  and Kahneman's dual-process research, adapted for defensive intelligence and cognitive-security
+  contexts. It produces a prioritized catalogue of probable bias intrusions with targeted
+  debiasing actions, not a generic lecture on bias. The goal is making bias visible
+  and actionable rather than abstractly warning analysts that biases exist.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- structured-analytic-techniques
+- debiasing
+triggers:
+- cognitive bias audit
+- check for biases in this analysis
+- what biases might affect this judgment
+- debiasing review
+- audit my reasoning for cognitive traps
+tools:
+- verb: read
+  purpose: ingest the analysis text, decision record, or judgment under review along
+    with any stated assumptions
+- verb: reason
+  purpose: match the text against a structured taxonomy of biases relevant to the
+    domain and decision type, assessing likelihood and distortion magnitude
+- verb: write
+  purpose: emit the ranked bias catalogue with evidence quotes, estimated impact,
+    and specific debiasing recommendations
+inputs:
+- name: analysis_or_decision
+  type: text
+  required: true
+  description: The full text of the analysis, judgment, or decision record to be audited;
+    should include stated conclusions and the evidence or reasoning used to reach
+    them
+- name: domain_context
+  type: text
+  required: false
+  description: Brief description of the domain (intelligence, policy, security, financial,
+    medical, etc.) and the stakes involved — used to weight which bias classes are
+    most hazardous
+- name: known_pressures
+  type: list
+  required: false
+  description: List of organizational, time, social, or political pressures the analyst
+    was under — these activate specific motivated-reasoning and groupthink biases
+outputs:
+- name: bias_audit_report
+  type: markdown
+  description: 'Structured report: for each identified bias, a label, a quoted passage
+    showing it, an estimated distortion magnitude (High/Medium/Low), the mechanism
+    by which it distorts the conclusion, and a concrete debiasing action'
+- name: priority_bias_summary
+  type: table
+  description: Compact table of top biases sorted by estimated distortion magnitude
+    with one-line debiasing action per row, suitable for a quick-read executive summary
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. Chapter 11: Biases in Perception of Cause and Effect.'
+- Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter 7: Challenge Analysis.'
+- Larrick, R. P. (2004). Debiasing. In D. J. Koehler & N. Harvey (Eds.), Blackwell
+  Handbook of Judgment and Decision Making. Blackwell.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown Publishers.'

@@ -1,0 +1,73 @@
+id: sat.structured_brainstorming
+name: Structured Brainstorming
+group: sat
+version: 0.1.0
+status: implemented
+summary: Divergent then convergent idea generation with explicit anti-anchoring steps.
+description: Structured Brainstorming is a two-phase diverge-then-converge technique
+  that separates unconstrained idea generation from critical evaluation to prevent
+  anchoring, groupthink, and premature convergence on the most socially acceptable
+  or seniority-endorsed hypothesis. The divergence phase enforces deferral of judgment
+  while the convergence phase uses explicit criteria to cluster, rank, and discard
+  ideas. In cognitive-security analysis it surfaces hypotheses and threat vectors
+  that a linear, hierarchical review would suppress, and the explicit anti-anchoring
+  steps protect against an adversary's ability to pre-seed the analytic frame.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- divergent-thinking
+triggers:
+- brainstorm
+- structured brainstorming
+- generate hypotheses
+- diverge then converge
+- what are all the possibilities
+tools:
+- verb: read
+  purpose: ingest the problem statement and any prior analytic framing to be deliberately
+    set aside during divergence
+- verb: reason
+  purpose: execute the divergence phase (unconstrained ideation) and convergence phase
+    (criteria-based clustering and ranking)
+- verb: ask
+  purpose: elicit additional ideas from the analyst when the divergence phase appears
+    to be closing prematurely
+- verb: write
+  purpose: produce the raw idea inventory, clustered groupings, ranked shortlist,
+    and discarded-but-documented ideas
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: the question, challenge, or hypothesis space to be explored
+- name: prior_framing
+  type: text
+  required: false
+  description: existing analysis or dominant hypothesis the team holds, to be explicitly
+    set aside during divergence
+- name: convergence_criteria
+  type: list
+  required: false
+  description: criteria for ranking ideas in the convergence phase (e.g., plausibility,
+    novelty, threat severity); if omitted the agent proposes criteria
+outputs:
+- name: raw_idea_inventory
+  type: markdown
+  description: the full unconstrained list of ideas generated in the divergence phase,
+    unfiltered
+- name: ranked_shortlist
+  type: table
+  description: clustered and ranked ideas from the convergence phase with rationale
+    for ranking and notes on discarded ideas
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Osborn, A. F. (1953). Applied Imagination: Principles and Procedures of Creative
+  Problem-Solving. Scribner.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Ch. 3.
+- Pherson, R. H., & Pherson, K. H. (2020). Analytic Writing Guide. Pherson Associates.

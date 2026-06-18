@@ -1,0 +1,77 @@
+id: cognitive_security.attack_surface_of_belief_mapping
+name: Belief Attack-Surface Mapping
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Map which beliefs of a target audience are most exposed to manipulation and
+  why.
+description: Belief Attack-Surface Mapping identifies which held beliefs of a target
+  audience are structurally most exposed to adversarial manipulation — analyzing the
+  epistemic properties (evidence base, social anchoring, emotional loading, and prior-belief
+  dependencies) that make specific beliefs more or less resistant to influence operations.
+  The output is a ranked map that defenders can use to design targeted inoculation,
+  prebunking, or counter-messaging interventions before an adversary exploits a vulnerability.
+  This is a defensive analytical technique analogous to network attack-surface analysis
+  applied to epistemic infrastructure.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- belief-systems
+- vulnerability-analysis
+triggers:
+- belief attack surface
+- which beliefs are most vulnerable
+- epistemic vulnerability map
+- what beliefs could be exploited
+- cognitive vulnerability assessment
+- where is the audience susceptible
+tools:
+- verb: read
+  purpose: ingest descriptions of the audience, their documented belief landscape,
+    and known adversary playbooks
+- verb: reason
+  purpose: assess each belief cluster across epistemic vulnerability dimensions and
+    score exposure
+- verb: write
+  purpose: produce a ranked belief attack-surface map with defensive prioritization
+inputs:
+- name: audience_profile
+  type: text
+  required: true
+  description: 'Description of the target audience: demographics, information diet,
+    prior belief commitments, cultural context'
+- name: belief_inventory
+  type: list
+  required: true
+  description: A list or structured description of beliefs the audience holds that
+    are relevant to the defensive concern
+- name: adversary_playbook
+  type: text
+  required: false
+  description: Known or suspected adversary manipulation techniques and narratives
+    relevant to this audience
+outputs:
+- name: belief_attack_surface_map
+  type: table
+  description: Ranked table of belief clusters scored on vulnerability dimensions
+    (evidence thinness, emotional salience, identity anchoring, social proof dependence)
+    with exposure rating and recommended defensive action
+- name: priority_interventions
+  type: markdown
+  description: Narrative summary of the top vulnerable belief areas, the specific
+    manipulation vectors most likely to target them, and prioritized defensive recommendations
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Lewandowsky, S., Ecker, U. K. H., & Cook, J. (2017). Beyond Misinformation: Understanding
+  and Coping with the Post-Truth Era. Journal of Applied Research in Memory and Cognition.'
+- Roozenbeek, J., & van der Linden, S. (2022). How Accurate Are Accuracy-Nudge Interventions?
+  A Preregistered Direct Replication of Pennycook et al. (2020). Psychological Science.
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- 'Compton, J. (2013). Inoculation Theory. In J. P. Dillard & L. Shen (Eds.), The
+  SAGE Handbook of Persuasion: Developments in Theory and Practice.'

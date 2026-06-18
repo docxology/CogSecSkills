@@ -1,0 +1,73 @@
+id: sat.mind_maps_and_concept_maps
+name: Mind Maps & Concept Maps
+group: sat
+version: 0.1.0
+status: implemented
+summary: Externalize a problem's concepts and relationships as a navigable graph.
+description: Mind maps and concept maps externalize the structure of a complex problem
+  as a navigable node-link graph, making implicit conceptual relationships visible
+  and shareable. Mind maps radiate from a central topic in a hierarchical tree; concept
+  maps allow labeled, directional links between any pair of nodes (following Novak's
+  knowledge-representation theory). Both techniques combat working-memory overload,
+  surface hidden assumptions, and expose gaps or tangled chains of reasoning that
+  prose analysis obscures.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- externalization
+- visualization
+triggers:
+- draw out the relationships
+- map the concepts
+- visualize the problem structure
+- mind map
+- concept map
+- organize the ideas visually
+tools:
+- verb: read
+  purpose: ingest source text, reports, or prior analysis from which concepts and
+    relationships will be extracted
+- verb: reason
+  purpose: identify key nodes, label directional links, and evaluate structural completeness
+    and consistency
+- verb: write
+  purpose: emit the map as structured output (adjacency list, Mermaid graph, or annotated
+    node-link table) plus an analytic narrative
+inputs:
+- name: source_material
+  type: text
+  required: true
+  description: Raw text, reports, or prior analysis describing the problem space whose
+    concepts and relationships are to be mapped
+- name: central_topic
+  type: text
+  required: true
+  description: The focal concept or question that anchors the map (e.g., 'influence
+    operation targeting election narrative')
+- name: map_type
+  type: text
+  required: false
+  description: 'Preferred map style: ''mind'' (hierarchical tree from center) or ''concept''
+    (labeled directed graph); defaults to concept map for analytic use'
+outputs:
+- name: concept_graph
+  type: markdown
+  description: A Mermaid or adjacency-list representation of the map with labeled
+    nodes and directed, annotated edges
+- name: gap_and_conflict_report
+  type: markdown
+  description: A brief analytic note identifying nodes with no outbound links (dead
+    ends), conflicting link directions, and concepts mentioned in source material
+    but absent from the map
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Novak, J. D., & Cañas, A. J. (2008). The Theory Underlying Concept Maps and How
+  to Construct and Use Them. Florida Institute for Human and Machine Cognition.
+- Buzan, T., & Buzan, B. (1996). The Mind Map Book. BBC Books.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 6.

@@ -1,0 +1,70 @@
+id: critical_review.assumption_surfacing_review
+name: Assumption Surfacing Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Make every implicit assumption explicit and assess its load-bearing role.
+description: Assumption Surfacing Review (rooted in Key Assumptions Check, Heuer &
+  Pherson) makes every implicit premise that underlies an argument or assessment explicit,
+  then evaluates how load-bearing each assumption is and how well it is supported.
+  The technique is essential in cognitive-security contexts because manipulation and
+  influence operations routinely exploit unexamined premises — by surfacing them,
+  analysts create an audit trail that lets reviewers challenge the analytic foundations
+  rather than only the conclusions.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- structured-analytic-technique
+- key-assumptions-check
+triggers:
+- surface assumptions
+- assumption check
+- what are we taking for granted
+- key assumptions check
+- implicit premises
+- assumption audit
+tools:
+- verb: read
+  purpose: ingest the document, argument, or analytic product whose assumptions need
+    surfacing
+- verb: reason
+  purpose: identify implicit premises, classify each by load-bearing role and evidentiary
+    support, and judge vulnerability to adversarial exploitation
+- verb: write
+  purpose: emit the structured assumption register with load-bearing ratings, support
+    assessments, and recommended mitigation actions
+inputs:
+- name: target_text
+  type: text
+  required: true
+  description: The document, argument, analytic product, plan, or claim set whose
+    underlying assumptions are to be surfaced and assessed
+- name: domain_context
+  type: text
+  required: false
+  description: Optional background on the operational domain, stakeholder environment,
+    or adversarial threat landscape to guide assumption identification
+outputs:
+- name: assumption_register
+  type: table
+  description: 'A table of identified assumptions with columns: assumption statement,
+    explicit/implicit status, load-bearing role (critical/supporting/peripheral),
+    evidentiary support (strong/weak/none), and recommended action (validate/monitor/challenge/reframe)'
+- name: assumption_review_narrative
+  type: markdown
+  description: A narrative synthesis identifying which assumptions most weaken the
+    argument, which are most susceptible to adversarial targeting, and what monitoring
+    or validation steps should follow
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter 5: Key Assumptions Check.'
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- Schwenk, C. R. (1988). The cognitive perspective on strategic decision-making. Journal
+  of Management Studies, 25(1), 41–55.

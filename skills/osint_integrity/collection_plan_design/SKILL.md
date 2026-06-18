@@ -1,0 +1,32 @@
+---
+name: osint_integrity.collection_plan_design
+description: Plan ethical, scoped collection tied to specific intelligence requirements.
+---
+
+# Collection Plan Design
+
+Collection plan design translates intelligence requirements into a disciplined, scoped, and ethically bounded OSINT collection strategy before any data is gathered. The plan specifies what information is needed and why, which open sources are in scope, what collection methods are lawful and proportionate, how data will be stored and protected, and what review checkpoints govern the effort. Establishing these parameters in advance prevents scope creep, reduces legal exposure, and ensures that collected material remains relevant to the stated analytic question. It is the upstream governance document for all subsequent OSINT work.
+
+## When to use
+
+- At the start of any OSINT investigation before collecting any data
+- When an existing investigation risks expanding beyond its original mandate
+- When the legal or ethical basis for collection is unclear or contested
+- When multiple analysts or teams will contribute to a single collection effort and coordination is needed
+
+## What it produces
+
+- A written collection plan that can be reviewed for compliance and approved before collection begins
+- A source priority matrix that guides analyst effort toward highest-yield, lowest-risk sources first
+- Explicit documentation of what is out of scope, reducing later scope creep disputes
+
+## Procedure
+
+See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
+
+## Key discipline
+
+- Start from the intelligence requirement, not from the available tools — collection that cannot answer the requirement wastes resources and creates liability
+- State legal basis explicitly: passive observation, publicly available data, and active elicitation each carry different legal and ethical burdens
+- Scope exclusions are as important as inclusions — what you will not collect defines the ethical boundary
+- Build in review checkpoints so that scope can be reassessed if the analytic question evolves

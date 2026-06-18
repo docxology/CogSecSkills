@@ -1,0 +1,81 @@
+id: cognitive_security.information_provenance_tracing
+name: Information Provenance Tracing
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Trace a claim back to its origin through the chain of republication and mutation.
+description: Information provenance tracing reconstructs the origin and mutation history
+  of a specific claim, image, video, or dataset by following each documented republication
+  back through the chain of custody to the earliest recoverable source. Unlike information
+  laundering tracing (which focuses on legitimization tactics), provenance tracing
+  is a fact-finding technique that asks 'where did this actually come from and how
+  has it changed?' — establishing whether a claim descends from verified reporting,
+  a fabricated source, or a misrepresentation of authentic material.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- verification
+- osint
+triggers:
+- information provenance
+- where did this claim come from
+- trace the origin of this
+- who first published this
+- verify the source of this claim
+- reverse image search provenance
+- chain of custody for this information
+tools:
+- verb: read
+  purpose: ingest the claim, artifact, or piece of content whose provenance is under
+    investigation
+- verb: search
+  purpose: locate earlier instances of the claim or artifact across archives, social
+    media, and news databases
+- verb: web
+  purpose: retrieve live and archived pages, WHOIS/domain records, reverse image search
+    results, and metadata from online sources
+- verb: reason
+  purpose: evaluate the chain of citations, assess source reliability, identify mutations
+    in meaning across republications, and determine the most likely original source
+- verb: write
+  purpose: emit the provenance chain, source assessment, mutation log, and confidence-rated
+    finding
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: The claim, quote, image description, video reference, or dataset to
+    trace — stated as precisely as possible, including any known URLs or identifiers
+- name: known_context
+  type: text
+  required: false
+  description: 'Any background already known about the artifact: approximate date
+    first seen, platform, claimant identity'
+- name: scope
+  type: text
+  required: false
+  description: Limit the trace to particular domains, time windows, or content types
+    (e.g., 'social media only', 'before 2022-01')
+outputs:
+- name: provenance_chain
+  type: table
+  description: 'Ordered table from earliest-found instance to present: date, source,
+    URL/identifier, claim text or artifact hash, mutation notes, reliability assessment'
+- name: origin_assessment
+  type: markdown
+  description: Narrative identifying the earliest recoverable source, its nature (verified
+    journalist, anonymous account, state outlet, fabricated entity, etc.), how meaning
+    mutated across the chain, and a confidence-rated conclusion about origin
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- First Draft News. (2017). Understanding Information Disorder. First Draft.
+- 'Silverman, C. (Ed.). (2015). Verification Handbook: A definitive guide to verifying
+  digital content for emergency coverage. European Journalism Centre.'
+- Bellingcat Verification Handbook (2021). An Online Investigation Toolkit. Bellingcat.
+- 'Holan, A. D. (2013). The Principles of the Truth-O-Meter: PolitiFact''s methodology
+  for independent fact-checking. PolitiFact.'

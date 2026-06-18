@@ -1,0 +1,73 @@
+id: cognitive_security.media_literacy_assessment
+name: Media Literacy Assessment
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Evaluate and strengthen an audience's lateral-reading and verification habits.
+description: Media Literacy Assessment evaluates an audience's capacity to critically
+  appraise information sources, distinguishing genuine content from manipulated or
+  misleading material. It applies lateral-reading and verification heuristics drawn
+  from news literacy research (SIFT, CRAAP) to diagnose specific gaps in an audience's
+  epistemic habits. The output is an actionable gap map that prioritizes which verification
+  competencies to strengthen and with what educational interventions.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- media-literacy
+- verification
+triggers:
+- assess media literacy
+- how well does this audience evaluate sources
+- lateral reading audit
+- measure information verification habits
+- news literacy gap analysis
+tools:
+- verb: read
+  purpose: ingest audience profile, existing media habits data, and sample content
+    the audience encounters
+- verb: reason
+  purpose: score the audience against each media-literacy dimension (source evaluation,
+    lateral reading, verification triggers, emotional override) and identify gaps
+- verb: write
+  purpose: produce the gap map, competency scores, and prioritized intervention recommendations
+inputs:
+- name: audience_profile
+  type: text
+  required: true
+  description: 'Description of the target audience: demographics, platform use, prior
+    media-literacy training, and any known vulnerability indicators'
+- name: sample_content
+  type: list
+  required: false
+  description: Representative set of content items (headlines, posts, articles) the
+    audience typically encounters, used to test verification behaviors contextually
+- name: existing_assessment_data
+  type: text
+  required: false
+  description: Prior survey results, behavioral analytics, or literacy test scores
+    for the audience if available
+outputs:
+- name: competency_gap_map
+  type: table
+  description: Scored breakdown of the audience across key media-literacy dimensions
+    (source evaluation, lateral reading, claim verification, emotional override resistance)
+    with gap severity ratings
+- name: intervention_recommendations
+  type: markdown
+  description: Prioritized list of educational or design interventions matched to
+    identified gaps, with expected efficacy and sequencing rationale
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Wineburg, S., & McGrew, S. (2019). Lateral Reading: Reading Less and Learning More
+  When Evaluating Digital Information. Stanford History Education Group Working Paper
+  No. 2017-A1.'
+- 'Hobbs, R. (2010). Digital and Media Literacy: A Plan of Action. The Aspen Institute.'
+- Caulfield, M. (2019). SIFT (The Four Moves). Hapgood. https://hapgood.us/2019/06/19/sift-the-four-moves/
+- Vraga, E. K., & Tully, M. (2021). News literacy, social media behaviors, and skepticism
+  toward information on social media. Information, Communication & Society, 24(2),
+  150–166.

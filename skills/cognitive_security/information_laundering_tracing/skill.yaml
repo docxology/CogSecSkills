@@ -1,0 +1,80 @@
+id: cognitive_security.information_laundering_tracing
+name: Information Laundering Tracing
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Track how a fringe claim is legitimized through layered republication into
+  mainstream channels.
+description: Information laundering tracing maps the staged process by which a fringe,
+  unverified, or deceptive claim acquires apparent legitimacy through layered republication
+  across progressively more credible outlets. The technique follows a claim from its
+  origin through aggregator blogs, partisan news sites, think-tank summaries, and
+  eventually mainstream coverage, identifying the amplification nodes that stripped
+  caveats and added false authority at each step. It is closely related to the 'firehose
+  of falsehood' and 'blue-check laundering' documented in disinformation research.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- disinformation
+- provenance
+triggers:
+- information laundering
+- how did this fringe claim go mainstream
+- trace the legitimization of a claim
+- which outlets laundered this narrative
+- blue-check laundering
+- how did a rumor become news
+tools:
+- verb: read
+  purpose: ingest the claim under examination and any known publication chain artifacts
+- verb: search
+  purpose: locate earlier and contemporaneous publications of the claim across outlet
+    tiers
+- verb: web
+  purpose: retrieve live pages, archive.org snapshots, and cross-references to reconstruct
+    the republication chain
+- verb: reason
+  purpose: classify each node by outlet tier, identify where caveats were dropped
+    and authority added, and assess deliberateness
+- verb: write
+  purpose: emit the laundering chain diagram, node annotations, and assessed legitimization
+    tactics
+inputs:
+- name: claim_text
+  type: text
+  required: true
+  description: The specific claim or narrative to trace, stated as precisely as possible
+- name: known_publications
+  type: list
+  required: false
+  description: Any already-known URLs or outlet names where the claim appeared, to
+    seed the chain
+- name: time_window
+  type: text
+  required: false
+  description: Approximate date range to bound the search (e.g., '2023-09 to 2023-11')
+outputs:
+- name: laundering_chain
+  type: table
+  description: 'Chronological table of publication nodes: date, outlet, outlet tier,
+    claim fidelity, caveats present/dropped, amplification mechanism'
+- name: analysis_narrative
+  type: markdown
+  description: Narrative describing the legitimization arc, the key laundering nodes,
+    techniques used (caveat stripping, authority borrowing, saturation), and assessed
+    intent
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an interdisciplinary
+  framework for research and policy making. Council of Europe Report DGI(2017)09.'
+- 'Nimmo, B. (2019). The Breakout Scale: Measuring the impact of influence operations.
+  Graphika.'
+- 'Bradshaw, S., & Howard, P. N. (2019). The Global Disinformation Order: 2019 Global
+  Inventory of Organised Social Media Manipulation. Oxford Internet Institute.'
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'

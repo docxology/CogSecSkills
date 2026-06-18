@@ -1,0 +1,88 @@
+id: sat.causal_flow_diagramming
+name: Causal Flow Diagramming
+group: sat
+version: 0.1.0
+status: implemented
+summary: Trace cause-effect chains and feedback loops driving a system's behavior.
+description: Causal Flow Diagramming (also called causal loop diagramming or process
+  mapping in intelligence analysis) traces the causal and feedback relationships among
+  variables driving a system's behavior — showing which factors amplify (reinforcing
+  loops) or dampen (balancing loops) each other and where interventions or disruptions
+  would propagate. Adapted from systems dynamics (Forrester, Senge) and codified for
+  intelligence analysis by Heuer & Pherson, it counters linear cause-and-effect thinking
+  by surfacing non-obvious feedback paths, delays, and second-order effects that straight
+  narrative obscures. In cognitive-security contexts it is used to map how disinformation,
+  influence operations, or social dynamics self-amplify or self-correct.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- systems-thinking
+- causal-analysis
+triggers:
+- causal flow diagram
+- causal loop diagram
+- trace cause and effect
+- map the feedback loops
+- why does this keep happening
+- what drives this system
+- systemic causes
+- reinforcing loop
+tools:
+- verb: read
+  purpose: ingest problem descriptions, incident reports, or analytical narratives
+    describing the system's behavior over time
+- verb: reason
+  purpose: identify variables, causal links (direction and polarity), feedback loop
+    types, delays, and leverage points
+- verb: write
+  purpose: produce the causal flow diagram in structured notation, loop inventory,
+    and leverage-point assessment
+inputs:
+- name: system_description
+  type: text
+  required: true
+  description: A description of the phenomenon or problem — typically a behavior-over-time
+    pattern that the diagram should explain (e.g., 'disinformation spreads faster
+    each cycle', 'trust in institution X keeps declining')
+- name: known_variables
+  type: list
+  required: false
+  description: Variables or factors already identified as relevant to the system's
+    dynamics
+- name: scope_boundary
+  type: text
+  required: false
+  description: Boundary conditions specifying what is inside versus outside the model
+    (time horizon, actor set, geographic scope)
+outputs:
+- name: causal_flow_diagram
+  type: markdown
+  description: 'A structured representation of the causal diagram: nodes (variables),
+    directed causal links with polarity (+/-), identified reinforcing (R) and balancing
+    (B) loops, and delay markers where significant time lags exist'
+- name: loop_inventory
+  type: table
+  description: A table listing each identified feedback loop with its type (R/B),
+    constituent variables, and the behavioral tendency it produces (growth, oscillation,
+    stability, collapse)
+- name: leverage_point_assessment
+  type: markdown
+  description: Ranked list of nodes or links where intervention would produce the
+    largest system-level effect, with reasoning about direction of intervention and
+    risk of unintended consequences
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Senge, P. M. (1990). The Fifth Discipline: The Art and Practice of the Learning
+  Organization. Doubleday.'
+- 'Sterman, J. D. (2000). Business Dynamics: Systems Thinking and Modeling for a Complex
+  World. McGraw-Hill.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Causal Flow Diagramming.
+- 'Meadows, D. H. (2008). Thinking in Systems: A Primer. Chelsea Green Publishing.'
+- Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
+  Associates.

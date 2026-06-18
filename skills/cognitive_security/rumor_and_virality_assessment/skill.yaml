@@ -1,0 +1,84 @@
+id: cognitive_security.rumor_and_virality_assessment
+name: Rumor & Virality Assessment
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Estimate a claim's spread potential from emotional charge, ambiguity, and
+  network fit.
+description: Rumor and virality assessment applies social-epidemiological and computational
+  models to estimate how quickly and widely a claim is likely to spread through social
+  networks. It examines emotional valence, ambiguity, moral outrage, information gaps,
+  and structural network properties to predict transmission probability and identify
+  leverage points for early counter-messaging. Rooted in DiFonzo & Bordia's rumor
+  research and computational work on information cascades, this technique helps analysts
+  forecast misinformation spread before it becomes entrenched.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- misinformation
+- virality
+triggers:
+- how far will this spread
+- virality assessment
+- rumor spread potential
+- estimate misinformation reach
+- how viral is this claim
+- predict information cascade
+tools:
+- verb: read
+  purpose: ingest the claim text, its originating context, and any known network propagation
+    data
+- verb: reason
+  purpose: apply virality factors (emotional charge, ambiguity, moral outrage, novelty,
+    network fit) to score spread potential
+- verb: search
+  purpose: look up prior similar claims, known virality patterns, or existing platform
+    spread data for calibration
+- verb: write
+  purpose: produce the structured virality assessment with score, factor breakdown,
+    and recommended counter-messaging windows
+inputs:
+- name: claim
+  type: text
+  required: true
+  description: the specific claim, narrative fragment, or rumor to be assessed
+- name: originating_context
+  type: text
+  required: true
+  description: platform, community, or channel where the claim originated or is circulating
+- name: audience_profile
+  type: text
+  required: false
+  description: known characteristics of the receiving audience — prior beliefs, in-group
+    affiliations, emotional priming
+- name: propagation_data
+  type: table
+  required: false
+  description: early sharing or engagement metrics if available (shares, replies,
+    quote-tweets, reshare velocity)
+outputs:
+- name: virality_assessment
+  type: markdown
+  description: structured report with composite virality score, factor-by-factor breakdown,
+    predicted spread trajectory, and counter-messaging windows
+- name: factor_table
+  type: table
+  description: row-per-factor table showing emotional valence, ambiguity level, moral-outrage
+    load, novelty, narrative fit, and network amplification potential with rating
+    and rationale
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'DiFonzo, N., & Bordia, P. (2007). Rumor Psychology: Social and Organizational Approaches.
+  American Psychological Association.'
+- Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online.
+  Science, 359(6380), 1146–1151.
+- 'Berger, J. (2013). Contagious: Why Things Catch On. Simon & Schuster.'
+- Ferrara, E., et al. (2016). The rise of social bots. Communications of the ACM,
+  59(7), 96–104.
+- 'Sunstein, C. R. (2009). On Rumors: How Falsehoods Spread, Why We Believe Them,
+  and What Can Be Done. Farrar, Straus and Giroux.'

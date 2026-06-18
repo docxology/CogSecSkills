@@ -1,0 +1,68 @@
+id: sat.structured_self_critique
+name: Structured Self-Critique
+group: sat
+version: 0.1.0
+status: implemented
+summary: Apply a checklist of challenge questions to one's own analysis before release.
+description: Structured Self-Critique applies a systematic checklist of challenge
+  questions to an analyst's own completed assessment before it is released, surfacing
+  hidden assumptions, unsupported leaps, alternative explanations, and gaps in evidence.
+  Developed within the structured analytic techniques tradition (Heuer & Pherson),
+  it serves as a final-stage quality-control discipline that counteracts confirmation
+  bias, mindset, and overconfidence. By externalizing the critique as a formal process
+  rather than relying on an analyst's informal self-review, it reduces the probability
+  that cognitive biases survive into finished intelligence or decision-support products.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- self-assessment
+- quality-control
+triggers:
+- review my own analysis
+- self-critique before release
+- check my reasoning
+- bias check on analysis
+- quality gate before publishing
+tools:
+- verb: read
+  purpose: ingest the completed analysis draft and its supporting evidence
+- verb: reason
+  purpose: work through each challenge question in the critique checklist and evaluate
+    the analysis against it
+- verb: write
+  purpose: produce an annotated critique report with flagged weaknesses, alternative
+    framings, and recommended revisions
+inputs:
+- name: analysis_draft
+  type: text
+  required: true
+  description: the completed analytic product or assessment to be self-critiqued before
+    release
+- name: key_judgments
+  type: list
+  required: false
+  description: the explicit key judgments or conclusions the analysis asserts, if
+    separately enumerated
+- name: supporting_evidence
+  type: text
+  required: false
+  description: the evidence base or sourcing underlying the analysis
+outputs:
+- name: critique_report
+  type: markdown
+  description: structured annotated report listing each challenge question, the analyst's
+    answer, identified weaknesses, alternative explanations, confidence adjustments,
+    and recommended revisions
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J., & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. Chapter 8.
+- Pherson, R.H., & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence.
+  3rd ed. CQ Press.
+- 'Tetlock, P.E., & Gardner, D. (2015). Superforecasting: The Art and Science of Prediction.
+  Crown. (Calibration and self-correction disciplines.)'

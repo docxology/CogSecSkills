@@ -1,0 +1,92 @@
+id: cognitive_security.trust_and_credibility_modeling
+name: Trust & Credibility Modeling
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Model how trust is established, transferred, and exploited across an information
+  system.
+description: 'Trust and credibility modeling maps the signals, heuristics, and institutional
+  structures through which actors in an information system assess source reliability
+  — and identifies how those pathways are exploited in influence operations. Drawing
+  on Metzger & Flanagin''s credibility research, social-capital theory, and the computational
+  trust literature, this technique produces a structured model of how trust is established
+  (competence + benevolence + integrity signals), transferred across networks (trust
+  transitivity), and weaponized (credential mimicry, parasocial trust, authority spoofing).
+  The goal is defensive: to audit trust architecture for vulnerabilities before adversaries
+  exploit them.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- trust
+- credibility
+triggers:
+- trust modeling
+- credibility assessment
+- how is trust established here
+- who do people trust and why
+- trust exploitation
+- source credibility
+- map the trust network
+- credibility heuristics
+tools:
+- verb: read
+  purpose: ingest the information environment, actor set, and relevant credibility
+    signals or prior assessments
+- verb: reason
+  purpose: construct the trust model, identify credibility pathways, and analyze exploitation
+    vectors
+- verb: search
+  purpose: look up source histories, institutional credibility records, and known
+    influence-operation tactics that target trust
+- verb: write
+  purpose: produce the structured trust model, credibility-pathway diagram, and vulnerability
+    audit with hardening recommendations
+inputs:
+- name: information_environment
+  type: text
+  required: true
+  description: description of the information ecosystem being modeled — platform,
+    community, institution, or domain
+- name: actor_set
+  type: list
+  required: true
+  description: the sources, intermediaries, and audiences whose trust relationships
+    are to be modeled
+- name: threat_actor_context
+  type: text
+  required: false
+  description: known or suspected adversary capabilities and prior trust-exploitation
+    tactics in this environment
+- name: existing_credibility_signals
+  type: table
+  required: false
+  description: observable credibility markers already in evidence — verifications,
+    institutional affiliations, endorsements, track records
+outputs:
+- name: trust_model
+  type: markdown
+  description: structured model of how trust is established and transferred in the
+    environment, with credibility-dimension scores (competence, benevolence, integrity)
+    for key actors
+- name: exploitation_vulnerability_audit
+  type: table
+  description: row-per-vulnerability table mapping each trust pathway to an exploitation
+    technique, likelihood, impact, and hardening recommendation
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Metzger, M. J., & Flanagin, A. J. (2013). Credibility and trust of information in
+  online environments. Journal of Pragmatics, 59, 210–220.
+- Mayer, R. C., Davis, J. H., & Schoorman, F. D. (1995). An integrative model of organizational
+  trust. Academy of Management Review, 20(3), 709–734.
+- Ratkiewicz, J., et al. (2011). Detecting and tracking the spread of astroturf memes
+  in microblog streams. Proceedings of WWW 2011.
+- 'Cialdini, R. B. (2009). Influence: Science and Practice (5th ed.). Pearson.'
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe Report DGI(2017)09.'
+- 'Castelfranchi, C., & Falcone, R. (2010). Trust Theory: A Socio-Cognitive and Computational
+  Model. Wiley.'

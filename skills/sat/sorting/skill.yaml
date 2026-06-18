@@ -1,0 +1,61 @@
+id: sat.sorting
+name: Sorting
+group: sat
+version: 0.1.0
+status: implemented
+summary: Group large evidence sets by attributes to surface patterns and outliers.
+description: Sorting is a structured-analytic technique that organizes a large evidence
+  or indicator set by one or more attributes (date, source reliability, geographic
+  origin, significance) so that meaningful clusters, trends, and outliers become visible.
+  It converts an unordered mass of raw data into a structured view that supports pattern
+  recognition and gap detection. In cognitive-security contexts, sorting exposes anomalies—items
+  that do not fit the dominant cluster—which may represent deception artifacts, seeded
+  disinformation, or signals of an adversary's hand.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- pattern-recognition
+triggers:
+- sort this evidence
+- organize these indicators
+- group by attribute
+- surface outliers
+- cluster this data
+tools:
+- verb: read
+  purpose: ingest the raw evidence or indicator set and identify available attributes
+- verb: reason
+  purpose: select sorting dimensions, assign each item to clusters, and identify outliers
+- verb: write
+  purpose: produce the sorted table, cluster summaries, and outlier flag list
+inputs:
+- name: evidence_set
+  type: list
+  required: true
+  description: the collection of evidence items, indicators, or data points to be
+    sorted
+- name: sort_dimensions
+  type: list
+  required: false
+  description: analyst-selected attributes to sort by (e.g., date, source reliability,
+    geography, significance); if omitted the agent proposes dimensions
+outputs:
+- name: sorted_table
+  type: table
+  description: evidence items reorganized by the selected dimensions with cluster
+    labels
+- name: outlier_flags
+  type: markdown
+  description: items that do not fit dominant clusters, with analytic significance
+    noted
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter 3.
+- Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (4th ed.). SAGE/CQ Press.

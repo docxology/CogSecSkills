@@ -1,0 +1,63 @@
+id: sat.analysis_of_competing_hypotheses
+name: Analysis of Competing Hypotheses (ACH)
+group: sat
+version: 0.1.0
+status: implemented
+summary: >-
+  Score evidence by diagnosticity across a full hypothesis set to find the
+  least-disconfirmed explanation, countering confirmation bias.
+description: >-
+  ACH (Heuer, CIA) forces the analyst to evaluate ALL plausible hypotheses
+  against ALL evidence simultaneously, rather than building a case for the
+  first satisfactory explanation. The decisive move is to seek evidence that
+  DISCONFIRMS hypotheses: the surviving hypothesis is the one with the least
+  diagnostic evidence against it, not the one with the most evidence for it.
+  This skill drives the full eight-step ACH procedure as an agentic loop.
+ageint_topic: structured-analytic-techniques
+tags: [cognitive-security, sat, hypothesis-testing, heuer, confirmation-bias]
+triggers:
+  - analysis of competing hypotheses
+  - ACH
+  - competing hypotheses
+  - which explanation is most likely
+  - rule out hypotheses
+tools:
+  - verb: read
+    purpose: ingest the question, candidate hypotheses, and evidence items
+  - verb: search
+    purpose: gather additional evidence and surface missing alternatives
+  - verb: reason
+    purpose: score each evidence item's consistency and diagnosticity per hypothesis
+  - verb: write
+    purpose: emit the ACH matrix, ranking, sensitivity notes, and indicators
+inputs:
+  - name: question
+    type: text
+    required: true
+    description: the analytic question being adjudicated
+  - name: hypotheses
+    type: list[str]
+    required: false
+    description: candidate explanations; the skill completes the set if partial
+  - name: evidence
+    type: list[str]
+    required: false
+    description: evidence/argument items, including absence-of-evidence
+outputs:
+  - name: matrix
+    type: table
+    description: hypotheses x evidence with C/I/N and diagnosticity weights
+  - name: ranking
+    type: markdown
+    description: hypotheses ordered by inconsistency score, least-disconfirmed first
+  - name: indicators
+    type: markdown
+    description: future observations that would shift the ranking
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "Heuer, R. J. (1999). Psychology of Intelligence Analysis, ch. 8."
+  - "Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis."

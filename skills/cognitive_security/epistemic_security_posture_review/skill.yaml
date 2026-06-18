@@ -1,0 +1,88 @@
+id: cognitive_security.epistemic_security_posture_review
+name: Epistemic Security Posture Review
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Assess an organization's defenses for the integrity of how it knows what
+  it knows.
+description: Epistemic Security Posture Review assesses the structural integrity of
+  how an organization forms, updates, and protects its beliefs about the world — evaluating
+  whether its knowledge-acquisition and decision-support processes are resistant to
+  manipulation, capture, and degradation. Drawing on epistemology, organizational
+  learning theory, and cognitive-security frameworks (Benkler et al., Allenby & Garreau),
+  it examines information sourcing, analytic culture, feedback mechanisms, and adversarial
+  exposure. The output is a posture scorecard and remediation roadmap identifying
+  the epistemic attack surfaces most likely to be exploited.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- organizational-resilience
+- epistemics
+triggers:
+- epistemic security
+- how does our organization know what it knows
+- information environment audit
+- epistemic posture
+- epistemic resilience
+- knowledge integrity review
+- assess our defenses against disinformation
+tools:
+- verb: read
+  purpose: ingest organizational documents, process descriptions, and prior audit
+    findings that describe current epistemic practices
+- verb: ask
+  purpose: elicit structured information from stakeholders about sourcing, analytic
+    culture, dissent channels, and adversarial awareness when documents are insufficient
+- verb: reason
+  purpose: evaluate practices against epistemic-security criteria, identify attack
+    surfaces, and score posture dimensions
+- verb: write
+  purpose: produce the posture scorecard, vulnerability narrative, and prioritized
+    remediation roadmap
+inputs:
+- name: organizational_profile
+  type: text
+  required: true
+  description: 'Description of the organization: mission, decision-making context,
+    adversarial exposure, and information environment it operates in'
+- name: epistemic_practices
+  type: text
+  required: false
+  description: Description of existing information-sourcing practices, analytic workflows,
+    red-team or dissent mechanisms, and media/source policies
+- name: known_incidents
+  type: list
+  required: false
+  description: Previous instances of misinformation, manipulation, or information
+    failure affecting organizational decisions
+outputs:
+- name: posture_scorecard
+  type: table
+  description: Dimension-by-dimension scoring (e.g., source diversity, analytic dissent
+    culture, feedback loops, adversarial awareness, personnel training) with current
+    maturity level and vulnerability rating
+- name: attack_surface_narrative
+  type: markdown
+  description: Narrative description of the highest-priority epistemic vulnerabilities,
+    how each could be exploited, and what adverse outcomes would follow
+- name: remediation_roadmap
+  type: markdown
+  description: Prioritized list of concrete improvements with expected posture gain,
+    implementation complexity, and owner recommendations
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Benkler, Y., Faris, R. & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- 'Allenby, B. & Garreau, J. (2017). Weaponized Narrative: The New Battlespace. ASU
+  Center on the Future of War.'
+- 'Lewandowsky, S., Ecker, U. K. H., & Cook, J. (2017). Beyond Misinformation: Understanding
+  and Coping with the ''Post-Truth'' Era. Journal of Applied Research in Memory and
+  Cognition, 6(4), 353–369.'
+- Mercier, H. & Sperber, D. (2017). The Enigma of Reason. Harvard University Press.
+- 'Tetlock, P. E. & Gardner, D. (2015). Superforecasting: The Art and Science of Prediction.
+  Crown Publishers.'

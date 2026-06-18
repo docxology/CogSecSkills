@@ -1,0 +1,61 @@
+id: sat.starbursting
+name: Starbursting
+group: sat
+version: 0.1.0
+status: implemented
+summary: Generate questions (who/what/when/where/why/how) before answers to map the
+  unknowns.
+description: Starbursting is a structured brainstorming technique that generates questions—organized
+  by the six interrogatives Who, What, When, Where, Why, and How—before attempting
+  to answer them. By systematically exhausting the question space first, it prevents
+  analysts from leaping to premature conclusions, surfaces unknown unknowns, and identifies
+  which gaps in knowledge are most consequential. In cognitive-security settings it
+  is particularly useful for mapping the full attack surface of an influence operation
+  or information environment before committing analytical resources.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- question-generation
+triggers:
+- what questions should we be asking
+- starbursting
+- map the unknowns
+- generate questions before answers
+- who what when where why how
+tools:
+- verb: read
+  purpose: ingest the topic, problem statement, or artifact that will be questioned
+- verb: reason
+  purpose: systematically generate questions across all six interrogative categories
+    and prioritize by analytic importance
+- verb: write
+  purpose: produce the question map organized by interrogative and ranked by priority
+inputs:
+- name: topic_or_artifact
+  type: text
+  required: true
+  description: the subject, plan, event, actor, narrative, or artifact to be questioned
+- name: context
+  type: text
+  required: false
+  description: background information, prior analysis, or constraints that shape which
+    questions are most pressing
+outputs:
+- name: question_map
+  type: table
+  description: questions organized by interrogative (Who/What/When/Where/Why/How),
+    with a priority rating and notes on what answering each question would reveal
+- name: key_unknowns_summary
+  type: markdown
+  description: the highest-priority unanswered questions and their analytic significance
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press. Chapter 4.
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press.

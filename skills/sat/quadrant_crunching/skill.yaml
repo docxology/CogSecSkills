@@ -1,0 +1,73 @@
+id: sat.quadrant_crunching
+name: Quadrant Crunching
+group: sat
+version: 0.1.0
+status: implemented
+summary: Systematically permute key assumptions into a matrix of alternative outcomes.
+description: Quadrant Crunching (Pherson & Heuer) systematically permutes two or more
+  key uncertain assumptions into a matrix of alternative outcome cells, forcing analysts
+  to confront possibilities they would otherwise ignore. Each cell of the matrix represents
+  a distinct scenario whose internal logic must be examined for coherence and plausibility.
+  The technique counteracts tunnel vision by making the full combinatorial space of
+  assumption combinations explicit and visible rather than allowing the dominant mental
+  model to crowd out alternatives.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- alternative-analysis
+triggers:
+- quadrant crunching
+- permute assumptions
+- scenario matrix
+- map all combinations
+- 2x2 scenario analysis
+tools:
+- verb: read
+  purpose: ingest the problem statement, the current dominant assessment, and any
+    stated key assumptions
+- verb: reason
+  purpose: identify the two or more most consequential uncertain variables, assign
+    binary or ternary poles, generate and evaluate each matrix cell for internal coherence
+    and plausibility
+- verb: write
+  purpose: produce the labeled matrix, per-cell scenario narratives, plausibility
+    ratings, and analytic implications
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: the analytic question or judgment under review
+- name: dominant_assessment
+  type: text
+  required: false
+  description: the current leading hypothesis or baseline forecast, if one exists
+- name: candidate_assumptions
+  type: list
+  required: false
+  description: a seed list of key assumptions identified by prior analysis; the technique
+    will refine and select among them
+outputs:
+- name: scenario_matrix
+  type: table
+  description: rows and columns labeled by assumption poles, each cell containing
+    a scenario label and brief narrative
+- name: scenario_narratives
+  type: markdown
+  description: 'per-cell elaborations: internal logic, plausibility rating (High /
+    Medium / Low / Incoherent), key indicators, and implications for the analytic
+    question'
+- name: neglected_cells
+  type: markdown
+  description: explicit identification of matrix cells the dominant assessment ignores
+    or rates as impossible, with reasoning
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Quadrant Crunching.
+- Pherson, K. H. & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press.

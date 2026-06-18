@@ -1,0 +1,62 @@
+# CogSecSkills — skill groups (the workflow subfolders under skills/).
+#
+# Each group is a directory under skills/<group>/ holding related agentic skills.
+# The library leans heavily toward Cognitive Security and Structured Analytic
+# Techniques (SATs), with supporting groups for source integrity, counter-
+# intelligence/deception, the information environment, and generic research
+# tradecraft that the cognitive-security skills draw on.
+#
+# AGEINT (docs/ageint/) is the educational upstream: every group maps to one or
+# more AGEINT curriculum areas, cited per-skill via `ageint_topic`.
+
+groups:
+  - id: sat
+    title: Structured Analytic Techniques
+    description: >
+      Heuer & Pherson canon — decomposition, hypothesis generation and testing,
+      cause/effect assessment, challenge analysis, foresight, and decision
+      support. The disciplined core of analytic tradecraft.
+    ageint_topic: structured-analytic-techniques
+
+  - id: cognitive_security
+    title: Cognitive Security
+    description: >
+      Defending the integrity of perception, reasoning, and decision-making in
+      individuals, organizations, and information ecosystems against manipulation,
+      influence operations, and epistemic attack.
+    ageint_topic: cognitive-security
+
+  - id: critical_review
+    title: Critical Review & Assurance
+    description: >
+      Adversarial and constructive review of projects, research, code, claims,
+      and analytic products — including the user-requested project critical review.
+    ageint_topic: adversarial-assurance
+
+  - id: osint_integrity
+    title: OSINT & Source Integrity
+    description: >
+      Open-source collection done with provenance discipline: source vetting,
+      claim verification, chain-of-custody, and integrity of the evidence base.
+    ageint_topic: osint-integrity
+
+  - id: counterintelligence
+    title: Counterintelligence & Deception Detection
+    description: >
+      Detecting denial, deception, manipulation, and adversary tradecraft;
+      protecting one's own analytic process from being gamed.
+    ageint_topic: counterintelligence
+
+  - id: information_environment
+    title: Information Environment & Influence Analysis
+    description: >
+      Mapping narratives, influence operations, coordinated inauthentic behavior,
+      and the structure of the information ecosystem.
+    ageint_topic: information-environment
+
+  - id: research_methods
+    title: Research & Synthesis Methods
+    description: >
+      Generic research tradecraft the cognitive-security skills compose on:
+      literature synthesis, evidence grading, calibrated estimation, reporting.
+    ageint_topic: research-methods

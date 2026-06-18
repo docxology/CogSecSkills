@@ -1,0 +1,61 @@
+id: osint_integrity.claim_provenance_verification
+name: Claim Provenance Verification
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: >-
+  Verify a public claim by tracing it to a primary source and corroborating
+  independently.
+description: >-
+  Takes a public claim and traces it upstream through the chain of
+  republication to its earliest origin or primary source, detecting circular
+  reporting where outlets merely cite one another back to a single unverified
+  point. Assesses the primary source directly for scope, caveats, and whether it
+  actually supports the claim, then seeks independent corroboration that does not
+  derive from the same origin. Produces a documented provenance chain and a
+  graded verdict with confidence and the single weakest link in the chain.
+ageint_topic: osint-integrity
+tags: [osint, provenance, verification, circular-reporting, integrity]
+triggers:
+  - verify this claim
+  - claim provenance
+  - is this true
+  - trace this to the source
+  - who reported this first
+  - find the original source
+  - is this circular reporting
+  - does the primary source say this
+tools:
+  - verb: read
+    purpose: read the supplied claim, cited articles, and any attached documents
+  - verb: search
+    purpose: locate earlier instances and independent reporting of the claim
+  - verb: web
+    purpose: fetch and inspect primary and corroborating sources
+  - verb: reason
+    purpose: assess scope match, detect circular reporting, and weigh independence
+  - verb: write
+    purpose: record the provenance chain, chain-of-custody note, and verdict
+inputs:
+  - name: claim
+    type: string
+    required: true
+    description: The public claim to verify, as stated or quoted by the requester.
+  - name: starting_sources
+    type: list
+    required: false
+    description: Optional URLs or citations where the requester encountered the claim.
+outputs:
+  - name: provenance_chain
+    type: structured
+    description: Ordered list of sources from point-of-encounter back to origin, with links and timestamps.
+  - name: verdict
+    type: structured
+    description: Verified/partially/unverified/false/unverifiable with confidence and the single weakest link.
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "First Draft / Bellingcat verification practice (provenance, source, date, location)."

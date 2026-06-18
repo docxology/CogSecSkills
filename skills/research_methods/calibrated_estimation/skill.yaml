@@ -1,0 +1,75 @@
+id: research_methods.calibrated_estimation
+name: Calibrated Estimation
+group: research_methods
+version: 0.1.0
+status: implemented
+summary: Produce calibrated probability estimates with explicit reference classes
+  and ranges.
+description: Calibrated Estimation is a disciplined probability-elicitation technique
+  in which an analyst produces numeric probability estimates (or ranges) for uncertain
+  outcomes and grounds those estimates in explicitly chosen reference classes, base
+  rates, and adjustment logic. Developed in the forecasting literature by Tetlock,
+  Kahneman, and others, and operationalized in prediction tournaments and intelligence
+  training, the technique combats overconfidence and inside-view bias by requiring
+  analysts to compare the current case against a reference class of similar past cases
+  before applying case-specific adjustments. The output is an estimate accompanied
+  by a reference class, a stated confidence interval, and the reasoning behind any
+  adjustments from the base rate.
+ageint_topic: research-methods
+tags:
+- cognitive-security
+- research_methods
+- calibration
+- forecasting
+triggers:
+- what's the probability of
+- estimate the likelihood
+- calibrated forecast
+- base rate for this
+- reference class forecasting
+tools:
+- verb: read
+  purpose: ingest the question, available evidence, and any prior probability estimates
+- verb: search
+  purpose: locate base rates and reference class statistics from historical data or
+    domain literature
+- verb: reason
+  purpose: select the reference class, derive the base rate, and apply inside-view
+    adjustments with explicit logic
+- verb: write
+  purpose: emit the calibrated estimate with reference class, confidence interval,
+    and adjustment rationale
+inputs:
+- name: question
+  type: text
+  required: true
+  description: the specific, time-bound, resolvable question to be estimated (Good
+    Judgment Project-style)
+- name: evidence
+  type: list
+  required: false
+  description: case-specific evidence items that may warrant adjustment from the base
+    rate
+- name: prior_estimate
+  type: text
+  required: false
+  description: any existing estimate to be updated or compared against
+outputs:
+- name: calibrated_estimate
+  type: markdown
+  description: probability estimate with reference class, base rate, adjustment narrative,
+    80% confidence interval, and resolution criteria
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown.'
+- Kahneman, D., Lovallo, D., & Sibony, O. (2011). Before You Make That Big Decision.
+  Harvard Business Review.
+- Flyvbjerg, B. (2008). Curbing Optimism Bias and Strategic Misrepresentation in Planning.
+  European Planning Studies, 16(1), 3-21.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.

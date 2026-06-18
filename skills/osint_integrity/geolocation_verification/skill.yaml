@@ -1,0 +1,66 @@
+id: osint_integrity.geolocation_verification
+name: Geolocation Verification
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Confirm where imagery was taken using corroborating geographic features (defensive
+  OSINT).
+description: Geolocation verification cross-references visual and contextual clues
+  in imagery — terrain, vegetation, architecture, shadows, signage, infrastructure
+  — against authoritative mapping data to confirm or refute a claimed location. It
+  is a defensive OSINT discipline used to detect context-collapsed or fabricated imagery
+  before it is treated as evidence. The technique draws on sun-angle computation,
+  map comparison, satellite imagery, and street-level reference data. It provides
+  an independently verifiable anchor for where and when a visual was plausibly captured.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- media-verification
+triggers:
+- verify where this image was taken
+- confirm the location of this footage
+- geolocate this photo
+- is this image from where it claims
+- geolocation verification
+tools:
+- verb: read
+  purpose: ingest the image, its metadata, and any claimed location context
+- verb: web
+  purpose: query satellite imagery, street-level mapping, and sun-angle calculators
+    to find matching features
+- verb: reason
+  purpose: triangulate geographic features across multiple reference sources and assess
+    consistency of shadow angles and landmarks
+- verb: write
+  purpose: produce a structured geolocation assessment with confidence rating and
+    supporting evidence
+inputs:
+- name: image_or_video
+  type: text
+  required: true
+  description: URL, file reference, or description of the visual content to be geolocated
+- name: claimed_location
+  type: text
+  required: false
+  description: The location the image or video is claimed to depict, if stated
+- name: claimed_date_time
+  type: text
+  required: false
+  description: Stated date and time of capture, used for shadow-angle and vegetation
+    cross-checks
+outputs:
+- name: geolocation_assessment
+  type: markdown
+  description: 'Structured report: candidate location(s) with confidence level, corroborating
+    features, contradictory signals, and methodology notes'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Bellingcat Geolocation Investigation Handbook (2021). bellingcat.com.
+- 'Toler, A. (2023). How to Geolocate Images: A Bellingcat Guide. Bellingcat.'
+- 'Hicks, M. (2020). Verification Handbook: For Disinformation and Media Manipulation.
+  European Journalism Centre.'

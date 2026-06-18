@@ -1,0 +1,55 @@
+id: sat.devils_advocacy
+name: Devil's Advocacy
+group: sat
+version: 0.1.0
+status: implemented
+summary: >-
+  Build the strongest principled case against the consensus to test its robustness.
+description: >-
+  Devil's Advocacy is a Heuer & Pherson challenge-analysis technique in which an
+  analyst is deliberately assigned to construct the most credible principled case
+  AGAINST a prevailing consensus or lead judgment. The goal is not to win but to
+  test whether the consensus is robust under serious challenge or merely
+  comfortable. The advocate exposes the assumptions the judgment rests on, mines
+  the evidence base for contradicting or merely-assumed items, mounts the best
+  alternative interpretation in good faith, and then honestly reports whether the
+  consensus survived and what new collection would resolve the dispute.
+ageint_topic: structured-analytic-techniques
+tags: [cognitive-security, sat, challenge-analysis, heuer]
+triggers:
+  - devil's advocate
+  - challenge the consensus
+  - stress-test the lead judgment
+  - argue the contrary case
+  - is our consensus robust
+  - test the prevailing view
+tools:
+  - verb: read
+    purpose: Ingest the consensus judgment, its supporting evidence, and the stated or implicit assumptions it rests on.
+  - verb: reason
+    purpose: Identify vulnerable assumptions and construct the strongest good-faith alternative interpretation against the consensus.
+  - verb: write
+    purpose: Record the counter-case, the robustness verdict, and the new collection that would resolve the dispute.
+inputs:
+  - name: consensus_judgment
+    type: text
+    required: true
+    description: The prevailing consensus or lead judgment to be challenged, stated as a clear claim.
+  - name: evidence_base
+    type: text
+    required: true
+    description: The evidence, sources, and assumptions the consensus judgment currently rests on.
+outputs:
+  - name: counter_case
+    type: markdown
+    description: The strongest good-faith principled case against the consensus, with its supporting evidence and reasoning.
+  - name: robustness_verdict
+    type: markdown
+    description: Assessment of whether the consensus survived the challenge, plus the new collection that would resolve the dispute.
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis."

@@ -1,0 +1,76 @@
+id: cognitive_security.narrative_threat_assessment
+name: Narrative Threat Assessment
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: >-
+  Characterize a narrative's intent, mechanics, reach, and harm potential as a
+  cognitive threat.
+description: >-
+  A defensive cognitive-security procedure that examines a circulating narrative
+  to characterize it as a potential cognitive threat. It captures the narrative's
+  claims and framing, identifies the target audience and the belief or identity
+  levers it exploits, classifies the manipulation techniques present, assesses
+  provenance and likely intent, estimates reach and harm potential, and recommends
+  defensive responses such as prebunking and lateral reading. The output protects
+  audiences; it never authors manipulation or a playbook for running an influence
+  operation.
+ageint_topic: cognitive-security
+tags: [cognitive-security, influence-operations, narrative, defense]
+triggers:
+  - narrative threat assessment
+  - is this narrative a threat
+  - assess this narrative
+  - characterize this influence narrative
+  - is this disinformation or coordinated
+  - how harmful is this narrative
+  - defensive narrative analysis
+tools:
+  - verb: read
+    purpose: >-
+      Read the supplied narrative artifact and any provided context (source,
+      circulation samples) precisely before characterizing it.
+  - verb: search
+    purpose: >-
+      Search for corroborating provenance, prior debunks, and reach signals to
+      assess organic-versus-coordinated spread without amplifying the narrative.
+  - verb: reason
+    purpose: >-
+      Decompose claims, map audience levers, classify manipulation techniques,
+      and rate harm and urgency from evidence rather than speculation.
+  - verb: write
+    purpose: >-
+      Write the structured defensive assessment, including recommended
+      prebunking and counter-framing responses.
+inputs:
+  - name: narrative_text
+    type: string
+    required: true
+    description: >-
+      The narrative under assessment — the core claim plus any sub-claims and
+      framing, captured verbatim or near-verbatim.
+  - name: context
+    type: object
+    required: false
+    description: >-
+      Optional provenance and circulation context (observed sources, platforms,
+      timestamps, sample posts) used to assess intent and reach.
+outputs:
+  - name: threat_assessment
+    type: document
+    description: >-
+      A defensive assessment characterizing claims, target audience, manipulation
+      mechanics, provenance/intent, reach, and rated harm potential and urgency.
+  - name: defensive_recommendations
+    type: list
+    description: >-
+      Prioritized defensive responses (prebunking, lateral reading prompts,
+      counter-framing) for protecting the target audience.
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "Pamment, J. (2020). The ABCDE framework for analyzing influence operations (Actor, Behavior, Content, Degree, Effect), Carnegie Endowment / Partnership for Countering Influence Operations."
+  - "DISARM Foundation. DISARM Framework — Disinformation Analysis and Risk Management (Red/Blue TTP matrices), https://disarmframework.herokuapp.com/"

@@ -1,0 +1,86 @@
+id: osint_integrity.source_vetting
+name: Source Vetting
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Vet a source's identity, track record, motive, and access before relying
+  on it.
+description: Source vetting is a structured credibility-assessment process that evaluates
+  a source's identity, access, track record, and motivation before incorporating its
+  claims into analysis. Drawn from intelligence tradecraft (the classic MICE framework
+  and FBI source-reliability scales) and adapted for open-source information environments,
+  it surfaces deceptive, mistaken, or biased sources before their output can anchor
+  downstream judgments. The technique is applied at intake — before a source's claims
+  are treated as evidence — and revisited whenever a source's circumstances or behavior
+  change.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- source-reliability
+- tradecraft
+triggers:
+- vet this source
+- can we trust this source
+- who is behind this
+- assess source reliability
+- check source credibility
+- is this a credible outlet
+- what is this source's track record
+tools:
+- verb: read
+  purpose: ingest the source's content, stated identity, and any prior assessments
+- verb: search
+  purpose: query databases, archives, and secondary sources to verify identity, ownership,
+    and track record
+- verb: web
+  purpose: retrieve live registration records, social-media history, corrections archives,
+    and funding disclosures
+- verb: reason
+  purpose: synthesize identity, access, motive, and track-record signals into a structured
+    reliability rating
+- verb: write
+  purpose: produce a source-reliability assessment with rating, evidence basis, and
+    caveats for analysts
+inputs:
+- name: source_identifier
+  type: text
+  required: true
+  description: URL, outlet name, person name, or account handle identifying the source
+    to be vetted
+- name: claim_context
+  type: text
+  required: false
+  description: The specific claim or information item the source is being used to
+    support — narrows the access and expertise assessment
+- name: prior_assessments
+  type: text
+  required: false
+  description: Any previous vetting notes or reliability ratings already on file for
+    this source
+outputs:
+- name: source_reliability_assessment
+  type: markdown
+  description: Structured assessment covering identity verification, access plausibility,
+    motive analysis, track-record summary, and an overall reliability rating with
+    confidence level and recommended use conditions
+- name: red_flags
+  type: table
+  description: Table of specific deception indicators, bias markers, or access inconsistencies
+    found during vetting, each with an evidence pointer
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter on Source Evaluation.
+- FBI. (2013). Confidential Human Source Policy Guide. U.S. Department of Justice.
+  (MICE framework and reliability coding.)
+- 'Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press. Chapter 6: Evaluating Sources.'
+- 'NATO OSINT Handbook. (2002). Allied Command Intelligence. Chapter 4: Source Reliability
+  and Information Credibility.'
+- Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda. Oxford University
+  Press. (Structural analysis of media-ecosystem credibility.)

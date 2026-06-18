@@ -1,0 +1,83 @@
+id: cognitive_security.manipulation_technique_identification
+name: Manipulation Technique Identification
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Name the specific persuasion/manipulation techniques in a message or campaign.
+description: 'Manipulation technique identification names the specific persuasion
+  and psychological manipulation techniques present in a message, campaign, or piece
+  of content — distinguishing legitimate persuasion from techniques that bypass rational
+  agency by exploiting cognitive biases, social dynamics, or emotional vulnerabilities.
+  The skill draws on the social psychology literature (Cialdini''s influence principles,
+  dark-pattern persuasion taxonomies), the disinformation research taxonomy (AMITT,
+  EU DisinfoLab, Renée DiResta''s influence operations frameworks), and cognitive-security
+  threat modeling. It is a defensive recognition skill: the output is a named catalogue
+  that helps analysts, educators, and defenders recognize patterns before being affected
+  by them.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- influence-operations
+- persuasion-analysis
+triggers:
+- manipulation technique
+- what persuasion tactics are being used here
+- identify the influence techniques in this
+- how is this message trying to manipulate
+- what dark patterns are in this campaign
+- name the psychological tactics here
+- is this propaganda and how does it work
+tools:
+- verb: read
+  purpose: ingest the message, campaign material, or content to be analyzed
+- verb: reason
+  purpose: identify each technique by name using recognized taxonomies, assess targeted
+    vulnerabilities and likely audience impact
+- verb: write
+  purpose: emit the technique catalogue, vulnerability map, and defensive recommendations
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The message, post, article, speech, advertisement, or campaign material
+    to analyze — verbatim text preferred; describe audio/visual elements if analyzing
+    multimedia
+- name: target_audience
+  type: text
+  required: false
+  description: The intended or apparent target audience, if known — relevant for assessing
+    which biases and social dynamics are being targeted
+- name: distribution_context
+  type: text
+  required: false
+  description: Platform, channel, or campaign context (e.g., 'Facebook group for veterans',
+    'email newsletter', 'state media broadcast') — relevant for assessing scale and
+    coordination
+outputs:
+- name: technique_catalogue
+  type: table
+  description: 'Table of identified manipulation techniques: technique name, category,
+    text passage or element exhibiting it, targeted cognitive/social vulnerability,
+    estimated persuasive potency (low/medium/high), and evidence classification (certain/probable/possible)'
+- name: analysis_narrative
+  type: markdown
+  description: Narrative describing the overall manipulation strategy, how techniques
+    combine or reinforce each other, which audiences are most vulnerable, and defensive
+    awareness recommendations — written for a non-specialist reader
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Cialdini, R. B. (2001). Influence: Science and Practice (4th ed.). Allyn & Bacon.'
+- AMITT Foundation. (2020). AMITT Disinformation Tactics, Techniques & Procedures
+  Framework. https://github.com/cogsec-collaborative/AMITT
+- 'Akinyemi, J., & Pamment, J. (2021). The DISARM Framework: Countering disinformation
+  with structured threat intelligence. EU DisinfoLab.'
+- DiResta, R. (2018). The Digital Maginot Line. Ribbonfarm.
+- Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda. Oxford University
+  Press.
+- 'Pratkanis, A. R., & Aronson, E. (2001). Age of Propaganda: The Everyday Use and
+  Abuse of Persuasion (revised ed.). W. H. Freeman.'

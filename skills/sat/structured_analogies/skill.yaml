@@ -1,0 +1,75 @@
+id: sat.structured_analogies
+name: Structured Analogies
+group: sat
+version: 0.1.0
+status: implemented
+summary: Reason from a disciplined set of comparable historical cases, not a single
+  anecdote.
+description: Structured Analogies (also called Historical Analogy Analysis) is a structured-analytic
+  technique that selects, evaluates, and systematically compares a set of historical
+  precedent cases to a current situation rather than relying on a single, intuitively
+  chosen anecdote. By making the selection criteria explicit and requiring analysis
+  of both similarities and dissimilarities across multiple cases, it constrains the
+  cognitive tendency to over-extend a single vivid precedent. In cognitive-security
+  contexts it is used to assess whether a suspected influence operation or adversarial
+  narrative campaign resembles documented historical patterns and what those precedents
+  predict about likely trajectories and countermeasures.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- analogy-reasoning
+triggers:
+- find historical parallels
+- structured analogies
+- compare to precedent cases
+- historical analogy analysis
+- what has happened before
+tools:
+- verb: read
+  purpose: ingest the current situation description and any provided candidate cases
+- verb: search
+  purpose: identify additional candidate historical cases from knowledge sources when
+    the initial set is thin
+- verb: reason
+  purpose: select cases using explicit criteria, map similarities and dissimilarities,
+    and derive lessons
+- verb: write
+  purpose: produce the multi-case comparison table, confidence-weighted lessons, and
+    analytic narrative
+inputs:
+- name: current_situation
+  type: text
+  required: true
+  description: description of the present case to be analyzed by analogy
+- name: candidate_cases
+  type: list
+  required: false
+  description: analyst-nominated historical cases to consider; if absent the agent
+    identifies candidates
+- name: comparison_dimensions
+  type: list
+  required: false
+  description: specific attributes to compare across cases (e.g., actor type, medium,
+    timeline, outcome); if omitted the agent proposes dimensions
+outputs:
+- name: case_comparison_table
+  type: table
+  description: selected historical cases compared to the current situation on each
+    dimension, with similarity and dissimilarity ratings
+- name: lessons_and_predictions
+  type: markdown
+  description: confidence-weighted lessons drawn from the case set, predicted trajectories,
+    and noted limitations of the analogy
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'May, E. R. (1973). Lessons of the Past: The Use and Misuse of History in American
+  Foreign Policy. Oxford University Press.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Ch. 8.
+- 'Neustadt, R. E., & May, E. R. (1986). Thinking in Time: The Uses of History for
+  Decision-Makers. Free Press.'

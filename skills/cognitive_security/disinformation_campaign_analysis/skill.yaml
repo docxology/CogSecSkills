@@ -1,0 +1,105 @@
+id: cognitive_security.disinformation_campaign_analysis
+name: Disinformation Campaign Analysis
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Decompose a campaign's objectives, narratives, TTPs, and amplification structure.
+description: 'Disinformation Campaign Analysis is a structured decomposition of an
+  apparent coordinated influence operation into its constituent objectives, narrative
+  architecture, actor network, tactics/techniques/procedures (TTPs), amplification
+  infrastructure, and intended target audiences. The technique synthesizes frameworks
+  from the intelligence community (DISARM Framework, EU STRATCOM, NATO StratCom COE),
+  social-network analysis, and computational propaganda research to produce a structured
+  campaign model that supports attribution, counter-strategy design, and resilience
+  policy. It is strictly defensive and descriptive: the output characterizes what
+  has happened or is happening to enable protection and response, not to facilitate
+  imitation.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- influence-operations
+- DISARM
+triggers:
+- disinformation campaign analysis
+- decompose this influence operation
+- map the narratives in this campaign
+- who is behind this information operation
+- analyze the TTPs of this disinfo campaign
+- what is the amplification structure here
+- campaign attribution analysis
+tools:
+- verb: read
+  purpose: 'ingest campaign artifacts: collected content, network data, timeline,
+    actor identifiers, and any prior reporting'
+- verb: web
+  purpose: search for prior documentation of actors, narratives, and infrastructure
+    in public OSINT databases, threat reports, and platform transparency reports
+- verb: search
+  purpose: query internal knowledge bases or structured datasets (DISARM, CVE-equivalent
+    repositories) for TTP pattern matching
+- verb: reason
+  purpose: 'structure the campaign model: objectives, narrative hierarchy, actor network
+    topology, TTP enumeration, and amplification mechanism'
+- verb: write
+  purpose: emit the structured campaign analysis report, actor map, narrative taxonomy,
+    and DISARM-aligned TTP inventory
+inputs:
+- name: campaign_artifacts
+  type: list
+  required: true
+  description: 'Collected artifacts attributed or suspected to belong to the campaign:
+    URLs, post content, account identifiers, images, video, documents, timestamps
+    — as many as available'
+- name: known_context
+  type: text
+  required: true
+  description: 'What is known about the campaign: when it was first observed, what
+    event or target it appears to relate to, any prior attribution claims or platform
+    takedown reports'
+- name: target_audience_indicators
+  type: text
+  required: false
+  description: 'Indicators of intended audience: language, geography, platform choice,
+    community hashtags, cultural references, or explicit targeting signals in the
+    content'
+- name: prior_reports
+  type: list
+  required: false
+  description: Links or text of prior academic, journalistic, or government reports
+    on this campaign or suspected related campaigns
+outputs:
+- name: campaign_analysis_report
+  type: markdown
+  description: 'Structured campaign model covering: assessed objectives, narrative
+    hierarchy (master narrative + supporting sub-narratives), actor network description,
+    TTP inventory mapped to DISARM or equivalent framework, amplification infrastructure
+    characterization, target audience profile, and confidence-rated attribution assessment'
+- name: narrative_taxonomy_table
+  type: table
+  description: 'Table of identified narratives: narrative label, content summary,
+    emotional register, target audience segment, amplification vehicle, and observed
+    reach/engagement signals'
+- name: ttp_inventory_table
+  type: table
+  description: 'DISARM-aligned TTP inventory: technique ID (if mappable), technique
+    name, description of how it manifests in this campaign, and observed indicators'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- DISARM Foundation (2023). DISARM Framework v1.4. https://www.disarm.foundation/
+- 'Nimmo, B. (2015). Anatomy of an Info-War: How Russia''s Propaganda Machine Works,
+  and How to Counter It. StopFake.'
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policymaking. Council of Europe.'
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. Proceedings
+  of the ACM on Human-Computer Interaction, 3(CSCW), 1-26.'
+- 'NATO StratCom COE (2016). Internet Trolling as a Hybrid Warfare Tool: The Case
+  of Latvia. NATO Strategic Communications Centre of Excellence.'
+- 'Bradshaw, S., & Howard, P. N. (2019). The global disinformation order: 2019 global
+  inventory of organised social media manipulation. Oxford Internet Institute.'
+- EU East StratCom Task Force (ongoing). EUvsDisinfo database. https://euvsdisinfo.eu/

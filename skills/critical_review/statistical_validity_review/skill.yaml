@@ -1,0 +1,79 @@
+id: critical_review.statistical_validity_review
+name: Statistical Validity Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Check statistical methods, power, multiple comparisons, and inference against
+  the claims.
+description: Statistical Validity Review is a structured audit of a study's statistical
+  methods against the claims it makes, checking for adequate power, appropriate test
+  selection, honest handling of multiple comparisons, correct interpretation of p-values
+  and confidence intervals, and absence of post-hoc outcome switching. Grounded in
+  Gelman's Type S/M error framework, the CONSORT/STROBE reporting standards, and the
+  ASA statement on statistical significance, it distinguishes legitimate inferential
+  weight from statistically decorated speculation. In cognitive-security contexts
+  it is used to evaluate whether quantitative claims weaponized in influence or disinformation
+  campaigns rest on sound methodology.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- statistical-reasoning
+triggers:
+- check the statistics
+- is the p-value valid
+- multiple comparisons problem
+- was this study underpowered
+- p-hacking review
+- statistical validity
+- check effect size and power
+tools:
+- verb: read
+  purpose: ingest the study's statistical methods, results tables, and stated inferences
+- verb: reason
+  purpose: apply the statistical checklist — power, test appropriateness, multiple
+    comparisons, effect size, assumption violations, and outcome reporting — to identify
+    threats
+- verb: write
+  purpose: produce a structured findings table and a corrected-inference statement
+    indicating what the data actually support
+inputs:
+- name: study_text
+  type: text
+  required: true
+  description: The study or report text including methods, results, and conclusions;
+    supplementary statistical tables included if available
+- name: primary_claim
+  type: text
+  required: false
+  description: The specific quantitative claim to audit; if omitted, the main stated
+    finding is used
+outputs:
+- name: statistical_findings_table
+  type: table
+  description: 'A table of statistical issues found, each row containing: issue category,
+    specific finding from the study, severity (critical/moderate/minor), and the inferential
+    consequence'
+- name: corrected_inference
+  type: markdown
+  description: A narrative statement of what inference the data and statistics actually
+    support after accounting for identified flaws, including a revised confidence
+    statement
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Gelman, A. & Loken, E. (2014). The Statistical Crisis in Science. American Scientist,
+  102(6), 460.
+- 'Gelman, A. & Carlin, J. (2014). Beyond Power Calculations: Assessing Type S (Sign)
+  and Type M (Magnitude) Errors. Perspectives on Psychological Science, 9(6), 641-651.'
+- 'Wasserstein, R.L. & Lazar, N.A. (2016). The ASA Statement on p-Values: Context,
+  Process, and Purpose. The American Statistician, 70(2), 129-133.'
+- 'Simmons, J.P., Nelson, L.D. & Simonsohn, U. (2011). False-Positive Psychology:
+  Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything
+  as Significant. Psychological Science, 22(11), 1359-1366.'
+- Ioannidis, J.P.A. (2005). Why Most Published Research Findings Are False. PLOS Medicine,
+  2(8), e124.

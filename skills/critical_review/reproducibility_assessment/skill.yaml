@@ -1,0 +1,82 @@
+id: critical_review.reproducibility_assessment
+name: Reproducibility Assessment
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Assess whether a result can be regenerated from the stated data, code, and
+  seeds.
+description: 'Reproducibility Assessment systematically checks whether a claimed result
+  — computational, empirical, or analytical — can be regenerated from the stated data,
+  code, seeds, and environment by an independent party following only the documented
+  procedure. It distinguishes direct reproduction (same data, same code), replication
+  (same procedure, new data), and conceptual replication (same hypothesis, different
+  operationalization), and assesses the degree to which the artifact meets the requirements
+  of each tier. In the cognitive-security domain, reproducibility is a foundational
+  epistemic standard: assessments, threat models, and evidence bases that cannot be
+  independently verified are vulnerable to manipulation and should not be used as
+  sole justification for consequential decisions.'
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- reproducibility
+- epistemic-assurance
+triggers:
+- reproducibility check
+- can this be replicated
+- verify the result
+- reproduce the findings
+- does the code match the paper
+- data availability check
+- open science review
+tools:
+- verb: read
+  purpose: ingest the artifact (paper, report, notebook, or analysis), its methods
+    section, and any supplementary materials
+- verb: exec
+  purpose: run the provided code or pipeline against the stated data and seeds to
+    attempt direct reproduction
+- verb: reason
+  purpose: assess gaps between stated methods and actual reproducibility, and classify
+    findings across reproduction tiers
+- verb: write
+  purpose: produce the reproducibility scorecard and gap report with recommendations
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: the paper, report, notebook, or analysis to be assessed, including
+    any supplementary materials or links to code/data repositories
+- name: key_claims
+  type: list
+  required: false
+  description: the specific quantitative or qualitative results whose reproducibility
+    is most critical to verify
+- name: environment_spec
+  type: text
+  required: false
+  description: the stated compute environment, software versions, and dependencies
+    from the artifact
+outputs:
+- name: reproducibility_scorecard
+  type: table
+  description: rows = reproducibility criterion; columns = tier (direct/replication/conceptual),
+    status (met/partial/not-met/not-assessable), evidence, gap description
+- name: gap_report
+  type: markdown
+  description: narrative analysis of each reproducibility gap, its likely cause, and
+    specific recommendations to close it; overall reproducibility tier assessment
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- National Academies of Sciences, Engineering, and Medicine (2019). Reproducibility
+  and Replicability in Science. National Academies Press.
+- ACM Artifact Review and Badging Policy v1.1 (2020). Available-Functional-Results-Reproduced
+  taxonomy.
+- 'Plesser, H. E. (2018). Reproducibility vs. Replicability: A Brief History of a
+  Confused Terminology. Frontiers in Neuroinformatics 11(76).'
+- 'Gundersen, O. E. & Kjensmo, S. (2018). State of the Art: Reproducibility in Artificial
+  Intelligence. AAAI-18.'

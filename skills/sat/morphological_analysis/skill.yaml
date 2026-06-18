@@ -1,0 +1,76 @@
+id: sat.morphological_analysis
+name: Morphological Analysis
+group: sat
+version: 0.1.0
+status: implemented
+summary: Enumerate the parameter space of a problem to bound the set of possibilities.
+description: Morphological analysis (Zwicky 1969; Ritchey 2011) decomposes a complex
+  problem into its independent parameters, enumerates the discrete values each parameter
+  can take, and maps the full cross-product to bound the space of possible configurations.
+  In intelligence and cognitive-security contexts it prevents premature closure on
+  a single scenario by forcing analysts to articulate every combination that remains
+  logically consistent with current evidence, including surprising or low-salience
+  possibilities.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- scenario-generation
+- bounded-analysis
+triggers:
+- enumerate all possibilities
+- what combinations are possible
+- morphological analysis
+- parameter space
+- bound the scenarios
+- what haven't we considered
+tools:
+- verb: read
+  purpose: ingest problem description, prior analysis, and any constraints already
+    known about the parameter space
+- verb: reason
+  purpose: identify independent dimensions, enumerate value sets, prune logically
+    impossible combinations, and assess each surviving cell
+- verb: write
+  purpose: produce the morphological box (matrix), the pruned scenario list, and priority
+    findings
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: A concise statement of the issue or threat being analyzed (e.g., 'Who
+    might conduct a coordinated inauthentic behavior campaign against this election
+    and how?')
+- name: known_constraints
+  type: list
+  required: false
+  description: Established facts or logical constraints that rule out certain parameter
+    values or combinations upfront
+outputs:
+- name: morphological_box
+  type: table
+  description: A matrix whose rows are parameters and whose columns are possible values;
+    each cell contains its value label and a brief rationale
+- name: scenario_inventory
+  type: markdown
+  description: A list of all logically consistent cross-product combinations (scenarios),
+    each with an evidence status (supported / neutral / contradicted) and a brief
+    description
+- name: priority_findings
+  type: markdown
+  description: Analytic commentary identifying the most-likely scenario, the most-dangerous
+    scenario, and any combination that current collection posture is blind to
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Zwicky, F. (1969). Discovery, Invention, Research Through the Morphological Approach.
+  Macmillan.
+- 'Ritchey, T. (2011). Wicked Problems – Social Messes: Decision Support Modelling
+  with Morphological Analysis. Springer.'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 7 (Scenario Analysis).
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.

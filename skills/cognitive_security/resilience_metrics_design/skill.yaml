@@ -1,0 +1,98 @@
+id: cognitive_security.resilience_metrics_design
+name: Resilience Metrics Design
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Define measurable indicators of an information ecosystem's resistance to
+  manipulation.
+description: Resilience Metrics Design defines a measurable indicator set for assessing
+  an information ecosystem's capacity to resist, absorb, and recover from deliberate
+  manipulation. Drawing on the RAND information environment resilience framework,
+  the EU Digital Media Observatory methodology, and the NATO Strategic Communications
+  Centre of Excellence measurement guidance, it operationalizes abstract resilience
+  concepts (source diversity, correction uptake, narrative elasticity, trust calibration)
+  into concrete, trackable metrics. The output is an indicator schema that can be
+  implemented in monitoring dashboards, periodic assessments, or research studies.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- resilience
+- metrics
+triggers:
+- design resilience metrics
+- measure information ecosystem resilience
+- track manipulation resistance
+- how do we know if our information environment is getting stronger
+- indicator design for cognitive security
+- operationalize resilience
+tools:
+- verb: read
+  purpose: ingest the target ecosystem definition, stakeholder goals, and any existing
+    metrics or monitoring infrastructure
+- verb: reason
+  purpose: map ecosystem resilience dimensions to measurable indicators, assess feasibility
+    and validity of each metric candidate, and identify tradeoffs
+- verb: write
+  purpose: produce the indicator schema, measurement protocol, and monitoring implementation
+    guidance
+inputs:
+- name: ecosystem_definition
+  type: text
+  required: true
+  description: 'Description of the information ecosystem to be assessed: scope (platform,
+    community, institution, nation), key actors, primary information flows, and known
+    threat actors or manipulation vectors'
+- name: stakeholder_goals
+  type: text
+  required: true
+  description: What decisions or interventions will these metrics inform? Who will
+    act on them and at what time resolution? Knowing the decision context determines
+    metric granularity and update frequency.
+- name: existing_data_sources
+  type: list
+  required: false
+  description: 'Data sources already available for measurement: platform analytics,
+    survey instruments, content monitoring feeds, fact-check databases, government
+    statistics'
+- name: prior_metrics_or_assessments
+  type: text
+  required: false
+  description: Any existing resilience assessments, indicator sets, or monitoring
+    reports for this ecosystem or comparable ecosystems, to inform comparability and
+    baseline setting
+outputs:
+- name: indicator_schema
+  type: table
+  description: 'Structured table of metrics organized by resilience dimension: indicator
+    name, definition, unit of measurement, data source, collection frequency, benchmark/target
+    range, and known validity limitations'
+- name: measurement_protocol
+  type: markdown
+  description: Step-by-step protocol for collecting, normalizing, and reporting each
+    indicator, including handling of missing data, longitudinal comparability, and
+    inter-rater reliability guidance for qualitative indicators
+- name: implementation_guidance
+  type: markdown
+  description: Recommendations for embedding the metric set in a monitoring system,
+    including dashboard design, alert thresholds, reporting cadence, and stakeholder
+    communication
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Helmus, T. C., & Klein, K. (2018). Assessing the Effectiveness of Online Pro-Kremlin
+  Disinformation. RAND Corporation. RR-2479-RC.
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- NATO StratCom COE (2019). Measuring the Information Environment. NATO Strategic
+  Communications Centre of Excellence.
+- European Commission (2022). Strengthened Code of Practice on Disinformation. European
+  Digital Media Observatory Monitoring Framework.
+- Roozenbeek, J., Schneider, C. R., Dryhurst, S., Kerr, J., Freeman, A. L. J., Recchia,
+  G., van der Bles, A. M., & van der Linden, S. (2020). Susceptibility to misinformation
+  about COVID-19 across 26 countries. Royal Society Open Science, 7(10), 201199.
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe Report DGI(2017)09.'

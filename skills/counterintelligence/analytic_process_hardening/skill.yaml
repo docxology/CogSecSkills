@@ -1,0 +1,84 @@
+id: counterintelligence.analytic_process_hardening
+name: Analytic Process Hardening
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Harden an analytic workflow against being gamed, anchored, or fed planted
+  evidence.
+description: Analytic process hardening audits an intelligence or research workflow
+  to identify the specific points at which an adversary — or a manipulation campaign
+  — could plant evidence, anchor judgments, seed false leads, or exploit cognitive
+  biases to corrupt conclusions. Rooted in counterintelligence tradecraft and structured
+  analytic technique discipline, it maps each workflow node to its manipulation surface,
+  then prescribes procedural controls that reduce exploitability without requiring
+  analysts to become suspicious of all sources. The output is an action-ready hardening
+  plan with prioritized controls.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- process-integrity
+- bias-mitigation
+triggers:
+- harden this workflow
+- how could this process be gamed
+- analytic process audit
+- could someone feed us false information here
+- make this workflow manipulation-resistant
+- process integrity review
+tools:
+- verb: read
+  purpose: ingest the analytic workflow, its collection sources, and any prior assessments
+    of process vulnerabilities
+- verb: reason
+  purpose: map each workflow node to its manipulation surface and identify the highest-risk
+    intervention points
+- verb: write
+  purpose: 'produce a prioritized hardening plan: control recommendations, ownership
+    assignments, and residual-risk statements'
+inputs:
+- name: workflow_description
+  type: text
+  required: true
+  description: 'A description of the analytic workflow: stages, data sources, analysts
+    involved, review gates, and output consumers'
+- name: adversary_context
+  type: text
+  required: false
+  description: Known or suspected adversary with motivation to manipulate this workflow,
+    if applicable
+- name: prior_incidents
+  type: list
+  required: false
+  description: Any prior suspected or confirmed manipulation attempts against this
+    workflow or similar ones
+outputs:
+- name: vulnerability_map
+  type: table
+  description: 'Workflow node × manipulation vector matrix: what can be planted/anchored/exploited
+    at each stage and the detection difficulty'
+- name: hardening_plan
+  type: markdown
+  description: 'Prioritized controls for each high-risk node: procedural changes,
+    sourcing diversification, structured challenge steps, and reviewer independence
+    requirements'
+- name: residual_risk_statement
+  type: markdown
+  description: What manipulation surfaces remain after controls are applied and what
+    would be needed to eliminate them
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. (Chapters 4, 13).
+- Wirtz, J.J. (1994). 'Deception and the Frosting on the Cake.' Intelligence and National
+  Security 9(2).
+- Pherson, R.H. & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Jones, M.D. (1998). The Thinker''s Toolkit: 14 Powerful Techniques for Problem
+  Solving. Three Rivers Press.'
+- National Academies of Sciences (2019). Reproducibility and Replicability in Science.
+  National Academies Press.

@@ -1,0 +1,73 @@
+id: cognitive_security.emotional_manipulation_analysis
+name: Emotional Manipulation Analysis
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Identify affective levers (fear, outrage, tribal belonging) a message exploits.
+description: Emotional Manipulation Analysis identifies the specific affective levers
+  — fear, outrage, disgust, in-group loyalty, grief, hope — that a message, campaign,
+  or artifact deliberately exploits to bypass deliberative reasoning. Rooted in the
+  dual-process literature (Kahneman) and influence-operation research (Wardle & Derakhshan),
+  it deconstructs persuasion technique by technique, distinguishing legitimate pathos
+  from weaponized emotion. The output is a structured threat map that analysts and
+  communicators can use to recognize manipulation in real time and design inoculation
+  or counter-messaging responses.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- affective-manipulation
+- influence-analysis
+triggers:
+- emotional manipulation
+- affective lever
+- fear appeal analysis
+- outrage bait
+- what emotion is this exploiting
+- manipulative framing
+- emotional exploitation
+tools:
+- verb: read
+  purpose: ingest the message, content, or campaign materials to be analyzed
+- verb: reason
+  purpose: identify which emotions are targeted, how they are triggered, and which
+    cognitive shortcuts are exploited
+- verb: write
+  purpose: produce a structured emotional-lever map with technique labels, severity
+    ratings, and defensive recommendations
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The message, article, social-media post, video transcript, or campaign
+    excerpt to be analyzed
+- name: context
+  type: text
+  required: false
+  description: Background on the intended audience, distribution channel, and current
+    socio-political climate that may amplify certain levers
+outputs:
+- name: emotional_lever_map
+  type: table
+  description: 'Table of identified affective levers: emotion targeted, specific trigger
+    phrase or device, manipulation technique label, severity (low/medium/high), and
+    potential audience impact'
+- name: defensive_brief
+  type: markdown
+  description: Narrative summary explaining the overall manipulation strategy, which
+    deliberative faculties are bypassed, and recommended inoculation or counter-framing
+    approaches
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
+- 'Wardle, C. & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework. Council of Europe Report DGI(2017)09.'
+- 'Cialdini, R. B. (2001). Influence: Science and Practice (4th ed.). Allyn & Bacon.'
+- 'Bail, C. A. (2021). Breaking the Social Media Prism: How to Make Our Platforms
+  Less Polarizing. Princeton University Press.'
+- 'van der Linden, S. (2023). Foolproof: Why Misinformation Infects Our Minds and
+  How to Build Immunity. W. W. Norton.'

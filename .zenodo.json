@@ -1,0 +1,23 @@
+{
+  "creators": [
+    {
+      "affiliation": "Active Inference Institute",
+      "name": "Friedman, Daniel Ari",
+      "orcid": "0000-0001-6232-9096"
+    }
+  ],
+  "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft (Structured Analytic Techniques, source verification, deception detection, critical review), runnable identically under Claude Code, Codex, and Hermes, with a registry, an AGEINT educational upstream, and machine-checkable conformance.",
+  "keywords": [
+    "cognitive security",
+    "structured analytic techniques",
+    "agentic AI",
+    "intelligence analysis",
+    "OSINT",
+    "counterintelligence",
+    "multiharness skills"
+  ],
+  "license": "Apache-2.0",
+  "title": "CogSecSkills: Multiharness Agentic Skills for Cognitive Security",
+  "upload_type": "software",
+  "version": "0.1.0"
+}

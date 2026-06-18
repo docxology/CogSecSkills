@@ -1,0 +1,74 @@
+id: critical_review.ethics_and_harms_review
+name: Ethics & Harms Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Assess dual-use, harm, and misuse potential of a project or capability.
+description: Ethics & Harms Review systematically assesses a project, capability,
+  dataset, or publication for dual-use risks, potential harms to individuals or communities,
+  misuse potential by adversarial actors, and gaps in informed consent or transparency.
+  It draws on established frameworks (consequentialist, deontological, virtue-ethics,
+  and rights-based) alongside discipline-specific codes (e.g., Menlo Report for security
+  research, Belmont Report for human subjects) to produce a structured harm register
+  and a set of mitigations or go/no-go recommendations. In the cognitive-security
+  context it is especially important for evaluating influence-operation tooling, adversarial
+  AI research, and dual-use OSINT capabilities where potential harms are diffuse and
+  probabilistic.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- dual-use
+- ethics
+triggers:
+- ethics review
+- harms assessment
+- dual-use check
+- misuse potential
+- responsible disclosure
+- harm register
+tools:
+- verb: read
+  purpose: ingest the artifact under review, its stated scope, and any existing ethics
+    documentation
+- verb: reason
+  purpose: apply multiple ethical frameworks and harm taxonomies to surface risks
+    and mitigations
+- verb: write
+  purpose: produce the structured harm register, mitigation table, and go/no-go recommendation
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: the project description, capability spec, dataset card, or publication
+    to be reviewed
+- name: intended_use
+  type: text
+  required: true
+  description: the authors' stated purpose and target audience
+- name: deployment_context
+  type: text
+  required: false
+  description: the environment, actors, and system in which the artifact will operate
+outputs:
+- name: harm_register
+  type: table
+  description: rows = harm scenario; columns = harm type, affected party, likelihood,
+    severity, mitigation, residual risk
+- name: ethics_assessment
+  type: markdown
+  description: narrative covering ethical-framework analysis, dual-use findings, consent/transparency
+    gaps, and go/no-go recommendation with conditions
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Menlo Report: Ethical Principles Guiding Information and Communication Technology
+  Research (DHS, 2012).'
+- 'Belmont Report: Ethical Principles and Guidelines for the Protection of Human Subjects
+  of Research (DHEW, 1979).'
+- 'Brundage, M. et al. (2018). The Malicious Use of Artificial Intelligence: Forecasting,
+  Prevention, and Mitigation.'
+- Brey, P. (2012). Anticipatory Ethics for Emerging Technologies. NanoEthics 6(1).

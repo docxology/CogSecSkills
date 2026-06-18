@@ -1,0 +1,87 @@
+id: critical_review.code_security_review
+name: Code Security Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Review code for security defects, silent failures, and unsafe fallback behavior.
+description: Code Security Review is a structured audit of source code for security
+  defects, silent failure modes, unsafe fallback behavior, and patterns that can be
+  exploited by adversaries. Grounded in secure-code review methodology (OWASP, NIST
+  SSDF), it examines authentication, authorization, input validation, error handling,
+  secrets management, dependency risk, and supply-chain integrity. In cognitive-security
+  contexts, code review extends to detecting logic that silently degrades or manipulates
+  AI-system behavior, suppresses failure signals, or creates covert channels for adversarial
+  influence.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- secure-code-review
+- supply-chain-security
+triggers:
+- code security review
+- security audit
+- find vulnerabilities
+- silent failure
+- unsafe fallback
+- secure code
+- review this code for security issues
+- supply chain risk
+- dependency audit
+tools:
+- verb: read
+  purpose: ingest the source code, configuration files, dependency manifests, and
+    any threat model or security context provided
+- verb: exec
+  purpose: run static analysis tools, dependency vulnerability scanners, or linting
+    gates to surface machine-detectable security defects
+- verb: reason
+  purpose: apply structured security review reasoning to identify defect classes,
+    assess exploitability and impact, and evaluate silent-failure and fallback risk
+    patterns
+- verb: write
+  purpose: emit the security findings report with severity ratings, defect descriptions,
+    reproduction steps, and remediation recommendations
+inputs:
+- name: code
+  type: text
+  required: true
+  description: The source code to be reviewed — may be a file, module, function, or
+    diff; include configuration files and dependency manifests if available
+- name: threat_model
+  type: text
+  required: false
+  description: 'Optional description of the adversarial context: who might attack
+    this code, what assets are at risk, and what attack vectors are most plausible'
+- name: review_scope
+  type: list
+  required: false
+  description: Optional list of security concern categories to prioritize (e.g., input-validation,
+    authentication, error-handling, dependency-risk, silent-failure, AI-specific)
+outputs:
+- name: findings_table
+  type: table
+  description: 'A table of security findings: finding ID, defect category, location
+    (file/line), severity (critical/high/medium/low/informational), description, exploitability
+    assessment, and recommended remediation'
+- name: security_review_narrative
+  type: markdown
+  description: A narrative report covering the overall security posture of the reviewed
+    code, the most critical findings, patterns of unsafe behavior (especially silent
+    failures and unsafe fallbacks), dependency risk summary, and a prioritized remediation
+    roadmap
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- OWASP Foundation. (2023). OWASP Code Review Guide (v3.0). https://owasp.org/www-project-code-review-guide/
+- NIST. (2022). Secure Software Development Framework (SSDF), SP 800-218. National
+  Institute of Standards and Technology.
+- Seacord, R. C. (2013). Secure Coding in C and C++ (2nd ed.). Addison-Wesley. (Applicable
+  defect taxonomy.)
+- Chess, B., & West, J. (2007). Secure Programming with Static Analysis. Addison-Wesley.
+- 'Shostack, A. (2014). Threat Modeling: Designing for Security. Wiley.'
+- CISA / NSA. (2022). Software Supply Chain Security Guidance. Cybersecurity and Infrastructure
+  Security Agency.

@@ -1,0 +1,81 @@
+id: sat.signposts_of_change
+name: Signposts of Change
+group: sat
+version: 0.1.0
+status: implemented
+summary: Track leading indicators over time to detect trajectory shifts early.
+description: Signposts of Change (Heuer & Pherson) is a prospective monitoring technique
+  that derives observable leading indicators from a set of alternative scenarios or
+  hypotheses, then tracks those indicators over time to detect which trajectory is
+  unfolding before it becomes undeniable. Unlike static indicators lists, the technique
+  pairs each signpost explicitly with the scenario it confirms or rules out, allowing
+  analysts to update scenario probabilities continuously as new evidence arrives.
+  In cognitive-security contexts it also serves as an early-warning system for narrative
+  shifts, influence campaign pivots, and disinformation trajectory changes.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- warning-analysis
+triggers:
+- signposts of change
+- leading indicators
+- track trajectory shifts
+- early warning indicators
+- monitor for change
+- watch for signs
+tools:
+- verb: read
+  purpose: ingest the alternative scenarios or hypotheses whose divergence the signposts
+    will track, and any existing indicators or monitoring frameworks
+- verb: reason
+  purpose: derive observable leading indicators for each scenario that are mutually
+    discriminating — each signpost should confirm one scenario and constrain others
+- verb: write
+  purpose: emit the signpost matrix with per-scenario indicator assignments, collection
+    guidance, and the update protocol for revising scenario probabilities
+- verb: search
+  purpose: query available open-source information to check current signpost status
+    when the skill is used for active monitoring rather than indicator design
+inputs:
+- name: scenarios_or_hypotheses
+  type: list
+  required: true
+  description: the alternative trajectories or hypotheses among which the signposts
+    must discriminate; at minimum two, typically three to five
+- name: current_assessment
+  type: text
+  required: false
+  description: the current dominant analytic judgment, including its assumed trajectory,
+    to establish the baseline from which change would be detected
+- name: collection_resources
+  type: list
+  required: false
+  description: available monitoring sources (data streams, reporting channels, open-source
+    feeds) that constrain which signposts are observable in practice
+outputs:
+- name: signpost_matrix
+  type: table
+  description: rows are signposts; columns are scenarios; cells indicate whether the
+    signpost confirms (C), is neutral (N), or disconfirms (D) each scenario; includes
+    observability rating and collection source for each signpost
+- name: collection_guidance
+  type: markdown
+  description: 'for each signpost: what to look for, where to look, how often, and
+    what threshold constitutes a confirmed observation'
+- name: update_protocol
+  type: markdown
+  description: rules for revising scenario probabilities when signposts fire or remain
+    absent; includes absence-of-evidence handling and re-evaluation triggers
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Signposts of Change.
+- Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint
+  Military Intelligence College. (classical warning indicators framework)'

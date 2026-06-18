@@ -1,0 +1,93 @@
+id: cognitive_security.prebunking_inoculation_design
+name: Prebunking & Inoculation Design
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Design inoculation content that builds audience resistance before exposure
+  to manipulation.
+description: Prebunking (inoculation) design applies psychological inoculation theory
+  to build audience resistance to manipulation before exposure occurs. Drawing on
+  Banas & Rains (2010) and the WHO-endorsed work of van der Linden et al., it exposes
+  audiences to a weakened dose of a manipulation technique — named, explained, and
+  refuted — so they recognize and resist the real attack when it arrives. This skill
+  designs inoculation content (messaging, modules, games, or embedded warnings) tailored
+  to a specific manipulation technique and target audience.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- inoculation
+- prebunking
+triggers:
+- prebunk this narrative
+- design inoculation content
+- build resistance before they see this
+- preemptive refutation
+- inoculation theory
+tools:
+- verb: read
+  purpose: ingest the manipulation technique to be inoculated against, the target
+    audience profile, and any existing prebunking assets
+- verb: reason
+  purpose: select inoculation structure (technique-based or issue-based), determine
+    appropriate exposure dose, and map to audience cognitive state
+- verb: write
+  purpose: 'produce the inoculation content: warning message, weakened-dose example,
+    refutation, and efficacy-check items'
+inputs:
+- name: manipulation_technique
+  type: text
+  required: true
+  description: The specific rhetorical or manipulation technique to inoculate against
+    (e.g., false dichotomy, fear appeal, fake expert, ad hominem, emotional scarcity
+    trigger)
+- name: target_audience
+  type: text
+  required: true
+  description: 'Description of the audience to be inoculated: prior beliefs, platform
+    context, literacy level, and any known vulnerabilities or motivational biases'
+- name: deployment_context
+  type: text
+  required: false
+  description: Channel and format constraints for delivering the inoculation content
+    (social media post, video short, classroom module, embedded browser warning, interactive
+    game)
+- name: existing_prebunking_assets
+  type: list
+  required: false
+  description: Any pre-existing inoculation messages, explainer videos, or Go Viral
+    / Bad News game modules relevant to this technique
+outputs:
+- name: inoculation_content
+  type: markdown
+  description: 'Formatted inoculation message or module including: explicit warning
+    about the technique, weakened-dose example, named refutation, and suggested call-to-action
+    for the audience'
+- name: efficacy_check_items
+  type: table
+  description: Test items to assess whether the inoculation transferred — recognition
+    prompts and attitudinal probes aligned to the targeted technique
+- name: design_rationale
+  type: markdown
+  description: 'Explanation of the choices made: inoculation type (technique-based
+    vs. issue-based), exposure dose calibration, refutation strategy, and audience-fit
+    reasoning'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- van der Linden, S., Leiserowitz, A., Rosenthal, S., & Maibach, E. (2017). Inoculating
+  the Public against Misinformation about Climate Change. Global Challenges, 1(2),
+  1600008.
+- Roozenbeek, J., & van der Linden, S. (2019). Fake news game confers psychological
+  resistance against online misinformation. Palgrave Communications, 5(1), 65.
+- Banas, J. A., & Rains, S. A. (2010). A Meta-Analysis of Research on Inoculation
+  Theory. Communication Monographs, 77(3), 281–311.
+- 'Cook, J., Lewandowsky, S., & Ecker, U. K. H. (2017). Neutralizing misinformation
+  through inoculation: Exposing misleading argumentation techniques reduces their
+  influence. PLOS ONE, 12(5), e0175799.'
+- 'Basol, M., Roozenbeek, J., & van der Linden, S. (2020). Good news about Bad News:
+  Gamified inoculation boosts confidence and cognitive immunity against fake news.
+  Journal of Cognition, 3(1), 2.'

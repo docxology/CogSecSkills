@@ -1,0 +1,19 @@
+# CogSecSkills configuration (OPTIONAL).
+#
+# Copy to `cogsecskills.yaml` to customize the library. Everything here has a
+# sensible default, so the file is never required — delete any key to use its
+# default. See docs/configuration.md for the full reference.
+
+# The agent harnesses the library targets and validates. Adding one (e.g.
+# `gemini`) makes `scaffold`/`author` generate an adapter for it and `validate`
+# require one — no code change. An unknown harness is assumed to realise the full
+# closed verb vocabulary (read, search, write, exec, reason, web, delegate, ask),
+# so you only need to provide the adapter, not edit Python.
+harnesses: [claude, codex, hermes]
+
+# Quality thresholds the `cogsecskills doctor` command enforces (structural
+# conformance is separate — that is always enforced by `validate`).
+quality:
+  min_workflow_steps: 3      # implemented skills should have >= this many steps
+  min_anti_criteria: 2       # ... and >= this many anti-criteria
+  require_references: false  # set true to require >=1 reference per implemented skill

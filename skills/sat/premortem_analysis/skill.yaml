@@ -1,0 +1,59 @@
+id: sat.premortem_analysis
+name: Premortem Analysis
+group: sat
+version: 0.1.0
+status: implemented
+summary: Assume the conclusion failed; work backward to find what would have caused
+  it.
+description: Premortem analysis (Klein) imagines the plan has already failed, then
+  works backward to surface causes — converting hindsight into foresight and licensing
+  dissent a prospective review suppresses. Participants adopt the cognitive stance
+  that failure has occurred and are asked why, bypassing the social pressure to defend
+  a committed plan. In cognitive-security contexts it is used both to stress-test
+  analytic conclusions before they reach decision-makers and to surface assumptions
+  that groupthink or authority bias has suppressed.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- challenge-analysis
+triggers:
+- premortem
+- assume this failed
+- what could go wrong
+- stress-test before commitment
+- work backward from failure
+tools:
+- verb: read
+  purpose: ingest the plan, conclusion, or assessment to be stress-tested
+- verb: reason
+  purpose: generate and rank failure causes from an assumed-failure frame
+- verb: write
+  purpose: emit ranked failure modes, leading indicators, and mitigations
+inputs:
+- name: plan_or_assessment
+  type: text
+  required: true
+  description: The plan, analytic conclusion, or committed decision to be stress-tested
+- name: time_horizon
+  type: text
+  required: false
+  description: The projected time horizon for the imagined failure (e.g., '6 months
+    from now the plan has failed badly')
+outputs:
+- name: failure_modes
+  type: markdown
+  description: Ranked failure causes, each with a plausibility x impact score, a leading
+    indicator to watch for, and a mitigation or hedge
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Klein, G. (2007). Performing a Project Premortem. Harvard Business Review, 85(9),
+  18–19.
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter: Premortem Analysis.'
+- 'Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. Chapter
+  24: The Engine of Capitalism.'

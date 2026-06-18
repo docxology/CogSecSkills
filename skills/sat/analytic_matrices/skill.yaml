@@ -1,0 +1,77 @@
+id: sat.analytic_matrices
+name: Analytic Matrices
+group: sat
+version: 0.1.0
+status: implemented
+summary: Cross-tabulate variables to organize evidence and reveal relationships.
+description: Analytic Matrices organize analytic variables (hypotheses, actors, drivers,
+  criteria) as rows and columns of a structured grid, then systematically populate
+  each cell with evidence, ratings, or judgments. The technique makes the analyst's
+  logic explicit and auditable, surfaces blank cells (missing evidence) and conflicting
+  cells (contradictory evidence), and reduces the cognitive load of tracking multiple
+  dimensions simultaneously. It is used in intelligence analysis as a pre-step to
+  ACH, in option analysis, and in influence-operation assessment to map actors against
+  capabilities and behaviors.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- evidence-organization
+- structured-reasoning
+triggers:
+- analytic matrix
+- cross-tab the evidence
+- organize variables in a grid
+- map actors to capabilities
+- compare options systematically
+- evidence matrix
+tools:
+- verb: read
+  purpose: ingest the evidence set, hypotheses or options, and relevant variables
+    to populate the matrix
+- verb: reason
+  purpose: select the correct matrix type, determine row/column dimensions, rate each
+    cell, and interpret patterns
+- verb: write
+  purpose: produce the completed matrix, a legend, a summary of patterns, and analytic
+    implications
+inputs:
+- name: analytic_question
+  type: text
+  required: true
+  description: The focal analytic question driving the matrix construction
+- name: variables_or_hypotheses
+  type: list
+  required: true
+  description: The set of hypotheses, options, actors, or criteria to place on one
+    axis of the matrix
+- name: evidence_or_criteria
+  type: list
+  required: true
+  description: The evidence items, indicators, capabilities, or evaluation criteria
+    to place on the other axis
+outputs:
+- name: analytic_matrix
+  type: table
+  description: Completed grid with rows and columns labeled, each cell populated with
+    a rating, evidence summary, or consistency judgment, and a legend explaining the
+    rating scheme
+- name: pattern_summary
+  type: markdown
+  description: 'Written interpretation of matrix patterns: which rows dominate, where
+    gaps exist, where conflicts occur, and what the overall pattern implies for the
+    analytic question'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Matrices.
+- Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
+  Associates.
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
+  Intelligence, CIA. Chapter on ACH (which uses a matrix format).
+- 'Clark, R. M. (2013). Intelligence Analysis: A Target-Centric Approach (4th ed.).
+  CQ Press.'

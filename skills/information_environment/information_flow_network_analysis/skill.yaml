@@ -1,0 +1,77 @@
+id: information_environment.information_flow_network_analysis
+name: Information Flow Network Analysis
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Analyze how information propagates through a network to find amplifiers and
+  bottlenecks.
+description: Information Flow Network Analysis maps how specific content, narratives,
+  or claims propagate through social and media networks by modeling the information
+  environment as a directed graph of accounts, publications, and linking relationships.
+  It identifies amplifiers (super-spreaders), gatekeepers (bottlenecks that shape
+  what passes), bridges (cross-community connectors), and sinks (endpoints where narratives
+  lose velocity). The technique draws on network science, computational social science,
+  and OSINT tradecraft to characterize the structural conditions that enable or constrain
+  narrative spread.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- network-analysis
+triggers:
+- how did this narrative spread
+- map information flow
+- find amplifiers in this network
+- who are the super-spreaders
+- network topology of this campaign
+- trace content propagation
+tools:
+- verb: read
+  purpose: ingest network edge data, post propagation chains, and account metadata
+- verb: reason
+  purpose: compute network metrics and identify structural roles (amplifiers, bridges,
+    gatekeepers)
+- verb: write
+  purpose: produce a network analysis report with role classifications, flow maps,
+    and defensive implications
+inputs:
+- name: propagation_data
+  type: table
+  required: true
+  description: 'Directed edge list of content-sharing events: source account, target
+    account or platform, content ID, timestamp — covering the narrative or campaign
+    under analysis'
+- name: narrative_seed
+  type: text
+  required: true
+  description: The specific claim, hashtag, URL, or narrative fragment whose propagation
+    is being traced
+- name: account_metadata
+  type: table
+  required: false
+  description: 'Supplementary account attributes: follower count, verified status,
+    community affiliation, platform — used to weight edges and label nodes'
+outputs:
+- name: network_role_map
+  type: table
+  description: Per-account role classification (seed, amplifier, bridge, gatekeeper,
+    sink), key network metrics (in-degree, out-degree, betweenness centrality, clustering
+    coefficient), and influence estimate
+- name: flow_analysis_report
+  type: markdown
+  description: Narrative description of the propagation pattern, identified structural
+    vulnerabilities, community-crossing events, velocity timeline, and cognitive-security
+    implications
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online.
+  Science, 359(6380), 1146-1151.
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- Borgatti, S.P. (2005). Centrality and network flow. Social Networks, 27(1), 55-71.
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. CSCW.'

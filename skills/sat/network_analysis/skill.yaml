@@ -1,0 +1,89 @@
+id: sat.network_analysis
+name: Network Analysis
+group: sat
+version: 0.1.0
+status: implemented
+summary: Map actors and links; compute centrality and brokerage to find key nodes.
+description: Network analysis in the structured-analytic tradition maps actors, organizations,
+  or information nodes as vertices and their relationships (communication, funding,
+  co-authorship, amplification) as edges, then applies graph-theoretic measures —
+  degree, betweenness, eigenvector centrality, clustering coefficient, structural
+  holes — to identify key actors, brokers, and vulnerabilities that are invisible
+  in prose analysis. In cognitive-security contexts it is the primary tool for characterizing
+  coordinated inauthentic behavior networks, influence operation infrastructure, and
+  information-ecosystem topology.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- network-analysis
+- influence-operations
+triggers:
+- who are the key actors
+- map the network
+- find the brokers
+- network analysis
+- who connects to whom
+- centrality analysis
+- influence network
+- coordinated inauthentic behavior
+tools:
+- verb: read
+  purpose: ingest actor lists, link tables, reporting, and any prior relational data
+    describing the network under study
+- verb: reason
+  purpose: derive centrality rankings, identify structural holes and brokers, characterize
+    clusters, and assess network resilience
+- verb: write
+  purpose: produce the edge list, annotated node table, centrality report, and analytic
+    narrative with findings and collection implications
+inputs:
+- name: node_list
+  type: list
+  required: true
+  description: A list of identified actors or nodes, each with a label, type (person
+    / organization / account / platform), and any known attributes
+- name: edge_list
+  type: table
+  required: true
+  description: 'A table of directed or undirected relationships: source node, target
+    node, relationship type (funds / amplifies / directs / communicates with), and
+    evidence quality for each link'
+- name: analytic_question
+  type: text
+  required: true
+  description: The specific question the network analysis should answer (e.g., 'Who
+    controls the amplification bottleneck for this narrative?', 'Which nodes are structurally
+    critical — whose removal would fragment the network?')
+outputs:
+- name: centrality_report
+  type: table
+  description: A ranked table of nodes by degree centrality, betweenness centrality,
+    and eigenvector centrality, with a column noting the analytic significance of
+    each top-ranked node
+- name: structural_findings
+  type: markdown
+  description: 'Narrative analysis identifying: (a) key brokers and structural holes,
+    (b) community/cluster membership, (c) network resilience to node removal, and
+    (d) any coordination signatures (e.g., synchronized posting, shared infrastructure)'
+- name: collection_gaps
+  type: markdown
+  description: A list of nodes or edges whose absence in the data represents potential
+    blind spots, with a recommended collection action for each
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Wasserman, S., & Faust, K. (1994). Social Network Analysis: Methods and Applications.
+  Cambridge University Press.'
+- Freeman, L. C. (1977). A set of measures of centrality based on betweenness. Sociometry,
+  40(1), 35–41.
+- 'Burt, R. S. (1992). Structural Holes: The Social Structure of Competition. Harvard
+  University Press.'
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. Proceedings
+  of the ACM on Human-Computer Interaction, 3(CSCW).'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 6 (Network Diagrams).

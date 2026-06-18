@@ -1,0 +1,71 @@
+id: sat.issue_redefinition
+name: Issue Redefinition
+group: sat
+version: 0.1.0
+status: implemented
+summary: Restate the question multiple ways to escape an unhelpful initial framing.
+description: Issue Redefinition is a structured creativity and reframing technique
+  that systematically restates an analytic question in multiple alternative forms
+  to expose assumptions embedded in the original framing and reveal new solution paths.
+  By articulating five or more distinct restatements of the same underlying problem,
+  analysts often discover that the initial question was too narrow, too broad, or
+  subtly loaded in ways that constrain good analysis. The technique draws on lateral
+  thinking and problem-structuring research to break the anchoring effect of the initial
+  formulation.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- reframing
+- creative-thinking
+triggers:
+- reframe this question
+- issue redefinition
+- am I asking the right question
+- restate the problem
+- escape this framing
+- different ways to ask
+- question reframing
+tools:
+- verb: read
+  purpose: ingest the original question, its context, and any framing constraints
+    imposed by the tasking
+- verb: reason
+  purpose: generate multiple alternative restatements of the question, analyze assumptions
+    embedded in each, and evaluate which framing best serves the analytic purpose
+- verb: write
+  purpose: produce the restatements register with embedded-assumption analysis and
+    a recommended preferred framing
+inputs:
+- name: original_question
+  type: text
+  required: true
+  description: the analytic question or problem statement as originally posed
+- name: tasking_context
+  type: text
+  required: false
+  description: background on who posed the question, what decision it supports, and
+    any known constraints on scope
+outputs:
+- name: restatements_register
+  type: markdown
+  description: 'a structured list of five or more alternative restatements of the
+    original question, each annotated with: the assumption it removes or adds, the
+    solution space it opens or closes, and a recommendation on whether to adopt it'
+- name: preferred_framing
+  type: markdown
+  description: the recommended question restatement with rationale explaining why
+    it better serves the analytic purpose than the original
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 3, 'Issue Redefinition'.
+- 'de Bono, E. (1970). Lateral Thinking: Creativity Step by Step. Harper & Row.'
+- Mitroff, I. I., & Featheringham, T. R. (1974). On Systemic Problem Solving and the
+  Error of the Third Kind. Behavioral Science, 19(6), 383-393.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press/SAGE.

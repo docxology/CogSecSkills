@@ -1,0 +1,77 @@
+id: sat.multiple_hypothesis_generation
+name: Multiple Hypothesis Generation
+group: sat
+version: 0.1.0
+status: implemented
+summary: Force a complete, mutually exclusive hypothesis set before evaluating any
+  one.
+description: Multiple Hypothesis Generation (MHG) is a structured analytic technique
+  that requires analysts to produce a complete, mutually exclusive and collectively
+  exhaustive (MECE) set of hypotheses before evaluating any of them individually.
+  Developed by Heuer and Pherson as a precursor to Analysis of Competing Hypotheses
+  (ACH), MHG counters confirmation bias and anchoring by ensuring that the hypothesis
+  set is not inadvertently incomplete — the most common failure mode in analytical
+  forecasting and cognitive-security threat assessment.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- hypothesis-generation
+- bias-mitigation
+triggers:
+- generate hypotheses
+- what are all the explanations
+- competing explanations
+- make sure we haven't missed anything
+- hypothesis generation
+- what else could explain this
+tools:
+- verb: read
+  purpose: ingest the observed evidence, prior analytic judgments, and any stated
+    initial hypotheses
+- verb: reason
+  purpose: apply MECE discipline to generate, deduplicate, and completeness-check
+    the hypothesis set; identify assumption dependencies
+- verb: write
+  purpose: output the labeled, mutually exclusive hypothesis set with supporting rationale
+    for each hypothesis and any identified gaps
+inputs:
+- name: evidence_set
+  type: list
+  required: true
+  description: The collection of observations, reporting items, or anomalies to be
+    explained — each as a distinct numbered item
+- name: initial_hypotheses
+  type: list
+  required: false
+  description: Any hypotheses already under consideration; MHG will check these for
+    mutual exclusivity and completeness and augment them
+- name: domain_context
+  type: text
+  required: false
+  description: Background information about the actor space, base rates, and analytic
+    context that constrains plausible hypotheses
+outputs:
+- name: hypothesis_set
+  type: markdown
+  description: A labeled, MECE list of hypotheses (H1, H2, …, Hn), each with a one-paragraph
+    description, its key distinguishing claim, and the evidence most relevant to it
+- name: completeness_check
+  type: markdown
+  description: 'A structured audit documenting: (a) the MECE test result for each
+    pair of hypotheses, (b) any logical remainder (the space not covered by any hypothesis),
+    and (c) hypotheses that overlap and were merged or split'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
+  Intelligence, CIA. Chapter 8.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 4.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Nickerson, R. S. (1998). Confirmation bias: A ubiquitous phenomenon in many guises.
+  Review of General Psychology, 2(2), 175–220.'

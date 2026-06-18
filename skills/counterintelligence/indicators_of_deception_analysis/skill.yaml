@@ -1,0 +1,72 @@
+id: counterintelligence.indicators_of_deception_analysis
+name: Indicators of Deception Analysis
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Apply the MOM/POP/MOSES/EVE deception-detection checklists to a body of evidence.
+description: Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE
+  analytical framework to a body of evidence to assess whether an adversary may be
+  conducting an active denial-and-deception (D&D) operation. MOM evaluates Motive,
+  Opportunity, and Means; POP identifies Potential indicators of deception based on
+  evidence anomalies; MOSES checks Manipulation, Omission, Selective emphasis, and
+  Exaggeration patterns; and EVE applies Evidence, Validation, and Evaluation criteria.
+  The combined framework converts an otherwise intuitive 'something seems off' judgment
+  into a structured, documentable deception-hypothesis test.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- deception-detection
+triggers:
+- indicators of deception
+- MOM POP MOSES EVE
+- something seems off about this intelligence
+- deception analysis
+- is this information planted
+- denial and deception check
+- anomaly in the evidence
+tools:
+- verb: read
+  purpose: ingest the body of evidence, intelligence reporting, or communication under
+    analysis
+- verb: reason
+  purpose: apply each checklist component (MOM, POP, MOSES, EVE) systematically and
+    synthesize findings
+- verb: write
+  purpose: produce a structured deception-assessment report with confidence ratings
+    and recommended analytic responses
+inputs:
+- name: evidence_corpus
+  type: text
+  required: true
+  description: The intelligence reports, documents, communications, or data under
+    review for potential deception indicators
+- name: source_profile
+  type: text
+  required: false
+  description: 'Known information about the source(s): access, past reliability, relationship
+    to the subject, and any known adversary deception history'
+- name: baseline_expectations
+  type: text
+  required: false
+  description: What the analyst would expect to see in this domain absent deception
+    — used to identify anomalies
+outputs:
+- name: deception_assessment_report
+  type: markdown
+  description: A structured report applying each framework component, listing identified
+    indicators with evidence citations, an overall deception-likelihood rating, and
+    recommended analytic and collection responses
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. (Chapter on Indicators of Deception, MOM/POP/MOSES/EVE.)
+- 'Whaley, B. (2007). Stratagem: Deception and Surprise in War. Artech House.'
+- Daniel, D. C., & Herbig, K. L. (Eds.). (1981). Strategic Military Deception. Pergamon
+  Press.
+- Pherson, R. H., & Pherson, K. H. (2017). Critical Thinking for Strategic Intelligence
+  (2nd ed.). CQ Press.

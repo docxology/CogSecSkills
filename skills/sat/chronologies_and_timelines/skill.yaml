@@ -1,0 +1,74 @@
+id: sat.chronologies_and_timelines
+name: Chronologies & Timelines
+group: sat
+version: 0.1.0
+status: implemented
+summary: Order events temporally to expose gaps, correlations, and causal sequencing.
+description: Chronologies and Timelines is a structured-analytic technique that arranges
+  known events in strict temporal order to reveal gaps in the record, surface correlations
+  between concurrent streams, and clarify causal versus coincidental sequencing. By
+  making the time dimension explicit and visual, analysts can spot anomalies — missing
+  intervals, suspicious clustering, or reversed apparent causality — that narrative
+  prose conceals. The technique is foundational in targeting, deception detection,
+  and incident reconstruction, and it underpins more complex temporal analytics such
+  as event-driven scenario building and link analysis.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- temporal-analysis
+triggers:
+- build a timeline
+- put these events in order
+- when did this happen relative to that
+- find gaps in the sequence
+- reconstruct the sequence of events
+tools:
+- verb: read
+  purpose: ingest source documents, reports, and data streams to extract dated events
+- verb: reason
+  purpose: assess temporal relationships, identify gaps, correlations, and causal
+    candidates
+- verb: write
+  purpose: produce the ordered chronology, annotated gap analysis, and analytic findings
+inputs:
+- name: event_sources
+  type: list
+  required: true
+  description: Documents, reports, or data items each containing at least one datable
+    event (date/time + what happened)
+- name: analytic_question
+  type: text
+  required: true
+  description: The focal question the timeline is meant to illuminate (e.g., 'Did
+    actor X have foreknowledge?')
+- name: parallel_streams
+  type: list
+  required: false
+  description: 'Optional: separate event series to be displayed in parallel lanes
+    (e.g., diplomatic, military, economic)'
+outputs:
+- name: chronology
+  type: table
+  description: Sorted table of events with date/time, actor, event description, source,
+    and confidence level
+- name: gap_and_anomaly_report
+  type: markdown
+  description: Narrative identifying unexplained gaps, suspiciously clustered events,
+    reversed apparent causality, and their analytic significance
+- name: key_findings
+  type: markdown
+  description: Bulleted summary of the most significant temporal patterns and their
+    implications for the focal question
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 3rd ed. CQ Press. (Chapter: Chronologies and Timelines)'
+- 'Clark, R. M. (2019). Intelligence Analysis: A Target-Centric Approach, 5th ed.
+  CQ Press.'
+- Moore, D. T. (2007). Critical Thinking and Intelligence Analysis. National Defense
+  Intelligence College Press.

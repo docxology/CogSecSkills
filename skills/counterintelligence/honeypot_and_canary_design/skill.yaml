@@ -1,0 +1,71 @@
+id: counterintelligence.honeypot_and_canary_design
+name: Honeypot & Canary Design
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Design canary tokens and decoys to detect probing and exfiltration (defensive).
+description: Honeypot and canary design is a defensive counterintelligence technique
+  for creating plausible decoy assets — files, credentials, data records, or network
+  services — that have no legitimate operational use and whose access or exfiltration
+  triggers a high-fidelity alert. Canary tokens are lightweight tripwires (unique
+  URLs, document beacons, fake credentials) embedded in legitimate-looking material
+  so that any adversary who accesses them reveals their presence and, often, attribution
+  data. This skill covers the threat-model-driven selection, placement, and monitoring
+  of such deceptions, strictly for detecting probing and unauthorized access rather
+  than entrapment.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- deception-detection
+triggers:
+- canary token
+- honeypot design
+- tripwire
+- detect exfiltration
+- catch an insider
+- decoy document
+- plant a trap to see who accesses it
+tools:
+- verb: read
+  purpose: ingest threat model, asset inventory, and existing monitoring coverage
+- verb: reason
+  purpose: select decoy types and placement strategy based on attacker intent and
+    likely access paths
+- verb: write
+  purpose: produce a canary/honeypot design specification with placement rationale,
+    alert logic, and legal review checklist
+inputs:
+- name: threat_model
+  type: text
+  required: true
+  description: Description of the adversary (insider, external actor, or both), their
+    likely goals, and the assets they would most plausibly seek
+- name: asset_inventory
+  type: list
+  required: false
+  description: List of high-value information assets or systems among which decoys
+    could be placed
+- name: monitoring_coverage
+  type: text
+  required: false
+  description: Summary of existing logging, DLP, and alerting capabilities
+outputs:
+- name: canary_design_spec
+  type: markdown
+  description: A design document specifying each decoy type, its placement rationale,
+    the triggering event, the alert mechanism, response playbook, and a legal/ethical
+    review checklist
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Spitzner, L. (2003). Honeypots: Tracking Hackers. Addison-Wesley.'
+- 'Thinkst Applied Research. (2015). Canarytokens: A practical guide to token-based
+  tripwires. https://canarytokens.org/'
+- NIST SP 800-83 Rev. 1. (2013). Guide to Malware Incident Prevention and Handling
+  for Desktops and Laptops. National Institute of Standards and Technology.
+- Cheswick, W. R. (1991). An Evening with Berferd in Which a Cracker is Lured, Endured,
+  and Studied. Proceedings of the 1992 Winter USENIX Conference.

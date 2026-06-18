@@ -1,0 +1,79 @@
+id: information_environment.narrative_competition_analysis
+name: Narrative Competition Analysis
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Analyze how rival narratives compete for attention, belief, and durability.
+description: Narrative Competition Analysis examines how rival narratives about the
+  same event, actor, or issue compete for attention, belief, and durability in an
+  information environment. Drawing on framing theory, meme-competition models, and
+  computational narrative analysis, the technique identifies each narrative's core
+  claim, emotional valence, target audience, rhetorical devices, and propagation channels,
+  then assesses relative salience, resilience, and vulnerability to counter-narrative
+  intervention. It is a defensive analytical tool for understanding the landscape
+  before designing protective communications or resilience strategies.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- narrative-analysis
+triggers:
+- competing narratives
+- which narrative is winning
+- how do rival framings compare
+- narrative competition
+- assess narrative salience
+- map the narrative landscape
+tools:
+- verb: read
+  purpose: ingest texts, media items, and engagement data representing the competing
+    narratives
+- verb: reason
+  purpose: apply framing and narrative-competition frameworks to characterize each
+    narrative and assess relative salience
+- verb: search
+  purpose: gather additional examples and engagement metrics across platforms to assess
+    narrative reach
+- verb: write
+  purpose: produce a narrative competition map and assessment report
+inputs:
+- name: narrative_corpus
+  type: list
+  required: true
+  description: A representative sample of texts, posts, or media items representing
+    each competing narrative about the topic under analysis
+- name: topic_definition
+  type: text
+  required: true
+  description: The event, actor, policy, or situation that is the subject of narrative
+    competition, with a defined time window
+- name: engagement_metrics
+  type: table
+  required: false
+  description: Platform engagement data (shares, views, reactions) per narrative item,
+    used to assess relative salience and audience reach
+outputs:
+- name: narrative_competition_map
+  type: table
+  description: 'Structured comparison of competing narratives: core claim, emotional
+    frame, target audience, propagation channels, estimated salience, rhetorical strengths,
+    and identified vulnerabilities'
+- name: competition_assessment_report
+  type: markdown
+  description: Analytical report covering narrative dynamics, salience trends, resilience
+    factors, and recommendations for monitoring or protective intervention
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Entman, R.M. (1993). Framing: Toward clarification of a fractured paradigm. Journal
+  of Communication, 43(4), 51-58.'
+- Blackmore, S. (1999). The Meme Machine. Oxford University Press.
+- 'Hutchinson, B. (2019). The narrative arms race: How propaganda evolves. First Draft.'
+- 'Pamment, J., Nothhaft, H., Agardh-Twetman, H., & Fjällhed, A. (2018). Countering
+  Information Influence Activities: A Handbook for Communicators. Swedish Civil Contingencies
+  Agency (MSB).'
+- Starbird, K. (2017). Examining the alternative media ecosystem through the production
+  of alternative narratives of mass shooting events on Twitter. ICWSM.

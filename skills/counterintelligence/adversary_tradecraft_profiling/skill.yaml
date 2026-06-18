@@ -1,0 +1,79 @@
+id: counterintelligence.adversary_tradecraft_profiling
+name: Adversary Tradecraft Profiling
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Profile an adversary's methods, patterns, and signatures to anticipate their
+  moves.
+description: Adversary tradecraft profiling systematically characterizes the methods,
+  patterns, tools, and operational signatures an adversary habitually employs across
+  known operations. Drawn from counterintelligence practice, it converts scattered
+  incident data into a durable behavioral model that enables anticipation of future
+  moves, attribution of ambiguous incidents, and identification of gaps the adversary
+  exploits. The technique applies structured elicitation across the TTPS (Tactics,
+  Techniques, Procedures, and Signatures) framework to distinguish stable behavioral
+  fingerprints from adaptive camouflage.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- attribution
+- behavioral-analysis
+triggers:
+- profile this adversary
+- what is their playbook
+- characterize their methods
+- what TTPs does this actor use
+- how do they typically operate
+- adversary signature analysis
+tools:
+- verb: read
+  purpose: ingest known incident reports, case histories, and prior analytic products
+    on the adversary
+- verb: reason
+  purpose: extract stable behavioral patterns, rank by consistency, and distinguish
+    TTPs from one-off adaptations
+- verb: write
+  purpose: 'emit a structured tradecraft profile: TTPS table, confidence assessments,
+    anticipatory indicators, and collection gaps'
+inputs:
+- name: incident_corpus
+  type: list
+  required: true
+  description: Known or attributed operations, incidents, or cases involving the adversary
+    — sourced from case files, open reporting, or prior analytic products
+- name: adversary_identifier
+  type: text
+  required: true
+  description: Name, alias, or cluster label for the adversary being profiled
+- name: collection_gaps
+  type: text
+  required: false
+  description: Known blind spots or missing reporting that may skew the profile
+outputs:
+- name: tradecraft_profile
+  type: table
+  description: 'TTPS table: each tactic with associated techniques, observed procedures,
+    confidence level, and frequency across known cases'
+- name: anticipatory_indicators
+  type: markdown
+  description: Behavioral signatures to watch for in future operations, keyed to the
+    stable patterns identified
+- name: profile_caveats
+  type: markdown
+  description: Confidence-bounded caveats noting collection gaps, potential for adversary
+    adaptation, and risks of mirror-imaging
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J. & Pherson, R.H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. (Chapter on Indicators).
+- 'Byman, D. & Pollack, K. (2001). ''Let Us Now Praise Great Men: Bringing the Statesman
+  Back In.'' International Security 25(4).'
+- MITRE ATT&CK Framework (2023). Adversary Tactics, Techniques, and Common Knowledge.
+  MITRE Corporation. https://attack.mitre.org/
+- 'Grabo, C.M. (2004). Anticipating Surprise: Analysis for Strategic Warning. University
+  Press of America.'

@@ -1,0 +1,78 @@
+id: critical_review.citation_integrity_review
+name: Citation Integrity Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Verify citations exist, say what they're claimed to say, and support the
+  cited point.
+description: Citation Integrity Review is a systematic audit that verifies each citation
+  in a document actually exists, that the cited source says what the author claims
+  it says, and that the source genuinely supports the specific point being made at
+  that location. In cognitive-security contexts, citation misrepresentation — whether
+  through fabrication, selective quotation, context stripping, or source laundering
+  — is a primary mechanism for lending false authority to disinformation or manipulated
+  narratives; this review defends against that attack surface.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- source-verification
+- disinformation-defense
+triggers:
+- citation integrity
+- verify citations
+- check references
+- fabricated citations
+- source verification
+- citation audit
+- do the sources say what they claim
+tools:
+- verb: read
+  purpose: ingest the document and extract every citation, footnote, and reference
+    claim
+- verb: web
+  purpose: retrieve cited sources to confirm existence, access the actual text, and
+    check what the source genuinely states
+- verb: reason
+  purpose: compare what the author claims the source says against what the source
+    actually says, and assess whether the source supports the cited point
+- verb: write
+  purpose: emit the citation integrity audit table and narrative with a verdict and
+    severity rating for each citation
+inputs:
+- name: document
+  type: text
+  required: true
+  description: The document or report containing citations to be audited — include
+    footnotes, endnotes, and in-text references
+- name: citation_list
+  type: list
+  required: false
+  description: Optional pre-extracted list of citations to audit; if omitted the review
+    extracts them from the document
+outputs:
+- name: citation_audit_table
+  type: table
+  description: 'A table with one row per citation: citation identifier, in-text claim
+    made, source existence verdict, what the source actually states, match assessment
+    (accurate / partial / distorted / fabricated), and severity rating'
+- name: integrity_summary
+  type: markdown
+  description: A narrative summary of overall citation integrity, patterns of misrepresentation
+    found, the most serious violations, and recommendations for whether the document
+    can be trusted or should be rejected
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Roozenbeek, J., & van der Linden, S. (2019). Fake news game confers psychological
+  resistance against online misinformation. Palgrave Communications, 5(1), 65.
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe.'
+- Bik, E. M., Casadevall, A., & Fang, F. C. (2016). The Prevalence of Inappropriate
+  Image Duplication in Biomedical Research Publications. mBio, 7(3). (On citation
+  and evidence misrepresentation patterns.)
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press. Chapter on Source Evaluation.

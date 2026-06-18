@@ -1,0 +1,82 @@
+id: cognitive_security.propaganda_technique_classification
+name: Propaganda Technique Classification
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Classify content against the canonical propaganda techniques (IPA and successors).
+description: Propaganda Technique Classification systematically identifies and labels
+  the specific rhetorical devices in content against the canonical taxonomy established
+  by the Institute for Propaganda Analysis (IPA, 1937) and extended by Jowett & O'Donnell,
+  Bernays, and contemporary computational SEMEVAL frameworks. The skill maps content
+  to techniques including transfer, glittering generalities, plain folks, card stacking,
+  bandwagon, name-calling, and testimonial, then assesses persuasive intent and likely
+  audience impact. It is a defensive, recognition-oriented skill that enables analysts
+  and educators to name and explain manipulation rather than fall prey to it.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- propaganda-analysis
+- rhetorical-analysis
+triggers:
+- classify propaganda techniques
+- what techniques is this using
+- identify rhetorical manipulation
+- propaganda taxonomy
+- IPA technique analysis
+- detect persuasion techniques
+tools:
+- verb: read
+  purpose: ingest the content to be classified and any contextual metadata (source,
+    intended audience, platform)
+- verb: reason
+  purpose: apply the propaganda technique taxonomy to identify, label, and explain
+    each technique present in the content
+- verb: write
+  purpose: produce the annotated technique classification table and interpretation
+    narrative
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The text, speech excerpt, advertisement, social media post, or media
+    item to be analyzed for propaganda techniques
+- name: context_metadata
+  type: text
+  required: false
+  description: Source, publication date, intended audience, platform, and any known
+    campaign context that informs technique interpretation
+- name: taxonomy_scope
+  type: text
+  required: false
+  description: 'Optional: restrict analysis to a specific taxonomy or technique family
+    (IPA seven, SEMEVAL 2020 18-class, Bernays/Ellul framing, contemporary DISARM
+    techniques)'
+outputs:
+- name: technique_classification_table
+  type: table
+  description: 'Table mapping each identified technique to: canonical label, verbatim
+    content excerpt, mechanism of persuasion, likely cognitive lever exploited, and
+    confidence level'
+- name: analytical_interpretation
+  type: markdown
+  description: 'Narrative interpretation of the technique mix: strategic intent, target
+    audience vulnerabilities exploited, interaction effects between co-deployed techniques,
+    and countermeasures'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Institute for Propaganda Analysis (1937). How to Detect Propaganda. Propaganda Analysis,
+  1(2), 1–4.
+- Jowett, G. S., & O'Donnell, V. (2019). Propaganda and Persuasion (7th ed.). SAGE
+  Publications.
+- 'Da San Martino, G., et al. (2020). SemEval-2020 Task 11: Detection of Propaganda
+  Techniques in News Articles. Proceedings of the 14th International Workshop on Semantic
+  Evaluation (SemEval-2020).'
+- Bernays, E. L. (1928). Propaganda. Horace Liveright.
+- 'Ellul, J. (1965). Propaganda: The Formation of Men''s Attitudes. Knopf.'
+- Haskins, E. V. (2007). Logos and Power in Isocrates and Aristotle. University of
+  South Carolina Press.

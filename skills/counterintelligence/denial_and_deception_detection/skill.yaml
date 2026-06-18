@@ -1,0 +1,83 @@
+id: counterintelligence.denial_and_deception_detection
+name: Denial & Deception Detection
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Detect adversary denial and deception by testing for what a deceiver would
+  hide or plant.
+description: Denial and Deception (D&D) detection applies counterintelligence logic
+  to assess whether an adversary is actively withholding information (denial) or fabricating/staging
+  evidence to mislead analysis (deception). The technique reverses the analyst's natural
+  posture — instead of asking 'what does the evidence tell us?', it asks 'what would
+  a rational deceiver need to hide or plant for us to reach this conclusion?' Introduced
+  systematically by Godson and Wirtz and codified by Heuer, it is the foundational
+  check against being manipulated through sources the analyst believes are reliable.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- deception-detection
+- source-integrity
+triggers:
+- could this be deception
+- denial and deception check
+- is this evidence planted
+- D&D analysis
+- are we being manipulated here
+- test for deception
+- adversary denial check
+tools:
+- verb: read
+  purpose: ingest the body of evidence under assessment, prior analytic judgments
+    built on it, and adversary capability profiles
+- verb: reason
+  purpose: 'apply the deceiver''s calculus: test what a motivated, capable adversary
+    would need to do to produce this evidence picture, and assess whether that scenario
+    is plausible'
+- verb: write
+  purpose: produce a D&D assessment with a deception-plausibility score, key deception
+    indicators, and recommended collection to resolve ambiguity
+inputs:
+- name: evidence_body
+  type: list
+  required: true
+  description: The body of information or intelligence under review — reports, data,
+    observations — that may be subject to adversary manipulation
+- name: current_assessment
+  type: text
+  required: true
+  description: The analytic judgment or conclusion currently supported by this evidence
+- name: adversary_profile
+  type: text
+  required: false
+  description: Known adversary capability, motivation, and history of D&D operations
+    against this or similar analytic processes
+outputs:
+- name: dd_assessment
+  type: markdown
+  description: 'Structured assessment: deception scenario(s) that would produce the
+    observed evidence, plausibility rating for each, and key observable differences
+    between the genuine and the deception scenario'
+- name: deception_indicators
+  type: table
+  description: Observable markers that would confirm or refute each deception hypothesis,
+    with current status (observed / not observed / unknown)
+- name: collection_recommendations
+  type: markdown
+  description: Prioritized gaps in collection that, if filled, would most sharply
+    discriminate between the genuine and the deception scenario
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. (Chapter 12: Biases in Evaluation of Evidence).'
+- 'Godson, R. & Wirtz, J.J. (2000). ''Strategic Denial and Deception.'' International
+  Journal of Intelligence and Counterintelligence 13(4): 424-437.'
+- 'Whaley, B. (2007). Stratagem: Deception and Surprise in War. Artech House.'
+- 'Grabo, C.M. (2004). Anticipating Surprise: Analysis for Strategic Warning. University
+  Press of America.'
+- Jervis, R. (1976). Perception and Misperception in International Politics. Princeton
+  University Press. (Chapter 6).

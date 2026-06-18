@@ -1,0 +1,76 @@
+id: osint_integrity.cross_source_corroboration
+name: Cross-Source Corroboration
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Require independent corroboration before promoting a claim to a finding.
+description: 'Cross-source corroboration is the practice of requiring independent
+  confirmation from at least one additional source before elevating a claim from raw
+  collection to an analytic finding. The technique recognizes that a single source
+  — however credible — is insufficient because it may be fabricated, mistaken, or
+  part of a coordinated deception campaign seeding the same narrative across multiple
+  outlets. True corroboration demands source independence: two sources must not share
+  a common origin, be controlled by the same actor, or derive their claim from the
+  same original report. The technique is a primary defense against amplified misinformation
+  and manufactured consensus.'
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- verification
+- source-analysis
+triggers:
+- corroborate this claim
+- is this independently confirmed
+- check multiple sources
+- verify before promoting
+- single source finding
+tools:
+- verb: read
+  purpose: ingest the candidate claim and all sources currently supporting it
+- verb: search
+  purpose: locate additional sources that may independently confirm or contradict
+    the claim
+- verb: reason
+  purpose: assess source independence, trace common origins, detect coordinated amplification,
+    and weigh the strength of corroboration
+- verb: write
+  purpose: produce the corroboration assessment and a promotion decision with documented
+    rationale
+inputs:
+- name: candidate_claim
+  type: text
+  required: true
+  description: The specific factual claim under evaluation, stated precisely enough
+    to be confirmed or disconfirmed
+- name: source_list
+  type: list
+  required: true
+  description: All sources currently asserting or reporting the claim, with publication
+    date, outlet, and URL or archive link
+- name: source_metadata
+  type: table
+  required: false
+  description: Known information about each source's ownership, funding, editorial
+    history, and past reliability
+outputs:
+- name: corroboration_assessment
+  type: table
+  description: Source-by-source independence analysis showing origin tracing, common-root
+    findings, and corroboration tier for each source
+- name: promotion_decision
+  type: markdown
+  description: Binary promotion decision (promote / hold) with documented rationale,
+    confidence level, and conditions for future promotion if currently held
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. [Source evaluation and corroboration]
+- First Draft (2019). Essential Guide to Understanding Information Disorder. First
+  Draft News.
+- 'Wardle, C. & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework. Council of Europe.'

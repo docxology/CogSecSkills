@@ -1,0 +1,69 @@
+id: information_environment.bot_and_automation_detection
+name: Bot & Automation Detection
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Distinguish automated from human activity using behavioral and temporal signals.
+description: Bot and automation detection applies behavioral, temporal, network, and
+  linguistic fingerprinting to distinguish automated or semi-automated accounts from
+  genuine human participants in an information environment. The technique draws on
+  academic research into coordinated amplification, sockpuppet behavior, and platform
+  API abuse to surface accounts whose posting cadence, account-creation timing, content
+  uniformity, or follower graph structure are inconsistent with organic human activity.
+  Outputs support decisions about source credibility, narrative provenance, and the
+  severity of inauthentic amplification.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- inauthenticity-detection
+triggers:
+- is this account a bot
+- detect automated accounts
+- check for bot behavior
+- is this amplification organic
+- bot or human
+- automation signatures
+tools:
+- verb: read
+  purpose: ingest account metadata, post history, and behavioral timelines
+- verb: reason
+  purpose: apply behavioral, temporal, and linguistic heuristics to classify accounts
+- verb: search
+  purpose: cross-reference known bot indicators and look up account reputation signals
+- verb: write
+  purpose: emit a structured classification report with evidence and confidence ratings
+inputs:
+- name: account_data
+  type: table
+  required: true
+  description: 'Account identifiers plus available metadata: creation date, post volume,
+    follower/following ratio, posting timestamps, content samples, profile completeness'
+- name: context
+  type: text
+  required: false
+  description: The platform, campaign, or event being investigated, to calibrate base
+    rates and behavioral norms
+outputs:
+- name: account_classifications
+  type: table
+  description: Per-account classification (likely bot / likely human / ambiguous),
+    confidence, and the primary evidence signals driving each classification
+- name: detection_report
+  type: markdown
+  description: Summary of the detection methodology, aggregate bot-likelihood distribution,
+    caveats, and recommended follow-on actions
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Varol, O., Ferrara, E., Davis, C.A., Menczer, F., & Flammini, A. (2017). Online
+  human-bot interactions: Detection, estimation, and characterization. ICWSM.'
+- Ferrara, E., Varol, O., Davis, C., Menczer, F., & Flammini, A. (2016). The rise
+  of social bots. Communications of the ACM, 59(7), 96-104.
+- 'Beskow, D.M., & Carley, K.M. (2018). Bot-hunter: A tiered approach to detecting
+  & characterizing automated activity on Twitter. SBP-BRiMS.'
+- 'Nimmo, B. (2017). Anatomy of an Info-War: How Russia''s Propaganda Machine Works.
+  StopFake.'

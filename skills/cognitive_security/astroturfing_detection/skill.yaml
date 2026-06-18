@@ -1,0 +1,72 @@
+id: cognitive_security.astroturfing_detection
+name: Astroturfing Detection
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Distinguish manufactured grassroots activity from organic engagement.
+description: Astroturfing detection identifies manufactured grassroots activity —
+  coordinated campaigns designed to simulate organic, spontaneous public support or
+  opposition. The technique draws on network-structure analysis, account behavioral
+  signals, and content-similarity patterns to distinguish authentic civic expression
+  from synthetic amplification. Defensively, it helps analysts, journalists, and platform
+  trust-and-safety teams surface coordinated inauthentic behavior (CIB) and protect
+  genuine public discourse from being drowned out or misrepresented.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- osint
+- influence-operations
+triggers:
+- is this astroturfing
+- detect fake grassroots
+- coordinated inauthentic behavior
+- manufactured consensus
+- is this organic engagement
+- bot network analysis
+- synthetic amplification
+tools:
+- verb: read
+  purpose: ingest account data, post content, and network metadata for the candidate
+    campaign
+- verb: search
+  purpose: query external databases, prior CIB disclosures, and threat-intel feeds
+    to cross-reference known actor TTPs
+- verb: reason
+  purpose: apply behavioral, structural, and content-similarity heuristics to score
+    artificiality
+- verb: write
+  purpose: emit a structured detection report with confidence tiers and evidence chains
+inputs:
+- name: campaign_sample
+  type: table
+  required: true
+  description: A sample of accounts, posts, timestamps, and engagement metrics suspected
+    of coordinated inauthentic behavior
+- name: baseline_context
+  type: text
+  required: false
+  description: Description of the topic, event, or platform context in which the activity
+    appeared
+outputs:
+- name: detection_report
+  type: markdown
+  description: Structured report flagging coordinated clusters, behavioral red flags,
+    confidence tier, and recommended follow-on actions
+- name: indicator_table
+  type: table
+  description: Per-account or per-cluster table of indicators (creation date, posting
+    velocity, content-hash overlap, cross-platform presence)
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as Collaborative Work:
+  Surfacing the Participatory Nature of Strategic Information Operations. CSCW.'
+- Stanford Internet Observatory (2022). Coordinated Inauthentic Behavior Takedown
+  Archive. Stanford University.
+- Renée DiResta (2018). The Digital Maginot Line. Ribbon Farm.
+- 'Luceri, L. et al. (2020). Detecting Troll Behavior via Inverse Reinforcement Learning:
+  A Case Study of Russian Trolls in the 2016 US Election. ICWSM.'

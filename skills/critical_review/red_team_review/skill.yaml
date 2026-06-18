@@ -1,0 +1,79 @@
+id: critical_review.red_team_review
+name: Red-Team Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Adversarially stress an artifact to find the failure mode its authors did
+  not anticipate.
+description: Red-Team Review adversarially stresses an artifact — a plan, policy,
+  argument, model, system, or narrative — to find failure modes, attack surfaces,
+  and exploitable assumptions that the authors did not anticipate. Drawing on the
+  structured analytic tradition of Devil's Advocacy and Team A/Team B analysis, and
+  the security tradition of adversarial red teaming, the reviewer deliberately adopts
+  an opposing or adversarial stance, generating the strongest possible critique, attack,
+  or counter-narrative the artifact could face. The output is a ranked catalog of
+  vulnerabilities, exploitation paths, and proposed mitigations, not a balanced review
+  — the goal is maximum stress, not fairness. In cognitive-security contexts this
+  includes identifying how a disinformation actor or manipulative adversary could
+  exploit a proposed policy, narrative, or analytical product.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- adversarial
+- challenge-analysis
+triggers:
+- red team
+- stress test
+- adversarial review
+- poke holes
+- attack this plan
+- devil's advocate
+- what could go wrong
+- find the flaw
+tools:
+- verb: read
+  purpose: ingest the artifact and its stated assumptions, goals, and design rationale
+- verb: reason
+  purpose: adopt the adversarial perspective to generate and rank failure modes, attack
+    paths, and exploitable assumptions
+- verb: write
+  purpose: produce the ranked vulnerability catalog, exploitation paths, and mitigation
+    recommendations
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: the plan, policy, argument, model, system, or narrative to be stress-tested
+- name: adversary_profile
+  type: text
+  required: false
+  description: a description of the adversary or opposing actor whose perspective
+    the red team should adopt (capabilities, goals, resources, constraints)
+- name: review_scope
+  type: list
+  required: false
+  description: specific dimensions to focus on (e.g., logical, operational, technical,
+    reputational, information-environment)
+outputs:
+- name: vulnerability_catalog
+  type: table
+  description: rows = identified vulnerability or failure mode; columns = category,
+    description, exploitation path, likelihood, impact, mitigation
+- name: red_team_narrative
+  type: markdown
+  description: adversarial narrative — the strongest case against the artifact, written
+    from the opposing perspective, followed by mitigation recommendations
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.), Ch. 7 (Devil's Advocacy, Team A/Team B). CQ Press.
+- 'Zenko, M. (2015). Red Team: How to Succeed by Thinking Like the Enemy. Basic Books.'
+- NIST SP 800-115 (2008). Technical Guide to Information Security Testing and Assessment.
+  §4.3 Adversarial Techniques.
+- Chang, W. & Tetlock, P. (2016). Rethinking the Training of Intelligence Analysts.
+  Intelligence and National Security 31(6).

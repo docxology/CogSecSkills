@@ -1,0 +1,80 @@
+id: information_environment.coordinated_inauthentic_behavior_detection
+name: Coordinated Inauthentic Behavior Detection
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Detect coordination signatures across accounts, timing, and content reuse.
+description: Coordinated Inauthentic Behavior (CIB) detection identifies groups of
+  accounts that act in concert to manipulate public discourse while concealing the
+  organized nature of their activity. Unlike single-account bot detection, CIB detection
+  looks for temporal co-occurrence, content reuse, synchronized amplification, and
+  network clustering patterns that reveal cross-account coordination even when individual
+  accounts appear authentic in isolation. The technique operationalizes the Facebook-originated
+  CIB framework and related academic methods to distinguish organic consensus from
+  manufactured consensus.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- coordinated-manipulation
+triggers:
+- coordinated inauthentic behavior
+- detect coordination across accounts
+- is this campaign astroturfed
+- synchronized amplification
+- manufactured consensus
+- cross-account coordination
+tools:
+- verb: read
+  purpose: ingest multi-account post data, timestamps, and content for coordination
+    analysis
+- verb: reason
+  purpose: apply co-activity, content-reuse, and network-clustering algorithms to
+    surface coordination signatures
+- verb: search
+  purpose: look up prior CIB reports and cross-reference accounts with known coordinated
+    campaigns
+- verb: write
+  purpose: produce a structured CIB assessment report with evidence, network diagrams,
+    and confidence ratings
+inputs:
+- name: account_activity_dataset
+  type: table
+  required: true
+  description: 'Multi-account activity records: account IDs, post timestamps, post
+    content (or hashes), retweet/share targets, hashtag usage — covering a defined
+    time window'
+- name: investigation_scope
+  type: text
+  required: true
+  description: The event, hashtag, narrative, or campaign under scrutiny, and the
+    time window of interest
+- name: known_seed_accounts
+  type: list
+  required: false
+  description: Any accounts already suspected or confirmed as part of the operation,
+    used as seeds for network expansion
+outputs:
+- name: coordination_clusters
+  type: table
+  description: Clusters of accounts exhibiting coordination signatures, with per-cluster
+    evidence summary, size, dominant behavioral pattern, and confidence level
+- name: cib_report
+  type: markdown
+  description: Narrative report covering methodology, detected coordination patterns,
+    estimated reach, attribution confidence, and recommended response options
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Giglietto, F., Righetti, N., Rossi, L., & Marino, G. (2020). It takes a village
+  to manipulate the media: Coordinated link sharing behavior during 2018 and 2019
+  Italian elections. Information, Communication & Society, 23(6), 867-891.'
+- 'Luceri, L., Deb, A., Badawy, A., & Ferrara, E. (2019). Red bots do it better: Comparative
+  analysis of social bot partisan behavior. WWW Companion.'
+- 'Sharma, K., Qian, F., Jiang, H., Ruchansky, N., Zhang, M., & Liu, Y. (2019). Combating
+  fake news: A survey on identification and mitigation techniques. ACM Trans. Intelligent
+  Systems and Technology.'
+- 'Meta Transparency: CIB Takedown Reports (ongoing). https://transparency.fb.com/metablog-tags/coordinated-inauthentic-behavior/'

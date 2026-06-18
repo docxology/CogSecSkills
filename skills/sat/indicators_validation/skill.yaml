@@ -1,0 +1,76 @@
+id: sat.indicators_validation
+name: Indicators Validation
+group: sat
+version: 0.1.0
+status: implemented
+summary: 'Test indicators for diagnosticity: do they actually discriminate between
+  outcomes?'
+description: Indicators Validation is a quality-control technique that stress-tests
+  a candidate indicator set to determine whether each indicator genuinely discriminates
+  among the scenarios it is claimed to distinguish. It applies diagnosticity tests
+  — asking whether an indicator would appear under only one outcome, under several,
+  or under all — and prunes or restructures the indicator set accordingly. This prevents
+  the common failure mode in which analysts collect confirmatory data against indicators
+  that would appear regardless of which outcome is unfolding.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- warning-analysis
+- diagnosticity
+triggers:
+- validate these indicators
+- test indicator diagnosticity
+- are these indicators any good
+- do my indicators discriminate
+- indicators validation
+- check my warning list
+tools:
+- verb: read
+  purpose: ingest the candidate indicator set, the associated scenarios or hypotheses,
+    and any prior indicator reviews
+- verb: reason
+  purpose: apply diagnosticity tests to each indicator, identify overlap and false-diagnostic
+    indicators, and derive a validated set
+- verb: write
+  purpose: produce the validated indicators matrix with disposition rationale for
+    each item
+inputs:
+- name: candidate_indicators
+  type: table
+  required: true
+  description: the indicator set to be validated, ideally including each indicator's
+    claimed scenario association
+- name: scenarios_or_hypotheses
+  type: list
+  required: true
+  description: the full set of scenarios or hypotheses the indicators are meant to
+    distinguish
+- name: base_rate_context
+  type: text
+  required: false
+  description: known base rates or historical frequencies of candidate indicators,
+    used to assess false-positive risk
+outputs:
+- name: validated_indicators_matrix
+  type: table
+  description: the revised indicator matrix showing each indicator with its validated
+    diagnostic weight, disposition (retain/revise/drop), and rationale
+- name: validation_report
+  type: markdown
+  description: a narrative explaining the validation logic, systemic weaknesses found
+    in the original set, and recommendations for gaps in coverage
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 8, 'Indicators Validation'.
+- 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint
+  Military Intelligence College.'
+- Mandel, D. R., & Barnes, A. (2014). Accuracy of forecasts in strategic intelligence.
+  Proceedings of the National Academy of Sciences, 111(30), 10984-10989.
+- Pherson, R. H. (2012). Handbook of Analytic Tools and Techniques (4th ed.). Pherson
+  Associates.

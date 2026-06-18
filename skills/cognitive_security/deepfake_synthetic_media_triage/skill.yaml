@@ -1,0 +1,94 @@
+id: cognitive_security.deepfake_synthetic_media_triage
+name: Deepfake & Synthetic Media Triage
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Triage suspected synthetic media for tell-tales and provenance signals (defensive,
+  non-forensic).
+description: 'Deepfake and Synthetic Media Triage is a structured first-pass assessment
+  procedure for suspected AI-generated, manipulated, or misrepresented media — images,
+  video, audio, and documents. It applies a layered checklist of observable tell-tales,
+  provenance signals, and contextual inconsistencies to rapidly determine whether
+  a piece of media warrants escalation to full forensic analysis or can be assessed
+  with sufficient confidence at triage level. The technique is explicitly non-forensic:
+  it does not claim evidentiary-grade conclusions but instead produces a calibrated
+  suspicion rating, a prioritized list of anomaly observations, and a provenance chain
+  reconstruction using open-source signals. It is defensive and educational, designed
+  for analysts, journalists, educators, and information-environment practitioners
+  who need to triage at volume without laboratory tools.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- synthetic-media
+- provenance-verification
+triggers:
+- deepfake triage
+- is this image real
+- synthetic media check
+- AI-generated video assessment
+- manipulated media detection
+- deepfake tell-tales
+- provenance of this media
+- should I trust this video
+tools:
+- verb: read
+  purpose: ingest the media artifact description, metadata, and any context provided
+    by the requester
+- verb: web
+  purpose: perform reverse-image/video search, provenance chain lookup, and check
+    for prior documentation of the artifact in open sources
+- verb: reason
+  purpose: apply the structured tell-tale checklist and contextual inconsistency analysis
+    to produce a calibrated suspicion rating
+- verb: write
+  purpose: emit the triage report with anomaly observations, provenance findings,
+    suspicion rating, and escalation recommendation
+inputs:
+- name: media_artifact
+  type: text
+  required: true
+  description: 'Description of the suspected media: URL or file reference, media type
+    (image/video/audio/document), claimed source, claimed date, and the context in
+    which it was encountered'
+- name: claim_context
+  type: text
+  required: true
+  description: The specific claim the media is being used to support or evidence —
+    what is the media supposed to show and why does it matter
+- name: available_metadata
+  type: text
+  required: false
+  description: 'Any available technical metadata: EXIF data, file creation/modification
+    timestamps, platform upload metadata, C2PA or Content Credentials data if present'
+outputs:
+- name: triage_report
+  type: markdown
+  description: 'Structured report covering: media characterization, tell-tale checklist
+    results, provenance chain findings, contextual inconsistencies, overall suspicion
+    rating (Suspicious/Uncertain/Likely Authentic) with confidence level, and escalation
+    recommendation'
+- name: anomaly_log
+  type: table
+  description: 'Table of observed anomalies: anomaly type, description, diagnostic
+    weight (Strong/Moderate/Weak indicator of manipulation), and whether it is definitively
+    forensic or requires laboratory confirmation'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Witness Media Lab & First Draft (2018). Starling: An End-to-End Provenance System
+  for Journalists. Columbia University.'
+- 'Chesney, R., & Citron, D. K. (2019). Deep fakes: A looming challenge for privacy,
+  democracy, and national security. California Law Review, 107(6), 1753-1819.'
+- 'Tolosana, R., Vera-Rodriguez, R., Fierrez, J., Morales, A., & Ortega-Garcia, J.
+  (2020). Deepfakes and beyond: A survey of face manipulation and fake detection.
+  Information Fusion, 64, 131-148.'
+- Coalition for Content Provenance and Authenticity (C2PA) (2023). C2PA Technical
+  Specification v1.3. https://c2pa.org/specifications/
+- Farid, H. (2022). Creating, Using, Misusing, and Detecting Deep Fakes. Journal of
+  Online Trust and Safety, 1(4).
+- 'Snyder, M., & Doermann, D. (2020). Making Deep Fakes More Detectable: CNN Training
+  with Error Amplifying Loss Function. ACM Multimedia.'

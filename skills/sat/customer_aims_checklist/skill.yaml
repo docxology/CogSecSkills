@@ -1,0 +1,71 @@
+id: sat.customer_aims_checklist
+name: Customer (AIMS) Checklist
+group: sat
+version: 0.1.0
+status: implemented
+summary: Clarify Audience, Issue, Message, and Storyline so the product fits the decision
+  it serves.
+description: 'The Customer AIMS Checklist is a structured pre-production technique
+  that forces analysts to explicitly specify four parameters before drafting any intelligence
+  or analytic product: the Audience (who will read it and what their role is), the
+  Issue (the precise question being answered), the Message (the single most important
+  takeaway the customer needs to act on), and the Storyline (the logical flow from
+  evidence to conclusion that will persuade the specific audience). By making these
+  four parameters explicit, the checklist prevents the common failure mode of producing
+  analytically correct but decision-irrelevant products. It is equally useful as a
+  post-production review gate to assess whether a completed product actually serves
+  its intended consumer.'
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- communication-clarity
+triggers:
+- AIMS checklist
+- who is the audience
+- what is the key message
+- does this product fit the customer
+- clarity check before drafting
+tools:
+- verb: read
+  purpose: ingest the draft product or its outline, tasking requirements, and any
+    consumer context available
+- verb: reason
+  purpose: evaluate how well the draft or plan addresses each AIMS parameter and identify
+    gaps
+- verb: ask
+  purpose: surface the AIMS parameters that are ambiguous or missing from the available
+    context
+- verb: write
+  purpose: produce the completed AIMS worksheet and actionable revision recommendations
+inputs:
+- name: product_or_outline
+  type: text
+  required: true
+  description: The draft analytic product, outline, or tasking directive being evaluated
+- name: consumer_context
+  type: text
+  required: false
+  description: 'Any known information about the intended audience: role, decision
+    context, prior knowledge, time constraints'
+outputs:
+- name: aims_worksheet
+  type: table
+  description: A four-row table specifying the resolved Audience, Issue, Message,
+    and Storyline for this product
+- name: gap_and_misalignment_report
+  type: markdown
+  description: Assessment of where the current draft or outline fails to align with
+    one or more AIMS parameters, with specific revision recommendations
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, R. H., & Heuer, R. J. (2021). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press. (Chapter: AIMS Checklist)'
+- 'Office of the Director of National Intelligence. (2015). A Tradecraft Primer: Structured
+  Analytic Techniques for Improving Intelligence Analysis. ODNI.'

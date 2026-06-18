@@ -1,0 +1,80 @@
+id: sat.red_hat_analysis
+name: Red Hat Analysis
+group: sat
+version: 0.1.0
+status: implemented
+summary: Model an adversary's perceptions and likely decisions from their frame, not
+  yours.
+description: Red Hat Analysis (also called Red Team Perspective or Enemy-Think) requires
+  the analyst to step fully inside an adversary's worldview — their goals, constraints,
+  organizational culture, decision calculus, and risk tolerance — and reason forward
+  from that frame rather than projecting one's own. The purpose is to anticipate adversary
+  actions, identify exploitable vulnerabilities, and avoid the mirror-imaging error
+  of assuming the adversary thinks and values as we do. In cognitive-security contexts
+  it also surfaces how adversaries model and manipulate target audiences, revealing
+  influence vectors that mirror-imaging would hide.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- adversary-modeling
+triggers:
+- red hat analysis
+- think like the adversary
+- enemy think
+- what would they do
+- adversary perspective
+- mirror imaging risk
+tools:
+- verb: read
+  purpose: ingest all available information about the adversary's stated goals, past
+    behavior, organizational culture, constraints, and decision-making history
+- verb: reason
+  purpose: 'construct the adversary''s internal frame: goals, constraints, risk tolerance,
+    perceived opportunities, and likely decision logic — then reason forward to probable
+    actions'
+- verb: write
+  purpose: emit the adversary profile, inferred decision calculus, most probable and
+    most dangerous courses of action, and mirror-imaging risks identified
+inputs:
+- name: adversary_profile
+  type: text
+  required: true
+  description: 'available information on the adversary: identity, stated objectives,
+    past actions, organizational culture, known constraints, and decision-making authorities'
+- name: situation_context
+  type: text
+  required: true
+  description: the current situation the adversary is facing, including perceived
+    threats, opportunities, and the environment from their vantage point
+- name: analytic_question
+  type: text
+  required: false
+  description: the specific question the adversary-perspective analysis should answer
+    (e.g., what action will they take next, how will they interpret our signal)
+outputs:
+- name: adversary_frame
+  type: markdown
+  description: 'structured reconstruction of the adversary''s worldview: goals, constraints,
+    risk tolerance, information environment, and key decision variables as they understand
+    them'
+- name: courses_of_action
+  type: markdown
+  description: most probable and most dangerous adversary courses of action (COAs),
+    with the internal reasoning chain the adversary would follow to choose each
+- name: mirror_imaging_flags
+  type: markdown
+  description: explicit identification of assumptions in the current analytic line
+    that project our own values or logic onto the adversary without evidence
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Red Hat Analysis.
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
+  Intelligence, CIA. Chapter 8 (mirror imaging).
+- Jervis, R. (1976). Perception and Misperception in International Politics. Princeton
+  University Press.

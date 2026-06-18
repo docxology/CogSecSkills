@@ -1,0 +1,95 @@
+id: cognitive_security.counter_messaging_strategy
+name: Counter-Messaging Strategy
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Design ethical counter-messaging that corrects without amplifying the original
+  falsehood.
+description: 'Counter-Messaging Strategy designs ethical, evidence-based communications
+  that correct specific falsehoods without inadvertently reinforcing them — applying
+  the ''truth sandwich'' principle, inoculation theory, and cognitive science of misinformation
+  correction. The technique distinguishes between pre-bunking (raising immunity before
+  exposure) and de-bunking (correcting after exposure), and selects the appropriate
+  frame, messenger, channel, and format for the target audience and falsehood type.
+  It explicitly avoids the backfire effect trap and the amplification paradox (repeating
+  a lie to refute it), instead centering the accurate narrative and flagging the manipulation
+  technique rather than the specific false claim. This skill is strictly defensive
+  and educational: it produces counter-messaging designs for institutional or civil-society
+  use, not operational propaganda playbooks.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- counter-disinformation
+- inoculation-theory
+triggers:
+- counter-messaging strategy
+- how do I correct this without amplifying it
+- design a rebuttal
+- prebunking versus debunking
+- inoculation message design
+- truth sandwich
+- counter this false narrative ethically
+tools:
+- verb: read
+  purpose: ingest the false claim or narrative, audience profile, and channel context
+- verb: reason
+  purpose: diagnose the falsehood type, manipulation technique, and audience vulnerability
+    factors; select the appropriate counter-messaging framework
+- verb: write
+  purpose: produce the counter-messaging strategy document including message frame,
+    messenger recommendation, channel guidance, and sample language
+inputs:
+- name: false_claim_or_narrative
+  type: text
+  required: true
+  description: The specific false or misleading claim, narrative, or piece of content
+    to be countered — quoted as precisely as possible to avoid scope creep
+- name: audience_profile
+  type: text
+  required: true
+  description: 'Description of the target audience for the counter-message: prior
+    beliefs, media diet, trusted messengers, vulnerability factors (polarization,
+    distrust of institutions, etc.)'
+- name: intervention_timing
+  type: text
+  required: false
+  description: Whether the audience has already been exposed (de-bunking) or the falsehood
+    is anticipated but not yet viral (pre-bunking/inoculation) — determines framework
+    selection
+- name: channel_constraints
+  type: list
+  required: false
+  description: Available channels and formats (e.g. social media, broadcast, community
+    meetings, trusted-messenger networks) and any constraints (character limits, prohibited
+    platforms)
+outputs:
+- name: counter_messaging_strategy
+  type: markdown
+  description: 'Full strategy document covering: framework selection rationale (pre-bunk
+    vs de-bunk), core accurate narrative to center, manipulation technique to name,
+    messenger recommendations, channel and format guidance, what NOT to say (amplification
+    risks), and sample counter-message language'
+- name: message_variants_table
+  type: table
+  description: Table of message variants by channel/audience segment with key framing
+    elements, recommended messenger type, and estimated exposure timing
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Cook, J., Lewandowsky, S., & Ecker, U. K. H. (2017). Neutralizing misinformation
+  through inoculation: Exposing misleading argumentation techniques reduces their
+  influence. PLOS ONE, 12(5), e0175799.'
+- 'Lewandowsky, S., Ecker, U. K. H., & Cook, J. (2017). Beyond misinformation: Understanding
+  and coping with the ''post-truth'' era. Journal of Applied Research in Memory and
+  Cognition, 6(4), 353-369.'
+- 'Nyhan, B., & Reifler, J. (2010). When corrections fail: The persistence of political
+  misperceptions. Political Behavior, 32(2), 303-330.'
+- Roozenbeek, J., & van der Linden, S. (2019). Fake news game confers psychological
+  resistance against online misinformation. Palgrave Communications, 5(1), 65.
+- First Draft (2019). Understanding Information Disorder. First Draft News. https://firstdraftnews.org/
+- Pennycook, G., & Rand, D. G. (2021). The psychology of fake news. Trends in Cognitive
+  Sciences, 25(5), 388-402.

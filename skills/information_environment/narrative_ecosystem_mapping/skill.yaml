@@ -1,0 +1,77 @@
+id: information_environment.narrative_ecosystem_mapping
+name: Narrative Ecosystem Mapping
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Map the competing narratives, carriers, and audiences in an information space.
+description: Narrative Ecosystem Mapping identifies and structurally represents the
+  competing narratives, their carriers (accounts, outlets, communities), amplification
+  pathways, and target audiences within a defined information space. Derived from
+  Strategic Communication and influence-environment research traditions, the technique
+  treats narratives as living entities that compete for salience and seeks to reveal
+  which framings dominate, which are suppressed, and what dynamics sustain the ecosystem.
+  The output supports defensive counter-narrative design and influence-environment
+  vulnerability assessment.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- strategic-communication
+- influence-environment
+triggers:
+- map the narratives in this space
+- what competing stories are circulating
+- narrative ecosystem
+- who is carrying which narrative
+- information environment mapping
+tools:
+- verb: read
+  purpose: ingest collected content samples, actor lists, and prior reporting about
+    the information space
+- verb: search
+  purpose: retrieve narrative examples, actor profiles, and platform-specific discourse
+    to populate the map
+- verb: reason
+  purpose: identify dominant narratives, sub-narratives, carriers, audience segments,
+    and inter-narrative tensions
+- verb: write
+  purpose: produce the structured narrative ecosystem map with narrative inventory,
+    carrier network, and vulnerability assessment
+inputs:
+- name: information_space_definition
+  type: text
+  required: true
+  description: Geographic, linguistic, topical, or platform scope that delimits the
+    ecosystem under examination
+- name: content_sample
+  type: list
+  required: false
+  description: Representative posts, articles, broadcasts, or messages already collected
+    from the space
+- name: known_actors
+  type: list
+  required: false
+  description: Pre-identified accounts, media outlets, organizations, or influencers
+    active in the space
+outputs:
+- name: narrative_inventory
+  type: table
+  description: Each narrative named, framed in a single sentence, with dominant carrier
+    types and estimated salience
+- name: ecosystem_map
+  type: markdown
+  description: Structured description of narrative competition dynamics, carrier network
+    nodes, amplification pathways, audience segments, and identified ecosystem vulnerabilities
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Beskow, D. & Carley, K. (2019). Social Cybersecurity: An Emerging National Security
+  Requirement. Military Review.'
+- NATO Strategic Communications Centre of Excellence (2015). Analysis of Russia's
+  Information Campaign Against Ukraine.
+- Pamment, J. (2018). The narratives of disinformation. In Information Warfare. Springer.
+- 'Rid, T. (2020). Active Measures: The Secret History of Disinformation and Political
+  Warfare. Farrar, Straus and Giroux.'

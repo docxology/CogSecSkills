@@ -1,0 +1,73 @@
+id: osint_integrity.collection_plan_design
+name: Collection Plan Design
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Plan ethical, scoped collection tied to specific intelligence requirements.
+description: Collection plan design translates intelligence requirements into a disciplined,
+  scoped, and ethically bounded OSINT collection strategy before any data is gathered.
+  The plan specifies what information is needed and why, which open sources are in
+  scope, what collection methods are lawful and proportionate, how data will be stored
+  and protected, and what review checkpoints govern the effort. Establishing these
+  parameters in advance prevents scope creep, reduces legal exposure, and ensures
+  that collected material remains relevant to the stated analytic question. It is
+  the upstream governance document for all subsequent OSINT work.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- collection-management
+- ethics
+triggers:
+- plan OSINT collection
+- define collection scope
+- intelligence requirements
+- what sources should we collect
+- design a collection strategy
+tools:
+- verb: read
+  purpose: ingest the intelligence requirement, prior collection records, legal constraints,
+    and organizational policies
+- verb: reason
+  purpose: derive collection priorities, source selection criteria, ethical boundaries,
+    and risk assessment from the requirement
+- verb: ask
+  purpose: clarify ambiguous requirements or confirm legal/ethical authorization from
+    the tasking authority before proceeding
+- verb: write
+  purpose: produce the structured collection plan document including scope, sources,
+    methods, legal basis, and review schedule
+inputs:
+- name: intelligence_requirement
+  type: text
+  required: true
+  description: The specific analytic question or decision the collection must answer,
+    stated in precise terms
+- name: legal_and_policy_constraints
+  type: text
+  required: true
+  description: Applicable laws, organizational policies, and ethical frameworks governing
+    collection (e.g., privacy law, terms of service)
+- name: available_resources
+  type: text
+  required: false
+  description: Personnel, tools, time, and budget available for the collection effort
+outputs:
+- name: collection_plan
+  type: markdown
+  description: Structured document specifying the requirement, in-scope sources, collection
+    methods, legal basis, data handling rules, and review checkpoints
+- name: source_priority_matrix
+  type: table
+  description: Ranked list of sources with rationale, expected yield, reliability
+    tier, and access method
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Lowenthal, M. M. (2019). Intelligence: From Secrets to Policy (8th ed.). CQ Press.'
+- NATO (2016). Open Source Intelligence Handbook. NATO Open Source Intelligence Reader.
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press.

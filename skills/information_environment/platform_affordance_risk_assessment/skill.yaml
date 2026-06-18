@@ -1,0 +1,78 @@
+id: information_environment.platform_affordance_risk_assessment
+name: Platform Affordance Risk Assessment
+group: information_environment
+version: 0.1.0
+status: implemented
+summary: Assess how a platform's features enable or constrain manipulation.
+description: Platform Affordance Risk Assessment systematically evaluates how a specific
+  platform's technical features, algorithmic systems, and policy architecture enable
+  or constrain information manipulation. Rooted in affordance theory (Gibson; Norman)
+  and applied to sociotechnical systems, it maps each platform feature—virality mechanics,
+  recommendation algorithms, group/channel structures, anonymity policies, ad targeting—to
+  the manipulation vectors those features enable. The output equips analysts, platform
+  trust-and-safety teams, and policymakers to prioritize design mitigations and anticipate
+  where influence operations will exploit platform architecture.
+ageint_topic: information-environment
+tags:
+- cognitive-security
+- information_environment
+- platform-analysis
+- trust-and-safety
+triggers:
+- how does this platform enable manipulation
+- platform affordance analysis
+- what features make this platform risky
+- assess platform manipulation vectors
+- platform architecture risk
+tools:
+- verb: read
+  purpose: ingest platform documentation, terms of service, policy reports, and prior
+    research on the platform's manipulation surface
+- verb: search
+  purpose: retrieve published research, investigative reports, and incident case studies
+    specific to the target platform
+- verb: reason
+  purpose: map each platform feature to manipulation vectors, assess risk severity,
+    and identify mitigations
+- verb: write
+  purpose: produce the structured risk matrix and findings narrative
+inputs:
+- name: platform_name
+  type: text
+  required: true
+  description: Name and version/context of the platform to be assessed (e.g., 'X/Twitter
+    as of 2024', 'Telegram public channels')
+- name: threat_actor_profile
+  type: text
+  required: false
+  description: Description of the adversarial actor or manipulation scenario of concern
+    — influences which affordances to prioritize
+- name: prior_incident_reports
+  type: list
+  required: false
+  description: Known documented influence operations or abuse incidents on this platform
+    for grounding the assessment in real precedent
+outputs:
+- name: affordance_risk_matrix
+  type: table
+  description: Each platform feature listed with its manipulation vector(s), exploitation
+    mechanism, severity rating (High/Medium/Low), and known real-world precedent
+- name: risk_narrative
+  type: markdown
+  description: Analyst narrative summarizing highest-risk affordances, cross-feature
+    interaction effects, and prioritized mitigation recommendations
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Gillespie, T. (2014). The Relevance of Algorithms. In Media Technologies. MIT Press.
+- 'Gorwa, R., Binns, R., & Katzenbach, C. (2020). Algorithmic content moderation:
+  Technical and political challenges in the automation of platform governance. Big
+  Data & Society.'
+- Marwick, A. & Lewis, R. (2017). Media Manipulation and Disinformation Online. Data
+  & Society Research Institute.
+- Renée DiResta (2018). The Digital Maginot Line. Ribbon Farm.
+- Zannettou, S., et al. (2019). On the Origins of Memes by Means of Fringe Web Communities.
+  ACM IMC.

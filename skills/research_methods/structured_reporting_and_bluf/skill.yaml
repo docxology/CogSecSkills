@@ -1,0 +1,80 @@
+id: research_methods.structured_reporting_and_bluf
+name: Structured Reporting & BLUF
+group: research_methods
+version: 0.1.0
+status: implemented
+summary: Write findings bottom-line-up-front with traceable evidence and stated confidence.
+description: Structured Reporting with Bottom-Line-Up-Front (BLUF) is an analytic
+  communication standard that places the key judgment and its confidence level in
+  the first sentence or paragraph, then supports it with traceable evidence, clearly
+  stated assumptions, and logical argumentation in descending order of importance.
+  Originating in military and intelligence tradecraft and codified in intelligence
+  community analytic standards (ICD 203, ODNI), BLUF prevents the common failure mode
+  in which important caveats or contrary evidence are buried where decision-makers
+  never read them. The structure enforces accountability by requiring each claim in
+  the body to be traceable to a specific source or assumption stated explicitly.
+ageint_topic: research-methods
+tags:
+- cognitive-security
+- research_methods
+- communication
+- analytic-standards
+triggers:
+- write up the findings
+- draft the assessment
+- bottom line up front
+- BLUF format
+- structured analytic report
+- summarize with confidence
+tools:
+- verb: read
+  purpose: ingest the analytic judgment, evidence set, graded sources, and confidence
+    assessment to be reported
+- verb: reason
+  purpose: structure the argument from conclusion to supporting evidence, identify
+    key assumptions and caveats, and determine what belongs in the BLUF versus the
+    body
+- verb: write
+  purpose: produce the structured report with BLUF, sourced body paragraphs, assumptions,
+    caveats, and implications sections
+inputs:
+- name: analytic_judgment
+  type: text
+  required: true
+  description: the main analytic conclusion or estimate, with confidence level, to
+    be communicated
+- name: evidence_and_sources
+  type: list
+  required: true
+  description: the supporting evidence items and sources (ideally already graded)
+    that underpin the judgment
+- name: assumptions
+  type: list
+  required: false
+  description: key assumptions the judgment depends on, for explicit statement in
+    the report
+- name: audience_and_purpose
+  type: text
+  required: false
+  description: the intended audience and the decision they face, to calibrate detail
+    level and implications section
+outputs:
+- name: structured_report
+  type: markdown
+  description: 'a complete structured analytic report with labeled sections: BLUF
+    (key judgment + confidence), Key Evidence, Assumptions, Argument, Caveats and
+    Countervailing Evidence, and Implications'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Office of the Director of National Intelligence (2015). ICD 203: Analytic Standards.
+  ODNI.'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- 'U.S. Army (2013). ATP 2-33.4: Intelligence Analysis. Headquarters, Department of
+  the Army. (BLUF and analytic line standards.)'

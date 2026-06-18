@@ -1,0 +1,68 @@
+# CogSecSkills — multiharness agentic skills for Cognitive Security.
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cogsecskills"
+version = "0.1.0"
+description = "Multiharness agentic tool-use skills for Cognitive Security and analytic tradecraft"
+readme = "README.md"
+authors = [
+    {name = "Daniel Ari Friedman", email = "daniel@activeinference.institute"}
+]
+license = {text = "Apache-2.0"}
+keywords = [
+    "cognitive-security", "structured-analytic-techniques", "agentic-ai",
+    "intelligence-analysis", "osint", "skills", "multiharness",
+]
+requires-python = ">=3.10"
+# The runner is deliberately lightweight — PyYAML is the only runtime dependency.
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/docxology/CogSecSkills"
+
+[project.scripts]
+cogsecskills = "cogsecskills.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["cogsecskills*"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+
+[tool.coverage.run]
+# Coverage is measured only on the runner package (the project's primary code).
+source = ["cogsecskills"]
+branch = true
+omit = [
+    "tests/*",
+    "*/__init__.py",
+    "*/__main__.py",
+    "*/test_*.py",
+]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+precision = 2
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]

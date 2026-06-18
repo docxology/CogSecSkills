@@ -1,0 +1,93 @@
+id: cognitive_security.influence_operation_mapping
+name: Influence Operation Mapping
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Map an influence operation across actors, behaviors, content, and channels
+  (ABCD).
+description: Influence Operation Mapping produces a structured decomposition of a
+  suspected or confirmed influence operation across four analytic dimensions — Actors,
+  Behaviors, Content, and Distribution (ABCD) — adapted from the SIO framework and
+  related investigative tradecraft (Graphika, Stanford Internet Observatory). The
+  technique traces who is operating, what coordinated inauthentic or manipulative
+  behaviors they exhibit, what narratives and content they produce, and through which
+  platforms and channels content moves. The output is an operation map that supports
+  attribution reasoning, platform reporting, counter-operation design, and public
+  disclosure.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- influence-operations
+- ABCD-framework
+triggers:
+- influence operation
+- coordinated inauthentic behavior
+- map this IO
+- who is behind this campaign
+- actor behavior content distribution
+- ABCD framework
+- disinformation network mapping
+- operation attribution
+tools:
+- verb: read
+  purpose: 'ingest collected evidence: account data, content samples, network graphs,
+    platform reports, and prior attribution findings'
+- verb: search
+  purpose: search open sources, OSINT databases, and prior reporting to find corroborating
+    evidence, known actor profiles, and infrastructure overlaps
+- verb: reason
+  purpose: apply ABCD decomposition, assess attribution confidence, identify coordinated
+    behavior patterns, and model operation objectives
+- verb: write
+  purpose: produce the operation map, attribution confidence assessment, and counter-operation
+    or disclosure brief
+inputs:
+- name: evidence_collection
+  type: list
+  required: true
+  description: 'Collected artifacts: account handles, content samples (text/images/video),
+    network data, timestamps, platform, and any prior platform or researcher findings
+    about the campaign'
+- name: hypothesis
+  type: text
+  required: false
+  description: Initial hypothesis about actor identity, operation objective, or target
+    audience — treated as a competing hypothesis to be tested, not a conclusion
+- name: threat_actor_profiles
+  type: list
+  required: false
+  description: Known threat actor profiles, TTPs, and infrastructure indicators from
+    prior reporting (e.g., Graphika/SIO reports, DISARM framework entries) for comparison
+outputs:
+- name: abcd_operation_map
+  type: table
+  description: 'Structured ABCD decomposition table: Actors (account clusters, likely
+    principals, proxies), Behaviors (coordinated inauthentic behaviors observed),
+    Content (narrative themes, content formats, seeding vs. amplification), Distribution
+    (platforms, channels, timing patterns, amplification networks)'
+- name: attribution_assessment
+  type: markdown
+  description: 'Confidence-rated attribution assessment covering: technical indicators,
+    behavioral fingerprints, narrative consistency with known actor objectives, alternative
+    explanations, and an explicit confidence tier (low/medium/high)'
+- name: counter_operation_brief
+  type: markdown
+  description: 'Defensive brief covering: recommended platform reporting actions,
+    public disclosure options, narrative counter-strategies, and monitoring indicators
+    for operation continuation'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Graphika & Stanford Internet Observatory (2020). Roadmap for Research on Influence
+  Operations. Stanford Internet Observatory.
+- Renée DiResta et al. (2019). The Tactics & Tropes of the Internet Research Agency.
+  US Senate Select Committee on Intelligence.
+- DISARM Foundation (2023). DISARM Framework v1.4. https://www.disarm.foundation/
+- 'Nimmo, B. (2020). The Breakout Scale: Measuring the Impact of Influence Operations.
+  Brookings Institution.'
+- Starbird, K., Arif, A. & Wilson, T. (2019). Disinformation as Collaborative Work.
+  Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), 127.

@@ -1,0 +1,88 @@
+id: critical_review.threat_model_review
+name: Threat Model Review
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Review a system's threat model for missing actors, surfaces, and assumptions.
+description: 'Threat Model Review systematically audits an existing threat model —
+  such as a STRIDE, PASTA, attack tree, or narrative threat assessment — to identify
+  missing actors, overlooked attack surfaces, unvalidated assumptions, and incomplete
+  trust boundaries. The technique applies adversarial thinking to the threat model
+  itself, asking whether it captures the realistic threat population, whether its
+  mitigations are actually implemented, and whether its scope boundaries are justified
+  or merely convenient. In cognitive-security contexts this extends to information-environment
+  threat models: identifying omitted influence actors, uncovered cognitive attack
+  surfaces, and assumptions about audience resilience that have not been empirically
+  validated.'
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- threat-modeling
+triggers:
+- review this threat model
+- what actors are missing from our threat model
+- are there attack surfaces we haven't considered
+- check our STRIDE model
+- validate our threat assessment
+- red team our threat model
+- threat model gaps
+tools:
+- verb: read
+  purpose: ingest the existing threat model, its scope statement, actor list, attack
+    surface inventory, and stated mitigations
+- verb: reason
+  purpose: apply adversarial review to identify missing actors, surfaces, trust-boundary
+    errors, unvalidated assumptions, and mitigation gaps
+- verb: write
+  purpose: produce a structured gap report mapping each finding to threat-model dimension,
+    severity, and recommended remediation
+inputs:
+- name: threat_model
+  type: text
+  required: true
+  description: 'The existing threat model document: STRIDE table, PASTA analysis,
+    attack tree, or narrative threat assessment to be reviewed'
+- name: system_description
+  type: text
+  required: false
+  description: A description of the system or information environment being modeled,
+    if not fully embedded in the threat model; used to independently derive what actors
+    and surfaces should be present
+- name: review_focus
+  type: text
+  required: false
+  description: 'Optional focus area: e.g., insider threats, supply chain actors, cognitive/social
+    engineering surfaces, or a specific trust boundary'
+outputs:
+- name: gap_report
+  type: table
+  description: 'A structured table of identified gaps: each row contains dimension
+    (actors/surfaces/assumptions/mitigations/scope), specific finding, severity (critical/high/medium/low),
+    and recommended remediation or addition'
+- name: assumption_register
+  type: markdown
+  description: A list of explicit and implicit assumptions found in the threat model,
+    each tagged as validated, unvalidated-plausible, or unvalidated-risky
+- name: revised_scope_recommendation
+  type: markdown
+  description: A narrative recommendation on whether the threat model's scope boundaries
+    are justified or should be expanded, with rationale
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Shostack, A. (2014). Threat Modeling: Designing for Security. Wiley. (esp. Ch.
+  3 on finding threats and Ch. 14 on threat model review)'
+- 'Herley, C. & Van Oorschot, P.C. (2017). SoK: Science, Security and the Elusive
+  Goal of Security as a Scientific Pursuit. IEEE Symposium on Security and Privacy.'
+- 'Swanson, M. et al. (2010). NIST SP 800-30 Rev. 1: Guide for Conducting Risk Assessments.
+  NIST.'
+- Hutchins, E.M., Cloppert, M.J. & Amin, R.M. (2011). Intelligence-Driven Computer
+  Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains.
+  Lockheed Martin Corp.
+- Rid, T. & McBurney, P. (2012). Cyber-Weapons. RUSI Journal, 157(1), 6-13. (on adversary
+  actor taxonomy and motivations)

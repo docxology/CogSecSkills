@@ -1,0 +1,66 @@
+id: osint_integrity.metadata_integrity_check
+name: Metadata Integrity Check
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Use and sanity-check file/post metadata while accounting for stripping and
+  spoofing.
+description: 'Metadata integrity check extracts and critically evaluates embedded
+  file and post metadata — EXIF, XMP, IPTC, platform timestamps, author fields, device
+  identifiers — while explicitly accounting for the fact that metadata can be stripped,
+  altered, or spoofed. The technique treats metadata as a corroborating signal rather
+  than ground truth: consistent metadata raises confidence, but inconsistent or absent
+  metadata must be explained before any evidential use. It is routinely applied in
+  OSINT, legal discovery, and journalism verification workflows.'
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- provenance
+triggers:
+- check the metadata
+- what does the EXIF say
+- metadata analysis
+- verify file metadata
+- who created this file
+- when was this actually taken
+- metadata integrity
+tools:
+- verb: read
+  purpose: ingest the file or post and extract all available metadata fields
+- verb: reason
+  purpose: cross-check metadata fields for internal consistency and against external
+    corroborating evidence; assess spoofing and stripping risk
+- verb: write
+  purpose: produce a structured metadata assessment with field-by-field confidence
+    ratings and an overall integrity verdict
+inputs:
+- name: media_file_or_post
+  type: text
+  required: true
+  description: File path, URL, or description of the document, image, video, or social-media
+    post whose metadata is to be checked
+- name: claimed_provenance
+  type: text
+  required: false
+  description: Stated origin, author, date, or location that the metadata should corroborate
+outputs:
+- name: metadata_assessment
+  type: table
+  description: Field-by-field table of metadata values, expected vs. observed consistency,
+    spoofing risk notes, and an overall integrity confidence verdict
+- name: integrity_narrative
+  type: markdown
+  description: Plain-language summary of what the metadata does and does not establish,
+    and what additional corroboration is needed
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- ExifTool Documentation. Harvey, P. (2003–present). exiftool.org.
+- Sammons, J. (2012). The Basics of Digital Forensics. Syngress.
+- First Draft News (2019). Visual Verification Guide, Chapter on Metadata. firstdraftnews.org.
+- Berghel, H. (2000). Hiding Data, Forensics, and Anti-Forensics. Communications of
+  the ACM, 50(4).

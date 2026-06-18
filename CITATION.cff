@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata from this file.
+title: "CogSecSkills: Multiharness Agentic Skills for Cognitive Security"
+abstract: >-
+  A defensive, educational, harness-neutral library of 100 agentic tool-use
+  skills for Cognitive Security and analytic tradecraft — Structured Analytic
+  Techniques, source verification, deception detection, and critical review —
+  each runnable identically under Claude Code, Codex, and Hermes, with a
+  registry, an AGEINT educational upstream, and machine-checkable conformance.
+type: software
+authors:
+  - family-names: Friedman
+    given-names: Daniel Ari
+    affiliation: Active Inference Institute
+    orcid: https://orcid.org/0000-0001-6232-9096
+repository-code: https://github.com/docxology/CogSecSkills
+license: Apache-2.0
+version: 0.1.0
+date-released: '2026-06-18'
+keywords:
+  - cognitive security
+  - structured analytic techniques
+  - agentic AI
+  - intelligence analysis
+  - OSINT
+  - counterintelligence
+  - multiharness skills

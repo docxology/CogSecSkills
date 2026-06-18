@@ -1,0 +1,88 @@
+id: cognitive_security.cognitive_attack_kill_chain
+name: Cognitive Attack Kill Chain
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Stage a cognitive attack (recon→delivery→exploitation→persistence) to plan
+  defenses per stage.
+description: The Cognitive Attack Kill Chain adapts the cyber-security kill-chain
+  model to influence operations, decomposing a cognitive attack into stages — reconnaissance,
+  weaponization, delivery, exploitation, installation, command-and-control, and persistence
+  — so that defenders can identify intervention points at each stage before the attack
+  achieves its goal. By mapping observed or anticipated adversary activities to kill-chain
+  stages, defenders can assess which stages have already been traversed, which are
+  in progress, and which can still be disrupted. This is a defensive red-teaming and
+  threat-modeling technique, not an operational planning framework.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- threat-modeling
+- influence-operations
+triggers:
+- cognitive attack kill chain
+- stages of an influence operation
+- where in the kill chain
+- map the influence campaign stages
+- kill chain analysis for disinformation
+- at what stage is the attack
+- disrupt the campaign
+tools:
+- verb: read
+  purpose: ingest case evidence, campaign artifacts, and threat intelligence describing
+    observed adversary activities
+- verb: search
+  purpose: query threat-intelligence feeds, prior campaign analyses, and academic
+    literature to fill evidence gaps and contextualize TTP patterns
+- verb: reason
+  purpose: map observed activities to kill-chain stages, assess stage completeness,
+    and identify highest-leverage disruption points
+- verb: write
+  purpose: produce a staged kill-chain map, defender action table, and residual uncertainty
+    assessment
+inputs:
+- name: campaign_evidence
+  type: text
+  required: true
+  description: 'Observed or suspected adversary activities: accounts, content artifacts,
+    distribution networks, timing, and platform behaviors'
+- name: target_context
+  type: text
+  required: true
+  description: Description of the audience being targeted, the information environment,
+    and the apparent objective of the campaign
+- name: prior_threat_intel
+  type: text
+  required: false
+  description: Known TTPs, prior campaigns by the same or similar actors, or relevant
+    threat reports
+outputs:
+- name: kill_chain_map
+  type: table
+  description: 'Stage-by-stage table showing: stage name, observed indicators mapped
+    to that stage, stage completion assessment (completed / in-progress / not-yet-reached
+    / unknown), and key uncertainties'
+- name: defender_action_plan
+  type: markdown
+  description: Prioritized list of defender interventions per stage, describing what
+    action can be taken, by whom, and what the disruption effect would be
+- name: residual_uncertainty_log
+  type: markdown
+  description: Explicit log of what is not known, which stage assessments are low-confidence,
+    and what collection would reduce key uncertainties
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Hutchins, E., Cloppert, M., & Amin, R. (2011). Intelligence-Driven Computer Network
+  Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed
+  Martin.
+- 'Singer, P. W., & Brooking, E. T. (2018). LikeWar: The Weaponization of Social Media.
+  Eamon Dolan/Houghton Mifflin Harcourt.'
+- 'Rid, T. (2020). Active Measures: The Secret History of Disinformation and Political
+  Warfare. Farrar, Straus and Giroux.'
+- NATO StratCom Centre of Excellence (2020). Cognitive Warfare. NATO STRATCOM COE.
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe.'

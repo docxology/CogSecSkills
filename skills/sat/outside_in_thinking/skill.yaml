@@ -1,0 +1,72 @@
+id: sat.outside_in_thinking
+name: Outside-In Thinking
+group: sat
+version: 0.1.0
+status: implemented
+summary: Start from the broad external forces (PESTLE) shaping the issue before the
+  specifics.
+description: Outside-In Thinking is a structured analytic technique that deliberately
+  begins analysis at the broadest macro-environmental level — political, economic,
+  social, technological, legal, and environmental (PESTLE) forces — before narrowing
+  to the specific actors, events, or issues under study. The approach counteracts
+  inside-out bias, in which analysts anchor on the immediate case and underweight
+  structural drivers that constrain or enable all actors in a situation. In cognitive-security
+  and intelligence analysis it ensures that systemic pressures, narrative ecosystems,
+  and information-environment conditions are made explicit before tactical hypotheses
+  are formed.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- contextual-analysis
+triggers:
+- outside-in thinking
+- PESTLE analysis
+- start from macro forces
+- structural drivers of the issue
+- context before actors
+tools:
+- verb: read
+  purpose: ingest the focal issue, prior assessments, and any available environmental
+    scans
+- verb: reason
+  purpose: systematically populate macro-level PESTLE factors and trace their influence
+    paths to the focal issue
+- verb: write
+  purpose: 'produce the layered Outside-In analysis: macro context, mezzo constraints,
+    focal-level implications'
+inputs:
+- name: focal_issue
+  type: text
+  required: true
+  description: The specific actor behavior, event, or analytic question to be explained
+    or predicted
+- name: prior_assessments
+  type: text
+  required: false
+  description: Existing analytic products or intelligence reports on the topic, used
+    to identify assumptions that may reflect inside-out bias
+- name: environmental_scan
+  type: text
+  required: false
+  description: Background material covering relevant political, economic, social,
+    technological, legal, or environmental conditions
+outputs:
+- name: outside_in_analysis
+  type: markdown
+  description: 'Layered analysis: (1) PESTLE macro-forces inventory, (2) mezzo-level
+    organizational/institutional constraints, (3) actor/event-level focal analysis
+    with macro forces explicitly linked to hypotheses, (4) key assumptions exposed
+    by the outside-in frame'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter: Outside-In Thinking.'
+- Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press.
+- Fahey, L., & Narayanan, V. K. (1986). Macroenvironmental Analysis for Strategic
+  Management. West Publishing.

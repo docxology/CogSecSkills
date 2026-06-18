@@ -1,0 +1,64 @@
+id: cognitive_security.source_credibility_evaluation
+name: Source Credibility Evaluation
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: >-
+  Grade a source on reliability and a claim on credibility using the
+  Admiralty/NATO scale.
+description: >-
+  Evaluate an information source and a specific claim along two independent
+  axes using the NATO/Admiralty Code: source reliability (A–F) based on
+  proximity, track record, motive, and independence; and information
+  credibility (1–6) based on independent confirmation, plausibility, and
+  consistency with known facts. Produce a justified two-part grade (e.g. B2)
+  and state how that grade should bound downstream use of the information.
+ageint_topic: cognitive-security
+tags: [cognitive-security, source-evaluation, admiralty-code, verification]
+triggers:
+  - source credibility
+  - how reliable is this source
+  - admiralty code
+  - can I trust this report
+  - grade this source
+  - is this claim corroborated
+  - evaluate source reliability
+tools:
+  - verb: read
+    purpose: Read the source material, the specific claim, and any provided corroborating documents.
+  - verb: search
+    purpose: Look for independent sources that confirm or contradict the claim and the source's track record.
+  - verb: reason
+    purpose: Weigh proximity, motive, independence, plausibility, and corroboration to assign the A–F and 1–6 grades.
+  - verb: write
+    purpose: Emit the justified two-axis grade and the downstream-use bound.
+inputs:
+  - name: source
+    type: string
+    required: true
+    description: Identification of the information source (author, outlet, account, document origin).
+  - name: claim
+    type: string
+    required: true
+    description: The specific factual claim to be graded for credibility.
+  - name: corroboration
+    type: list
+    required: false
+    description: Optional independent sources or evidence offered to confirm the claim.
+outputs:
+  - name: reliability_grade
+    type: string
+    description: Source reliability letter A–F with written justification.
+  - name: credibility_grade
+    type: string
+    description: Information credibility number 1–6 with written justification.
+  - name: usage_bound
+    type: string
+    description: How the combined grade should constrain downstream use of the information.
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "NATO Admiralty Code (source reliability A–F / information credibility 1–6)."

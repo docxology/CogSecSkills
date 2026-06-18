@@ -1,0 +1,81 @@
+id: sat.alternative_futures_scenarios
+name: Alternative Futures (Scenarios)
+group: sat
+version: 0.1.0
+status: implemented
+summary: Build multiple plausible futures around critical uncertainties to stress
+  strategy.
+description: Alternative Futures Analysis (Scenarios) constructs a small set of mutually
+  exclusive, collectively exhaustive futures defined by the intersection of critical
+  uncertainties, forcing analysts and decision-makers to reason beyond the single
+  most-likely-outcome trap. Rooted in the RAND/Shell scenario planning tradition and
+  codified for intelligence analysis by Heuer & Pherson, the technique stresses strategy
+  against each scenario and surfaces indicators that discriminate between them. It
+  counters anchoring, mirror-imaging, and surprise-aversion by keeping multiple divergent
+  worlds simultaneously in view.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- scenario-planning
+- uncertainty-management
+triggers:
+- alternative futures
+- scenario planning
+- what if the future goes differently
+- stress-test our strategy
+- multiple worlds
+- build scenarios around uncertainties
+tools:
+- verb: read
+  purpose: ingest the problem statement, known drivers, and existing assessments
+- verb: reason
+  purpose: identify critical uncertainties, construct scenario axes, populate each
+    future, and derive indicators
+- verb: write
+  purpose: produce the scenario matrix, narrative descriptions, strategy stress-test,
+    and indicator list
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: The focal question or decision for which futures are needed
+- name: known_drivers
+  type: list
+  required: false
+  description: Trends, forces, or variables already identified as relevant to the
+    outcome
+- name: current_assessment
+  type: text
+  required: false
+  description: Existing baseline or single-point forecast to be stress-tested
+outputs:
+- name: scenario_matrix
+  type: table
+  description: 2x2 (or similar) matrix cross-tabulating the two most critical, independent
+    uncertainties defining the scenario space
+- name: scenario_narratives
+  type: markdown
+  description: A brief, vivid narrative for each scenario quadrant describing its
+    internal logic and key features
+- name: indicator_set
+  type: table
+  description: Observable indicators that would signal which scenario is emerging,
+    including discriminating signals unique to each
+- name: strategy_stress_test
+  type: markdown
+  description: Assessment of how well the current strategy or plan performs under
+    each scenario
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Alternative Futures Analysis.
+- 'Schwartz, P. (1991). The Art of the Long View: Planning for the Future in an Uncertain
+  World. Doubleday.'
+- 'Van der Heijden, K. (1996). Scenarios: The Art of Strategic Conversation. Wiley.'
+- Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
+  Associates.

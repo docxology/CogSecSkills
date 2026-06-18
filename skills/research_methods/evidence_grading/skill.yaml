@@ -1,0 +1,78 @@
+id: research_methods.evidence_grading
+name: Evidence Grading
+group: research_methods
+version: 0.1.0
+status: implemented
+summary: Grade evidence by quality and relevance using an explicit, repeatable rubric.
+description: Evidence Grading is a structured technique for systematically rating
+  each piece of evidence on two independent axes — quality (methodological rigor,
+  source reliability, and internal validity) and relevance (how directly the evidence
+  addresses the analytic question at hand) — using an explicit, repeatable rubric
+  so that different analysts reach consistent grades from the same materials. The
+  technique prevents high-quality-but-irrelevant evidence from inflating confidence
+  in a conclusion, and high-relevance-but-low-quality evidence from anchoring judgments.
+  It is foundational to systematic reviews, intelligence source evaluation, and any
+  workflow where heterogeneous evidence must be compared or weighted.
+ageint_topic: research-methods
+tags:
+- cognitive-security
+- research_methods
+- evidence-evaluation
+- analytic-standards
+triggers:
+- grade this evidence
+- rate source quality
+- evidence quality assessment
+- how reliable is this source
+- weigh the evidence
+- evaluate evidence strength
+tools:
+- verb: read
+  purpose: ingest the analytic question and the evidence items with their provenance
+    metadata
+- verb: reason
+  purpose: apply quality and relevance rubric criteria to each evidence item and derive
+    grades
+- verb: write
+  purpose: emit a graded evidence table with per-item scores and an aggregated weight-of-evidence
+    summary
+inputs:
+- name: analytic_question
+  type: text
+  required: true
+  description: the specific question or hypothesis the evidence is meant to address
+- name: evidence_items
+  type: list
+  required: true
+  description: 'list of evidence items, each with: content summary, source type, provenance,
+    date, and any known collection or reporting limitations'
+- name: grading_rubric
+  type: text
+  required: false
+  description: optional custom rubric; if omitted the technique uses the standard
+    ODNI/Heuer-Pherson quality tiers (A-F for source reliability, 1-6 for information
+    credibility)
+outputs:
+- name: graded_evidence_table
+  type: table
+  description: table with one row per evidence item, columns for quality grade, relevance
+    grade, composite weight, and a brief justification note for each grade
+- name: weight_of_evidence_summary
+  type: markdown
+  description: narrative summary of where the body of evidence points, which grades
+    dominate, and what gaps or contradictions exist
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. (NATO STANAG 2511 source reliability / information
+  credibility matrix, pp. 60-62.)
+- 'Guyatt, G. H., et al. (2008). GRADE: An Emerging Consensus on Rating Quality of
+  Evidence and Strength of Recommendations. BMJ, 336(7650), 924-926.'
+- 'Office of the Director of National Intelligence (2015). ICD 203: Analytic Standards.
+  ODNI.'
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.

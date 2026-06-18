@@ -1,0 +1,73 @@
+id: sat.process_and_gantt_mapping
+name: Process & Gantt Mapping
+group: sat
+version: 0.1.0
+status: implemented
+summary: Lay out a process or adversary plan as sequenced, dependency-aware steps.
+description: Process and Gantt Mapping is a structured analytic technique that decomposes
+  a complex activity — an adversary plan, a supply chain, a disinformation campaign,
+  or an operational sequence — into discrete, dependency-ordered steps laid out on
+  a timeline. The visual sequence reveals critical path nodes, prerequisite chains,
+  observable tripwires, and resource-intensive choke points that prose analysis obscures.
+  In cognitive-security work it is used to model how an influence operation, deception
+  campaign, or hostile cognitive attack is likely structured so that indicators can
+  be assigned to specific nodes and disruption points identified.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- timeline-analysis
+triggers:
+- process mapping
+- Gantt chart for adversary plan
+- sequence the steps
+- timeline of the operation
+- dependency diagram
+- critical path analysis
+tools:
+- verb: read
+  purpose: ingest source intelligence, process descriptions, or prior assessments
+    of the activity to be mapped
+- verb: reason
+  purpose: decompose the activity into discrete steps, establish dependencies, estimate
+    durations, and identify critical-path and choke-point nodes
+- verb: write
+  purpose: produce the structured process map, dependency table, Gantt representation,
+    and associated indicators list
+inputs:
+- name: activity_description
+  type: text
+  required: true
+  description: Description of the adversary plan, operational sequence, or process
+    to be mapped — can be a partial description inferred from intelligence fragments
+- name: known_steps
+  type: list
+  required: false
+  description: Any steps or events already confirmed or strongly indicated by source
+    reporting
+- name: time_constraints
+  type: text
+  required: false
+  description: Known or estimated time windows, deadlines, or triggering events that
+    anchor the timeline
+outputs:
+- name: process_map
+  type: markdown
+  description: 'Step-by-step decomposition of the activity with: step name, dependencies,
+    estimated duration, required resources, observable indicators, and confidence
+    level for each step'
+- name: gantt_table
+  type: table
+  description: Tabular Gantt representation showing steps as rows, time as columns,
+    critical-path steps flagged, and choke points identified
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter: Process Maps and Gantt Charts.'
+- Gantt, H. L. (1910). Work, Wages, and Profits. Engineering Magazine Co.
+- 'Clark, R. M. (2013). Intelligence Analysis: A Target-Centric Approach (4th ed.).
+  CQ Press. Chapter on Target System Analysis.'

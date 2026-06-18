@@ -1,0 +1,78 @@
+id: sat.team_a_team_b
+name: Team A / Team B
+group: sat
+version: 0.1.0
+status: implemented
+summary: Pit two teams' competing interpretations against each other in structured
+  debate.
+description: Team A / Team B is a structured competitive-analysis technique in which
+  two teams develop and defend competing interpretations of the same body of evidence,
+  then engage in structured debate so that decision-makers can observe the strongest
+  available case for each view. Unlike a devil's advocate exercise where a single
+  critic challenges a consensus, Team A/B requires each team to advocate its own hypothesis
+  with full conviction, surfacing the genuine strongest version of each competing
+  explanation. The technique counteracts groupthink, premature consensus, and the
+  tendency of a dominant faction to suppress minority views.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- competitive-analysis
+- challenge-analysis
+triggers:
+- two competing interpretations
+- team A team B
+- structured debate
+- competing hypotheses debate
+- give both sides a full hearing
+tools:
+- verb: read
+  purpose: ingest the shared evidence base and the two competing interpretive positions
+- verb: reason
+  purpose: construct the strongest honest case for each team's hypothesis and identify
+    where the evidentiary burden differs
+- verb: write
+  purpose: 'produce the structured debate summary: each team''s core argument, key
+    disagreements, shared evidence, and unresolved questions'
+- verb: ask
+  purpose: elicit clarification from the principal about which competing hypothesis
+    is Team A versus Team B when ambiguous
+inputs:
+- name: shared_evidence
+  type: text
+  required: true
+  description: the body of evidence both teams will use — the same raw material each
+    team interprets
+- name: hypothesis_a
+  type: text
+  required: true
+  description: Team A's interpretive position or hypothesis to be developed and defended
+- name: hypothesis_b
+  type: text
+  required: true
+  description: Team B's competing interpretive position or hypothesis to be developed
+    and defended
+- name: context
+  type: text
+  required: false
+  description: background context about the analytic question, decision stakes, or
+    prior consensus view
+outputs:
+- name: team_debate_summary
+  type: markdown
+  description: structured summary presenting Team A's strongest case, Team B's strongest
+    case, the key points of evidentiary disagreement, evidence both teams agree is
+    diagnostic, unresolved questions, and an assessment of which hypothesis is better
+    supported and why
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J., & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. Chapter 9 (Team A/Team B Analysis).
+- Pherson, R.H., & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence.
+  3rd ed. CQ Press.
+- Rieber, S. (2004). Intelligence Analysis and Judgmental Calibration. International
+  Journal of Intelligence and CounterIntelligence, 17(1), 97-112.

@@ -1,0 +1,76 @@
+id: counterintelligence.insider_threat_indicator_review
+name: Insider Threat Indicator Review
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Review behavioral and access indicators of insider risk within ethical/legal
+  bounds.
+description: Insider Threat Indicator Review is a structured counterintelligence assessment
+  technique for systematically reviewing behavioral, technical, and contextual indicators
+  that a person with authorized access may pose an elevated risk of unauthorized disclosure,
+  sabotage, espionage, or fraud. The technique applies recognized behavioral science
+  and counterintelligence indicator frameworks — including CPNI and NITTF guidance
+  — while maintaining strict respect for privacy, civil liberties, due process, and
+  the legal bounds governing employee monitoring. It is designed to support referral
+  decisions to security programs, not to reach final determinations of guilt or culpability.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- insider-risk
+triggers:
+- insider threat
+- employee risk indicators
+- trusted insider concern
+- suspicious behavior by authorized user
+- review behavioral indicators
+- insider risk assessment
+tools:
+- verb: read
+  purpose: ingest the behavioral observations, access logs, and contextual information
+    provided for review
+- verb: reason
+  purpose: systematically apply insider threat indicator frameworks to the evidence
+    and assess aggregate risk level
+- verb: write
+  purpose: produce a structured indicator review report with risk rating, caveats,
+    and recommended next steps
+inputs:
+- name: behavioral_observations
+  type: text
+  required: true
+  description: Factual descriptions of observed behaviors, statements, or anomalies
+    of concern — not interpretations or conclusions
+- name: access_and_technical_indicators
+  type: text
+  required: false
+  description: Anomalous access patterns, data movement, or system activity observed
+    through authorized monitoring
+- name: contextual_background
+  type: text
+  required: false
+  description: 'Relevant context: role, tenure, recent stressors, performance history,
+    security clearance status — provided only within authorized HR and security program
+    scope'
+outputs:
+- name: insider_threat_indicator_review_report
+  type: markdown
+  description: A structured report mapping observed indicators to established framework
+    categories, an aggregate risk rating with rationale, scope and methodology caveats,
+    and recommended next steps for the insider threat program or security officer
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- National Insider Threat Task Force (NITTF). (2017). Insider Threat Program Maturity
+  Framework. Office of the Director of National Intelligence.
+- 'Centre for the Protection of National Infrastructure (CPNI). (2013). Insider Threat:
+  Defined and Explained. UK Government.'
+- Shaw, E., Fischer, L., & Rose, A. (2009). Insider Risk Evaluation and Audit. Technical
+  Report TR09-02. Defense Personnel Security Research Center (PERSEREC).
+- Cappelli, D., Moore, A., & Trzeciak, R. (2012). The CERT Guide to Insider Threats.
+  Addison-Wesley / SEI Carnegie Mellon.
+- U.S. Department of Homeland Security. (2014). Combating the Insider Threat. National
+  Cybersecurity and Communications Integration Center.

@@ -1,0 +1,62 @@
+id: research_methods.structured_literature_synthesis
+name: Structured Literature Synthesis
+group: research_methods
+version: 0.1.0
+status: implemented
+summary: >-
+  Synthesize a body of sources into a structured, evidence-graded, gap-aware
+  briefing.
+description: >-
+  Turn a body of sources into a structured, evidence-graded, gap-aware briefing.
+  The method defines a synthesis question with inclusion/exclusion criteria,
+  gathers and deduplicates sources, extracts graded claims with citations,
+  clusters findings by theme, and surfaces agreements, conflicts, and gaps. It
+  produces a BLUF synthesis where every statement traces back to its sources and
+  conflicting evidence is reported honestly rather than smoothed over.
+ageint_topic: research-methods
+tags: [research-methods, synthesis, evidence-grading, bluf]
+triggers:
+  - literature synthesis
+  - synthesize these sources
+  - what does the research say
+  - grade the evidence
+  - where are the gaps in the literature
+  - structured review of sources
+tools:
+  - verb: read
+    purpose: ingest each source document and extract its claims and findings
+  - verb: search
+    purpose: locate sources, claims, and themes within the gathered corpus
+  - verb: web
+    purpose: retrieve sources where permitted
+  - verb: reason
+    purpose: cluster findings, weigh conflicts, and grade strength of evidence
+  - verb: write
+    purpose: produce the BLUF synthesis briefing with full citations
+inputs:
+  - name: synthesis_question
+    type: string
+    required: true
+    description: The specific question the synthesis must answer.
+  - name: sources
+    type: list
+    required: true
+    description: Source documents, references, or URLs to synthesize over.
+  - name: inclusion_criteria
+    type: string
+    required: false
+    description: Optional rules for which sources are in or out of scope.
+outputs:
+  - name: synthesis_briefing
+    type: markdown
+    description: BLUF briefing with themes, graded evidence, conflicts, gaps, and citations.
+  - name: evidence_table
+    type: table
+    description: Per-claim extraction with source citation and quality grade.
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+  - "GRADE / evidence-grading practice; PRISMA-style structured review."

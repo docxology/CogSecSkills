@@ -1,0 +1,67 @@
+id: sat.getting_started_checklist
+name: Getting Started Checklist
+group: sat
+version: 0.1.0
+status: implemented
+summary: 'Frame an analytic task: question, drivers, assumptions, and prior judgments
+  before diving in.'
+description: The Getting Started Checklist is a structured analytic technique that
+  disciplines analysts to articulate the core question, identify key drivers, surface
+  explicit assumptions, and inventory prior judgments before any substantive analysis
+  begins. It counteracts anchoring and premature closure by creating a documented
+  baseline against which later reasoning can be compared. The checklist operationalizes
+  the discipline of separating problem framing from problem solving, a foundational
+  step in the Heuer-Pherson SAT family.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- framing
+- analytical-discipline
+triggers:
+- where do I start
+- frame this analytic task
+- getting started checklist
+- how do I set up this analysis
+- what is the core question
+tools:
+- verb: read
+  purpose: ingest the raw analytic request, available background material, and any
+    prior assessments
+- verb: ask
+  purpose: clarify the consumer's key questions and decision needs when the tasking
+    is ambiguous
+- verb: reason
+  purpose: 'identify and make explicit: the primary analytic question, key drivers,
+    stated and unstated assumptions, and pre-existing judgments'
+- verb: write
+  purpose: produce the completed checklist as a structured baseline document
+inputs:
+- name: analytic_task
+  type: text
+  required: true
+  description: the analytic request, intelligence requirement, or decision problem
+    to be scoped
+- name: background_material
+  type: text
+  required: false
+  description: any prior reports, assessments, or briefings already in hand
+outputs:
+- name: getting_started_baseline
+  type: markdown
+  description: 'a structured document recording: restated primary question, subordinate
+    questions, key drivers, explicit assumptions and their confidence levels, prior
+    analytic judgments, and gaps identified before analysis begins'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 2, 'Getting Started Checklist'.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press/SAGE.
+- Chang, W., Berdini, E., Mandel, D. R., & Tetlock, P. E. (2018). Restructuring structured
+  analytic techniques in intelligence. Intelligence and National Security, 33(3),
+  337-356.

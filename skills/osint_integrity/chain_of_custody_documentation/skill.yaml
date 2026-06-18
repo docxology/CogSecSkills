@@ -1,0 +1,75 @@
+id: osint_integrity.chain_of_custody_documentation
+name: Chain-of-Custody Documentation
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Document collection, handling, and hashing so evidence integrity is auditable.
+description: Chain-of-custody documentation records every step in the collection,
+  transfer, and analysis of OSINT evidence — capturing who handled each item, when,
+  by what method, and what cryptographic hashes confirm it remained unaltered. The
+  technique adapts law-enforcement chain-of-custody principles to open-source intelligence
+  so that findings can withstand legal, journalistic, or organizational scrutiny.
+  Without it, adversaries and skeptics can challenge whether evidence was fabricated,
+  tampered, or misidentified. A complete chain anchors findings in verifiable, time-stamped,
+  hash-confirmed records.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- evidence-integrity
+- provenance
+triggers:
+- chain of custody
+- evidence integrity
+- hash and preserve
+- document collection
+- prove evidence wasn't tampered
+tools:
+- verb: read
+  purpose: ingest the evidence items, existing collection logs, and any prior handling
+    records
+- verb: exec
+  purpose: compute cryptographic hashes (SHA-256) of collected files or archived pages
+    to seal integrity
+- verb: write
+  purpose: produce the chain-of-custody log entries, hash manifest, and custody transfer
+    records
+- verb: reason
+  purpose: identify gaps in custody records, flag suspicious handling steps, and assess
+    overall integrity
+inputs:
+- name: evidence_items
+  type: list
+  required: true
+  description: Collected OSINT artifacts — URLs, screenshots, files, archived copies
+    — to be documented
+- name: collection_context
+  type: text
+  required: true
+  description: Who collected each item, the tools used, the timestamp, and the original
+    source URL or identifier
+- name: prior_custody_log
+  type: table
+  required: false
+  description: Any existing custody records for items that changed hands before this
+    documentation step
+outputs:
+- name: custody_log
+  type: table
+  description: Structured table of each evidence item with collector, timestamp, tool,
+    hash, and handling events
+- name: integrity_summary
+  type: markdown
+  description: Narrative assessment of chain completeness, any gaps or anomalies,
+    and recommendations for remediation
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Casey, E. (2011). Digital Evidence and Computer Crime: Forensic Science, Computers,
+  and the Internet. Academic Press.'
+- Toler, A. & Koenig, S. (2020). Bellingcat's Chain of Custody Guidelines. Bellingcat.
+- SWGDE (2016). Best Practices for Computer Forensic Acquisitions. Scientific Working
+  Group on Digital Evidence.

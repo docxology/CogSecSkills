@@ -1,0 +1,70 @@
+id: osint_integrity.image_and_media_forensics_triage
+name: Image & Media Forensics Triage
+group: osint_integrity
+version: 0.1.0
+status: implemented
+summary: Triage media for reuse, editing, and context-collapse before treating it
+  as evidence.
+description: Image and media forensics triage is a rapid, systematic workflow for
+  assessing whether a photograph, video, or audio clip has been re-used from an unrelated
+  context, digitally edited, or stripped of the context needed to interpret it honestly.
+  It applies reverse-image search, error-level analysis (ELA), metadata inspection,
+  and contextual plausibility checks before any piece of media is admitted as evidence
+  in an analysis. The goal is to surface red flags quickly — a full forensic examination
+  is triggered only when triage finds anomalies.
+ageint_topic: osint-integrity
+tags:
+- cognitive-security
+- osint_integrity
+- media-verification
+triggers:
+- is this image real
+- check if this photo has been altered
+- triage this media
+- verify this video
+- detect image manipulation
+- image forensics
+- media forensics triage
+tools:
+- verb: read
+  purpose: ingest the media file and any accompanying claims or contextual information
+- verb: web
+  purpose: run reverse-image search and lookup the image against known archives to
+    detect prior use or recycling
+- verb: reason
+  purpose: apply structured triage criteria across reuse, editing artifacts, and context-collapse
+    indicators
+- verb: write
+  purpose: produce a triage report with findings, red flags, and recommended next
+    steps
+inputs:
+- name: media_item
+  type: text
+  required: true
+  description: URL or file reference for the image, video, or audio clip to be triaged
+- name: accompanying_claim
+  type: text
+  required: false
+  description: The narrative or claim the media is being used to support
+- name: source_account
+  type: text
+  required: false
+  description: The account or outlet that published the media, for credibility cross-reference
+outputs:
+- name: triage_report
+  type: markdown
+  description: 'Structured triage results: reuse verdict, editing red flags, context-collapse
+    indicators, confidence level, and recommended follow-on action (accept / escalate
+    to deep forensics / reject)'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Hicks, M. et al. (2020). Verification Handbook for Disinformation and Media Manipulation.
+  European Journalism Centre.
+- First Draft News (2019). Visual Verification Guide. firstdraftnews.org.
+- Farid, H. (2022). Photo Forensics. MIT Press.
+- Kee, E. & Farid, H. (2010). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
+  on Information Forensics and Security, 6(4).

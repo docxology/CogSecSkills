@@ -1,0 +1,75 @@
+id: sat.what_if_analysis
+name: What-If Analysis
+group: sat
+version: 0.1.0
+status: implemented
+summary: Posit a surprising event as already true and reason out its precursors and
+  implications.
+description: What-If Analysis (also called 'What If?' Analysis) posits a surprising,
+  low-probability, or currently-dismissed event as if it has already occurred, then
+  reasons backward to identify the preconditions and causal pathways that could have
+  produced it and forward to map its implications. Developed as a structured analytic
+  technique by Heuer and Pherson, it is designed to combat mindset rigidity and the
+  tendency to discount scenarios that contradict prevailing assumptions — particularly
+  warning failures where analysts dismissed unlikely-but-consequential events. By
+  forcing analysts to treat the scenario as fact rather than possibility, it unlocks
+  creative causal reasoning that prospective risk assessment often suppresses.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- scenario-analysis
+- warning-analysis
+triggers:
+- what if this happened
+- assume this is already true
+- low probability high impact scenario
+- surprise scenario analysis
+- what would have to be true for this
+tools:
+- verb: read
+  purpose: ingest the scenario posit, current intelligence or context, and any relevant
+    baseline assumptions
+- verb: reason
+  purpose: generate preconditions, causal pathways, and implications from the assumed-true
+    scenario frame
+- verb: write
+  purpose: produce the what-if report with preconditions, pathways, implications,
+    indicators, and revised probability assessment
+inputs:
+- name: scenario_posit
+  type: text
+  required: true
+  description: the specific surprising or low-probability event stated as an accomplished
+    fact (e.g., 'Country X has already conducted a cyberattack on the power grid')
+- name: current_context
+  type: text
+  required: false
+  description: the prevailing analytic picture or baseline assessment that the what-if
+    scenario challenges
+- name: time_horizon
+  type: text
+  required: false
+  description: the timeframe within which the posited event is assumed to have occurred
+    or to occur
+outputs:
+- name: what_if_report
+  type: markdown
+  description: 'structured report covering: (1) the scenario posit stated as fact,
+    (2) preconditions that would have had to be true, (3) plausible causal pathways
+    leading to the event, (4) implications and second-order effects, (5) observable
+    indicators that the scenario is developing, (6) revised probability assessment,
+    and (7) implications for current collection or action'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J., & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. Chapter 8 (What If? Analysis).
+- Pherson, R.H., & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence.
+  3rd ed. CQ Press.
+- 'Betts, R.K. (1978). Analysis, War, and Decision: Why Intelligence Failures Are
+  Inevitable. World Politics, 31(1), 61-89. (The warning-failure problem that What-If
+  addresses.)'

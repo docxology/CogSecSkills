@@ -1,0 +1,66 @@
+id: counterintelligence.elicitation_attempt_recognition
+name: Elicitation Attempt Recognition
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Recognize social-engineering elicitation patterns in conversations and outreach.
+description: Elicitation attempt recognition applies counterintelligence tradecraft
+  to identify when a conversation partner is systematically extracting sensitive information
+  through social engineering rather than routine exchange. The technique catalogs
+  canonical elicitation approaches — flattery, quid pro quo, volunteering false information
+  to provoke correction, feigned ignorance, deliberate provocative statements, and
+  appeals to ego or ideology — then maps observed conversational moves against that
+  taxonomy. Defensive awareness of these patterns enables the target to disengage,
+  provide only authorized information, or report the contact without tipping off the
+  elicitor.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- social-engineering
+triggers:
+- someone is fishing for information
+- elicitation attempt
+- social engineering conversation
+- someone asking leading questions
+- suspicious outreach or flattery
+- recognize when I am being pumped for info
+tools:
+- verb: read
+  purpose: ingest the conversation transcript or behavioral description to analyze
+- verb: reason
+  purpose: match observed conversational moves against the elicitation taxonomy and
+    score the pattern
+- verb: write
+  purpose: produce a recognition report identifying technique clusters, risk level,
+    and recommended response
+inputs:
+- name: conversation_or_description
+  type: text
+  required: true
+  description: A transcript, paraphrase, or behavioral description of the interaction
+    under review
+- name: context
+  type: text
+  required: false
+  description: Background on the setting, relationship, and sensitivity of topics
+    discussed
+outputs:
+- name: elicitation_recognition_report
+  type: markdown
+  description: A structured report identifying which elicitation techniques appear
+    present, a composite risk rating, and specific recommended defensive responses
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Navarro, J. (2012). Louder Than Words: Take Your Career from Average to Exceptional
+  with the Hidden Power of Nonverbal Intelligence. HarperBusiness. (Chapter on elicitation.)'
+- U.S. Defense Intelligence Agency. (2010). Elicitation Techniques. Counterintelligence
+  Awareness Training series.
+- 'Ekman, P. (2009). Telling Lies: Clues to Deceit in the Marketplace, Politics, and
+  Marriage. W. W. Norton.'
+- 'ASIS International. (2008). Elicitation: Recognizing It and Protecting Yourself.
+  Security Management.'

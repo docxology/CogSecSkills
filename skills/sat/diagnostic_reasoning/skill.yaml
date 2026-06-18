@@ -1,0 +1,80 @@
+id: sat.diagnostic_reasoning
+name: Diagnostic Reasoning
+group: sat
+version: 0.1.0
+status: implemented
+summary: Apply Bayesian-style updating of a single new datum against competing explanations.
+description: 'Diagnostic Reasoning is a structured Bayesian-style technique for evaluating
+  the evidentiary weight of a single new datum against a set of competing hypotheses,
+  asking explicitly: how much more (or less) likely is this datum if hypothesis H
+  is true than if H is false? The technique operationalizes Bayes''s theorem without
+  requiring precise probabilities: analysts assign comparative likelihoods (much more
+  likely / somewhat more likely / equally likely / less likely) across all active
+  hypotheses and use the pattern to update which hypothesis is best supported. This
+  prevents the common cognitive error of treating consistent evidence as confirming
+  evidence — evidence is truly diagnostic only when it would be rare under the alternative.'
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- hypothesis-testing
+triggers:
+- how diagnostic is this evidence
+- does this new information change our assessment
+- update beliefs on new datum
+- Bayesian update
+- what does this evidence tell us about competing hypotheses
+tools:
+- verb: read
+  purpose: ingest the new datum and the current set of active competing hypotheses
+    with their prior assessments
+- verb: reason
+  purpose: assess the likelihood ratio of the datum under each hypothesis and determine
+    the net update direction
+- verb: write
+  purpose: produce the diagnostic assessment table and updated hypothesis ranking
+    with explicit reasoning
+inputs:
+- name: new_datum
+  type: text
+  required: true
+  description: The specific piece of evidence or information to be evaluated — one
+    item at a time for proper diagnostic analysis
+- name: competing_hypotheses
+  type: list
+  required: true
+  description: The current list of mutually exclusive (or nearly so) hypotheses being
+    considered, ideally from a prior Multiple Hypothesis Generation or ACH step
+- name: prior_assessments
+  type: text
+  required: false
+  description: 'Current confidence levels for each hypothesis before this datum (can
+    be qualitative: unlikely / roughly even / likely)'
+outputs:
+- name: diagnostic_table
+  type: table
+  description: 'Table with one row per hypothesis showing: expected likelihood of
+    the datum if H is true, expected likelihood if H is false, comparative likelihood
+    ratio (qualitative), and direction of update (supports / refutes / neutral)'
+- name: updated_ranking
+  type: markdown
+  description: Revised ranking of hypotheses after incorporating this datum, with
+    explicit reasoning for any change in relative standing
+- name: diagnostic_value_assessment
+  type: markdown
+  description: One-paragraph assessment of how diagnostic this datum actually is —
+    high, moderate, or low — and what additional evidence would be more diagnostic
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. (Chapter 8: Analysis of Competing Hypotheses)'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 3rd ed. CQ Press.
+- Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. (on base-rate
+  neglect and likelihood confusion)
+- Fenton, N., & Neil, M. (2018). Risk Assessment and Decision Analysis with Bayesian
+  Networks, 2nd ed. CRC Press.

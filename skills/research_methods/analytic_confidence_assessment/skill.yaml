@@ -1,0 +1,69 @@
+id: research_methods.analytic_confidence_assessment
+name: Analytic Confidence Assessment
+group: research_methods
+version: 0.1.0
+status: implemented
+summary: Assign and justify confidence using source quality, corroboration, and assumption
+  load.
+description: Analytic Confidence Assessment is a structured technique for assigning
+  an explicit confidence level to an analytic judgment by systematically evaluating
+  source quality, degree of corroboration, and the load of unstated assumptions underlying
+  the conclusion. It draws on intelligence community standards (ICD 203) and structured
+  analytic technique literature to ensure that confidence labels such as 'high,' 'moderate,'
+  or 'low' are operationally defined and traceable rather than impressionistic. The
+  technique prevents both overconfidence from thin evidence and false modesty that
+  obscures genuine signal.
+ageint_topic: research-methods
+tags:
+- cognitive-security
+- research_methods
+- calibration
+- analytic-standards
+triggers:
+- how confident are we in this
+- assess analytic confidence
+- rate our certainty
+- justify confidence level
+- source quality assessment
+tools:
+- verb: read
+  purpose: ingest the analytic judgment, supporting evidence, and source metadata
+- verb: reason
+  purpose: evaluate source quality, corroboration, and assumption load against a structured
+    rubric
+- verb: write
+  purpose: emit a confidence rating with explicit justification traceable to rubric
+    criteria
+inputs:
+- name: judgment
+  type: text
+  required: true
+  description: the analytic conclusion or estimate whose confidence is to be assessed
+- name: evidence_set
+  type: list
+  required: true
+  description: sources and evidence items supporting the judgment, with provenance
+    metadata where available
+- name: key_assumptions
+  type: list
+  required: false
+  description: assumptions identified in prior analysis that the judgment depends
+    on
+outputs:
+- name: confidence_assessment
+  type: markdown
+  description: structured report stating the confidence level (high/moderate/low)
+    with separate sub-scores for source quality, corroboration, and assumption load,
+    plus a plain-language justification
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Office of the Director of National Intelligence (2015). ICD 203: Analytic Standards.
+  ODNI.'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown.'

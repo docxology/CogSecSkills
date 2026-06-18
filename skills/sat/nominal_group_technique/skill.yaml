@@ -1,0 +1,66 @@
+id: sat.nominal_group_technique
+name: Nominal Group Technique
+group: sat
+version: 0.1.0
+status: implemented
+summary: Silent independent ideation before discussion to counter dominance and groupthink.
+description: Nominal Group Technique (NGT) is a structured ideation and prioritization
+  method in which participants independently generate ideas in writing before any
+  group discussion, then share, clarify, and vote on items in a controlled sequence.
+  By separating divergent from convergent phases and enforcing silent individual work
+  first, NGT neutralizes vocal-dominance bias, anchoring, and groupthink that corrupt
+  unstructured brainstorming. In cognitive-security contexts it is used to surface
+  the full range of hypotheses or threat indicators a team holds without social-pressure
+  distortion.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- group-process
+triggers:
+- nominal group technique
+- NGT
+- silent idea generation before discussion
+- prevent groupthink in brainstorm
+- controlled voting on ideas
+tools:
+- verb: read
+  purpose: ingest the focal question, group roster, and any prior analytic context
+- verb: reason
+  purpose: generate independent idea sets, perform round-robin consolidation, and
+    execute the weighted-voting tally
+- verb: write
+  purpose: 'emit the structured NGT record: question, idea list, vote tallies, and
+    ranked output'
+inputs:
+- name: focal_question
+  type: text
+  required: true
+  description: The precisely worded analytic question posed to the group (e.g., 'What
+    are the most plausible indicators that Actor X will escalate?')
+- name: participant_idea_sets
+  type: list
+  required: true
+  description: Independently authored idea lists from each participant, submitted
+    before any discussion
+- name: prior_context
+  type: text
+  required: false
+  description: Background intelligence, prior assessments, or framing documents provided
+    to all participants equally before silent generation
+outputs:
+- name: ngt_record
+  type: markdown
+  description: 'Full NGT session record: focal question, consolidated idea list with
+    author tags removed, clarification notes, weighted vote tallies, and final ranked
+    list of ideas'
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Delbecq, A. L., Van de Ven, A. H., & Gustafson, D. H. (1975). Group Techniques
+  for Program Planning: A Guide to Nominal Group and Delphi Processes. Scott, Foresman.'
+- Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Idea Generation techniques.

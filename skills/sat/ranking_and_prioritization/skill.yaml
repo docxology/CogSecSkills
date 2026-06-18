@@ -1,0 +1,78 @@
+id: sat.ranking_and_prioritization
+name: Ranking & Prioritization
+group: sat
+version: 0.1.0
+status: implemented
+summary: Order items by weighted criteria (ranked voting, paired comparison, weighted
+  scoring).
+description: Ranking and Prioritization techniques (including paired comparison, weighted
+  scoring, and ranked voting) impose structured criteria on a list of items — threats,
+  hypotheses, options, or findings — to produce a defensible, criterion-transparent
+  ordering. Rather than relying on unaided intuition or the implicit dominance of
+  the most vocal participant, these methods make evaluative weights explicit and replicable.
+  In cognitive-security contexts the technique surfaces hidden priority divergence
+  among analysts and defends against availability and anchoring biases that distort
+  informal ranking.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- decision-support
+triggers:
+- rank these options
+- prioritize threats
+- weighted scoring
+- paired comparison
+- what matters most
+- rank by importance
+tools:
+- verb: read
+  purpose: ingest the item list, the decision context, and any pre-stated criteria
+    or weights
+- verb: reason
+  purpose: select or derive scoring criteria, assign weights, perform pairwise or
+    weighted comparisons, and resolve ties
+- verb: write
+  purpose: emit the scoring matrix, ranked list with scores, weight rationale, and
+    sensitivity notes
+- verb: ask
+  purpose: elicit missing criteria weights or priority values from the analyst or
+    decision maker when they cannot be inferred
+inputs:
+- name: item_list
+  type: list
+  required: true
+  description: the items to be ranked (threats, hypotheses, options, indicators, etc.)
+- name: criteria
+  type: list
+  required: false
+  description: evaluation criteria with optional weights; if omitted, the skill will
+    derive candidate criteria from the decision context
+- name: decision_context
+  type: text
+  required: false
+  description: the purpose of the ranking (e.g., resource allocation, analytic focus,
+    response sequencing) to guide criterion selection
+outputs:
+- name: scoring_matrix
+  type: table
+  description: items as rows, criteria as columns, with raw scores, weights, and weighted
+    totals
+- name: ranked_list
+  type: markdown
+  description: items in priority order with total weighted score, brief rationale
+    for top and bottom placements, and ties noted
+- name: sensitivity_analysis
+  type: markdown
+  description: identification of items whose rank would change most if key weights
+    shifted; highlights where the ranking is fragile
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Ranking, Scoring, and Prioritizing.
+- Saaty, T. L. (1980). The Analytic Hierarchy Process. McGraw-Hill. (foundational
+  pairwise-comparison method)

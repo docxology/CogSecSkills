@@ -1,0 +1,82 @@
+id: cognitive_security.framing_and_priming_analysis
+name: Framing & Priming Analysis
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Surface the frames and primes shaping interpretation beneath a message's
+  literal content.
+description: Framing and Priming Analysis surfaces the implicit conceptual frames
+  — the organizing metaphors, category choices, and contextual anchors — that shape
+  how a message is received before its literal content is processed. Drawing on Lakoff's
+  cognitive linguistics, Kahneman's anchoring research, and Entman's framing theory,
+  the technique examines what is foregrounded vs. backgrounded, which comparison sets
+  or reference points are primed, and how word choice activates preloaded schema that
+  channel interpretation. The output gives analysts and communicators a principled
+  account of the meta-layer of persuasion that operates beneath explicit argument.
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- framing
+- priming
+triggers:
+- framing analysis
+- priming analysis
+- what frame is this using
+- hidden assumptions in language
+- how is this message structured to mislead
+- anchoring in media
+- conceptual metaphor
+- agenda-setting analysis
+tools:
+- verb: read
+  purpose: ingest the text, transcript, or visual artifact to be analyzed at both
+    surface and structural levels
+- verb: reason
+  purpose: identify active frames, priming devices, and the cognitive schema they
+    invoke; assess interpretive consequences
+- verb: write
+  purpose: produce a frame inventory and reframing brief with alternative framings
+    and defensive guidance
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The message, article, speech, or artifact to be analyzed for framing
+    and priming effects
+- name: alternative_versions
+  type: list
+  required: false
+  description: Alternative versions of the same event or topic from different sources,
+    enabling contrastive frame comparison
+- name: audience_context
+  type: text
+  required: false
+  description: Information about the intended audience including prior beliefs, cultural
+    schema, and information environment that determine which primes activate
+outputs:
+- name: frame_inventory
+  type: table
+  description: 'Table of identified frames and primes: device type (metaphor/category/anchor/omission/salience),
+    specific textual instance, schema activated, interpretive consequence, and severity
+    of distortion'
+- name: reframing_brief
+  type: markdown
+  description: Narrative analysis of the dominant frame strategy, what alternative
+    framings were suppressed, and concrete counter-frame or inoculation language
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Entman, R. M. (1993). Framing: Toward Clarification of a Fractured Paradigm. Journal
+  of Communication, 43(4), 51–58.'
+- Lakoff, G. (2004). Don't Think of an Elephant! Know Your Values and Frame the Debate.
+  Chelsea Green Publishing.
+- 'Kahneman, D., Slovic, P. & Tversky, A. (1982). Judgment Under Uncertainty: Heuristics
+  and Biases. Cambridge University Press.'
+- Tversky, A. & Kahneman, D. (1981). The Framing of Decisions and the Psychology of
+  Choice. Science, 211(4481), 453–458.
+- McCombs, M. & Shaw, D. L. (1972). The Agenda-Setting Function of Mass Media. Public
+  Opinion Quarterly, 36(2), 176–187.

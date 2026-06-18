@@ -1,0 +1,52 @@
+# Template-format manuscript configuration for CogSecSkills.
+# Scaffolded from the project README/AGENTS context; update before publication.
+
+paper:
+  title: "CogSecSkills: Multiharness Cognitive Security Skill Library"
+  subtitle: "A reproducible manuscript scaffold for defensive analytic tradecraft skills"
+  version: "0.1.0"
+  date: ""
+
+authors:
+  - name: "Daniel Ari Friedman"
+    orcid: "0000-0001-6232-9096"
+    email: "daniel@activeinference.institute"
+    affiliation: "Active Inference Institute"
+    corresponding: true
+
+publication:
+  doi: ""
+  version_doi: ""
+  version_record: ""
+  github_repository: ""
+  year: "2026"
+  transmission_bookends:
+    enabled: false
+    max_prior_releases: 5
+    show_steganography: false
+
+keywords:
+  - "cognitive security"
+  - "agent skills"
+  - "analytic tradecraft"
+  - "structured analytic techniques"
+  - "multiharness"
+
+metadata:
+  license: "TBD"
+  language: "en"
+
+manuscript_dir: "manuscript"
+
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: true
+    docx: false
+    epub: false
+
+bibliography:
+  references_path: "manuscript/references.bib"
+  fail_on_missing: true
+  fail_on_unused: false

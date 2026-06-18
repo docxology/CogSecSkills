@@ -1,0 +1,85 @@
+id: counterintelligence.disinformation_attribution
+name: Disinformation Attribution
+group: counterintelligence
+version: 0.1.0
+status: implemented
+summary: Reason about attribution of an operation with calibrated confidence and alternatives.
+description: Disinformation attribution applies structured analytic reasoning to assign
+  responsibility for an influence operation or disinformation campaign with calibrated
+  confidence, while explicitly holding alternative attribution hypotheses. Unlike
+  technical cyber attribution, disinformation attribution must integrate behavioral,
+  linguistic, technical, and strategic indicators against a baseline of known actor
+  profiles. The technique borrows from both intelligence analysis tradecraft (ACH,
+  confidence calibration) and open-source investigation methodology (Bellingcat, EU
+  DisinfoLab) to produce an attribution judgment that is auditable, challengeable,
+  and honest about its limits.
+ageint_topic: counterintelligence
+tags:
+- cognitive-security
+- counterintelligence
+- attribution
+- disinformation
+triggers:
+- who is behind this campaign
+- attribute this influence operation
+- disinformation attribution
+- who created these narratives
+- attribution analysis for information operation
+- who is running this coordinated inauthentic behavior
+tools:
+- verb: read
+  purpose: ingest the campaign artifacts, behavioral indicators, prior attribution
+    products, and candidate actor profiles
+- verb: reason
+  purpose: apply ACH across candidate attribution hypotheses, weight indicators, and
+    calibrate confidence on each
+- verb: write
+  purpose: produce a structured attribution assessment with lead hypothesis, alternatives,
+    confidence ratings, and key intelligence gaps
+inputs:
+- name: campaign_artifacts
+  type: list
+  required: true
+  description: 'Concrete evidence from the campaign: accounts, narratives, timing
+    patterns, technical indicators (metadata, infrastructure), linguistic samples,
+    amplification networks'
+- name: candidate_actors
+  type: list
+  required: false
+  description: Candidate actors under attribution consideration, with any prior profile
+    information available
+- name: strategic_context
+  type: text
+  required: false
+  description: 'Strategic context: who benefits from this narrative taking hold, and
+    in what timeframe relative to events or decisions'
+outputs:
+- name: attribution_matrix
+  type: table
+  description: 'ACH-style matrix: candidate actors as columns, diagnostic indicators
+    as rows, consistency ratings (supports / inconsistent / neutral / unknown) per
+    cell'
+- name: attribution_assessment
+  type: markdown
+  description: Lead attribution hypothesis with confidence level (HIGH/MEDIUM/LOW),
+    alternative hypotheses with their relative plausibility, and explicit key assumptions
+- name: intelligence_gaps
+  type: markdown
+  description: Prioritized list of evidence that would most improve attribution confidence
+    or rule out leading alternatives
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R.J. & Pherson, R.H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. (Analysis of Competing Hypotheses, Chapter 7).
+- 'EU DisinfoLab (2019). Indian Chronicles: Deep Dive into a 15-year Operation Targeting
+  the EU and UN. Brussels.'
+- 'Thomas Rid & Ben Buchanan (2015). ''Attributing Cyber Attacks.'' Journal of Strategic
+  Studies 38(1-2): 4-37.'
+- Nimmo, B. (2020). 'Measuring the Information Environment.' Stanford Internet Observatory.
+  Stanford University.
+- 'Wardle, C. & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework. Council of Europe Report DGI(2017)09.'

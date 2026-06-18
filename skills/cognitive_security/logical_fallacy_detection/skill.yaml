@@ -1,0 +1,73 @@
+id: cognitive_security.logical_fallacy_detection
+name: Logical Fallacy Detection
+group: cognitive_security
+version: 0.1.0
+status: implemented
+summary: Catalogue the formal and informal fallacies in an argument or persuasive
+  piece.
+description: 'Logical fallacy detection systematically catalogues the formal and informal
+  fallacies present in an argument, persuasive message, or piece of content — distinguishing
+  valid reasoning from rhetorically effective but logically invalid moves. The technique
+  draws on classical logic (formal fallacies: affirming the consequent, denying the
+  antecedent) and the tradition of informal logic catalogued by Hamblin, Walton, and
+  others (ad hominem, appeal to authority, straw man, false dilemma, slippery slope,
+  etc.). In cognitive-security contexts it serves as a first-pass defensive filter
+  that separates persuasive force from epistemic warrant.'
+ageint_topic: cognitive-security
+tags:
+- cognitive-security
+- cognitive_security
+- critical-thinking
+- argumentation
+triggers:
+- logical fallacy
+- find the fallacies in this
+- what are the flaws in this argument
+- is this reasoning valid
+- catalogue the informal fallacies
+- detect bad reasoning
+- what rhetorical tricks are being used here
+tools:
+- verb: read
+  purpose: ingest the argument, document, or message to be analyzed
+- verb: reason
+  purpose: identify each claim and inferential step, classify fallacies by type, and
+    assess severity and persuasive impact
+- verb: write
+  purpose: emit the annotated fallacy catalogue with explanations and implications
+    for the argument's epistemic status
+inputs:
+- name: argument_text
+  type: text
+  required: true
+  description: The argument, article, speech, post, or persuasive piece to analyze
+    — ideally verbatim or close paraphrase
+- name: context
+  type: text
+  required: false
+  description: Audience, speaker identity, or rhetorical context if relevant to assessing
+    appeal-to-authority or ad hominem claims
+outputs:
+- name: fallacy_catalogue
+  type: table
+  description: 'Table of identified fallacies: location in text (quote), fallacy name
+    (formal name + common name), category (formal/informal), explanation, severity
+    (fatal to argument / weakens / minor), and whether the conclusion could still
+    be true by other means'
+- name: argument_assessment
+  type: markdown
+  description: Overall assessment of the argument's logical validity and soundness,
+    distinguishing persuasive force from epistemic warrant, and noting which conclusions
+    survive removal of the fallacious moves
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Hamblin, C. L. (1970). Fallacies. Methuen.
+- 'Walton, D. (2008). Informal Logic: A Pragmatic Approach (2nd ed.). Cambridge University
+  Press.'
+- 'van Eemeren, F. H., & Grootendorst, R. (2004). A Systematic Theory of Argumentation:
+  The pragma-dialectical approach. Cambridge University Press.'
+- Tindale, C. W. (2007). Fallacies and Argument Appraisal. Cambridge University Press.

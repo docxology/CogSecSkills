@@ -1,0 +1,74 @@
+id: sat.indicators_generation
+name: Indicators Generation
+group: sat
+version: 0.1.0
+status: implemented
+summary: Define observable signs that would reveal which scenario or hypothesis is
+  unfolding.
+description: Indicators Generation is a structured analytic technique for deriving
+  a set of observable, measurable signs that would signal which of several competing
+  scenarios, hypotheses, or courses of action is actually unfolding. Each indicator
+  is paired with the scenario it would support or undermine, producing a diagnostic
+  matrix that focuses collection and monitoring. The technique is foundational to
+  warning analysis and adversarial scenario tracking in both intelligence and cognitive-security
+  contexts.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- warning-analysis
+- scenario-tracking
+triggers:
+- what signs would tell us
+- generate indicators
+- indicators for this scenario
+- how would we know which outcome
+- build a warning list
+- observable signs
+tools:
+- verb: read
+  purpose: ingest the scenario set, hypotheses, or alternative outcomes for which
+    indicators are needed
+- verb: reason
+  purpose: derive observable indicators for each scenario and assess their diagnostic
+    value
+- verb: write
+  purpose: produce the indicators matrix and guidance for collection prioritization
+inputs:
+- name: scenarios_or_hypotheses
+  type: list
+  required: true
+  description: two or more competing scenarios, hypotheses, or alternative outcomes
+    for which indicators are to be generated
+- name: actor_profile
+  type: text
+  required: false
+  description: relevant characteristics of the actor(s) involved — capabilities, doctrine,
+    past behavior — to ground indicator derivation
+- name: collection_environment
+  type: text
+  required: false
+  description: description of what sources and sensors are available for observation,
+    to ensure indicators are collectable
+outputs:
+- name: indicators_matrix
+  type: table
+  description: 'a table of indicators, each showing: the observable sign, which scenario(s)
+    it would support, which it would undermine, its diagnostic weight, and its collection
+    source'
+- name: indicators_narrative
+  type: markdown
+  description: explanatory text covering derivation logic, diagnostic distinctions
+    among scenarios, and collection priorities
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 8, 'Indicators Generation'.
+- 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint
+  Military Intelligence College.'
+- Johnston, R. (2005). Analytic Culture in the U.S. Intelligence Community. Center
+  for the Study of Intelligence, CIA.

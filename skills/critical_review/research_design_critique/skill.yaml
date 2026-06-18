@@ -1,0 +1,72 @@
+id: critical_review.research_design_critique
+name: Research Design Critique
+group: critical_review
+version: 0.1.0
+status: implemented
+summary: Critique a study's design for validity threats, confounds, and inferential
+  reach.
+description: Research Design Critique applies the canonical framework of internal
+  validity, external validity, construct validity, and statistical conclusion validity
+  to systematically identify flaws in a study's design before accepting its conclusions.
+  The technique surfaces confounds, selection biases, demand characteristics, measurement
+  problems, and unjustified inferential leaps that weaken a claim's epistemic weight.
+  It is grounded in Cook and Campbell's validity typology and is standard practice
+  in intelligence analysis, scientific peer review, and cognitive-security assessments
+  of research used to justify policy or belief updates.
+ageint_topic: adversarial-assurance
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- validity-assessment
+triggers:
+- critique this study's design
+- is this research valid
+- what are the confounds
+- check the inferential reach
+- does the design support the conclusion
+- internal and external validity check
+tools:
+- verb: read
+  purpose: ingest the study, its methods section, sampling frame, and stated conclusions
+- verb: reason
+  purpose: apply the four-validity typology to identify threats, confounds, and inferential
+    overreach
+- verb: write
+  purpose: produce a structured critique table mapping threats to severity, evidence,
+    and recommended caveats
+inputs:
+- name: study_text
+  type: text
+  required: true
+  description: The full text or detailed summary of the study to critique, including
+    methods, sample, measures, and conclusions
+- name: claim_under_review
+  type: text
+  required: false
+  description: The specific claim or conclusion you are most concerned about; if omitted,
+    the main stated conclusion is used
+outputs:
+- name: validity_critique
+  type: table
+  description: 'A table of validity threats across the four Cook-Campbell dimensions,
+    each with: threat name, design evidence, severity (high/medium/low), and recommended
+    caveat or remediation'
+- name: inferential_reach_assessment
+  type: markdown
+  description: A narrative judgment of whether the study's design justifies the scope
+    of its stated conclusions, and what narrower claim the evidence actually supports
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- 'Cook, T.D. & Campbell, D.T. (1979). Quasi-Experimentation: Design and Analysis
+  Issues for Field Settings. Houghton Mifflin.'
+- Shadish, W.R., Cook, T.D. & Campbell, D.T. (2002). Experimental and Quasi-Experimental
+  Designs for Generalized Causal Inference. Houghton Mifflin.
+- Heuer, R.J. & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. (Chapter on Quality of Information Review)
+- Ioannidis, J.P.A. (2005). Why Most Published Research Findings Are False. PLOS Medicine,
+  2(8), e124.

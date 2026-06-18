@@ -1,0 +1,79 @@
+id: sat.argument_mapping
+name: Argument Mapping
+group: sat
+version: 0.1.0
+status: implemented
+summary: Diagram claims, premises, and inferential links to expose logical structure
+  and gaps.
+description: Argument Mapping (also called argument diagramming or claim-premise visualization)
+  represents the logical structure of a complex argument as a directed graph of claims,
+  sub-claims, premises, evidence nodes, and inferential connectors — showing which
+  conclusions depend on which premises and where inferential gaps, circular reasoning,
+  or unsupported leaps occur. Originating in informal logic and philosophy of reasoning
+  (van Eemeren, Toulmin), it was adapted for intelligence analysis by Pherson and
+  applied in cognitive-security contexts to expose the structural vulnerabilities
+  of narratives and the load-bearing assumptions that, if undermined, collapse the
+  whole argument. It is the diagnostic complement to Red Team critique.
+ageint_topic: structured-analytic-techniques
+tags:
+- cognitive-security
+- sat
+- logical-analysis
+- narrative-deconstruction
+triggers:
+- argument mapping
+- diagram the argument
+- map the logic
+- what does this conclusion depend on
+- find the load-bearing assumptions
+- expose the reasoning structure
+- claim-premise diagram
+tools:
+- verb: read
+  purpose: ingest the argument, narrative, report, or policy document to be mapped
+- verb: reason
+  purpose: identify claims, sub-claims, premises, evidence, inferential connectors,
+    implicit assumptions, and logical gaps
+- verb: write
+  purpose: produce the argument map in structured notation, a vulnerability assessment,
+    and a load-bearing-assumption report
+inputs:
+- name: argument_source
+  type: text
+  required: true
+  description: The text, narrative, report, or argument to be mapped — can be an analytic
+    product, an influence narrative, or an adversary's stated justification
+- name: focal_claim
+  type: text
+  required: false
+  description: The main conclusion or claim to trace, if the source contains multiple
+    independent arguments
+outputs:
+- name: argument_map
+  type: markdown
+  description: A structured representation of the argument showing the top-level claim,
+    supporting sub-claims and premises, evidence citations, inferential connectors
+    (supports / rebuts / qualifies), and flagged gaps or implicit assumptions
+- name: load_bearing_assumption_list
+  type: table
+  description: A ranked list of the assumptions whose falsification would most damage
+    or collapse the conclusion, with confidence ratings and suggested tests
+- name: logical_gap_report
+  type: markdown
+  description: Description of inferential leaps, missing evidence nodes, circular
+    structures, or equivocations found in the argument
+workflow: workflow.md
+harness:
+  claude: harness/claude.md
+  codex: harness/codex.md
+  hermes: harness/hermes.md
+references:
+- Toulmin, S. (1958). The Uses of Argument. Cambridge University Press.
+- van Eemeren, F. H., & Grootendorst, R. (2004). A Systematic Theory of Argumentation.
+  Cambridge University Press.
+- Pherson, R. H., & Pherson, K. H. (2021). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press.
+- Ratcliffe, J. (2008). Intelligence-Led Policing. Willan Publishing. (Chapter on
+  analytical reasoning structure)
