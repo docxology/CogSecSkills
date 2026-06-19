@@ -172,7 +172,8 @@ def _skill_yaml(
 
 
 def _bullets(items: object, fallback: str) -> str:
-    seq = [str(x).strip() for x in (items or []) if str(x).strip()]
+    source = items if isinstance(items, (list, tuple)) else []
+    seq = [str(x).strip() for x in source if str(x).strip()]
     if not seq:
         seq = [fallback]
     return "\n".join(f"- {x}" for x in seq)

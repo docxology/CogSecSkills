@@ -126,6 +126,15 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 - 2026-06-18: Promoted from an exemplar library to a complete catalogue: all 100
   areas are implemented on disk, validation/report are green, and CLI insight
   affordances (`route`, `stats`, `catalogue`, `doctor`) are tested.
+- 2026-06-18: Stripped the inherited optimization scaffold for a clean standalone
+  **published** repo (`github.com/docxology/CogSecSkills`, private, Apache-2.0).
+  Reversed the earlier keep-the-scaffold decision once the project gained its own
+  identity and home; the suite is now self-contained (no monorepo dependency).
+- 2026-06-18: Hardening pass — made harnesses + quality thresholds configurable
+  (`cogsecskills.yaml`); added the `author` deterministic renderer and intelligent
+  CLI affordances; added typing (`py.typed`, mypy clean), GitHub Actions CI
+  (ruff + mypy + pytest + validate + doctor on 3.10–3.12), and lifted coverage to
+  ~98%. Docs audited accurate by an independent agent.
 
 ## Changelog
 

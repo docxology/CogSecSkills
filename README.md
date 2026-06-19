@@ -1,11 +1,17 @@
 # CogSecSkills
 
+[![CI](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml/badge.svg)](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+
 **Agentic tool-use skills for Cognitive Security and analytic tradecraft.**
 
-CogSecSkills is a library of ~100 analytic skills — Structured Analytic
+CogSecSkills is a library of **100 analytic skills** — Structured Analytic
 Techniques (SATs), cognitive-security defenses, OSINT integrity, counter-
 intelligence, and critical review — each authored once as a **harness-neutral
 skill** that runs identically under Claude Code, Codex, or Hermes.
+
+New here? The [documentation map](docs/README.md) points you to the right place.
 
 The library is strictly **defensive, educational, and accountable**. Its
 educational upstream is the [AGEINT](docs/ageint/README.md) curriculum. These

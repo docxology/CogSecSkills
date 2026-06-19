@@ -29,8 +29,11 @@ analytic tradecraft.
   harness needs no code change) and `doctor` quality thresholds.
 - **AGEINT educational upstream** under `docs/ageint/` (index + 7 topic primers)
   and a full documentation set under `docs/`.
-- Test suite with no mocks (real temp dirs + real YAML), ≥90% coverage gate, and
-  a live conformance test that validates the real `skills/` tree.
+- Test suite with no mocks (real temp dirs + real YAML), ≥90% coverage gate (~98%
+  actual), and a live conformance test that validates the real `skills/` tree.
+- **Typed** package (`py.typed`, mypy-clean) and a `--version` flag.
+- **GitHub Actions CI** — ruff (lint + format), mypy, pytest + coverage gate,
+  `cogsecskills validate`, and `cogsecskills doctor` across Python 3.10–3.12.
 
 ### Notes
 

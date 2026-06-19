@@ -168,3 +168,59 @@ def test_cli_author_batch_renders_and_reports(tmp_path, capsys):
     out = capsys.readouterr().out
     assert rc == 0
     assert "rendered 1 skills" in out
+
+
+# --- additional branch coverage -------------------------------------------
+def test_render_missing_workflow_steps_key(tmp_path):
+    _seed_registry(tmp_path)
+    bad = _good_def()
+    del bad["workflow_steps"]
+    with pytest.raises(AuthorError, match="missing required key 'workflow_steps'"):
+        render_definition(bad, root=tmp_path)
+
+
+def test_render_tool_not_a_mapping(tmp_path):
+    _seed_registry(tmp_path)
+    bad = _good_def()
+    bad["tools"] = ["notamapping"]
+    with pytest.raises(AuthorError, match="each tool needs a 'verb'"):
+        render_definition(bad, root=tmp_path)
+
+
+def test_render_tool_empty_purpose(tmp_path):
+    _seed_registry(tmp_path)
+    bad = _good_def()
+    bad["tools"] = [{"verb": "read", "purpose": "   "}]
+    with pytest.raises(AuthorError, match="needs a non-empty 'purpose'"):
+        render_definition(bad, root=tmp_path)
+
+
+def test_render_workflow_step_not_a_mapping(tmp_path):
+    _seed_registry(tmp_path)
+    bad = _good_def()
+    bad["workflow_steps"] = ["notamapping"]
+    with pytest.raises(AuthorError, match="workflow step 1 must be a mapping"):
+        render_definition(bad, root=tmp_path)
+
+
+def test_render_honours_harness_binding_override(tmp_path):
+    _seed_registry(tmp_path)
+    d = _good_def()
+    d["harness_bindings"] = {"claude": {"read": ["MyReadTool", "custom note"]}}
+    render_definition(d, root=tmp_path)
+    text = (tmp_path / "skills" / "sat" / "demo" / "harness" / "claude.md").read_text()
+    assert "MyReadTool" in text and "custom note" in text
+
+
+def test_render_custom_harness_uses_fallback_bindings(tmp_path):
+    _seed_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path, harnesses=("claude", "gemini"))
+    gemini = tmp_path / "skills" / "sat" / "demo" / "harness" / "gemini.md"
+    assert gemini.is_file()
+    text = gemini.read_text()
+    assert "gemini `read` tool" in text  # generic fallback binding
+    # the spec declares only the two configured harnesses
+    from cogsecskills.loader import load_skill
+
+    spec = load_skill(tmp_path / "skills" / "sat" / "demo" / "skill.yaml")
+    assert set(spec.harness) == {"claude", "gemini"}

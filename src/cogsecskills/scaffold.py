@@ -195,8 +195,9 @@ def _adapter_md(entry: RegistryEntry, harness: str) -> str:
     bindings = _HARNESS_BINDINGS.get(harness, {"label": f"{harness} tool"})
 
     def _binding(verb: str) -> tuple[str, str]:
-        if verb in bindings:
-            return bindings[verb]
+        val = bindings.get(verb)
+        if isinstance(val, tuple) and len(val) == 2:
+            return (str(val[0]), str(val[1]))
         return (f"{harness} `{verb}` tool", f"Realise the {verb!r} capability.")
 
     rows = "\n".join(

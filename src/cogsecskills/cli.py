@@ -29,9 +29,11 @@ from .insights import (
     render_catalogue_markdown,
     route_query,
 )
+from . import __version__
 from .loader import discover_skills
 from .registry import load_registry
 from .scaffold import scaffold_skill
+from .spec import SkillSpec
 from .validate import conformance_report, validate_library
 
 
@@ -169,7 +171,7 @@ def _cmd_author_batch(args: argparse.Namespace) -> int:
     return 0 if not result["failed"] else 1
 
 
-def _spec_dict(spec) -> dict:  # type: ignore[no-untyped-def]
+def _spec_dict(spec: SkillSpec) -> dict:
     return {
         "id": spec.id,
         "name": spec.name,
@@ -188,6 +190,9 @@ def _spec_dict(spec) -> dict:  # type: ignore[no-untyped-def]
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="cogsecskills", description=__doc__)
+    parser.add_argument(
+        "--version", action="version", version=f"cogsecskills {__version__}"
+    )
     parser.add_argument("--root", type=Path, default=None, help="project root override")
     sub = parser.add_subparsers(dest="command", required=True)
 

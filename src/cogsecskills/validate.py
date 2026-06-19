@@ -276,12 +276,12 @@ def validate_library(
             if spec.id not in reg_ids:
                 result.error(spec.id, "on-disk skill is not enumerated in the registry")
             else:
-                entry = registry.get(spec.id)
-                assert entry is not None
-                if entry.group != spec.group:
+                matched = registry.get(spec.id)
+                assert matched is not None
+                if matched.group != spec.group:
                     result.error(
                         spec.id,
-                        f"registry group {entry.group!r} != spec group {spec.group!r}",
+                        f"registry group {matched.group!r} != spec group {spec.group!r}",
                     )
 
     return result

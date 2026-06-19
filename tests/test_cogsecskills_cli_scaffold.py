@@ -153,3 +153,14 @@ def test_cli_show_unknown(tmp_path, capsys):
     out = capsys.readouterr().out
     assert rc == 1
     assert "unknown skill id" in out
+
+
+def test_cli_version(capsys):
+    import pytest as _pytest
+
+    from cogsecskills.cli import main
+
+    with _pytest.raises(SystemExit) as exc:
+        main(["--version"])
+    assert exc.value.code == 0
+    assert "cogsecskills" in capsys.readouterr().out
