@@ -1,0 +1,397 @@
+from __future__ import annotations
+
+import json
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any, Mapping, TypedDict
+
+import yaml
+
+from .manuscript_assets import GENERATED_HEADER
+from .scenarios import (
+    ANSWER_KINDS,
+    OPERATIONAL_MISUSE_PHRASES,
+    RUBRIC_KEYS,
+    Scenario,
+    load_scenarios,
+)
+
+EVALS_SOURCE_PATH = Path("evals/local_output_review.yaml")
+EVALS_MD_PATH = Path("docs/evaluation-readiness.md")
+EVALS_JSON_PATH = Path("output/data/evaluation_readiness.json")
+
+PROVENANCE = "reviewed local fixture"
+CLAIM_BOUNDARY = (
+    "deterministic offline review fixture; not a live model output, runtime "
+    "certification, or field validation"
+)
+
+
+@dataclass(frozen=True)
+class EvaluationSection:
+    title: str
+    body: str
+
+
+@dataclass(frozen=True)
+class EvaluationReview:
+    scenario_id: str
+    group: str
+    kind: str
+    selected_skill: str
+    answer_kind: str
+    sections: tuple[EvaluationSection, ...]
+    rubric_scores: dict[str, int]
+    provenance: str
+    claim_boundary: str
+
+
+class EvalWriteResult(TypedDict):
+    source: str
+    markdown: str
+    data: str
+    evaluations: int
+
+
+def _project_root(root: Path | None = None) -> Path:
+    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+
+
+def _clean_cell(value: object) -> str:
+    return " ".join(str(value).split()).replace("|", r"\|")
+
+
+def _as_text(value: object, *, field: str, path: Path) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{path}: {field} must be a non-empty string")
+    return value.strip()
+
+
+def _section_from_obj(
+    obj: object, *, path: Path, scenario_id: str
+) -> EvaluationSection:
+    if not isinstance(obj, Mapping):
+        raise ValueError(f"{path}: {scenario_id}: section must be a mapping")
+    return EvaluationSection(
+        title=_as_text(obj.get("title"), field="section.title", path=path),
+        body=_as_text(obj.get("body"), field="section.body", path=path),
+    )
+
+
+def _review_from_obj(obj: object, *, path: Path) -> EvaluationReview:
+    if not isinstance(obj, Mapping):
+        raise ValueError(f"{path}: evaluation entry must be a mapping")
+    scenario_id = _as_text(obj.get("scenario_id"), field="scenario_id", path=path)
+    sections_raw = obj.get("sections")
+    if not isinstance(sections_raw, list) or not sections_raw:
+        raise ValueError(f"{path}: {scenario_id}: sections must be a non-empty list")
+    scores_raw = obj.get("rubric_scores")
+    if not isinstance(scores_raw, Mapping):
+        raise ValueError(f"{path}: {scenario_id}: rubric_scores must be a mapping")
+    scores: dict[str, int] = {}
+    for key in RUBRIC_KEYS:
+        value = scores_raw.get(key)
+        if not isinstance(value, int):
+            raise ValueError(f"{path}: {scenario_id}: rubric_scores.{key} must be int")
+        scores[key] = value
+    return EvaluationReview(
+        scenario_id=scenario_id,
+        group=_as_text(obj.get("group"), field="group", path=path),
+        kind=_as_text(obj.get("kind"), field="kind", path=path),
+        selected_skill=_as_text(
+            obj.get("selected_skill"), field="selected_skill", path=path
+        ),
+        answer_kind=_as_text(obj.get("answer_kind"), field="answer_kind", path=path),
+        sections=tuple(
+            _section_from_obj(section, path=path, scenario_id=scenario_id)
+            for section in sections_raw
+        ),
+        rubric_scores=scores,
+        provenance=_as_text(obj.get("provenance"), field="provenance", path=path),
+        claim_boundary=_as_text(
+            obj.get("claim_boundary"), field="claim_boundary", path=path
+        ),
+    )
+
+
+def _review_from_scenario(scenario: Scenario) -> dict[str, Any]:
+    return {
+        "scenario_id": scenario.id,
+        "group": scenario.group,
+        "kind": scenario.kind,
+        "selected_skill": scenario.expected_answer.selected_skill,
+        "answer_kind": scenario.expected_answer.answer_kind,
+        "sections": [asdict(section) for section in scenario.expected_answer.sections],
+        "rubric_scores": dict(scenario.expected_answer.rubric_scores),
+        "provenance": PROVENANCE,
+        "claim_boundary": CLAIM_BOUNDARY,
+    }
+
+
+def _expected_source_text(root: Path | None = None) -> str:
+    scenarios = load_scenarios(root)
+    payload = {
+        "version": 1,
+        "description": (
+            "Offline reviewed local output fixtures derived from defensive "
+            "scenario expected answers. These are not live model outputs."
+        ),
+        "rubric": {
+            "source": "docs/analyst-output-review.md",
+            "scale": "0, 1, 2",
+            "passing_score": 2,
+            "dimensions": list(RUBRIC_KEYS),
+        },
+        "evaluations": [_review_from_scenario(scenario) for scenario in scenarios],
+    }
+    return yaml.safe_dump(payload, sort_keys=False, width=88)
+
+
+def load_evaluations(root: Path | None = None) -> list[EvaluationReview]:
+    path = _project_root(root) / EVALS_SOURCE_PATH
+    if not path.is_file():
+        raise ValueError(f"missing offline evaluation source: {EVALS_SOURCE_PATH}")
+    loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(loaded, Mapping):
+        raise ValueError(f"{path}: top level must be a mapping")
+    raw_evaluations = loaded.get("evaluations")
+    if not isinstance(raw_evaluations, list) or not raw_evaluations:
+        raise ValueError(f"{path}: 'evaluations' must be a non-empty list")
+    return [_review_from_obj(item, path=path) for item in raw_evaluations]
+
+
+def _review_text(review: EvaluationReview) -> str:
+    return " ".join(
+        [
+            review.scenario_id,
+            review.group,
+            review.kind,
+            review.selected_skill,
+            review.answer_kind,
+            review.provenance,
+            review.claim_boundary,
+            *(section.title for section in review.sections),
+            *(section.body for section in review.sections),
+        ]
+    ).lower()
+
+
+def _payload(root: Path | None = None) -> dict[str, Any]:
+    base = _project_root(root)
+    scenarios = load_scenarios(base)
+    reviews = load_evaluations(base)
+    scenario_by_id = {scenario.id: scenario for scenario in scenarios}
+    rows = []
+    for review in reviews:
+        scenario = scenario_by_id.get(review.scenario_id)
+        rows.append(
+            {
+                "scenario_id": review.scenario_id,
+                "group": review.group,
+                "kind": review.kind,
+                "selected_skill": review.selected_skill,
+                "expected_skill": scenario.expected_skill if scenario else "",
+                "answer_kind": review.answer_kind,
+                "sections": [asdict(section) for section in review.sections],
+                "rubric_scores": dict(review.rubric_scores),
+                "provenance": review.provenance,
+                "claim_boundary": review.claim_boundary,
+            }
+        )
+    return {
+        "summary": {
+            "evaluations": len(reviews),
+            "scenarios": len(scenarios),
+            "groups": len({review.group for review in reviews}),
+            "passing_score": 2,
+            "rubric_dimensions": list(RUBRIC_KEYS),
+            "source": str(EVALS_SOURCE_PATH),
+        },
+        "evaluations": rows,
+    }
+
+
+def _render_markdown(payload: dict[str, Any]) -> str:
+    summary = payload["summary"]
+    lines = [
+        GENERATED_HEADER,
+        "",
+        "# CogSecSkills Evaluation Readiness",
+        "",
+        "This generated report summarizes deterministic offline output-review "
+        "fixtures. The fixtures are reviewed local answers linked to scenario "
+        "ids; they are not live model outputs, runtime certification, field "
+        "validation, or benchmark results.",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Value |",
+        "|---|---:|",
+        f"| Evaluation fixtures | {summary['evaluations']} |",
+        f"| Scenario fixtures | {summary['scenarios']} |",
+        f"| Groups | {summary['groups']} |",
+        f"| Passing score per dimension | {summary['passing_score']} |",
+        "",
+        "## Rubric Dimensions",
+        "",
+    ]
+    for key in summary["rubric_dimensions"]:
+        lines.append(f"- `{key}`")
+    lines.extend(
+        [
+            "",
+            "## Fixture Matrix",
+            "",
+            "| Scenario | Kind | Skill | Answer kind | Scores | Claim boundary |",
+            "|---|---|---|---|---|---|",
+        ]
+    )
+    for row in payload["evaluations"]:
+        scores = ", ".join(
+            f"{key}={value}" for key, value in row["rubric_scores"].items()
+        )
+        lines.append(
+            "| "
+            + " | ".join(
+                [
+                    f"`{_clean_cell(row['scenario_id'])}`",
+                    _clean_cell(row["kind"]),
+                    f"`{_clean_cell(row['selected_skill'])}`",
+                    _clean_cell(row["answer_kind"]),
+                    _clean_cell(scores),
+                    _clean_cell(row["claim_boundary"]),
+                ]
+            )
+            + " |"
+        )
+    return "\n".join(lines) + "\n"
+
+
+def _expected_outputs(root: Path | None = None) -> dict[Path, str]:
+    payload = _payload(root)
+    return {
+        EVALS_MD_PATH: _render_markdown(payload),
+        EVALS_JSON_PATH: json.dumps(payload, indent=2, sort_keys=True) + "\n",
+    }
+
+
+def _content_findings(base: Path, reviews: list[EvaluationReview]) -> list[str]:
+    findings: list[str] = []
+    scenarios = load_scenarios(base)
+    scenario_by_id = {scenario.id: scenario for scenario in scenarios}
+    seen: set[str] = set()
+    for review in reviews:
+        if review.scenario_id in seen:
+            findings.append(f"{review.scenario_id}: duplicate evaluation fixture")
+        seen.add(review.scenario_id)
+        scenario = scenario_by_id.get(review.scenario_id)
+        if scenario is None:
+            findings.append(f"{review.scenario_id}: no matching scenario fixture")
+            continue
+        if review.group != scenario.group:
+            findings.append(f"{review.scenario_id}: group does not match scenario")
+        if review.kind != scenario.kind:
+            findings.append(f"{review.scenario_id}: kind does not match scenario")
+        if review.selected_skill != scenario.expected_skill:
+            findings.append(
+                f"{review.scenario_id}: selected skill does not match scenario"
+            )
+        if review.answer_kind != ANSWER_KINDS[scenario.kind]:
+            findings.append(f"{review.scenario_id}: answer kind does not match kind")
+        if review.provenance != PROVENANCE:
+            findings.append(f"{review.scenario_id}: provenance must be {PROVENANCE!r}")
+        if "not a live model output" not in review.claim_boundary:
+            findings.append(f"{review.scenario_id}: claim boundary is too broad")
+        for key in RUBRIC_KEYS:
+            if review.rubric_scores.get(key) != 2:
+                findings.append(f"{review.scenario_id}: rubric {key} must be 2")
+        titles = [section.title.strip().lower() for section in review.sections]
+        if len(review.sections) < 3:
+            findings.append(f"{review.scenario_id}: at least 3 sections are required")
+        if len(titles) != len(set(titles)):
+            findings.append(f"{review.scenario_id}: section titles repeat")
+        text = _review_text(review)
+        required_terms = {
+            "evidence",
+            "inference",
+            "gap",
+            "confidence",
+            "uncertainty",
+            *(term.lower() for term in scenario.expected_output_terms),
+            *(term.lower() for term in scenario.required_quality_terms),
+        }
+        if scenario.kind == "safe_defensive":
+            required_terms.add("defensive")
+        if scenario.kind == "unsafe_redirect":
+            required_terms.update({"refuse", "redirect", "safe"})
+        for term in sorted(required_terms):
+            if term not in text:
+                findings.append(f"{review.scenario_id}: term {term!r} is missing")
+        for phrase in OPERATIONAL_MISUSE_PHRASES:
+            if phrase in text:
+                findings.append(
+                    f"{review.scenario_id}: operational misuse phrase {phrase!r}"
+                )
+    expected_ids = set(scenario_by_id)
+    if seen != expected_ids:
+        missing = sorted(expected_ids - seen)
+        extra = sorted(seen - expected_ids)
+        if missing:
+            findings.append(
+                f"missing evaluation fixtures for {len(missing)} scenarios: "
+                f"{', '.join(missing[:5])}"
+            )
+        if extra:
+            findings.append(
+                f"unexpected evaluation fixtures for {len(extra)} scenarios: "
+                f"{', '.join(extra[:5])}"
+            )
+    if len(reviews) != 28:
+        findings.append(f"expected 28 evaluation fixtures, found {len(reviews)}")
+    return findings
+
+
+def write_evals(root: Path | None = None) -> EvalWriteResult:
+    base = _project_root(root)
+    source = base / EVALS_SOURCE_PATH
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_text(_expected_source_text(base), encoding="utf-8")
+    outputs = _expected_outputs(base)
+    for rel_path, text in outputs.items():
+        path = base / rel_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+    return {
+        "source": str(EVALS_SOURCE_PATH),
+        "markdown": str(EVALS_MD_PATH),
+        "data": str(EVALS_JSON_PATH),
+        "evaluations": len(load_evaluations(base)),
+    }
+
+
+def check_evals(root: Path | None = None) -> list[str]:
+    base = _project_root(root)
+    source = base / EVALS_SOURCE_PATH
+    if not source.is_file():
+        return [f"missing offline evaluation source: {EVALS_SOURCE_PATH}"]
+    findings: list[str] = []
+    expected_source = _expected_source_text(base)
+    if source.read_text(encoding="utf-8") != expected_source:
+        findings.append(f"stale offline evaluation source: {EVALS_SOURCE_PATH}")
+    try:
+        reviews = load_evaluations(base)
+    except ValueError as exc:
+        return [*findings, str(exc)]
+    findings.extend(_content_findings(base, reviews))
+    try:
+        outputs = _expected_outputs(base)
+    except ValueError as exc:
+        return [*findings, str(exc)]
+    for rel_path, expected in outputs.items():
+        path = base / rel_path
+        if not path.is_file():
+            findings.append(f"missing generated evaluation file: {rel_path}")
+            continue
+        if path.read_text(encoding="utf-8") != expected:
+            findings.append(f"stale generated evaluation file: {rel_path}")
+    return findings

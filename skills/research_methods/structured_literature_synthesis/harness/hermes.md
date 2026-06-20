@@ -1,28 +1,19 @@
-# Harness Adapter — Hermes
+# Hermes adapter — Structured Literature Synthesis
 
-Maps the neutral tool verbs in `workflow.md` to Hermes tools.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Hermes tool | Notes |
 | --- | --- | --- |
-| read | fs.read | Ingest each source document; extract claims. |
-| search | web.search | Locate sources and themes where permitted. |
-| web | web.fetch | Retrieve a specific permitted source by URL. |
-| reason | (model) | Cluster, weigh conflicts, grade evidence inline. |
-| write | fs.write | Emit the BLUF briefing and evidence table. |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `search` | `web.search` / `kb.query` | Query the web or a knowledge base. |
+| `web` | `web.fetch` | Fetch web sources where permitted. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
 
-Run inside Hermes. Provide the `synthesis_question`, the `sources` list, and
-optional `inclusion_criteria`. Execute `workflow.md` in order: define scope,
-gather and deduplicate via `web.search`/`web.fetch` (permitted retrieval only)
-and `fs.read`, extract claims, cluster and grade by reasoning, then `fs.write`
-the briefing.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Structured Literature Synthesis only for research-methods and synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Structured Literature Synthesis to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence, refuse that path and redirect to the safe defensive form: synthesize supplied or authorized sources with explicit confidence and uncertainty labels.
 
 ## Output contract
 
-Write a single markdown briefing plus the evidence table:
-
-- BLUF bottom line first.
-- Themes, each with a strength grade (strong / moderate / weak / insufficient).
-- Conflicts surfaced honestly; gaps named with what would resolve them.
-- Full citations; every synthesized statement traces to the evidence table.
+Return the `skill.yaml` outputs (synthesis_briefing, evidence_table) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

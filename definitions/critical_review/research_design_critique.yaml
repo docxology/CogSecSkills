@@ -1,0 +1,187 @@
+id: critical_review.research_design_critique
+description: Research Design Critique applies the canonical framework of internal
+  validity, external validity, construct validity, and statistical conclusion validity
+  to systematically identify flaws in a study's design before accepting its conclusions.
+  The technique surfaces confounds, selection biases, demand characteristics, measurement
+  problems, and unjustified inferential leaps that weaken a claim's epistemic weight.
+  It is grounded in Cook and Campbell's validity typology and is standard practice
+  in intelligence analysis, scientific peer review, and cognitive-security assessments
+  of research used to justify policy or belief updates.
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- validity-assessment
+triggers:
+- critique this study's design
+- is this research valid
+- what are the confounds
+- check the inferential reach
+- does the design support the conclusion
+- internal and external validity check
+tools:
+- verb: read
+  purpose: ingest the study, its methods section, sampling frame, and stated conclusions
+- verb: reason
+  purpose: apply the four-validity typology to identify threats, confounds, and inferential
+    overreach
+- verb: write
+  purpose: produce a structured critique table mapping threats to severity, evidence,
+    and recommended caveats
+inputs:
+- name: study_text
+  type: text
+  required: true
+  description: The full text or detailed summary of the study to critique, including
+    methods, sample, measures, and conclusions
+- name: claim_under_review
+  type: text
+  required: false
+  description: The specific claim or conclusion you are most concerned about; if omitted,
+    the main stated conclusion is used
+outputs:
+- name: validity_critique
+  type: table
+  description: 'A table of validity threats across the four Cook-Campbell dimensions,
+    each with: threat name, design evidence, severity (high/medium/low), and recommended
+    caveat or remediation'
+- name: inferential_reach_assessment
+  type: markdown
+  description: A narrative judgment of whether the study's design justifies the scope
+    of its stated conclusions, and what narrower claim the evidence actually supports
+references:
+- 'Cook, T.D. & Campbell, D.T. (1979). Quasi-Experimentation: Design and Analysis
+  Issues for Field Settings. Houghton Mifflin.'
+- Shadish, W.R., Cook, T.D. & Campbell, D.T. (2002). Experimental and Quasi-Experimental
+  Designs for Generalized Causal Inference. Houghton Mifflin.
+- Heuer, R.J. & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. (Chapter on Quality of Information Review)
+- Ioannidis, J.P.A. (2005). Why Most Published Research Findings Are False. PLOS Medicine,
+  2(8), e124.
+when_to_use:
+- a study or report is cited to justify a consequential decision or belief update
+- a research claim is used to discredit or bolster a policy position
+- you need to assess whether a finding generalizes beyond its original sample or context
+- a study is presented as definitive but the design is observational or weakly controlled
+- a cognitive-security assessment requires evaluating the evidence base behind a narrative
+what_it_produces:
+- a structured table mapping each validity dimension to specific threats found in
+  the design
+- a severity rating for each threat (high/medium/low) with textual evidence from the
+  study
+- 'a narrowed claim statement: the conclusion the evidence actually supports vs. what
+  was stated'
+- recommended caveats that any honest consumer of the research should apply
+key_discipline:
+- separate the four validity dimensions — internal, external, construct, and statistical
+  conclusion — and assess each independently before forming an overall judgment
+- identify what the design cannot rule out, not just what it claims to demonstrate
+- distinguish between threats that are theoretical and threats for which the study
+  provides positive evidence of bias
+- state the narrowest defensible claim the design supports; resist upgrading it to
+  the author's preferred conclusion
+workflow_steps:
+- verbs:
+  - read
+  title: Extract design parameters
+  text: 'Read the methods section carefully. Record: study type (RCT, quasi-experiment,
+    observational, survey, case study), sample size and selection method, comparison
+    condition if any, outcome measures and how they were operationalized, and the
+    stated causal or descriptive claim.'
+- verbs:
+  - reason
+  title: Apply the four-validity typology
+  text: 'For internal validity: identify confounds, selection bias, attrition, maturation,
+    history effects, and testing effects. For external validity: assess population,
+    setting, and temporal generalizability. For construct validity: check whether
+    measures actually capture the constructs claimed and whether demand characteristics
+    or mono-operation bias apply. For statistical conclusion validity: note underpowered
+    tests, inflated Type I error from multiple comparisons, violated assumptions,
+    and fishing.'
+- verbs:
+  - reason
+  title: Assess inferential reach
+  text: Compare the study's stated conclusions to what the design can actually support.
+    Identify inferential leaps — places where the authors move from their measured
+    outcome to a broader or causal claim the design does not license. Rate each threat
+    high/medium/low for its likely impact on the primary conclusion.
+- verbs:
+  - write
+  title: Produce the critique and narrowed claim
+  text: 'Write the validity-threat table with columns: dimension, threat name, evidence
+    from study, severity. Then write the inferential reach assessment as a narrative:
+    state what narrower claim the design does support and what caveats a responsible
+    consumer must apply. Flag any threats severe enough to recommend the conclusion
+    be withheld or substantially qualified.'
+anti_criteria:
+- do not reject a study because its conclusion is inconvenient — assess design quality
+  independently of whether you agree with the finding
+- do not conflate statistical significance with substantive validity — a well-powered
+  null result can be as design-flawed as any other study
+- do not omit the external validity dimension because the study is internally clean
+  — a tightly controlled lab result may not transfer to real-world conditions
+- do not produce only a narrative critique without specifying which validity dimension
+  each threat belongs to
+defensive_boundary: 'Use Research Design Critique only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Research Design Critique to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Research Design Critique, tie each validity critique, and inferential reach
+  assessment claim to concrete evidence from the specific study text, and claim under
+  review item, source excerpt, observation, or command result that supports it.
+- For Research Design Critique, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the validity
+  critique.
+- Before recommending any Research Design Critique action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Research Design Critique: the validity critique is supported by multiple
+  independent artifact excerpts, test output, citations, assumptions, and reproducibility
+  records; extract design parameters and apply the four-validity typology checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Research Design Critique: the validity critique is plausible, but one
+  important study text source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Research Design Critique: the validity critique rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Research Design Critique cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Research Design Critique, use only authorized study text, and claim under review,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Research Design Critique, minimize person-level detail in the validity critique;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Research Design Critique, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Research Design Critique: treating study text as complete when extract design parameters
+  and apply the four-validity typology checks or contradictory evidence are missing.'
+- 'Research Design Critique: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Research Design Critique: reporting the validity critique without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Research Design Critique outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the validity critique from Research Design Critique into an operational
+  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
+  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Research Design Critique to review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures with study text,
+  and claim under review'' -> produce bounded findings with evidence and uncertainty
+  labels.'

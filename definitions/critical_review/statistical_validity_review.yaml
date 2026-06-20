@@ -1,0 +1,203 @@
+id: critical_review.statistical_validity_review
+description: Statistical Validity Review is a structured audit of a study's statistical
+  methods against the claims it makes, checking for adequate power, appropriate test
+  selection, honest handling of multiple comparisons, correct interpretation of p-values
+  and confidence intervals, and absence of post-hoc outcome switching. Grounded in
+  Gelman's Type S/M error framework, the CONSORT/STROBE reporting standards, and the
+  ASA statement on statistical significance, it distinguishes legitimate inferential
+  weight from statistically decorated speculation. In cognitive-security contexts
+  it is used to evaluate whether quantitative claims weaponized in influence or disinformation
+  campaigns rest on sound methodology.
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- statistical-reasoning
+triggers:
+- check the statistics
+- is the p-value valid
+- multiple comparisons problem
+- was this study underpowered
+- p-hacking review
+- statistical validity
+- check effect size and power
+tools:
+- verb: read
+  purpose: ingest the study's statistical methods, results tables, and stated inferences
+- verb: reason
+  purpose: apply the statistical checklist — power, test appropriateness, multiple
+    comparisons, effect size, assumption violations, and outcome reporting — to identify
+    threats
+- verb: write
+  purpose: produce a structured findings table and a corrected-inference statement
+    indicating what the data actually support
+inputs:
+- name: study_text
+  type: text
+  required: true
+  description: The study or report text including methods, results, and conclusions;
+    supplementary statistical tables included if available
+- name: primary_claim
+  type: text
+  required: false
+  description: The specific quantitative claim to audit; if omitted, the main stated
+    finding is used
+outputs:
+- name: statistical_findings_table
+  type: table
+  description: 'A table of statistical issues found, each row containing: issue category,
+    specific finding from the study, severity (critical/moderate/minor), and the inferential
+    consequence'
+- name: corrected_inference
+  type: markdown
+  description: A narrative statement of what inference the data and statistics actually
+    support after accounting for identified flaws, including a revised confidence
+    statement
+references:
+- Gelman, A. & Loken, E. (2014). The Statistical Crisis in Science. American Scientist,
+  102(6), 460.
+- 'Gelman, A. & Carlin, J. (2014). Beyond Power Calculations: Assessing Type S (Sign)
+  and Type M (Magnitude) Errors. Perspectives on Psychological Science, 9(6), 641-651.'
+- 'Wasserstein, R.L. & Lazar, N.A. (2016). The ASA Statement on p-Values: Context,
+  Process, and Purpose. The American Statistician, 70(2), 129-133.'
+- 'Simmons, J.P., Nelson, L.D. & Simonsohn, U. (2011). False-Positive Psychology:
+  Undisclosed Flexibility in Data Collection and Analysis Allows Presenting Anything
+  as Significant. Psychological Science, 22(11), 1359-1366.'
+- Ioannidis, J.P.A. (2005). Why Most Published Research Findings Are False. PLOS Medicine,
+  2(8), e124.
+when_to_use:
+- a quantitative claim is cited in a policy brief, news article, or influence campaign
+  and needs reliability assessment
+- a study reports surprising or politically convenient findings with small samples
+- multiple outcome measures are reported and only the significant ones are highlighted
+- effect sizes are not reported alongside p-values and you need to judge practical
+  significance
+- you suspect p-hacking, HARKing (Hypothesizing After Results are Known), or selective
+  reporting
+- a meta-analysis or systematic review needs its component studies pre-screened
+what_it_produces:
+- 'a categorized table of statistical flaws: power issues, test misuse, multiple-comparisons
+  inflation, assumption violations, and reporting gaps'
+- severity ratings (critical/moderate/minor) indicating which flaws could flip the
+  stated conclusion
+- 'a corrected-inference statement: the claim the statistics actually support at an
+  honest confidence level'
+- a recommendation on whether the quantitative claim should be accepted, heavily qualified,
+  or rejected
+key_discipline:
+- distinguish between a statistically significant result and an adequately powered,
+  pre-registered, single-test result — only the latter carries full inferential weight
+- 'always ask: what was the Family-Wise Error Rate across all tests reported, and
+  was it controlled?'
+- 'check Type S (sign) and Type M (magnitude) error risk: a small noisy study can
+  get the direction wrong at high rates even when the p-value passes threshold'
+- separate the study's analysis plan (pre-specified) from its reported outcomes (post-hoc)
+  — treat any divergence as a multiple-comparisons concern
+workflow_steps:
+- verbs:
+  - read
+  title: Extract statistical claims and methods
+  text: 'Record every quantitative claim: test used, sample size, reported p-value,
+    effect size, confidence interval, and whether analysis was pre-registered or pre-specified.
+    Note how many outcome variables were measured and how many are reported as significant.'
+- verbs:
+  - reason
+  title: Audit power and multiple comparisons
+  text: 'Estimate whether the sample size was adequate for the effect size claimed
+    (use Cohen''s conventions or the study''s own domain norms). Count the number
+    of statistical tests performed (explicit and implicit through reported subgroup
+    comparisons) and assess whether the Type I error rate was controlled (Bonferroni,
+    FDR, or pre-registration). Flag any garden-of-forking-paths indicators: selective
+    reporting, undisclosed exclusions, outcome switching.'
+- verbs:
+  - reason
+  title: Check test appropriateness and assumption violations
+  text: Verify that the statistical test matches the data type and distribution (e.g.,
+    t-test on ordinal data, parametric test on heavily skewed distributions). Check
+    whether key assumptions (independence, normality, homoscedasticity) are tested
+    or acknowledged. Assess whether effect sizes are reported and whether they indicate
+    practical significance independent of significance testing.
+- verbs:
+  - write
+  title: Produce findings table and corrected inference
+  text: 'Write the statistical findings table: each row is one identified issue with
+    category, evidence, severity, and inferential consequence. Then write the corrected-inference
+    narrative: state explicitly what the data support after applying honest statistical
+    discipline, and classify the primary claim as: supported, partially supported
+    (with caveats), or insufficiently supported.'
+anti_criteria:
+- do not treat a statistically significant p-value as self-validating — significance
+  is necessary but not sufficient for a trustworthy finding
+- do not dismiss a study solely because of a small sample without also checking whether
+  effect size and confidence intervals are consistent with the claim
+- do not confuse reporting standards (e.g., CONSORT compliance) with actual statistical
+  validity — a well-formatted report can still be analytically flawed
+- do not apply this audit to reject inconvenient findings; rate severity by methodological
+  criteria alone, independent of the direction of the result
+defensive_boundary: 'Use Statistical Validity Review only for critical review and
+  assurance: recognize, assess, document, or defend evidence quality, implementation
+  integrity, and decision accountability. Do not use this skill to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Statistical Validity Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Statistical Validity Review, tie each statistical findings table, and corrected
+  inference claim to concrete evidence from the specific study text, and primary claim
+  item, source excerpt, observation, or command result that supports it.
+- For Statistical Validity Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the statistical
+  findings table.
+- Before recommending any Statistical Validity Review action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Statistical Validity Review: the statistical findings table is supported
+  by multiple independent artifact excerpts, test output, citations, assumptions,
+  and reproducibility records; extract statistical claims and methods and audit power
+  and multiple comparisons checks agree, and no unresolved contradiction would change
+  the result.'
+- 'Medium for Statistical Validity Review: the statistical findings table is plausible,
+  but one important study text source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Statistical Validity Review: the statistical findings table rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Statistical Validity Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Statistical Validity Review, use only authorized study text, and primary claim,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Statistical Validity Review, minimize person-level detail in the statistical
+  findings table; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Statistical Validity Review, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Statistical Validity Review: treating study text as complete when extract statistical
+  claims and methods and audit power and multiple comparisons checks or contradictory
+  evidence are missing.'
+- 'Statistical Validity Review: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Statistical Validity Review: reporting the statistical findings table without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Statistical Validity Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the statistical findings table from Statistical Validity Review
+  into an operational playbook to launder weak claims, fabricate review findings,
+  or produce exploit guidance without mitigation'' -> refuse and offer governance,
+  detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Statistical Validity Review to review supplied artifacts
+  for defects, evidence gaps, safety risks, or reproducibility failures with study
+  text, and primary claim'' -> produce bounded findings with evidence and uncertainty
+  labels.'

@@ -1,59 +1,57 @@
 # Workflow — Structured Literature Synthesis
 
-A deterministic procedure for turning a body of sources into a structured,
-evidence-graded, gap-aware briefing. Each step names the neutral tool verb(s) it
-relies on; map them to a concrete harness via the adapters in `harness/`.
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
-1. **Define the synthesis question and scope** [reason, write].
-   State the single question the synthesis must answer. Write explicit
-   inclusion/exclusion criteria: source types, recency, language, relevance, and
-   quality thresholds. Everything downstream is judged against this scope.
+## Step 1 — Define the synthesis question and scope (reason, write)
+State the single question the synthesis must answer and write explicit inclusion/exclusion criteria for source type, recency, language, relevance, and quality thresholds.
 
-2. **Gather and deduplicate sources** [search, web, read].
-   Collect candidate sources (retrieving from the web only where permitted),
-   then deduplicate — same study reported twice, mirror copies, reprints — so no
-   single finding is double-counted. Record what was excluded and why.
+## Step 2 — Gather and deduplicate sources (search, web, read)
+Collect candidate sources where permitted, remove duplicate studies, mirrors, and reprints, and record what was excluded and why.
 
-3. **Extract claims and findings per source** [read, reason].
-   From each retained source, extract its concrete claims/findings. For each
-   extracted claim record: the source citation, a verbatim or tight paraphrase,
-   and a per-source **quality grade** (e.g., method strength, sample, peer
-   review, independence). Build the evidence table here.
+## Step 3 — Extract claims and findings per source (read, reason)
+For each retained source, extract concrete claims, citations, tight paraphrases or necessary quotes, and a per-source quality grade.
 
-4. **Cluster findings by theme** [reason].
-   Group the extracted claims into themes that bear on the synthesis question.
-   A claim may inform more than one theme; keep its citation attached wherever
-   it lands.
+## Step 4 — Cluster findings by theme (reason)
+Group extracted claims into themes relevant to the synthesis question while preserving citation traceability for each claim.
 
-5. **Identify agreements, conflicts, and gaps** [reason].
-   Within each theme, mark where sources agree, where they conflict, and what
-   the corpus does **not** answer. Gaps are first-class output: name the
-   questions no source addresses.
+## Step 5 — Identify agreements, conflicts, and gaps (reason)
+Mark where sources converge, where they conflict, and what the corpus does not answer. Treat gaps as first-class findings.
 
-6. **Grade strength of evidence per theme** [reason].
-   Apply the rubric below to each theme as a whole, weighing source count,
-   source quality, independence, and consistency.
+## Step 6 — Grade strength of evidence per theme (reason)
+Apply the evidence-strength rubric to each theme as a whole, weighing source count, quality, independence, and consistency.
 
-7. **Write the BLUF synthesis** [write].
-   Bottom line up front. Then: themes with their graded evidence, conflicts
-   surfaced honestly, gaps with what would resolve them, and full citations.
-   Verify every synthesized statement traces back to the evidence table.
+## Step 7 — Write the BLUF synthesis (write)
+Put the bottom line up front, then present themes, evidence grades, conflicts, gaps, and full citations with every synthesized statement traceable to the evidence table.
 
-## Evidence-strength rubric
+## Evidence requirements
+- For Structured Literature Synthesis, tie each synthesis briefing, and evidence table claim to concrete evidence from the specific synthesis question, sources, and inclusion criteria item, source excerpt, observation, or command result that supports it.
+- For Structured Literature Synthesis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the synthesis briefing.
+- Before recommending any Structured Literature Synthesis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
-Grade each theme, not just each source.
+## Confidence and uncertainty
+- High for Structured Literature Synthesis: the synthesis briefing is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; define the synthesis question and scope and gather and deduplicate sources checks agree, and no unresolved contradiction would change the result.
+- Medium for Structured Literature Synthesis: the synthesis briefing is plausible, but one important synthesis question source, comparison case, or alternative explanation remains incomplete.
+- Low for Structured Literature Synthesis: the synthesis briefing rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Structured Literature Synthesis cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence is low or medium.
 
-- **Strong** — multiple independent, high-quality sources converge; no
-  substantive unresolved conflict.
-- **Moderate** — several sources agree but with limited independence, mixed
-  quality, or minor unresolved conflict.
-- **Weak** — few sources, low-quality sources, or notable conflict; the claim is
-  suggestive but not dependable.
-- **Insufficient** — too little evidence to grade, or the corpus does not
-  address the question (record as a gap).
+## Privacy, legal, and harm constraints
+- For Structured Literature Synthesis, use only authorized synthesis question, sources, and inclusion criteria, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Literature Synthesis, minimize person-level detail in the synthesis briefing; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Structured Literature Synthesis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Structured Literature Synthesis: treating synthesis question as complete when define the synthesis question and scope and gather and deduplicate sources checks or contradictory evidence are missing.
+- Structured Literature Synthesis: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
+- Structured Literature Synthesis: reporting the synthesis briefing without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Structured Literature Synthesis outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the synthesis briefing from Structured Literature Synthesis into an operational playbook to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Structured Literature Synthesis to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with synthesis question, sources, and inclusion criteria' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-
 - Do **not** present a single source's claim as settled consensus.
 - Do **not** hide or smooth over conflicting findings.
 - Do **not** synthesize beyond what the sources support.
@@ -61,7 +59,4 @@ Grade each theme, not just each source.
 - Do **not** double-count duplicate sources as independent agreement.
 
 ## AGEINT upstream
-
-Upstream guidance and grading conventions for this method live under
-`docs/ageint/` in the **research-methods** topic; this skill is the executable
-backbone those cognitive-security research-methods skills compose on.
+`docs/ageint/research-methods.md`

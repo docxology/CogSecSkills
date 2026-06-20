@@ -1,0 +1,295 @@
+from __future__ import annotations
+
+import json
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Any, Mapping, TypedDict
+
+import yaml
+
+from .loader import discover_skills
+from .manuscript_assets import GENERATED_HEADER
+from .registry import load_registry
+from .scenarios import OPERATIONAL_MISUSE_PHRASES
+
+EXAMPLES_SOURCE_PATH = Path("examples/skill-worked-examples.yaml")
+EXAMPLES_MD_PATH = Path("docs/skill-worked-examples.md")
+EXAMPLES_JSON_PATH = Path("output/data/skill_worked_examples.json")
+
+
+@dataclass(frozen=True)
+class ExampleSection:
+    title: str
+    body: str
+
+
+@dataclass(frozen=True)
+class WorkedExample:
+    skill_id: str
+    title: str
+    request: str
+    sections: tuple[ExampleSection, ...]
+    provenance: str
+
+
+class ExampleWriteResult(TypedDict):
+    markdown: str
+    data: str
+    examples: int
+
+
+def _project_root(root: Path | None = None) -> Path:
+    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+
+
+def _source_path(root: Path | None = None) -> Path:
+    return _project_root(root) / EXAMPLES_SOURCE_PATH
+
+
+def _as_text(value: object, *, field: str, path: Path) -> str:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{path}: {field} must be a non-empty string")
+    return value.strip()
+
+
+def _section_from_obj(obj: object, *, path: Path, skill_id: str) -> ExampleSection:
+    if not isinstance(obj, Mapping):
+        raise ValueError(f"{path}: example {skill_id!r} section must be a mapping")
+    return ExampleSection(
+        title=_as_text(obj.get("title"), field="section.title", path=path),
+        body=_as_text(obj.get("body"), field="section.body", path=path),
+    )
+
+
+def _example_from_obj(obj: object, *, path: Path) -> WorkedExample:
+    if not isinstance(obj, Mapping):
+        raise ValueError(f"{path}: example entry must be a mapping")
+    skill_id = _as_text(obj.get("skill_id"), field="skill_id", path=path)
+    sections_raw = obj.get("sections")
+    if not isinstance(sections_raw, list) or not sections_raw:
+        raise ValueError(
+            f"{path}: example {skill_id!r} sections must be a non-empty list"
+        )
+    return WorkedExample(
+        skill_id=skill_id,
+        title=_as_text(obj.get("title"), field="title", path=path),
+        request=_as_text(obj.get("request"), field="request", path=path),
+        sections=tuple(
+            _section_from_obj(section, path=path, skill_id=skill_id)
+            for section in sections_raw
+        ),
+        provenance=_as_text(obj.get("provenance"), field="provenance", path=path),
+    )
+
+
+def load_examples(root: Path | None = None) -> list[WorkedExample]:
+    path = _source_path(root)
+    if not path.is_file():
+        raise ValueError(f"missing worked examples source: {EXAMPLES_SOURCE_PATH}")
+    loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(loaded, Mapping):
+        raise ValueError(f"{path}: top level must be a mapping")
+    raw_examples = loaded.get("examples")
+    if not isinstance(raw_examples, list) or not raw_examples:
+        raise ValueError(f"{path}: 'examples' must be a non-empty list")
+    return [_example_from_obj(item, path=path) for item in raw_examples]
+
+
+def _clean_cell(value: object) -> str:
+    return " ".join(str(value).split()).replace("|", r"\|")
+
+
+def _example_text(example: WorkedExample) -> str:
+    return " ".join(
+        [
+            example.title,
+            example.request,
+            example.provenance,
+            *(section.title for section in example.sections),
+            *(section.body for section in example.sections),
+        ]
+    ).lower()
+
+
+def _example_payload(root: Path | None = None) -> dict[str, Any]:
+    base = _project_root(root)
+    registry = load_registry(base)
+    examples = load_examples(base)
+    by_id = {example.skill_id: example for example in examples}
+    rows = []
+    for entry in registry.entries:
+        example = by_id.get(entry.id)
+        if example is None:
+            continue
+        rows.append(
+            {
+                "skill_id": example.skill_id,
+                "group": entry.group,
+                "name": entry.name,
+                "title": example.title,
+                "request": example.request,
+                "sections": [asdict(section) for section in example.sections],
+                "provenance": example.provenance,
+            }
+        )
+    return {
+        "summary": {
+            "examples": len(examples),
+            "groups": len({row["group"] for row in rows}),
+            "source": str(EXAMPLES_SOURCE_PATH),
+        },
+        "examples": rows,
+    }
+
+
+def _render_markdown(payload: dict[str, Any]) -> str:
+    lines = [
+        GENERATED_HEADER,
+        "",
+        "# CogSecSkills Skill Worked Examples",
+        "",
+        "These deterministic local examples show the expected shape of defensive "
+        "skill use. They are reviewed fixtures, not live model outputs, runtime "
+        "certification, or field validation.",
+        "",
+        "## Summary",
+        "",
+        "| Metric | Value |",
+        "|---|---:|",
+        f"| Worked examples | {payload['summary']['examples']} |",
+        f"| Groups | {payload['summary']['groups']} |",
+        "",
+        "## Examples",
+        "",
+    ]
+    current_group = ""
+    for example in payload["examples"]:
+        if example["group"] != current_group:
+            current_group = example["group"]
+            lines.extend([f"### `{current_group}`", ""])
+        lines.extend(
+            [
+                f"#### `{example['skill_id']}` — {_clean_cell(example['title'])}",
+                "",
+                f"**Request:** {_clean_cell(example['request'])}",
+                "",
+                "| Section | Expected body |",
+                "|---|---|",
+            ]
+        )
+        for section in example["sections"]:
+            lines.append(
+                f"| {_clean_cell(section['title'])} | {_clean_cell(section['body'])} |"
+            )
+        lines.extend(
+            [
+                "",
+                f"**Provenance:** {_clean_cell(example['provenance'])}.",
+                "",
+            ]
+        )
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def _expected_outputs(root: Path | None = None) -> dict[Path, str]:
+    payload = _example_payload(root)
+    return {
+        EXAMPLES_MD_PATH: _render_markdown(payload),
+        EXAMPLES_JSON_PATH: json.dumps(payload, indent=2, sort_keys=True) + "\n",
+    }
+
+
+def _content_findings(base: Path, examples: list[WorkedExample]) -> list[str]:
+    findings: list[str] = []
+    registry = load_registry(base)
+    registry_ids = set(registry.ids)
+    spec_by_id = {spec.id: spec for spec in discover_skills(base)}
+    seen: set[str] = set()
+    for example in examples:
+        if example.skill_id in seen:
+            findings.append(f"{example.skill_id}: duplicate worked example")
+        seen.add(example.skill_id)
+        if example.skill_id not in registry_ids:
+            findings.append(f"{example.skill_id}: not present in registry")
+            continue
+        spec = spec_by_id.get(example.skill_id)
+        if spec is None:
+            findings.append(f"{example.skill_id}: rendered skill is missing")
+            continue
+        if example.provenance != "reviewed local fixture":
+            findings.append(
+                f"{example.skill_id}: provenance must be reviewed local fixture"
+            )
+        titles = [section.title.strip().lower() for section in example.sections]
+        if len(example.sections) < 3:
+            findings.append(
+                f"{example.skill_id}: example must include at least 3 sections"
+            )
+        if len(titles) != len(set(titles)):
+            findings.append(f"{example.skill_id}: example repeats section titles")
+        text = _example_text(example)
+        for term in (
+            "defensive",
+            "evidence",
+            "inference",
+            "gap",
+            "confidence",
+            "uncertainty",
+        ):
+            if term not in text:
+                findings.append(f"{example.skill_id}: example term {term!r} is missing")
+        if not any(output.name.lower() in text for output in spec.outputs):
+            findings.append(
+                f"{example.skill_id}: example does not name a declared output"
+            )
+        for phrase in OPERATIONAL_MISUSE_PHRASES:
+            if phrase in text:
+                findings.append(
+                    f"{example.skill_id}: example contains operational misuse detail {phrase!r}"
+                )
+    missing = sorted(registry_ids - seen)
+    extra = sorted(seen - registry_ids)
+    if missing:
+        findings.append(
+            f"missing worked examples for {len(missing)} skills: {', '.join(missing[:5])}"
+        )
+    if extra:
+        findings.append(
+            f"unexpected worked examples for {len(extra)} skills: {', '.join(extra[:5])}"
+        )
+    return findings
+
+
+def write_examples(root: Path | None = None) -> ExampleWriteResult:
+    base = _project_root(root)
+    outputs = _expected_outputs(base)
+    for rel_path, text in outputs.items():
+        path = base / rel_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+    return {
+        "markdown": str(EXAMPLES_MD_PATH),
+        "data": str(EXAMPLES_JSON_PATH),
+        "examples": len(load_examples(base)),
+    }
+
+
+def check_examples(root: Path | None = None) -> list[str]:
+    base = _project_root(root)
+    try:
+        examples = load_examples(base)
+    except ValueError as exc:
+        return [str(exc)]
+    findings = _content_findings(base, examples)
+    try:
+        outputs = _expected_outputs(base)
+    except ValueError as exc:
+        return [*findings, str(exc)]
+    for rel_path, expected in outputs.items():
+        path = base / rel_path
+        if not path.is_file():
+            findings.append(f"missing generated examples file: {rel_path}")
+            continue
+        if path.read_text(encoding="utf-8") != expected:
+            findings.append(f"stale generated examples file: {rel_path}")
+    return findings

@@ -1,0 +1,212 @@
+id: counterintelligence.analytic_process_hardening
+description: Analytic process hardening audits an intelligence or research workflow
+  to identify the specific points at which an adversary — or a manipulation campaign
+  — could plant evidence, anchor judgments, seed false leads, or exploit cognitive
+  biases to corrupt conclusions. Rooted in counterintelligence tradecraft and structured
+  analytic technique discipline, it maps each workflow node to its manipulation surface,
+  then prescribes procedural controls that reduce exploitability without requiring
+  analysts to become suspicious of all sources. The output is an action-ready hardening
+  plan with prioritized controls.
+tags:
+- cognitive-security
+- counterintelligence
+- process-integrity
+- bias-mitigation
+triggers:
+- harden this workflow
+- how could this process be gamed
+- analytic process audit
+- could someone feed us false information here
+- make this workflow manipulation-resistant
+- process integrity review
+tools:
+- verb: read
+  purpose: ingest the analytic workflow, its collection sources, and any prior assessments
+    of process vulnerabilities
+- verb: reason
+  purpose: map each workflow node to its manipulation surface and identify the highest-risk
+    intervention points
+- verb: write
+  purpose: 'produce a prioritized hardening plan: control recommendations, ownership
+    assignments, and residual-risk statements'
+inputs:
+- name: workflow_description
+  type: text
+  required: true
+  description: 'A description of the analytic workflow: stages, data sources, analysts
+    involved, review gates, and output consumers'
+- name: adversary_context
+  type: text
+  required: false
+  description: Known or suspected adversary with motivation to manipulate this workflow,
+    if applicable
+- name: prior_incidents
+  type: list
+  required: false
+  description: Any prior suspected or confirmed manipulation attempts against this
+    workflow or similar ones
+outputs:
+- name: vulnerability_map
+  type: table
+  description: 'Workflow node × manipulation vector matrix: what can be planted/anchored/exploited
+    at each stage and the detection difficulty'
+- name: hardening_plan
+  type: markdown
+  description: 'Prioritized controls for each high-risk node: procedural changes,
+    sourcing diversification, structured challenge steps, and reviewer independence
+    requirements'
+- name: residual_risk_statement
+  type: markdown
+  description: What manipulation surfaces remain after controls are applied and what
+    would be needed to eliminate them
+references:
+- Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. (Chapters 4, 13).
+- Wirtz, J.J. (1994). 'Deception and the Frosting on the Cake.' Intelligence and National
+  Security 9(2).
+- Pherson, R.H. & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Jones, M.D. (1998). The Thinker''s Toolkit: 14 Powerful Techniques for Problem
+  Solving. Three Rivers Press.'
+- National Academies of Sciences (2019). Reproducibility and Replicability in Science.
+  National Academies Press.
+when_to_use:
+- a high-stakes analytic workflow will inform a major decision and manipulation by
+  an adversary is a credible threat
+- a prior assessment was later found to have relied on planted or manipulated evidence
+- a workflow aggregates information from sources with adversarial access or that operate
+  in contested information environments
+- an organization is designing a new analytic process and wants manipulation-resistance
+  built in from the start
+what_it_produces:
+- a node-by-node map of manipulation surfaces in the workflow with associated detection
+  difficulty ratings
+- a prioritized set of procedural controls targeting the highest-risk nodes first
+- an explicit residual-risk statement so decision-makers know what cannot be fully
+  mitigated
+key_discipline:
+- map attack surfaces structurally — ask 'what would a sophisticated deceiver do at
+  this node?' not 'do we trust our sources?'
+- controls must be proportionate — hardening every node equally creates analyst fatigue
+  and degrades legitimate throughput; prioritize by adversary capability × consequence
+  of manipulation
+- 'independence of review is the strongest single control: a reviewer who processed
+  different sources and was not present during drafting catches the most'
+workflow_steps:
+- verbs:
+  - read
+  title: Map the workflow
+  text: 'Document each stage of the analytic process: collection sources, how information
+    enters the workflow, who processes it, what review gates exist, who approves the
+    final product, and who consumes it. Include handoff points where information passes
+    between analysts or systems.'
+- verbs:
+  - reason
+  title: Identify manipulation surfaces
+  text: 'For each node, ask: (1) Can a motivated adversary introduce fabricated or
+    misleading content here? (2) Does the workflow create anchoring — is later analysis
+    downstream of early judgments? (3) Are there single-source choke points where
+    one planted item cannot be cross-checked? (4) Are there cognitive pressure points
+    — deadline, senior attention, prior investment — that suppress challenge? Map
+    findings into a vulnerability table.'
+- verbs:
+  - reason
+  title: Score and prioritize risks
+  text: Rate each identified surface on adversary access (how hard is it to inject?),
+    analyst detection probability (how likely is detection?), and consequence of successful
+    manipulation (what decision would be corrupted?). Rank by the product of these
+    three factors. Focus hardening on the top tercile.
+- verbs:
+  - reason
+  - write
+  title: Design targeted controls
+  text: 'For each high-priority surface, prescribe one or more controls from the hardening
+    toolkit: source diversification (cross-check via independent channel), structured
+    challenge (red team or devil''s advocate step), blind review (reviewer sees no
+    prior conclusion), provenance tagging (track each claim to its source so contamination
+    can be traced), or collection gap disclosure (require explicit statement of what
+    is unknown). Assign an owner and a verification criterion for each control.'
+- verbs:
+  - write
+  title: Document residual risk
+  text: State explicitly what manipulation surfaces remain after controls, why they
+    cannot be fully mitigated, and what decision-maker behavior (e.g., seeking corroboration
+    before acting) compensates. Provide a summary hardening scorecard comparing pre-
+    and post-control risk for each node.
+anti_criteria:
+- do not treat hardening as a one-time event — workflows change, adversaries adapt;
+  schedule periodic re-audits
+- do not harden by adding bureaucratic sign-off alone; signature layers without independent
+  analysis add drag without detection capability
+- do not classify a source as trustworthy and exempt it from hardening — trusted sources
+  are prime targets for adversary access operations
+- do not suppress findings of high residual risk to avoid organizational discomfort;
+  the point of the output is honest risk communication
+defensive_boundary: 'Use Analytic Process Hardening only for counterintelligence and
+  analytic-process defense: recognize, assess, document, or defend analytic teams,
+  collection processes, and institutional trust boundaries. Do not use this skill
+  to evade detection, improve elicitation, profile targets for exploitation, or conceal
+  tradecraft.'
+misuse_redirect: 'If a request asks Analytic Process Hardening to evade detection,
+  improve elicitation, profile targets for exploitation, or conceal tradecraft, refuse
+  that path and redirect to the safe defensive form: review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators.'
+evidence_requirements:
+- For Analytic Process Hardening, tie each vulnerability map, hardening plan, and
+  residual risk statement claim to concrete evidence from the specific workflow description,
+  adversary context, and prior incidents item, source excerpt, observation, or command
+  result that supports it.
+- For Analytic Process Hardening, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the vulnerability
+  map.
+- Before recommending any Analytic Process Hardening action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Analytic Process Hardening: the vulnerability map is supported by multiple
+  independent interaction records, process artifacts, deception indicators, and alternative
+  explanations; map the workflow and identify manipulation surfaces checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Analytic Process Hardening: the vulnerability map is plausible, but
+  one important workflow description source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Analytic Process Hardening: the vulnerability map rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Analytic Process Hardening cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Analytic Process Hardening, use only authorized workflow description, adversary
+  context, and prior incidents, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Analytic Process Hardening, minimize person-level detail in the vulnerability
+  map; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Analytic Process Hardening, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Analytic Process Hardening: treating workflow description as complete when map
+  the workflow and identify manipulation surfaces checks or contradictory evidence
+  are missing.'
+- 'Analytic Process Hardening: producing advice that would help a requester evade
+  detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.'
+- 'Analytic Process Hardening: reporting the vulnerability map without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Analytic Process Hardening outputs to evade detection, improve elicitation,
+  profile targets for exploitation, or conceal tradecraft'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the vulnerability map from Analytic Process Hardening into an
+  operational playbook to evade detection, improve elicitation, profile targets for
+  exploitation, or conceal tradecraft'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Analytic Process Hardening to review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators with workflow
+  description, adversary context, and prior incidents'' -> produce bounded findings
+  with evidence and uncertainty labels.'

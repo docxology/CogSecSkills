@@ -1,0 +1,196 @@
+id: sat.multiple_hypothesis_generation
+description: Multiple Hypothesis Generation (MHG) is a structured analytic technique
+  that requires analysts to produce a complete, mutually exclusive and collectively
+  exhaustive (MECE) set of hypotheses before evaluating any of them individually.
+  Developed by Heuer and Pherson as a precursor to Analysis of Competing Hypotheses
+  (ACH), MHG counters confirmation bias and anchoring by ensuring that the hypothesis
+  set is not inadvertently incomplete — the most common failure mode in analytical
+  forecasting and cognitive-security threat assessment.
+tags:
+- cognitive-security
+- sat
+- hypothesis-generation
+- bias-mitigation
+triggers:
+- generate hypotheses
+- what are all the explanations
+- competing explanations
+- make sure we haven't missed anything
+- hypothesis generation
+- what else could explain this
+tools:
+- verb: read
+  purpose: ingest the observed evidence, prior analytic judgments, and any stated
+    initial hypotheses
+- verb: reason
+  purpose: apply MECE discipline to generate, deduplicate, and completeness-check
+    the hypothesis set; identify assumption dependencies
+- verb: write
+  purpose: output the labeled, mutually exclusive hypothesis set with supporting rationale
+    for each hypothesis and any identified gaps
+inputs:
+- name: evidence_set
+  type: list
+  required: true
+  description: The collection of observations, reporting items, or anomalies to be
+    explained — each as a distinct numbered item
+- name: initial_hypotheses
+  type: list
+  required: false
+  description: Any hypotheses already under consideration; MHG will check these for
+    mutual exclusivity and completeness and augment them
+- name: domain_context
+  type: text
+  required: false
+  description: Background information about the actor space, base rates, and analytic
+    context that constrains plausible hypotheses
+outputs:
+- name: hypothesis_set
+  type: markdown
+  description: A labeled, MECE list of hypotheses (H1, H2, …, Hn), each with a one-paragraph
+    description, its key distinguishing claim, and the evidence most relevant to it
+- name: completeness_check
+  type: markdown
+  description: 'A structured audit documenting: (a) the MECE test result for each
+    pair of hypotheses, (b) any logical remainder (the space not covered by any hypothesis),
+    and (c) hypotheses that overlap and were merged or split'
+references:
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
+  Intelligence, CIA. Chapter 8.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 4.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Nickerson, R. S. (1998). Confirmation bias: A ubiquitous phenomenon in many guises.
+  Review of General Psychology, 2(2), 175–220.'
+when_to_use:
+- analysis is beginning and the goal is to ensure the initial hypothesis set is not
+  artificially narrow before any evaluation takes place
+- an existing analysis feels anchored on a single explanation and team review is needed
+  to surface alternatives
+- prepping for ACH — MHG must precede ACH to guarantee the ACH matrix is not trivially
+  incomplete
+- a cognitive-security assessment needs to catalog all plausible explanations for
+  an anomalous information event before attributing it
+what_it_produces:
+- a MECE-tested, labeled set of hypotheses covering the full logical space implied
+  by the evidence
+- a completeness audit showing which pairs overlap, which were merged, and whether
+  any logical remainder (unaddressed possibility) was identified
+- a clear distinguishing claim for each hypothesis that enables targeted evidence
+  collection
+key_discipline:
+- 'hypotheses must be mutually exclusive: if H2 can be true at the same time as H1,
+  they are not separate hypotheses'
+- 'the set must be collectively exhaustive: always include a residual hypothesis (''none
+  of the above / insufficient evidence'') to avoid forcing a false choice'
+- generate before evaluating — do not permit the likelihood of a hypothesis to influence
+  whether it appears in the set
+- each hypothesis needs a unique distinguishing claim — without one it cannot be discriminated
+  from its neighbors by any evidence
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory the evidence and initial frame
+  text: Read each evidence item and record what state of the world it is consistent
+    with. Read any initial hypotheses already on the table. Note the framing assumptions
+    embedded in those hypotheses — these are the most common source of artificial
+    narrowing.
+- verbs:
+  - reason
+  title: Generate a candidate hypothesis set
+  text: 'Apply structured brainstorming: consider actor-based alternatives (different
+    who), mechanism-based alternatives (different how), and intent-based alternatives
+    (different why). Use devil''s advocacy and red-team perspectives to ensure hypotheses
+    hostile to the prevailing view are represented. Aim for at least three non-trivial
+    hypotheses before considering the set draft-complete.'
+- verbs:
+  - reason
+  title: Apply MECE discipline
+  text: 'Test each pair for mutual exclusivity: if both can simultaneously be true,
+    either merge them into one hypothesis or add a conditional variable that makes
+    them distinct. Test the full set for collective exhaustiveness: identify any remaining
+    logical space not covered by any hypothesis and either add a new hypothesis or
+    add a residual catch-all. Document every merge, split, and gap identified.'
+- verbs:
+  - write
+  title: Emit labeled hypothesis set and completeness audit
+  text: Output each hypothesis with a label (H1–Hn), a description of its key distinguishing
+    claim, a brief statement of what evidence pattern would most support or refute
+    it, and any diagnostic collection requirement implied. Append the completeness
+    audit documenting the MECE test results and any residual space.
+anti_criteria:
+- do not allow the perceived likelihood of a hypothesis to determine whether it is
+  included — low-probability hypotheses belong in the set if they are logically possible
+  given the evidence
+- do not declare the hypothesis set complete without explicitly testing for a logical
+  remainder (the space covered by none of the stated hypotheses)
+- do not merge two hypotheses that lead to different action recommendations, even
+  if their descriptions sound similar
+defensive_boundary: 'Use Multiple Hypothesis Generation only for structured analytic
+  technique support: recognize, assess, document, or defend analytic rigor, alternative
+  hypotheses, and calibrated judgment. Do not use this skill to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Multiple Hypothesis Generation to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Multiple Hypothesis Generation, tie each hypothesis set, and completeness check
+  claim to concrete evidence from the specific evidence set, initial hypotheses, and
+  domain context item, source excerpt, observation, or command result that supports
+  it.
+- For Multiple Hypothesis Generation, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the hypothesis
+  set.
+- Before recommending any Multiple Hypothesis Generation action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Multiple Hypothesis Generation: the hypothesis set is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; inventory the evidence and initial frame and generate a candidate hypothesis
+  set checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Multiple Hypothesis Generation: the hypothesis set is plausible, but
+  one important evidence set source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Multiple Hypothesis Generation: the hypothesis set rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Multiple Hypothesis Generation cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Multiple Hypothesis Generation, use only authorized evidence set, initial hypotheses,
+  and domain context, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Multiple Hypothesis Generation, minimize person-level detail in the hypothesis
+  set; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Multiple Hypothesis Generation, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Multiple Hypothesis Generation: treating evidence set as complete when inventory
+  the evidence and initial frame and generate a candidate hypothesis set checks or
+  contradictory evidence are missing.'
+- 'Multiple Hypothesis Generation: producing advice that would help a requester force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Multiple Hypothesis Generation: reporting the hypothesis set without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Multiple Hypothesis Generation outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the hypothesis set from Multiple Hypothesis Generation into an
+  operational playbook to force a preferred conclusion, hide uncertainty, or use the
+  technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Multiple Hypothesis Generation to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with evidence
+  set, initial hypotheses, and domain context'' -> produce bounded findings with evidence
+  and uncertainty labels.'

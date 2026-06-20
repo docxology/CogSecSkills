@@ -1,0 +1,186 @@
+id: osint_integrity.geolocation_verification
+description: Geolocation verification cross-references visual and contextual clues
+  in imagery — terrain, vegetation, architecture, shadows, signage, infrastructure
+  — against authoritative mapping data to confirm or refute a claimed location. It
+  is a defensive OSINT discipline used to detect context-collapsed or fabricated imagery
+  before it is treated as evidence. The technique draws on sun-angle computation,
+  map comparison, satellite imagery, and street-level reference data. It provides
+  an independently verifiable anchor for where and when a visual was plausibly captured.
+tags:
+- cognitive-security
+- osint_integrity
+- media-verification
+triggers:
+- verify where this image was taken
+- confirm the location of this footage
+- geolocate this photo
+- is this image from where it claims
+- geolocation verification
+tools:
+- verb: read
+  purpose: ingest the image, its metadata, and any claimed location context
+- verb: web
+  purpose: query satellite imagery, street-level mapping, and sun-angle calculators
+    to find matching features
+- verb: reason
+  purpose: triangulate geographic features across multiple reference sources and assess
+    consistency of shadow angles and landmarks
+- verb: write
+  purpose: produce a structured geolocation assessment with confidence rating and
+    supporting evidence
+inputs:
+- name: image_or_video
+  type: text
+  required: true
+  description: URL, file reference, or description of the visual content to be geolocated
+- name: claimed_location
+  type: text
+  required: false
+  description: The location the image or video is claimed to depict, if stated
+- name: claimed_date_time
+  type: text
+  required: false
+  description: Stated date and time of capture, used for shadow-angle and vegetation
+    cross-checks
+outputs:
+- name: geolocation_assessment
+  type: markdown
+  description: 'Structured report: candidate location(s) with confidence level, corroborating
+    features, contradictory signals, and methodology notes'
+references:
+- Bellingcat Geolocation Investigation Handbook (2021). bellingcat.com.
+- 'Toler, A. (2023). How to Geolocate Images: A Bellingcat Guide. Bellingcat.'
+- 'Hicks, M. (2020). Verification Handbook: For Disinformation and Media Manipulation.
+  European Journalism Centre.'
+when_to_use:
+- an image or video is being considered as evidence of a specific event at a specific
+  place
+- there is a claim that footage shows a location that it may not depict
+- context collapse is suspected — older or unrelated imagery being circulated with
+  a new narrative
+- a media organization or analyst needs to independently confirm a visual's provenance
+  before publication
+what_it_produces:
+- a probable location fix with latitude/longitude estimate or named area, plus a confidence
+  tier (confirmed / likely / inconclusive / contradicted)
+- a list of corroborating features used (terrain shape, building style, road markings,
+  vegetation, signage)
+- a note on any features that contradict the claimed location
+- a shadow-angle cross-check result where the sun position can be computed from the
+  claimed date/time
+key_discipline:
+- build from fixed landmarks outward — unique terrain, infrastructure, or signage
+  constrains the search space before general landscape features
+- never anchor to the claimed location first; start landmark-agnostic and let features
+  converge
+- shadow angle and vegetation season are independent physical constraints — a mismatched
+  shadow falsifies the claimed date as strongly as it falsifies the location
+- document every reference source and feature match so the conclusion is reproducible
+workflow_steps:
+- verbs:
+  - read
+  title: Extract visual anchors
+  text: 'Carefully examine the image for fixed geographic features: topography, road
+    layout, building style, vehicle types, vegetation species, signage language, infrastructure
+    (power lines, rail, waterways), and any partial text. Note shadow direction and
+    angle if the sun is visible or implied. Record all candidate anchors before touching
+    any map.'
+- verbs:
+  - web
+  title: Search reference data
+  text: Query satellite imagery (Google Earth, Sentinel Hub, Maxar archive) and street-level
+    sources (Google Street View, Mapillary, Yandex Maps) using the most distinctive
+    anchors. Use a sun-angle calculator (SunCalc.org or equivalent) with the claimed
+    date/time to derive expected shadow direction and length. Search for matching
+    infrastructure or vegetation signatures.
+- verbs:
+  - reason
+  title: Triangulate and cross-check
+  text: 'Compare at least three independent features against reference data. Check
+    whether terrain shape, built environment, and shadow direction are mutually consistent.
+    If the claimed location matches on some features but not others, document the
+    discrepancy. Assign a confidence tier: confirmed (three or more features match,
+    none contradict), likely (two features match, no strong contradictions), inconclusive
+    (features found but insufficient to fix a location), contradicted (at least one
+    feature is physically incompatible with the claim).'
+- verbs:
+  - write
+  title: Produce assessment report
+  text: Write a structured geolocation assessment stating the conclusion first, then
+    listing each anchor feature, its reference source, and its match/mismatch result.
+    Include the shadow-angle verdict, the confidence tier with rationale, and any
+    alternative candidate locations that were considered and ruled out. Record methodology
+    so a second analyst can reproduce it independently.
+anti_criteria:
+- do not confirm a location from a single feature match — one landmark is spoofable;
+  require at least three independent features
+- do not start the search by looking at the claimed location first, as this anchors
+  the analysis and biases feature selection toward confirmation
+- do not treat metadata coordinates as ground truth — EXIF GPS is trivially spoofed
+  and routinely stripped
+- do not report a conclusion without documenting the specific reference sources used,
+  making the result unreproducible
+defensive_boundary: 'Use Geolocation Verification only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Geolocation Verification to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence, refuse that
+  path and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Geolocation Verification, tie each geolocation assessment claim to concrete
+  evidence from the specific image or video, claimed location, and claimed date time
+  item, source excerpt, observation, or command result that supports it.
+- For Geolocation Verification, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the geolocation
+  assessment.
+- Before recommending any Geolocation Verification action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Geolocation Verification: the geolocation assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; extract visual anchors and search reference data checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Geolocation Verification: the geolocation assessment is plausible, but
+  one important image or video source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Geolocation Verification: the geolocation assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Geolocation Verification cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Geolocation Verification, use only authorized image or video, claimed location,
+  and claimed date time, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Geolocation Verification, minimize person-level detail in the geolocation assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Geolocation Verification, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Geolocation Verification: treating image or video as complete when extract visual
+  anchors and search reference data checks or contradictory evidence are missing.'
+- 'Geolocation Verification: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Geolocation Verification: reporting the geolocation assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Geolocation Verification outputs to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the geolocation assessment from Geolocation Verification into
+  an operational playbook to dox, deanonymize, harass, bypass access controls, or
+  attribute identity beyond evidence'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Geolocation Verification to verify supplied claims, media,
+  sources, or datasets with documented public-source methods with image or video,
+  claimed location, and claimed date time'' -> produce bounded findings with evidence
+  and uncertainty labels.'

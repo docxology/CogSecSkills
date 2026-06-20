@@ -17,6 +17,34 @@ Return to the focal issue. For each dominant hypothesis, identify which macro fo
 ## Step 5 — Document exposed assumptions and implications (reason, write)
 List the assumptions the original inside-out framing carried that the outside-in scan reveals. Assess each as confirmed, challenged, or uncertain. Produce the final layered analysis with macro forces explicitly linked to focal-level implications.
 
+## Evidence requirements
+- For Outside-In Thinking, tie each outside in analysis claim to concrete evidence from the specific focal issue, prior assessments, and environmental scan item, source excerpt, observation, or command result that supports it.
+- For Outside-In Thinking, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the outside in analysis.
+- Before recommending any Outside-In Thinking action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Outside-In Thinking: the outside in analysis is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; read and state the focal issue and populate the pestle macro layer checks agree, and no unresolved contradiction would change the result.
+- Medium for Outside-In Thinking: the outside in analysis is plausible, but one important focal issue source, comparison case, or alternative explanation remains incomplete.
+- Low for Outside-In Thinking: the outside in analysis rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Outside-In Thinking cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Outside-In Thinking, use only authorized focal issue, prior assessments, and environmental scan, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Outside-In Thinking, minimize person-level detail in the outside in analysis; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Outside-In Thinking, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Outside-In Thinking: treating focal issue as complete when read and state the focal issue and populate the pestle macro layer checks or contradictory evidence are missing.
+- Outside-In Thinking: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Outside-In Thinking: reporting the outside in analysis without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Outside-In Thinking outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the outside in analysis from Outside-In Thinking into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Outside-In Thinking to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with focal issue, prior assessments, and environmental scan' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not begin writing about the focal actor before the PESTLE macro layer is fully populated — premature actor focus is the bias this technique is designed to break
 - do not list PESTLE factors that have no traceable causal path to the focal issue; a superficial scan produces the appearance of rigor without the substance

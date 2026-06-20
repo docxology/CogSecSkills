@@ -1,0 +1,209 @@
+id: sat.argument_mapping
+description: Argument Mapping (also called argument diagramming or claim-premise visualization)
+  represents the logical structure of a complex argument as a directed graph of claims,
+  sub-claims, premises, evidence nodes, and inferential connectors — showing which
+  conclusions depend on which premises and where inferential gaps, circular reasoning,
+  or unsupported leaps occur. Originating in informal logic and philosophy of reasoning
+  (van Eemeren, Toulmin), it was adapted for intelligence analysis by Pherson and
+  applied in cognitive-security contexts to expose the structural vulnerabilities
+  of narratives and the load-bearing assumptions that, if undermined, collapse the
+  whole argument. It is the diagnostic complement to Red Team critique.
+tags:
+- cognitive-security
+- sat
+- logical-analysis
+- narrative-deconstruction
+triggers:
+- argument mapping
+- diagram the argument
+- map the logic
+- what does this conclusion depend on
+- find the load-bearing assumptions
+- expose the reasoning structure
+- claim-premise diagram
+tools:
+- verb: read
+  purpose: ingest the argument, narrative, report, or policy document to be mapped
+- verb: reason
+  purpose: identify claims, sub-claims, premises, evidence, inferential connectors,
+    implicit assumptions, and logical gaps
+- verb: write
+  purpose: produce the argument map in structured notation, a vulnerability assessment,
+    and a load-bearing-assumption report
+inputs:
+- name: argument_source
+  type: text
+  required: true
+  description: The text, narrative, report, or argument to be mapped — can be an analytic
+    product, an influence narrative, or an adversary's stated justification
+- name: focal_claim
+  type: text
+  required: false
+  description: The main conclusion or claim to trace, if the source contains multiple
+    independent arguments
+outputs:
+- name: argument_map
+  type: markdown
+  description: A structured representation of the argument showing the top-level claim,
+    supporting sub-claims and premises, evidence citations, inferential connectors
+    (supports / rebuts / qualifies), and flagged gaps or implicit assumptions
+- name: load_bearing_assumption_list
+  type: table
+  description: A ranked list of the assumptions whose falsification would most damage
+    or collapse the conclusion, with confidence ratings and suggested tests
+- name: logical_gap_report
+  type: markdown
+  description: Description of inferential leaps, missing evidence nodes, circular
+    structures, or equivocations found in the argument
+references:
+- Toulmin, S. (1958). The Uses of Argument. Cambridge University Press.
+- van Eemeren, F. H., & Grootendorst, R. (2004). A Systematic Theory of Argumentation.
+  Cambridge University Press.
+- Pherson, R. H., & Pherson, K. H. (2021). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press.
+- Ratcliffe, J. (2008). Intelligence-Led Policing. Willan Publishing. (Chapter on
+  analytical reasoning structure)
+when_to_use:
+- An analytic product, policy argument, or adversary narrative must be examined for
+  logical soundness before it is accepted or acted on
+- A complex, multi-layered argument is hard to critique in prose because its structure
+  is not explicit
+- Cognitive-security assessment of an influence narrative requires identifying which
+  premises, if refuted, would undermine the narrative's persuasive power
+- Peer review of an intelligence assessment reveals disagreement about the conclusion,
+  and the source of disagreement needs to be localized to a specific premise or inference
+what_it_produces:
+- A visual or structured representation of the argument's logical anatomy that separates
+  claims from evidence from inference
+- An explicit list of implicit assumptions embedded in inferential connectors that
+  were previously hidden in prose
+- A ranked map of argument vulnerabilities showing which nodes are most brittle and
+  which are most load-bearing
+- A reusable diagnostic artifact that can inform Red Team design, counter-narrative
+  strategy, or analytic revision
+key_discipline:
+- Separate the descriptive task (mapping the argument as stated) from the evaluative
+  task (assessing whether each step holds) — map first, critique second
+- Inferential connectors are often the weakest nodes; the word 'therefore' in prose
+  frequently hides an unstated premise that must be surfaced
+- An argument map is complete only when every claim traces to an evidence leaf or
+  is explicitly marked as an undefended assumption
+- 'In cognitive-security contexts, identify not just logical weaknesses but rhetorical
+  load-bearing structures: claims that would be embarrassing to rebut publicly even
+  if logically weak'
+workflow_steps:
+- verbs:
+  - read
+  title: Identify the top-level conclusion
+  text: Read the source document and identify the single main claim the argument is
+    trying to establish. In complex documents with multiple arguments, select the
+    focal claim and bracket the rest for separate mapping. Write the top-level claim
+    in one sentence in declarative form.
+- verbs:
+  - read
+  - reason
+  title: Extract claims, premises, and evidence
+  text: 'Working backward from the conclusion, identify each sub-claim that directly
+    supports it. For each sub-claim, identify its supporting premises and any evidence
+    citations. Distinguish claim types: empirical claims (verifiable facts), interpretive
+    claims (pattern/meaning judgments), and value claims (normative assertions). Flag
+    implicit premises embedded in inferential connectors (''since X is true, Y follows''
+    — what unstated premise links X to Y?).'
+- verbs:
+  - reason
+  title: Map inferential structure and gaps
+  text: 'Draw the directed support graph: arrows from evidence/premises to the claims
+    they support; rebuttal arrows where counter-evidence is acknowledged; qualification
+    arrows where scope is limited. Identify gaps: claims with no supporting nodes
+    (undefended assertions), circular structures (A supports B, B supports A), and
+    equivocations (a key term used with different meanings in different nodes).'
+- verbs:
+  - reason
+  - write
+  title: Assess load-bearing assumptions
+  text: 'For each implicit assumption surfaced in step 3, assess: (a) Is it likely
+    true? (b) Is it testable? (c) If false, how much of the conclusion does it undermine?
+    Rank assumptions by their load-bearing weight × confidence gap. These are the
+    argument''s cognitive-security vulnerabilities: the nodes an adversary would target
+    to collapse the narrative or that an analyst should verify before endorsing the
+    conclusion.'
+- verbs:
+  - write
+  title: Produce map and vulnerability report
+  text: 'Write the argument map in structured indented notation or a Markdown-table-based
+    representation (since visual graph tools are not always available). Produce the
+    load-bearing assumption table with columns: Assumption, Basis, Falsifiability,
+    Impact-if-False, Priority. Write the logical gap report summarizing the most significant
+    inferential weaknesses. Include a one-paragraph synthesis noting the strongest
+    and most vulnerable parts of the argument.'
+anti_criteria:
+- Do not conflate mapping (describing the structure) with refutation (claiming the
+  argument is wrong) — the map must accurately represent the argument even if the
+  analyst disagrees with it
+- Do not omit implicit premises because they are unstated; the most dangerous logical
+  gaps are the ones the original author did not notice
+- Do not allow the argument map to be used to construct a straw-man version of the
+  opponent's position — accuracy to the source text is non-negotiable
+- Do not produce a map so complex that no human can navigate it; prune to the most
+  significant nodes and aggregate minor supporting evidence into summary nodes
+defensive_boundary: 'Use Argument Mapping only for structured analytic technique support:
+  recognize, assess, document, or defend analytic rigor, alternative hypotheses, and
+  calibrated judgment. Do not use this skill to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Argument Mapping to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Argument Mapping, tie each argument map, load bearing assumption list, and logical
+  gap report claim to concrete evidence from the specific argument source, and focal
+  claim item, source excerpt, observation, or command result that supports it.
+- For Argument Mapping, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the argument map.
+- Before recommending any Argument Mapping action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Argument Mapping: the argument map is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; identify
+  the top-level conclusion and extract claims, premises, and evidence checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Argument Mapping: the argument map is plausible, but one important argument
+  source source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Argument Mapping: the argument map rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Argument Mapping cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Argument Mapping, use only authorized argument source, and focal claim, public
+  or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Argument Mapping, minimize person-level detail in the argument map; prefer aggregate,
+  artifact-level, role-level, or case-level summaries unless an individual is essential
+  to the defensive question.
+- For Argument Mapping, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Argument Mapping: treating argument source as complete when identify the top-level
+  conclusion and extract claims, premises, and evidence checks or contradictory evidence
+  are missing.'
+- 'Argument Mapping: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Argument Mapping: reporting the argument map without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Argument Mapping outputs to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the argument map from Argument Mapping into an operational playbook
+  to force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Argument Mapping to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with argument source, and
+  focal claim'' -> produce bounded findings with evidence and uncertainty labels.'

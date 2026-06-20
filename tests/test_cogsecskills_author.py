@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
+import yaml
 
 from cogsecskills.author import (
     AuthorError,
@@ -25,6 +26,21 @@ def _seed_registry(root: Path, *, status: str = "stub") -> None:
         "skills:\n"
         f"  - {{id: sat.demo, name: Demo Technique, group: sat, status: {status}, "
         "ageint_topic: structured-analytic-techniques, summary: A demo technique.}\n",
+        encoding="utf-8",
+    )
+    (root / "registry" / "groups.yaml").write_text(
+        "groups:\n  - {id: sat, title: SAT}\n", encoding="utf-8"
+    )
+
+
+def _seed_two_skill_registry(root: Path, *, status: str = "stub") -> None:
+    (root / "registry").mkdir(parents=True, exist_ok=True)
+    (root / "registry" / "skills.yaml").write_text(
+        "skills:\n"
+        f"  - {{id: sat.demo, name: Demo Technique, group: sat, status: {status}, "
+        "ageint_topic: structured-analytic-techniques, summary: A demo technique.}\n"
+        f"  - {{id: sat.second_demo, name: Second Demo, group: sat, status: {status}, "
+        "ageint_topic: structured-analytic-techniques, summary: Another demo technique.}\n",
         encoding="utf-8",
     )
     (root / "registry" / "groups.yaml").write_text(
@@ -168,6 +184,178 @@ def test_cli_author_batch_renders_and_reports(tmp_path, capsys):
     out = capsys.readouterr().out
     assert rc == 0
     assert "rendered 1 skills" in out
+
+
+def test_cli_author_accepts_yaml_definition(tmp_path, capsys):
+    from cogsecskills.cli import main
+
+    import yaml
+
+    _seed_registry(tmp_path)
+    def_path = tmp_path / "def.yaml"
+    def_path.write_text(yaml.safe_dump(_good_def(), sort_keys=False), encoding="utf-8")
+    rc = main(["--root", str(tmp_path), "author", str(def_path)])
+    assert rc == 0
+    assert "authored 6 files" in capsys.readouterr().out
+
+
+def test_renderer_emits_quality_sections(tmp_path):
+    _seed_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+    directory = tmp_path / "skills" / "sat" / "demo"
+    skill = (directory / "SKILL.md").read_text(encoding="utf-8")
+    workflow = (directory / "workflow.md").read_text(encoding="utf-8")
+    adapter = (directory / "harness" / "codex.md").read_text(encoding="utf-8")
+    assert "## Defensive boundary" in skill
+    assert "## Evidence requirements" in workflow
+    assert "## Negative controls" in workflow
+    assert "defensive boundary" in adapter.lower()
+    assert "chain-of-thought" not in adapter.lower()
+
+
+def test_cli_definitions_write_check_and_drift(tmp_path, capsys):
+    from cogsecskills.cli import main
+
+    _seed_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+
+    assert main(["--root", str(tmp_path), "definitions", "--check"]) == 1
+    assert "missing canonical definition" in capsys.readouterr().out
+
+    assert main(["--root", str(tmp_path), "definitions", "--write"]) == 0
+    assert "1 definitions, 1 rendered skills" in capsys.readouterr().out
+
+    assert main(["--root", str(tmp_path), "definitions", "--check"]) == 0
+    assert "canonical definitions are current" in capsys.readouterr().out
+
+    definition = tmp_path / "definitions" / "sat" / "demo.yaml"
+    definition.write_text(
+        definition.read_text(encoding="utf-8") + "\nextra: drift\n",
+        encoding="utf-8",
+    )
+    assert main(["--root", str(tmp_path), "definitions", "--check"]) == 1
+    assert "stale canonical definition" in capsys.readouterr().out
+
+
+def test_check_definitions_reports_parser_errors_without_crashing(tmp_path):
+    from cogsecskills.definitions import (
+        canonical_definition_text,
+        check_definitions,
+        definition_path,
+        write_definitions,
+    )
+
+    _seed_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+    write_definitions(tmp_path)
+
+    path = definition_path("sat.demo", tmp_path)
+    definition = yaml.safe_load(path.read_text(encoding="utf-8"))
+    definition["tools"][0]["verb"] = "teleport"
+    path.write_text(canonical_definition_text(definition), encoding="utf-8")
+
+    findings = check_definitions(tmp_path)
+    assert any(
+        "sat.demo: cannot render definition" in finding
+        and "unknown tool verb" in finding
+        for finding in findings
+    )
+
+
+def test_check_definitions_reports_rendered_file_drift(tmp_path):
+    from cogsecskills.definitions import check_definitions, write_definitions
+
+    _seed_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+    write_definitions(tmp_path)
+
+    skill_md = tmp_path / "skills" / "sat" / "demo" / "SKILL.md"
+    skill_md.write_text(
+        skill_md.read_text(encoding="utf-8") + "\nmanual drift\n",
+        encoding="utf-8",
+    )
+
+    findings = check_definitions(tmp_path)
+    assert any(
+        "sat.demo: stale rendered file: skills/sat/demo/SKILL.md" in f for f in findings
+    )
+
+
+def test_check_definitions_reports_missing_and_extra_definitions(tmp_path):
+    from cogsecskills.definitions import (
+        canonical_definition_text,
+        check_definitions,
+        definitions_root,
+    )
+
+    _seed_registry(tmp_path)
+    base = definitions_root(tmp_path) / "sat"
+    base.mkdir(parents=True)
+    extra = _good_def()
+    extra["id"] = "sat.extra"
+    (base / "extra.yaml").write_text(canonical_definition_text(extra), encoding="utf-8")
+
+    findings = check_definitions(tmp_path)
+    assert any(
+        "missing canonical definition: definitions/sat/demo.yaml" in f for f in findings
+    )
+    assert "definition is not in registry: sat.extra" in findings
+
+
+def test_check_definitions_reports_reused_negative_control_entry(tmp_path):
+    from cogsecskills.definitions import (
+        canonical_definition_text,
+        check_definitions,
+        definition_path,
+        write_definitions,
+    )
+
+    _seed_two_skill_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+    second = _good_def()
+    second["id"] = "sat.second_demo"
+    render_definition(second, root=tmp_path)
+    write_definitions(tmp_path)
+
+    first_path = definition_path("sat.demo", tmp_path)
+    second_path = definition_path("sat.second_demo", tmp_path)
+    first = yaml.safe_load(first_path.read_text(encoding="utf-8"))
+    second = yaml.safe_load(second_path.read_text(encoding="utf-8"))
+    second["negative_controls"][1] = first["negative_controls"][1]
+    second_path.write_text(canonical_definition_text(second), encoding="utf-8")
+
+    findings = check_definitions(tmp_path)
+    assert any(
+        "negative_control entry reused across definitions" in f for f in findings
+    )
+
+
+def test_check_definitions_reports_reused_quality_entry(tmp_path):
+    from cogsecskills.definitions import (
+        canonical_definition_text,
+        check_definitions,
+        definition_path,
+        write_definitions,
+    )
+
+    _seed_two_skill_registry(tmp_path)
+    render_definition(_good_def(), root=tmp_path)
+    second = _good_def()
+    second["id"] = "sat.second_demo"
+    render_definition(second, root=tmp_path)
+    write_definitions(tmp_path)
+
+    first_path = definition_path("sat.demo", tmp_path)
+    second_path = definition_path("sat.second_demo", tmp_path)
+    first = yaml.safe_load(first_path.read_text(encoding="utf-8"))
+    second = yaml.safe_load(second_path.read_text(encoding="utf-8"))
+    second["confidence_rubric"][1] = first["confidence_rubric"][1]
+    second_path.write_text(canonical_definition_text(second), encoding="utf-8")
+
+    findings = check_definitions(tmp_path)
+    assert any(
+        "confidence_rubric entry reused across definitions" in f for f in findings
+    )
 
 
 # --- additional branch coverage -------------------------------------------

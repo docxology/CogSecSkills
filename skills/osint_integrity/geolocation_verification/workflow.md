@@ -14,6 +14,34 @@ Compare at least three independent features against reference data. Check whethe
 ## Step 4 — Produce assessment report (write)
 Write a structured geolocation assessment stating the conclusion first, then listing each anchor feature, its reference source, and its match/mismatch result. Include the shadow-angle verdict, the confidence tier with rationale, and any alternative candidate locations that were considered and ruled out. Record methodology so a second analyst can reproduce it independently.
 
+## Evidence requirements
+- For Geolocation Verification, tie each geolocation assessment claim to concrete evidence from the specific image or video, claimed location, and claimed date time item, source excerpt, observation, or command result that supports it.
+- For Geolocation Verification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the geolocation assessment.
+- Before recommending any Geolocation Verification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Geolocation Verification: the geolocation assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; extract visual anchors and search reference data checks agree, and no unresolved contradiction would change the result.
+- Medium for Geolocation Verification: the geolocation assessment is plausible, but one important image or video source, comparison case, or alternative explanation remains incomplete.
+- Low for Geolocation Verification: the geolocation assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Geolocation Verification cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Geolocation Verification, use only authorized image or video, claimed location, and claimed date time, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Geolocation Verification, minimize person-level detail in the geolocation assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Geolocation Verification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Geolocation Verification: treating image or video as complete when extract visual anchors and search reference data checks or contradictory evidence are missing.
+- Geolocation Verification: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Geolocation Verification: reporting the geolocation assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Geolocation Verification outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the geolocation assessment from Geolocation Verification into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Geolocation Verification to verify supplied claims, media, sources, or datasets with documented public-source methods with image or video, claimed location, and claimed date time' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not confirm a location from a single feature match — one landmark is spoofable; require at least three independent features
 - do not start the search by looking at the claimed location first, as this anchors the analysis and biases feature selection toward confirmation

@@ -1,0 +1,224 @@
+id: counterintelligence.disinformation_attribution
+description: Disinformation attribution applies structured analytic reasoning to assign
+  responsibility for an influence operation or disinformation campaign with calibrated
+  confidence, while explicitly holding alternative attribution hypotheses. Unlike
+  technical cyber attribution, disinformation attribution must integrate behavioral,
+  linguistic, technical, and strategic indicators against a baseline of known actor
+  profiles. The technique borrows from both intelligence analysis tradecraft (ACH,
+  confidence calibration) and open-source investigation methodology (Bellingcat, EU
+  DisinfoLab) to produce an attribution judgment that is auditable, challengeable,
+  and honest about its limits.
+tags:
+- cognitive-security
+- counterintelligence
+- attribution
+- disinformation
+triggers:
+- who is behind this campaign
+- attribute this influence operation
+- disinformation attribution
+- who created these narratives
+- attribution analysis for information operation
+- who is running this coordinated inauthentic behavior
+tools:
+- verb: read
+  purpose: ingest the campaign artifacts, behavioral indicators, prior attribution
+    products, and candidate actor profiles
+- verb: reason
+  purpose: apply ACH across candidate attribution hypotheses, weight indicators, and
+    calibrate confidence on each
+- verb: write
+  purpose: produce a structured attribution assessment with lead hypothesis, alternatives,
+    confidence ratings, and key intelligence gaps
+inputs:
+- name: campaign_artifacts
+  type: list
+  required: true
+  description: 'Concrete evidence from the campaign: accounts, narratives, timing
+    patterns, technical indicators (metadata, infrastructure), linguistic samples,
+    amplification networks'
+- name: candidate_actors
+  type: list
+  required: false
+  description: Candidate actors under attribution consideration, with any prior profile
+    information available
+- name: strategic_context
+  type: text
+  required: false
+  description: 'Strategic context: who benefits from this narrative taking hold, and
+    in what timeframe relative to events or decisions'
+outputs:
+- name: attribution_matrix
+  type: table
+  description: 'ACH-style matrix: candidate actors as columns, diagnostic indicators
+    as rows, consistency ratings (supports / inconsistent / neutral / unknown) per
+    cell'
+- name: attribution_assessment
+  type: markdown
+  description: Lead attribution hypothesis with confidence level (HIGH/MEDIUM/LOW),
+    alternative hypotheses with their relative plausibility, and explicit key assumptions
+- name: intelligence_gaps
+  type: markdown
+  description: Prioritized list of evidence that would most improve attribution confidence
+    or rule out leading alternatives
+references:
+- Heuer, R.J. & Pherson, R.H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. (Analysis of Competing Hypotheses, Chapter 7).
+- 'EU DisinfoLab (2019). Indian Chronicles: Deep Dive into a 15-year Operation Targeting
+  the EU and UN. Brussels.'
+- 'Thomas Rid & Ben Buchanan (2015). ''Attributing Cyber Attacks.'' Journal of Strategic
+  Studies 38(1-2): 4-37.'
+- Nimmo, B. (2020). 'Measuring the Information Environment.' Stanford Internet Observatory.
+  Stanford University.
+- 'Wardle, C. & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework. Council of Europe Report DGI(2017)09.'
+when_to_use:
+- a disinformation campaign or influence operation requires accountability and an
+  actionable attribution judgment
+- a policy response (counter-messaging, platform enforcement, diplomatic demarche)
+  depends on knowing who is responsible
+- multiple candidate actors are plausible and an unstructured 'best guess' would reflect
+  only the most salient hypothesis rather than weighing all evidence
+- a prior attribution claim needs to be audited for analytical rigor and hidden assumptions
+what_it_produces:
+- a structured ACH-style matrix showing how each indicator bears on each candidate
+  actor
+- a calibrated lead-attribution hypothesis with explicit confidence level, key assumptions,
+  and named alternatives
+- a prioritized collection gap list specifying what new evidence would most sharpen
+  or overturn the assessment
+key_discipline:
+- attribution is a probabilistic judgment, not a binary finding — express it as 'with
+  HIGH confidence, consistent with Actor X, alternative Actor Y cannot be ruled out'
+- false-flag operations are a real phenomenon; never eliminate an actor as candidate
+  solely because the operation bears their stylistic markers
+- diagnostic indicators are those that discriminate between hypotheses — indicators
+  that all candidates would produce equally are noise, not signal; weight only discriminating
+  evidence
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory the evidence and candidate actors
+  text: 'Compile all available campaign artifacts: account creation patterns, network
+    structure, narrative content and its evolution, technical indicators (hosting
+    infrastructure, metadata, cross-platform behavior), and linguistic fingerprints.
+    List candidate attribution actors — typically 3-5 — including the null hypothesis
+    (no single actor; emergent organic spread) and the false-flag hypothesis (Actor
+    Z mimicking Actor Y).'
+- verbs:
+  - reason
+  title: Identify diagnostic indicators
+  text: 'For each indicator in the evidence inventory, assess its diagnostic value:
+    does it discriminate between candidate actors (HIGH diagnostic value), or would
+    most candidates produce it (LOW diagnostic value)? Focus analytical weight on
+    high-diagnostic indicators. Common high-diagnostic indicators include: infrastructure
+    overlap with prior attributed operations, specific narrative timing keyed to Actor
+    X''s interests but not others'', and operational security failures consistent
+    with a specific actor''s known tradecraft.'
+- verbs:
+  - reason
+  title: Build the ACH matrix
+  text: 'Construct an Analysis of Competing Hypotheses matrix: rows are diagnostic
+    indicators, columns are candidate actors (including null and false-flag). For
+    each cell, rate consistency: C (consistent with / does not argue against), I (inconsistent
+    with / argues against), N (neutral / uninformative), or U (unknown / not enough
+    information). Weight cells by diagnostic value. The hypothesis with the fewest
+    ''I'' ratings across high-weight indicators is the current lead, but do not auto-select
+    — inspect the pattern.'
+- verbs:
+  - reason
+  title: Calibrate confidence and stress-test the lead
+  text: 'For the lead attribution hypothesis, ask: (1) How many independent high-diagnostic
+    indicators support it? (2) What key assumption, if wrong, would overturn it? (3)
+    Is the false-flag hypothesis plausible — could Actor Z convincingly mimic Actor
+    Y here? (4) What is the base rate of this actor type running this operation type?
+    Assign calibrated confidence: HIGH (multiple independent diagnostics, false-flag
+    implausible), MEDIUM (consistent pattern but key assumption untested), LOW (only
+    circumstantial or low-diagnostic evidence).'
+- verbs:
+  - write
+  title: Produce the assessment and gap list
+  text: 'Write the attribution assessment in structured form: (1) lead hypothesis
+    with confidence and rationale, (2) primary alternative hypothesis and why it cannot
+    yet be ruled out, (3) explicitly stated key assumptions for the lead, (4) what
+    would change the assessment (invalidating evidence). Append the ACH matrix as
+    supporting evidence. Output the top 3-5 intelligence gaps that would most efficiently
+    resolve remaining uncertainty.'
+anti_criteria:
+- do not present attribution as certain when it is based on circumstantial or stylistic
+  indicators alone; false certainty in attribution assessments has caused serious
+  diplomatic and policy errors
+- do not eliminate the false-flag hypothesis without explicitly addressing it — it
+  must be evaluated, not merely mentioned
+- do not allow 'who benefits' (cui bono) to drive attribution without corroborating
+  behavioral or technical evidence; cui bono identifies candidates, not conclusions
+- do not suppress alternative hypotheses once the lead is identified; they must remain
+  live until definitively ruled out by evidence
+defensive_boundary: 'Use Disinformation Attribution only for counterintelligence and
+  analytic-process defense: recognize, assess, document, or defend analytic teams,
+  collection processes, and institutional trust boundaries. Do not use this skill
+  to evade detection, improve elicitation, profile targets for exploitation, or conceal
+  tradecraft.'
+misuse_redirect: 'If a request asks Disinformation Attribution to evade detection,
+  improve elicitation, profile targets for exploitation, or conceal tradecraft, refuse
+  that path and redirect to the safe defensive form: review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators.'
+evidence_requirements:
+- For Disinformation Attribution, tie each attribution matrix, attribution assessment,
+  and intelligence gaps claim to concrete evidence from the specific campaign artifacts,
+  candidate actors, and strategic context item, source excerpt, observation, or command
+  result that supports it.
+- For Disinformation Attribution, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the attribution
+  matrix.
+- Before recommending any Disinformation Attribution action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Disinformation Attribution: the attribution matrix is supported by multiple
+  independent interaction records, process artifacts, deception indicators, and alternative
+  explanations; inventory the evidence and candidate actors and identify diagnostic
+  indicators checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Disinformation Attribution: the attribution matrix is plausible, but
+  one important campaign artifacts source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Disinformation Attribution: the attribution matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Disinformation Attribution cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Disinformation Attribution, use only authorized campaign artifacts, candidate
+  actors, and strategic context, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Disinformation Attribution, minimize person-level detail in the attribution
+  matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Disinformation Attribution, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Disinformation Attribution: treating campaign artifacts as complete when inventory
+  the evidence and candidate actors and identify diagnostic indicators checks or contradictory
+  evidence are missing.'
+- 'Disinformation Attribution: producing advice that would help a requester evade
+  detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.'
+- 'Disinformation Attribution: reporting the attribution matrix without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Disinformation Attribution outputs to evade detection, improve elicitation,
+  profile targets for exploitation, or conceal tradecraft'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the attribution matrix from Disinformation Attribution into an
+  operational playbook to evade detection, improve elicitation, profile targets for
+  exploitation, or conceal tradecraft'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Disinformation Attribution to review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators with campaign
+  artifacts, candidate actors, and strategic context'' -> produce bounded findings
+  with evidence and uncertainty labels.'

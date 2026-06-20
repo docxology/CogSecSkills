@@ -1,26 +1,18 @@
-# Harness Adapter — Hermes
+# Hermes adapter — Narrative Threat Assessment
 
-Maps the neutral tool verbs in [`../workflow.md`](../workflow.md) to Hermes tools
-for the Narrative Threat Assessment skill.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Hermes tool | Notes |
 | --- | --- | --- |
-| read | fs.read | Read the narrative artifact and any provided context. |
-| search | web.search | Search for provenance, prior debunks, and reach signals. Do not amplify the narrative. |
-| reason | (model reasoning) | Decompose claims, map levers, classify techniques, rate harm — no tool call. |
-| write | fs.write | Write the defensive threat assessment and recommendations. |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `search` | `web.search` / `kb.query` | Query the web or a knowledge base. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
 
-Invoke when the user asks whether a narrative is a cognitive threat or to
-characterize an influence narrative defensively. Supply `narrative_text`
-(required) and optional `context`. Run the workflow steps in order; the narrative
-is only ever an object of study.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Narrative Threat Assessment only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Narrative Threat Assessment to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
 
 ## Output contract
 
-Return a `threat_assessment` document (claims, audience and levers, manipulation
-techniques, provenance/intent with calibrated uncertainty, reach, rated harm and
-urgency) plus a prioritized `defensive_recommendations` list (prebunking, lateral
-reading, counter-framing). Defensive and accountable only — never a manipulation
-playbook, never uncritical amplification, never false-confidence attribution.
+Return the `skill.yaml` outputs (threat_assessment, defensive_recommendations) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

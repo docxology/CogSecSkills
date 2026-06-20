@@ -21,6 +21,44 @@ Analytic Matrices organize analytic variables (hypotheses, actors, drivers, crit
 - A pattern-level view of the problem that is harder to achieve through narrative alone
 - A reusable artifact that can be updated as new evidence arrives without rewriting prose
 
+## Defensive boundary
+
+Use Analytic Matrices only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks Analytic Matrices to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For Analytic Matrices, tie each analytic matrix, and pattern summary claim to concrete evidence from the specific analytic question, variables or hypotheses, and evidence or criteria item, source excerpt, observation, or command result that supports it.
+- For Analytic Matrices, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the analytic matrix.
+- Before recommending any Analytic Matrices action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Analytic Matrices: the analytic matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; define matrix dimensions and establish the rating scheme checks agree, and no unresolved contradiction would change the result.
+- Medium for Analytic Matrices: the analytic matrix is plausible, but one important analytic question source, comparison case, or alternative explanation remains incomplete.
+- Low for Analytic Matrices: the analytic matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Analytic Matrices cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Analytic Matrices, use only authorized analytic question, variables or hypotheses, and evidence or criteria, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Analytic Matrices, minimize person-level detail in the analytic matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Analytic Matrices, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Analytic Matrices: treating analytic question as complete when define matrix dimensions and establish the rating scheme checks or contradictory evidence are missing.
+- Analytic Matrices: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Analytic Matrices: reporting the analytic matrix without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Analytic Matrices outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the analytic matrix from Analytic Matrices into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Analytic Matrices to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with analytic question, variables or hypotheses, and evidence or criteria' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

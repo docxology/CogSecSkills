@@ -1,9 +1,6 @@
 # Workflow — Project Critical Review
 
-Harness-neutral agentic procedure. Each step names the **tool verb(s)** it uses
-(see `skill.yaml` → `tools`). A harness adapter binds each verb to concrete
-tools; the logic here is identical across harnesses. The spine is
-**adversarial first, constructive second, evidence always**.
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
 ## Step 1 — Scope the review (read, reason)
 Pin down three things before reading anything else:
@@ -86,15 +83,33 @@ Lead with the bottom line. Emit, in order:
 6. **Verify-the-verifier result** — did the injected defect get caught?
 7. **Scope & success criteria** — what was and was not reviewed.
 
-## Severity / confidence rubric (quick reference)
+## Evidence requirements
+- For Project Critical Review, tie each report, findings, and recommendation claim to concrete evidence from the specific artifact, decision, and success criteria item, source excerpt, observation, or command result that supports it.
+- For Project Critical Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the report.
+- Before recommending any Project Critical Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
-| Axis | Levels | Meaning |
-|------|--------|---------|
-| Severity | Critical / High / Medium / Low | how bad if the finding is true |
-| Confidence | High / Med / Low | how sure the finding is true (evidence strength) |
+## Confidence and uncertainty
+- High for Project Critical Review: the report is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; scope the review and map the project checks agree, and no unresolved contradiction would change the result.
+- Medium for Project Critical Review: the report is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
+- Low for Project Critical Review: the report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Project Critical Review cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
 
-Report `Severity × Confidence` per finding. Critical/High findings drive the
-recommendation; Low/Medium inform the fix backlog.
+## Privacy, legal, and harm constraints
+- For Project Critical Review, use only authorized artifact, decision, and success criteria, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Project Critical Review, minimize person-level detail in the report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Project Critical Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Project Critical Review: treating artifact as complete when scope the review and map the project checks or contradictory evidence are missing.
+- Project Critical Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Project Critical Review: reporting the report without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Project Critical Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the report from Project Critical Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Project Critical Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, decision, and success criteria' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - Vague "looks good" / "seems solid" praise with no evidence behind it.
@@ -103,9 +118,6 @@ recommendation; Low/Medium inform the fix backlog.
 - Trusting a self-reported "all passing" without running the gate yourself.
 - Reporting a gate as a safeguard without checking it fails on an injected defect.
 - Conflating severity with confidence (e.g. downgrading a critical risk just
-  because it is not yet reproduced — re-verify it instead).
 
 ## AGEINT upstream
-`docs/ageint/` → adversarial-assurance (claims-vs-evidence audit, verify-the-
-verifier, calibrated go/no-go). This skill is the project-level instantiation of
-that family.
+`docs/ageint/adversarial-assurance.md`

@@ -11,6 +11,34 @@ Construct an N×M table. For each cell, write a short scenario title and a one- 
 ## Step 3 — Rate plausibility and identify indicators (reason, write)
 For each coherent cell assign a plausibility rating (High / Medium / Low) with a brief evidence citation. Identify one to three observable indicators that would confirm each scenario is unfolding. Note which cell(s) the current dominant assessment inhabits, and flag any Medium or High plausibility alternatives it ignores. Emit the matrix, narratives, and a summary of implications for the analytic question.
 
+## Evidence requirements
+- For Quadrant Crunching, tie each scenario matrix, scenario narratives, and neglected cells claim to concrete evidence from the specific problem statement, dominant assessment, and candidate assumptions item, source excerpt, observation, or command result that supports it.
+- For Quadrant Crunching, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the scenario matrix.
+- Before recommending any Quadrant Crunching action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Quadrant Crunching: the scenario matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; select axes and populate the matrix checks agree, and no unresolved contradiction would change the result.
+- Medium for Quadrant Crunching: the scenario matrix is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
+- Low for Quadrant Crunching: the scenario matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Quadrant Crunching cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Quadrant Crunching, use only authorized problem statement, dominant assessment, and candidate assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Quadrant Crunching, minimize person-level detail in the scenario matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Quadrant Crunching, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Quadrant Crunching: treating problem statement as complete when select axes and populate the matrix checks or contradictory evidence are missing.
+- Quadrant Crunching: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Quadrant Crunching: reporting the scenario matrix without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Quadrant Crunching outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the scenario matrix from Quadrant Crunching into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Quadrant Crunching to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with problem statement, dominant assessment, and candidate assumptions' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not allow the current dominant assessment to pre-filter cells as impossible without explicit incoherence reasoning
 - do not reduce axes to variables that are actually correlated — each axis must represent an independent uncertain dimension

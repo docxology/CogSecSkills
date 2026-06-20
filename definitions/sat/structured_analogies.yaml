@@ -1,0 +1,194 @@
+id: sat.structured_analogies
+description: Structured Analogies (also called Historical Analogy Analysis) is a structured-analytic
+  technique that selects, evaluates, and systematically compares a set of historical
+  precedent cases to a current situation rather than relying on a single, intuitively
+  chosen anecdote. By making the selection criteria explicit and requiring analysis
+  of both similarities and dissimilarities across multiple cases, it constrains the
+  cognitive tendency to over-extend a single vivid precedent. In cognitive-security
+  contexts it is used to assess whether a suspected influence operation or adversarial
+  narrative campaign resembles documented historical patterns and what those precedents
+  predict about likely trajectories and countermeasures.
+tags:
+- cognitive-security
+- sat
+- analogy-reasoning
+triggers:
+- find historical parallels
+- structured analogies
+- compare to precedent cases
+- historical analogy analysis
+- what has happened before
+tools:
+- verb: read
+  purpose: ingest the current situation description and any provided candidate cases
+- verb: search
+  purpose: identify additional candidate historical cases from knowledge sources when
+    the initial set is thin
+- verb: reason
+  purpose: select cases using explicit criteria, map similarities and dissimilarities,
+    and derive lessons
+- verb: write
+  purpose: produce the multi-case comparison table, confidence-weighted lessons, and
+    analytic narrative
+inputs:
+- name: current_situation
+  type: text
+  required: true
+  description: description of the present case to be analyzed by analogy
+- name: candidate_cases
+  type: list
+  required: false
+  description: analyst-nominated historical cases to consider; if absent the agent
+    identifies candidates
+- name: comparison_dimensions
+  type: list
+  required: false
+  description: specific attributes to compare across cases (e.g., actor type, medium,
+    timeline, outcome); if omitted the agent proposes dimensions
+outputs:
+- name: case_comparison_table
+  type: table
+  description: selected historical cases compared to the current situation on each
+    dimension, with similarity and dissimilarity ratings
+- name: lessons_and_predictions
+  type: markdown
+  description: confidence-weighted lessons drawn from the case set, predicted trajectories,
+    and noted limitations of the analogy
+references:
+- 'May, E. R. (1973). Lessons of the Past: The Use and Misuse of History in American
+  Foreign Policy. Oxford University Press.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Ch. 8.
+- 'Neustadt, R. E., & May, E. R. (1986). Thinking in Time: The Uses of History for
+  Decision-Makers. Free Press.'
+when_to_use:
+- a situation is novel enough that direct evidence is sparse but historical precedents
+  plausibly exist
+- an analyst or decision-maker is already anchored on a single analogy and needs disciplined
+  expansion
+- assessing an influence operation or adversarial campaign whose playbook may echo
+  documented historical cases
+- estimating likely outcomes or timelines when base rates from historical cases are
+  the best available evidence
+what_it_produces:
+- a disciplined multi-case comparison table that makes the basis for analogy explicit
+  and auditable
+- an explicit mapping of where the current case is similar to and where it diverges
+  from each precedent
+- confidence-weighted lessons and predictions qualified by the degree of analogy fit
+key_discipline:
+- select cases using criteria stated before examining outcomes — post-hoc cherry-picking
+  defeats the technique
+- dissimilarities carry equal analytic weight to similarities; a disconfirming case
+  must be included
+- weight lessons by the number of cases supporting them and the closeness of fit,
+  not by how vivid the single most compelling case is
+workflow_steps:
+- verbs:
+  - read
+  title: Characterize the current situation
+  text: 'Read the current situation description. Identify the key attributes that
+    any historical analogue must share: actor type, medium, intent, target, environmental
+    conditions. These become the selection criteria.'
+- verbs:
+  - search
+  - reason
+  title: Identify and select candidate cases
+  text: Search for historical cases that plausibly match the stated criteria. Aim
+    for at least three to five cases, including at least one that is widely cited
+    (to capture the intuitive analogy) and at least one that is less obvious (to test
+    its boundaries). Exclude cases only if they fail stated criteria, not because
+    their outcomes are inconvenient.
+- verbs:
+  - reason
+  title: Map similarities and dissimilarities
+  text: For each case, systematically compare it to the current situation on every
+    dimension. Rate each comparison as strongly similar, partially similar, or dissimilar.
+    Record the key dissimilarity for every case — even the closest analogues will
+    have important disanalogies.
+- verbs:
+  - reason
+  - write
+  title: Derive lessons and bound confidence
+  text: Extract lessons that are supported by multiple cases and are robust to the
+    dissimilarities. Note where a lesson rests on a single case or on a weak analogy
+    fit, and reduce confidence accordingly. Write predicted trajectories qualified
+    by the analogy's limitations.
+- verbs:
+  - write
+  title: Produce comparison table and analytic narrative
+  text: Emit the multi-case comparison table and the lessons-and-predictions narrative.
+    Flag the single most relied-upon analogy as a potential anchor bias risk.
+anti_criteria:
+- do not select cases after learning their outcomes in a way that biases toward cases
+  that support the preferred conclusion
+- do not treat a close similarity on salient features as confirmation — check structural
+  and contextual dissimilarities before drawing lessons
+- do not present a single historical case as 'the' analogy without showing the full
+  comparison set and why others were excluded or downweighted
+defensive_boundary: 'Use Structured Analogies only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Structured Analogies to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Structured Analogies, tie each case comparison table, and lessons and predictions
+  claim to concrete evidence from the specific current situation, candidate cases,
+  and comparison dimensions item, source excerpt, observation, or command result that
+  supports it.
+- For Structured Analogies, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the case comparison
+  table.
+- Before recommending any Structured Analogies action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Structured Analogies: the case comparison table is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; characterize the current situation and identify and select candidate cases
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Structured Analogies: the case comparison table is plausible, but one
+  important current situation source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Structured Analogies: the case comparison table rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Structured Analogies cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Structured Analogies, use only authorized current situation, candidate cases,
+  and comparison dimensions, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Structured Analogies, minimize person-level detail in the case comparison table;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Structured Analogies, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Structured Analogies: treating current situation as complete when characterize
+  the current situation and identify and select candidate cases checks or contradictory
+  evidence are missing.'
+- 'Structured Analogies: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Structured Analogies: reporting the case comparison table without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Structured Analogies outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the case comparison table from Structured Analogies into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Structured Analogies to apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty with current situation,
+  candidate cases, and comparison dimensions'' -> produce bounded findings with evidence
+  and uncertainty labels.'

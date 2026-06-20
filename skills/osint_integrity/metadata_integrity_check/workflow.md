@@ -11,6 +11,34 @@ Check for internal consistency: do DateTimeOriginal, GPS timestamp, and file Mod
 ## Step 3 — Assign confidence ratings and verdict (reason, write)
 For each key metadata field, assign a confidence rating: corroborates claim, neutral (consistent but not distinctive), contradicts claim, or absent (stripped or never present). Assess the overall spoofing risk: single-field edits are common; coherent multi-field spoofing is harder and rarer. Render an overall integrity verdict — consistent, inconsistent, or insufficient — with a plain-language narrative explaining what the metadata establishes and what additional corroboration is required before evidential use.
 
+## Evidence requirements
+- For Metadata Integrity Check, tie each metadata assessment, and integrity narrative claim to concrete evidence from the specific media file or post, and claimed provenance item, source excerpt, observation, or command result that supports it.
+- For Metadata Integrity Check, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the metadata assessment.
+- Before recommending any Metadata Integrity Check action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Metadata Integrity Check: the metadata assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; extract all metadata fields and assess internal and external consistency checks agree, and no unresolved contradiction would change the result.
+- Medium for Metadata Integrity Check: the metadata assessment is plausible, but one important media file or post source, comparison case, or alternative explanation remains incomplete.
+- Low for Metadata Integrity Check: the metadata assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Metadata Integrity Check cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Metadata Integrity Check, use only authorized media file or post, and claimed provenance, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Metadata Integrity Check, minimize person-level detail in the metadata assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Metadata Integrity Check, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Metadata Integrity Check: treating media file or post as complete when extract all metadata fields and assess internal and external consistency checks or contradictory evidence are missing.
+- Metadata Integrity Check: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Metadata Integrity Check: reporting the metadata assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Metadata Integrity Check outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the metadata assessment from Metadata Integrity Check into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Metadata Integrity Check to verify supplied claims, media, sources, or datasets with documented public-source methods with media file or post, and claimed provenance' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not treat any single metadata field as definitive — GPS coordinates, timestamps, and author fields are all trivially editable
 - do not treat absent metadata as proof of tampering — routine platform stripping removes EXIF from virtually all social media uploads

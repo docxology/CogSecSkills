@@ -1,59 +1,58 @@
 # Workflow — Devil's Advocacy
 
-A step-by-step procedure for mounting a good-faith challenge against a prevailing
-consensus or lead judgment, following Heuer & Pherson. Each step is tagged with
-the neutral tool verb(s) a harness must bind.
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
-1. **State the consensus and its foundations.** `[read]` `[write]` Restate the
-   prevailing consensus or lead judgment as a single clear claim. Enumerate the
-   key evidence it cites and the assumptions — stated or implicit — that it rests
-   on. A judgment you cannot decompose into assumptions cannot be challenged.
+## Step 1 — State the consensus and its foundations (read, write)
+Restate the lead judgment as a clear claim, enumerate its cited evidence, and list the explicit and implicit assumptions it rests on.
 
-2. **Select the most vulnerable assumptions.** `[reason]` From that list, pick
-   the assumptions most exposed to challenge: those that are unexamined,
-   load-bearing, inherited from analogy, or supported only by absence of
-   contradiction. These are the seams the counter-case will pry open.
+## Step 2 — Select the most vulnerable assumptions (reason)
+Choose load-bearing assumptions that are unexamined, inherited from analogy, unsupported by evidence, or resting on absence of contradiction.
 
-3. **Review the evidence base for soft spots.** `[read]` `[reason]` Re-examine
-   the cited evidence. Separate items that genuinely support the consensus from
-   items that are merely assumed, ambiguous, single-sourced, or absent. Surface
-   any evidence that actively contradicts the consensus, however small.
+## Step 3 — Review the evidence base for soft spots (read, reason)
+Separate evidence that genuinely supports the consensus from evidence that is assumed, ambiguous, single-sourced, missing, or contradictory.
 
-4. **Construct the strongest alternative interpretation.** `[reason]` Step into
-   the role of a smart, honest adversary-analyst and build the most credible
-   alternative reading of the same evidence. Ask what a capable opponent who
-   reached the opposite conclusion would believe and why.
+## Step 4 — Construct the strongest alternative interpretation (reason)
+Build the most credible good-faith alternative reading of the same evidence, as a capable opposing analyst would.
 
-5. **Marshal the counter-case honestly.** `[reason]` `[write]` Assemble the
-   evidence and reasoning for the alternative interpretation in good faith — its
-   real supporting facts, its causal logic, and what it would predict that the
-   consensus would not. Note where the counter-case itself is weak; an honest
-   advocate concedes its limits.
+## Step 5 — Marshal the counter-case honestly (reason, write)
+Assemble the counter-case with its supporting facts, causal logic, predictions, and its own limitations.
 
-6. **Assess robustness and resolving collection.** `[reason]` `[write]` Judge
-   the outcome: did the consensus survive the challenge intact, survive with
-   caveats, or fail? State plainly which assumptions held and which cracked, and
-   specify the new collection or evidence that would decisively resolve the
-   dispute between the consensus and the counter-case.
+## Step 6 — Assess robustness and resolving collection (reason, write)
+State whether the consensus survived intact, survived with caveats, or failed, then name the evidence that would resolve the dispute.
+
+## Evidence requirements
+- For Devil's Advocacy, tie each counter case, and robustness verdict claim to concrete evidence from the specific consensus judgment, and evidence base item, source excerpt, observation, or command result that supports it.
+- For Devil's Advocacy, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the counter case.
+- Before recommending any Devil's Advocacy action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Devil's Advocacy: the counter case is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; state the consensus and its foundations and select the most vulnerable assumptions checks agree, and no unresolved contradiction would change the result.
+- Medium for Devil's Advocacy: the counter case is plausible, but one important consensus judgment source, comparison case, or alternative explanation remains incomplete.
+- Low for Devil's Advocacy: the counter case rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Devil's Advocacy cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Devil's Advocacy, use only authorized consensus judgment, and evidence base, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Devil's Advocacy, minimize person-level detail in the counter case; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Devil's Advocacy, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Devil's Advocacy: treating consensus judgment as complete when state the consensus and its foundations and select the most vulnerable assumptions checks or contradictory evidence are missing.
+- Devil's Advocacy: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Devil's Advocacy: reporting the counter case without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Devil's Advocacy outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the counter case from Devil's Advocacy into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Devil's Advocacy to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with consensus judgment, and evidence base' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-
 - **No straw man.** The counter-case must be the strongest real case against the
-  consensus, not a weak version chosen so the consensus can easily win.
 - **No contrarianism for its own sake.** The exercise tests robustness; it is
-  not an excuse to oppose every judgment reflexively or to manufacture dissent
-  where the evidence does not support it.
 - **No suppression of the result.** If the consensus fails the challenge, report
-  it. Never bury an inconvenient outcome to protect the prevailing view or
-  preserve group comfort.
 - **No collapsing of evidence categories.** Do not treat merely-assumed or
-  absent evidence as if it actively supported the consensus, and do not inflate
-  ambiguous evidence into confirmation for either side.
 
 ## AGEINT upstream
-
-This skill operationalizes the challenge-analysis family documented under
-`docs/ageint/structured-analytic-techniques` (AGEINT topic:
-`structured-analytic-techniques`), where Devil's Advocacy sits alongside other
-contrarian and challenge techniques (e.g. Team A/Team B, What If? Analysis,
-High-Impact/Low-Probability Analysis) used to stress-test established judgments.
+`docs/ageint/structured-analytic-techniques.md`

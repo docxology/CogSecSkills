@@ -20,6 +20,44 @@ Structured Analogies (also called Historical Analogy Analysis) is a structured-a
 - an explicit mapping of where the current case is similar to and where it diverges from each precedent
 - confidence-weighted lessons and predictions qualified by the degree of analogy fit
 
+## Defensive boundary
+
+Use Structured Analogies only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks Structured Analogies to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For Structured Analogies, tie each case comparison table, and lessons and predictions claim to concrete evidence from the specific current situation, candidate cases, and comparison dimensions item, source excerpt, observation, or command result that supports it.
+- For Structured Analogies, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the case comparison table.
+- Before recommending any Structured Analogies action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Structured Analogies: the case comparison table is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; characterize the current situation and identify and select candidate cases checks agree, and no unresolved contradiction would change the result.
+- Medium for Structured Analogies: the case comparison table is plausible, but one important current situation source, comparison case, or alternative explanation remains incomplete.
+- Low for Structured Analogies: the case comparison table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Structured Analogies cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Structured Analogies, use only authorized current situation, candidate cases, and comparison dimensions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Analogies, minimize person-level detail in the case comparison table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Structured Analogies, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Structured Analogies: treating current situation as complete when characterize the current situation and identify and select candidate cases checks or contradictory evidence are missing.
+- Structured Analogies: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Structured Analogies: reporting the case comparison table without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Structured Analogies outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the case comparison table from Structured Analogies into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Structured Analogies to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with current situation, candidate cases, and comparison dimensions' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

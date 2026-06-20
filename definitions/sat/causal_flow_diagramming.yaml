@@ -1,0 +1,231 @@
+id: sat.causal_flow_diagramming
+description: Causal Flow Diagramming (also called causal loop diagramming or process
+  mapping in intelligence analysis) traces the causal and feedback relationships among
+  variables driving a system's behavior — showing which factors amplify (reinforcing
+  loops) or dampen (balancing loops) each other and where interventions or disruptions
+  would propagate. Adapted from systems dynamics (Forrester, Senge) and codified for
+  intelligence analysis by Heuer & Pherson, it counters linear cause-and-effect thinking
+  by surfacing non-obvious feedback paths, delays, and second-order effects that straight
+  narrative obscures. In cognitive-security contexts it is used to map how disinformation,
+  influence operations, or social dynamics self-amplify or self-correct.
+tags:
+- cognitive-security
+- sat
+- systems-thinking
+- causal-analysis
+triggers:
+- causal flow diagram
+- causal loop diagram
+- trace cause and effect
+- map the feedback loops
+- why does this keep happening
+- what drives this system
+- systemic causes
+- reinforcing loop
+tools:
+- verb: read
+  purpose: ingest problem descriptions, incident reports, or analytical narratives
+    describing the system's behavior over time
+- verb: reason
+  purpose: identify variables, causal links (direction and polarity), feedback loop
+    types, delays, and leverage points
+- verb: write
+  purpose: produce the causal flow diagram in structured notation, loop inventory,
+    and leverage-point assessment
+inputs:
+- name: system_description
+  type: text
+  required: true
+  description: A description of the phenomenon or problem — typically a behavior-over-time
+    pattern that the diagram should explain (e.g., 'disinformation spreads faster
+    each cycle', 'trust in institution X keeps declining')
+- name: known_variables
+  type: list
+  required: false
+  description: Variables or factors already identified as relevant to the system's
+    dynamics
+- name: scope_boundary
+  type: text
+  required: false
+  description: Boundary conditions specifying what is inside versus outside the model
+    (time horizon, actor set, geographic scope)
+outputs:
+- name: causal_flow_diagram
+  type: markdown
+  description: 'A structured representation of the causal diagram: nodes (variables),
+    directed causal links with polarity (+/-), identified reinforcing (R) and balancing
+    (B) loops, and delay markers where significant time lags exist'
+- name: loop_inventory
+  type: table
+  description: A table listing each identified feedback loop with its type (R/B),
+    constituent variables, and the behavioral tendency it produces (growth, oscillation,
+    stability, collapse)
+- name: leverage_point_assessment
+  type: markdown
+  description: Ranked list of nodes or links where intervention would produce the
+    largest system-level effect, with reasoning about direction of intervention and
+    risk of unintended consequences
+references:
+- 'Senge, P. M. (1990). The Fifth Discipline: The Art and Practice of the Learning
+  Organization. Doubleday.'
+- 'Sterman, J. D. (2000). Business Dynamics: Systems Thinking and Modeling for a Complex
+  World. McGraw-Hill.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Causal Flow Diagramming.
+- 'Meadows, D. H. (2008). Thinking in Systems: A Primer. Chelsea Green Publishing.'
+- Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
+  Associates.
+when_to_use:
+- A system shows persistent or recurring problematic behavior and linear cause-effect
+  explanations have failed to account for it
+- An analyst suspects feedback loops — where an effect amplifies or dampens its own
+  cause — are driving the observed dynamics
+- Decision-makers need to understand second-order consequences before intervening
+  in a complex social, political, or information system
+- An influence operation or disinformation campaign appears to be self-amplifying
+  and the structural mechanisms of amplification need to be mapped
+- Root cause analysis has identified contributing factors but their causal relationships
+  remain unclear
+what_it_produces:
+- A visual causal map that makes feedback structures explicit and independently reviewable
+- An inventory of reinforcing loops (engines of growth or collapse) and balancing
+  loops (stabilizers or oscillators) with their behavioral signatures
+- A set of identified leverage points — nodes where targeted intervention produces
+  disproportionate system-wide effects
+- An explicit record of delays and non-linear paths that linear narrative analysis
+  would miss
+key_discipline:
+- 'Polarity discipline: every causal arrow must be labeled + (same direction: A increases
+  → B increases) or – (opposite direction: A increases → B decreases); ambiguous arrows
+  are analytic gaps'
+- 'Loop typing is automatic from polarity: count the number of negative (–) links
+  in a closed loop; even count = reinforcing (R), odd count = balancing (B)'
+- Delays are not decorative — a reinforcing loop with a long delay produces overshoot-and-collapse,
+  not smooth growth; mark them explicitly
+- 'Scope discipline: every variable in the diagram should be measurable in principle;
+  avoid variables that are concepts rather than quantities (use ''perceived credibility
+  of source X'' not ''trust'')'
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Define behavior-over-time and boundary
+  text: 'Start by articulating the specific behavior pattern the diagram must explain
+    (e.g., ''disinformation share rate accelerates for 72 hours then plateaus'').
+    Define the scope boundary: what actors, time horizon, and causal chains are inside
+    the model. This prevents scope creep and keeps the diagram tractable. Identify
+    5–15 key variables as starting nodes.'
+- verbs:
+  - reason
+  title: Map causal links and polarities
+  text: 'For each pair of variables that are causally connected, draw a directed arrow
+    and assign polarity: + if an increase in the cause produces an increase in the
+    effect (all else equal), – if it produces a decrease. Work forward from drivers
+    and backward from the target behavior. Flag any link whose polarity is contested
+    or uncertain — these are key analytic uncertainties.'
+- verbs:
+  - reason
+  title: Identify and type feedback loops
+  text: 'Trace every closed loop in the diagram (a path that returns to its starting
+    variable). Count the negative (–) links: even number = reinforcing loop (R) —
+    labels it with a behavior tendency (exponential growth or collapse); odd number
+    = balancing loop (B) — labels it with its tendency (goal-seeking or oscillation).
+    Name each loop descriptively (''Credibility Erosion Spiral'', ''Correction Saturation
+    Balancer''). In influence-operation contexts, R-loops are the amplification engines
+    to interdict; B-loops are the natural dampeners to reinforce.'
+- verbs:
+  - reason
+  title: Mark delays and non-obvious paths
+  text: 'Identify where significant time lags exist between a cause and its effect
+    (e.g., ''policy change → public awareness: 3–6 month lag''). Mark these with delay
+    notation. Non-obvious paths are often the most analytically valuable: a variable
+    affecting a distant node through three intermediaries may be the real driver.
+    Trace all paths ≥3 links long and verify each intermediate link.'
+- verbs:
+  - reason
+  - write
+  title: Identify leverage points and produce outputs
+  text: 'Apply Meadows'' hierarchy: interventions on numbers (quantities) are weak;
+    on feedback loop structures (adding or removing a link) are strong; on paradigm
+    or goal of the system are strongest. Rank the top 3–5 leverage points by estimated
+    impact and feasibility. Write the loop inventory table. Produce the causal flow
+    diagram in structured markdown notation (indented node list with → links and polarity
+    labels). Write the leverage-point assessment with one paragraph on unintended
+    consequence risks per intervention.'
+anti_criteria:
+- Do not omit polarity labels on causal links — unlabeled arrows make loop typing
+  impossible and reduce the diagram to an influence diagram without behavioral implications
+- Do not draw causal links between variables that are merely correlated without a
+  plausible causal mechanism — correlation-as-causation is the primary failure mode
+  of this technique
+- Do not let the diagram grow beyond approximately 20 nodes without partitioning into
+  sub-diagrams — cognitive overload defeats the purpose of externalizing the structure
+- Do not identify leverage points without also noting the direction of intervention
+  and the risk of reinforcing unintended loops — 'pulling the wrong lever' in a feedback
+  system can accelerate the problem
+defensive_boundary: 'Use Causal Flow Diagramming only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Causal Flow Diagramming to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Causal Flow Diagramming, tie each causal flow diagram, loop inventory, and leverage
+  point assessment claim to concrete evidence from the specific system description,
+  known variables, and scope boundary item, source excerpt, observation, or command
+  result that supports it.
+- For Causal Flow Diagramming, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the causal
+  flow diagram.
+- Before recommending any Causal Flow Diagramming action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Causal Flow Diagramming: the causal flow diagram is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; define behavior-over-time and boundary and map causal links and polarities
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Causal Flow Diagramming: the causal flow diagram is plausible, but one
+  important system description source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Causal Flow Diagramming: the causal flow diagram rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Causal Flow Diagramming cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Causal Flow Diagramming, use only authorized system description, known variables,
+  and scope boundary, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Causal Flow Diagramming, minimize person-level detail in the causal flow diagram;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Causal Flow Diagramming, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Causal Flow Diagramming: treating system description as complete when define behavior-over-time
+  and boundary and map causal links and polarities checks or contradictory evidence
+  are missing.'
+- 'Causal Flow Diagramming: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Causal Flow Diagramming: reporting the causal flow diagram without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Causal Flow Diagramming outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the causal flow diagram from Causal Flow Diagramming into an
+  operational playbook to force a preferred conclusion, hide uncertainty, or use the
+  technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Causal Flow Diagramming to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with system description,
+  known variables, and scope boundary'' -> produce bounded findings with evidence
+  and uncertainty labels.'

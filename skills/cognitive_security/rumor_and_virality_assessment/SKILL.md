@@ -23,6 +23,44 @@ Rumor and virality assessment applies social-epidemiological and computational m
 - a list of counter-messaging leverage windows ranked by time-sensitivity and estimated effectiveness
 - identified amplifier archetypes — bots, partisan influencers, media laundering pathways — likely to accelerate spread
 
+## Defensive boundary
+
+Use Rumor & Virality Assessment only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+
+## Misuse redirect
+
+If a request asks Rumor & Virality Assessment to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
+
+## Evidence discipline
+
+- For Rumor & Virality Assessment, tie each virality assessment, and factor table claim to concrete evidence from the specific claim, originating context, and audience profile item, source excerpt, observation, or command result that supports it.
+- For Rumor & Virality Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the virality assessment.
+- Before recommending any Rumor & Virality Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Rumor & Virality Assessment: the virality assessment is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest and normalize the claim and establish baseline and precedent checks agree, and no unresolved contradiction would change the result.
+- Medium for Rumor & Virality Assessment: the virality assessment is plausible, but one important claim source, comparison case, or alternative explanation remains incomplete.
+- Low for Rumor & Virality Assessment: the virality assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Rumor & Virality Assessment cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Rumor & Virality Assessment, use only authorized claim, originating context, and audience profile, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Rumor & Virality Assessment, minimize person-level detail in the virality assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Rumor & Virality Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Rumor & Virality Assessment: treating claim as complete when ingest and normalize the claim and establish baseline and precedent checks or contradictory evidence are missing.
+- Rumor & Virality Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Rumor & Virality Assessment: reporting the virality assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Rumor & Virality Assessment outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the virality assessment from Rumor & Virality Assessment into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Rumor & Virality Assessment to assess supplied material for manipulation indicators and recommend resilience measures with claim, originating context, and audience profile' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

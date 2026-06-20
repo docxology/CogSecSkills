@@ -24,6 +24,44 @@ Code Security Review is a structured audit of source code for security defects, 
 - Dependency risk summary with known CVEs and supply-chain concerns
 - A prioritized remediation roadmap ordered by exploitability and impact
 
+## Defensive boundary
+
+Use Code Security Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+
+## Misuse redirect
+
+If a request asks Code Security Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
+
+## Evidence discipline
+
+- For Code Security Review, tie each findings table, and security review narrative claim to concrete evidence from the specific code, threat model, and review scope item, source excerpt, observation, or command result that supports it.
+- For Code Security Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the findings table.
+- Before recommending any Code Security Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Code Security Review: the findings table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; scope and contextualize the review and run automated static analysis and dependency scans checks agree, and no unresolved contradiction would change the result.
+- Medium for Code Security Review: the findings table is plausible, but one important code source, comparison case, or alternative explanation remains incomplete.
+- Low for Code Security Review: the findings table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Code Security Review cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Code Security Review, use only authorized code, threat model, and review scope, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Code Security Review, minimize person-level detail in the findings table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Code Security Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Code Security Review: treating code as complete when scope and contextualize the review and run automated static analysis and dependency scans checks or contradictory evidence are missing.
+- Code Security Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Code Security Review: reporting the findings table without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Code Security Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the findings table from Code Security Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Code Security Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with code, threat model, and review scope' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

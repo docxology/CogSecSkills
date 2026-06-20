@@ -9,9 +9,13 @@
 CogSecSkills is a library of **100 analytic skills** — Structured Analytic
 Techniques (SATs), cognitive-security defenses, OSINT integrity, counter-
 intelligence, and critical review — each authored once as a **harness-neutral
-skill** that runs identically under Claude Code, Codex, or Hermes.
+skill** with default adapters for Claude Code, Codex, and Hermes, and the same
+structural contract for any additional configured harness.
 
-New here? The [documentation map](docs/README.md) points you to the right place.
+New here? Start with [`QUICKSTART.md`](QUICKSTART.md), then use the
+[documentation map](docs/README.md). To install the public repository into an
+agent harness, see [`docs/harness-installation.md`](docs/harness-installation.md)
+and [`docs/harness-cookbook.md`](docs/harness-cookbook.md).
 
 The library is strictly **defensive, educational, and accountable**. Its
 educational upstream is the [AGEINT](docs/ageint/README.md) curriculum. These
@@ -24,7 +28,7 @@ author manipulation.
 |----------|------|-------|
 | **Teach** | the concepts (the *why*) | [`docs/ageint/`](docs/ageint/README.md) |
 | **Plan** | catalogue of all 100 skill areas (the *what*) | [`registry/skills.yaml`](registry/skills.yaml) |
-| **Build** | multiharness skill implementations (the *how*) | [`skills/`](skills/) |
+| **Build** | canonical definitions and rendered multiharness skill implementations (the *how*) | [`definitions/`](definitions/) and [`skills/`](skills/) |
 
 `python -m cogsecskills validate` keeps Plan and Build coherent: every on-disk
 skill must be catalogued, and every `implemented` catalogue entry must exist.
@@ -43,25 +47,41 @@ skill must be catalogued, and every `implemented` catalogue entry must exist.
 
 **All 100 areas are fully implemented** as conforming, multiharness skill folders —
 each with a real, technique-accurate procedure, a fitting tool plan, and adapters
-that bind every declared verb under Claude Code, Codex, and Hermes.
+that bind every declared verb under the configured harness set. The default
+configured set is Claude Code, Codex, and Hermes.
 `python -m cogsecskills report` shows the live counts (implemented: 100).
 
-The 8 hand-authored skills below are the reference exemplars; the other 92 were
-authored in parallel (one agent per technique) as structured definitions and
-rendered deterministically via `cogsecskills author`, so every skill conforms by
-construction.
+All 100 skills now have persistent canonical definitions under `definitions/`.
+`python -m cogsecskills definitions --write` renders the full `skills/` tree
+deterministically from that source layer, and `definitions --check` proves the
+definitions and rendered files have not drifted.
+`python -m cogsecskills scenarios --check` adds a deterministic defensive
+readiness gate over curated safe-use and unsafe-redirect fixtures; it checks
+routing, local skill contracts, expected response-shape metadata, and reviewed
+expected-answer fixtures without calling external model runtimes.
+`python -m cogsecskills examples --write` generates one worked defensive
+example per skill from `examples/skill-worked-examples.yaml`.
+`python -m cogsecskills evals --write` generates offline local output-review
+fixtures and reports from scenario expected answers; it does not call live
+models.
+`python -m cogsecskills dashboard --write` generates a 100-skill quality
+dashboard for navigation and drift review across scenarios, offline evals,
+worked examples, quality capsules, harnesses, references, and source paths.
+`python -m cogsecskills release-metadata --write` generates the local release
+claim matrix and metadata snapshot without publishing, tagging, or archiving.
 
 ## Anatomy of a skill
 
 ```
 skills/<group>/<slug>/
-  skill.yaml          # harness-neutral spec — the single source of truth
+  skill.yaml          # generated harness-neutral spec
   SKILL.md            # Claude Code native entry point (frontmatter + doc)
   workflow.md         # the agentic procedure, each step tagged with a tool verb
   harness/
-    claude.md         # verb -> Claude Code tools (Read/Grep/Bash/WebSearch/Write)
-    codex.md          # verb -> Codex tools (shell/apply_patch/web)
-    hermes.md         # verb -> Hermes function calls (fs.read/web.search/fs.write)
+    claude.md         # default adapter: Claude Code tools
+    codex.md          # default adapter: Codex tools
+    hermes.md         # default adapter: Hermes function calls
+    <name>.md         # optional configured harness adapter
 ```
 
 A skill declares its capabilities as **closed-set tool verbs** (`read`, `search`,
@@ -70,9 +90,19 @@ those verbs to concrete tools in a Markdown binding table. The validator checks
 that every declared verb is present in every adapter, so "multiharness" is a
 property the test suite *proves*, not a hope.
 
+The persistent source of truth for authored skill substance is
+`definitions/<group>/<slug>.yaml`; `skill.yaml` and the companion Markdown files
+are the generated, harness-facing build outputs.
+
 ## Usage
 
 ```bash
+# Install from GitHub and validate the library
+git clone https://github.com/docxology/CogSecSkills.git
+cd CogSecSkills
+uv sync
+PYTHONPATH="src:." python -m cogsecskills validate
+
 # List the catalogue (all 100 areas)
 python -m cogsecskills list
 python -m cogsecskills list --group sat --status implemented
@@ -93,16 +123,47 @@ python -m cogsecskills report
 python -m cogsecskills stats
 python -m cogsecskills catalogue --markdown --output docs/catalogue.md
 python -m cogsecskills doctor
+python -m cogsecskills scenarios --check
+python -m cogsecskills examples --write
+python -m cogsecskills examples --check
+python -m cogsecskills evals --write
+python -m cogsecskills evals --check
+python -m cogsecskills dashboard --write
+python -m cogsecskills dashboard --check
+python -m cogsecskills release-metadata --write
+python -m cogsecskills release-metadata --check
 
-# Author a full skill deterministically from a structured JSON definition
-python -m cogsecskills author path/to/_def.json          # render one
-python -m cogsecskills author-batch                      # render every skills/**/_def.json + promote
+# Regenerate manuscript supplements and figures from the live library
+python -m cogsecskills manuscript-assets --write
+python -m cogsecskills manuscript-assets --check
+
+# Regenerate all rendered skills from canonical YAML definitions
+python -m cogsecskills definitions --write
+python -m cogsecskills definitions --check
+
+# Author a full skill deterministically from a structured JSON/YAML definition
+python -m cogsecskills author path/to/definition.yaml     # render one
+python -m cogsecskills author-batch                      # compatibility path for skills/**/_def.json
 
 # Scaffold a brand-new planned area from the registry (skeleton to deepen)
 python -m cogsecskills scaffold sat.some_new_area
 ```
 
 (From the project root, with `PYTHONPATH="src:."` or after `uv sync`.)
+
+To connect a harness, point it at `skills/<group>/<slug>/SKILL.md`, use
+`workflow.md` for the neutral procedure, and bind tools through the matching
+`harness/<name>.md` adapter. The default configured set is `claude`, `codex`,
+and `hermes`; add more harnesses in `cogsecskills.yaml` and regenerate adapters
+with `python -m cogsecskills definitions --write`.
+
+For bounded examples, see
+[`examples/harness-smoke-transcripts.md`](examples/harness-smoke-transcripts.md)
+[`examples/group-worked-examples.md`](examples/group-worked-examples.md), and
+[`docs/skill-worked-examples.md`](docs/skill-worked-examples.md).
+For claim discipline, see [`docs/claim-boundaries.md`](docs/claim-boundaries.md).
+For the generated quality dashboard, see
+[`docs/quality-dashboard.md`](docs/quality-dashboard.md).
 
 ## The 8 reference exemplars
 
@@ -134,11 +195,11 @@ entry with no build, fails the suite.
 
 ## Provenance
 
-- This project lives in the private `projects/working/CogSecSkills` sidecar and
-  uses the sibling public docxology template only for optional manuscript/render
-  validation. The **deliverable is the skills system**: registry, skills,
-  AGEINT docs, runner, tests, and the manuscript scaffold that describes those
-  source surfaces.
+- Canonical public repository: <https://github.com/docxology/CogSecSkills>.
+  Local manuscript/render validation may use the sibling docxology template, but
+  the **deliverable is the skills system**: registry, skills, AGEINT docs,
+  runner, tests, generated manuscript supplements, and figures that describe
+  those source surfaces.
 - Educational upstream: [AGEINT](https://github.com/docxology/AGEINT)
   (concept DOI [10.5281/zenodo.20732274](https://doi.org/10.5281/zenodo.20732274)).
 - The skill catalogue draws on Heuer & Pherson, *Structured Analytic Techniques

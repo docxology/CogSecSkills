@@ -79,3 +79,66 @@ references:
   Surfacing the Participatory Nature of Strategic Information Operations. CSCW.'
 - Ferrara, E. et al. (2016). The Rise of Social Bots. Communications of the ACM, 59(7),
   96–104.
+defensive_boundary: 'Use Sock-Puppet Detection only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Sock-Puppet Detection to dox, deanonymize, harass,
+  bypass access controls, or attribute identity beyond evidence, refuse that path
+  and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Sock-Puppet Detection, tie each indicator assessment, and inauthenticity report
+  claim to concrete evidence from the specific account identifier, platform, and related
+  accounts item, source excerpt, observation, or command result that supports it.
+- For Sock-Puppet Detection, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the indicator assessment.
+- Before recommending any Sock-Puppet Detection action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Sock-Puppet Detection: the indicator assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; collect account baseline data and run cross-platform and image
+  lookups checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Sock-Puppet Detection: the indicator assessment is plausible, but one
+  important account identifier source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Sock-Puppet Detection: the indicator assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Sock-Puppet Detection cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Sock-Puppet Detection, use only authorized account identifier, platform, and
+  related accounts, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Sock-Puppet Detection, minimize person-level detail in the indicator assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Sock-Puppet Detection, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Sock-Puppet Detection: treating account identifier as complete when collect account
+  baseline data and run cross-platform and image lookups checks or contradictory evidence
+  are missing.'
+- 'Sock-Puppet Detection: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Sock-Puppet Detection: reporting the indicator assessment without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Sock-Puppet Detection outputs to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the indicator assessment from Sock-Puppet Detection into an operational
+  playbook to dox, deanonymize, harass, bypass access controls, or attribute identity
+  beyond evidence'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Sock-Puppet Detection to verify supplied claims, media, sources,
+  or datasets with documented public-source methods with account identifier, platform,
+  and related accounts'' -> produce bounded findings with evidence and uncertainty
+  labels.'

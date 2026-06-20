@@ -17,6 +17,34 @@ For the lead attribution hypothesis, ask: (1) How many independent high-diagnost
 ## Step 5 — Produce the assessment and gap list (write)
 Write the attribution assessment in structured form: (1) lead hypothesis with confidence and rationale, (2) primary alternative hypothesis and why it cannot yet be ruled out, (3) explicitly stated key assumptions for the lead, (4) what would change the assessment (invalidating evidence). Append the ACH matrix as supporting evidence. Output the top 3-5 intelligence gaps that would most efficiently resolve remaining uncertainty.
 
+## Evidence requirements
+- For Disinformation Attribution, tie each attribution matrix, attribution assessment, and intelligence gaps claim to concrete evidence from the specific campaign artifacts, candidate actors, and strategic context item, source excerpt, observation, or command result that supports it.
+- For Disinformation Attribution, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the attribution matrix.
+- Before recommending any Disinformation Attribution action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Disinformation Attribution: the attribution matrix is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; inventory the evidence and candidate actors and identify diagnostic indicators checks agree, and no unresolved contradiction would change the result.
+- Medium for Disinformation Attribution: the attribution matrix is plausible, but one important campaign artifacts source, comparison case, or alternative explanation remains incomplete.
+- Low for Disinformation Attribution: the attribution matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Disinformation Attribution cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Disinformation Attribution, use only authorized campaign artifacts, candidate actors, and strategic context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Disinformation Attribution, minimize person-level detail in the attribution matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Disinformation Attribution, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Disinformation Attribution: treating campaign artifacts as complete when inventory the evidence and candidate actors and identify diagnostic indicators checks or contradictory evidence are missing.
+- Disinformation Attribution: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
+- Disinformation Attribution: reporting the attribution matrix without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Disinformation Attribution outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the attribution matrix from Disinformation Attribution into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Disinformation Attribution to review supplied interactions or processes for deception, elicitation, or insider-risk indicators with campaign artifacts, candidate actors, and strategic context' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not present attribution as certain when it is based on circumstantial or stylistic indicators alone; false certainty in attribution assessments has caused serious diplomatic and policy errors
 - do not eliminate the false-flag hypothesis without explicitly addressing it — it must be evaluated, not merely mentioned

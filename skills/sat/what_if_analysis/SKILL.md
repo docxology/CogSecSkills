@@ -23,6 +23,44 @@ What-If Analysis (also called 'What If?' Analysis) posits a surprising, low-prob
 - a set of observable indicators that the scenario is in development, prioritized for collection focus
 - a revised probability estimate with explicit reasoning about why the scenario deserves more or less weight than previously assigned
 
+## Defensive boundary
+
+Use What-If Analysis only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks What-If Analysis to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For What-If Analysis, tie each what if report claim to concrete evidence from the specific scenario posit, current context, and time horizon item, source excerpt, observation, or command result that supports it.
+- For What-If Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the what if report.
+- Before recommending any What-If Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for What-If Analysis: the what if report is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; posit the scenario as fact and reason backward to preconditions and pathways checks agree, and no unresolved contradiction would change the result.
+- Medium for What-If Analysis: the what if report is plausible, but one important scenario posit source, comparison case, or alternative explanation remains incomplete.
+- Low for What-If Analysis: the what if report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what What-If Analysis cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For What-If Analysis, use only authorized scenario posit, current context, and time horizon, public or source-approved records, and caller-provided context needed for the defensive task.
+- For What-If Analysis, minimize person-level detail in the what if report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For What-If Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- What-If Analysis: treating scenario posit as complete when posit the scenario as fact and reason backward to preconditions and pathways checks or contradictory evidence are missing.
+- What-If Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- What-If Analysis: reporting the what if report without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use What-If Analysis outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the what if report from What-If Analysis into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use What-If Analysis to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with scenario posit, current context, and time horizon' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

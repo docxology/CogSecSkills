@@ -1,0 +1,295 @@
+from __future__ import annotations
+
+import json
+import subprocess
+import tomllib
+from pathlib import Path
+from typing import Any, Literal, Mapping, TypedDict
+
+import yaml
+
+from .manuscript_assets import GENERATED_HEADER, FIGURE_NAMES
+
+RELEASE_MD_PATH = Path("docs/release-claim-matrix.md")
+RELEASE_JSON_PATH = Path("output/data/release_metadata.json")
+
+REPOSITORY_URL = "https://github.com/docxology/CogSecSkills"
+LICENSE_ID = "Apache-2.0"
+ReleaseMode = Literal["local", "release-candidate", "public-archive"]
+
+
+class ReleaseWriteResult(TypedDict):
+    markdown: str
+    data: str
+    mode: str
+
+
+def _project_root(root: Path | None = None) -> Path:
+    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+
+
+def _read_toml(path: Path) -> Mapping[str, Any]:
+    return tomllib.loads(path.read_text(encoding="utf-8"))
+
+
+def _read_yaml(path: Path) -> Mapping[str, Any]:
+    loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(loaded, Mapping):
+        raise ValueError(f"{path}: top level must be a mapping")
+    return loaded
+
+
+def _read_json(path: Path) -> Mapping[str, Any]:
+    loaded = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(loaded, Mapping):
+        raise ValueError(f"{path}: top level must be a mapping")
+    return loaded
+
+
+def _git_info(root: Path) -> dict[str, Any]:
+    def run(*args: str) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            ["git", *args],
+            cwd=root,
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+
+    head = run("rev-parse", "--short", "HEAD")
+    branch = run("branch", "--show-current")
+    status = run("status", "--short")
+    if head.returncode != 0 or status.returncode != 0:
+        return {
+            "available": False,
+            "branch": "",
+            "revision": "",
+            "dirty": False,
+            "status_lines": [],
+        }
+    lines = [line for line in status.stdout.splitlines() if line.strip()]
+    return {
+        "available": True,
+        "branch": branch.stdout.strip(),
+        "revision": head.stdout.strip(),
+        "dirty": bool(lines),
+        "status_lines": lines,
+    }
+
+
+def _has_doi(*objects: Mapping[str, Any]) -> bool:
+    for obj in objects:
+        identifiers = obj.get("identifiers")
+        if isinstance(identifiers, list):
+            for identifier in identifiers:
+                if (
+                    isinstance(identifier, Mapping)
+                    and str(identifier.get("type", "")).lower() == "doi"
+                ):
+                    return True
+        for key in ("doi", "identifier"):
+            value = obj.get(key)
+            if isinstance(value, str) and "10." in value:
+                return True
+    return False
+
+
+def _metadata_payload(root: Path | None = None, *, mode: ReleaseMode = "local") -> dict:
+    base = _project_root(root)
+    pyproject = _read_toml(base / "pyproject.toml")
+    cff = _read_yaml(base / "CITATION.cff")
+    codemeta = _read_json(base / "codemeta.json")
+    project = pyproject.get("project", {})
+    version = str(project.get("version", ""))
+    license_value = project.get("license", {})
+    license_text = (
+        str(license_value.get("text", ""))
+        if isinstance(license_value, Mapping)
+        else str(license_value)
+    )
+    git = _git_info(base)
+    doi_present = _has_doi(cff, codemeta)
+    figure_paths = [f"output/figures/{name}" for name in FIGURE_NAMES]
+    generated_files = [
+        "docs/quality-dashboard.md",
+        "docs/skill-worked-examples.md",
+        "docs/evaluation-readiness.md",
+        "docs/release-claim-matrix.md",
+        "manuscript/S10_skill_catalogue.md",
+        "manuscript/S11_skill_metadata_matrix.md",
+        *figure_paths,
+    ]
+    return {
+        "mode": mode,
+        "repository": {
+            "expected": REPOSITORY_URL,
+            "pyproject": str(project.get("urls", {}).get("Repository", "")),
+            "citation_cff": str(cff.get("repository-code", "")),
+            "codemeta": str(codemeta.get("codeRepository", "")),
+        },
+        "version": {
+            "pyproject": version,
+            "citation_cff": str(cff.get("version", "")),
+            "codemeta": str(codemeta.get("version", "")),
+        },
+        "license": {
+            "expected": LICENSE_ID,
+            "pyproject": license_text,
+            "citation_cff": str(cff.get("license", "")),
+            "codemeta": str(codemeta.get("license", "")),
+            "license_file": (base / "LICENSE").is_file(),
+        },
+        "archive": {
+            "doi_present": doi_present,
+            "status": "unavailable" if not doi_present else "available",
+        },
+        "git": git,
+        "generated_files": {
+            "declared": generated_files,
+            "missing": [
+                path for path in generated_files if not (base / path).is_file()
+            ],
+        },
+        "claim_matrix": [
+            {
+                "claim": "Local structural conformance",
+                "status": "safe to claim after gates pass",
+                "evidence": "validate, report, doctor, pytest, generated drift checks",
+            },
+            {
+                "claim": "Offline deterministic evaluation readiness",
+                "status": "safe to claim after evals --check passes",
+                "evidence": "evals/local_output_review.yaml and generated report",
+            },
+            {
+                "claim": "Public archive DOI",
+                "status": "unavailable until a real archive exists",
+                "evidence": "CITATION.cff and CodeMeta contain no DOI",
+            },
+            {
+                "claim": "Live runtime certification or field validation",
+                "status": "prohibited without external evaluation",
+                "evidence": "not established by local repository gates",
+            },
+        ],
+    }
+
+
+def _findings(payload: dict, *, mode: ReleaseMode) -> list[str]:
+    findings: list[str] = []
+    versions = payload["version"]
+    if len(set(versions.values())) != 1 or not versions["pyproject"]:
+        findings.append("version mismatch across pyproject, CITATION.cff, and CodeMeta")
+    repository = payload["repository"]
+    for key in ("pyproject", "citation_cff", "codemeta"):
+        if repository[key] != REPOSITORY_URL:
+            findings.append(f"repository URL mismatch in {key}: {repository[key]!r}")
+    license_payload = payload["license"]
+    if license_payload["pyproject"] != LICENSE_ID:
+        findings.append("pyproject license is not Apache-2.0")
+    if license_payload["citation_cff"] != LICENSE_ID:
+        findings.append("CITATION.cff license is not Apache-2.0")
+    if "Apache-2.0" not in license_payload["codemeta"]:
+        findings.append("CodeMeta license is not Apache-2.0")
+    if not license_payload["license_file"]:
+        findings.append("missing LICENSE file")
+    if payload["generated_files"]["missing"]:
+        missing = ", ".join(payload["generated_files"]["missing"][:5])
+        findings.append(f"missing generated release surface(s): {missing}")
+    git = payload["git"]
+    if mode != "local" and not git["available"]:
+        findings.append("git revision metadata is unavailable")
+    if mode in {"release-candidate", "public-archive"} and git.get("dirty"):
+        findings.append(f"{mode} mode requires a clean git worktree")
+    if mode == "public-archive" and not payload["archive"]["doi_present"]:
+        findings.append("public-archive mode requires a real DOI/archive identifier")
+    return findings
+
+
+def _render_markdown(payload: dict) -> str:
+    git = payload["git"]
+    lines = [
+        GENERATED_HEADER,
+        "",
+        "# CogSecSkills Release Claim Matrix",
+        "",
+        "This generated matrix is a local release-readiness surface. It records "
+        "metadata consistency and claim boundaries; it does not publish, tag, "
+        "archive, or certify the project.",
+        "",
+        "## Metadata Snapshot",
+        "",
+        "| Field | Value |",
+        "|---|---|",
+        f"| Mode | `{payload['mode']}` |",
+        f"| Repository | `{payload['repository']['expected']}` |",
+        f"| Version | `{payload['version']['pyproject']}` |",
+        f"| License | `{payload['license']['expected']}` |",
+        f"| Git revision | `{git.get('revision', '')}` |",
+        f"| Git branch | `{git.get('branch', '')}` |",
+        f"| Git dirty | `{git.get('dirty')}` |",
+        f"| DOI/archive status | `{payload['archive']['status']}` |",
+        "",
+        "## Claim Matrix",
+        "",
+        "| Claim | Status | Evidence |",
+        "|---|---|---|",
+    ]
+    for row in payload["claim_matrix"]:
+        lines.append(f"| {row['claim']} | {row['status']} | {row['evidence']} |")
+    lines.extend(
+        [
+            "",
+            "## Generated Surface Inventory",
+            "",
+            "| Surface | Present |",
+            "|---|---:|",
+        ]
+    )
+    missing = set(payload["generated_files"]["missing"])
+    for path in payload["generated_files"]["declared"]:
+        lines.append(f"| `{path}` | {'no' if path in missing else 'yes'} |")
+    return "\n".join(lines) + "\n"
+
+
+def _expected_outputs(
+    root: Path | None = None, *, mode: ReleaseMode = "local"
+) -> dict[Path, str]:
+    payload = _metadata_payload(root, mode=mode)
+    return {
+        RELEASE_MD_PATH: _render_markdown(payload),
+        RELEASE_JSON_PATH: json.dumps(payload, indent=2, sort_keys=True) + "\n",
+    }
+
+
+def write_release_metadata(
+    root: Path | None = None, *, mode: ReleaseMode = "local"
+) -> ReleaseWriteResult:
+    base = _project_root(root)
+    outputs = _expected_outputs(base, mode=mode)
+    for rel_path, text in outputs.items():
+        path = base / rel_path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+    return {
+        "markdown": str(RELEASE_MD_PATH),
+        "data": str(RELEASE_JSON_PATH),
+        "mode": mode,
+    }
+
+
+def check_release_metadata(
+    root: Path | None = None, *, mode: ReleaseMode = "local"
+) -> list[str]:
+    base = _project_root(root)
+    payload = _metadata_payload(base, mode=mode)
+    findings = _findings(payload, mode=mode)
+    outputs = _expected_outputs(base, mode=mode)
+    for rel_path, expected in outputs.items():
+        path = base / rel_path
+        if not path.is_file():
+            findings.append(f"missing generated release metadata file: {rel_path}")
+            continue
+        if path.read_text(encoding="utf-8") != expected:
+            findings.append(f"stale generated release metadata file: {rel_path}")
+    return findings

@@ -3,19 +3,22 @@
 This guide explains how to add a new CogSecSkill or deepen an existing one.
 
 CogSecSkills separates **substance** from **format**. An author supplies the
-substance of a technique — its tool plan, inputs/outputs, the real step-by-step
-procedure, and the anti-criteria that keep it honest. The library supplies the
-format: the six conforming files every skill needs (`skill.yaml`, `SKILL.md`,
-`workflow.md`, and one harness adapter per supported harness under `harness/`).
+substance of a technique in canonical YAML under `definitions/<group>/<slug>.yaml`:
+its tool plan, inputs/outputs, step-by-step procedure, anti-criteria, defensive
+boundary, evidence discipline, uncertainty rules, privacy/legal constraints,
+failure modes, and negative controls. The library supplies the format: the
+conforming files every skill needs (`skill.yaml`, `SKILL.md`, `workflow.md`,
+and one harness adapter per configured harness under `harness/`).
 Because the renderer generates the adapters from the declared tool verbs, an
 authored skill passes the validator **by construction** — there are no format
 stragglers no matter how many skills are authored in parallel.
 
-There are three ways to produce a skill. Prefer them in this order:
+There are four ways to produce a skill. Prefer them in this order:
 
-1. **`author`** — deterministic render from a JSON *definition* (preferred).
-2. **`author-batch`** — render a `_def.json` from every skill folder at once.
-3. **`scaffold`** — generate a hand-editable skeleton, then deepen it by hand.
+1. **`definitions --write|--check`** — repo-wide render/check from canonical YAML definitions (preferred).
+2. **`author`** — deterministic one-skill render from a JSON or YAML definition.
+3. **`author-batch`** — compatibility path that renders `_def.json` files from skill folders.
+4. **`scaffold`** — generate a hand-editable skeleton, then deepen it by hand.
 
 Whichever path you take, always finish with `validate` and `doctor`.
 
@@ -46,12 +49,30 @@ caller. Every harness today realises the full set (see
 
 ---
 
-## Path 1 — `author` (deterministic, preferred)
+## Path 1 — canonical `definitions/` (repo-wide, preferred)
 
-You write a JSON **definition** of the technique, then render it:
+Write or update `definitions/<group>/<slug>.yaml`, then render and check the
+library:
 
 ```bash
-python -m cogsecskills author def.json
+python -m cogsecskills definitions --write
+python -m cogsecskills definitions --check
+```
+
+`--write` bootstraps missing definitions from existing rendered skills, writes
+stable YAML, and renders every definition-owned skill folder. `--check` fails
+when any registry entry lacks a definition, a definition contains unknown or
+stale schema fields, or any rendered `skills/**` file differs from what its
+definition would produce.
+
+---
+
+## Path 2 — `author` (single-skill render)
+
+You write a JSON or YAML **definition** of the technique, then render it:
+
+```bash
+python -m cogsecskills author definition.yaml
 ```
 
 The renderer fills `name`, `group`, `summary`, and `ageint_topic` from the
@@ -60,27 +81,35 @@ not) restate them. The `id` in the definition must already exist in the
 registry. The renderer then writes all six files and binds **every declared
 verb** in each harness adapter, so the result conforms automatically.
 
-### Definition schema (full)
+### Canonical definition schema
 
-A definition is a JSON object with these keys:
+A canonical definition is a YAML mapping with these keys. One-off `author`
+input may be JSON or YAML, but persistent repo definitions are YAML.
 
 | Key | Type | Required | Meaning |
 | --- | --- | --- | --- |
 | `id` | string | **yes** | `<group>.<slug>`; must exist in the registry. |
-| `description` | string | no | 2–4 sentences. Falls back to the registry `summary`. |
-| `tags` | `[string]` | no | Defaults to `["cognitive-security", <group>]`. |
-| `triggers` | `[string]` | no | Phrases that should route to this skill. Defaults to `[<name lowercased>]`. |
+| `description` | string | **yes** | 2–4 sentences. Falls back only for one-off authoring, not canonical checks. |
+| `tags` | `[string]` | **yes** | Skill tags used for routing and catalogue navigation. |
+| `triggers` | `[string]` | **yes** | Phrases that should route to this skill. |
 | `tools` | `[{verb, purpose}]` | **yes (≥1)** | Each `verb` from the closed set; each `purpose` non-empty. |
-| `inputs` | `[{name, type, required, description}]` | no | Defaults to a single `context` text input. |
-| `outputs` | `[{name, type, description}]` | no | Defaults to a single `product` markdown output. |
-| `references` | `[string]` | no | Citations. Defaults to `[]`. |
-| `when_to_use` | `[string]` | no | Bullets for `SKILL.md` → "When to use". |
-| `what_it_produces` | `[string]` | no | Bullets for `SKILL.md` → "What it produces". |
-| `key_discipline` | `[string]` | no | Bullets for `SKILL.md` → "Key discipline". |
+| `inputs` | `[{name, type, required, description}]` | **yes** | Declared inputs for the harness-neutral spec. |
+| `outputs` | `[{name, type, description}]` | **yes** | Declared outputs for the harness-neutral spec. |
+| `references` | `[string]` | **key required; may be empty** | Per-skill metadata references; not manuscript citation keys. Do not invent entries. |
+| `when_to_use` | `[string]` | **yes** | Bullets for `SKILL.md` → "When to use". |
+| `what_it_produces` | `[string]` | **yes** | Bullets for `SKILL.md` → "What it produces". |
+| `key_discipline` | `[string]` | **yes** | Bullets for `SKILL.md` → "Key discipline". |
 | `workflow_steps` | `[{verbs:[string], title, text}]` | **yes (≥1)** | The real procedure; each step names the verb(s) it uses. |
 | `anti_criteria` | `[string]` | **yes (≥1)** | Things that must NOT happen — the integrity guard. |
+| `defensive_boundary` | string | **yes** | What the skill is allowed to do defensively and what it must not become. |
+| `misuse_redirect` | string | **yes** | Refusal/redirect rule for manipulation, deception, targeting, evasion, or offensive guidance. |
+| `evidence_requirements` | `[string]` | **yes** | Evidence labeling and traceability requirements. |
+| `confidence_rubric` | `[string]` | **yes** | Calibrated confidence labels and what each means. |
+| `uncertainty_handling` | `[string]` | **yes** | How to preserve unknowns, alternatives, and next evidence. |
+| `privacy_legal_constraints` | `[string]` | **yes** | Authorization, privacy, protected-trait, and legal-risk boundaries. |
+| `failure_modes` | `[string]` | **yes** | Common ways the skill can produce bad or unsafe work. |
+| `negative_controls` | `[string]` | **yes** | At least one unsafe refusal/redirect example and one safe defensive example. |
 | `harness_bindings` | `{harness: {verb: [tool, note]}}` | no | Override a default binding for a specific harness/verb. Defaults are used otherwise. |
-| `version` | string | no | Defaults to `"0.1.0"`. |
 
 Notes:
 
@@ -88,6 +117,8 @@ Notes:
   unknown verb or an empty `purpose` is a hard error.
 - Each `workflow_steps[].verbs` entry is also validated against the closed set.
   A step with no `verbs` defaults to `reason`.
+- Canonical definitions reject unknown top-level fields; this catches typos
+  before they become silent documentation drift.
 - `harness_bindings` lets you override the wording of an adapter row for a
   particular harness and verb — for example to point `exec` at a project's own
   gate. Anything you do not override uses the built-in default binding for that
@@ -104,7 +135,7 @@ Assume the registry already carries this entry (it would supply the `name`,
    summary: "Assume a surprising event has occurred, then reason backward to the path that produced it."}
 ```
 
-Write `what_if.json`:
+Write `definitions/sat/what_if_analysis.yaml` or a one-off `what_if.yaml`:
 
 ```json
 {
@@ -165,7 +196,7 @@ Write `what_if.json`:
 Render it:
 
 ```bash
-python -m cogsecskills author what_if.json
+python -m cogsecskills author what_if.yaml
 ```
 
 This writes (relative to the project root):
@@ -198,7 +229,7 @@ python -m cogsecskills doctor
 
 ---
 
-## Path 2 — `author-batch`
+## Path 3 — `author-batch`
 
 When you have many definitions to render at once, drop a `_def.json` file in
 each skill folder under `skills/<group>/<slug>/` and run:
@@ -222,7 +253,7 @@ all format-conformant without any manual reconciliation.
 
 ---
 
-## Path 3 — `scaffold`
+## Path 4 — `scaffold`
 
 When you want a hand-edited skeleton rather than a fully specified definition,
 scaffold the registry entry directly:
@@ -248,8 +279,8 @@ stale files from a prior partial scaffold cannot survive and validate clean.
 
 ## Adding a brand-new skill AREA
 
-The three paths above turn an existing registry entry into files. To introduce
-a skill area that is not yet catalogued:
+The paths above turn an existing registry entry into files. To introduce a
+skill area that is not yet catalogued:
 
 1. **Add a row to `registry/skills.yaml`** with `status: planned`. The `id` is
    `<group>.<slug>`, and the **`group` must already exist** in
@@ -265,7 +296,8 @@ a skill area that is not yet catalogued:
    (with its own `id`, `title`, `description`, and `ageint_topic`); validation
    requires every catalogued group to be defined there.
 
-2. **Build the skill** via `author`, `author-batch`, or `scaffold` as above.
+2. **Build the skill** by adding `definitions/<group>/<slug>.yaml` and running
+   `definitions --write`, or via `author`, `author-batch`, or `scaffold` as above.
    These commands flip (or you flip) the status to `implemented`.
 
 3. **Regenerate the catalogue** so the docs match the registry:
@@ -276,9 +308,16 @@ a skill area that is not yet catalogued:
 
 ---
 
-## Always finish: validate and doctor
+## Always finish: definitions check, validate, and doctor
 
-Two gates close every authoring change.
+Three gates close every authoring change.
+
+`definitions --check` proves that every registry entry has one canonical
+definition and that the rendered `skills/**` files match those definitions:
+
+```bash
+python -m cogsecskills definitions --check
+```
 
 `validate` cross-checks the **plan vs. the build**: every on-disk skill is
 catalogued, every `implemented` entry exists on disk, every skill declares an
@@ -292,8 +331,11 @@ python -m cogsecskills validate
 `doctor` runs `validate` and then **quality-lints** each skill against the
 thresholds in [`configuration.md`](configuration.md): `min_workflow_steps`
 (default 3), `min_anti_criteria` (default 2), and `require_references` (default
-false). A thin scaffold that conforms structurally can still fail `doctor`
-until you deepen it:
+false). It also rejects generic quality text: negative controls, confidence
+rubrics, evidence requirements, and privacy/legal constraints must be
+skill-specific, and repeated individual boilerplate entries across the corpus
+fail the gate. A thin scaffold that conforms structurally can still fail
+`doctor` until you deepen it:
 
 ```bash
 python -m cogsecskills doctor

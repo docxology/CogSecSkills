@@ -1,0 +1,208 @@
+id: information_environment.platform_affordance_risk_assessment
+description: Platform Affordance Risk Assessment systematically evaluates how a specific
+  platform's technical features, algorithmic systems, and policy architecture enable
+  or constrain information manipulation. Rooted in affordance theory (Gibson; Norman)
+  and applied to sociotechnical systems, it maps each platform feature—virality mechanics,
+  recommendation algorithms, group/channel structures, anonymity policies, ad targeting—to
+  the manipulation vectors those features enable. The output equips analysts, platform
+  trust-and-safety teams, and policymakers to prioritize design mitigations and anticipate
+  where influence operations will exploit platform architecture.
+tags:
+- cognitive-security
+- information_environment
+- platform-analysis
+- trust-and-safety
+triggers:
+- how does this platform enable manipulation
+- platform affordance analysis
+- what features make this platform risky
+- assess platform manipulation vectors
+- platform architecture risk
+tools:
+- verb: read
+  purpose: ingest platform documentation, terms of service, policy reports, and prior
+    research on the platform's manipulation surface
+- verb: search
+  purpose: retrieve published research, investigative reports, and incident case studies
+    specific to the target platform
+- verb: reason
+  purpose: map each platform feature to manipulation vectors, assess risk severity,
+    and identify mitigations
+- verb: write
+  purpose: produce the structured risk matrix and findings narrative
+inputs:
+- name: platform_name
+  type: text
+  required: true
+  description: Name and version/context of the platform to be assessed (e.g., 'X/Twitter
+    as of 2024', 'Telegram public channels')
+- name: threat_actor_profile
+  type: text
+  required: false
+  description: Description of the adversarial actor or manipulation scenario of concern
+    — influences which affordances to prioritize
+- name: prior_incident_reports
+  type: list
+  required: false
+  description: Known documented influence operations or abuse incidents on this platform
+    for grounding the assessment in real precedent
+outputs:
+- name: affordance_risk_matrix
+  type: table
+  description: Each platform feature listed with its manipulation vector(s), exploitation
+    mechanism, severity rating (High/Medium/Low), and known real-world precedent
+- name: risk_narrative
+  type: markdown
+  description: Analyst narrative summarizing highest-risk affordances, cross-feature
+    interaction effects, and prioritized mitigation recommendations
+references:
+- Gillespie, T. (2014). The Relevance of Algorithms. In Media Technologies. MIT Press.
+- 'Gorwa, R., Binns, R., & Katzenbach, C. (2020). Algorithmic content moderation:
+  Technical and political challenges in the automation of platform governance. Big
+  Data & Society.'
+- Marwick, A. & Lewis, R. (2017). Media Manipulation and Disinformation Online. Data
+  & Society Research Institute.
+- Renée DiResta (2018). The Digital Maginot Line. Ribbon Farm.
+- Zannettou, S., et al. (2019). On the Origins of Memes by Means of Fringe Web Communities.
+  ACM IMC.
+when_to_use:
+- before deploying a monitoring program on a new platform to understand where adversarial
+  actors will have structural advantages
+- when advising a platform's trust-and-safety team on design changes that could reduce
+  manipulation surface
+- when explaining why a specific influence operation succeeded on a given platform
+- when comparing platforms to select the least-risky channel for a sensitive communication
+what_it_produces:
+- an affordance-to-manipulation-vector mapping that reveals which features are most
+  exploitable
+- a prioritized risk matrix with severity ratings grounded in real incident precedents
+- identification of cross-feature interaction effects that amplify risk beyond what
+  any single feature would imply
+- a set of mitigation recommendations tied to specific platform design choices or
+  policy changes
+key_discipline:
+- assess affordances as dual-use — the same feature that enables legitimate behavior
+  enables manipulation; the question is asymmetry of benefit
+- evaluate cross-feature interaction effects explicitly — recommendation algorithms
+  plus pseudonymity plus virality produce non-additive risk
+- ground severity ratings in real precedent — documented abuse incidents prevent hypothetical
+  risk inflation
+- distinguish platform design risk from policy enforcement failure — both matter but
+  require different mitigations
+workflow_steps:
+- verbs:
+  - read
+  - search
+  title: Inventory platform features
+  text: 'Enumerate the platform''s significant technical and policy features: identity
+    requirements (anonymity/pseudonymity/real-name), content amplification mechanics
+    (shares, retweets, algorithmic recommendation), group and channel structures,
+    advertising and targeting systems, content moderation tools, API access, and cross-platform
+    bridging capabilities. Retrieve platform documentation, prior academic research,
+    and investigative incident reports.'
+- verbs:
+  - reason
+  title: Map features to manipulation vectors
+  text: 'For each feature, identify the manipulation vector it enables or amplifies.
+    Common vectors: artificial amplification (virality + bot accounts), astroturfing
+    (pseudonymity + coordinated posting), micro-targeted persuasion (ad targeting
+    APIs), closed-group radicalization (private channels + recommendation), cross-platform
+    laundering (open API + third-party sharing). Note bidirectionality — the same
+    feature may also constrain certain manipulation types.'
+- verbs:
+  - reason
+  title: Assess severity and interaction effects
+  text: 'Rate each feature-vector pair by severity (High/Medium/Low) based on: exploitation
+    ease, detection difficulty, scale potential, and real-world precedent. Explicitly
+    identify cross-feature interaction effects where two or more features combine
+    to produce elevated risk not visible from either alone (e.g., algorithmic recommendation
+    + group structures + pseudonymity = radicalization pipeline).'
+- verbs:
+  - reason
+  - write
+  title: Prioritize and recommend mitigations
+  text: Rank affordance risks by combined severity and exploitation likelihood given
+    the defined threat actor profile. For each high-severity item, identify whether
+    the mitigation lever is design (change the feature), policy (enforce existing
+    rules), detection (build monitoring), or education (inform users). Produce the
+    risk matrix and narrative findings.
+anti_criteria:
+- do not conflate a platform being used for manipulation with the platform being uniquely
+  or irredeemably risky — assess the specific architectural features, not general
+  reputation
+- do not omit mitigating affordances — features that constrain manipulation (identity
+  verification, rate limits, reporting systems) belong in the assessment to give a
+  balanced picture
+- do not assign High severity without at least one real-world documented precedent
+  or a clearly articulated exploitation pathway — severity inflation undermines prioritization
+- do not treat policy text at face value — assess whether enforcement mechanisms actually
+  constrain the manipulation vector in practice
+defensive_boundary: 'Use Platform Affordance Risk Assessment only for information-environment
+  monitoring and platform-risk defense: recognize, assess, document, or defend platform
+  integrity, narrative context, and authentic community behavior. Do not use this
+  skill to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+misuse_redirect: 'If a request asks Platform Affordance Risk Assessment to amplify
+  coordinated behavior, tune platform manipulation, or design inauthentic engagement,
+  refuse that path and redirect to the safe defensive form: map supplied narratives,
+  automation signals, or platform affordance risks for defensive review.'
+evidence_requirements:
+- For Platform Affordance Risk Assessment, tie each affordance risk matrix, and risk
+  narrative claim to concrete evidence from the specific platform name, threat actor
+  profile, and prior incident reports item, source excerpt, observation, or command
+  result that supports it.
+- For Platform Affordance Risk Assessment, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the affordance
+  risk matrix.
+- Before recommending any Platform Affordance Risk Assessment action, identify the
+  weakest evidence link, the alternative most likely to overturn it, and the next
+  discriminating check.
+confidence_rubric:
+- 'High for Platform Affordance Risk Assessment: the affordance risk matrix is supported
+  by multiple independent platform observations, narrative movement, automation signals,
+  and provenance data; inventory platform features and map features to manipulation
+  vectors checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Platform Affordance Risk Assessment: the affordance risk matrix is plausible,
+  but one important platform name source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Platform Affordance Risk Assessment: the affordance risk matrix rests on
+  sparse, single-source, contested, or mostly inferential evidence; keep the result
+  provisional and list the next check.'
+uncertainty_handling:
+- State what Platform Affordance Risk Assessment cannot determine from the supplied
+  or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating information_environment evidence to collect when
+  confidence is low or medium.
+privacy_legal_constraints:
+- For Platform Affordance Risk Assessment, use only authorized platform name, threat
+  actor profile, and prior incident reports, public or source-approved records, and
+  caller-provided context needed for the defensive task.
+- For Platform Affordance Risk Assessment, minimize person-level detail in the affordance
+  risk matrix; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Platform Affordance Risk Assessment, do not infer protected traits, private
+  identity, intent, location, legal culpability, or platform account ownership beyond
+  the supplied and authorized evidence.
+failure_modes:
+- 'Platform Affordance Risk Assessment: treating platform name as complete when inventory
+  platform features and map features to manipulation vectors checks or contradictory
+  evidence are missing.'
+- 'Platform Affordance Risk Assessment: producing advice that would help a requester
+  amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+- 'Platform Affordance Risk Assessment: reporting the affordance risk matrix without
+  uncertainty labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Platform Affordance Risk Assessment outputs to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the affordance risk matrix from Platform Affordance Risk Assessment
+  into an operational playbook to amplify coordinated behavior, tune platform manipulation,
+  or design inauthentic engagement'' -> refuse and offer governance, detection, or
+  mitigation analysis.'
+- 'Safe defensive: ''Use Platform Affordance Risk Assessment to map supplied narratives,
+  automation signals, or platform affordance risks for defensive review with platform
+  name, threat actor profile, and prior incident reports'' -> produce bounded findings
+  with evidence and uncertainty labels.'

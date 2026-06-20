@@ -259,6 +259,33 @@ def test_check_conformance_verb_axis_is_non_vacuous():
     assert all(c.unsupported_verbs for c in confs.values())
 
 
+def test_check_conformance_unknown_configured_harness_defaults_to_full_support():
+    spec = _spec(
+        tools=[{"verb": "web", "purpose": "fetch"}],
+        harness={"gemini": "harness/gemini.md"},
+    )
+    confs = check_conformance(spec, harnesses=("gemini",))
+    assert confs["gemini"].ok
+    assert confs["gemini"].unsupported_verbs == ()
+
+
+def test_check_conformance_custom_harness_support_map_can_narrow_verbs():
+    spec = _spec(
+        tools=[
+            {"verb": "read", "purpose": "read"},
+            {"verb": "web", "purpose": "fetch"},
+        ],
+        harness={"gemini": "harness/gemini.md"},
+    )
+    confs = check_conformance(
+        spec,
+        support={"gemini": frozenset({ToolVerb.READ})},
+        harnesses=("gemini",),
+    )
+    assert confs["gemini"].has_adapter is True
+    assert confs["gemini"].unsupported_verbs == (ToolVerb.WEB,)
+
+
 def test_validate_skill_adapter_missing_verb_binding(tmp_path):
     spec = _spec(
         tools=[{"verb": "read", "purpose": "p"}, {"verb": "write", "purpose": "q"}]

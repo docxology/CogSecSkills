@@ -1,23 +1,18 @@
-# Claude Code adapter — Analysis of Competing Hypotheses
+# Claude Code adapter — Analysis of Competing Hypotheses (ACH)
 
-Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Invoke this
-skill by following `../workflow.md`; use the mappings below for each step.
+Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
-| Neutral verb | Claude Code tool(s) | Notes |
-|--------------|---------------------|-------|
-| `read`   | `Read`, `Grep`      | Read supplied evidence files / pasted material. |
-| `search` | `WebSearch`, `Grep`, `Agent` (Explore) | Gather more evidence / surface missing hypotheses. |
-| `reason` | model reasoning (extended thinking) | Build and score the matrix; do the sensitivity pass. |
-| `write`  | `Write`, message output | Emit the matrix as a Markdown table + ranking. |
+| Neutral verb | Claude Code tool | Notes |
+| --- | --- | --- |
+| `read` | `Read` / `Grep` | Read supplied material and locate local evidence. |
+| `search` | `Grep` / `WebSearch` / `Agent` | Search local and external sources. |
+| `reason` | private model reasoning | Apply the technique; expose concise rationale. |
+| `write` | `Write` / final response | Emit the structured product. |
 
 ## Invocation
 
-This is authored as a Claude Code skill: `SKILL.md` frontmatter (`name`,
-`description`) is the activation surface. When the user's request matches a
-trigger in `skill.yaml`, run the eight-step workflow, rendering the matrix as a
-GitHub-flavored Markdown table.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Analysis of Competing Hypotheses (ACH) only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Analysis of Competing Hypotheses (ACH) to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
 
 ## Output contract
-- A Markdown matrix table: rows = evidence, columns = hypotheses, cells = C/I/N.
-- A ranked list with inconsistency scores.
-- An `Indicators` section and a one-line calibrated confidence judgment.
+
+Return the `skill.yaml` outputs (matrix, ranking, indicators) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

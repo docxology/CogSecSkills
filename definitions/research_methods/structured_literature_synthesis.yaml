@@ -1,0 +1,180 @@
+id: research_methods.structured_literature_synthesis
+description: Turn a body of sources into a structured, evidence-graded, gap-aware
+  briefing. The method defines a synthesis question with inclusion/exclusion criteria,
+  gathers and deduplicates sources, extracts graded claims with citations, clusters
+  findings by theme, and surfaces agreements, conflicts, and gaps. It produces a BLUF
+  synthesis where every statement traces back to its sources and conflicting evidence
+  is reported honestly rather than smoothed over.
+tags:
+- research-methods
+- synthesis
+- evidence-grading
+- bluf
+triggers:
+- literature synthesis
+- synthesize these sources
+- what does the research say
+- grade the evidence
+- where are the gaps in the literature
+- structured review of sources
+tools:
+- verb: read
+  purpose: ingest each source document and extract its claims and findings
+- verb: search
+  purpose: locate sources, claims, and themes within the gathered corpus
+- verb: web
+  purpose: retrieve sources where permitted
+- verb: reason
+  purpose: cluster findings, weigh conflicts, and grade strength of evidence
+- verb: write
+  purpose: produce the BLUF synthesis briefing with full citations
+inputs:
+- name: synthesis_question
+  type: string
+  required: true
+  description: The specific question the synthesis must answer.
+- name: sources
+  type: list
+  required: true
+  description: Source documents, references, or URLs to synthesize over.
+- name: inclusion_criteria
+  type: string
+  required: false
+  description: Optional rules for which sources are in or out of scope.
+outputs:
+- name: synthesis_briefing
+  type: markdown
+  description: BLUF briefing with themes, graded evidence, conflicts, gaps, and citations.
+- name: evidence_table
+  type: table
+  description: Per-claim extraction with source citation and quality grade.
+references:
+- GRADE / evidence-grading practice; PRISMA-style structured review.
+when_to_use:
+- literature synthesis
+- synthesize these sources
+- what does the research say
+- grade the evidence
+- where are the gaps in the literature
+- structured review of sources
+what_it_produces:
+- 'A **BLUF synthesis briefing**: bottom line up front, then themes with graded'
+- 'An **evidence table**: every extracted claim mapped to its source citation and'
+- 'An explicit **gap inventory**: questions no source in the corpus answers.'
+key_discipline:
+- '**Traceability.** Every synthesized statement maps back to specific sources.'
+- '**Honest conflict.** When sources disagree, the disagreement is reported as a'
+- '**Evidence grading.** Each theme carries an explicit strength grade'
+workflow_steps:
+- verbs:
+  - reason
+  - write
+  title: Define the synthesis question and scope
+  text: State the single question the synthesis must answer and write explicit inclusion/exclusion
+    criteria for source type, recency, language, relevance, and quality thresholds.
+- verbs:
+  - search
+  - web
+  - read
+  title: Gather and deduplicate sources
+  text: Collect candidate sources where permitted, remove duplicate studies, mirrors,
+    and reprints, and record what was excluded and why.
+- verbs:
+  - read
+  - reason
+  title: Extract claims and findings per source
+  text: For each retained source, extract concrete claims, citations, tight paraphrases
+    or necessary quotes, and a per-source quality grade.
+- verbs:
+  - reason
+  title: Cluster findings by theme
+  text: Group extracted claims into themes relevant to the synthesis question while
+    preserving citation traceability for each claim.
+- verbs:
+  - reason
+  title: Identify agreements, conflicts, and gaps
+  text: Mark where sources converge, where they conflict, and what the corpus does
+    not answer. Treat gaps as first-class findings.
+- verbs:
+  - reason
+  title: Grade strength of evidence per theme
+  text: Apply the evidence-strength rubric to each theme as a whole, weighing source
+    count, quality, independence, and consistency.
+- verbs:
+  - write
+  title: Write the BLUF synthesis
+  text: Put the bottom line up front, then present themes, evidence grades, conflicts,
+    gaps, and full citations with every synthesized statement traceable to the evidence
+    table.
+anti_criteria:
+- Do **not** present a single source's claim as settled consensus.
+- Do **not** hide or smooth over conflicting findings.
+- Do **not** synthesize beyond what the sources support.
+- Do **not** drop citations — no uncited statement in the briefing.
+- Do **not** double-count duplicate sources as independent agreement.
+defensive_boundary: 'Use Structured Literature Synthesis only for research-methods
+  and synthesis integrity: recognize, assess, document, or defend reproducibility,
+  calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence.'
+misuse_redirect: 'If a request asks Structured Literature Synthesis to cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence, refuse
+  that path and redirect to the safe defensive form: synthesize supplied or authorized
+  sources with explicit confidence and uncertainty labels.'
+evidence_requirements:
+- For Structured Literature Synthesis, tie each synthesis briefing, and evidence table
+  claim to concrete evidence from the specific synthesis question, sources, and inclusion
+  criteria item, source excerpt, observation, or command result that supports it.
+- For Structured Literature Synthesis, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the synthesis
+  briefing.
+- Before recommending any Structured Literature Synthesis action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Structured Literature Synthesis: the synthesis briefing is supported by
+  multiple independent study designs, source quality, reproducibility artifacts, and
+  uncertainty records; define the synthesis question and scope and gather and deduplicate
+  sources checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Structured Literature Synthesis: the synthesis briefing is plausible,
+  but one important synthesis question source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Structured Literature Synthesis: the synthesis briefing rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Structured Literature Synthesis cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Structured Literature Synthesis, use only authorized synthesis question, sources,
+  and inclusion criteria, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Structured Literature Synthesis, minimize person-level detail in the synthesis
+  briefing; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Structured Literature Synthesis, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Structured Literature Synthesis: treating synthesis question as complete when define
+  the synthesis question and scope and gather and deduplicate sources checks or contradictory
+  evidence are missing.'
+- 'Structured Literature Synthesis: producing advice that would help a requester cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence.'
+- 'Structured Literature Synthesis: reporting the synthesis briefing without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Structured Literature Synthesis outputs to cherry-pick sources, fabricate
+  citations, or overstate certainty from weak evidence'' -> refuse and redirect to
+  defensive risk assessment.'
+- 'Unsafe: ''Convert the synthesis briefing from Structured Literature Synthesis into
+  an operational playbook to cherry-pick sources, fabricate citations, or overstate
+  certainty from weak evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Structured Literature Synthesis to synthesize supplied or
+  authorized sources with explicit confidence and uncertainty labels with synthesis
+  question, sources, and inclusion criteria'' -> produce bounded findings with evidence
+  and uncertainty labels.'

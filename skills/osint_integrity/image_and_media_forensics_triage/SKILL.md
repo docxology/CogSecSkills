@@ -22,6 +22,44 @@ Image and media forensics triage is a rapid, systematic workflow for assessing w
 - a context-collapse assessment: whether the visual content is plausible for the claimed time and place
 - a recommended disposition: accept as candidate evidence, escalate to deep forensic review, or reject
 
+## Defensive boundary
+
+Use Image & Media Forensics Triage only for OSINT integrity and source-verification defense: recognize, assess, document, or defend source provenance, privacy, chain of custody, and public-source accountability. Do not use this skill to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+
+## Misuse redirect
+
+If a request asks Image & Media Forensics Triage to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence, refuse that path and redirect to the safe defensive form: verify supplied claims, media, sources, or datasets with documented public-source methods.
+
+## Evidence discipline
+
+- For Image & Media Forensics Triage, tie each triage report claim to concrete evidence from the specific media item, accompanying claim, and source account item, source excerpt, observation, or command result that supports it.
+- For Image & Media Forensics Triage, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the triage report.
+- Before recommending any Image & Media Forensics Triage action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Image & Media Forensics Triage: the triage report is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; capture claims and metadata and run reverse-image and archive search checks agree, and no unresolved contradiction would change the result.
+- Medium for Image & Media Forensics Triage: the triage report is plausible, but one important media item source, comparison case, or alternative explanation remains incomplete.
+- Low for Image & Media Forensics Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Image & Media Forensics Triage cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Image & Media Forensics Triage, use only authorized media item, accompanying claim, and source account, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Image & Media Forensics Triage, minimize person-level detail in the triage report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Image & Media Forensics Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Image & Media Forensics Triage: treating media item as complete when capture claims and metadata and run reverse-image and archive search checks or contradictory evidence are missing.
+- Image & Media Forensics Triage: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Image & Media Forensics Triage: reporting the triage report without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Image & Media Forensics Triage outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the triage report from Image & Media Forensics Triage into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Image & Media Forensics Triage to verify supplied claims, media, sources, or datasets with documented public-source methods with media item, accompanying claim, and source account' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

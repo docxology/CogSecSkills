@@ -1,11 +1,12 @@
-"""The harness-neutral skill specification (``skill.yaml``).
+"""The generated harness-neutral skill specification (``skill.yaml``).
 
-A :class:`SkillSpec` is the single source of truth for one CogSecSkill. It is
-authored once as ``skill.yaml`` and rendered into every agent harness. The spec
-is deliberately declarative: it names *what* the skill does, *what* tools it is
-allowed to use (as harness-neutral verbs), and *what* it consumes and produces —
-never harness-specific syntax. The per-harness adapter files translate this one
-contract into Claude Code / Codex / Hermes idioms.
+A :class:`SkillSpec` is the runtime contract for one rendered CogSecSkill. In
+the repository authoring flow, canonical YAML under ``definitions/`` owns the
+skill substance and renders ``skill.yaml`` plus the companion harness files.
+The spec is deliberately declarative: it names *what* the skill does, *what*
+tools it is allowed to use (as harness-neutral verbs), and *what* it consumes
+and produces — never harness-specific syntax. The per-harness adapter files
+translate this one contract into Claude Code / Codex / Hermes idioms.
 
 All parsing is total: malformed input raises :class:`SpecError` with a precise
 message rather than producing a half-built object.
@@ -157,6 +158,14 @@ class SkillSpec:
     inputs: tuple[SkillIO, ...] = ()
     outputs: tuple[SkillIO, ...] = ()
     references: tuple[str, ...] = ()
+    defensive_boundary: str = ""
+    misuse_redirect: str = ""
+    evidence_requirements: tuple[str, ...] = ()
+    confidence_rubric: tuple[str, ...] = ()
+    uncertainty_handling: tuple[str, ...] = ()
+    privacy_legal_constraints: tuple[str, ...] = ()
+    failure_modes: tuple[str, ...] = ()
+    negative_controls: tuple[str, ...] = ()
     workflow: str = "workflow.md"
     harness: Mapping[str, str] = field(default_factory=dict)
 
@@ -201,6 +210,27 @@ class SkillSpec:
             inputs=tuple(SkillIO.from_obj(i) for i in data.get("inputs", []) or []),
             outputs=tuple(SkillIO.from_obj(o) for o in data.get("outputs", []) or []),
             references=_as_str_list(data.get("references"), field_name="references"),
+            defensive_boundary=str(data.get("defensive_boundary", "")).strip(),
+            misuse_redirect=str(data.get("misuse_redirect", "")).strip(),
+            evidence_requirements=_as_str_list(
+                data.get("evidence_requirements"), field_name="evidence_requirements"
+            ),
+            confidence_rubric=_as_str_list(
+                data.get("confidence_rubric"), field_name="confidence_rubric"
+            ),
+            uncertainty_handling=_as_str_list(
+                data.get("uncertainty_handling"), field_name="uncertainty_handling"
+            ),
+            privacy_legal_constraints=_as_str_list(
+                data.get("privacy_legal_constraints"),
+                field_name="privacy_legal_constraints",
+            ),
+            failure_modes=_as_str_list(
+                data.get("failure_modes"), field_name="failure_modes"
+            ),
+            negative_controls=_as_str_list(
+                data.get("negative_controls"), field_name="negative_controls"
+            ),
             workflow=str(data.get("workflow", "workflow.md")).strip() or "workflow.md",
             harness={str(k): str(v) for k, v in harness.items()},
         )

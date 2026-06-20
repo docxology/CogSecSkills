@@ -1,0 +1,212 @@
+id: sat.analysis_of_competing_hypotheses
+description: 'ACH (Heuer, CIA) forces the analyst to evaluate ALL plausible hypotheses
+  against ALL evidence simultaneously, rather than building a case for the first satisfactory
+  explanation. The decisive move is to seek evidence that DISCONFIRMS hypotheses:
+  the surviving hypothesis is the one with the least diagnostic evidence against it,
+  not the one with the most evidence for it. This skill drives the full eight-step
+  ACH procedure as an agentic loop.'
+tags:
+- cognitive-security
+- sat
+- hypothesis-testing
+- heuer
+- confirmation-bias
+triggers:
+- analysis of competing hypotheses
+- ACH
+- competing hypotheses
+- which explanation is most likely
+- rule out hypotheses
+tools:
+- verb: read
+  purpose: ingest the question, candidate hypotheses, and evidence items
+- verb: search
+  purpose: gather additional evidence and surface missing alternatives
+- verb: reason
+  purpose: score each evidence item's consistency and diagnosticity per hypothesis
+- verb: write
+  purpose: emit the ACH matrix, ranking, sensitivity notes, and indicators
+inputs:
+- name: question
+  type: text
+  required: true
+  description: the analytic question being adjudicated
+- name: hypotheses
+  type: list[str]
+  required: false
+  description: candidate explanations; the skill completes the set if partial
+- name: evidence
+  type: list[str]
+  required: false
+  description: evidence/argument items, including absence-of-evidence
+outputs:
+- name: matrix
+  type: table
+  description: hypotheses x evidence with C/I/N and diagnosticity weights
+- name: ranking
+  type: markdown
+  description: hypotheses ordered by inconsistency score, least-disconfirmed first
+- name: indicators
+  type: markdown
+  description: future observations that would shift the ranking
+references:
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis, ch. 8.
+- Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis.
+when_to_use:
+- Multiple competing explanations for an event, attribution, or trend.
+- You suspect you (or the source) have anchored on a first impression.
+- A high-stakes judgment where confirmation bias would be costly.
+what_it_produces:
+- hypotheses x evidence with C/I/N and diagnosticity weights
+- hypotheses ordered by inconsistency score, least-disconfirmed first
+- future observations that would shift the ranking
+key_discipline:
+- '**Diagnosticity over weight of evidence.** Evidence consistent with *every*'
+- '**Disconfirm, don''t confirm.** Rank by inconsistency, not consistency.'
+- '**Absence of evidence is evidence.** A missing observation a hypothesis'
+- '**Sensitivity check.** Identify which one or two items, if wrong, flip the'
+workflow_steps:
+- verbs:
+  - reason
+  - search
+  title: Enumerate hypotheses
+  text: 'Generate a **complete and mutually exclusive** set of hypotheses. Include
+    the
+
+    deception hypothesis ("someone wants me to believe H1") and a residual
+
+    "something we haven''t thought of". If the user supplied a partial set, complete
+
+    it; never evaluate fewer than three.'
+- verbs:
+  - read
+  - search
+  title: List evidence and arguments
+  text: 'Assemble every relevant item: facts, arguments, assumptions, and **absence
+    of
+
+    evidence** (things that should be present under some hypothesis but are not).
+
+    Tag each item with source and reliability (link to
+
+    `cognitive_security.source_credibility_evaluation` if grading is needed).'
+- verbs:
+  - reason
+  title: Build the matrix
+  text: 'For each (evidence, hypothesis) cell, score consistency:
+
+    - **C** — consistent with the hypothesis
+
+    - **I** — inconsistent with the hypothesis
+
+    - **N** — not applicable / no bearing'
+- verbs:
+  - reason
+  title: Assess diagnosticity
+  text: 'Mark each evidence ROW''s diagnosticity. A row that is **C for every hypothesis**
+
+    has **no diagnostic value** — flag it and set it aside. The analysis lives in
+
+    the rows that discriminate.'
+- verbs:
+  - reason
+  title: Refine
+  text: 'Delete non-diagnostic evidence and merge redundant hypotheses. Re-examine
+    items
+
+    where everything is "C" — you may have mis-scored, or the hypotheses are not
+
+    truly distinct.'
+- verbs:
+  - reason
+  title: Draw tentative conclusions
+  text: 'Rank hypotheses by **inconsistency score** (count/weight of I marks). The
+
+    hypothesis with the **fewest** inconsistencies is provisionally strongest. Do
+
+    NOT pick the one with the most "C" marks — that is the bias trap.'
+- verbs:
+  - reason
+  title: Sensitivity analysis
+  text: 'Identify the one or two evidence items that, if wrong or deceptive, would
+    change
+
+    the ranking. State how the conclusion depends on them. Re-verify those items.'
+- verbs:
+  - write
+  title: Report with indicators
+  text: "Emit:\n- the matrix,\n- the ranking with inconsistency scores,\n- the single\
+    \ most diagnostic item and the single most damaging item,\n- a calibrated confidence\
+    \ statement,\n- **indicators**: future observations that would confirm or overturn\
+    \ the lead\n  hypothesis (link to `sat.indicators_generation`)."
+anti_criteria:
+- Ranking by weight of confirming evidence instead of by least inconsistency.
+- Dropping a hypothesis because it is unpopular rather than because evidence
+- Treating non-diagnostic evidence as support.
+defensive_boundary: 'Use Analysis of Competing Hypotheses (ACH) only for structured
+  analytic technique support: recognize, assess, document, or defend analytic rigor,
+  alternative hypotheses, and calibrated judgment. Do not use this skill to force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Analysis of Competing Hypotheses (ACH) to force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Analysis of Competing Hypotheses (ACH), tie each matrix, ranking, and indicators
+  claim to concrete evidence from the specific question, hypotheses, and evidence
+  item, source excerpt, observation, or command result that supports it.
+- For Analysis of Competing Hypotheses (ACH), label observations, derived features,
+  assumptions, inferences, contradictions, and missing inputs separately before writing
+  the matrix.
+- Before recommending any Analysis of Competing Hypotheses (ACH) action, identify
+  the weakest evidence link, the alternative most likely to overturn it, and the next
+  discriminating check.
+confidence_rubric:
+- 'High for Analysis of Competing Hypotheses (ACH): the matrix is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; enumerate hypotheses and list evidence and arguments checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Analysis of Competing Hypotheses (ACH): the matrix is plausible, but
+  one important question source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Analysis of Competing Hypotheses (ACH): the matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Analysis of Competing Hypotheses (ACH) cannot determine from the supplied
+  or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Analysis of Competing Hypotheses (ACH), use only authorized question, hypotheses,
+  and evidence, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Analysis of Competing Hypotheses (ACH), minimize person-level detail in the
+  matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Analysis of Competing Hypotheses (ACH), do not infer protected traits, private
+  identity, intent, location, legal culpability, or platform account ownership beyond
+  the supplied and authorized evidence.
+failure_modes:
+- 'Analysis of Competing Hypotheses (ACH): treating question as complete when enumerate
+  hypotheses and list evidence and arguments checks or contradictory evidence are
+  missing.'
+- 'Analysis of Competing Hypotheses (ACH): producing advice that would help a requester
+  force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation.'
+- 'Analysis of Competing Hypotheses (ACH): reporting the matrix without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Analysis of Competing Hypotheses (ACH) outputs to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation''
+  -> refuse and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the matrix from Analysis of Competing Hypotheses (ACH) into an
+  operational playbook to force a preferred conclusion, hide uncertainty, or use the
+  technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Analysis of Competing Hypotheses (ACH) to apply the structured
+  technique to supplied evidence while preserving alternatives and uncertainty with
+  question, hypotheses, and evidence'' -> produce bounded findings with evidence and
+  uncertainty labels.'

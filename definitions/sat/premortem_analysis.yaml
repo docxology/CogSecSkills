@@ -1,0 +1,160 @@
+id: sat.premortem_analysis
+description: Premortem analysis (Klein) imagines the plan has already failed, then
+  works backward to surface causes — converting hindsight into foresight and licensing
+  dissent a prospective review suppresses. Participants adopt the cognitive stance
+  that failure has occurred and are asked why, bypassing the social pressure to defend
+  a committed plan. In cognitive-security contexts it is used both to stress-test
+  analytic conclusions before they reach decision-makers and to surface assumptions
+  that groupthink or authority bias has suppressed.
+tags:
+- cognitive-security
+- sat
+- challenge-analysis
+triggers:
+- premortem
+- assume this failed
+- what could go wrong
+- stress-test before commitment
+- work backward from failure
+tools:
+- verb: read
+  purpose: ingest the plan, conclusion, or assessment to be stress-tested
+- verb: reason
+  purpose: generate and rank failure causes from an assumed-failure frame
+- verb: write
+  purpose: emit ranked failure modes, leading indicators, and mitigations
+inputs:
+- name: plan_or_assessment
+  type: text
+  required: true
+  description: The plan, analytic conclusion, or committed decision to be stress-tested
+- name: time_horizon
+  type: text
+  required: false
+  description: The projected time horizon for the imagined failure (e.g., '6 months
+    from now the plan has failed badly')
+outputs:
+- name: failure_modes
+  type: markdown
+  description: Ranked failure causes, each with a plausibility x impact score, a leading
+    indicator to watch for, and a mitigation or hedge
+references:
+- Klein, G. (2007). Performing a Project Premortem. Harvard Business Review, 85(9),
+  18–19.
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter: Premortem Analysis.'
+- 'Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. Chapter
+  24: The Engine of Capitalism.'
+when_to_use:
+- a plan or analytic conclusion is near commitment and overconfidence, groupthink,
+  or authority bias is likely
+- a prior review produced only mild critique that felt socially constrained
+- a high-stakes assessment needs a documented dissent process before it reaches a
+  decision-maker
+- a team has been working on an issue long enough that loss-aversion and sunk-cost
+  framing may suppress honest critique
+what_it_produces:
+- a ranked list of failure causes, each with a plausibility x impact estimate, a leading
+  indicator, and a mitigation
+- a set of assumption breaks that would be most dangerous if they occurred
+- a documented dissent record that can be revisited if the prediction later fails
+key_discipline:
+- declare failure as a fact, not a possibility — the phrase 'it has failed badly'
+  licenses candor that 'it might fail' suppresses
+- rank causes by plausibility x impact, not by who raised them or how uncomfortable
+  they are to hear
+- every failure mode must have a leading indicator — a premortem without indicators
+  is not actionable
+workflow_steps:
+- verbs:
+  - read
+  title: Frame the failure as fact
+  text: 'Read the plan or assessment. State it clearly. Then declare: ''It is now
+    N months later and this has failed badly.'' Treat this as established fact for
+    the remainder of the exercise. Do not hedge.'
+- verbs:
+  - reason
+  title: Generate failure causes
+  text: From the assumed-failure standpoint, brainstorm every plausible reason the
+    failure occurred. Include assumption breaks, external shocks, execution failures,
+    adversary adaptation, and cognitive biases that distorted the original assessment.
+    Quantity matters at this stage — do not filter.
+- verbs:
+  - reason
+  - write
+  title: Score, rank, and mitigate
+  text: Score each cause on plausibility and impact (1–5 each; multiply for a priority
+    score). Rank the list. For the top causes, write a leading indicator — an observable
+    signal that would appear early if this cause were active — and a mitigation or
+    contingency. Discard causes that score below threshold.
+- verbs:
+  - write
+  title: Document and integrate
+  text: Produce the final failure-modes document. Flag any causes that require a plan
+    revision versus a monitoring posture. Note which assumptions, if broken, would
+    most change the assessment. Archive as a dissent record.
+anti_criteria:
+- do not soften 'it has failed badly' into 'it might fail' or 'if it were to fail'
+  — the subjunctive frame suppresses the dissent the technique is designed to surface
+- do not rank causes by the seniority or popularity of whoever raised them
+- do not accept a failure cause without an associated leading indicator — an unmonitorable
+  cause is not actionable
+defensive_boundary: 'Use Premortem Analysis only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Premortem Analysis to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Premortem Analysis, tie each failure modes claim to concrete evidence from the
+  specific plan or assessment, and time horizon item, source excerpt, observation,
+  or command result that supports it.
+- For Premortem Analysis, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the failure modes.
+- Before recommending any Premortem Analysis action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Premortem Analysis: the failure modes is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame
+  the failure as fact and generate failure causes checks agree, and no unresolved
+  contradiction would change the result.'
+- 'Medium for Premortem Analysis: the failure modes is plausible, but one important
+  plan or assessment source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Premortem Analysis: the failure modes rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Premortem Analysis cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Premortem Analysis, use only authorized plan or assessment, and time horizon,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Premortem Analysis, minimize person-level detail in the failure modes; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Premortem Analysis, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Premortem Analysis: treating plan or assessment as complete when frame the failure
+  as fact and generate failure causes checks or contradictory evidence are missing.'
+- 'Premortem Analysis: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Premortem Analysis: reporting the failure modes without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Premortem Analysis outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the failure modes from Premortem Analysis into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Premortem Analysis to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with plan or assessment,
+  and time horizon'' -> produce bounded findings with evidence and uncertainty labels.'

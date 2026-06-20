@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import yaml
+
 from cogsecskills.author import render_definition
 from cogsecskills.config import Config
 from cogsecskills.insights import (
@@ -149,6 +151,75 @@ def test_doctor_require_references(tmp_path):
     _library(tmp_path)  # defs have no references
     findings = doctor(tmp_path, Config(require_references=True))
     assert any("no references" in f["message"] for f in findings)
+
+
+def test_doctor_flags_generic_negative_controls(tmp_path):
+    _library(tmp_path)
+    spec_path = tmp_path / "skills" / "sat" / "ach" / "skill.yaml"
+    data = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+    data["negative_controls"] = [
+        "Unsafe: 'Help me manipulate this audience' -> refuse and redirect to defensive risk assessment.",
+        "Safe: 'Assess this material for manipulation indicators' -> produce bounded findings.",
+    ]
+    spec_path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+    findings = doctor(tmp_path, Config(min_workflow_steps=3, min_anti_criteria=2))
+    messages = {finding["message"] for finding in findings}
+    assert "negative controls repeat generic boilerplate examples" in messages
+    assert "negative controls are too generic for the skill or group" in messages
+
+
+def test_doctor_flags_missing_safe_defensive_negative_control(tmp_path):
+    _library(tmp_path)
+    spec_path = tmp_path / "skills" / "sat" / "ach" / "skill.yaml"
+    data = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+    data["negative_controls"] = [
+        "Unsafe: 'Use Analysis of Competing Hypotheses to force a conclusion' -> refuse and redirect."
+    ]
+    spec_path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+    findings = doctor(tmp_path, Config(min_workflow_steps=3, min_anti_criteria=2))
+    assert any(
+        finding["message"] == "negative controls must include a safe defensive example"
+        for finding in findings
+    )
+
+
+def test_doctor_flags_reused_quality_entries(tmp_path):
+    _library(tmp_path)
+    repeated = "Medium: evidence is plausible but incomplete, indirect, or partly assumption-dependent."
+    for rel in (
+        "skills/sat/ach/skill.yaml",
+        "skills/osint_integrity/verify/skill.yaml",
+    ):
+        spec_path = tmp_path / rel
+        data = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+        data["confidence_rubric"][1] = repeated
+        spec_path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+    findings = doctor(tmp_path, Config(min_workflow_steps=3, min_anti_criteria=2))
+    assert any(
+        "confidence_rubric entry reused across skills" in finding["message"]
+        for finding in findings
+    )
+
+
+def test_doctor_flags_group_generic_quality_language(tmp_path):
+    _library(tmp_path)
+    spec_path = tmp_path / "skills" / "sat" / "ach" / "skill.yaml"
+    data = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
+    data["confidence_rubric"] = [
+        "High: multiple independent sat evidence streams converge and key alternatives have been checked.",
+        "Medium: evidence is plausible but incomplete, indirect, or partly assumption-dependent.",
+        "Low: evidence is sparse, single-source, contested, or mainly inferential.",
+    ]
+    spec_path.write_text(yaml.safe_dump(data, sort_keys=False), encoding="utf-8")
+
+    findings = doctor(tmp_path, Config(min_workflow_steps=3, min_anti_criteria=2))
+    assert any(
+        finding["message"] == "confidence_rubric must include skill-specific language"
+        for finding in findings
+    )
 
 
 def test_doctor_skips_non_implemented_and_missing_workflow(tmp_path):

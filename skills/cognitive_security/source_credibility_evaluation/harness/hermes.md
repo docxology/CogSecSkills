@@ -1,25 +1,18 @@
-# Harness Adapter — Hermes
+# Hermes adapter — Source Credibility Evaluation
 
-Adapter mapping the neutral workflow verbs to Hermes tools for the
-Source Credibility Evaluation skill.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Hermes tool | Notes |
 | --- | --- | --- |
-| read | fs.read | Read the source material, claim text, and corroborating documents. |
-| search | web.search | Find independent corroboration and the source's track record. |
-| reason | (model) | Internal weighing of proximity, motive, independence, and corroboration. |
-| write | fs.write | Emit the A–F / 1–6 grade pair and the usage bound. |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `search` | `web.search` / `kb.query` | Query the web or a knowledge base. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
 
-Call the Hermes skill runner with the source identity and the specific claim.
-Use fs.read for the material and any corroboration, web.search for independent
-confirmation, reason through the two axes, then fs.write the result.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Source Credibility Evaluation only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Source Credibility Evaluation to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
 
 ## Output contract
 
-- `reliability_grade`: letter A–F with justification.
-- `credibility_grade`: number 1–6 with justification.
-- `usage_bound`: how the combined grade (e.g. `B2`) bounds downstream use.
-- Reliability and credibility are reported as a pair; A1 only with independent
-  confirmation.
+Return the `skill.yaml` outputs (reliability_grade, credibility_grade, usage_bound) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

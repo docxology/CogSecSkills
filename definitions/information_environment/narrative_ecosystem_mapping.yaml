@@ -1,0 +1,205 @@
+id: information_environment.narrative_ecosystem_mapping
+description: Narrative Ecosystem Mapping identifies and structurally represents the
+  competing narratives, their carriers (accounts, outlets, communities), amplification
+  pathways, and target audiences within a defined information space. Derived from
+  Strategic Communication and influence-environment research traditions, the technique
+  treats narratives as living entities that compete for salience and seeks to reveal
+  which framings dominate, which are suppressed, and what dynamics sustain the ecosystem.
+  The output supports defensive counter-narrative design and influence-environment
+  vulnerability assessment.
+tags:
+- cognitive-security
+- information_environment
+- strategic-communication
+- influence-environment
+triggers:
+- map the narratives in this space
+- what competing stories are circulating
+- narrative ecosystem
+- who is carrying which narrative
+- information environment mapping
+tools:
+- verb: read
+  purpose: ingest collected content samples, actor lists, and prior reporting about
+    the information space
+- verb: search
+  purpose: retrieve narrative examples, actor profiles, and platform-specific discourse
+    to populate the map
+- verb: reason
+  purpose: identify dominant narratives, sub-narratives, carriers, audience segments,
+    and inter-narrative tensions
+- verb: write
+  purpose: produce the structured narrative ecosystem map with narrative inventory,
+    carrier network, and vulnerability assessment
+inputs:
+- name: information_space_definition
+  type: text
+  required: true
+  description: Geographic, linguistic, topical, or platform scope that delimits the
+    ecosystem under examination
+- name: content_sample
+  type: list
+  required: false
+  description: Representative posts, articles, broadcasts, or messages already collected
+    from the space
+- name: known_actors
+  type: list
+  required: false
+  description: Pre-identified accounts, media outlets, organizations, or influencers
+    active in the space
+outputs:
+- name: narrative_inventory
+  type: table
+  description: Each narrative named, framed in a single sentence, with dominant carrier
+    types and estimated salience
+- name: ecosystem_map
+  type: markdown
+  description: Structured description of narrative competition dynamics, carrier network
+    nodes, amplification pathways, audience segments, and identified ecosystem vulnerabilities
+references:
+- 'Beskow, D. & Carley, K. (2019). Social Cybersecurity: An Emerging National Security
+  Requirement. Military Review.'
+- NATO Strategic Communications Centre of Excellence (2015). Analysis of Russia's
+  Information Campaign Against Ukraine.
+- Pamment, J. (2018). The narratives of disinformation. In Information Warfare. Springer.
+- 'Rid, T. (2020). Active Measures: The Secret History of Disinformation and Political
+  Warfare. Farrar, Straus and Giroux.'
+when_to_use:
+- before designing a counter-narrative or strategic communication campaign so you
+  understand what you are entering
+- when assessing influence-operation risk in a contested information space
+- when trying to explain why a harmful narrative persists despite factual corrections
+- when identifying which actors are most responsible for sustaining a manipulative
+  frame
+what_it_produces:
+- a labeled inventory of the main competing narratives with carrier profiles and salience
+  scores
+- a structural description of amplification pathways and audience targeting
+- identification of ecosystem vulnerabilities—narrative vacuums, high-centrality brokers,
+  under-served audiences
+- a foundation for subsequent counter-narrative design or influence-operation attribution
+key_discipline:
+- treat narratives as the unit of analysis, not individual posts or accounts — individual
+  content is evidence of a narrative
+- map carrier networks separately from narrative content — the same narrative can
+  run on adversarial and organic carriers simultaneously
+- identify narrative vacuums (spaces where no credible narrative exists) because adversarial
+  narratives fill them first
+- distinguish salience (reach and repetition) from resonance (emotional and identity
+  fit) — high salience does not imply high resonance
+workflow_steps:
+- verbs:
+  - read
+  - search
+  title: Scope and collect
+  text: Define the information space boundaries (topic, language, platform, time window).
+    Collect or retrieve a representative sample of content—posts, articles, broadcasts—and
+    compile any known actor lists or prior reports. Do not pre-filter content by perceived
+    credibility at this stage.
+- verbs:
+  - reason
+  title: Identify and cluster narratives
+  text: Read through the collected content and inductively identify recurring narratives—coherent
+    story lines, frames, or explanatory claims. Cluster surface-level variants under
+    a master narrative. Name each narrative in one crisp sentence capturing its central
+    claim and implied protagonist/antagonist. Distinguish master narratives from supporting
+    sub-narratives.
+- verbs:
+  - reason
+  title: Map carriers and amplification pathways
+  text: For each narrative, identify who carries it (media outlets, influencer accounts,
+    state actors, grassroots communities, bot networks) and how it flows—which platforms
+    host it, which actors amplify it into new audience segments, and whether coordination
+    appears organic or synthetic.
+- verbs:
+  - reason
+  title: Assess audience segments and resonance
+  text: 'Identify the primary audience segments each narrative targets. Assess resonance
+    drivers: which identity concerns, prior beliefs, or grievances make each narrative
+    sticky for its target audience. Note segments that are under-served by credible
+    counter-narratives.'
+- verbs:
+  - reason
+  - write
+  title: Identify ecosystem vulnerabilities and produce map
+  text: 'Identify structural vulnerabilities: narrative vacuums, over-reliance on
+    a small number of high-centrality carriers, audiences with low counter-narrative
+    exposure. Produce the narrative inventory table and the structured ecosystem map,
+    noting the competition dynamics and flagging the highest-priority vulnerabilities.'
+anti_criteria:
+- do not conflate the existence of a narrative with evidence that it is coordinated
+  or inauthentic — organic narratives can be just as harmful
+- do not reduce the ecosystem map to a list of 'bad' versus 'good' narratives; the
+  technique maps competition and dynamics, not a binary truth judgment
+- do not treat salience (volume, reach) as a proxy for resonance or belief adoption
+  without separate evidence
+- do not finalize the map from a single content snapshot — information ecosystems
+  evolve; note the temporal scope explicitly
+defensive_boundary: 'Use Narrative Ecosystem Mapping only for information-environment
+  monitoring and platform-risk defense: recognize, assess, document, or defend platform
+  integrity, narrative context, and authentic community behavior. Do not use this
+  skill to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+misuse_redirect: 'If a request asks Narrative Ecosystem Mapping to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement, refuse that
+  path and redirect to the safe defensive form: map supplied narratives, automation
+  signals, or platform affordance risks for defensive review.'
+evidence_requirements:
+- For Narrative Ecosystem Mapping, tie each narrative inventory, and ecosystem map
+  claim to concrete evidence from the specific information space definition, content
+  sample, and known actors item, source excerpt, observation, or command result that
+  supports it.
+- For Narrative Ecosystem Mapping, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the narrative
+  inventory.
+- Before recommending any Narrative Ecosystem Mapping action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Narrative Ecosystem Mapping: the narrative inventory is supported by multiple
+  independent platform observations, narrative movement, automation signals, and provenance
+  data; scope and collect and identify and cluster narratives checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Narrative Ecosystem Mapping: the narrative inventory is plausible, but
+  one important information space definition source, comparison case, or alternative
+  explanation remains incomplete.'
+- 'Low for Narrative Ecosystem Mapping: the narrative inventory rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Narrative Ecosystem Mapping cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating information_environment evidence to collect when
+  confidence is low or medium.
+privacy_legal_constraints:
+- For Narrative Ecosystem Mapping, use only authorized information space definition,
+  content sample, and known actors, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Narrative Ecosystem Mapping, minimize person-level detail in the narrative inventory;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Narrative Ecosystem Mapping, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Narrative Ecosystem Mapping: treating information space definition as complete
+  when scope and collect and identify and cluster narratives checks or contradictory
+  evidence are missing.'
+- 'Narrative Ecosystem Mapping: producing advice that would help a requester amplify
+  coordinated behavior, tune platform manipulation, or design inauthentic engagement.'
+- 'Narrative Ecosystem Mapping: reporting the narrative inventory without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Narrative Ecosystem Mapping outputs to amplify coordinated behavior,
+  tune platform manipulation, or design inauthentic engagement'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the narrative inventory from Narrative Ecosystem Mapping into
+  an operational playbook to amplify coordinated behavior, tune platform manipulation,
+  or design inauthentic engagement'' -> refuse and offer governance, detection, or
+  mitigation analysis.'
+- 'Safe defensive: ''Use Narrative Ecosystem Mapping to map supplied narratives, automation
+  signals, or platform affordance risks for defensive review with information space
+  definition, content sample, and known actors'' -> produce bounded findings with
+  evidence and uncertainty labels.'

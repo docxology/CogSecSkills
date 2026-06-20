@@ -17,6 +17,34 @@ For each identified technique, name the cognitive bias, heuristic, or social dyn
 ## Step 5 — Emit catalogue and defensive narrative (write)
 Produce the technique table with name, category, passage, targeted vulnerability, potency, and evidence confidence. Write the narrative: overall manipulation strategy, technique synergies, most vulnerable audience segments, and defensive recommendations (inoculation messaging, pre-bunking the specific techniques, questions a reader can ask to trigger rational evaluation).
 
+## Evidence requirements
+- For Manipulation Technique Identification, tie each technique catalogue, and analysis narrative claim to concrete evidence from the specific content, target audience, and distribution context item, source excerpt, observation, or command result that supports it.
+- For Manipulation Technique Identification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the technique catalogue.
+- Before recommending any Manipulation Technique Identification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Manipulation Technique Identification: the technique catalogue is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the content and context and scan for influence principles and social-psychology techniques checks agree, and no unresolved contradiction would change the result.
+- Medium for Manipulation Technique Identification: the technique catalogue is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
+- Low for Manipulation Technique Identification: the technique catalogue rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Manipulation Technique Identification cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Manipulation Technique Identification, use only authorized content, target audience, and distribution context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Manipulation Technique Identification, minimize person-level detail in the technique catalogue; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Manipulation Technique Identification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Manipulation Technique Identification: treating content as complete when characterize the content and context and scan for influence principles and social-psychology techniques checks or contradictory evidence are missing.
+- Manipulation Technique Identification: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Manipulation Technique Identification: reporting the technique catalogue without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Manipulation Technique Identification outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the technique catalogue from Manipulation Technique Identification into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Manipulation Technique Identification to assess supplied material for manipulation indicators and recommend resilience measures with content, target audience, and distribution context' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - Do not label content as manipulative based solely on its conclusion being false or contested — manipulation is about method (bypassing rational agency), not just about content truthfulness
 - Do not use vague descriptors ('emotionally manipulative', 'propaganda') without specifying the precise named technique and the passage that instantiates it

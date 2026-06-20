@@ -1,32 +1,19 @@
 # Claude Code adapter — Project Critical Review
 
-Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Invoke this
-skill by following `../workflow.md`; use the mappings below for each step. The
-`exec` binding is load-bearing — the verify-the-verifier step (Step 6) requires
-actually running the project's gates.
+Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
-| Neutral verb | Claude Code tool(s) | Notes |
-|--------------|---------------------|-------|
-| `read`   | `Read`, `Grep`      | Read code, manuscript, configs, and test files; record file:line for citations. |
-| `search` | `Grep`, `WebSearch`, `Agent` (Explore) | Locate load-bearing claims, gates, and the evidence (or its absence). |
-| `exec`   | `Bash`              | Run the project's test suite / gates; inject one defect and re-run to prove the gate fails; revert. |
-| `reason` | model reasoning (extended thinking) | Run the adversarial and constructive passes; calibrate severity × confidence. |
-| `write`  | `Write`, message output | Emit the BLUF report, findings table, and go/no-go recommendation. |
+| Neutral verb | Claude Code tool | Notes |
+| --- | --- | --- |
+| `read` | `Read` / `Grep` | Read supplied material and locate local evidence. |
+| `search` | `Grep` / `WebSearch` / `Agent` | Search local and external sources. |
+| `exec` | `Bash` | Run commands or the project's own gates. |
+| `reason` | private model reasoning | Apply the technique; expose concise rationale. |
+| `write` | `Write` / final response | Emit the structured product. |
 
 ## Invocation
 
-Authored as a Claude Code skill: `SKILL.md` frontmatter (`name`, `description`)
-is the activation surface. When the user's request matches a trigger in
-`skill.yaml` (e.g. "critical review", "go/no-go", "red team this project"), run
-the seven-step workflow. For Step 6, run the real gate with `Bash` (e.g. the
-project's `pytest`/`make test`/CI command), capture genuine output, inject one
-realistic defect, confirm a gate fails, then revert — never report a gate as a
-safeguard without this check.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Project Critical Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Project Critical Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
 
 ## Output contract
-- A **BLUF** paragraph leading the report, then a **GO / NO-GO /
-  GO-WITH-CONDITIONS** recommendation and the **top 3 fixes first**.
-- A GitHub-flavored Markdown **findings table**: severity, confidence,
-  evidence (file:line or command output), remedy.
-- A **strengths** list and a **verify-the-verifier** result (did the injected
-  defect get caught?), plus the scope/success-criteria the review used.
+
+Return the `skill.yaml` outputs (report, findings, recommendation) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

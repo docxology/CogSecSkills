@@ -1,28 +1,17 @@
-# Harness Adapter — Claude Code (Devil's Advocacy)
+# Claude Code adapter — Devil's Advocacy
 
-Maps the neutral tool verbs used in [../workflow.md](../workflow.md) onto Claude
-Code's native tools.
+Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Claude Code tool | Notes |
 | --- | --- | --- |
-| read | Read | Read the consensus statement, evidence files, and prior assessments. |
-| search | Grep | Locate cited evidence, source references, and prior judgments across the workspace. |
-| web | WebSearch | Optional — pull open-source reporting to test or contradict a cited assumption. |
-| reason | (model) | Native reasoning; no tool call. Select vulnerable assumptions and build the counter-case. |
-| write | Write | Emit the counter-case and robustness verdict as Markdown artifacts. |
+| `read` | `Read` / `Grep` | Read supplied material and locate local evidence. |
+| `reason` | private model reasoning | Apply the technique; expose concise rationale. |
+| `write` | `Write` / final response | Emit the structured product. |
 
 ## Invocation
 
-Provide the `consensus_judgment` and `evidence_base` inputs inline or as file
-paths. Read the inputs, then walk the six workflow steps in order, using Grep to
-locate cited evidence and (optionally) WebSearch to test load-bearing
-assumptions. Write the `counter_case` and `robustness_verdict` to Markdown files
-in the working directory.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Devil's Advocacy only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Devil's Advocacy to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
 
 ## Output contract
 
-Two Markdown artifacts: `counter_case` (the strongest good-faith case against the
-consensus, with its evidence and reasoning) and `robustness_verdict` (whether the
-consensus survived, which assumptions held or cracked, and the resolving
-collection). The verdict must report failure plainly if the consensus did not
-survive — never omit an inconvenient result.
+Return the `skill.yaml` outputs (counter_case, robustness_verdict) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

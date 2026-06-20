@@ -1,0 +1,280 @@
+id: cognitive_security.disinformation_campaign_analysis
+description: 'Disinformation Campaign Analysis is a structured decomposition of an
+  apparent coordinated influence operation into its constituent objectives, narrative
+  architecture, actor network, tactics/techniques/procedures (TTPs), amplification
+  infrastructure, and intended target audiences. The technique synthesizes frameworks
+  from the intelligence community (DISARM Framework, EU STRATCOM, NATO StratCom COE),
+  social-network analysis, and computational propaganda research to produce a structured
+  campaign model that supports attribution, counter-strategy design, and resilience
+  policy. It is strictly defensive and descriptive: the output characterizes what
+  has happened or is happening to enable protection and response, not to facilitate
+  imitation.'
+tags:
+- cognitive-security
+- cognitive_security
+- influence-operations
+- DISARM
+triggers:
+- disinformation campaign analysis
+- decompose this influence operation
+- map the narratives in this campaign
+- who is behind this information operation
+- analyze the TTPs of this disinfo campaign
+- what is the amplification structure here
+- campaign attribution analysis
+tools:
+- verb: read
+  purpose: 'ingest campaign artifacts: collected content, network data, timeline,
+    actor identifiers, and any prior reporting'
+- verb: web
+  purpose: search for prior documentation of actors, narratives, and infrastructure
+    in public OSINT databases, threat reports, and platform transparency reports
+- verb: search
+  purpose: query internal knowledge bases or structured datasets (DISARM, CVE-equivalent
+    repositories) for TTP pattern matching
+- verb: reason
+  purpose: 'structure the campaign model: objectives, narrative hierarchy, actor network
+    topology, TTP enumeration, and amplification mechanism'
+- verb: write
+  purpose: emit the structured campaign analysis report, actor map, narrative taxonomy,
+    and DISARM-aligned TTP inventory
+inputs:
+- name: campaign_artifacts
+  type: list
+  required: true
+  description: 'Collected artifacts attributed or suspected to belong to the campaign:
+    URLs, post content, account identifiers, images, video, documents, timestamps
+    — as many as available'
+- name: known_context
+  type: text
+  required: true
+  description: 'What is known about the campaign: when it was first observed, what
+    event or target it appears to relate to, any prior attribution claims or platform
+    takedown reports'
+- name: target_audience_indicators
+  type: text
+  required: false
+  description: 'Indicators of intended audience: language, geography, platform choice,
+    community hashtags, cultural references, or explicit targeting signals in the
+    content'
+- name: prior_reports
+  type: list
+  required: false
+  description: Links or text of prior academic, journalistic, or government reports
+    on this campaign or suspected related campaigns
+outputs:
+- name: campaign_analysis_report
+  type: markdown
+  description: 'Structured campaign model covering: assessed objectives, narrative
+    hierarchy (master narrative + supporting sub-narratives), actor network description,
+    TTP inventory mapped to DISARM or equivalent framework, amplification infrastructure
+    characterization, target audience profile, and confidence-rated attribution assessment'
+- name: narrative_taxonomy_table
+  type: table
+  description: 'Table of identified narratives: narrative label, content summary,
+    emotional register, target audience segment, amplification vehicle, and observed
+    reach/engagement signals'
+- name: ttp_inventory_table
+  type: table
+  description: 'DISARM-aligned TTP inventory: technique ID (if mappable), technique
+    name, description of how it manifests in this campaign, and observed indicators'
+references:
+- DISARM Foundation (2023). DISARM Framework v1.4. https://www.disarm.foundation/
+- 'Nimmo, B. (2015). Anatomy of an Info-War: How Russia''s Propaganda Machine Works,
+  and How to Counter It. StopFake.'
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policymaking. Council of Europe.'
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. Proceedings
+  of the ACM on Human-Computer Interaction, 3(CSCW), 1-26.'
+- 'NATO StratCom COE (2016). Internet Trolling as a Hybrid Warfare Tool: The Case
+  of Latvia. NATO Strategic Communications Centre of Excellence.'
+- 'Bradshaw, S., & Howard, P. N. (2019). The global disinformation order: 2019 global
+  inventory of organised social media manipulation. Oxford Internet Institute.'
+- EU East StratCom Task Force (ongoing). EUvsDisinfo database. https://euvsdisinfo.eu/
+when_to_use:
+- when a coordinated pattern of misleading content appears to be organized and purposeful
+  rather than spontaneous
+- when a platform or government body needs to characterize a suspected influence operation
+  for policy response or public disclosure
+- when a researcher, journalist, or analyst needs to map the structure of a disinformation
+  campaign to understand its scope and intent
+- before designing counter-messaging or resilience responses — the campaign model
+  must be understood before counter-strategies can be correctly targeted
+- when comparing a new suspected campaign against prior documented campaigns for attribution
+  or pattern-matching purposes
+what_it_produces:
+- 'a campaign objective assessment: what the operation appears designed to achieve
+  (sow division, suppress turnout, delegitimize institutions, create false consensus,
+  etc.)'
+- 'a narrative hierarchy: the master narrative (the central false frame), supporting
+  sub-narratives, and how they interlock'
+- 'an actor network description: visible accounts/channels, suspected coordination
+  signals (timing, content synchronization, amplification patterns), and a confidence-rated
+  attribution level'
+- a TTP inventory mapped to a recognized framework (DISARM) with specific manifestation
+  descriptions for this campaign
+- 'an amplification infrastructure characterization: platforms, bot/automation signals,
+  cross-platform seeding patterns, engagement manipulation tactics'
+- 'a target audience profile: who the campaign appears designed to reach and why they
+  may be vulnerable to this specific narrative package'
+key_discipline:
+- 'separate observation from inference from attribution: clearly label what is directly
+  observed in artifacts, what is inferred from patterns, and what is attributed to
+  an actor with what confidence'
+- a narrative hierarchy is not a list of false claims — identify the master narrative
+  frame that unifies the claims and makes them mutually reinforcing
+- use a recognized TTP taxonomy (DISARM preferred) so findings are comparable across
+  campaigns and actionable for counter-strategy
+- 'coordination signals matter as much as content: synchronized timing, cross-amplification,
+  identical text variants, and inauthentic behavior patterns are often more diagnostic
+  than content alone'
+- 'be explicit about alternative explanations: spontaneous viral misinformation can
+  mimic coordinated campaigns; state what would distinguish them'
+- attribution confidence must be explicitly rated on a scale (Low/Moderate/High) with
+  stated basis — never assert attribution without stating the evidence
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory and characterize artifacts
+  text: 'Read all provided campaign artifacts. Build a structured inventory: content
+    type, platform, account/channel identifier, timestamp, engagement signals, language/geography
+    indicators, and thematic coding. Note any content that appears in multiple places
+    with identical or slightly varied text (a signal of coordinated inauthentic behavior).
+    Establish the campaign''s observed timeline.'
+- verbs:
+  - web
+  - search
+  title: Cross-reference with prior documentation
+  text: 'Search OSINT databases (EUvsDisinfo, DFRLab, Stanford Internet Observatory
+    reports), platform transparency reports, and academic literature for prior documentation
+    of: these accounts/channels, these narratives, this infrastructure, or this actor
+    fingerprint. Check DISARM framework for matching TTP patterns. Document whether
+    this appears to be a new campaign or connected to a previously characterized operation.'
+- verbs:
+  - reason
+  title: Reconstruct narrative architecture
+  text: 'Identify the master narrative: the central false or misleading frame that
+    all observed content serves. Below it, map supporting sub-narratives that reinforce
+    the master narrative from different angles or for different audience segments.
+    Characterize each narrative''s emotional register (fear, outrage, ridicule, false
+    hope), its factual grounding (fabrication, decontextualization, selective emphasis,
+    impersonation), and its apparent target audience.'
+- verbs:
+  - reason
+  title: Model actor network and amplification structure
+  text: 'Map the observed actor network: identify seed accounts (first posters), amplifier
+    accounts (retransmitters), and bridge accounts (that carry content across communities
+    or platforms). Look for coordination signals: posting time clusters, text similarity
+    beyond coincidence, cross-platform seeding. Characterize amplification infrastructure:
+    automated behavior signals, coordinated inauthentic account networks, exploitation
+    of algorithmic amplification mechanisms. Assess attribution: what can be said
+    about who operates this network and with what confidence.'
+- verbs:
+  - reason
+  title: Enumerate TTPs against DISARM or equivalent framework
+  text: 'Map each observed tactic and technique to a recognized TTP taxonomy, preferably
+    DISARM. For each TTP: identify the technique (e.g. ''Create fake personas'', ''Use
+    hashtag hijacking'', ''Cultivate useful idiots''), describe how it specifically
+    manifests in this campaign, and note its diagnostic indicators. Assess which TTPs
+    are most central to the campaign''s design versus opportunistic.'
+- verbs:
+  - reason
+  - write
+  title: Synthesize campaign model and draft report
+  text: Integrate narrative architecture, actor network, TTP inventory, and amplification
+    structure into a unified campaign model. Assess overall campaign objectives with
+    confidence rating. Identify what the campaign is designed to do to its target
+    audiences (polarize, confuse, suppress, delegitimize). Draft the campaign_analysis_report,
+    narrative_taxonomy_table, and ttp_inventory_table. Explicitly state alternative
+    hypotheses (could this be spontaneous rather than coordinated?) and what evidence
+    would distinguish them.
+- verbs:
+  - write
+  title: Emit final analysis with confidence labeling
+  text: Output all three products. Every attribution claim must carry an explicit
+    confidence label (Low/Moderate/High) and the specific evidence basis. Every inference
+    must be distinguished from direct observation. Include a 'limitations' section
+    noting what could not be assessed from available artifacts and what additional
+    data would improve confidence.
+anti_criteria:
+- do not attribute a campaign to a specific state or actor without evidence rising
+  to at least Moderate confidence — false attribution of influence operations is itself
+  an information hazard
+- do not conflate organic viral misinformation with coordinated inauthentic behavior
+  — require explicit coordination signals before characterizing as a 'campaign'
+- do not produce a narrative taxonomy that is simply a list of false claims — the
+  model must identify the unifying master narrative frame and why these claims work
+  together
+- do not map TTPs in this analysis as a how-to guide — describe what was observed
+  for defensive and counter-strategy purposes only
+- do not omit the alternative-hypothesis section — acknowledging what could explain
+  the observations without assuming coordination is essential to analytical integrity
+defensive_boundary: 'Use Disinformation Campaign Analysis only for cognitive-security
+  defense: recognize, assess, document, or defend audiences, decision-makers, and
+  public discourse. Do not use this skill to increase persuasive impact, exploit audience
+  vulnerabilities, or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Disinformation Campaign Analysis to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Disinformation Campaign Analysis, tie each campaign analysis report, narrative
+  taxonomy table, and ttp inventory table claim to concrete evidence from the specific
+  campaign artifacts, known context, and target audience indicators item, source excerpt,
+  observation, or command result that supports it.
+- For Disinformation Campaign Analysis, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the campaign
+  analysis report.
+- Before recommending any Disinformation Campaign Analysis action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Disinformation Campaign Analysis: the campaign analysis report is supported
+  by multiple independent content, behavioral, narrative, media, and audience-risk
+  evidence; inventory and characterize artifacts and cross-reference with prior documentation
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Disinformation Campaign Analysis: the campaign analysis report is plausible,
+  but one important campaign artifacts source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Disinformation Campaign Analysis: the campaign analysis report rests on
+  sparse, single-source, contested, or mostly inferential evidence; keep the result
+  provisional and list the next check.'
+uncertainty_handling:
+- State what Disinformation Campaign Analysis cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Disinformation Campaign Analysis, use only authorized campaign artifacts, known
+  context, and target audience indicators, public or source-approved records, and
+  caller-provided context needed for the defensive task.
+- For Disinformation Campaign Analysis, minimize person-level detail in the campaign
+  analysis report; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Disinformation Campaign Analysis, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Disinformation Campaign Analysis: treating campaign artifacts as complete when
+  inventory and characterize artifacts and cross-reference with prior documentation
+  checks or contradictory evidence are missing.'
+- 'Disinformation Campaign Analysis: producing advice that would help a requester
+  increase persuasive impact, exploit audience vulnerabilities, or optimize narrative
+  manipulation.'
+- 'Disinformation Campaign Analysis: reporting the campaign analysis report without
+  uncertainty labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Disinformation Campaign Analysis outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the campaign analysis report from Disinformation Campaign Analysis
+  into an operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Disinformation Campaign Analysis to assess supplied material
+  for manipulation indicators and recommend resilience measures with campaign artifacts,
+  known context, and target audience indicators'' -> produce bounded findings with
+  evidence and uncertainty labels.'

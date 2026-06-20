@@ -12,6 +12,13 @@ Usage::
     python -m cogsecskills route "free text need" [--limit N]
     python -m cogsecskills catalogue --markdown [--output docs/skill_catalogue.md]
     python -m cogsecskills doctor
+    python -m cogsecskills definitions --write|--check
+    python -m cogsecskills scenarios --check
+    python -m cogsecskills examples --write|--check
+    python -m cogsecskills evals --write|--check
+    python -m cogsecskills dashboard --write|--check
+    python -m cogsecskills release-metadata --write|--check
+    python -m cogsecskills manuscript-assets --write|--check
     python -m cogsecskills scaffold <skill-id> [--root PATH]
 """
 
@@ -21,8 +28,12 @@ import argparse
 import json
 from pathlib import Path
 
-from .author import author_batch, render_definition
+from .author import author_batch, load_definition_file, render_definition
 from .config import load_config
+from .dashboard import check_dashboard, write_dashboard
+from .definitions import check_definitions, write_definitions
+from .evals import check_evals, write_evals
+from .examples import check_examples, write_examples
 from .insights import (
     doctor,
     library_stats,
@@ -31,7 +42,10 @@ from .insights import (
 )
 from . import __version__
 from .loader import discover_skills
+from .manuscript_assets import check_assets, write_assets
 from .registry import load_registry
+from .release_metadata import check_release_metadata, write_release_metadata
+from .scenarios import check_scenarios, scenario_summary
 from .scaffold import scaffold_skill
 from .spec import SkillSpec
 from .validate import conformance_report, validate_library
@@ -127,6 +141,144 @@ def _cmd_doctor(args: argparse.Namespace) -> int:
     return 0 if result.ok and not findings else 1
 
 
+def _cmd_manuscript_assets(args: argparse.Namespace) -> int:
+    if args.write:
+        result = write_assets(args.root)
+        print(
+            "wrote manuscript assets: "
+            f"{len(result['markdown'])} markdown, "
+            f"{len(result['data'])} data, "
+            f"{len(result['figures'])} figures "
+            f"for {result['skills']} skills"
+        )
+        return 0
+
+    findings = check_assets(args.root)
+    if findings:
+        for finding in findings:
+            print(f"DRIFT  {finding}")
+        print(f"\n{len(findings)} manuscript asset issue(s)")
+        return 1
+    print("manuscript assets are current")
+    return 0
+
+
+def _cmd_definitions(args: argparse.Namespace) -> int:
+    config = load_config(args.root)
+    if args.write:
+        result = write_definitions(args.root, harnesses=config.harnesses)
+        print(
+            "wrote canonical definitions: "
+            f"{len(result['definitions'])} definitions, "
+            f"{len(result['rendered'])} rendered skills"
+        )
+        return 0
+
+    findings = check_definitions(args.root, harnesses=config.harnesses)
+    if findings:
+        for finding in findings:
+            print(f"DRIFT  {finding}")
+        print(f"\n{len(findings)} definition issue(s)")
+        return 1
+    print("canonical definitions are current")
+    return 0
+
+
+def _cmd_scenarios(args: argparse.Namespace) -> int:
+    findings = check_scenarios(args.root)
+    if findings:
+        for finding in findings:
+            print(f"SCENARIO  {finding}")
+        print(f"\n{len(findings)} scenario issue(s)")
+        return 1
+    summary = scenario_summary(args.root)
+    print(
+        "scenario readiness fixtures are current: "
+        f"{summary['count']} scenarios across {len(summary['by_group'])} groups; "
+        f"{summary['expected_answers']} expected answers checked"
+    )
+    return 0
+
+
+def _cmd_dashboard(args: argparse.Namespace) -> int:
+    if args.write:
+        result = write_dashboard(args.root)
+        print(
+            "wrote quality dashboard: "
+            f"{result['skills']} skills, {result['scenarios']} scenarios, "
+            f"{result['examples']} worked examples, "
+            f"{result['markdown']}, {result['data']}"
+        )
+        return 0
+
+    findings = check_dashboard(args.root)
+    if findings:
+        for finding in findings:
+            print(f"DASHBOARD  {finding}")
+        print(f"\n{len(findings)} dashboard issue(s)")
+        return 1
+    print("quality dashboard is current")
+    return 0
+
+
+def _cmd_examples(args: argparse.Namespace) -> int:
+    if args.write:
+        result = write_examples(args.root)
+        print(
+            "wrote worked examples: "
+            f"{result['examples']} examples, {result['markdown']}, {result['data']}"
+        )
+        return 0
+
+    findings = check_examples(args.root)
+    if findings:
+        for finding in findings:
+            print(f"EXAMPLES  {finding}")
+        print(f"\n{len(findings)} worked example issue(s)")
+        return 1
+    print("worked examples are current")
+    return 0
+
+
+def _cmd_evals(args: argparse.Namespace) -> int:
+    if args.write:
+        result = write_evals(args.root)
+        print(
+            "wrote offline eval fixtures: "
+            f"{result['evaluations']} evaluations, {result['source']}, "
+            f"{result['markdown']}, {result['data']}"
+        )
+        return 0
+
+    findings = check_evals(args.root)
+    if findings:
+        for finding in findings:
+            print(f"EVALS  {finding}")
+        print(f"\n{len(findings)} offline eval issue(s)")
+        return 1
+    print("offline evaluation fixtures are current")
+    return 0
+
+
+def _cmd_release_metadata(args: argparse.Namespace) -> int:
+    if args.write:
+        result = write_release_metadata(args.root, mode=args.mode)
+        print(
+            "wrote release metadata: "
+            f"mode={result['mode']}, {result['markdown']}, {result['data']}"
+        )
+        return 0
+
+    findings = check_release_metadata(args.root, mode=args.mode)
+    if findings:
+        for finding in findings:
+            print(f"RELEASE  {finding}")
+        print(f"\n{len(findings)} release metadata issue(s)")
+        return 1
+    print(f"release metadata is current ({args.mode} mode)")
+    return 0
+
+
 def _cmd_export(args: argparse.Namespace) -> int:
     skills = [_spec_dict(spec) for spec in discover_skills(args.root)]
     print(json.dumps({"skills": skills, "count": len(skills)}, indent=2))
@@ -154,7 +306,7 @@ def _cmd_scaffold(args: argparse.Namespace) -> int:
 
 def _cmd_author(args: argparse.Namespace) -> int:
     config = load_config(args.root)
-    definition = json.loads(Path(args.json).read_text(encoding="utf-8"))
+    definition = load_definition_file(args.definition)
     written = render_definition(definition, root=args.root, harnesses=config.harnesses)
     print(f"authored {len(written)} files for {definition.get('id')}")
     return 0
@@ -222,9 +374,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_scaffold.set_defaults(func=_cmd_scaffold)
 
     p_author = sub.add_parser(
-        "author", help="render a full skill from a JSON definition"
+        "author", help="render a full skill from a JSON or YAML definition"
     )
-    p_author.add_argument("json", help="path to the JSON definition file")
+    p_author.add_argument("definition", help="path to the JSON or YAML definition file")
     p_author.set_defaults(func=_cmd_author)
 
     p_batch = sub.add_parser(
@@ -263,6 +415,119 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("doctor", help="validate + quality-lint the library").set_defaults(
         func=_cmd_doctor
     )
+    p_defs = sub.add_parser(
+        "definitions",
+        help="generate or check canonical skill definitions and rendered skills",
+    )
+    defs_mode = p_defs.add_mutually_exclusive_group(required=True)
+    defs_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write canonical definitions and render definition-owned skills",
+    )
+    defs_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if canonical definitions or rendered skills are missing or stale",
+    )
+    p_defs.set_defaults(func=_cmd_definitions)
+    p_scenarios = sub.add_parser(
+        "scenarios",
+        help="check deterministic defensive scenario-readiness fixtures",
+    )
+    scenario_mode = p_scenarios.add_mutually_exclusive_group(required=True)
+    scenario_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if defensive scenario fixtures or referenced skills are stale",
+    )
+    p_scenarios.set_defaults(func=_cmd_scenarios)
+    p_dashboard = sub.add_parser(
+        "dashboard",
+        help="generate or check the quality dashboard",
+    )
+    dashboard_mode = p_dashboard.add_mutually_exclusive_group(required=True)
+    dashboard_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write generated quality dashboard Markdown and JSON",
+    )
+    dashboard_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if generated quality dashboard files are missing or stale",
+    )
+    p_dashboard.set_defaults(func=_cmd_dashboard)
+    p_examples = sub.add_parser(
+        "examples",
+        help="generate or check deterministic worked skill examples",
+    )
+    examples_mode = p_examples.add_mutually_exclusive_group(required=True)
+    examples_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write generated worked-example Markdown and JSON",
+    )
+    examples_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if worked examples or generated example outputs are stale",
+    )
+    p_examples.set_defaults(func=_cmd_examples)
+    p_evals = sub.add_parser(
+        "evals",
+        help="generate or check offline local output-evaluation fixtures",
+    )
+    evals_mode = p_evals.add_mutually_exclusive_group(required=True)
+    evals_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write offline eval source, Markdown, and JSON",
+    )
+    evals_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if offline eval fixtures or generated outputs are stale",
+    )
+    p_evals.set_defaults(func=_cmd_evals)
+    p_assets = sub.add_parser(
+        "manuscript-assets",
+        help="generate or check manuscript supplements and figures",
+    )
+    assets_mode = p_assets.add_mutually_exclusive_group(required=True)
+    assets_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write generated supplements, data exports, and figures",
+    )
+    assets_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if generated manuscript assets are missing or stale",
+    )
+    p_assets.set_defaults(func=_cmd_manuscript_assets)
+    p_release = sub.add_parser(
+        "release-metadata",
+        help="generate or check release metadata and claim matrix outputs",
+    )
+    release_mode = p_release.add_mutually_exclusive_group(required=True)
+    release_mode.add_argument(
+        "--write",
+        action="store_true",
+        help="write generated release metadata Markdown and JSON",
+    )
+    release_mode.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if release metadata outputs are stale or inconsistent",
+    )
+    p_release.add_argument(
+        "--mode",
+        choices=("local", "release-candidate", "public-archive"),
+        default="local",
+        help="strictness level for git/archive metadata checks",
+    )
+    p_release.set_defaults(func=_cmd_release_metadata)
     sub.add_parser("export", help="dump all on-disk skills as JSON").set_defaults(
         func=_cmd_export
     )

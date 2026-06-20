@@ -84,3 +84,66 @@ references:
   and Information Credibility.'
 - Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda. Oxford University
   Press. (Structural analysis of media-ecosystem credibility.)
+defensive_boundary: 'Use Source Vetting only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Source Vetting to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence, refuse that path and redirect
+  to the safe defensive form: verify supplied claims, media, sources, or datasets
+  with documented public-source methods.'
+evidence_requirements:
+- For Source Vetting, tie each source reliability assessment, and red flags claim
+  to concrete evidence from the specific source identifier, claim context, and prior
+  assessments item, source excerpt, observation, or command result that supports it.
+- For Source Vetting, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the source reliability
+  assessment.
+- Before recommending any Source Vetting action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Source Vetting: the source reliability assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; characterize the source and verify identity and ownership checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Source Vetting: the source reliability assessment is plausible, but
+  one important source identifier source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Source Vetting: the source reliability assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Source Vetting cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Source Vetting, use only authorized source identifier, claim context, and prior
+  assessments, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Source Vetting, minimize person-level detail in the source reliability assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Source Vetting, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Source Vetting: treating source identifier as complete when characterize the source
+  and verify identity and ownership checks or contradictory evidence are missing.'
+- 'Source Vetting: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Source Vetting: reporting the source reliability assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Source Vetting outputs to dox, deanonymize, harass, bypass access
+  controls, or attribute identity beyond evidence'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the source reliability assessment from Source Vetting into an
+  operational playbook to dox, deanonymize, harass, bypass access controls, or attribute
+  identity beyond evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Source Vetting to verify supplied claims, media, sources,
+  or datasets with documented public-source methods with source identifier, claim
+  context, and prior assessments'' -> produce bounded findings with evidence and uncertainty
+  labels.'

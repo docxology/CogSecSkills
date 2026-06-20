@@ -14,6 +14,34 @@ State an 80% confidence interval around the point estimate. As a calibration che
 ## Step 4 — Document and communicate the estimate (write)
 Write the calibrated estimate report: the numeric probability, the reference class and base rate, a one-paragraph adjustment narrative, the confidence interval, resolution criteria, and a note on what new evidence would trigger a significant update.
 
+## Evidence requirements
+- For Calibrated Estimation, tie each calibrated estimate claim to concrete evidence from the specific question, evidence, and prior estimate item, source excerpt, observation, or command result that supports it.
+- For Calibrated Estimation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the calibrated estimate.
+- Before recommending any Calibrated Estimation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Calibrated Estimation: the calibrated estimate is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; define the question and find the reference class and apply inside-view adjustments checks agree, and no unresolved contradiction would change the result.
+- Medium for Calibrated Estimation: the calibrated estimate is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
+- Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Calibrated Estimation cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Calibrated Estimation, use only authorized question, evidence, and prior estimate, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Calibrated Estimation, minimize person-level detail in the calibrated estimate; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Calibrated Estimation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Calibrated Estimation: treating question as complete when define the question and find the reference class and apply inside-view adjustments checks or contradictory evidence are missing.
+- Calibrated Estimation: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
+- Calibrated Estimation: reporting the calibrated estimate without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Calibrated Estimation outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the calibrated estimate from Calibrated Estimation into an operational playbook to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Calibrated Estimation to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with question, evidence, and prior estimate' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not substitute vague verbal probability terms (likely, possible, probable) for numeric estimates — they defeat calibration
 - do not skip the reference class step and reason only from inside-view case features

@@ -1,60 +1,61 @@
 # Workflow — Narrative Threat Assessment
 
-A defensive procedure to characterize a circulating narrative as a cognitive
-threat and recommend protective responses. Each step is tagged with the neutral
-tool verb(s) it uses.
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
-1. **Capture the narrative precisely.** `[read]` Read the supplied artifact and
-   record the core claim, its sub-claims, and the framing (metaphors, loaded
-   terms, implied causation). Quote only as much as analysis requires, and label
-   every quotation as the object of study — never as endorsement.
+## Step 1 — Capture the narrative precisely (read)
+Read the supplied artifact and record the core claim, sub-claims, framing, loaded terms, implied causation, and minimal necessary quotations. Label every quotation as the object of study rather than endorsement.
 
-2. **Identify the target audience and levers.** `[reason]` Determine who the
-   narrative is built to move and which belief or identity levers it exploits
-   (group loyalty, fear, grievance, status, in/out-group identity). Note the
-   prior beliefs the narrative assumes and reinforces.
+## Step 2 — Identify target audience and levers (reason)
+Determine who the narrative appears designed to move, which belief or identity levers it exploits, and what prior beliefs it assumes or reinforces.
 
-3. **Classify manipulation techniques.** `[reason]` Enumerate the techniques
-   present — emotional triggers, false dichotomy, out-group threat, manufactured
-   consensus, cherry-picking, false equivalence — mapping each to the specific
-   text that exhibits it. Use a recognized taxonomy (ABCDE / DISARM) for shared
-   vocabulary.
+## Step 3 — Classify manipulation techniques (reason)
+Map emotional triggers, false dichotomies, out-group threat, manufactured consensus, cherry-picking, or false equivalence to the exact text that exhibits each technique.
 
-4. **Assess provenance and likely intent.** `[read]` `[search]` Examine sources,
-   timing, and circulation samples to judge organic versus coordinated spread and
-   the likely motive (profit, ideology, state). Search for prior debunks and
-   corroborating signals. State provenance and intent with calibrated uncertainty;
-   prefer "consistent with coordination" over "proven coordinated."
+## Step 4 — Assess provenance and likely intent (read, search)
+Examine sources, timing, circulation samples, prior debunks, and corroborating signals. Distinguish organic spread from coordination with calibrated uncertainty.
 
-5. **Estimate reach and virality drivers.** `[search]` `[reason]` Estimate how far
-   the narrative has spread and identify what drives its virality (platform
-   affordances, influencer nodes, emotional payload, timing against events).
+## Step 5 — Estimate reach and virality drivers (search, reason)
+Estimate observed spread and identify platform affordances, influencer nodes, emotional payload, or event timing that may drive circulation.
 
-6. **Rate harm potential and urgency.** `[reason]` Rate the plausible harm
-   (to individuals, groups, institutions, or public safety) and the urgency of
-   response, with the evidence each rating rests on.
+## Step 6 — Rate harm potential and urgency (reason)
+Rate plausible harm to individuals, groups, institutions, or public safety, then state the evidence each rating rests on.
 
-7. **Recommend defensive responses.** `[write]` Write the assessment and a
-   prioritized set of strictly defensive responses — prebunking, lateral reading
-   prompts, and counter-framing aimed at the target audience. Responses protect
-   audiences; they never manipulate.
+## Step 7 — Recommend defensive responses (write)
+Write the assessment and prioritize strictly defensive responses such as prebunking, lateral-reading prompts, and protective counter-framing.
+
+## Evidence requirements
+- For Narrative Threat Assessment, tie each threat assessment, and defensive recommendations claim to concrete evidence from the specific narrative text, and context item, source excerpt, observation, or command result that supports it.
+- For Narrative Threat Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the threat assessment.
+- Before recommending any Narrative Threat Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Narrative Threat Assessment: the threat assessment is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; capture the narrative precisely and identify target audience and levers checks agree, and no unresolved contradiction would change the result.
+- Medium for Narrative Threat Assessment: the threat assessment is plausible, but one important narrative text source, comparison case, or alternative explanation remains incomplete.
+- Low for Narrative Threat Assessment: the threat assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Narrative Threat Assessment cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Narrative Threat Assessment, use only authorized narrative text, and context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Narrative Threat Assessment, minimize person-level detail in the threat assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Narrative Threat Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Narrative Threat Assessment: treating narrative text as complete when capture the narrative precisely and identify target audience and levers checks or contradictory evidence are missing.
+- Narrative Threat Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Narrative Threat Assessment: reporting the threat assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Narrative Threat Assessment outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the threat assessment from Narrative Threat Assessment into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Narrative Threat Assessment to assess supplied material for manipulation indicators and recommend resilience measures with narrative text, and context' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-
 - **No offensive manipulation.** Never produce a how-to, playbook, or messaging
-  plan for running, improving, or amplifying an influence operation. This skill
-  is defensive only.
 - **No uncritical amplification.** Do not restate the narrative as if true or
-  reproduce it in a shareable form; quote minimally and always frame as the
-  object of study.
 - **No false-confidence attribution.** Do not name an actor, sponsor, or intent
-  with certainty the evidence does not support; label provenance and intent with
-  explicit, calibrated uncertainty.
 - **No targeting of individuals.** Do not produce dossiers on private people or
-  recommend harassment; assess the narrative and its mechanics, not persons.
 
 ## AGEINT upstream
-
-This skill draws its threat taxonomy and defensive framing from the AGEINT
-cognitive-security curriculum at `docs/ageint/` (cognitive-security topic);
-keep technique names and defensive vocabulary aligned with that upstream source.
+`docs/ageint/cognitive-security.md`

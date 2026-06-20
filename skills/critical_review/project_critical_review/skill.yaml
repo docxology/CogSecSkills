@@ -3,70 +3,134 @@ name: Project Critical Review
 group: critical_review
 version: 0.1.0
 status: implemented
-summary: >-
-  Adversarial-then-constructive review of a project: claims, evidence, risks,
-  gaps, and a go/no-go recommendation.
-description: >-
-  The flagship critical-review skill. It reviews a project — codebase, research
-  project, or initiative — by first MAPPING what the project claims and how it is
-  built, then running an ADVERSARIAL pass that attacks every load-bearing claim
-  for missing evidence, silent-failure and dual-use risk, and unstated
-  assumptions, followed by a CONSTRUCTIVE pass that names genuine strengths and
-  the cheapest fix for each top risk. Findings are classified by severity and
-  confidence, every finding is bound to evidence (file:line or command output),
-  and the project's own tests and gates are run to confirm they actually have
-  teeth before any "all passing" claim is trusted. The product is a BLUF report
-  with a calibrated go/no-go recommendation and the top three things to fix first.
+summary: 'Adversarial-then-constructive review of a project: claims, evidence, risks,
+  gaps, and go/no-go.'
+description: The flagship critical-review skill. It reviews a project — codebase,
+  research project, or initiative — by first MAPPING what the project claims and how
+  it is built, then running an ADVERSARIAL pass that attacks every load-bearing claim
+  for missing evidence, silent-failure and dual-use risk, and unstated assumptions,
+  followed by a CONSTRUCTIVE pass that names genuine strengths and the cheapest fix
+  for each top risk. Findings are classified by severity and confidence, every finding
+  is bound to evidence (file:line or command output), and the project's own tests
+  and gates are run to confirm they actually have teeth before any "all passing" claim
+  is trusted. The product is a BLUF report with a calibrated go/no-go recommendation
+  and the top three things to fix first.
 ageint_topic: adversarial-assurance
-tags: [critical-review, assurance, red-team, go-no-go]
+tags:
+- critical-review
+- assurance
+- red-team
+- go-no-go
 triggers:
-  - critical review
-  - review this project
-  - red team this project
-  - go/no-go
-  - is this ready to ship
-  - audit this project
-  - claims vs evidence
-  - what are the risks here
+- critical review
+- review this project
+- red team this project
+- go/no-go
+- is this ready to ship
+- audit this project
+- claims vs evidence
+- what are the risks here
 tools:
-  - verb: read
-    purpose: ingest the artifact — code, manuscript, docs, configs, test files
-  - verb: search
-    purpose: locate load-bearing claims, gates, and the evidence (or its absence)
-  - verb: exec
-    purpose: run the project's own tests/gates to check they have teeth
-  - verb: reason
-    purpose: run the adversarial and constructive passes and calibrate severity
-  - verb: write
-    purpose: emit the BLUF report, findings table, and go/no-go recommendation
+- verb: read
+  purpose: ingest the artifact — code, manuscript, docs, configs, test files
+- verb: search
+  purpose: locate load-bearing claims, gates, and the evidence (or its absence)
+- verb: exec
+  purpose: run the project's own tests/gates to check they have teeth
+- verb: reason
+  purpose: run the adversarial and constructive passes and calibrate severity
+- verb: write
+  purpose: emit the BLUF report, findings table, and go/no-go recommendation
 inputs:
-  - name: artifact
-    type: path
-    required: true
-    description: the project root, repo, manuscript, or directory under review
-  - name: decision
-    type: text
-    required: false
-    description: the decision the review informs (ship, merge, fund, publish)
-  - name: success_criteria
-    type: list[str]
-    required: false
-    description: what "good enough" means for this decision; inferred if omitted
+- name: artifact
+  type: path
+  required: true
+  description: the project root, repo, manuscript, or directory under review
+- name: decision
+  type: text
+  required: false
+  description: the decision the review informs (ship, merge, fund, publish)
+- name: success_criteria
+  type: list[str]
+  required: false
+  description: what "good enough" means for this decision; inferred if omitted
 outputs:
-  - name: report
-    type: markdown
-    description: BLUF report with map, findings, strengths, and recommendation
-  - name: findings
-    type: table
-    description: each finding with severity, confidence, and evidence (file:line)
-  - name: recommendation
-    type: markdown
-    description: calibrated go/no-go plus the top three things to fix first
+- name: report
+  type: markdown
+  description: BLUF report with map, findings, strengths, and recommendation
+- name: findings
+  type: table
+  description: each finding with severity, confidence, and evidence (file:line)
+- name: recommendation
+  type: markdown
+  description: calibrated go/no-go plus the top three things to fix first
 workflow: workflow.md
 harness:
   claude: harness/claude.md
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-  - "Heuer & Pherson (2014). Structured Analytic Techniques — challenge analysis & structured self-critique."
-  - "Google SRE (2017). Site Reliability Engineering — testing reliability & 'is the test actually testing?'."
+- Heuer & Pherson (2014). Structured Analytic Techniques — challenge analysis & structured
+  self-critique.
+- Google SRE (2017). Site Reliability Engineering — testing reliability & 'is the
+  test actually testing?'.
+defensive_boundary: 'Use Project Critical Review only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Project Critical Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Project Critical Review, tie each report, findings, and recommendation claim
+  to concrete evidence from the specific artifact, decision, and success criteria
+  item, source excerpt, observation, or command result that supports it.
+- For Project Critical Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the report.
+- Before recommending any Project Critical Review action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Project Critical Review: the report is supported by multiple independent
+  artifact excerpts, test output, citations, assumptions, and reproducibility records;
+  scope the review and map the project checks agree, and no unresolved contradiction
+  would change the result.'
+- 'Medium for Project Critical Review: the report is plausible, but one important
+  artifact source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Project Critical Review: the report rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Project Critical Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Project Critical Review, use only authorized artifact, decision, and success
+  criteria, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Project Critical Review, minimize person-level detail in the report; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Project Critical Review, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Project Critical Review: treating artifact as complete when scope the review and
+  map the project checks or contradictory evidence are missing.'
+- 'Project Critical Review: producing advice that would help a requester launder weak
+  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Project Critical Review: reporting the report without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Project Critical Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the report from Project Critical Review into an operational playbook
+  to launder weak claims, fabricate review findings, or produce exploit guidance without
+  mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Project Critical Review to review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures with artifact,
+  decision, and success criteria'' -> produce bounded findings with evidence and uncertainty
+  labels.'

@@ -1,0 +1,160 @@
+id: sat.starbursting
+description: Starbursting is a structured brainstorming technique that generates questions—organized
+  by the six interrogatives Who, What, When, Where, Why, and How—before attempting
+  to answer them. By systematically exhausting the question space first, it prevents
+  analysts from leaping to premature conclusions, surfaces unknown unknowns, and identifies
+  which gaps in knowledge are most consequential. In cognitive-security settings it
+  is particularly useful for mapping the full attack surface of an influence operation
+  or information environment before committing analytical resources.
+tags:
+- cognitive-security
+- sat
+- question-generation
+triggers:
+- what questions should we be asking
+- starbursting
+- map the unknowns
+- generate questions before answers
+- who what when where why how
+tools:
+- verb: read
+  purpose: ingest the topic, problem statement, or artifact that will be questioned
+- verb: reason
+  purpose: systematically generate questions across all six interrogative categories
+    and prioritize by analytic importance
+- verb: write
+  purpose: produce the question map organized by interrogative and ranked by priority
+inputs:
+- name: topic_or_artifact
+  type: text
+  required: true
+  description: the subject, plan, event, actor, narrative, or artifact to be questioned
+- name: context
+  type: text
+  required: false
+  description: background information, prior analysis, or constraints that shape which
+    questions are most pressing
+outputs:
+- name: question_map
+  type: table
+  description: questions organized by interrogative (Who/What/When/Where/Why/How),
+    with a priority rating and notes on what answering each question would reveal
+- name: key_unknowns_summary
+  type: markdown
+  description: the highest-priority unanswered questions and their analytic significance
+references:
+- Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press. Chapter 4.
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press.
+when_to_use:
+- a new topic, actor, or operation is being scoped and analysts may not yet know what
+  they do not know
+- premature closure on an answer is suspected and rigorous question generation is
+  needed to reopen the problem
+- planning collection requirements or research tasks where an exhaustive question
+  list drives prioritization
+- evaluating an influence narrative to identify which aspects have not been interrogated
+what_it_produces:
+- a comprehensive question map across all six interrogatives, making unknown unknowns
+  explicit
+- a prioritized list of the most consequential unanswered questions
+- a basis for collection requirements, research tasks, or further structured analysis
+key_discipline:
+- generate questions before seeking any answers — answering prematurely closes down
+  question generation
+- each interrogative (Who/What/When/Where/Why/How) must produce multiple questions,
+  not just one
+- questions about absence are as important as questions about presence (e.g., 'Why
+  is X NOT mentioned?')
+workflow_steps:
+- verbs:
+  - read
+  title: Frame the topic
+  text: 'Read the topic statement or artifact. Define the boundaries: what is the
+    subject being questioned, and what time frame, actor set, or information environment
+    is in scope?'
+- verbs:
+  - reason
+  title: Generate questions per interrogative
+  text: Working through each interrogative in turn—Who, What, When, Where, Why, How—generate
+    at least three to five questions per category. Include questions about absences,
+    counterfactuals, and adversary intent. Do not attempt to answer any question at
+    this stage.
+- verbs:
+  - reason
+  title: Rate and prioritize
+  text: 'For each question, estimate its analytic priority: how much would the answer
+    change the assessment? Classify as High / Medium / Low. Flag questions that are
+    currently unanswerable (collection gap) versus those answerable from existing
+    sources.'
+- verbs:
+  - write
+  title: Produce the question map and key unknowns summary
+  text: Emit the full question table organized by interrogative with priority ratings.
+    Write the key-unknowns summary highlighting the highest-priority unanswered questions
+    and what analytic collection actions they imply.
+anti_criteria:
+- do not answer questions during the generation phase — answering during generation
+  anchors and prunes the question space
+- do not treat a sparse interrogative category (e.g., only one 'Why' question) as
+  complete — push for multiple questions per category
+- do not discard awkward or uncomfortable questions; the most uncomfortable are often
+  the most analytically important
+defensive_boundary: 'Use Starbursting only for structured analytic technique support:
+  recognize, assess, document, or defend analytic rigor, alternative hypotheses, and
+  calibrated judgment. Do not use this skill to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Starbursting to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Starbursting, tie each question map, and key unknowns summary claim to concrete
+  evidence from the specific topic or artifact, and context item, source excerpt,
+  observation, or command result that supports it.
+- For Starbursting, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the question map.
+- Before recommending any Starbursting action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Starbursting: the question map is supported by multiple independent hypotheses,
+  assumptions, indicators, evidence tables, and confidence notes; frame the topic
+  and generate questions per interrogative checks agree, and no unresolved contradiction
+  would change the result.'
+- 'Medium for Starbursting: the question map is plausible, but one important topic
+  or artifact source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Starbursting: the question map rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Starbursting cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Starbursting, use only authorized topic or artifact, and context, public or
+  source-approved records, and caller-provided context needed for the defensive task.
+- For Starbursting, minimize person-level detail in the question map; prefer aggregate,
+  artifact-level, role-level, or case-level summaries unless an individual is essential
+  to the defensive question.
+- For Starbursting, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Starbursting: treating topic or artifact as complete when frame the topic and generate
+  questions per interrogative checks or contradictory evidence are missing.'
+- 'Starbursting: producing advice that would help a requester force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Starbursting: reporting the question map without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Starbursting outputs to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the question map from Starbursting into an operational playbook
+  to force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Starbursting to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with topic or artifact, and
+  context'' -> produce bounded findings with evidence and uncertainty labels.'

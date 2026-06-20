@@ -1,3 +1,7 @@
 # References {#sec:references}
 
-Bibliography lives in [`manuscript/references.bib`](references.bib) and is read by Pandoc during PDF render. Add real BibTeX entries before adding citation markers to the manuscript.
+The bibliography is rendered from `manuscript/references.bib`. Citation keys in
+the manuscript are checked against that file by the local test suite.
+
+::: {#refs}
+:::

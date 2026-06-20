@@ -67,3 +67,69 @@ references:
   & characterizing automated activity on Twitter. SBP-BRiMS.'
 - 'Nimmo, B. (2017). Anatomy of an Info-War: How Russia''s Propaganda Machine Works.
   StopFake.'
+defensive_boundary: 'Use Bot & Automation Detection only for information-environment
+  monitoring and platform-risk defense: recognize, assess, document, or defend platform
+  integrity, narrative context, and authentic community behavior. Do not use this
+  skill to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+misuse_redirect: 'If a request asks Bot & Automation Detection to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement, refuse that
+  path and redirect to the safe defensive form: map supplied narratives, automation
+  signals, or platform affordance risks for defensive review.'
+evidence_requirements:
+- For Bot & Automation Detection, tie each account classifications, and detection
+  report claim to concrete evidence from the specific account data, and context item,
+  source excerpt, observation, or command result that supports it.
+- For Bot & Automation Detection, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the account
+  classifications.
+- Before recommending any Bot & Automation Detection action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Bot & Automation Detection: the account classifications is supported by
+  multiple independent platform observations, narrative movement, automation signals,
+  and provenance data; ingest and profile accounts and cross-reference known indicators
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Bot & Automation Detection: the account classifications is plausible,
+  but one important account data source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Bot & Automation Detection: the account classifications rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Bot & Automation Detection cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating information_environment evidence to collect when
+  confidence is low or medium.
+privacy_legal_constraints:
+- For Bot & Automation Detection, use only authorized account data, and context, public
+  or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Bot & Automation Detection, minimize person-level detail in the account classifications;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Bot & Automation Detection, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Bot & Automation Detection: treating account data as complete when ingest and profile
+  accounts and cross-reference known indicators checks or contradictory evidence are
+  missing.'
+- 'Bot & Automation Detection: producing advice that would help a requester amplify
+  coordinated behavior, tune platform manipulation, or design inauthentic engagement.'
+- 'Bot & Automation Detection: reporting the account classifications without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Bot & Automation Detection outputs to amplify coordinated behavior,
+  tune platform manipulation, or design inauthentic engagement'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the account classifications from Bot & Automation Detection into
+  an operational playbook to amplify coordinated behavior, tune platform manipulation,
+  or design inauthentic engagement'' -> refuse and offer governance, detection, or
+  mitigation analysis.'
+- 'Safe defensive: ''Use Bot & Automation Detection to map supplied narratives, automation
+  signals, or platform affordance risks for defensive review with account data, and
+  context'' -> produce bounded findings with evidence and uncertainty labels.'

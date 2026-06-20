@@ -1,0 +1,177 @@
+id: sat.nominal_group_technique
+description: Nominal Group Technique (NGT) is a structured ideation and prioritization
+  method in which participants independently generate ideas in writing before any
+  group discussion, then share, clarify, and vote on items in a controlled sequence.
+  By separating divergent from convergent phases and enforcing silent individual work
+  first, NGT neutralizes vocal-dominance bias, anchoring, and groupthink that corrupt
+  unstructured brainstorming. In cognitive-security contexts it is used to surface
+  the full range of hypotheses or threat indicators a team holds without social-pressure
+  distortion.
+tags:
+- cognitive-security
+- sat
+- group-process
+triggers:
+- nominal group technique
+- NGT
+- silent idea generation before discussion
+- prevent groupthink in brainstorm
+- controlled voting on ideas
+tools:
+- verb: read
+  purpose: ingest the focal question, group roster, and any prior analytic context
+- verb: reason
+  purpose: generate independent idea sets, perform round-robin consolidation, and
+    execute the weighted-voting tally
+- verb: write
+  purpose: 'emit the structured NGT record: question, idea list, vote tallies, and
+    ranked output'
+inputs:
+- name: focal_question
+  type: text
+  required: true
+  description: The precisely worded analytic question posed to the group (e.g., 'What
+    are the most plausible indicators that Actor X will escalate?')
+- name: participant_idea_sets
+  type: list
+  required: true
+  description: Independently authored idea lists from each participant, submitted
+    before any discussion
+- name: prior_context
+  type: text
+  required: false
+  description: Background intelligence, prior assessments, or framing documents provided
+    to all participants equally before silent generation
+outputs:
+- name: ngt_record
+  type: markdown
+  description: 'Full NGT session record: focal question, consolidated idea list with
+    author tags removed, clarification notes, weighted vote tallies, and final ranked
+    list of ideas'
+references:
+- 'Delbecq, A. L., Van de Ven, A. H., & Gustafson, D. H. (1975). Group Techniques
+  for Program Planning: A Guide to Nominal Group and Delphi Processes. Scott, Foresman.'
+- Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Idea Generation techniques.
+when_to_use:
+- a team needs to surface all plausible hypotheses or threat indicators without vocal-dominance
+  or anchoring effects
+- prior unstructured sessions have been dominated by a senior analyst or first-speaker
+- the group includes participants with status differences that suppress dissent
+- you need a defensible, auditable record of how a prioritized list was constructed
+what_it_produces:
+- a ranked list of ideas or hypotheses weighted by collective, independently cast
+  votes
+- a transparent audit trail separating individual input from group aggregation
+- a baseline for subsequent structured techniques (ACH, what-if, premortem)
+key_discipline:
+- no discussion is allowed during the silent generation phase — verbal cues before
+  votes anchor everyone to the first speaker
+- ideas are listed and numbered without authorship attribution before voting begins
+- each participant votes independently on a fixed budget of points; tally only after
+  all votes are cast
+workflow_steps:
+- verbs:
+  - read
+  title: Frame and distribute the focal question
+  text: Read the focal question and any shared background context. Confirm the question
+    is precisely worded and answerable by the group. Distribute identically to all
+    participants — no verbal preamble that could prime responses.
+- verbs:
+  - reason
+  - write
+  title: Silent independent generation
+  text: Each participant independently writes their ideas, hypotheses, or indicators
+    in response to the focal question without consulting others. Set a fixed time
+    limit (typically 5–10 minutes). Collect all lists before any discussion begins.
+- verbs:
+  - reason
+  - write
+  title: Round-robin listing and clarification
+  text: Record all ideas in round-robin order — one idea per participant per round
+    — onto a shared list, numbered but anonymized. Participants may ask clarifying
+    questions about meaning but may not debate or evaluate during this phase.
+- verbs:
+  - reason
+  - write
+  title: Weighted voting and tally
+  text: Each participant independently allocates a fixed vote budget (e.g., 10 points)
+    across the consolidated list. Collect all ballots before revealing any individual
+    votes. Tally and rank. Document the final ranked list with vote totals.
+- verbs:
+  - reason
+  - write
+  title: Discussion and analytic output
+  text: Discuss divergences between the vote distribution and intuitive expectations.
+    Flag items that received no votes but were raised by multiple participants. Produce
+    the NGT record as input to subsequent structured analysis.
+anti_criteria:
+- do not allow discussion or questioning during the silent generation phase — any
+  verbal cue contaminates independent ideation
+- do not attribute ideas to individual authors when posting the consolidated list
+- do not reveal running vote totals until all ballots are collected — live tallies
+  anchor later voters
+defensive_boundary: 'Use Nominal Group Technique only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Nominal Group Technique to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Nominal Group Technique, tie each ngt record claim to concrete evidence from
+  the specific focal question, participant idea sets, and prior context item, source
+  excerpt, observation, or command result that supports it.
+- For Nominal Group Technique, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the ngt
+  record.
+- Before recommending any Nominal Group Technique action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Nominal Group Technique: the ngt record is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame
+  and distribute the focal question and silent independent generation checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Nominal Group Technique: the ngt record is plausible, but one important
+  focal question source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Nominal Group Technique: the ngt record rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Nominal Group Technique cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Nominal Group Technique, use only authorized focal question, participant idea
+  sets, and prior context, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Nominal Group Technique, minimize person-level detail in the ngt record; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Nominal Group Technique, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Nominal Group Technique: treating focal question as complete when frame and distribute
+  the focal question and silent independent generation checks or contradictory evidence
+  are missing.'
+- 'Nominal Group Technique: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Nominal Group Technique: reporting the ngt record without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Nominal Group Technique outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the ngt record from Nominal Group Technique into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Nominal Group Technique to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with focal question,
+  participant idea sets, and prior context'' -> produce bounded findings with evidence
+  and uncertainty labels.'

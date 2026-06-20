@@ -1,29 +1,17 @@
 # Claude Code adapter — Key Assumptions Check
 
-Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Invoke this
-skill by following `../workflow.md`; use the mappings below for each step.
+Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
-| Neutral verb | Claude Code tool(s) | Notes |
-|--------------|---------------------|-------|
-| `read`   | `Read`, `Grep`      | Read the supplied judgment, analytic line, and cited evidence. |
-| `reason` | model reasoning (extended thinking) | Surface unstated assumptions, run the three-question interrogation, classify, and apply the collapse test. |
-| `write`  | `Write`, message output | Emit the assumptions table + key-assumption flags + revised judgment. |
-
-`WebSearch`/`Agent` (Explore) are optional aids while reasoning about contrary
-conditions, but the core procedure needs only read/reason/write.
+| Neutral verb | Claude Code tool | Notes |
+| --- | --- | --- |
+| `read` | `Read` / `Grep` | Read supplied material and locate local evidence. |
+| `reason` | private model reasoning | Apply the technique; expose concise rationale. |
+| `write` | `Write` / final response | Emit the structured product. |
 
 ## Invocation
 
-This is authored as a Claude Code skill: `SKILL.md` frontmatter (`name`,
-`description`) is the activation surface. When the user's request matches a
-trigger in `skill.yaml`, run the six-step workflow, rendering the assumptions
-inventory as a GitHub-flavored Markdown table.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Key Assumptions Check only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Key Assumptions Check to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
 
 ## Output contract
-- A Markdown assumptions table: one row per assumption with columns
-  *assumption · stated/unstated · rationale · contrary conditions · confidence
-  class · load-bearing?*.
-- A `Key assumptions` section, each with its collapse analysis and the
-  collection that would test it.
-- A `Revised judgment` block stating the conclusion together with the
-  assumptions it depends on.
+
+Return the `skill.yaml` outputs (assumptions_table, key_assumptions, revised_judgment) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

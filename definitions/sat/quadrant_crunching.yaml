@@ -1,0 +1,184 @@
+id: sat.quadrant_crunching
+description: Quadrant Crunching (Pherson & Heuer) systematically permutes two or more
+  key uncertain assumptions into a matrix of alternative outcome cells, forcing analysts
+  to confront possibilities they would otherwise ignore. Each cell of the matrix represents
+  a distinct scenario whose internal logic must be examined for coherence and plausibility.
+  The technique counteracts tunnel vision by making the full combinatorial space of
+  assumption combinations explicit and visible rather than allowing the dominant mental
+  model to crowd out alternatives.
+tags:
+- cognitive-security
+- sat
+- alternative-analysis
+triggers:
+- quadrant crunching
+- permute assumptions
+- scenario matrix
+- map all combinations
+- 2x2 scenario analysis
+tools:
+- verb: read
+  purpose: ingest the problem statement, the current dominant assessment, and any
+    stated key assumptions
+- verb: reason
+  purpose: identify the two or more most consequential uncertain variables, assign
+    binary or ternary poles, generate and evaluate each matrix cell for internal coherence
+    and plausibility
+- verb: write
+  purpose: produce the labeled matrix, per-cell scenario narratives, plausibility
+    ratings, and analytic implications
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: the analytic question or judgment under review
+- name: dominant_assessment
+  type: text
+  required: false
+  description: the current leading hypothesis or baseline forecast, if one exists
+- name: candidate_assumptions
+  type: list
+  required: false
+  description: a seed list of key assumptions identified by prior analysis; the technique
+    will refine and select among them
+outputs:
+- name: scenario_matrix
+  type: table
+  description: rows and columns labeled by assumption poles, each cell containing
+    a scenario label and brief narrative
+- name: scenario_narratives
+  type: markdown
+  description: 'per-cell elaborations: internal logic, plausibility rating (High /
+    Medium / Low / Incoherent), key indicators, and implications for the analytic
+    question'
+- name: neglected_cells
+  type: markdown
+  description: explicit identification of matrix cells the dominant assessment ignores
+    or rates as impossible, with reasoning
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Quadrant Crunching.
+- Pherson, K. H. & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press.
+when_to_use:
+- the problem space is defined by two or more key variables whose outcomes are genuinely
+  uncertain
+- the dominant analytic line appears to occupy only one cell of a larger possibility
+  space
+- you need to surface scenarios that are plausible but currently ignored
+- a decision maker needs to prepare contingency plans across multiple futures
+what_it_produces:
+- a visual matrix enumerating all combinations of assumption poles as distinct labeled
+  scenarios
+- per-cell plausibility ratings and the reasoning behind each rating
+- identification of which cells the current assessment neglects and why that neglect
+  may be unwarranted
+- early indicators that would signal movement toward each cell
+key_discipline:
+- choose axes by maximum consequence and maximum uncertainty — not by what is easy
+  to enumerate
+- every cell must be examined on its own internal logic before assigning plausibility;
+  dismiss only incoherent cells, never merely uncomfortable ones
+- the dominant assessment occupies exactly one cell; all other inhabited cells are
+  alternatives deserving serious attention
+- plausibility ratings must be evidence-anchored, not confidence-anchored — high analyst
+  confidence in the base case is not evidence against alternatives
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Select axes
+  text: Read the problem statement and dominant assessment. Identify the two assumptions
+    (or variables) that are simultaneously most consequential for the outcome and
+    most uncertain. Assign each a binary pair of poles (e.g., Actor X is capable /
+    Actor X is not capable; Environment is permissive / Environment is restrictive).
+    Document why these axes were chosen over alternatives.
+- verbs:
+  - reason
+  title: Populate the matrix
+  text: Construct an N×M table. For each cell, write a short scenario title and a
+    one- to two-sentence narrative describing the world in which both axis poles co-occur.
+    If a cell is internally incoherent (i.e., the two poles cannot logically co-exist),
+    label it Incoherent and explain why. Resist the urge to pre-filter cells as 'impossible'
+    without explicit reasoning.
+- verbs:
+  - reason
+  - write
+  title: Rate plausibility and identify indicators
+  text: For each coherent cell assign a plausibility rating (High / Medium / Low)
+    with a brief evidence citation. Identify one to three observable indicators that
+    would confirm each scenario is unfolding. Note which cell(s) the current dominant
+    assessment inhabits, and flag any Medium or High plausibility alternatives it
+    ignores. Emit the matrix, narratives, and a summary of implications for the analytic
+    question.
+anti_criteria:
+- do not allow the current dominant assessment to pre-filter cells as impossible without
+  explicit incoherence reasoning
+- do not reduce axes to variables that are actually correlated — each axis must represent
+  an independent uncertain dimension
+- do not collapse all Low-plausibility cells into a single residual 'other' bucket;
+  each must appear explicitly
+- do not let the axis selection be driven by ease of enumeration rather than consequence
+  and uncertainty
+defensive_boundary: 'Use Quadrant Crunching only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Quadrant Crunching to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Quadrant Crunching, tie each scenario matrix, scenario narratives, and neglected
+  cells claim to concrete evidence from the specific problem statement, dominant assessment,
+  and candidate assumptions item, source excerpt, observation, or command result that
+  supports it.
+- For Quadrant Crunching, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the scenario matrix.
+- Before recommending any Quadrant Crunching action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Quadrant Crunching: the scenario matrix is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; select
+  axes and populate the matrix checks agree, and no unresolved contradiction would
+  change the result.'
+- 'Medium for Quadrant Crunching: the scenario matrix is plausible, but one important
+  problem statement source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Quadrant Crunching: the scenario matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Quadrant Crunching cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Quadrant Crunching, use only authorized problem statement, dominant assessment,
+  and candidate assumptions, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Quadrant Crunching, minimize person-level detail in the scenario matrix; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Quadrant Crunching, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Quadrant Crunching: treating problem statement as complete when select axes and
+  populate the matrix checks or contradictory evidence are missing.'
+- 'Quadrant Crunching: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Quadrant Crunching: reporting the scenario matrix without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Quadrant Crunching outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the scenario matrix from Quadrant Crunching into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Quadrant Crunching to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with problem statement, dominant
+  assessment, and candidate assumptions'' -> produce bounded findings with evidence
+  and uncertainty labels.'

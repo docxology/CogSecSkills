@@ -1,81 +1,65 @@
 # Workflow — Claim Provenance Verification
 
-Trace a public claim to its primary source, corroborate it independently, and
-issue a graded verdict. Work the steps in order. Each step is tagged with the
-neutral tool verb(s) it uses; consult the harness adapter for your runtime to
-map each verb to a concrete tool.
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
-1. **State the claim atomically.** `[read] [reason]` Strip editorializing,
-   loaded adjectives, and framing. Reduce the claim to a single precise,
-   falsifiable proposition with explicit scope (who, what, when, where, how
-   much). Record both the claim as encountered and the atomic restatement — the
-   gap between them is itself evidence.
+## Step 1 — State the claim atomically (read, reason)
+Strip framing and reduce the claim to one precise, falsifiable proposition with explicit scope. Preserve both the encountered wording and the atomic restatement.
 
-2. **Anchor the point of encounter.** `[read]` Note exactly where the requester
-   met the claim (URL, outlet, date) and what that source cites, if anything.
-   This is the bottom of the chain, not the top.
+## Step 2 — Anchor the point of encounter (read)
+Record where the requester encountered the claim, including URL, outlet, date, author, and what that source cites.
 
-3. **Trace citations upstream to the origin.** `[search] [web]` Follow each
-   "according to / as reported by / per a study" reference one hop at a time
-   toward earlier instances. Continue until you reach a **primary source** (the
-   original document, dataset, statement, or eyewitness) or a **dead end**
-   (a source that cites nothing further, or the chain loops). Record every hop.
+## Step 3 — Trace citations upstream to the origin (search, web)
+Follow each citation hop toward the earliest reachable primary source or a documented dead end, recording every hop in the chain.
 
-4. **Detect circular reporting.** `[reason]` Collapse the traced chain to its
-   distinct origins. If many outlets ultimately cite one another and converge on
-   a single unverified point, that is circular reporting — flag it explicitly.
-   Repetition count is not evidence; one origin repeated N times is one source.
+## Step 4 — Detect circular reporting (reason)
+Collapse the chain to distinct origins and flag cases where many reports repeat one unverified source rather than independently corroborating it.
 
-5. **Assess the primary source directly.** `[web] [read] [reason]` Open the
-   origin and check: does it actually state the claim? Is the scope the same, or
-   has the claim widened in retelling? Were caveats, error bars, sample limits,
-   or conditional language dropped on the way down the chain? Note every
-   divergence.
+## Step 5 — Assess the primary source directly (web, read, reason)
+Inspect the origin for scope match, caveats, error bars, sample limits, or conditional language that may have been lost in retelling.
 
-6. **Seek independent corroboration.** `[search] [web] [reason]` Look for
-   sources that do **not** derive from the same origin — a separate primary
-   document, a separate measurement, a separate eyewitness. Two outlets sharing
-   one wire story or one press release are not independent. Count only distinct,
-   non-derivative origins.
+## Step 6 — Seek independent corroboration (search, web, reason)
+Look for non-derivative sources such as a separate primary document, measurement, or witness. Do not count shared wire copy or press releases twice.
 
-7. **Record the provenance chain.** `[write]` Write the ordered chain from
-   point-of-encounter back to origin with links and timestamps, plus a
-   chain-of-custody note describing how each link cites the next and where the
-   chain branches or loops.
+## Step 7 — Record the provenance chain (write)
+Write the ordered chain from point of encounter back to origin, including links, timestamps, and chain-of-custody notes.
 
-8. **Issue the verdict.** `[reason] [write]` Grade the claim on the scale below,
-   state a confidence level, and name the **single weakest link** — the one hop
-   or gap most responsible for any remaining uncertainty.
+## Step 8 — Issue the verdict (reason, write)
+Grade the claim, state confidence, and name the single weakest link most responsible for remaining uncertainty.
 
-## Verdict scale
+## Evidence requirements
+- For Claim Provenance Verification, tie each provenance chain, and verdict claim to concrete evidence from the specific claim, and starting sources item, source excerpt, observation, or command result that supports it.
+- For Claim Provenance Verification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the provenance chain.
+- Before recommending any Claim Provenance Verification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
-- **verified** — claim traces to a sound primary source at matching scope, with
-  at least one genuinely independent corroboration.
-- **partially verified** — primary source supports a narrower or qualified
-  version of the claim; scope or caveat drift is present and flagged.
-- **unverified** — no reachable primary source and/or no independent
-  corroboration; the claim rests on repetition or circular reporting.
-- **false** — the primary source contradicts the claim, or the claim
-  misrepresents what the source says.
-- **unverifiable** — the chain dead-ends at an inaccessible, anonymous, or
-  destroyed origin that cannot in principle be checked.
+## Confidence and uncertainty
+- High for Claim Provenance Verification: the provenance chain is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; state the claim atomically and anchor the point of encounter checks agree, and no unresolved contradiction would change the result.
+- Medium for Claim Provenance Verification: the provenance chain is plausible, but one important claim source, comparison case, or alternative explanation remains incomplete.
+- Low for Claim Provenance Verification: the provenance chain rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Claim Provenance Verification cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Claim Provenance Verification, use only authorized claim, and starting sources, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Claim Provenance Verification, minimize person-level detail in the provenance chain; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Claim Provenance Verification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Claim Provenance Verification: treating claim as complete when state the claim atomically and anchor the point of encounter checks or contradictory evidence are missing.
+- Claim Provenance Verification: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Claim Provenance Verification: reporting the provenance chain without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Claim Provenance Verification outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the provenance chain from Claim Provenance Verification into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Claim Provenance Verification to verify supplied claims, media, sources, or datasets with documented public-source methods with claim, and starting sources' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-
 - **Do not treat volume of repetition as corroboration.** N outlets citing one
-  origin is one source, never N.
 - **Do not stop at a secondary source that merely cites another secondary.**
-  Keep tracing until a primary source or a genuine dead end.
 - **Do not collapse scope silently.** If the claim drifted from the primary
-  source's scope, flag it; never report a widened claim as verified.
 - **Do not count derivative sources as independent.** Shared wire copy, shared
-  press release, or shared origin is one source.
 - **Do not issue a verdict without naming the single weakest link.**
 
 ## AGEINT upstream
-
-Upstream domain doctrine for this skill lives under
-`docs/ageint/osint-integrity/` (topic: `osint-integrity`) — provenance, source,
-date, and location verification practice in the First Draft / Bellingcat
-tradition. Defer to that doctrine where this workflow and the AGEINT topic
-disagree, and feed verification findings back upstream.
+`docs/ageint/osint-integrity.md`

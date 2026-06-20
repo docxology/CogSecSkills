@@ -1,68 +1,70 @@
 ---
 name: critical_review.project_critical_review
-description: >-
-  Adversarial-then-constructive critical review of a project — codebase,
-  research project, or initiative. Audits load-bearing claims against evidence,
-  inventories risks and gaps, surfaces silent assumptions, verifies that the
-  project's own gates have teeth, and delivers a calibrated go/no-go
-  recommendation. Use before you ship, merge, fund, or publish — when being
-  wrong is expensive and "it looks good" is not enough.
+description: Adversarial-then-constructive review of a project: claims, evidence, risks, gaps, and go/no-go.
 ---
 
 # Project Critical Review
 
-This is the flagship critical-review skill. It takes a project and asks the only
-question that matters before a high-stakes decision: **do the claims survive
-contact with the evidence?** The review is deliberately two-faced. First it
-attacks — for every load-bearing claim it hunts the strongest reason the claim
-could be wrong, the evidence that is missing, and the failure modes that stay
-silent. Then it builds — it names what is genuinely strong and the cheapest fix
-for each top risk. The constructive pass never softens a real critical finding;
-it only tells you what to do about it.
+The flagship critical-review skill. It reviews a project — codebase, research project, or initiative — by first MAPPING what the project claims and how it is built, then running an ADVERSARIAL pass that attacks every load-bearing claim for missing evidence, silent-failure and dual-use risk, and unstated assumptions, followed by a CONSTRUCTIVE pass that names genuine strengths and the cheapest fix for each top risk. Findings are classified by severity and confidence, every finding is bound to evidence (file:line or command output), and the project's own tests and gates are run to confirm they actually have teeth before any "all passing" claim is trusted. The product is a BLUF report with a calibrated go/no-go recommendation and the top three things to fix first.
 
 ## When to use
 
 - A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong
-  call is costly or hard to reverse.
 - A project reports "all tests passing / everything works" and you need to know
-  whether that claim has teeth.
 - You inherited a codebase, manuscript, or initiative and must form an honest
-  view of its risks and gaps fast.
-
-**Not for** vague reassurance or a pat on the back, and not for line-by-line
-code style review (that is a linter's job). This skill adjudicates whether the
-project is *defensible*, not whether it is *tidy*.
 
 ## What it produces
 
-1. A **project map** — purpose, load-bearing claims, architecture, deliverables.
-2. An **adversarial findings table** — each risk/gap with severity, confidence,
-   and **evidence bound to file:line or command output**.
-3. A **strengths inventory** — what is genuinely solid and should be preserved.
-4. A **verify-the-verifier result** — did the project's own gates actually catch
-   an injected defect, or do they stay green regardless?
-5. A **BLUF report** with a calibrated **go / no-go / go-with-conditions**
-   recommendation and the **top three things to fix first**.
+- BLUF report with map, findings, strengths, and recommendation
+- each finding with severity, confidence, and evidence (file:line)
+- calibrated go/no-go plus the top three things to fix first
+
+## Defensive boundary
+
+Use Project Critical Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+
+## Misuse redirect
+
+If a request asks Project Critical Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
+
+## Evidence discipline
+
+- For Project Critical Review, tie each report, findings, and recommendation claim to concrete evidence from the specific artifact, decision, and success criteria item, source excerpt, observation, or command result that supports it.
+- For Project Critical Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the report.
+- Before recommending any Project Critical Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Project Critical Review: the report is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; scope the review and map the project checks agree, and no unresolved contradiction would change the result.
+- Medium for Project Critical Review: the report is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
+- Low for Project Critical Review: the report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Project Critical Review cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Project Critical Review, use only authorized artifact, decision, and success criteria, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Project Critical Review, minimize person-level detail in the report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Project Critical Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Project Critical Review: treating artifact as complete when scope the review and map the project checks or contradictory evidence are missing.
+- Project Critical Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Project Critical Review: reporting the report without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Project Critical Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the report from Project Critical Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Project Critical Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, decision, and success criteria' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Procedure
 
-Run the seven-step loop in [`workflow.md`](workflow.md): scope → map →
-adversarial pass → constructive pass → classify → verify-the-verifier →
-deliver. The harness-specific tool bindings are in [`harness/`](harness/).
+See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
 - **Bind every finding to evidence.** A claimed defect with no file:line or no
-  reproduced command output is a hypothesis, not a finding — label it as such or
-  go get the evidence. No evidence, no assertion.
 - **Verify-the-verifier.** A green test suite that stays green when you inject a
-  defect proves nothing. Run the project's gates; inject one realistic defect;
-  confirm a gate fails. An untested gate is a finding, not a safeguard.
 - **Calibrate severity and confidence separately.** Severity is "how bad if
-  true"; confidence is "how sure it is true." A high-severity / low-confidence
-  finding is a *re-verify now* item, not a blocker — say so explicitly.
 - **The constructive pass does not launder the critical pass.** Strengths are
-  listed alongside, never on top of, critical findings. A go/no-go that buries
-  a critical finding under praise is a failed review.
 - **Distrust self-report.** "All passing" is a claim about a process; reproduce
-  the process or downgrade the claim to unverified.

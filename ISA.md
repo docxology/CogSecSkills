@@ -3,10 +3,10 @@ project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
 phase: verify
-progress: 100/100 skills fully implemented + multiharness-conforming; runner coverage gate passing
+progress: 100/100 skills fully implemented + multiharness-conforming; runner coverage and manuscript asset gates passing
 mode: algorithm
 started: 2026-06-18
-updated: 2026-06-18
+updated: 2026-06-19
 ---
 
 # CogSecSkills — Ideal State Artifact
@@ -24,12 +24,13 @@ different agent harnesses (Claude Code, Codex, Hermes).
 ## Vision
 
 A library where each analytic technique is one declarative, harness-neutral
-skill: a single `skill.yaml` that an agent on *any* supported harness can load
-and execute identically, backed by an educational upstream (AGEINT) that explains
-*why*, a registry that enumerates the whole landscape, and a test suite that
-proves every skill is well-formed and multiharness. Euphoric surprise: "the same
+skill: a canonical YAML definition that renders into `skill.yaml`, `SKILL.md`,
+`workflow.md`, and one adapter per configured harness. The library is backed by
+an educational upstream (AGEINT) that explains *why*, a registry that enumerates
+the whole landscape, and a test suite that proves every skill is well-formed,
+multiharness, and defensively bounded. Euphoric surprise: "the same
 100-technique catalogue runs on Claude, Codex, or Hermes, and a test fails the
-moment a skill drifts."
+moment a definition, rendered skill, or adapter drifts."
 
 ## Out of Scope
 
@@ -37,9 +38,9 @@ moment a skill drifts."
   strictly defensive, educational, and accountable (inherited from AGEINT).
 - Live external API integrations for OSINT collection (skills declare the
   capability; wiring real connectors is downstream).
-- Turning the manuscript scaffold into a publication-ready paper in this pass.
-  The manuscript is a documentation surface for the skills system until its
-  claims, citations, figures, and render are separately verified.
+- Claiming the manuscript is an externally validated or publication-ready paper.
+  The manuscript is a documentation surface for the skills system; local render
+  readiness is not field validation.
 - Live external API integrations / real tool connectors for the OSINT and web
   skills (they declare the `web`/`search` capability; wiring real connectors is
   downstream).
@@ -72,8 +73,10 @@ Ship a CogSecSkills project that (1) enumerates 100 Cognitive-Security/SAT skill
 areas in a validated registry, (2) implements all 100 as full multiharness
 skills, (3) vendors AGEINT as the educational upstream under `docs/ageint/`, (4)
 exposes tested CLI affordances for routing, catalogue generation, reporting, and
-quality linting, and (5) proves — via a passing test suite — that every on-disk
-skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
+quality linting, (5) proves — via a passing test suite — that every on-disk
+skill loads, validates, and conforms to every configured harness, with Claude
+Code, Codex, and Hermes as the default harness set, and (6) generates
+synchronized manuscript supplements and figures from the live library metadata.
 
 ## Criteria
 
@@ -91,8 +94,9 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 - [x] ISC-12: Anti: no offensive/manipulation how-to content — skills are defensive and accountable.
 - [x] ISC-13: Cross-vendor (Forge) audit complete; all 7 findings fixed (strict spec typing, guarded groups parse, non-vacuous adapter-verb-binding, undefined-group + slug + id-prefix gates, O(n) discovery, replace-on-overwrite) with regression tests.
 - [x] ISC-14: All 100 catalogued areas materialized on disk as conforming multiharness skill folders, `validate` reports 0 errors over all 100.
-- [x] ISC-15: All 100 areas FULLY IMPLEMENTED (registry status_counts → implemented:100, stub:0, planned:0); the 92 non-exemplar skills authored in parallel as structured definitions and rendered deterministically via `cogsecskills author` (adapters bind every declared verb by construction).
-- [x] ISC-16: A deterministic authoring path (`author.py` + `author`/`author-batch` CLI) renders conforming skills from structured definitions; covered by regression tests incl. malformed-input handling.
+- [x] ISC-15: All 100 areas FULLY IMPLEMENTED (registry status_counts → implemented:100, stub:0, planned:0); all 100 skills have canonical YAML definitions rendered deterministically into the harness-facing skill tree.
+- [x] ISC-16: Deterministic authoring paths (`definitions --write|--check`, `author.py`, `author`, and compatibility `author-batch`) render conforming skills from structured definitions; covered by regression tests incl. malformed-input and drift handling.
+- [x] ISC-17: `manuscript-assets --write|--check` generates synchronized supplemental catalogue, metadata matrix, data exports, and figures from the live registry and skill specs.
 
 ## Test Strategy
 
@@ -103,6 +107,7 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 | ISC-6 | parametrized | `check_conformance` per skill | all harnesses ok | pytest |
 | ISC-7 | coverage | `--cov=src/cogsecskills` | ≥90% | pytest-cov |
 | ISC-8 | unit | scaffolded skill validates | ok | pytest |
+| ISC-17 | integration | generated manuscript assets match live library | no drift | CLI + pytest |
 
 ## Features
 
@@ -113,12 +118,13 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 | 100 implemented skills | ISC-3,4,10,14,15 | runner | yes (per skill) |
 | AGEINT upstream (index + 7 primers) | ISC-9,12 | — | yes (per primer) |
 | conformance + coverage test suite | ISC-5,6,7 | runner, skills | no |
+| manuscript asset generator | ISC-17 | registry, skills, runner | no |
 
 ## Decisions
 
-- 2026-06-18: Kept the inherited template numerical scaffold rather than ripping
-  it out — removing it risks the parent pipeline's project contract; documented as
-  out-of-scope vestigial. Revisit in a later session if the project is trimmed.
+- 2026-06-18: Initially kept the inherited template numerical payload to avoid
+  breaking the parent pipeline's project contract; this was superseded by the
+  later standalone cleanup below.
 - 2026-06-18: Built the reference seed skills via parallel agents against a strict file contract;
   one agent mis-nested its output under `src/` — relocated to `skills/` and verified.
 - 2026-06-18: `effort_source: classifier returned E3 (on a timeout fail-safe); executor
@@ -126,15 +132,41 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 - 2026-06-18: Promoted from an exemplar library to a complete catalogue: all 100
   areas are implemented on disk, validation/report are green, and CLI insight
   affordances (`route`, `stats`, `catalogue`, `doctor`) are tested.
-- 2026-06-18: Stripped the inherited optimization scaffold for a clean standalone
+- 2026-06-18: Stripped the inherited optimization payload for a clean standalone
   **published** repo (`github.com/docxology/CogSecSkills`, private, Apache-2.0).
   Reversed the earlier keep-the-scaffold decision once the project gained its own
   identity and home; the suite is now self-contained (no monorepo dependency).
 - 2026-06-18: Hardening pass — made harnesses + quality thresholds configurable
   (`cogsecskills.yaml`); added the `author` deterministic renderer and intelligent
   CLI affordances; added typing (`py.typed`, mypy clean), GitHub Actions CI
-  (ruff + mypy + pytest + validate + doctor on 3.10–3.12), and lifted coverage to
-  ~98%. Docs audited accurate by an independent agent.
+  (ruff + mypy + pytest + validate + doctor on 3.10–3.12), and lifted coverage
+  above the 90% gate. Docs audited accurate by an independent agent.
+- 2026-06-18: Expanded the manuscript into a reader-ready skills-system report
+  with narrow margins, generated S10/S11 supplements, data exports, and eight
+  deterministic figures from `src/cogsecskills/manuscript_assets.py`.
+- 2026-06-18: Review-hardening pass added verified manuscript citations,
+  portable reproducibility commands, a release/provenance manifest, formal
+  contract notation, Reference Density definition, and defensive-governance
+  review rules without widening the empirical claim boundary.
+- 2026-06-19: Deep skill-corpus hardening pass made the canonical definitions
+  group-aware for defensive boundaries, misuse redirects, evidence/inference
+  labeling, uncertainty handling, failure modes, and negative controls; doctor
+  and conformance tests now reject generic negative-control boilerplate and weak
+  skill-specific quality language.
+- 2026-06-19: RedTeam verifier hardening closed a false-certification gap by
+  rejecting repeated individual negative-control examples across the corpus, not
+  only reused full negative-control sets.
+- 2026-06-19: Corpus refinement pass extended that uniqueness pressure to
+  confidence rubrics, evidence requirements, and privacy/legal constraints, and
+  the generated S10 catalogue now exposes a quality capsule for every skill.
+- 2026-06-20: Evidence-ladder pass expanded scenario readiness to 28 curated
+  safe-use and unsafe-redirect fixtures, added one deterministic worked example
+  per skill plus `examples --write|--check`, and extended the dashboard with
+  scenario coverage, worked-example coverage, and local claim-boundary status.
+- 2026-06-19: TODO-completion hardening added reviewed expected-answer bodies
+  for every scenario, expanded safe/unsafe harness smoke fixtures for Codex,
+  Claude, Hermes, and a custom harness, and introduced `dashboard --write|--check`
+  as a generated 100-skill quality and scenario-coverage drift surface.
 
 ## Changelog
 
@@ -147,7 +179,13 @@ skill loads, validates, and conforms to Claude Code, Codex, and Hermes.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` → `325 passed`, `Total coverage: 97.07%`.
+- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `620 passed`, `Total coverage: 90.10%`.
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
-- ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; 92 skills authored via a 25-agent `/workflows` fan-out (1.05M tokens, 0 skipped) → `author-batch` rendered 92, 0 failed.
-- ISC-16: `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` (render conforms, adapters bind verbs, malformed-input reported, promote flips registry).
+- ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
+- ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
+- ISC-17: `python -m cogsecskills manuscript-assets --check` → `manuscript assets are current`.
+- Scenario readiness: `python -m cogsecskills scenarios --check` -> `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked`.
+- Worked examples: `python -m cogsecskills examples --check` -> `worked examples are current`.
+- Quality dashboard: `python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
+- Skill quality audit: `cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; pytest verifies skill-specific negative controls, safe defensive examples, evidence/inference labels, unknown/alternative handling, workflow specificity, no reused negative-control sets, no reused individual negative-control entries, and no reused confidence/evidence/privacy quality entries.
+- Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.

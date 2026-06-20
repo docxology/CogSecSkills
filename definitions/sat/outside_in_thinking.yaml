@@ -1,0 +1,189 @@
+id: sat.outside_in_thinking
+description: Outside-In Thinking is a structured analytic technique that deliberately
+  begins analysis at the broadest macro-environmental level — political, economic,
+  social, technological, legal, and environmental (PESTLE) forces — before narrowing
+  to the specific actors, events, or issues under study. The approach counteracts
+  inside-out bias, in which analysts anchor on the immediate case and underweight
+  structural drivers that constrain or enable all actors in a situation. In cognitive-security
+  and intelligence analysis it ensures that systemic pressures, narrative ecosystems,
+  and information-environment conditions are made explicit before tactical hypotheses
+  are formed.
+tags:
+- cognitive-security
+- sat
+- contextual-analysis
+triggers:
+- outside-in thinking
+- PESTLE analysis
+- start from macro forces
+- structural drivers of the issue
+- context before actors
+tools:
+- verb: read
+  purpose: ingest the focal issue, prior assessments, and any available environmental
+    scans
+- verb: reason
+  purpose: systematically populate macro-level PESTLE factors and trace their influence
+    paths to the focal issue
+- verb: write
+  purpose: 'produce the layered Outside-In analysis: macro context, mezzo constraints,
+    focal-level implications'
+inputs:
+- name: focal_issue
+  type: text
+  required: true
+  description: The specific actor behavior, event, or analytic question to be explained
+    or predicted
+- name: prior_assessments
+  type: text
+  required: false
+  description: Existing analytic products or intelligence reports on the topic, used
+    to identify assumptions that may reflect inside-out bias
+- name: environmental_scan
+  type: text
+  required: false
+  description: Background material covering relevant political, economic, social,
+    technological, legal, or environmental conditions
+outputs:
+- name: outside_in_analysis
+  type: markdown
+  description: 'Layered analysis: (1) PESTLE macro-forces inventory, (2) mezzo-level
+    organizational/institutional constraints, (3) actor/event-level focal analysis
+    with macro forces explicitly linked to hypotheses, (4) key assumptions exposed
+    by the outside-in frame'
+references:
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter: Outside-In Thinking.'
+- Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press.
+- Fahey, L., & Narayanan, V. K. (1986). Macroenvironmental Analysis for Strategic
+  Management. West Publishing.
+when_to_use:
+- an analysis appears to rely heavily on the recent behavior of a focal actor without
+  considering structural constraints
+- assessments repeatedly fail to anticipate externally driven discontinuities (sanctions,
+  technological shifts, social upheaval)
+- the cognitive-security task requires understanding why a narrative or influence
+  operation is gaining traction in a specific information environment
+- onboarding a new issue area where team familiarity is low and systemic factors are
+  poorly mapped
+what_it_produces:
+- an explicit map of macro forces bearing on the focal issue, ordered by relevance
+  and trajectory
+- exposure of assumptions about stability that the focal-level analysis implicitly
+  relies on
+- a structured frame that connects environmental drivers to actor options, constraints,
+  and likely behavior
+key_discipline:
+- populate the macro layer completely before writing a single sentence about the focal
+  actor — premature actor focus defeats the technique
+- trace at least one causal path from each relevant PESTLE factor to the focal issue;
+  factors with no causal path are not relevant
+- 'explicit assumption: identify at least one assumption the prior focal-level analysis
+  carries that the macro scan either confirms or challenges'
+workflow_steps:
+- verbs:
+  - read
+  title: Read and state the focal issue
+  text: Read the focal issue statement and any prior assessments. Record the dominant
+    hypotheses or conclusions already held. These will be revisited after the macro
+    scan to identify what outside forces they failed to account for.
+- verbs:
+  - reason
+  - write
+  title: Populate the PESTLE macro layer
+  text: 'Systematically work through Political, Economic, Social, Technological, Legal,
+    and Environmental dimensions. For each, ask: what forces are active, what is their
+    direction of change, and what is their velocity? Write a brief entry for each
+    that is non-trivial for the focal issue.'
+- verbs:
+  - reason
+  - write
+  title: Identify mezzo-level constraints
+  text: From the PESTLE inventory, derive the organizational, institutional, and network-level
+    constraints that macro forces impose on actors in the focal situation. These are
+    the transmission mechanisms between macro environment and focal-actor behavior.
+- verbs:
+  - reason
+  - write
+  title: Revisit focal-level analysis with macro frame
+  text: Return to the focal issue. For each dominant hypothesis, identify which macro
+    forces support, undermine, or constrain it. Revise or reweight hypotheses accordingly.
+    Note which macro factors are load-bearing for the conclusion and flag them as
+    key assumptions.
+- verbs:
+  - reason
+  - write
+  title: Document exposed assumptions and implications
+  text: List the assumptions the original inside-out framing carried that the outside-in
+    scan reveals. Assess each as confirmed, challenged, or uncertain. Produce the
+    final layered analysis with macro forces explicitly linked to focal-level implications.
+anti_criteria:
+- do not begin writing about the focal actor before the PESTLE macro layer is fully
+  populated — premature actor focus is the bias this technique is designed to break
+- do not list PESTLE factors that have no traceable causal path to the focal issue;
+  a superficial scan produces the appearance of rigor without the substance
+- do not treat the technique as complete unless at least one prior assumption from
+  inside-out analysis has been explicitly confirmed or challenged
+defensive_boundary: 'Use Outside-In Thinking only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Outside-In Thinking to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Outside-In Thinking, tie each outside in analysis claim to concrete evidence
+  from the specific focal issue, prior assessments, and environmental scan item, source
+  excerpt, observation, or command result that supports it.
+- For Outside-In Thinking, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the outside in analysis.
+- Before recommending any Outside-In Thinking action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Outside-In Thinking: the outside in analysis is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; read and state the focal issue and populate the pestle macro layer checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Outside-In Thinking: the outside in analysis is plausible, but one important
+  focal issue source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Outside-In Thinking: the outside in analysis rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Outside-In Thinking cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Outside-In Thinking, use only authorized focal issue, prior assessments, and
+  environmental scan, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Outside-In Thinking, minimize person-level detail in the outside in analysis;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Outside-In Thinking, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Outside-In Thinking: treating focal issue as complete when read and state the focal
+  issue and populate the pestle macro layer checks or contradictory evidence are missing.'
+- 'Outside-In Thinking: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Outside-In Thinking: reporting the outside in analysis without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Outside-In Thinking outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the outside in analysis from Outside-In Thinking into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Outside-In Thinking to apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty with focal issue,
+  prior assessments, and environmental scan'' -> produce bounded findings with evidence
+  and uncertainty labels.'

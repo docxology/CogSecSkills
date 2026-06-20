@@ -1,0 +1,198 @@
+id: cognitive_security.logical_fallacy_detection
+description: 'Logical fallacy detection systematically catalogues the formal and informal
+  fallacies present in an argument, persuasive message, or piece of content — distinguishing
+  valid reasoning from rhetorically effective but logically invalid moves. The technique
+  draws on classical logic (formal fallacies: affirming the consequent, denying the
+  antecedent) and the tradition of informal logic catalogued by Hamblin, Walton, and
+  others (ad hominem, appeal to authority, straw man, false dilemma, slippery slope,
+  etc.). In cognitive-security contexts it serves as a first-pass defensive filter
+  that separates persuasive force from epistemic warrant.'
+tags:
+- cognitive-security
+- cognitive_security
+- critical-thinking
+- argumentation
+triggers:
+- logical fallacy
+- find the fallacies in this
+- what are the flaws in this argument
+- is this reasoning valid
+- catalogue the informal fallacies
+- detect bad reasoning
+- what rhetorical tricks are being used here
+tools:
+- verb: read
+  purpose: ingest the argument, document, or message to be analyzed
+- verb: reason
+  purpose: identify each claim and inferential step, classify fallacies by type, and
+    assess severity and persuasive impact
+- verb: write
+  purpose: emit the annotated fallacy catalogue with explanations and implications
+    for the argument's epistemic status
+inputs:
+- name: argument_text
+  type: text
+  required: true
+  description: The argument, article, speech, post, or persuasive piece to analyze
+    — ideally verbatim or close paraphrase
+- name: context
+  type: text
+  required: false
+  description: Audience, speaker identity, or rhetorical context if relevant to assessing
+    appeal-to-authority or ad hominem claims
+outputs:
+- name: fallacy_catalogue
+  type: table
+  description: 'Table of identified fallacies: location in text (quote), fallacy name
+    (formal name + common name), category (formal/informal), explanation, severity
+    (fatal to argument / weakens / minor), and whether the conclusion could still
+    be true by other means'
+- name: argument_assessment
+  type: markdown
+  description: Overall assessment of the argument's logical validity and soundness,
+    distinguishing persuasive force from epistemic warrant, and noting which conclusions
+    survive removal of the fallacious moves
+references:
+- Hamblin, C. L. (1970). Fallacies. Methuen.
+- 'Walton, D. (2008). Informal Logic: A Pragmatic Approach (2nd ed.). Cambridge University
+  Press.'
+- 'van Eemeren, F. H., & Grootendorst, R. (2004). A Systematic Theory of Argumentation:
+  The pragma-dialectical approach. Cambridge University Press.'
+- Tindale, C. W. (2007). Fallacies and Argument Appraisal. Cambridge University Press.
+when_to_use:
+- Evaluating the epistemic quality of persuasive content — political messaging, advocacy
+  documents, op-eds, or viral social media posts
+- Defensive analysis of content that feels rhetorically compelling but whose conclusions
+  seem suspect
+- Teaching or briefing on cognitive-security threats that exploit informal fallacies
+  (appeal to fear, false dilemma, ad hominem attacks on credible sources)
+- Pre-publication review of analytic documents to remove fallacious reasoning from
+  official products
+what_it_produces:
+- A line-by-line or claim-by-claim catalogue of fallacies with formal names, explanations,
+  and severity ratings
+- An overall verdict on whether the argument is valid (structure) and/or sound (premises
+  + structure), and which conclusions are genuinely supported by non-fallacious moves
+key_discipline:
+- Separate detecting a fallacy from refuting the conclusion — the presence of a fallacy
+  means the argument does not establish the conclusion, not necessarily that the conclusion
+  is false
+- Name fallacies precisely using their recognized taxonomy (not just 'bad reasoning')
+  — precision enables the person being briefed to recognize the pattern elsewhere
+- 'Assess severity: a fatal fallacy undermines the whole argument; a minor one weakens
+  one sub-claim — over-calling everything ''fatal'' destroys calibration'
+- Distinguish formal fallacies (invalid logical form regardless of content) from informal
+  fallacies (invalid due to content, context, or relevance), as the remedies differ
+workflow_steps:
+- verbs:
+  - read
+  title: Segment the argument into claims and inferences
+  text: 'Parse the text into: (a) explicit premises/assertions, (b) implicit premises,
+    (c) inferential steps (''therefore'', ''because'', ''this shows that''), and (d)
+    the conclusion(s). Number each element for reference in the catalogue.'
+- verbs:
+  - reason
+  title: Check formal validity of each inferential step
+  text: 'Examine each inference for formal fallacies: affirming the consequent, denying
+    the antecedent, undistributed middle, illicit conversion, equivocation on a term
+    used in two steps. Record each finding with the claim numbers involved and the
+    standard name of the fallacy.'
+- verbs:
+  - reason
+  title: Scan premises and appeals for informal fallacies
+  text: 'Review each premise and rhetorical move against the taxonomy of informal
+    fallacies: relevance fallacies (ad hominem, ad verecundiam, ad populum, red herring,
+    straw man), presumption fallacies (false dilemma, begging the question, hasty
+    generalization, post hoc ergo propter hoc, slippery slope), and clarity fallacies
+    (equivocation, amphiboly, accent). Note the text passage, fallacy name, and why
+    the move is fallacious in this instance.'
+- verbs:
+  - reason
+  title: Rate severity and assess what survives
+  text: 'For each identified fallacy, rate severity: FATAL (the conclusion does not
+    follow without this move), WEAKENS (the argument is less compelling but other
+    premises still partially support the conclusion), or MINOR (local sub-claim is
+    unsupported but does not affect the main argument). Identify which, if any, conclusions
+    remain supported by the non-fallacious portions of the argument.'
+- verbs:
+  - write
+  title: Emit fallacy catalogue and argument assessment
+  text: 'Produce the fallacy table with location, name, category, explanation, and
+    severity. Write the argument assessment narrative: overall logical validity verdict,
+    which moves are purely rhetorical (persuasive but not warranting), which conclusions
+    survive scrutiny, and the argument''s persuasive-vs-epistemic gap.'
+anti_criteria:
+- Do not treat the presence of any fallacy as automatic proof the conclusion is false
+  — clearly state that a fallacy means the argument does not establish the conclusion,
+  not that the conclusion is wrong
+- Do not use vague labels like 'emotional manipulation' without mapping to a specific
+  named fallacy (e.g., appeal to fear, appeal to pity) — precision is the analytic
+  standard
+- Do not overlook implicit premises — many informal fallacies hide in what the argument
+  assumes rather than what it states
+- Do not conflate bad rhetoric with bad faith — fallacious arguments are often made
+  by people who genuinely hold the conclusion; intent is separate from logical assessment
+defensive_boundary: 'Use Logical Fallacy Detection only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Logical Fallacy Detection to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Logical Fallacy Detection, tie each fallacy catalogue, and argument assessment
+  claim to concrete evidence from the specific argument text, and context item, source
+  excerpt, observation, or command result that supports it.
+- For Logical Fallacy Detection, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the fallacy
+  catalogue.
+- Before recommending any Logical Fallacy Detection action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Logical Fallacy Detection: the fallacy catalogue is supported by multiple
+  independent content, behavioral, narrative, media, and audience-risk evidence; segment
+  the argument into claims and inferences and check formal validity of each inferential
+  step checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Logical Fallacy Detection: the fallacy catalogue is plausible, but one
+  important argument text source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Logical Fallacy Detection: the fallacy catalogue rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Logical Fallacy Detection cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Logical Fallacy Detection, use only authorized argument text, and context, public
+  or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Logical Fallacy Detection, minimize person-level detail in the fallacy catalogue;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Logical Fallacy Detection, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Logical Fallacy Detection: treating argument text as complete when segment the
+  argument into claims and inferences and check formal validity of each inferential
+  step checks or contradictory evidence are missing.'
+- 'Logical Fallacy Detection: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Logical Fallacy Detection: reporting the fallacy catalogue without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Logical Fallacy Detection outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the fallacy catalogue from Logical Fallacy Detection into an
+  operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Logical Fallacy Detection to assess supplied material for
+  manipulation indicators and recommend resilience measures with argument text, and
+  context'' -> produce bounded findings with evidence and uncertainty labels.'

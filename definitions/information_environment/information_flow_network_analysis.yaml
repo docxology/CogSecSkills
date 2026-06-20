@@ -1,0 +1,202 @@
+id: information_environment.information_flow_network_analysis
+description: Information Flow Network Analysis maps how specific content, narratives,
+  or claims propagate through social and media networks by modeling the information
+  environment as a directed graph of accounts, publications, and linking relationships.
+  It identifies amplifiers (super-spreaders), gatekeepers (bottlenecks that shape
+  what passes), bridges (cross-community connectors), and sinks (endpoints where narratives
+  lose velocity). The technique draws on network science, computational social science,
+  and OSINT tradecraft to characterize the structural conditions that enable or constrain
+  narrative spread.
+tags:
+- cognitive-security
+- information_environment
+- network-analysis
+triggers:
+- how did this narrative spread
+- map information flow
+- find amplifiers in this network
+- who are the super-spreaders
+- network topology of this campaign
+- trace content propagation
+tools:
+- verb: read
+  purpose: ingest network edge data, post propagation chains, and account metadata
+- verb: reason
+  purpose: compute network metrics and identify structural roles (amplifiers, bridges,
+    gatekeepers)
+- verb: write
+  purpose: produce a network analysis report with role classifications, flow maps,
+    and defensive implications
+inputs:
+- name: propagation_data
+  type: table
+  required: true
+  description: 'Directed edge list of content-sharing events: source account, target
+    account or platform, content ID, timestamp — covering the narrative or campaign
+    under analysis'
+- name: narrative_seed
+  type: text
+  required: true
+  description: The specific claim, hashtag, URL, or narrative fragment whose propagation
+    is being traced
+- name: account_metadata
+  type: table
+  required: false
+  description: 'Supplementary account attributes: follower count, verified status,
+    community affiliation, platform — used to weight edges and label nodes'
+outputs:
+- name: network_role_map
+  type: table
+  description: Per-account role classification (seed, amplifier, bridge, gatekeeper,
+    sink), key network metrics (in-degree, out-degree, betweenness centrality, clustering
+    coefficient), and influence estimate
+- name: flow_analysis_report
+  type: markdown
+  description: Narrative description of the propagation pattern, identified structural
+    vulnerabilities, community-crossing events, velocity timeline, and cognitive-security
+    implications
+references:
+- Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online.
+  Science, 359(6380), 1146-1151.
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- Borgatti, S.P. (2005). Centrality and network flow. Social Networks, 27(1), 55-71.
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. CSCW.'
+when_to_use:
+- Tracing the origin and spread path of a disinformation narrative to understand how
+  it achieved scale
+- Identifying key amplifier accounts whose removal or counter-messaging would most
+  disrupt propagation
+- Mapping cross-community bridges that move content between ideologically distinct
+  clusters
+- Assessing the structural resilience of an information ecosystem to narrative attack
+- Prioritizing counter-narrative placement by identifying high-traffic chokepoints
+what_it_produces:
+- A structural map of who spread what, to whom, in what order
+- 'Role classifications: seeds (first movers), amplifiers (high out-degree), bridges
+  (cross-cluster), gatekeepers (high betweenness), and sinks'
+- Velocity timeline showing how propagation accelerated or decelerated
+- Structural vulnerability assessment identifying which nodes or edges most enable
+  rapid spread
+key_discipline:
+- Betweenness centrality identifies the accounts most critical to cross-community
+  information flow — targeting or countering them has disproportionate effect
+- 'Velocity curves reveal injection events: sudden acceleration often marks amplification
+  by a high-follower account or coordinated boost'
+- Cross-community bridges are the most dangerous propagation points — content that
+  crosses ideological clusters becomes harder to contain
+- Network topology changes over time; snapshot analyses miss dynamic rewiring that
+  happens during active operations
+workflow_steps:
+- verbs:
+  - read
+  title: Construct the propagation graph
+  text: Build a directed graph from the propagation edge list. Nodes are accounts
+    or outlets; directed edges represent content-sharing events weighted by timestamp.
+    Annotate nodes with available metadata (follower count, platform, community affiliation).
+- verbs:
+  - reason
+  title: Compute network metrics and classify roles
+  text: 'Calculate in-degree (reception), out-degree (amplification), betweenness
+    centrality (brokerage/gatekeeper position), clustering coefficient (community
+    embeddedness), and PageRank (weighted influence). Classify each node into a structural
+    role: seed (first mover), amplifier (high out-degree relative to peers), bridge
+    (high betweenness, low clustering), gatekeeper (high betweenness, incoming from
+    many sources), or sink (high in-degree, low out-degree). Plot the velocity timeline
+    (cumulative spread vs. time) to identify acceleration events.'
+- verbs:
+  - reason
+  title: Identify structural vulnerabilities and community dynamics
+  text: Apply community detection (e.g. Louvain modularity) to identify clusters.
+    Map cross-community bridges — accounts that carry content between otherwise disconnected
+    communities. Assess which edges or nodes, if absent, would have most slowed propagation.
+    Identify whether the spread pattern is consistent with organic diffusion, coordinated
+    boosting, or cross-platform injection.
+- verbs:
+  - write
+  title: Produce the flow analysis report
+  text: 'Write the network role map table and the narrative analysis report. Include:
+    propagation timeline, key amplifier and bridge accounts, community-crossing events,
+    structural vulnerability assessment, comparison with known organic vs. coordinated
+    baseline patterns, and cognitive-security implications for monitoring, counter-messaging
+    placement, or defensive response.'
+anti_criteria:
+- Do not conflate high centrality with culpability — amplifiers may be unaware they
+  are spreading inauthentic content
+- Do not present network maps as complete pictures when the underlying data is sampled
+  or platform-limited
+- Do not use structural role classifications alone to recommend content removal or
+  account action — those decisions require additional policy and legal analysis
+- Do not ignore the temporal dimension; a static snapshot misrepresents dynamic propagation
+  events
+defensive_boundary: 'Use Information Flow Network Analysis only for information-environment
+  monitoring and platform-risk defense: recognize, assess, document, or defend platform
+  integrity, narrative context, and authentic community behavior. Do not use this
+  skill to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+misuse_redirect: 'If a request asks Information Flow Network Analysis to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement, refuse that
+  path and redirect to the safe defensive form: map supplied narratives, automation
+  signals, or platform affordance risks for defensive review.'
+evidence_requirements:
+- For Information Flow Network Analysis, tie each network role map, and flow analysis
+  report claim to concrete evidence from the specific propagation data, narrative
+  seed, and account metadata item, source excerpt, observation, or command result
+  that supports it.
+- For Information Flow Network Analysis, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the network
+  role map.
+- Before recommending any Information Flow Network Analysis action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Information Flow Network Analysis: the network role map is supported by
+  multiple independent platform observations, narrative movement, automation signals,
+  and provenance data; construct the propagation graph and compute network metrics
+  and classify roles checks agree, and no unresolved contradiction would change the
+  result.'
+- 'Medium for Information Flow Network Analysis: the network role map is plausible,
+  but one important propagation data source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Information Flow Network Analysis: the network role map rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Information Flow Network Analysis cannot determine from the supplied
+  or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating information_environment evidence to collect when
+  confidence is low or medium.
+privacy_legal_constraints:
+- For Information Flow Network Analysis, use only authorized propagation data, narrative
+  seed, and account metadata, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Information Flow Network Analysis, minimize person-level detail in the network
+  role map; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Information Flow Network Analysis, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Information Flow Network Analysis: treating propagation data as complete when construct
+  the propagation graph and compute network metrics and classify roles checks or contradictory
+  evidence are missing.'
+- 'Information Flow Network Analysis: producing advice that would help a requester
+  amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+- 'Information Flow Network Analysis: reporting the network role map without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Information Flow Network Analysis outputs to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the network role map from Information Flow Network Analysis into
+  an operational playbook to amplify coordinated behavior, tune platform manipulation,
+  or design inauthentic engagement'' -> refuse and offer governance, detection, or
+  mitigation analysis.'
+- 'Safe defensive: ''Use Information Flow Network Analysis to map supplied narratives,
+  automation signals, or platform affordance risks for defensive review with propagation
+  data, narrative seed, and account metadata'' -> produce bounded findings with evidence
+  and uncertainty labels.'

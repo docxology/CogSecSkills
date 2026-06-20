@@ -1,0 +1,200 @@
+id: sat.indicators_validation
+description: Indicators Validation is a quality-control technique that stress-tests
+  a candidate indicator set to determine whether each indicator genuinely discriminates
+  among the scenarios it is claimed to distinguish. It applies diagnosticity tests
+  — asking whether an indicator would appear under only one outcome, under several,
+  or under all — and prunes or restructures the indicator set accordingly. This prevents
+  the common failure mode in which analysts collect confirmatory data against indicators
+  that would appear regardless of which outcome is unfolding.
+tags:
+- cognitive-security
+- sat
+- warning-analysis
+- diagnosticity
+triggers:
+- validate these indicators
+- test indicator diagnosticity
+- are these indicators any good
+- do my indicators discriminate
+- indicators validation
+- check my warning list
+tools:
+- verb: read
+  purpose: ingest the candidate indicator set, the associated scenarios or hypotheses,
+    and any prior indicator reviews
+- verb: reason
+  purpose: apply diagnosticity tests to each indicator, identify overlap and false-diagnostic
+    indicators, and derive a validated set
+- verb: write
+  purpose: produce the validated indicators matrix with disposition rationale for
+    each item
+inputs:
+- name: candidate_indicators
+  type: table
+  required: true
+  description: the indicator set to be validated, ideally including each indicator's
+    claimed scenario association
+- name: scenarios_or_hypotheses
+  type: list
+  required: true
+  description: the full set of scenarios or hypotheses the indicators are meant to
+    distinguish
+- name: base_rate_context
+  type: text
+  required: false
+  description: known base rates or historical frequencies of candidate indicators,
+    used to assess false-positive risk
+outputs:
+- name: validated_indicators_matrix
+  type: table
+  description: the revised indicator matrix showing each indicator with its validated
+    diagnostic weight, disposition (retain/revise/drop), and rationale
+- name: validation_report
+  type: markdown
+  description: a narrative explaining the validation logic, systemic weaknesses found
+    in the original set, and recommendations for gaps in coverage
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 8, 'Indicators Validation'.
+- 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint
+  Military Intelligence College.'
+- Mandel, D. R., & Barnes, A. (2014). Accuracy of forecasts in strategic intelligence.
+  Proceedings of the National Academy of Sciences, 111(30), 10984-10989.
+- Pherson, R. H. (2012). Handbook of Analytic Tools and Techniques (4th ed.). Pherson
+  Associates.
+when_to_use:
+- after an initial indicators generation pass, before deploying an indicator set for
+  live monitoring
+- when a monitoring regime has produced unexpected false positives or missed events
+- when inherited indicator sets need a quality audit
+- when indicators are being used in high-stakes warning contexts where a false negative
+  or false positive carries significant cost
+what_it_produces:
+- a diagnosticity rating for every candidate indicator (high / medium / low / invalid)
+- 'a disposition decision for each indicator: retain as-is, revise to increase specificity,
+  or drop'
+- identification of scenario gaps — scenarios that lack a sufficient number of high-diagnosticity
+  indicators
+- a clean, validated indicators matrix ready for operational monitoring
+key_discipline:
+- 'the diagnosticity test: ask ''would this indicator appear even if this scenario
+  were NOT unfolding?'' — if yes, it is not diagnostic for that scenario'
+- 'apply the counterfactual: for each indicator, enumerate every scenario under which
+  it would appear, not just the target scenario'
+- distinguish true-positive traps (indicators that look confirmatory but appear under
+  all outcomes) from genuinely diagnostic signals
+- 'coverage check: ensure every scenario has at least two high-diagnosticity indicators
+  or flag it as a coverage gap'
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest the candidate set and scenarios
+  text: Read the full candidate indicator list alongside the complete scenario or
+    hypothesis set. Understand the claimed scenario association for each indicator
+    before applying any tests.
+- verbs:
+  - reason
+  title: Apply the diagnosticity test to each indicator
+  text: 'For each indicator, run the counterfactual: ''Under which of the other scenarios
+    would this indicator also appear?'' If an indicator appears under all scenarios,
+    it is non-diagnostic. If it appears under several, it is low-diagnostic. Score
+    each indicator: High (unique to one scenario), Medium (favors one over others
+    with clear asymmetry), Low (consistent with two or more without clear weight),
+    Invalid (consistent with all).'
+- verbs:
+  - reason
+  title: Identify false-diagnostic and overlap traps
+  text: 'Flag ''confirmatory traps'' — indicators that analysts would naturally report
+    as positive evidence but that carry no real diagnostic power. Check for indicator
+    overlap: pairs that measure the same underlying event and provide no independent
+    evidence. Note base-rate issues: indicators that are so common in the environment
+    that their presence carries no signal.'
+- verbs:
+  - reason
+  title: Check scenario coverage
+  text: For each scenario in the set, count how many high- or medium-diagnostic indicators
+    it has. A scenario with zero or one high-diagnostic indicator is a coverage gap
+    — warn that it may go undetected even if it unfolds. Propose collection guidance
+    to address gaps.
+- verbs:
+  - write
+  title: Produce validated matrix and report
+  text: Output the revised indicators matrix with each item's diagnostic weight, disposition
+    (retain/revise/drop), and a brief rationale. Write a validation narrative covering
+    systemic weaknesses found, coverage gaps by scenario, and priority recommendations
+    for the revised monitoring regime.
+anti_criteria:
+- do not retain an indicator that appears under all scenarios — it cannot discriminate
+  and will only generate false confidence
+- do not judge an indicator by whether analysts expect to see it, but by whether its
+  presence genuinely shifts the probability of one scenario relative to others
+- do not skip the scenario coverage check — validating individual indicators without
+  checking aggregate coverage can leave entire scenarios unmonitored
+- do not treat validation as a one-time event — indicator sets decay as actors learn
+  to suppress or spoof them
+defensive_boundary: 'Use Indicators Validation only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Indicators Validation to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Indicators Validation, tie each validated indicators matrix, and validation
+  report claim to concrete evidence from the specific candidate indicators, scenarios
+  or hypotheses, and base rate context item, source excerpt, observation, or command
+  result that supports it.
+- For Indicators Validation, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the validated indicators
+  matrix.
+- Before recommending any Indicators Validation action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Indicators Validation: the validated indicators matrix is supported by
+  multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; ingest the candidate set and scenarios and apply the diagnosticity test to
+  each indicator checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Indicators Validation: the validated indicators matrix is plausible,
+  but one important candidate indicators source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Indicators Validation: the validated indicators matrix rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Indicators Validation cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Indicators Validation, use only authorized candidate indicators, scenarios or
+  hypotheses, and base rate context, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Indicators Validation, minimize person-level detail in the validated indicators
+  matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Indicators Validation, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Indicators Validation: treating candidate indicators as complete when ingest the
+  candidate set and scenarios and apply the diagnosticity test to each indicator checks
+  or contradictory evidence are missing.'
+- 'Indicators Validation: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Indicators Validation: reporting the validated indicators matrix without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Indicators Validation outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the validated indicators matrix from Indicators Validation into
+  an operational playbook to force a preferred conclusion, hide uncertainty, or use
+  the technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Indicators Validation to apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty with candidate indicators,
+  scenarios or hypotheses, and base rate context'' -> produce bounded findings with
+  evidence and uncertainty labels.'

@@ -1,0 +1,214 @@
+id: cognitive_security.propaganda_technique_classification
+description: Propaganda Technique Classification systematically identifies and labels
+  the specific rhetorical devices in content against the canonical taxonomy established
+  by the Institute for Propaganda Analysis (IPA, 1937) and extended by Jowett & O'Donnell,
+  Bernays, and contemporary computational SEMEVAL frameworks. The skill maps content
+  to techniques including transfer, glittering generalities, plain folks, card stacking,
+  bandwagon, name-calling, and testimonial, then assesses persuasive intent and likely
+  audience impact. It is a defensive, recognition-oriented skill that enables analysts
+  and educators to name and explain manipulation rather than fall prey to it.
+tags:
+- cognitive-security
+- cognitive_security
+- propaganda-analysis
+- rhetorical-analysis
+triggers:
+- classify propaganda techniques
+- what techniques is this using
+- identify rhetorical manipulation
+- propaganda taxonomy
+- IPA technique analysis
+- detect persuasion techniques
+tools:
+- verb: read
+  purpose: ingest the content to be classified and any contextual metadata (source,
+    intended audience, platform)
+- verb: reason
+  purpose: apply the propaganda technique taxonomy to identify, label, and explain
+    each technique present in the content
+- verb: write
+  purpose: produce the annotated technique classification table and interpretation
+    narrative
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The text, speech excerpt, advertisement, social media post, or media
+    item to be analyzed for propaganda techniques
+- name: context_metadata
+  type: text
+  required: false
+  description: Source, publication date, intended audience, platform, and any known
+    campaign context that informs technique interpretation
+- name: taxonomy_scope
+  type: text
+  required: false
+  description: 'Optional: restrict analysis to a specific taxonomy or technique family
+    (IPA seven, SEMEVAL 2020 18-class, Bernays/Ellul framing, contemporary DISARM
+    techniques)'
+outputs:
+- name: technique_classification_table
+  type: table
+  description: 'Table mapping each identified technique to: canonical label, verbatim
+    content excerpt, mechanism of persuasion, likely cognitive lever exploited, and
+    confidence level'
+- name: analytical_interpretation
+  type: markdown
+  description: 'Narrative interpretation of the technique mix: strategic intent, target
+    audience vulnerabilities exploited, interaction effects between co-deployed techniques,
+    and countermeasures'
+references:
+- Institute for Propaganda Analysis (1937). How to Detect Propaganda. Propaganda Analysis,
+  1(2), 1–4.
+- Jowett, G. S., & O'Donnell, V. (2019). Propaganda and Persuasion (7th ed.). SAGE
+  Publications.
+- 'Da San Martino, G., et al. (2020). SemEval-2020 Task 11: Detection of Propaganda
+  Techniques in News Articles. Proceedings of the 14th International Workshop on Semantic
+  Evaluation (SemEval-2020).'
+- Bernays, E. L. (1928). Propaganda. Horace Liveright.
+- 'Ellul, J. (1965). Propaganda: The Formation of Men''s Attitudes. Knopf.'
+- Haskins, E. V. (2007). Logos and Power in Isocrates and Aristotle. University of
+  South Carolina Press.
+when_to_use:
+- analyzing suspected propaganda content for an intelligence, policy, or research
+  audience
+- building a training dataset or educational example set for a media-literacy curriculum
+- evaluating political advertising, public health messaging, or corporate communications
+  for manipulative technique use
+- providing annotated examples to support inoculation content design or counter-messaging
+  strategy
+what_it_produces:
+- a technique classification table mapping each excerpt to its canonical IPA/SEMEVAL
+  label, mechanism, and cognitive lever
+- an analytical interpretation of the overall technique mix, strategic intent, and
+  countermeasures
+key_discipline:
+- map each identified technique to a verbatim excerpt — vague whole-text attribution
+  is not classification
+- distinguish technique identification (what rhetorical move is this) from intent
+  attribution (who made this and why) — the former is evidential, the latter is inferential
+  and must be labeled as such
+- 'note co-deployed technique interactions: bandwagon amplifies name-calling; glittering
+  generalities prime transfer — the combination is more potent than the sum'
+- apply the IPA/SEMEVAL taxonomy consistently before adding idiosyncratic labels —
+  interoperability across analysts requires shared vocabulary
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest content and establish context
+  text: Read the full content item and any context metadata. Note source, audience,
+    platform, and any campaign context. Identify the primary rhetorical register (political,
+    commercial, health, social) as this affects which technique sub-families are most
+    likely to be active. Do not begin classifying until the full content has been
+    read — early framing artifacts can bias technique detection.
+- verbs:
+  - reason
+  title: Apply taxonomy pass 1 — IPA seven techniques
+  text: 'Scan content for the seven IPA canonical techniques: (1) Name-Calling — attaching
+    a negative label to an opponent without evidence; (2) Glittering Generalities
+    — associating a cause with virtue words (freedom, democracy, God) without substance;
+    (3) Transfer — borrowing authority or prestige from a respected symbol; (4) Testimonial
+    — having a respected or disrespected person endorse or condemn an idea; (5) Plain
+    Folks — identifying the speaker as an ordinary person; (6) Card Stacking — selecting
+    only favorable evidence while omitting contrary evidence; (7) Bandwagon — appealing
+    to the desire to be on the winning side. For each detected technique, record the
+    verbatim excerpt and cognitive lever.'
+- verbs:
+  - reason
+  title: Apply taxonomy pass 2 — extended techniques
+  text: 'For content warranting deeper analysis, apply the SEMEVAL 2020 extended taxonomy
+    (18 classes), including: Appeal to Fear/Prejudice, Loaded Language, Repetition,
+    Exaggeration/Minimisation, Doubt, Obfuscation/Intentional Vagueness, Whataboutism,
+    Causal Oversimplification, Black-and-White Fallacy, Thought-Terminating Cliché,
+    Red Herring, Straw Man, and Appeal to Authority. Document technique co-occurrence
+    patterns and their interaction effects.'
+- verbs:
+  - reason
+  - write
+  title: Assess strategic intent and produce classification output
+  text: 'Interpret the overall technique mix: what emotional and cognitive state is
+    the content designed to produce in the target audience? Which audience vulnerabilities
+    (fear, identity threat, authority deference, in-group loyalty) does the mix exploit?
+    Rate confidence in intent attribution separately from technique identification.
+    Compose the classification table and the analytical interpretation narrative,
+    including suggested countermeasures appropriate to each identified technique.'
+anti_criteria:
+- do not attribute intent (who made this and why) with the same confidence level as
+  technique identification — intent is an inference, not a classification
+- do not classify at the whole-content level without mapping each technique to a specific
+  verbatim excerpt
+- do not conflate persuasion with propaganda — legitimate advocacy uses emotional
+  and rhetorical appeals; the distinguishing criterion is systematic deception or
+  exploitation of cognitive vulnerabilities, not mere emotional engagement
+- do not produce this analysis for the purpose of constructing or improving propaganda
+  — this is a recognition and defense skill
+defensive_boundary: 'Use Propaganda Technique Classification only for cognitive-security
+  defense: recognize, assess, document, or defend audiences, decision-makers, and
+  public discourse. Do not use this skill to increase persuasive impact, exploit audience
+  vulnerabilities, or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Propaganda Technique Classification to increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation,
+  refuse that path and redirect to the safe defensive form: assess supplied material
+  for manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Propaganda Technique Classification, tie each technique classification table,
+  and analytical interpretation claim to concrete evidence from the specific content,
+  context metadata, and taxonomy scope item, source excerpt, observation, or command
+  result that supports it.
+- For Propaganda Technique Classification, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the technique
+  classification table.
+- Before recommending any Propaganda Technique Classification action, identify the
+  weakest evidence link, the alternative most likely to overturn it, and the next
+  discriminating check.
+confidence_rubric:
+- 'High for Propaganda Technique Classification: the technique classification table
+  is supported by multiple independent content, behavioral, narrative, media, and
+  audience-risk evidence; ingest content and establish context and apply taxonomy
+  pass 1 — ipa seven techniques checks agree, and no unresolved contradiction would
+  change the result.'
+- 'Medium for Propaganda Technique Classification: the technique classification table
+  is plausible, but one important content source, comparison case, or alternative
+  explanation remains incomplete.'
+- 'Low for Propaganda Technique Classification: the technique classification table
+  rests on sparse, single-source, contested, or mostly inferential evidence; keep
+  the result provisional and list the next check.'
+uncertainty_handling:
+- State what Propaganda Technique Classification cannot determine from the supplied
+  or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Propaganda Technique Classification, use only authorized content, context metadata,
+  and taxonomy scope, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Propaganda Technique Classification, minimize person-level detail in the technique
+  classification table; prefer aggregate, artifact-level, role-level, or case-level
+  summaries unless an individual is essential to the defensive question.
+- For Propaganda Technique Classification, do not infer protected traits, private
+  identity, intent, location, legal culpability, or platform account ownership beyond
+  the supplied and authorized evidence.
+failure_modes:
+- 'Propaganda Technique Classification: treating content as complete when ingest content
+  and establish context and apply taxonomy pass 1 — ipa seven techniques checks or
+  contradictory evidence are missing.'
+- 'Propaganda Technique Classification: producing advice that would help a requester
+  increase persuasive impact, exploit audience vulnerabilities, or optimize narrative
+  manipulation.'
+- 'Propaganda Technique Classification: reporting the technique classification table
+  without uncertainty labels, alternative explanations, and the next discriminating
+  check.'
+negative_controls:
+- 'Unsafe: ''Use Propaganda Technique Classification outputs to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation'' ->
+  refuse and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the technique classification table from Propaganda Technique
+  Classification into an operational playbook to increase persuasive impact, exploit
+  audience vulnerabilities, or optimize narrative manipulation'' -> refuse and offer
+  governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Propaganda Technique Classification to assess supplied material
+  for manipulation indicators and recommend resilience measures with content, context
+  metadata, and taxonomy scope'' -> produce bounded findings with evidence and uncertainty
+  labels.'

@@ -1,0 +1,177 @@
+id: research_methods.analytic_confidence_assessment
+description: Analytic Confidence Assessment is a structured technique for assigning
+  an explicit confidence level to an analytic judgment by systematically evaluating
+  source quality, degree of corroboration, and the load of unstated assumptions underlying
+  the conclusion. It draws on intelligence community standards (ICD 203) and structured
+  analytic technique literature to ensure that confidence labels such as 'high,' 'moderate,'
+  or 'low' are operationally defined and traceable rather than impressionistic. The
+  technique prevents both overconfidence from thin evidence and false modesty that
+  obscures genuine signal.
+tags:
+- cognitive-security
+- research_methods
+- calibration
+- analytic-standards
+triggers:
+- how confident are we in this
+- assess analytic confidence
+- rate our certainty
+- justify confidence level
+- source quality assessment
+tools:
+- verb: read
+  purpose: ingest the analytic judgment, supporting evidence, and source metadata
+- verb: reason
+  purpose: evaluate source quality, corroboration, and assumption load against a structured
+    rubric
+- verb: write
+  purpose: emit a confidence rating with explicit justification traceable to rubric
+    criteria
+inputs:
+- name: judgment
+  type: text
+  required: true
+  description: the analytic conclusion or estimate whose confidence is to be assessed
+- name: evidence_set
+  type: list
+  required: true
+  description: sources and evidence items supporting the judgment, with provenance
+    metadata where available
+- name: key_assumptions
+  type: list
+  required: false
+  description: assumptions identified in prior analysis that the judgment depends
+    on
+outputs:
+- name: confidence_assessment
+  type: markdown
+  description: structured report stating the confidence level (high/moderate/low)
+    with separate sub-scores for source quality, corroboration, and assumption load,
+    plus a plain-language justification
+references:
+- 'Office of the Director of National Intelligence (2015). ICD 203: Analytic Standards.
+  ODNI.'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown.'
+when_to_use:
+- before publishing or briefing an analytic conclusion that will drive decisions
+- when evidence is sparse, mixed, or derived from single sources
+- when assumption load is high and unstated assumptions may be doing most of the analytic
+  work
+- when stakeholders need to understand the reliability limits of a finding
+what_it_produces:
+- an explicit confidence tier (high/moderate/low) with sub-dimension scores
+- a plain-language narrative explaining why confidence is not higher or lower
+- a list of the conditions that would change the confidence tier
+key_discipline:
+- confidence in the judgment and confidence in individual sources are distinct — assess
+  both separately
+- corroboration from independent sources raises confidence; from correlated sources
+  it does not
+- every unstated assumption that the conclusion requires is a confidence-reducing
+  liability
+- confidence labels must be operationally defined so two analysts reach the same tier
+  from the same inputs
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory evidence and assumptions
+  text: Read the analytic judgment and all supporting evidence. Catalog each source
+    with its type (human, technical, open, liaison), reliability history, and access
+    freshness. List every assumption the conclusion implicitly requires.
+- verbs:
+  - reason
+  title: Score three confidence dimensions
+  text: 'Score source quality (reliability and credibility of each source), corroboration
+    (number of independent confirming sources and absence of contradictory evidence),
+    and assumption load (how many high-impact assumptions remain untested). Use a
+    consistent three-level rubric: high/moderate/low for each dimension.'
+- verbs:
+  - reason
+  title: Derive overall confidence tier
+  text: 'Combine dimension scores using a conservative rule: overall confidence cannot
+    exceed the weakest dimension. Note whether corroboration is genuine independence
+    or from common-origin sources, and flag any single point of failure in the evidence
+    chain.'
+- verbs:
+  - write
+  title: Write confidence statement
+  text: 'Produce the confidence assessment: state the tier, provide a one-paragraph
+    justification citing each dimension score, list the two or three conditions that
+    would raise or lower confidence, and note any cognitive biases (availability,
+    anchoring) that may have inflated the initial estimate.'
+anti_criteria:
+- do not assign confidence based on how comfortable the analyst feels with the conclusion
+  rather than on evidence and assumption load
+- do not treat corroboration from sources sharing a common origin (e.g., all from
+  the same reporting chain) as independent confirmation
+- do not omit a confidence statement because the judgment is preliminary — a low-confidence
+  label is informative, not a failure
+defensive_boundary: 'Use Analytic Confidence Assessment only for research-methods
+  and synthesis integrity: recognize, assess, document, or defend reproducibility,
+  calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence.'
+misuse_redirect: 'If a request asks Analytic Confidence Assessment to cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence, refuse
+  that path and redirect to the safe defensive form: synthesize supplied or authorized
+  sources with explicit confidence and uncertainty labels.'
+evidence_requirements:
+- For Analytic Confidence Assessment, tie each confidence assessment claim to concrete
+  evidence from the specific judgment, evidence set, and key assumptions item, source
+  excerpt, observation, or command result that supports it.
+- For Analytic Confidence Assessment, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the confidence
+  assessment.
+- Before recommending any Analytic Confidence Assessment action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Analytic Confidence Assessment: the confidence assessment is supported
+  by multiple independent study designs, source quality, reproducibility artifacts,
+  and uncertainty records; inventory evidence and assumptions and score three confidence
+  dimensions checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Analytic Confidence Assessment: the confidence assessment is plausible,
+  but one important judgment source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Analytic Confidence Assessment: the confidence assessment rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Analytic Confidence Assessment cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Analytic Confidence Assessment, use only authorized judgment, evidence set,
+  and key assumptions, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Analytic Confidence Assessment, minimize person-level detail in the confidence
+  assessment; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Analytic Confidence Assessment, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Analytic Confidence Assessment: treating judgment as complete when inventory evidence
+  and assumptions and score three confidence dimensions checks or contradictory evidence
+  are missing.'
+- 'Analytic Confidence Assessment: producing advice that would help a requester cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence.'
+- 'Analytic Confidence Assessment: reporting the confidence assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Analytic Confidence Assessment outputs to cherry-pick sources, fabricate
+  citations, or overstate certainty from weak evidence'' -> refuse and redirect to
+  defensive risk assessment.'
+- 'Unsafe: ''Convert the confidence assessment from Analytic Confidence Assessment
+  into an operational playbook to cherry-pick sources, fabricate citations, or overstate
+  certainty from weak evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Analytic Confidence Assessment to synthesize supplied or
+  authorized sources with explicit confidence and uncertainty labels with judgment,
+  evidence set, and key assumptions'' -> produce bounded findings with evidence and
+  uncertainty labels.'

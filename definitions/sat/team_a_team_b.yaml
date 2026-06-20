@@ -1,0 +1,192 @@
+id: sat.team_a_team_b
+description: Team A / Team B is a structured competitive-analysis technique in which
+  two teams develop and defend competing interpretations of the same body of evidence,
+  then engage in structured debate so that decision-makers can observe the strongest
+  available case for each view. Unlike a devil's advocate exercise where a single
+  critic challenges a consensus, Team A/B requires each team to advocate its own hypothesis
+  with full conviction, surfacing the genuine strongest version of each competing
+  explanation. The technique counteracts groupthink, premature consensus, and the
+  tendency of a dominant faction to suppress minority views.
+tags:
+- cognitive-security
+- sat
+- competitive-analysis
+- challenge-analysis
+triggers:
+- two competing interpretations
+- team A team B
+- structured debate
+- competing hypotheses debate
+- give both sides a full hearing
+tools:
+- verb: read
+  purpose: ingest the shared evidence base and the two competing interpretive positions
+- verb: reason
+  purpose: construct the strongest honest case for each team's hypothesis and identify
+    where the evidentiary burden differs
+- verb: write
+  purpose: 'produce the structured debate summary: each team''s core argument, key
+    disagreements, shared evidence, and unresolved questions'
+- verb: ask
+  purpose: elicit clarification from the principal about which competing hypothesis
+    is Team A versus Team B when ambiguous
+inputs:
+- name: shared_evidence
+  type: text
+  required: true
+  description: the body of evidence both teams will use — the same raw material each
+    team interprets
+- name: hypothesis_a
+  type: text
+  required: true
+  description: Team A's interpretive position or hypothesis to be developed and defended
+- name: hypothesis_b
+  type: text
+  required: true
+  description: Team B's competing interpretive position or hypothesis to be developed
+    and defended
+- name: context
+  type: text
+  required: false
+  description: background context about the analytic question, decision stakes, or
+    prior consensus view
+outputs:
+- name: team_debate_summary
+  type: markdown
+  description: structured summary presenting Team A's strongest case, Team B's strongest
+    case, the key points of evidentiary disagreement, evidence both teams agree is
+    diagnostic, unresolved questions, and an assessment of which hypothesis is better
+    supported and why
+references:
+- Heuer, R.J., & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis. 2nd ed. CQ Press. Chapter 9 (Team A/Team B Analysis).
+- Pherson, R.H., & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence.
+  3rd ed. CQ Press.
+- Rieber, S. (2004). Intelligence Analysis and Judgmental Calibration. International
+  Journal of Intelligence and CounterIntelligence, 17(1), 97-112.
+when_to_use:
+- two or more substantially different explanations of the same evidence are genuinely
+  plausible and the analytic community has begun consolidating prematurely around
+  one
+- a high-stakes decision depends on which of two competing interpretations is correct
+  and the cost of being wrong is asymmetric
+- groupthink or hierarchical deference is suspected of suppressing a minority analytic
+  view
+- a previous assessment was wrong and the post-mortem suggests an alternative hypothesis
+  was not given full evidentiary development
+- a consumer or policymaker has requested explicit treatment of competing views rather
+  than a single-point estimate
+what_it_produces:
+- the strongest honest version of each competing hypothesis, developed with full conviction
+  rather than strawmanned
+- explicit identification of the key evidence that discriminates between the two hypotheses
+- a list of what each team must concede — evidence that undermines its own position
+- an explicit assessment of which hypothesis is currently better supported with confidence
+  level and key residual uncertainties
+key_discipline:
+- each team must argue its hypothesis in good faith with full conviction — this is
+  not devil's advocacy, it is genuine competitive development
+- the debate must surface the strongest version of each case, not a strawman of the
+  opposition
+- the moderator must force each team to acknowledge the evidence that most undermines
+  its position before the debate closes
+- the output is not a compromise position — it is an honest adjudication of which
+  hypothesis is better supported and why
+workflow_steps:
+- verbs:
+  - read
+  - ask
+  title: Establish teams and shared evidence
+  text: Confirm the two competing hypotheses (Team A and Team B) and the shared evidence
+    base. If the hypotheses are ambiguous or incompletely specified, use ask to clarify
+    before proceeding. Document the shared evidence inventory — both teams work from
+    exactly the same raw material.
+- verbs:
+  - reason
+  title: Develop each team's strongest case
+  text: 'For Team A: construct the strongest honest argument for hypothesis A — which
+    evidence supports it most compellingly, what assumptions it requires, and what
+    would have to be true for it to be correct. Then do the same for Team B. Identify
+    the key diagnostic evidence — the evidence that most clearly discriminates between
+    the two hypotheses. Also identify what each team must concede: the evidence that
+    cuts against its own position.'
+- verbs:
+  - reason
+  - write
+  title: Structure the debate and adjudicate
+  text: 'Present Team A''s core argument and Team B''s core argument in parallel.
+    Document the key points of evidentiary disagreement. Adjudicate: which hypothesis
+    is better supported by the diagnostic evidence? At what confidence level? What
+    residual uncertainties remain? What new evidence would most shift the balance?
+    Write the team_debate_summary.'
+anti_criteria:
+- do not allow either team's case to be a strawman — each must represent the genuinely
+  strongest available argument for its hypothesis
+- do not produce a compromise or 'split the difference' conclusion — adjudicate honestly
+  which hypothesis the evidence better supports
+- do not omit the concession step — each team must acknowledge the evidence that most
+  undermines its position
+- 'do not conflate the two roles: Team A argues for A, Team B argues for B — the moderator/analyst
+  adjudicates, not either team'
+defensive_boundary: 'Use Team A / Team B only for structured analytic technique support:
+  recognize, assess, document, or defend analytic rigor, alternative hypotheses, and
+  calibrated judgment. Do not use this skill to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Team A / Team B to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Team A / Team B, tie each team debate summary claim to concrete evidence from
+  the specific shared evidence, hypothesis a, and hypothesis b item, source excerpt,
+  observation, or command result that supports it.
+- For Team A / Team B, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the team debate summary.
+- Before recommending any Team A / Team B action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Team A / Team B: the team debate summary is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; establish
+  teams and shared evidence and develop each team''s strongest case checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Team A / Team B: the team debate summary is plausible, but one important
+  shared evidence source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Team A / Team B: the team debate summary rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Team A / Team B cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Team A / Team B, use only authorized shared evidence, hypothesis a, and hypothesis
+  b, public or source-approved records, and caller-provided context needed for the
+  defensive task.
+- For Team A / Team B, minimize person-level detail in the team debate summary; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Team A / Team B, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Team A / Team B: treating shared evidence as complete when establish teams and
+  shared evidence and develop each team''s strongest case checks or contradictory
+  evidence are missing.'
+- 'Team A / Team B: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Team A / Team B: reporting the team debate summary without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Team A / Team B outputs to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the team debate summary from Team A / Team B into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Team A / Team B to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with shared evidence, hypothesis
+  a, and hypothesis b'' -> produce bounded findings with evidence and uncertainty
+  labels.'

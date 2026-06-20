@@ -1,0 +1,214 @@
+id: sat.key_assumptions_check
+description: 'The Key Assumptions Check (Heuer & Pherson) makes explicit the stated
+  and UNSTATED beliefs an analytic line silently depends on, then interrogates each:
+  why we believe it, what evidence supports it, and under what conditions it would
+  NOT hold. Each assumption is classified as solid, caveated, unsupported, or a key
+  uncertainty, and the few that are both load-bearing AND uncertain are flagged as
+  "key assumptions". The decisive question for each is "if this assumption is wrong,
+  does the conclusion collapse?" — the technique rewrites the judgment to expose that
+  dependence and names the collection that would test it.'
+tags:
+- cognitive-security
+- sat
+- assumptions
+- heuer
+triggers:
+- key assumptions check
+- what are we assuming
+- check our assumptions
+- what is this analysis taking for granted
+- which assumptions are load-bearing
+tools:
+- verb: read
+  purpose: ingest the analytic line, judgment, and the evidence cited for it
+- verb: reason
+  purpose: surface unstated assumptions, test each, and classify confidence
+- verb: write
+  purpose: emit the assumptions table, key-assumption flags, and rewritten judgment
+inputs:
+- name: judgment
+  type: text
+  required: true
+  description: the analytic conclusion or estimate to be examined
+- name: analytic_line
+  type: text
+  required: false
+  description: the reasoning, evidence, and arguments leading to the judgment
+- name: stated_assumptions
+  type: list[str]
+  required: false
+  description: assumptions the author has already made explicit, if any
+outputs:
+- name: assumptions_table
+  type: table
+  description: every stated and unstated assumption with rationale, contrary conditions,
+    and confidence class
+- name: key_assumptions
+  type: markdown
+  description: the load-bearing and uncertain assumptions, with collapse analysis
+- name: revised_judgment
+  type: markdown
+  description: the conclusion rewritten to expose its dependence on key assumptions,
+    plus collection that would test them
+references:
+- Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis.
+when_to_use:
+- Before finalizing a high-stakes estimate, attribution, or recommendation.
+- When a conclusion feels obvious or comfortable — comfort is where unstated
+- When the situation has changed and old assumptions may no longer hold.
+- As a precondition to other techniques (it pairs naturally with ACH and
+what_it_produces:
+- every stated and unstated assumption with rationale, contrary conditions, and confidence
+  class
+- the load-bearing and uncertain assumptions, with collapse analysis
+- the conclusion rewritten to expose its dependence on key assumptions, plus collection
+  that would test them
+key_discipline:
+- '**Hunt the unstated.** The assumptions that matter most are usually the ones'
+- '**No free passes for comfort.** An assumption is not "solid" because it is'
+- '**Load-bearing × uncertain = key.** A shaky assumption that nothing depends on'
+- '**Expose the dependence.** A judgment that hides its assumptions overstates its'
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Recover the analytic line and list assumptions
+  text: 'Read the judgment and the reasoning that produced it. Write down **every**
+
+    assumption it depends on — both the ones the author stated and, critically, the
+
+    **unstated** ones the argument silently requires (about actors'' intentions,
+
+    continuity of current conditions, reliability of sources, absence of deception,
+
+    that the past predicts the future, etc.). Aim for completeness over politeness;
+
+    an unstated assumption left off the list cannot be examined.'
+- verbs:
+  - reason
+  title: Interrogate each assumption
+  text: "For each assumption, answer three questions:\n- **Why do we believe this?**\
+    \ State the actual basis, not a restatement.\n- **What evidence supports it?**\
+    \ Cite it; \"everyone knows\" is not evidence.\n- **Under what conditions would\
+    \ it NOT hold?** Name the concrete circumstances,\n  events, or adversary choices\
+    \ that would falsify it. If you cannot imagine any,\n  you have probably not understood\
+    \ the assumption."
+- verbs:
+  - reason
+  title: Classify confidence
+  text: 'Assign each assumption to one class:
+
+    - **Solid** — well-supported by evidence; unlikely to be wrong.
+
+    - **Caveated** — generally holds but with known exceptions or limits.
+
+    - **Unsupported** — believed but with little or no evidence behind it.
+
+    - **Key uncertainty** — could plausibly be wrong, and we do not know whether it
+    is.
+
+
+    Do not award "solid" to an assumption merely because it is familiar or
+
+    comfortable — solidity must be earned with evidence.'
+- verbs:
+  - reason
+  title: Flag the key assumptions
+  text: 'For each assumption, ask: **is it load-bearing?** — i.e., if it were false,
+    would
+
+    the judgment change? Cross load-bearing against confidence. The assumptions that
+
+    are **both load-bearing AND uncertain** (unsupported or key uncertainty) are the
+
+    **key assumptions**. For each, run the collapse test: *if this assumption is
+
+    wrong, does the conclusion collapse, weaken, or survive?* State the answer
+
+    explicitly.'
+- verbs:
+  - reason
+  title: Identify what would test them
+  text: 'For each key assumption, name the **new collection, research, or observation**
+
+    that would confirm or break it. This converts a vulnerability into a concrete,
+
+    testable requirement rather than leaving it as a worry.'
+- verbs:
+  - write
+  title: Rewrite the judgment and report
+  text: "Emit:\n- the **assumptions table** (assumption · stated/unstated · rationale\
+    \ · contrary\n  conditions · confidence class · load-bearing?),\n- the **key assumptions**\
+    \ with their collapse analysis,\n- the **collection** that would test each key\
+    \ assumption,\n- a **revised judgment** that states the conclusion *together with*\
+    \ the\n  assumptions it depends on (e.g. \"X is likely, **provided** Y holds;\
+    \ if Y\n  fails, the assessment reverses\")."
+anti_criteria:
+- Letting an unstated assumption pass unexamined because no one named it.
+- Marking a comfortable or convenient assumption "solid" without evidence.
+- Flagging every assumption as "key" — the value is in discriminating the few
+- Reporting the original judgment unchanged, hiding its dependence on assumptions.
+defensive_boundary: 'Use Key Assumptions Check only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Key Assumptions Check to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Key Assumptions Check, tie each assumptions table, key assumptions, and revised
+  judgment claim to concrete evidence from the specific judgment, analytic line, and
+  stated assumptions item, source excerpt, observation, or command result that supports
+  it.
+- For Key Assumptions Check, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the assumptions table.
+- Before recommending any Key Assumptions Check action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Key Assumptions Check: the assumptions table is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; recover the analytic line and list assumptions and interrogate each assumption
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Key Assumptions Check: the assumptions table is plausible, but one important
+  judgment source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Key Assumptions Check: the assumptions table rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Key Assumptions Check cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Key Assumptions Check, use only authorized judgment, analytic line, and stated
+  assumptions, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Key Assumptions Check, minimize person-level detail in the assumptions table;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Key Assumptions Check, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Key Assumptions Check: treating judgment as complete when recover the analytic
+  line and list assumptions and interrogate each assumption checks or contradictory
+  evidence are missing.'
+- 'Key Assumptions Check: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Key Assumptions Check: reporting the assumptions table without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Key Assumptions Check outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the assumptions table from Key Assumptions Check into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Key Assumptions Check to apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty with judgment, analytic
+  line, and stated assumptions'' -> produce bounded findings with evidence and uncertainty
+  labels.'

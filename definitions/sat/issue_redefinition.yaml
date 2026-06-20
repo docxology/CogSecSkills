@@ -1,0 +1,197 @@
+id: sat.issue_redefinition
+description: Issue Redefinition is a structured creativity and reframing technique
+  that systematically restates an analytic question in multiple alternative forms
+  to expose assumptions embedded in the original framing and reveal new solution paths.
+  By articulating five or more distinct restatements of the same underlying problem,
+  analysts often discover that the initial question was too narrow, too broad, or
+  subtly loaded in ways that constrain good analysis. The technique draws on lateral
+  thinking and problem-structuring research to break the anchoring effect of the initial
+  formulation.
+tags:
+- cognitive-security
+- sat
+- reframing
+- creative-thinking
+triggers:
+- reframe this question
+- issue redefinition
+- am I asking the right question
+- restate the problem
+- escape this framing
+- different ways to ask
+- question reframing
+tools:
+- verb: read
+  purpose: ingest the original question, its context, and any framing constraints
+    imposed by the tasking
+- verb: reason
+  purpose: generate multiple alternative restatements of the question, analyze assumptions
+    embedded in each, and evaluate which framing best serves the analytic purpose
+- verb: write
+  purpose: produce the restatements register with embedded-assumption analysis and
+    a recommended preferred framing
+inputs:
+- name: original_question
+  type: text
+  required: true
+  description: the analytic question or problem statement as originally posed
+- name: tasking_context
+  type: text
+  required: false
+  description: background on who posed the question, what decision it supports, and
+    any known constraints on scope
+outputs:
+- name: restatements_register
+  type: markdown
+  description: 'a structured list of five or more alternative restatements of the
+    original question, each annotated with: the assumption it removes or adds, the
+    solution space it opens or closes, and a recommendation on whether to adopt it'
+- name: preferred_framing
+  type: markdown
+  description: the recommended question restatement with rationale explaining why
+    it better serves the analytic purpose than the original
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 3, 'Issue Redefinition'.
+- 'de Bono, E. (1970). Lateral Thinking: Creativity Step by Step. Harper & Row.'
+- Mitroff, I. I., & Featheringham, T. R. (1974). On Systemic Problem Solving and the
+  Error of the Third Kind. Behavioral Science, 19(6), 383-393.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press/SAGE.
+when_to_use:
+- at the start of an analytic task when the original question feels constraining or
+  produces an analysis that goes nowhere
+- when an analytic team has been working on a problem for a long time and may be anchored
+  on an inherited framing
+- when a consumer's question appears to embed a flawed assumption that would lead
+  the analysis astray
+- when an analysis of competing hypotheses generates only uninformative or trivially
+  similar hypotheses — a sign that the framing is too narrow
+what_it_produces:
+- 'five or more alternative restatements of the original question using different
+  framing levers: broadening, narrowing, inverting, shifting actors, shifting time
+  horizon, changing the unit of analysis'
+- 'for each restatement: the assumption removed or added, the solution space opened
+  or closed'
+- a recommended preferred framing with explicit rationale
+- a documented record of rejected framings and why they were set aside
+key_discipline:
+- generate at least five restatements before evaluating any — premature evaluation
+  kills the reframing process
+- 'use the classic reframing levers explicitly: broaden, narrow, invert, shift actor,
+  shift time horizon, change unit of analysis, change success criterion'
+- for each restatement, ask 'what assumption does this framing make that the original
+  did not, and vice versa?' — the assumption delta is the analytical payoff
+- the goal is not to find a 'correct' framing but to make the choice of framing a
+  conscious, reasoned decision rather than an inherited default
+workflow_steps:
+- verbs:
+  - read
+  title: Document the original framing
+  text: Write out the original question exactly as posed. Identify any explicit scope
+    constraints in the tasking. Note what the question takes for granted — actors,
+    time horizon, unit of analysis, success metric — before generating alternatives.
+- verbs:
+  - reason
+  title: Generate restatements using reframing levers
+  text: 'Apply at least six reframing levers in sequence, generating one or more restatements
+    per lever: (1) Broaden — expand the scope or population. (2) Narrow — restrict
+    the scope. (3) Invert — reframe as the opposite question. (4) Shift actor — change
+    who the question is about. (5) Shift time horizon — ask it earlier or later. (6)
+    Change unit of analysis — restate at a different level (individual / group / system).
+    (7) Change success criterion — alter what a good answer would look like. Record
+    all outputs without evaluating yet.'
+- verbs:
+  - reason
+  title: Annotate assumptions and solution spaces
+  text: 'For each restatement, record: the core assumption it makes or removes relative
+    to the original, and the solution space it opens or forecloses. Identify which
+    restatements are genuinely distinct versus paraphrases. Flag any restatement that
+    exposes an assumption in the original that had gone unexamined.'
+- verbs:
+  - reason
+  title: Evaluate and select a preferred framing
+  text: Review all restatements against the consumer's actual decision need. Select
+    the framing that best matches what the consumer can act on, is most tractable
+    given available evidence, and minimizes unexamined embedded assumptions. If no
+    single framing is clearly superior, propose keeping two framings in parallel and
+    noting where they diverge.
+- verbs:
+  - write
+  title: Produce the restatements register and preferred framing
+  text: Write the full restatements register with all annotations. State the preferred
+    framing clearly and explain why it was chosen. Document rejected framings and
+    the reasons they were set aside — this record is part of the analytic transparency
+    chain.
+anti_criteria:
+- do not evaluate restatements while generating them — premature convergence defeats
+  the purpose of the technique
+- do not return only paraphrases of the original question; each restatement must use
+  a distinct lever that changes the assumption set or solution space
+- do not select a preferred framing simply because it matches the original question
+  — if the original framing survives the exercise it should survive on its merits,
+  with documented rationale
+- do not skip documenting rejected framings — the record of alternatives considered
+  is part of the analytic audit trail and cognitive-security transparency
+defensive_boundary: 'Use Issue Redefinition only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Issue Redefinition to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Issue Redefinition, tie each restatements register, and preferred framing claim
+  to concrete evidence from the specific original question, and tasking context item,
+  source excerpt, observation, or command result that supports it.
+- For Issue Redefinition, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the restatements register.
+- Before recommending any Issue Redefinition action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Issue Redefinition: the restatements register is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; document the original framing and generate restatements using reframing levers
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Issue Redefinition: the restatements register is plausible, but one
+  important original question source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Issue Redefinition: the restatements register rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Issue Redefinition cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Issue Redefinition, use only authorized original question, and tasking context,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Issue Redefinition, minimize person-level detail in the restatements register;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Issue Redefinition, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Issue Redefinition: treating original question as complete when document the original
+  framing and generate restatements using reframing levers checks or contradictory
+  evidence are missing.'
+- 'Issue Redefinition: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Issue Redefinition: reporting the restatements register without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Issue Redefinition outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the restatements register from Issue Redefinition into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Issue Redefinition to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with original question, and
+  tasking context'' -> produce bounded findings with evidence and uncertainty labels.'

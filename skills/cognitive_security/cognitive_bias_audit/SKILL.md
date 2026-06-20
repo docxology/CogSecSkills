@@ -23,6 +23,44 @@ Cognitive Bias Audit applies a structured checklist of well-documented cognitive
 - a concrete, actionable debiasing step for each identified bias — technique-specific, not generic advice
 - a priority ranking so the analyst knows where to focus debiasing effort first
 
+## Defensive boundary
+
+Use Cognitive Bias Audit only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+
+## Misuse redirect
+
+If a request asks Cognitive Bias Audit to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
+
+## Evidence discipline
+
+- For Cognitive Bias Audit, tie each bias audit report, and priority bias summary claim to concrete evidence from the specific analysis or decision, domain context, and known pressures item, source excerpt, observation, or command result that supports it.
+- For Cognitive Bias Audit, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the bias audit report.
+- Before recommending any Cognitive Bias Audit action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Cognitive Bias Audit: the bias audit report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; profile the analysis and map against bias taxonomy checks agree, and no unresolved contradiction would change the result.
+- Medium for Cognitive Bias Audit: the bias audit report is plausible, but one important analysis or decision source, comparison case, or alternative explanation remains incomplete.
+- Low for Cognitive Bias Audit: the bias audit report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Cognitive Bias Audit cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Cognitive Bias Audit, use only authorized analysis or decision, domain context, and known pressures, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cognitive Bias Audit, minimize person-level detail in the bias audit report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Cognitive Bias Audit, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Cognitive Bias Audit: treating analysis or decision as complete when profile the analysis and map against bias taxonomy checks or contradictory evidence are missing.
+- Cognitive Bias Audit: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Cognitive Bias Audit: reporting the bias audit report without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Cognitive Bias Audit outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the bias audit report from Cognitive Bias Audit into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Cognitive Bias Audit to assess supplied material for manipulation indicators and recommend resilience measures with analysis or decision, domain context, and known pressures' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

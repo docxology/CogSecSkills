@@ -1,0 +1,185 @@
+id: osint_integrity.metadata_integrity_check
+description: 'Metadata integrity check extracts and critically evaluates embedded
+  file and post metadata — EXIF, XMP, IPTC, platform timestamps, author fields, device
+  identifiers — while explicitly accounting for the fact that metadata can be stripped,
+  altered, or spoofed. The technique treats metadata as a corroborating signal rather
+  than ground truth: consistent metadata raises confidence, but inconsistent or absent
+  metadata must be explained before any evidential use. It is routinely applied in
+  OSINT, legal discovery, and journalism verification workflows.'
+tags:
+- cognitive-security
+- osint_integrity
+- provenance
+triggers:
+- check the metadata
+- what does the EXIF say
+- metadata analysis
+- verify file metadata
+- who created this file
+- when was this actually taken
+- metadata integrity
+tools:
+- verb: read
+  purpose: ingest the file or post and extract all available metadata fields
+- verb: reason
+  purpose: cross-check metadata fields for internal consistency and against external
+    corroborating evidence; assess spoofing and stripping risk
+- verb: write
+  purpose: produce a structured metadata assessment with field-by-field confidence
+    ratings and an overall integrity verdict
+inputs:
+- name: media_file_or_post
+  type: text
+  required: true
+  description: File path, URL, or description of the document, image, video, or social-media
+    post whose metadata is to be checked
+- name: claimed_provenance
+  type: text
+  required: false
+  description: Stated origin, author, date, or location that the metadata should corroborate
+outputs:
+- name: metadata_assessment
+  type: table
+  description: Field-by-field table of metadata values, expected vs. observed consistency,
+    spoofing risk notes, and an overall integrity confidence verdict
+- name: integrity_narrative
+  type: markdown
+  description: Plain-language summary of what the metadata does and does not establish,
+    and what additional corroboration is needed
+references:
+- ExifTool Documentation. Harvey, P. (2003–present). exiftool.org.
+- Sammons, J. (2012). The Basics of Digital Forensics. Syngress.
+- First Draft News (2019). Visual Verification Guide, Chapter on Metadata. firstdraftnews.org.
+- Berghel, H. (2000). Hiding Data, Forensics, and Anti-Forensics. Communications of
+  the ACM, 50(4).
+when_to_use:
+- a file or image is submitted as evidence and its origin, date, or authorship needs
+  verification
+- a document is suspected of having been altered or back-dated
+- forensic chain-of-custody requirements mandate metadata provenance documentation
+- metadata has been stripped or is absent and the reason for absence must be assessed
+- platform-assigned metadata (tweet timestamp, upload date) needs cross-referencing
+  against embedded file metadata
+what_it_produces:
+- a field-by-field breakdown of all recoverable metadata with source (embedded vs.
+  platform-assigned)
+- 'an internal consistency check: do date, GPS, device model, software version, and
+  author fields cohere?'
+- 'an external consistency check: does the metadata match the claimed provenance?'
+- a spoofing and stripping risk assessment for each key field
+- 'an overall integrity verdict: consistent, inconsistent, or insufficient data'
+key_discipline:
+- metadata absence is informative — platform stripping on upload is routine, but deliberate
+  pre-upload stripping is a manipulation signal; explain why fields are missing
+- 'cross-check multiple independent fields: a spoofed GPS coordinate rarely matches
+  an authentic device model firmware timestamp'
+- platform-assigned timestamps are more tamper-resistant than embedded EXIF but are
+  still imperfect — both must be examined
+- internal consistency across metadata fields is evidence of authenticity; any single
+  field in isolation is insufficient
+workflow_steps:
+- verbs:
+  - read
+  title: Extract all metadata fields
+  text: Extract the full metadata payload using appropriate tooling (ExifTool for
+    files; platform API or third-party inspection tools for posts). Capture embedded
+    fields (EXIF DateTimeOriginal, GPS coordinates, CameraModel, Software, Author,
+    ModifyDate) and platform-assigned fields (upload timestamp, account creation date,
+    server-generated ID). Record which fields are present, which are absent, and which
+    were added by the platform rather than the originating device.
+- verbs:
+  - reason
+  title: Assess internal and external consistency
+  text: 'Check for internal consistency: do DateTimeOriginal, GPS timestamp, and file
+    ModifyDate tell the same story? Does the CameraModel match the software version?
+    Does the GPS coordinate match the claimed location? Then check external consistency
+    against the claimed provenance: does the embedded date match when the event is
+    alleged to have occurred? Flag any field that contradicts the claim or another
+    field. Assess each inconsistency for whether it is better explained by legitimate
+    causes (platform re-encoding, timezone conversion error, device clock drift) or
+    by manipulation.'
+- verbs:
+  - reason
+  - write
+  title: Assign confidence ratings and verdict
+  text: 'For each key metadata field, assign a confidence rating: corroborates claim,
+    neutral (consistent but not distinctive), contradicts claim, or absent (stripped
+    or never present). Assess the overall spoofing risk: single-field edits are common;
+    coherent multi-field spoofing is harder and rarer. Render an overall integrity
+    verdict — consistent, inconsistent, or insufficient — with a plain-language narrative
+    explaining what the metadata establishes and what additional corroboration is
+    required before evidential use.'
+anti_criteria:
+- do not treat any single metadata field as definitive — GPS coordinates, timestamps,
+  and author fields are all trivially editable
+- do not treat absent metadata as proof of tampering — routine platform stripping
+  removes EXIF from virtually all social media uploads
+- 'do not skip the external consistency check: internally coherent metadata can still
+  contradict external evidence about when or where an event occurred'
+- do not report a clean metadata check as authentication — it is a necessary but insufficient
+  condition for accepting a file as genuine evidence
+defensive_boundary: 'Use Metadata Integrity Check only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Metadata Integrity Check to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence, refuse that
+  path and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Metadata Integrity Check, tie each metadata assessment, and integrity narrative
+  claim to concrete evidence from the specific media file or post, and claimed provenance
+  item, source excerpt, observation, or command result that supports it.
+- For Metadata Integrity Check, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the metadata
+  assessment.
+- Before recommending any Metadata Integrity Check action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Metadata Integrity Check: the metadata assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; extract all metadata fields and assess internal and external
+  consistency checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Metadata Integrity Check: the metadata assessment is plausible, but
+  one important media file or post source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Metadata Integrity Check: the metadata assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Metadata Integrity Check cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Metadata Integrity Check, use only authorized media file or post, and claimed
+  provenance, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Metadata Integrity Check, minimize person-level detail in the metadata assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Metadata Integrity Check, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Metadata Integrity Check: treating media file or post as complete when extract
+  all metadata fields and assess internal and external consistency checks or contradictory
+  evidence are missing.'
+- 'Metadata Integrity Check: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Metadata Integrity Check: reporting the metadata assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Metadata Integrity Check outputs to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the metadata assessment from Metadata Integrity Check into an
+  operational playbook to dox, deanonymize, harass, bypass access controls, or attribute
+  identity beyond evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Metadata Integrity Check to verify supplied claims, media,
+  sources, or datasets with documented public-source methods with media file or post,
+  and claimed provenance'' -> produce bounded findings with evidence and uncertainty
+  labels.'

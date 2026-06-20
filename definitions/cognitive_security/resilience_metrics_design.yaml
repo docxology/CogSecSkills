@@ -1,0 +1,237 @@
+id: cognitive_security.resilience_metrics_design
+description: Resilience Metrics Design defines a measurable indicator set for assessing
+  an information ecosystem's capacity to resist, absorb, and recover from deliberate
+  manipulation. Drawing on the RAND information environment resilience framework,
+  the EU Digital Media Observatory methodology, and the NATO Strategic Communications
+  Centre of Excellence measurement guidance, it operationalizes abstract resilience
+  concepts (source diversity, correction uptake, narrative elasticity, trust calibration)
+  into concrete, trackable metrics. The output is an indicator schema that can be
+  implemented in monitoring dashboards, periodic assessments, or research studies.
+tags:
+- cognitive-security
+- cognitive_security
+- resilience
+- metrics
+triggers:
+- design resilience metrics
+- measure information ecosystem resilience
+- track manipulation resistance
+- how do we know if our information environment is getting stronger
+- indicator design for cognitive security
+- operationalize resilience
+tools:
+- verb: read
+  purpose: ingest the target ecosystem definition, stakeholder goals, and any existing
+    metrics or monitoring infrastructure
+- verb: reason
+  purpose: map ecosystem resilience dimensions to measurable indicators, assess feasibility
+    and validity of each metric candidate, and identify tradeoffs
+- verb: write
+  purpose: produce the indicator schema, measurement protocol, and monitoring implementation
+    guidance
+inputs:
+- name: ecosystem_definition
+  type: text
+  required: true
+  description: 'Description of the information ecosystem to be assessed: scope (platform,
+    community, institution, nation), key actors, primary information flows, and known
+    threat actors or manipulation vectors'
+- name: stakeholder_goals
+  type: text
+  required: true
+  description: What decisions or interventions will these metrics inform? Who will
+    act on them and at what time resolution? Knowing the decision context determines
+    metric granularity and update frequency.
+- name: existing_data_sources
+  type: list
+  required: false
+  description: 'Data sources already available for measurement: platform analytics,
+    survey instruments, content monitoring feeds, fact-check databases, government
+    statistics'
+- name: prior_metrics_or_assessments
+  type: text
+  required: false
+  description: Any existing resilience assessments, indicator sets, or monitoring
+    reports for this ecosystem or comparable ecosystems, to inform comparability and
+    baseline setting
+outputs:
+- name: indicator_schema
+  type: table
+  description: 'Structured table of metrics organized by resilience dimension: indicator
+    name, definition, unit of measurement, data source, collection frequency, benchmark/target
+    range, and known validity limitations'
+- name: measurement_protocol
+  type: markdown
+  description: Step-by-step protocol for collecting, normalizing, and reporting each
+    indicator, including handling of missing data, longitudinal comparability, and
+    inter-rater reliability guidance for qualitative indicators
+- name: implementation_guidance
+  type: markdown
+  description: Recommendations for embedding the metric set in a monitoring system,
+    including dashboard design, alert thresholds, reporting cadence, and stakeholder
+    communication
+references:
+- Helmus, T. C., & Klein, K. (2018). Assessing the Effectiveness of Online Pro-Kremlin
+  Disinformation. RAND Corporation. RR-2479-RC.
+- 'Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda: Manipulation,
+  Disinformation, and Radicalization in American Politics. Oxford University Press.'
+- NATO StratCom COE (2019). Measuring the Information Environment. NATO Strategic
+  Communications Centre of Excellence.
+- European Commission (2022). Strengthened Code of Practice on Disinformation. European
+  Digital Media Observatory Monitoring Framework.
+- Roozenbeek, J., Schneider, C. R., Dryhurst, S., Kerr, J., Freeman, A. L. J., Recchia,
+  G., van der Bles, A. M., & van der Linden, S. (2020). Susceptibility to misinformation
+  about COVID-19 across 26 countries. Royal Society Open Science, 7(10), 201199.
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe Report DGI(2017)09.'
+when_to_use:
+- designing a monitoring program for an information environment before or during an
+  anticipated influence operation
+- evaluating the effectiveness of a media-literacy, prebunking, or content-moderation
+  intervention over time
+- building a resilience baseline assessment before a high-stakes information period
+  (election, health crisis, military operation)
+- advising policymakers or platform operators on which leading indicators of ecosystem
+  degradation to track
+what_it_produces:
+- a structured indicator schema table covering multiple resilience dimensions with
+  measurement specifications and validity limitations
+- a measurement protocol for data collection, normalization, and longitudinal tracking
+- implementation guidance for embedding the metric set in a monitoring or dashboard
+  system
+key_discipline:
+- operationalize each resilience dimension into at least one leading indicator (predicts
+  degradation before it is manifest) and one lagging indicator (confirms degradation
+  after the fact)
+- distinguish structural resilience (diversity of sources, independence of fact-checking
+  infrastructure) from behavioral resilience (audience correction uptake, lateral
+  reading rates) — both are necessary
+- 'design for measurement validity: a metric that is easy to game by bad actors is
+  worse than no metric'
+- set benchmarks relative to baselines and comparable ecosystems, not absolute thresholds
+  — resilience is comparative and dynamic
+- build in a 'bright line' alert threshold for each metric where a breach triggers
+  a mandatory review, not just a dashboard update
+workflow_steps:
+- verbs:
+  - read
+  title: Define the ecosystem and decision context
+  text: 'Ingest the ecosystem definition and stakeholder goals. Clarify: what counts
+    as a manipulation event in this ecosystem; who the legitimate and illegitimate
+    actors are; what the decision cadence is (weekly dashboard, quarterly assessment,
+    crisis-triggered review); and what data is already available vs. must be newly
+    instrumented. Document known threat vectors as the basis for metric coverage.'
+- verbs:
+  - reason
+  title: Map resilience dimensions and candidate indicators
+  text: 'Decompose ecosystem resilience into four primary dimensions and generate
+    candidate indicators for each. (1) Source diversity: number of independent high-reach
+    outlets; Herfindahl-Hirschman Index of audience attention concentration; share
+    of traffic reaching single-owner domain clusters. (2) Correction uptake: ratio
+    of correction engagement to original misinformation engagement; proportion of
+    false claims receiving timely fact-check coverage; recirculation rate of debunked
+    content. (3) Narrative elasticity: time for manipulative narratives to achieve
+    tipping-point spread; proportion of viral narratives originating from low-credibility
+    sources. (4) Trust calibration: correlation between audience source trust ratings
+    and independent credibility assessments; percentage of audience that can identify
+    the funder of a news outlet. For each candidate, document: data source, collection
+    feasibility, validity threats, and manipulation-resistance (can a bad actor game
+    this metric cheaply).'
+- verbs:
+  - reason
+  title: Select, validate, and tier the indicator set
+  text: 'Select a tractable set of indicators (recommend 8–15 for an ongoing monitoring
+    program; more is not better). Tier them: Tier 1 — core indicators that must be
+    tracked at every reporting cycle; Tier 2 — supplementary indicators for deep-dive
+    assessments; Tier 3 — aspirational indicators pending data availability. For qualitative
+    indicators, design inter-rater reliability protocols. For each metric, set a baseline
+    range, an alert threshold (degradation signal), and a target range (successful
+    intervention outcome). Flag any indicators where collection would require platform
+    API access or survey fieldwork that may not be feasible.'
+- verbs:
+  - write
+  title: Author the indicator schema, measurement protocol, and implementation guidance
+  text: 'Compose the indicator schema as a structured table. Write the measurement
+    protocol, covering: data collection schedule, normalization procedures (especially
+    across platforms with different base rates), missing data handling, and inter-rater
+    calibration for qualitative indicators. Write implementation guidance covering
+    dashboard design (which indicators to surface at a glance vs. drill-down), alert
+    thresholds and escalation procedures, reporting cadence and stakeholder communication,
+    and a review cycle for revisiting and updating the metric set as the threat landscape
+    evolves.'
+anti_criteria:
+- do not define metrics that are easy for adversaries to game — a metric whose gaming
+  is cheap and undetectable is a liability, not a measure
+- do not use only lagging indicators — if all metrics confirm damage after it has
+  occurred, the monitoring system cannot enable timely intervention
+- do not set absolute numerical thresholds without establishing ecosystem-specific
+  baselines — 'X% correction uptake is good' is meaningless without a reference ecosystem
+  and pre-intervention baseline
+- do not conflate quantity metrics (volume of fact-checks published) with quality/impact
+  metrics (proportion of misinformed audience reached by a correction)
+defensive_boundary: 'Use Resilience Metrics Design only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Resilience Metrics Design to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Resilience Metrics Design, tie each indicator schema, measurement protocol,
+  and implementation guidance claim to concrete evidence from the specific ecosystem
+  definition, stakeholder goals, and existing data sources item, source excerpt, observation,
+  or command result that supports it.
+- For Resilience Metrics Design, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the indicator
+  schema.
+- Before recommending any Resilience Metrics Design action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Resilience Metrics Design: the indicator schema is supported by multiple
+  independent content, behavioral, narrative, media, and audience-risk evidence; define
+  the ecosystem and decision context and map resilience dimensions and candidate indicators
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Resilience Metrics Design: the indicator schema is plausible, but one
+  important ecosystem definition source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Resilience Metrics Design: the indicator schema rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Resilience Metrics Design cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Resilience Metrics Design, use only authorized ecosystem definition, stakeholder
+  goals, and existing data sources, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Resilience Metrics Design, minimize person-level detail in the indicator schema;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Resilience Metrics Design, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Resilience Metrics Design: treating ecosystem definition as complete when define
+  the ecosystem and decision context and map resilience dimensions and candidate indicators
+  checks or contradictory evidence are missing.'
+- 'Resilience Metrics Design: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Resilience Metrics Design: reporting the indicator schema without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Resilience Metrics Design outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the indicator schema from Resilience Metrics Design into an operational
+  playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize
+  narrative manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Resilience Metrics Design to assess supplied material for
+  manipulation indicators and recommend resilience measures with ecosystem definition,
+  stakeholder goals, and existing data sources'' -> produce bounded findings with
+  evidence and uncertainty labels.'

@@ -1,0 +1,179 @@
+id: sat.mind_maps_and_concept_maps
+description: Mind maps and concept maps externalize the structure of a complex problem
+  as a navigable node-link graph, making implicit conceptual relationships visible
+  and shareable. Mind maps radiate from a central topic in a hierarchical tree; concept
+  maps allow labeled, directional links between any pair of nodes (following Novak's
+  knowledge-representation theory). Both techniques combat working-memory overload,
+  surface hidden assumptions, and expose gaps or tangled chains of reasoning that
+  prose analysis obscures.
+tags:
+- cognitive-security
+- sat
+- externalization
+- visualization
+triggers:
+- draw out the relationships
+- map the concepts
+- visualize the problem structure
+- mind map
+- concept map
+- organize the ideas visually
+tools:
+- verb: read
+  purpose: ingest source text, reports, or prior analysis from which concepts and
+    relationships will be extracted
+- verb: reason
+  purpose: identify key nodes, label directional links, and evaluate structural completeness
+    and consistency
+- verb: write
+  purpose: emit the map as structured output (adjacency list, Mermaid graph, or annotated
+    node-link table) plus an analytic narrative
+inputs:
+- name: source_material
+  type: text
+  required: true
+  description: Raw text, reports, or prior analysis describing the problem space whose
+    concepts and relationships are to be mapped
+- name: central_topic
+  type: text
+  required: true
+  description: The focal concept or question that anchors the map (e.g., 'influence
+    operation targeting election narrative')
+- name: map_type
+  type: text
+  required: false
+  description: 'Preferred map style: ''mind'' (hierarchical tree from center) or ''concept''
+    (labeled directed graph); defaults to concept map for analytic use'
+outputs:
+- name: concept_graph
+  type: markdown
+  description: A Mermaid or adjacency-list representation of the map with labeled
+    nodes and directed, annotated edges
+- name: gap_and_conflict_report
+  type: markdown
+  description: A brief analytic note identifying nodes with no outbound links (dead
+    ends), conflicting link directions, and concepts mentioned in source material
+    but absent from the map
+references:
+- Novak, J. D., & Cañas, A. J. (2008). The Theory Underlying Concept Maps and How
+  to Construct and Use Them. Florida Institute for Human and Machine Cognition.
+- Buzan, T., & Buzan, B. (1996). The Mind Map Book. BBC Books.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 6.
+when_to_use:
+- the problem involves many interacting concepts and verbal analysis keeps losing
+  track of their relationships
+- a team needs a shared, inspectable representation of how they understand a situation
+- preparing for ACH or other hypothesis-generation techniques and wanting to inventory
+  all relevant factors first
+- detecting where an adversary's narrative is internally inconsistent or exploits
+  a real knowledge gap in the audience
+what_it_produces:
+- a structured node-link graph with labeled directed relationships between all key
+  concepts
+- identification of orphan nodes (concepts not connected to the core topic) and missing
+  links
+- a checklist of conflicts or contradictions visible in the link structure
+key_discipline:
+- name links, not just draw them — unlabeled edges carry no analytic information
+- use directed arrows to record WHO acts on WHOM or WHAT causes WHAT, not mere association
+- distinguish 'is a', 'causes', 'depends on', and 'contradicts' as distinct link types
+- 'after drafting, check every leaf node: if it has no outbound links, ask whether
+  it is truly terminal or whether reasoning stopped prematurely'
+workflow_steps:
+- verbs:
+  - read
+  title: Extract concepts
+  text: 'Read the source material and list all candidate nodes: actors, events, beliefs,
+    mechanisms, and contextual factors. Record the raw language used to name each
+    concept rather than paraphrasing, so provenance is traceable.'
+- verbs:
+  - reason
+  title: Draft links and labels
+  text: For each pair of concepts that stands in a meaningful relationship, draw a
+    directed edge and label it with a verb phrase (e.g., 'funds', 'amplifies', 'contradicts',
+    'is prerequisite for'). Arrange nodes so that causal or temporal flow reads left-to-right
+    or top-to-bottom.
+- verbs:
+  - reason
+  title: Audit for gaps and conflicts
+  text: 'Walk every node: identify nodes with no inbound links (potential unexamined
+    causes), nodes with no outbound links (potential unexamined effects), and cycles
+    (potential feedback loops). Note any two links that together imply a contradiction.'
+- verbs:
+  - write
+  title: Emit graph and analytic narrative
+  text: Output the map in a machine-readable format (Mermaid flowchart or adjacency
+    list). Append a gap-and-conflict report that names each identified structural
+    problem, states what additional evidence or reasoning would resolve it, and flags
+    any section of the map that rests on an assumption rather than confirmed fact.
+anti_criteria:
+- do not leave link labels blank — unlabeled edges reduce the map to an uninterpretable
+  blob
+- do not collapse distinct concepts into a single node to keep the map tidy — hidden
+  conflation is worse than a dense map
+- do not treat the completed map as a finished product; it is a living artifact that
+  must be updated as new information arrives
+defensive_boundary: 'Use Mind Maps & Concept Maps only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Mind Maps & Concept Maps to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Mind Maps & Concept Maps, tie each concept graph, and gap and conflict report
+  claim to concrete evidence from the specific source material, central topic, and
+  map type item, source excerpt, observation, or command result that supports it.
+- For Mind Maps & Concept Maps, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the concept
+  graph.
+- Before recommending any Mind Maps & Concept Maps action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Mind Maps & Concept Maps: the concept graph is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; extract
+  concepts and draft links and labels checks agree, and no unresolved contradiction
+  would change the result.'
+- 'Medium for Mind Maps & Concept Maps: the concept graph is plausible, but one important
+  source material source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Mind Maps & Concept Maps: the concept graph rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Mind Maps & Concept Maps cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Mind Maps & Concept Maps, use only authorized source material, central topic,
+  and map type, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Mind Maps & Concept Maps, minimize person-level detail in the concept graph;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Mind Maps & Concept Maps, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Mind Maps & Concept Maps: treating source material as complete when extract concepts
+  and draft links and labels checks or contradictory evidence are missing.'
+- 'Mind Maps & Concept Maps: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Mind Maps & Concept Maps: reporting the concept graph without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Mind Maps & Concept Maps outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the concept graph from Mind Maps & Concept Maps into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Mind Maps & Concept Maps to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with source material,
+  central topic, and map type'' -> produce bounded findings with evidence and uncertainty
+  labels.'

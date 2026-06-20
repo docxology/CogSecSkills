@@ -1,10 +1,13 @@
 # CogSecSkills CLI Reference
 
 The `cogsecskills` command-line interface is a thin orchestrator over the
-library API. It catalogues, validates, routes, scaffolds, authors, and reports
-on the skill library. All business logic lives in the sibling modules
+library API. It catalogues, validates, routes, scaffolds, authors, reports on,
+and generates manuscript assets from the skill library. All business logic lives
+in the sibling modules
 (`insights.py`, `validate.py`, `author.py`, `scaffold.py`, `registry.py`,
-`config.py`); the CLI only parses arguments, calls them, and prints results.
+`config.py`, `definitions.py`, `scenarios.py`, `examples.py`, `dashboard.py`,
+`manuscript_assets.py`); the CLI only parses arguments, calls them, and prints
+results.
 
 ## Invocation
 
@@ -41,12 +44,12 @@ A subcommand is required; running `cogsecskills` with no command is an error.
 | Code | Meaning |
 | --- | --- |
 | `0` | Success (or, for `validate`, zero errors). |
-| `1` | Command-specific failure: `validate`/`doctor` found errors (and `doctor` also fails on quality findings), `route` found no matching skill, `show` got an unknown id, or `author-batch` had at least one failed definition. |
+| `1` | Command-specific failure: `validate`/`doctor` found errors (and `doctor` also fails on quality findings), `route` found no matching skill, `show` got an unknown id, `definitions --check`, `scenarios --check`, `examples --check`, `dashboard --check`, or `manuscript-assets --check` found drift, or `author-batch` had at least one failed definition. |
 
 ### Config awareness
 
-`validate`, `doctor`, `scaffold`, `author`, and `author-batch` load
-`cogsecskills.yaml` (via `cogsecskills.config.load_config`) and honour its
+`validate`, `doctor`, `scaffold`, `author`, `author-batch`, and `definitions`
+load `cogsecskills.yaml` (via `cogsecskills.config.load_config`) and honour its
 `harnesses` list and `quality` thresholds. With no config file the defaults are
 used: harnesses `claude, codex, hermes`, `min_workflow_steps: 3`,
 `min_anti_criteria: 2`, `require_references: false`. See
@@ -231,22 +234,22 @@ scaffolded 6 files for sat.example_technique:
 
 ---
 
-### `author` — render a full skill from a JSON definition
+### `author` — render a full skill from a JSON or YAML definition
 
-Render a complete, deep skill from a structured JSON definition. Where
+Render a complete, deep skill from a structured JSON or YAML definition. Where
 `scaffold` produces a stub from the catalogue row, `author` consumes a
 definition that supplies the real substance (tool plan, inputs/outputs,
-step-by-step procedure, anti-criteria) and renders all conforming files with
-status `implemented`. Adapters bind exactly the declared verbs, so an authored
-skill passes the validator by construction.
+step-by-step procedure, anti-criteria, and quality fields) and renders all
+conforming files with status `implemented`. Adapters bind exactly the declared
+verbs, so an authored skill passes the validator by construction.
 
 ```
-cogsecskills author <def.json>
+cogsecskills author <definition.json|definition.yaml>
 ```
 
 | Argument | Meaning |
 | --- | --- |
-| `def.json` | Path to the JSON definition file. Its `id` must exist in the registry. |
+| `definition.json|definition.yaml` | Path to the JSON or YAML definition file. Its `id` must exist in the registry. |
 
 The definition schema (required keys, optional sections, harness binding
 overrides) is documented in [authoring-skills.md](authoring-skills.md). Prints a
@@ -286,6 +289,182 @@ cogsecskills author-batch
 
 ```
 rendered 3 skills; 0 failed
+```
+
+---
+
+### `definitions` — write or check the canonical all-skill definition layer
+
+Render every canonical YAML definition under `definitions/<group>/<slug>.yaml`
+into the harness-facing `skills/` tree, or fail if definitions or rendered
+files have drifted. This is the preferred repo-wide source-of-truth command for
+all 100 implemented skills.
+
+```
+cogsecskills definitions (--write | --check)
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write canonical YAML definitions when missing and render every definition-owned skill file. |
+| `--check` | Fail if any registry entry lacks a definition, a definition has schema drift, or a rendered skill file differs from the definition output. |
+
+```bash
+cogsecskills definitions --write
+cogsecskills definitions --check
+```
+
+```
+wrote canonical definitions: 100 definitions, 100 rendered skills
+canonical definitions are current
+```
+
+---
+
+### `scenarios` — check deterministic defensive-readiness fixtures
+
+Check the curated repository-local scenario fixtures under
+`scenarios/defensive_readiness.yaml`. The gate validates that each fixture routes
+to the expected implemented skill, names a safe defensive or unsafe redirect
+case, references declared output terms, declares an expected defensive response
+shape, carries a reviewed local expected-answer fixture, and points at skills
+with the required quality, evidence, uncertainty, and refusal/redirect metadata.
+
+```
+cogsecskills scenarios --check
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--check` | Fail if scenario fixtures are missing, stale, unsafe in wording, poorly covered by group/kind, missing expected-response or expected-answer terms, or no longer match the referenced skill contract. |
+
+```bash
+cogsecskills scenarios --check
+```
+
+```
+scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked
+```
+
+This is a deterministic repository gate. It does not call Claude, Codex,
+Hermes, custom harness runtimes, browsers, OSINT connectors, or live APIs; it
+only checks that the local source surfaces can support bounded defensive
+scenario use and describe the expected answer shape.
+
+---
+
+### `examples` — generate or check deterministic worked examples
+
+Generate Markdown and JSON worked-example views from the source-owned
+`examples/skill-worked-examples.yaml` file. The source file contains one
+reviewed local fixture per skill. The generated outputs are deterministic
+examples, not live model transcripts or runtime certification.
+
+```
+cogsecskills examples (--write | --check)
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write `docs/skill-worked-examples.md` and `output/data/skill_worked_examples.json`. |
+| `--check` | Fail if source examples are missing, unsafe, incomplete, mismatched to the registry, or generated outputs are missing or stale. |
+
+```bash
+cogsecskills examples --write
+cogsecskills examples --check
+```
+
+```
+wrote worked examples: 100 examples, docs/skill-worked-examples.md, output/data/skill_worked_examples.json
+worked examples are current
+```
+
+---
+
+### `evals` — generate or check offline output-review fixtures
+
+Generate scenario-linked offline review fixtures and a Markdown/JSON report
+from the deterministic scenario expected answers. These fixtures use the
+analyst-output review rubric; they are not live model outputs or benchmark
+results.
+
+```
+cogsecskills evals (--write | --check)
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write `evals/local_output_review.yaml`, `docs/evaluation-readiness.md`, and `output/data/evaluation_readiness.json`. |
+| `--check` | Fail if offline review fixtures are missing, stale, below the passing rubric score, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
+
+```bash
+cogsecskills evals --write
+cogsecskills evals --check
+```
+
+```
+wrote offline eval fixtures: 28 evaluations, evals/local_output_review.yaml, docs/evaluation-readiness.md, output/data/evaluation_readiness.json
+offline evaluation fixtures are current
+```
+
+---
+
+### `dashboard` — generate or check the quality dashboard
+
+Generate a Markdown and JSON dashboard from the live registry, rendered skill
+specs, canonical quality capsules, scenario fixtures, offline review fixtures,
+worked examples, and current TODO verified state. The dashboard is a navigation
+and drift surface, not evidence of field effectiveness.
+
+```
+cogsecskills dashboard (--write | --check)
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write `docs/quality-dashboard.md` and `output/data/quality_dashboard.json`. |
+| `--check` | Fail if the generated dashboard files are missing, stale, missing 100-skill coverage, missing scenario coverage, missing worked-example coverage, missing quality capsules, or missing verified-state rows. |
+
+```bash
+cogsecskills dashboard --write
+cogsecskills dashboard --check
+```
+
+```
+wrote quality dashboard: 100 skills, 28 scenarios, 100 worked examples, docs/quality-dashboard.md, output/data/quality_dashboard.json
+quality dashboard is current
+```
+
+The dashboard rows include skill id, group, neutral verbs, configured harnesses,
+reference count, quality-capsule presence, scenario coverage, offline-eval
+coverage, worked-example coverage, local claim-boundary status, and source paths.
+
+---
+
+### `release-metadata` — generate or check release claim metadata
+
+Generate a local release claim matrix and JSON metadata snapshot. Default
+`local` mode reports dirty git state truthfully without failing; stricter modes
+can be used before public archive work.
+
+```
+cogsecskills release-metadata (--write | --check) [--mode local|release-candidate|public-archive]
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write `docs/release-claim-matrix.md` and `output/data/release_metadata.json`. |
+| `--check` | Fail if metadata is inconsistent or generated release metadata outputs are missing or stale. |
+| `--mode` | Select local, release-candidate, or public-archive strictness. |
+
+```bash
+cogsecskills release-metadata --write
+cogsecskills release-metadata --check
+```
+
+```
+wrote release metadata: mode=local, docs/release-claim-matrix.md, output/data/release_metadata.json
+release metadata is current (local mode)
 ```
 
 ---
@@ -410,6 +589,53 @@ by hand — regenerate after changing the registry" banner.
 
 ---
 
+### `manuscript-assets` — generate or check manuscript supplements and figures
+
+Generate source-owned manuscript supplements and visualizations from the live
+registry plus on-disk skill specs. This command owns the generated supplemental
+sections and figure files used by the manuscript.
+
+```
+cogsecskills manuscript-assets (--write | --check)
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--write` | Write generated supplements, data exports, and PNG figures. |
+| `--check` | Fail if generated Markdown/data files are missing or stale, or if expected PNG figures are missing/invalid. |
+
+`--write` updates:
+
+- `manuscript/S10_skill_catalogue.md`
+- `manuscript/S11_skill_metadata_matrix.md`
+- `output/data/skill_catalogue.json`
+- `output/data/skill_catalogue.csv`
+- `output/figures/cogsecskills_taxonomy_counts.png`
+- `output/figures/cogsecskills_skill_grid.png`
+- `output/figures/cogsecskills_verb_heatmap.png`
+- `output/figures/cogsecskills_ageint_network.png`
+- `output/figures/cogsecskills_plan_build_teach_flow.png`
+- `output/figures/cogsecskills_reference_density.png`
+- `output/figures/cogsecskills_harness_contract.png`
+- `output/figures/cogsecskills_cover_installation.png`
+- `figures/cogsecskills_cover_installation.png` (title-page cover mirror)
+
+```bash
+cogsecskills manuscript-assets --write
+cogsecskills manuscript-assets --check
+```
+
+```
+wrote manuscript assets: 2 markdown, 2 data, 8 figures for 100 skills
+manuscript assets are current
+```
+
+The `output/` files are rebuild artifacts; the generated supplemental Markdown
+under `manuscript/` is committed source input for the renderer and carries a
+"do not edit by hand" header.
+
+---
+
 ### `doctor` — validate plus quality lint
 
 Run full validation **and** a quality lint, in one pass. Validation covers
@@ -472,12 +698,13 @@ cogsecskills scaffold <group>.<slug>
 # ...edit the generated files...
 cogsecskills validate
 
-# Option B — author from a JSON definition (see authoring-skills.md)
-cogsecskills author skills/<group>/<slug>/_def.json
+# Option B — author from a JSON/YAML definition (see authoring-skills.md)
+cogsecskills author definitions/<group>/<slug>.yaml
 cogsecskills validate
 
-# Option C — drop _def.json files in place and render them all at once
-cogsecskills author-batch
+# Option C — update canonical definitions and render the whole library
+cogsecskills definitions --write
+cogsecskills definitions --check
 ```
 
 **Find the right skill for a need.**
@@ -491,13 +718,24 @@ cogsecskills show <id>   # inspect the top match
 
 ```bash
 cogsecskills doctor        # validation + quality lint; exit 1 on any problem
+cogsecskills scenarios --check
+cogsecskills examples --check
+cogsecskills dashboard --check
 cogsecskills report        # machine-readable conformance snapshot
+cogsecskills manuscript-assets --check
 ```
 
 **Regenerate the catalogue doc after editing the registry.**
 
 ```bash
 cogsecskills catalogue --markdown --output docs/catalogue.md
+```
+
+**Regenerate manuscript supplements and figures after editing registry/skills.**
+
+```bash
+cogsecskills manuscript-assets --write
+cogsecskills manuscript-assets --check
 ```
 
 **Survey the library.**
@@ -514,8 +752,8 @@ cogsecskills list --status implemented
 
 - [architecture.md](architecture.md) — how the registry, specs, harness
   adapters, and CLI fit together.
-- [authoring-skills.md](authoring-skills.md) — the JSON definition format
-  consumed by `author` and `author-batch`.
+- [authoring-skills.md](authoring-skills.md) — the canonical YAML definition
+  format consumed by `definitions --write` and `author`.
 - [configuration.md](configuration.md) — `cogsecskills.yaml` harness set and
   `doctor` quality thresholds.
 - [skill-contract.md](skill-contract.md) — the validation contract enforced by

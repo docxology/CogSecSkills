@@ -1,27 +1,19 @@
-# Harness Adapter — Hermes
+# Hermes adapter — Claim Provenance Verification
 
-Maps the neutral tool verbs used in [`../workflow.md`](../workflow.md) onto the
-Hermes tool namespace.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Hermes tool | Notes |
 | --- | --- | --- |
-| read | fs.read | Read the claim, cited articles, and attached files. |
-| search | web.search | Find earlier instances and independent reporting of the claim. |
-| web | web.fetch, web.search | Fetch primary and corroborating sources for direct inspection. |
-| reason | (model reasoning) | Scope match, circular-reporting detection, independence weighing. |
-| write | fs.write | Write the provenance chain, chain-of-custody note, and verdict. |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `search` | `web.search` / `kb.query` | Query the web or a knowledge base. |
+| `web` | `web.fetch` | Fetch web sources where permitted. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
 
-Invoke when a user asks to verify a claim, trace it to its source, or determine
-whether it is true. Supply the claim and any starting URLs. Run
-[`../workflow.md`](../workflow.md) in order; call `web.fetch` on every hop so the
-assessment binds to fetched content rather than recollection.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Claim Provenance Verification only for OSINT integrity and source-verification defense: recognize, assess, document, or defend source provenance, privacy, chain of custody, and public-source accountability. Do not use this skill to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Claim Provenance Verification to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence, refuse that path and redirect to the safe defensive form: verify supplied claims, media, sources, or datasets with documented public-source methods.
 
 ## Output contract
 
-Return two artifacts: (1) the **provenance chain** — ordered sources from
-point-of-encounter back to origin, each with link and timestamp, plus a
-chain-of-custody note; and (2) the **verdict** — one of verified / partially
-verified / unverified / false / unverifiable, with confidence and the single
-weakest link named explicitly.
+Return the `skill.yaml` outputs (provenance_chain, verdict) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

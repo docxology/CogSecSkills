@@ -68,3 +68,69 @@ references:
   (3rd ed.). CQ Press.
 - Schwenk, C. R. (1988). The cognitive perspective on strategic decision-making. Journal
   of Management Studies, 25(1), 41–55.
+defensive_boundary: 'Use Assumption Surfacing Review only for critical review and
+  assurance: recognize, assess, document, or defend evidence quality, implementation
+  integrity, and decision accountability. Do not use this skill to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Assumption Surfacing Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Assumption Surfacing Review, tie each assumption register, and assumption review
+  narrative claim to concrete evidence from the specific target text, and domain context
+  item, source excerpt, observation, or command result that supports it.
+- For Assumption Surfacing Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the assumption
+  register.
+- Before recommending any Assumption Surfacing Review action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Assumption Surfacing Review: the assumption register is supported by multiple
+  independent artifact excerpts, test output, citations, assumptions, and reproducibility
+  records; extract claims and premises and surface implicit assumptions checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Assumption Surfacing Review: the assumption register is plausible, but
+  one important target text source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Assumption Surfacing Review: the assumption register rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Assumption Surfacing Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Assumption Surfacing Review, use only authorized target text, and domain context,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Assumption Surfacing Review, minimize person-level detail in the assumption
+  register; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Assumption Surfacing Review, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Assumption Surfacing Review: treating target text as complete when extract claims
+  and premises and surface implicit assumptions checks or contradictory evidence are
+  missing.'
+- 'Assumption Surfacing Review: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Assumption Surfacing Review: reporting the assumption register without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Assumption Surfacing Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the assumption register from Assumption Surfacing Review into
+  an operational playbook to launder weak claims, fabricate review findings, or produce
+  exploit guidance without mitigation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Assumption Surfacing Review to review supplied artifacts
+  for defects, evidence gaps, safety risks, or reproducibility failures with target
+  text, and domain context'' -> produce bounded findings with evidence and uncertainty
+  labels.'

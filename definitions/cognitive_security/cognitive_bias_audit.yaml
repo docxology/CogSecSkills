@@ -1,0 +1,218 @@
+id: cognitive_security.cognitive_bias_audit
+description: Cognitive Bias Audit applies a structured checklist of well-documented
+  cognitive biases — drawn from the intelligence analysis, behavioral economics, and
+  judgment-and-decision-making literature — to a specific analysis or decision to
+  identify which biases are most likely operating and how they may be distorting conclusions.
+  The technique is derived from Richards Heuer's work on structured analytic techniques
+  and Kahneman's dual-process research, adapted for defensive intelligence and cognitive-security
+  contexts. It produces a prioritized catalogue of probable bias intrusions with targeted
+  debiasing actions, not a generic lecture on bias. The goal is making bias visible
+  and actionable rather than abstractly warning analysts that biases exist.
+tags:
+- cognitive-security
+- cognitive_security
+- structured-analytic-techniques
+- debiasing
+triggers:
+- cognitive bias audit
+- check for biases in this analysis
+- what biases might affect this judgment
+- debiasing review
+- audit my reasoning for cognitive traps
+tools:
+- verb: read
+  purpose: ingest the analysis text, decision record, or judgment under review along
+    with any stated assumptions
+- verb: reason
+  purpose: match the text against a structured taxonomy of biases relevant to the
+    domain and decision type, assessing likelihood and distortion magnitude
+- verb: write
+  purpose: emit the ranked bias catalogue with evidence quotes, estimated impact,
+    and specific debiasing recommendations
+inputs:
+- name: analysis_or_decision
+  type: text
+  required: true
+  description: The full text of the analysis, judgment, or decision record to be audited;
+    should include stated conclusions and the evidence or reasoning used to reach
+    them
+- name: domain_context
+  type: text
+  required: false
+  description: Brief description of the domain (intelligence, policy, security, financial,
+    medical, etc.) and the stakes involved — used to weight which bias classes are
+    most hazardous
+- name: known_pressures
+  type: list
+  required: false
+  description: List of organizational, time, social, or political pressures the analyst
+    was under — these activate specific motivated-reasoning and groupthink biases
+outputs:
+- name: bias_audit_report
+  type: markdown
+  description: 'Structured report: for each identified bias, a label, a quoted passage
+    showing it, an estimated distortion magnitude (High/Medium/Low), the mechanism
+    by which it distorts the conclusion, and a concrete debiasing action'
+- name: priority_bias_summary
+  type: table
+  description: Compact table of top biases sorted by estimated distortion magnitude
+    with one-line debiasing action per row, suitable for a quick-read executive summary
+references:
+- 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. Chapter 11: Biases in Perception of Cause and Effect.'
+- Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
+- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter 7: Challenge Analysis.'
+- Larrick, R. P. (2004). Debiasing. In D. J. Koehler & N. Harvey (Eds.), Blackwell
+  Handbook of Judgment and Decision Making. Blackwell.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown Publishers.'
+when_to_use:
+- before finalizing an intelligence estimate or security assessment where consequential
+  decisions follow
+- when reviewing a peer's analysis for quality assurance or red-team purposes
+- after a significant analytic failure as part of post-mortem — to identify which
+  biases contributed
+- when an analysis feels intuitively 'too clean' or converges too quickly on a conclusion
+- when analysts have been operating under unusual time pressure, political sensitivity,
+  or group consensus norms
+what_it_produces:
+- a named, evidence-grounded catalogue of the specific biases most likely operating
+  in this analysis (not a generic list)
+- quoted text from the analysis showing where each bias is visible
+- an estimated distortion magnitude (High/Medium/Low) for each bias based on domain
+  and stakes
+- a concrete, actionable debiasing step for each identified bias — technique-specific,
+  not generic advice
+- a priority ranking so the analyst knows where to focus debiasing effort first
+key_discipline:
+- name the bias specifically — 'anchoring on the first figure cited' not 'analyst
+  may be biased'
+- quote the text that shows the bias; do not assert bias without textual evidence
+- distinguish between cognitive bias (systematic error in judgment) and random error
+  or deliberate framing
+- rate distortion magnitude by domain stakes and logical path-dependence, not by how
+  uncomfortable the bias sounds
+- pair every identified bias with a debiasing action that is actually feasible for
+  this analyst in this context
+- 'the taxonomy should cover: availability/representativeness/anchoring (heuristic
+  biases), confirmation bias and its variants, mirror-imaging, groupthink and social
+  proof, motivated reasoning and politicization, projection bias, and satisficing'
+workflow_steps:
+- verbs:
+  - read
+  title: Profile the analysis
+  text: 'Read the full analysis text. Extract: the main conclusion(s), the evidence
+    cited, the assumptions stated or implied, and the reasoning chain connecting evidence
+    to conclusion. Note the decision type (predictive, diagnostic, evaluative), domain,
+    stakes, and any described time or political pressures.'
+- verbs:
+  - reason
+  title: Map against bias taxonomy
+  text: 'Work through a structured taxonomy of biases in order: (1) heuristic biases
+    — availability, representativeness, anchoring, base-rate neglect; (2) confirmation
+    family — confirmation bias, selective evidence weighting, disconfirmation resistance;
+    (3) social/organizational biases — groupthink, authority deference, mirror-imaging;
+    (4) motivated reasoning — politicization, wishful thinking, projection; (5) framing
+    and ordering effects. For each category, identify whether the analysis exhibits
+    the pattern, cite the passage(s), and estimate how much the bias could shift the
+    conclusion.'
+- verbs:
+  - reason
+  title: Rank by distortion magnitude
+  text: 'Score each identified bias on distortion magnitude: High = the conclusion
+    would likely change if the bias were removed; Medium = the conclusion might shift
+    in confidence or nuance; Low = the bias affects presentation but not substance.
+    Consider domain stakes in setting thresholds. Prioritize the top 3-5 biases for
+    detailed treatment.'
+- verbs:
+  - write
+  title: Draft the bias audit report
+  text: 'For each bias in priority order: (a) name and define the bias precisely;
+    (b) quote the text where it manifests; (c) explain the distortion mechanism —
+    how this bias leads to a specific error in this analysis; (d) state the debiasing
+    action — a specific technique such as ''apply Analysis of Competing Hypotheses
+    to the evidence set'' or ''solicit a red-team challenge to assumption X''. Write
+    the priority table. Close with an overall analytic confidence adjustment given
+    the identified bias load.'
+- verbs:
+  - write
+  title: Emit final product
+  text: Output the structured bias_audit_report as markdown and the priority_bias_summary
+    as a table. Flag if the aggregate bias load is severe enough to recommend re-analysis
+    before the product is used in decisions.
+anti_criteria:
+- do not produce a generic list of all known biases without grounding each one in
+  quoted text from the analysis
+- do not rate every bias as 'High' — calibrated severity distinctions are the core
+  value of the audit
+- do not conflate cognitive bias with deliberate deception, politicization, or poor
+  sourcing — these are distinct failure modes requiring different remediation
+- do not offer debiasing advice that cannot actually be implemented by the analyst
+  (e.g. 'run an RCT' for a time-sensitive assessment)
+- do not treat absence of bias evidence as confirmation of unbiased analysis — note
+  the limits of text-based auditing and what cannot be seen without process observation
+defensive_boundary: 'Use Cognitive Bias Audit only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Cognitive Bias Audit to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation, refuse that
+  path and redirect to the safe defensive form: assess supplied material for manipulation
+  indicators and recommend resilience measures.'
+evidence_requirements:
+- For Cognitive Bias Audit, tie each bias audit report, and priority bias summary
+  claim to concrete evidence from the specific analysis or decision, domain context,
+  and known pressures item, source excerpt, observation, or command result that supports
+  it.
+- For Cognitive Bias Audit, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the bias audit report.
+- Before recommending any Cognitive Bias Audit action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Cognitive Bias Audit: the bias audit report is supported by multiple independent
+  content, behavioral, narrative, media, and audience-risk evidence; profile the analysis
+  and map against bias taxonomy checks agree, and no unresolved contradiction would
+  change the result.'
+- 'Medium for Cognitive Bias Audit: the bias audit report is plausible, but one important
+  analysis or decision source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Cognitive Bias Audit: the bias audit report rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Cognitive Bias Audit cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Cognitive Bias Audit, use only authorized analysis or decision, domain context,
+  and known pressures, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Cognitive Bias Audit, minimize person-level detail in the bias audit report;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Cognitive Bias Audit, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Cognitive Bias Audit: treating analysis or decision as complete when profile the
+  analysis and map against bias taxonomy checks or contradictory evidence are missing.'
+- 'Cognitive Bias Audit: producing advice that would help a requester increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Cognitive Bias Audit: reporting the bias audit report without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Cognitive Bias Audit outputs to increase persuasive impact, exploit
+  audience vulnerabilities, or optimize narrative manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the bias audit report from Cognitive Bias Audit into an operational
+  playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize
+  narrative manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Cognitive Bias Audit to assess supplied material for manipulation
+  indicators and recommend resilience measures with analysis or decision, domain context,
+  and known pressures'' -> produce bounded findings with evidence and uncertainty
+  labels.'

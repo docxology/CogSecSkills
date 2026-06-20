@@ -17,6 +17,34 @@ For each bias in priority order: (a) name and define the bias precisely; (b) quo
 ## Step 5 — Emit final product (write)
 Output the structured bias_audit_report as markdown and the priority_bias_summary as a table. Flag if the aggregate bias load is severe enough to recommend re-analysis before the product is used in decisions.
 
+## Evidence requirements
+- For Cognitive Bias Audit, tie each bias audit report, and priority bias summary claim to concrete evidence from the specific analysis or decision, domain context, and known pressures item, source excerpt, observation, or command result that supports it.
+- For Cognitive Bias Audit, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the bias audit report.
+- Before recommending any Cognitive Bias Audit action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Cognitive Bias Audit: the bias audit report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; profile the analysis and map against bias taxonomy checks agree, and no unresolved contradiction would change the result.
+- Medium for Cognitive Bias Audit: the bias audit report is plausible, but one important analysis or decision source, comparison case, or alternative explanation remains incomplete.
+- Low for Cognitive Bias Audit: the bias audit report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Cognitive Bias Audit cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Cognitive Bias Audit, use only authorized analysis or decision, domain context, and known pressures, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cognitive Bias Audit, minimize person-level detail in the bias audit report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Cognitive Bias Audit, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Cognitive Bias Audit: treating analysis or decision as complete when profile the analysis and map against bias taxonomy checks or contradictory evidence are missing.
+- Cognitive Bias Audit: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Cognitive Bias Audit: reporting the bias audit report without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Cognitive Bias Audit outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the bias audit report from Cognitive Bias Audit into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Cognitive Bias Audit to assess supplied material for manipulation indicators and recommend resilience measures with analysis or decision, domain context, and known pressures' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not produce a generic list of all known biases without grounding each one in quoted text from the analysis
 - do not rate every bias as 'High' — calibrated severity distinctions are the core value of the audit

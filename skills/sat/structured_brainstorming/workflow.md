@@ -14,6 +14,34 @@ Group ideas by theme or type. Apply the convergence criteria to rank clusters an
 ## Step 4 — Produce raw inventory and ranked shortlist (write)
 Emit the complete raw idea inventory (divergence output) and the ranked shortlist table (convergence output). For every idea excluded from the shortlist, write a one-line reason. Note any idea suppressed by social or hierarchical pressure that re-emerged during the structured process.
 
+## Evidence requirements
+- For Structured Brainstorming, tie each raw idea inventory, and ranked shortlist claim to concrete evidence from the specific problem statement, prior framing, and convergence criteria item, source excerpt, observation, or command result that supports it.
+- For Structured Brainstorming, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the raw idea inventory.
+- Before recommending any Structured Brainstorming action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Structured Brainstorming: the raw idea inventory is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame the problem and set aside prior framing and diverge: unconstrained idea generation checks agree, and no unresolved contradiction would change the result.
+- Medium for Structured Brainstorming: the raw idea inventory is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
+- Low for Structured Brainstorming: the raw idea inventory rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Structured Brainstorming cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Structured Brainstorming, use only authorized problem statement, prior framing, and convergence criteria, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Brainstorming, minimize person-level detail in the raw idea inventory; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Structured Brainstorming, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Structured Brainstorming: treating problem statement as complete when frame the problem and set aside prior framing and diverge: unconstrained idea generation checks or contradictory evidence are missing.
+- Structured Brainstorming: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Structured Brainstorming: reporting the raw idea inventory without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Structured Brainstorming outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the raw idea inventory from Structured Brainstorming into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Structured Brainstorming to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with problem statement, prior framing, and convergence criteria' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not allow criticism, ranking, or comparative judgment during the divergence phase — even implicit facial reactions that signal 'that is a bad idea' violate the technique
 - do not allow the prior dominant hypothesis to appear first in the divergence list; it anchors generation — introduce it mid-list or randomize order

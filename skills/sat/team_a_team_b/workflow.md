@@ -11,6 +11,34 @@ For Team A: construct the strongest honest argument for hypothesis A — which e
 ## Step 3 — Structure the debate and adjudicate (reason, write)
 Present Team A's core argument and Team B's core argument in parallel. Document the key points of evidentiary disagreement. Adjudicate: which hypothesis is better supported by the diagnostic evidence? At what confidence level? What residual uncertainties remain? What new evidence would most shift the balance? Write the team_debate_summary.
 
+## Evidence requirements
+- For Team A / Team B, tie each team debate summary claim to concrete evidence from the specific shared evidence, hypothesis a, and hypothesis b item, source excerpt, observation, or command result that supports it.
+- For Team A / Team B, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the team debate summary.
+- Before recommending any Team A / Team B action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Team A / Team B: the team debate summary is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; establish teams and shared evidence and develop each team's strongest case checks agree, and no unresolved contradiction would change the result.
+- Medium for Team A / Team B: the team debate summary is plausible, but one important shared evidence source, comparison case, or alternative explanation remains incomplete.
+- Low for Team A / Team B: the team debate summary rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Team A / Team B cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Team A / Team B, use only authorized shared evidence, hypothesis a, and hypothesis b, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Team A / Team B, minimize person-level detail in the team debate summary; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Team A / Team B, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Team A / Team B: treating shared evidence as complete when establish teams and shared evidence and develop each team's strongest case checks or contradictory evidence are missing.
+- Team A / Team B: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Team A / Team B: reporting the team debate summary without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Team A / Team B outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the team debate summary from Team A / Team B into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Team A / Team B to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with shared evidence, hypothesis a, and hypothesis b' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not allow either team's case to be a strawman — each must represent the genuinely strongest available argument for its hypothesis
 - do not produce a compromise or 'split the difference' conclusion — adjudicate honestly which hypothesis the evidence better supports

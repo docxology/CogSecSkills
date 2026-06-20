@@ -17,6 +17,34 @@ For each implicit assumption surfaced in step 3, assess: (a) Is it likely true? 
 ## Step 5 — Produce map and vulnerability report (write)
 Write the argument map in structured indented notation or a Markdown-table-based representation (since visual graph tools are not always available). Produce the load-bearing assumption table with columns: Assumption, Basis, Falsifiability, Impact-if-False, Priority. Write the logical gap report summarizing the most significant inferential weaknesses. Include a one-paragraph synthesis noting the strongest and most vulnerable parts of the argument.
 
+## Evidence requirements
+- For Argument Mapping, tie each argument map, load bearing assumption list, and logical gap report claim to concrete evidence from the specific argument source, and focal claim item, source excerpt, observation, or command result that supports it.
+- For Argument Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the argument map.
+- Before recommending any Argument Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Argument Mapping: the argument map is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; identify the top-level conclusion and extract claims, premises, and evidence checks agree, and no unresolved contradiction would change the result.
+- Medium for Argument Mapping: the argument map is plausible, but one important argument source source, comparison case, or alternative explanation remains incomplete.
+- Low for Argument Mapping: the argument map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Argument Mapping cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Argument Mapping, use only authorized argument source, and focal claim, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Argument Mapping, minimize person-level detail in the argument map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Argument Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Argument Mapping: treating argument source as complete when identify the top-level conclusion and extract claims, premises, and evidence checks or contradictory evidence are missing.
+- Argument Mapping: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Argument Mapping: reporting the argument map without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Argument Mapping outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the argument map from Argument Mapping into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Argument Mapping to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with argument source, and focal claim' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - Do not conflate mapping (describing the structure) with refutation (claiming the argument is wrong) — the map must accurately represent the argument even if the analyst disagrees with it
 - Do not omit implicit premises because they are unstated; the most dangerous logical gaps are the ones the original author did not notice

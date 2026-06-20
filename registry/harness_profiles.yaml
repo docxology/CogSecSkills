@@ -1,0 +1,137 @@
+profiles:
+  - id: gemini_cli
+    display_name: Gemini CLI
+    class: terminal_agent
+    recommended_config_name: gemini_cli
+    instruction_surface: GEMINI.md, AGENTS.md, or explicit context files.
+    tool_surface: Local shell, filesystem, built-in tools, and MCP servers.
+    official_doc_url: https://docs.cloud.google.com/gemini/docs/codeassist/gemini-cli
+    claim_boundary: Profile example only until added to cogsecskills.yaml, adapters are regenerated, and local gates pass.
+  - id: github_copilot
+    display_name: GitHub Copilot
+    class: ide_or_cloud_agent
+    recommended_config_name: github_copilot
+    instruction_surface: .github/copilot-instructions.md, .github/instructions/**/*.instructions.md, and AGENTS.md on supported surfaces.
+    tool_surface: IDE, CLI, cloud-agent, and code-review surfaces vary by product mode.
+    official_doc_url: https://docs.github.com/en/copilot/reference/custom-instructions-support
+    claim_boundary: Profile example; instruction support varies by Copilot surface and local CogSecSkills gates do not certify live Copilot behavior.
+  - id: devin_local
+    display_name: Devin Local
+    class: local_agent
+    recommended_config_name: devin_local
+    instruction_surface: AGENTS.md, rules, skills, and project configuration.
+    tool_surface: Local file, command, HTTP, MCP, permission, and sandbox controls.
+    official_doc_url: https://docs.devin.ai/desktop/devin-local
+    claim_boundary: Preview/local harness profile; generated adapters require human review before live use.
+  - id: devin_cascade
+    display_name: Devin/Cascade
+    class: ide_agent
+    recommended_config_name: devin_cascade
+    instruction_surface: AGENTS.md plus Devin/Cascade rules and memories.
+    tool_surface: IDE-aware tools, web/docs search, terminal, MCP, and workflows.
+    official_doc_url: https://docs.devin.ai/desktop/cascade/agents-md
+    claim_boundary: Documentation profile only; Cascade runtime behavior is outside local conformance gates.
+  - id: cursor
+    display_name: Cursor
+    class: ide_agent
+    recommended_config_name: cursor
+    instruction_surface: .cursor/rules/ and Cursor skills.
+    tool_surface: IDE agent actions, repository context, rules, skills, and tool calls available in Cursor.
+    official_doc_url: https://cursor.com/blog/agent-best-practices
+    claim_boundary: Profile documents a likely adapter target; it is not a vendor-certified integration.
+  - id: cline
+    display_name: Cline
+    class: ide_agent
+    recommended_config_name: cline
+    instruction_surface: .clinerules/, .cursorrules, .windsurfrules, and AGENTS.md.
+    tool_surface: VS Code agent tools and configured MCP/tool integrations.
+    official_doc_url: https://docs.cline.bot/customization/cline-rules
+    claim_boundary: Profile example; compatible instruction surfaces do not prove CogSecSkills runtime execution.
+  - id: aider
+    display_name: Aider
+    class: terminal_agent
+    recommended_config_name: aider
+    instruction_surface: Read-only conventions or instruction files loaded into the chat.
+    tool_surface: Terminal pair-programming workflow over local git repositories.
+    official_doc_url: https://aider.chat/docs/usage/conventions.html
+    claim_boundary: Treat as a terminal profile; adapter rows must be reviewed against the chosen Aider workflow.
+  - id: continue
+    display_name: Continue
+    class: ide_or_cli_agent
+    recommended_config_name: continue
+    instruction_surface: Continue rules for Agent, Chat, and Edit modes.
+    tool_surface: CLI, VS Code, JetBrains, model, rule, and tool surfaces configured in Continue.
+    official_doc_url: https://docs.continue.dev/customize/deep-dives/rules
+    claim_boundary: Profile example only; local tests do not certify a particular Continue deployment.
+  - id: jetbrains_ai
+    display_name: JetBrains AI Assistant
+    class: ide_agent
+    recommended_config_name: jetbrains_ai
+    instruction_surface: AGENTS.md, CLAUDE.md, and other agent instruction files supported by the IDE.
+    tool_surface: JetBrains AI Assistant and selected coding-agent capabilities.
+    official_doc_url: https://www.jetbrains.com/help/ai-assistant/configure-agent-behavior.html
+    claim_boundary: Profile example; IDE instruction compatibility is documented, but live agent behavior remains outside this repository's gates.
+  - id: openai_agents_sdk
+    display_name: OpenAI Agents SDK
+    class: programmatic_runtime
+    recommended_config_name: openai_agents_sdk
+    instruction_surface: Application-owned agent instructions, tools, approvals, guardrails, and state.
+    tool_surface: Python or TypeScript agent applications that own orchestration and tool execution.
+    official_doc_url: https://developers.openai.com/api/docs/guides/agents
+    claim_boundary: Integration profile for application builders, not a drop-in repository harness.
+  - id: langgraph
+    display_name: LangGraph
+    class: programmatic_runtime
+    recommended_config_name: langgraph
+    instruction_surface: Application graph state, node prompts, policies, and tool bindings.
+    tool_surface: Stateful graph orchestration with tools, persistence, memory, and human-in-the-loop controls.
+    official_doc_url: https://docs.langchain.com/oss/python/langgraph/overview
+    claim_boundary: Programmatic integration profile; CogSecSkills does not validate any deployed graph.
+  - id: microsoft_agent_framework
+    display_name: Microsoft Agent Framework
+    class: programmatic_runtime
+    recommended_config_name: microsoft_agent_framework
+    instruction_surface: Application-defined agents, workflows, middleware, filters, and state.
+    tool_surface: .NET and Python agent/workflow framework surfaces.
+    official_doc_url: https://learn.microsoft.com/en-us/agent-framework/overview/
+    claim_boundary: Application-integration profile; local conformance does not replace responsible AI or security review.
+  - id: autogen
+    display_name: AutoGen
+    class: programmatic_runtime
+    recommended_config_name: autogen
+    instruction_surface: AgentChat/Core agent definitions, messages, and application prompts.
+    tool_surface: AgentChat, Core, extensions, MCP workbenches, and code-execution components.
+    official_doc_url: https://microsoft.github.io/autogen/stable//index.html
+    claim_boundary: Programmatic profile only; integration must be evaluated in its concrete application.
+  - id: crewai
+    display_name: CrewAI
+    class: programmatic_runtime
+    recommended_config_name: crewai
+    instruction_surface: Crew, agent, task, flow, guardrail, and knowledge definitions.
+    tool_surface: Crews, flows, memory, knowledge, callbacks, and configured external tools.
+    official_doc_url: https://docs.crewai.com/
+    claim_boundary: Workflow profile for builders; no live CrewAI deployment is certified here.
+  - id: pydantic_ai
+    display_name: Pydantic AI
+    class: programmatic_runtime
+    recommended_config_name: pydantic_ai
+    instruction_surface: Pydantic AI agents, capabilities, YAML/JSON definitions, and instructions.
+    tool_surface: Typed tools, MCP, Agent2Agent, and application-owned runtime surfaces.
+    official_doc_url: https://pydantic.dev/docs/ai/overview/
+    claim_boundary: Type-safe integration profile, not a default CogSecSkills adapter target.
+  - id: mcp_host
+    display_name: MCP Host
+    class: protocol_host
+    recommended_config_name: mcp_host
+    instruction_surface: Host application instructions plus MCP client/server configuration.
+    tool_surface: MCP tools exposed by configured servers and governed by the host application.
+    official_doc_url: https://modelcontextprotocol.io/docs/getting-started/intro
+    claim_boundary: MCP is a connector/tool transport profile, not a standalone model harness.
+  - id: perplexity_research
+    display_name: Perplexity Research
+    class: research_companion
+    recommended_config_name: perplexity_research
+    instruction_surface: Research prompts and source-synthesis instructions.
+    tool_surface: Web research and reasoning through Perplexity-backed CLI/API wrappers.
+    official_doc_url: https://docs.perplexity.ai/
+    claim_boundary: Research companion profile only unless wrapped by an application that loads files, tools, and adapters.

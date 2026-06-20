@@ -1,0 +1,202 @@
+id: critical_review.logical_coherence_review
+description: Logical Coherence Review tests an argument's internal consistency and
+  the validity of its inferential steps by mapping claims to their supporting premises
+  and checking whether the conclusions follow by valid deductive or inductive inference.
+  It identifies formal fallacies (affirming the consequent, undistributed middle,
+  equivocation), informal fallacies (ad hominem, strawman, slippery slope), hidden
+  premises, and equivocal use of key terms. In the cognitive-security domain, logical
+  coherence review is a first-line defense against narratives that appear compelling
+  through rhetorical momentum rather than sound inference — including disinformation
+  frames, policy recommendations resting on non-sequiturs, and intelligence assessments
+  where the analytic confidence overstates the logical support.
+tags:
+- cognitive-security
+- critical_review
+- argumentation
+- fallacy-detection
+triggers:
+- logic check
+- fallacy review
+- argument validity
+- coherence check
+- does this follow
+- non-sequitur
+- internal consistency
+tools:
+- verb: read
+  purpose: ingest the argument, claim set, or narrative to be assessed
+- verb: reason
+  purpose: map inferential structure, identify premises, check validity, and classify
+    fallacies
+- verb: write
+  purpose: produce the annotated argument map, fallacy register, and coherence verdict
+inputs:
+- name: argument_text
+  type: text
+  required: true
+  description: the argument, report section, narrative, or policy document whose logical
+    structure is to be assessed
+- name: key_claims
+  type: list
+  required: false
+  description: the specific conclusions the analyst wants to focus on, if a long document
+    contains multiple arguments
+outputs:
+- name: argument_map
+  type: markdown
+  description: 'structured decomposition of the argument: conclusion, supporting premises
+    (P1…Pn), linking inferences, and hidden premises surfaced'
+- name: fallacy_register
+  type: table
+  description: rows = identified fallacy or coherence failure; columns = type (formal/informal),
+    location in text, description, severity
+- name: coherence_verdict
+  type: markdown
+  description: summary verdict — whether the conclusion follows from the stated premises,
+    under what conditions it would hold, and recommendations for strengthening or
+    rejecting the argument
+references:
+- 'Walton, D. (2008). Informal Logic: A Pragmatic Approach (2nd ed.). Cambridge University
+  Press.'
+- Toulmin, S. (1958). The Uses of Argument. Cambridge University Press.
+- Hamblin, C. L. (1970). Fallacies. Methuen.
+- Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.), Ch. 7. CQ Press.
+when_to_use:
+- when a narrative or policy argument needs to be accepted or rejected on its logical
+  merits, not its rhetorical appeal
+- when evaluating an intelligence assessment to determine whether its confidence level
+  is supported by the inferential chain
+- when a disinformation narrative is spreading and analysts need to identify the specific
+  logical breaks that make it vulnerable to rebuttal
+- when reviewing a proposed response to an influence operation to ensure the counter-argument
+  is itself logically sound
+what_it_produces:
+- an explicit argument map showing conclusion, premises, and linking inferences, with
+  hidden premises surfaced
+- a classified list of formal and informal fallacies with location references and
+  severity ratings
+- a verdict on whether the conclusion validly follows from premises, and under what
+  conditions it could
+- 'specific recommendations: which premises to strengthen, which inferences to restate,
+  or a recommendation to reject the argument'
+key_discipline:
+- separate the argument's validity (does the conclusion follow from premises) from
+  its soundness (are the premises true) — both matter but must be assessed independently
+- surface hidden premises explicitly — the most dangerous logical gaps are the ones
+  the author never stated
+- classify fallacies by type before assessing severity — formal fallacies invalidate
+  the argument; informal fallacies weaken it but may not defeat it alone
+- equivocation on key terms is the most common source of apparent but spurious coherence
+  — force explicit definition of contested terms before assessing inference
+workflow_steps:
+- verbs:
+  - read
+  title: Extract and segment
+  text: Read the full argument text. Identify the main conclusion(s). Segment the
+    text into distinct claim units. Note the explicit premises offered in support
+    of each conclusion.
+- verbs:
+  - reason
+  title: Build argument map and surface hidden premises
+  text: Construct the argument map using Toulmin structure (Claim / Data / Warrant
+    / Backing / Qualifier / Rebuttal) or a simpler premise-conclusion schema. Identify
+    every inferential step and make hidden premises explicit — state what must be
+    true for each step to hold that the author did not state.
+- verbs:
+  - reason
+  title: Check validity and classify fallacies
+  text: 'For each inferential step, test formal validity: does the conclusion form
+    follow necessarily from the premises? If not, name the formal fallacy (e.g., affirming
+    the consequent, undistributed middle). Then check for informal fallacies in evidence
+    use and rhetorical moves (ad hominem, strawman, false dilemma, slippery slope,
+    appeal to authority, begging the question, equivocation). Assess severity: does
+    this fallacy alone defeat the argument, or weaken it?'
+- verbs:
+  - reason
+  - write
+  title: Assess coherence and produce verdict
+  text: 'Synthesize: does the conclusion follow from the stated premises under valid
+    inference? State the conditions under which the argument would hold and what would
+    have to change. Assign an overall coherence rating (Valid / Valid-with-caveats
+    / Invalid-but-restorable / Invalid). Write specific recommendations: premises
+    to strengthen, inferences to make explicit, or a rejection justification.'
+- verbs:
+  - write
+  title: Produce fallacy register and annotated output
+  text: Compile the fallacy register table with type, text location, description,
+    and severity. Finalize the argument map with annotations. Write the coherence
+    verdict narrative. If the artifact is a disinformation narrative, note which logical
+    breaks are most rebuttable and most likely to resonate with target audiences.
+anti_criteria:
+- do not conflate the argument being false with it being logically invalid — a valid
+  argument can have false premises, and a sound conclusion can be reached by bad inference
+- do not list rhetorical weaknesses as formal fallacies — distinguish formal invalidity
+  from persuasive weaknesses
+- do not assess logical coherence while simultaneously adjudicating the truth of the
+  premises — keep those steps separate
+- do not declare an argument incoherent solely because it conflicts with the reviewer's
+  prior beliefs
+defensive_boundary: 'Use Logical Coherence Review only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Logical Coherence Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Logical Coherence Review, tie each argument map, fallacy register, and coherence
+  verdict claim to concrete evidence from the specific argument text, and key claims
+  item, source excerpt, observation, or command result that supports it.
+- For Logical Coherence Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the argument
+  map.
+- Before recommending any Logical Coherence Review action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Logical Coherence Review: the argument map is supported by multiple independent
+  artifact excerpts, test output, citations, assumptions, and reproducibility records;
+  extract and segment and build argument map and surface hidden premises checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Logical Coherence Review: the argument map is plausible, but one important
+  argument text source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Logical Coherence Review: the argument map rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Logical Coherence Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Logical Coherence Review, use only authorized argument text, and key claims,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Logical Coherence Review, minimize person-level detail in the argument map;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Logical Coherence Review, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Logical Coherence Review: treating argument text as complete when extract and segment
+  and build argument map and surface hidden premises checks or contradictory evidence
+  are missing.'
+- 'Logical Coherence Review: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Logical Coherence Review: reporting the argument map without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Logical Coherence Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the argument map from Logical Coherence Review into an operational
+  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
+  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Logical Coherence Review to review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures with argument
+  text, and key claims'' -> produce bounded findings with evidence and uncertainty
+  labels.'

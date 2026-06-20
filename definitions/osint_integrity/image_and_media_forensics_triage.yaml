@@ -1,0 +1,197 @@
+id: osint_integrity.image_and_media_forensics_triage
+description: Image and media forensics triage is a rapid, systematic workflow for
+  assessing whether a photograph, video, or audio clip has been re-used from an unrelated
+  context, digitally edited, or stripped of the context needed to interpret it honestly.
+  It applies reverse-image search, error-level analysis (ELA), metadata inspection,
+  and contextual plausibility checks before any piece of media is admitted as evidence
+  in an analysis. The goal is to surface red flags quickly — a full forensic examination
+  is triggered only when triage finds anomalies.
+tags:
+- cognitive-security
+- osint_integrity
+- media-verification
+triggers:
+- is this image real
+- check if this photo has been altered
+- triage this media
+- verify this video
+- detect image manipulation
+- image forensics
+- media forensics triage
+tools:
+- verb: read
+  purpose: ingest the media file and any accompanying claims or contextual information
+- verb: web
+  purpose: run reverse-image search and lookup the image against known archives to
+    detect prior use or recycling
+- verb: reason
+  purpose: apply structured triage criteria across reuse, editing artifacts, and context-collapse
+    indicators
+- verb: write
+  purpose: produce a triage report with findings, red flags, and recommended next
+    steps
+inputs:
+- name: media_item
+  type: text
+  required: true
+  description: URL or file reference for the image, video, or audio clip to be triaged
+- name: accompanying_claim
+  type: text
+  required: false
+  description: The narrative or claim the media is being used to support
+- name: source_account
+  type: text
+  required: false
+  description: The account or outlet that published the media, for credibility cross-reference
+outputs:
+- name: triage_report
+  type: markdown
+  description: 'Structured triage results: reuse verdict, editing red flags, context-collapse
+    indicators, confidence level, and recommended follow-on action (accept / escalate
+    to deep forensics / reject)'
+references:
+- Hicks, M. et al. (2020). Verification Handbook for Disinformation and Media Manipulation.
+  European Journalism Centre.
+- First Draft News (2019). Visual Verification Guide. firstdraftnews.org.
+- Farid, H. (2022). Photo Forensics. MIT Press.
+- Kee, E. & Farid, H. (2010). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
+  on Information Forensics and Security, 6(4).
+when_to_use:
+- a piece of media is being considered as evidence before publishing, citing, or acting
+  on a claim
+- social media sharing volume is anomalously high and there is a strong emotional
+  valence — conditions that correlate with recycled or manipulated content
+- the source is unknown or has low prior credibility
+- the claimed date and location are significant to the narrative and need independent
+  corroboration
+- analysts suspect context collapse — real media taken from a different event or location
+what_it_produces:
+- 'a reuse verdict: whether the image appears in earlier, unrelated contexts via reverse-image
+  search'
+- 'a list of editing red flags: inconsistent noise patterns, compression artifacts,
+  lighting discontinuities, or cloning signatures'
+- 'a context-collapse assessment: whether the visual content is plausible for the
+  claimed time and place'
+- 'a recommended disposition: accept as candidate evidence, escalate to deep forensic
+  review, or reject'
+key_discipline:
+- triage is a filter, not a proof — a clean triage result means no red flags found,
+  not that the media is authentic
+- 'reverse-image search is the highest-yield first step: reuse is far more common
+  than fabrication'
+- error-level analysis surfaces compression inconsistencies but produces false positives
+  with social-media re-encoding — interpret cautiously
+- context collapse is cognitively harder to detect than pixel manipulation — invest
+  time in whether the claim matches what the image physically shows
+workflow_steps:
+- verbs:
+  - read
+  title: Capture claims and metadata
+  text: 'Record the precise claim the media is being used to support: what event,
+    where, and when. Extract any available metadata (EXIF, platform-assigned creation
+    date). Note the publishing account and platform. These baseline facts anchor the
+    triage so each check has a specific claim to test against.'
+- verbs:
+  - web
+  title: Run reverse-image and archive search
+  text: Submit the image or keyframes to reverse-image search engines (Google Images,
+    TinEye, Yandex Images) and media-specific databases (InVID/WeVerify, PimEyes if
+    person-centric). Record all earlier appearances. If the image predates the claimed
+    event or appears in a clearly different context, flag as likely reuse or context
+    collapse.
+- verbs:
+  - reason
+  title: Apply editing and context triage
+  text: 'Assess editing artifacts: examine compression consistency across image regions
+    (ELA heuristic), look for cloning, inconsistent shadow direction or lighting,
+    mismatched depth of field, or inconsistent noise grain. For video, check for frame-rate
+    anomalies or audio sync errors. Separately assess plausibility: does the vegetation,
+    weather, building style, or crowd clothing match the claimed time and place? Flag
+    any inconsistency as a red flag.'
+- verbs:
+  - reason
+  - write
+  title: Assign triage verdict and disposition
+  text: 'Synthesize all findings: reuse result, editing red flags, and context-plausibility
+    assessment. Assign a triage confidence tier and recommend a disposition: (1) Accept
+    as candidate — no red flags found, treat as provisional evidence subject to corroboration;
+    (2) Escalate — anomalies detected, refer for deep forensic analysis before any
+    evidentiary use; (3) Reject — confirmed earlier appearance in unrelated context,
+    or physical inconsistencies that cannot be reconciled with the claim. Document
+    findings in the triage report.'
+anti_criteria:
+- do not treat a single clean reverse-image result as proof of authenticity — the
+  image may simply not be indexed yet
+- do not interpret ELA red flags in isolation from re-encoding history — social media
+  platforms re-compress on upload, creating artifacts that mimic editing signatures
+- do not skip the context-collapse check in favor of pixel-level analysis — recycled
+  authentic images are the dominant manipulation tactic, not fabricated deepfakes
+- do not accept media as evidence without documenting which triage steps were completed
+  and what each found
+defensive_boundary: 'Use Image & Media Forensics Triage only for OSINT integrity and
+  source-verification defense: recognize, assess, document, or defend source provenance,
+  privacy, chain of custody, and public-source accountability. Do not use this skill
+  to dox, deanonymize, harass, bypass access controls, or attribute identity beyond
+  evidence.'
+misuse_redirect: 'If a request asks Image & Media Forensics Triage to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence, refuse that
+  path and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Image & Media Forensics Triage, tie each triage report claim to concrete evidence
+  from the specific media item, accompanying claim, and source account item, source
+  excerpt, observation, or command result that supports it.
+- For Image & Media Forensics Triage, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the triage
+  report.
+- Before recommending any Image & Media Forensics Triage action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Image & Media Forensics Triage: the triage report is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; capture claims and metadata and run reverse-image and archive
+  search checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Image & Media Forensics Triage: the triage report is plausible, but
+  one important media item source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Image & Media Forensics Triage: the triage report rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Image & Media Forensics Triage cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Image & Media Forensics Triage, use only authorized media item, accompanying
+  claim, and source account, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Image & Media Forensics Triage, minimize person-level detail in the triage report;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Image & Media Forensics Triage, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Image & Media Forensics Triage: treating media item as complete when capture claims
+  and metadata and run reverse-image and archive search checks or contradictory evidence
+  are missing.'
+- 'Image & Media Forensics Triage: producing advice that would help a requester dox,
+  deanonymize, harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Image & Media Forensics Triage: reporting the triage report without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Image & Media Forensics Triage outputs to dox, deanonymize, harass,
+  bypass access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the triage report from Image & Media Forensics Triage into an
+  operational playbook to dox, deanonymize, harass, bypass access controls, or attribute
+  identity beyond evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Image & Media Forensics Triage to verify supplied claims,
+  media, sources, or datasets with documented public-source methods with media item,
+  accompanying claim, and source account'' -> produce bounded findings with evidence
+  and uncertainty labels.'

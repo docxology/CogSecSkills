@@ -1,0 +1,245 @@
+id: osint_integrity.source_vetting
+description: Source vetting is a structured credibility-assessment process that evaluates
+  a source's identity, access, track record, and motivation before incorporating its
+  claims into analysis. Drawn from intelligence tradecraft (the classic MICE framework
+  and FBI source-reliability scales) and adapted for open-source information environments,
+  it surfaces deceptive, mistaken, or biased sources before their output can anchor
+  downstream judgments. The technique is applied at intake — before a source's claims
+  are treated as evidence — and revisited whenever a source's circumstances or behavior
+  change.
+tags:
+- cognitive-security
+- osint_integrity
+- source-reliability
+- tradecraft
+triggers:
+- vet this source
+- can we trust this source
+- who is behind this
+- assess source reliability
+- check source credibility
+- is this a credible outlet
+- what is this source's track record
+tools:
+- verb: read
+  purpose: ingest the source's content, stated identity, and any prior assessments
+- verb: search
+  purpose: query databases, archives, and secondary sources to verify identity, ownership,
+    and track record
+- verb: web
+  purpose: retrieve live registration records, social-media history, corrections archives,
+    and funding disclosures
+- verb: reason
+  purpose: synthesize identity, access, motive, and track-record signals into a structured
+    reliability rating
+- verb: write
+  purpose: produce a source-reliability assessment with rating, evidence basis, and
+    caveats for analysts
+inputs:
+- name: source_identifier
+  type: text
+  required: true
+  description: URL, outlet name, person name, or account handle identifying the source
+    to be vetted
+- name: claim_context
+  type: text
+  required: false
+  description: The specific claim or information item the source is being used to
+    support — narrows the access and expertise assessment
+- name: prior_assessments
+  type: text
+  required: false
+  description: Any previous vetting notes or reliability ratings already on file for
+    this source
+outputs:
+- name: source_reliability_assessment
+  type: markdown
+  description: Structured assessment covering identity verification, access plausibility,
+    motive analysis, track-record summary, and an overall reliability rating with
+    confidence level and recommended use conditions
+- name: red_flags
+  type: table
+  description: Table of specific deception indicators, bias markers, or access inconsistencies
+    found during vetting, each with an evidence pointer
+references:
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter on Source Evaluation.
+- FBI. (2013). Confidential Human Source Policy Guide. U.S. Department of Justice.
+  (MICE framework and reliability coding.)
+- 'Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press. Chapter 6: Evaluating Sources.'
+- 'NATO OSINT Handbook. (2002). Allied Command Intelligence. Chapter 4: Source Reliability
+  and Information Credibility.'
+- Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda. Oxford University
+  Press. (Structural analysis of media-ecosystem credibility.)
+when_to_use:
+- a source is being cited for the first time in an analytic product
+- a source makes a claim that would significantly change an analytic judgment if true
+- a source's behavior, ownership, or funding has recently changed
+- multiple sources all trace back to a single original source that has not been vetted
+- a source is anonymous or pseudonymous and no independent corroboration exists
+- the stakes of relying on a mistaken or deceptive source are high
+what_it_produces:
+- a structured reliability rating (e.g., A–F identity confidence × 1–6 information
+  credibility, NATO standard) with evidence basis
+- a motive map identifying who benefits if the source's claims are believed
+- an access assessment confirming whether the source could plausibly know what they
+  claim to know
+- a track-record summary of prior accurate and inaccurate claims with dated examples
+- a table of red flags — deception indicators, anomalies, or bias markers — each linked
+  to evidence
+- 'recommended use conditions: how the source may be used, what corroboration is needed,
+  and what claims fall outside its demonstrated expertise'
+key_discipline:
+- assess reliability on four independent axes — identity, access, motive, and track
+  record — and do not let a strong score on one compensate for a weak score on another
+- separate source reliability (a property of the source) from information credibility
+  (a property of the specific claim) — a reliable source can still be wrong about
+  this claim
+- motive analysis must consider not just obvious conflicts of interest but also cognitive
+  biases, in-group loyalty, and reputational incentives that can distort reporting
+  without conscious intent
+- treat corroboration from sources that share a common origin as a single evidence
+  point, not as independent confirmation — source genealogy must be traced
+- document the vetting result in a retrievable record so the assessment compounds
+  across sessions rather than being re-derived each time
+workflow_steps:
+- verbs:
+  - read
+  title: Characterize the source
+  text: Read the source's content, stated identity, and any prior assessments. Record
+    the source type (individual, outlet, institutional, anonymous account), the domain
+    of the claim, and the stated basis for knowledge. Note anything that will anchor
+    the identity, access, and motive searches.
+- verbs:
+  - search
+  - web
+  title: Verify identity and ownership
+  text: Search domain-registration records (WHOIS, DNS history), corporate-registry
+    databases, and media-ownership indexes to confirm the source's stated identity
+    and ownership chain. For individuals, cross-reference biographical claims against
+    verifiable records (employment history, institutional affiliations, publication
+    record). For accounts, retrieve creation date, name-change history, and follower-growth
+    patterns. Flag anonymity, rapid rebranding, or ownership opacity as red flags.
+- verbs:
+  - search
+  - web
+  title: Assess access plausibility
+  text: Determine whether the source could plausibly know what they claim to know.
+    Search for evidence of the source's position, role, or proximity to the events
+    or data in question. For expert sources, verify relevant credentials and whether
+    their claimed expertise covers the specific topic. Document any access gaps —
+    cases where the source's stated position does not provide the access their claim
+    implies.
+- verbs:
+  - search
+  - web
+  title: Map motive and funding
+  text: 'Identify who funds, employs, or benefits from the source''s output. Check
+    disclosed funding sources, political or commercial affiliations, and stated editorial
+    positions. Search for undisclosed relationships using funding-transparency databases
+    and cross-ownership records. Construct a brief motive map: who is advantaged if
+    the source''s claims are believed, and what incentive structures might shape or
+    distort reporting.'
+- verbs:
+  - search
+  - web
+  title: Review track record
+  text: Search for prior claims made by the source on the same or closely related
+    topics. Document confirmed accurate claims, confirmed errors, issued corrections,
+    and any instances of fabrication or manipulation. Weight recent track record more
+    heavily than distant history. Note whether the source has been cited approvingly
+    by highly reliable reference sources or flagged by fact-checkers.
+- verbs:
+  - reason
+  title: Rate and synthesize
+  text: 'Apply a structured reliability scale (e.g., the NATO two-axis A–F × 1–6 scheme:
+    letter = source reliability, number = information credibility). Score each axis
+    independently using the evidence gathered. Identify the single weakest axis —
+    it constrains the overall rating even if other axes are strong. Note the key uncertainties
+    limiting confidence in the rating.'
+- verbs:
+  - write
+  title: Produce the assessment
+  text: 'Write the source-reliability assessment covering: verified identity, access
+    plausibility verdict, motive summary, track-record summary with examples, overall
+    reliability rating with confidence level, a table of red flags with evidence pointers,
+    and recommended use conditions specifying what claims may be sourced to this source,
+    what requires corroboration, and what falls outside its demonstrated scope.'
+anti_criteria:
+- do not conflate source reliability with information credibility — a reliable source
+  can make an incorrect claim; an unreliable source can accidentally report a true
+  fact
+- do not treat multiple citations of the same original source as independent corroboration
+  — trace the citation genealogy before counting confirmations
+- do not allow a strong identity verification to excuse an unaddressed motive conflict
+  or access gap
+- do not skip motive analysis for sources that appear ideologically aligned with the
+  analyst's own priors — alignment bias is the most dangerous form of motivated reasoning
+  in source vetting
+- do not produce an assessment without a dated, retrievable record — undocumented
+  vetting cannot compound across sessions and will be silently re-done or silently
+  skipped
+defensive_boundary: 'Use Source Vetting only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Source Vetting to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence, refuse that path and redirect
+  to the safe defensive form: verify supplied claims, media, sources, or datasets
+  with documented public-source methods.'
+evidence_requirements:
+- For Source Vetting, tie each source reliability assessment, and red flags claim
+  to concrete evidence from the specific source identifier, claim context, and prior
+  assessments item, source excerpt, observation, or command result that supports it.
+- For Source Vetting, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the source reliability
+  assessment.
+- Before recommending any Source Vetting action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Source Vetting: the source reliability assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; characterize the source and verify identity and ownership checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Source Vetting: the source reliability assessment is plausible, but
+  one important source identifier source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Source Vetting: the source reliability assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Source Vetting cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Source Vetting, use only authorized source identifier, claim context, and prior
+  assessments, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Source Vetting, minimize person-level detail in the source reliability assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Source Vetting, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Source Vetting: treating source identifier as complete when characterize the source
+  and verify identity and ownership checks or contradictory evidence are missing.'
+- 'Source Vetting: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Source Vetting: reporting the source reliability assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Source Vetting outputs to dox, deanonymize, harass, bypass access
+  controls, or attribute identity beyond evidence'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the source reliability assessment from Source Vetting into an
+  operational playbook to dox, deanonymize, harass, bypass access controls, or attribute
+  identity beyond evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Source Vetting to verify supplied claims, media, sources,
+  or datasets with documented public-source methods with source identifier, claim
+  context, and prior assessments'' -> produce bounded findings with evidence and uncertainty
+  labels.'

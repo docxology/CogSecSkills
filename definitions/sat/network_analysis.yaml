@@ -1,0 +1,208 @@
+id: sat.network_analysis
+description: Network analysis in the structured-analytic tradition maps actors, organizations,
+  or information nodes as vertices and their relationships (communication, funding,
+  co-authorship, amplification) as edges, then applies graph-theoretic measures —
+  degree, betweenness, eigenvector centrality, clustering coefficient, structural
+  holes — to identify key actors, brokers, and vulnerabilities that are invisible
+  in prose analysis. In cognitive-security contexts it is the primary tool for characterizing
+  coordinated inauthentic behavior networks, influence operation infrastructure, and
+  information-ecosystem topology.
+tags:
+- cognitive-security
+- sat
+- network-analysis
+- influence-operations
+triggers:
+- who are the key actors
+- map the network
+- find the brokers
+- network analysis
+- who connects to whom
+- centrality analysis
+- influence network
+- coordinated inauthentic behavior
+tools:
+- verb: read
+  purpose: ingest actor lists, link tables, reporting, and any prior relational data
+    describing the network under study
+- verb: reason
+  purpose: derive centrality rankings, identify structural holes and brokers, characterize
+    clusters, and assess network resilience
+- verb: write
+  purpose: produce the edge list, annotated node table, centrality report, and analytic
+    narrative with findings and collection implications
+inputs:
+- name: node_list
+  type: list
+  required: true
+  description: A list of identified actors or nodes, each with a label, type (person
+    / organization / account / platform), and any known attributes
+- name: edge_list
+  type: table
+  required: true
+  description: 'A table of directed or undirected relationships: source node, target
+    node, relationship type (funds / amplifies / directs / communicates with), and
+    evidence quality for each link'
+- name: analytic_question
+  type: text
+  required: true
+  description: The specific question the network analysis should answer (e.g., 'Who
+    controls the amplification bottleneck for this narrative?', 'Which nodes are structurally
+    critical — whose removal would fragment the network?')
+outputs:
+- name: centrality_report
+  type: table
+  description: A ranked table of nodes by degree centrality, betweenness centrality,
+    and eigenvector centrality, with a column noting the analytic significance of
+    each top-ranked node
+- name: structural_findings
+  type: markdown
+  description: 'Narrative analysis identifying: (a) key brokers and structural holes,
+    (b) community/cluster membership, (c) network resilience to node removal, and
+    (d) any coordination signatures (e.g., synchronized posting, shared infrastructure)'
+- name: collection_gaps
+  type: markdown
+  description: A list of nodes or edges whose absence in the data represents potential
+    blind spots, with a recommended collection action for each
+references:
+- 'Wasserman, S., & Faust, K. (1994). Social Network Analysis: Methods and Applications.
+  Cambridge University Press.'
+- Freeman, L. C. (1977). A set of measures of centrality based on betweenness. Sociometry,
+  40(1), 35–41.
+- 'Burt, R. S. (1992). Structural Holes: The Social Structure of Competition. Harvard
+  University Press.'
+- 'Starbird, K., Arif, A., & Wilson, T. (2019). Disinformation as collaborative work:
+  Surfacing the participatory nature of strategic information operations. Proceedings
+  of the ACM on Human-Computer Interaction, 3(CSCW).'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis, 2nd ed. CQ Press. Chapter 6 (Network Diagrams).
+when_to_use:
+- an influence operation or coordinated campaign is suspected and the relational structure
+  of participating accounts or organizations needs to be characterized
+- a threat actor network needs to be prioritized for disruption and the analysis needs
+  to identify which nodes are structurally critical vs merely visible
+- an information ecosystem audit needs to map which sources act as amplification hubs,
+  brokers between communities, or bridges between fringe and mainstream audiences
+- attribution analysis requires identifying shared infrastructure, common controllers,
+  or coordination fingerprints across ostensibly independent actors
+what_it_produces:
+- a ranked centrality table identifying degree hubs, betweenness brokers, and eigenvector-central
+  influencers in the network
+- identification of structural holes (positions of brokerage between otherwise disconnected
+  clusters) and the actors occupying them
+- a community/cluster partition of the network with characterization of each cluster's
+  apparent function or identity
+- a collection gap map showing where missing links or nodes create analytic blind
+  spots
+key_discipline:
+- distinguish degree centrality (raw connectivity) from betweenness centrality (brokerage)
+  — the highest-degree node is rarely the most structurally critical
+- record evidence quality for every edge; low-confidence links must be flagged rather
+  than treated as equivalent to confirmed relationships
+- the most dangerous actor in an influence network is often a broker occupying a structural
+  hole, not the loudest amplifier
+- always ask what the network looks like AFTER removing the top-ranked node — resilience
+  analysis is as important as centrality ranking
+workflow_steps:
+- verbs:
+  - read
+  title: Build the edge list
+  text: 'Read all source material and extract every identified relationship as a directed
+    or undirected edge: (source, target, relationship_type, evidence_quality). Annotate
+    each node with its type (person / org / account) and any known attributes (affiliation,
+    platform, known role). Flag nodes and edges whose existence depends on low-confidence
+    or single-source reporting.'
+- verbs:
+  - reason
+  title: Compute centrality and identify structure
+  text: 'From the edge list, compute: (a) degree centrality (in-degree and out-degree
+    for directed graphs), (b) betweenness centrality to identify brokers, (c) eigenvector/PageRank
+    centrality to identify nodes influential via their connections. Identify connected
+    components, community structure (clusters), and structural holes. Note any coordination
+    signatures: synchrony, shared infrastructure, or implausibly uniform behavior.'
+- verbs:
+  - reason
+  title: Resilience and gap analysis
+  text: Simulate targeted removal of the top-3 nodes by betweenness centrality and
+    assess whether the network fragments or routes around each removal. Identify the
+    edges or nodes absent from current data whose presence would most change the centrality
+    rankings — these are collection priorities. Flag any portions of the network that
+    are inferred rather than observed.
+- verbs:
+  - write
+  title: Report centrality findings and analytic narrative
+  text: Produce the centrality table ranked by betweenness centrality as the primary
+    sort key. Write the structural findings narrative covering brokers, clusters,
+    coordination signatures, and resilience. Append a collection gaps section listing
+    each missing node or edge, its estimated importance, and a recommended collection
+    action.
+anti_criteria:
+- do not rank nodes by degree centrality alone — a high-degree hub that bridges no
+  communities is far less strategically significant than a low-degree broker spanning
+  a structural hole
+- do not treat unconfirmed or inferred edges as equivalent to confirmed links in centrality
+  calculations — run sensitivity checks showing how rankings change if weak-evidence
+  edges are removed
+- do not produce a network diagram as the sole output without a quantitative centrality
+  analysis — visual impressions of 'big nodes' are systematically misleading
+defensive_boundary: 'Use Network Analysis only for structured analytic technique support:
+  recognize, assess, document, or defend analytic rigor, alternative hypotheses, and
+  calibrated judgment. Do not use this skill to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Network Analysis to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Network Analysis, tie each centrality report, structural findings, and collection
+  gaps claim to concrete evidence from the specific node list, edge list, and analytic
+  question item, source excerpt, observation, or command result that supports it.
+- For Network Analysis, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the centrality report.
+- Before recommending any Network Analysis action, identify the weakest evidence link,
+  the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Network Analysis: the centrality report is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; build
+  the edge list and compute centrality and identify structure checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Network Analysis: the centrality report is plausible, but one important
+  node list source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Network Analysis: the centrality report rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Network Analysis cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Network Analysis, use only authorized node list, edge list, and analytic question,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Network Analysis, minimize person-level detail in the centrality report; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Network Analysis, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Network Analysis: treating node list as complete when build the edge list and compute
+  centrality and identify structure checks or contradictory evidence are missing.'
+- 'Network Analysis: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Network Analysis: reporting the centrality report without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Network Analysis outputs to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the centrality report from Network Analysis into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Network Analysis to apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty with node list, edge list,
+  and analytic question'' -> produce bounded findings with evidence and uncertainty
+  labels.'

@@ -1,0 +1,197 @@
+id: critical_review.ethics_and_harms_review
+description: Ethics & Harms Review systematically assesses a project, capability,
+  dataset, or publication for dual-use risks, potential harms to individuals or communities,
+  misuse potential by adversarial actors, and gaps in informed consent or transparency.
+  It draws on established frameworks (consequentialist, deontological, virtue-ethics,
+  and rights-based) alongside discipline-specific codes (e.g., Menlo Report for security
+  research, Belmont Report for human subjects) to produce a structured harm register
+  and a set of mitigations or go/no-go recommendations. In the cognitive-security
+  context it is especially important for evaluating influence-operation tooling, adversarial
+  AI research, and dual-use OSINT capabilities where potential harms are diffuse and
+  probabilistic.
+tags:
+- cognitive-security
+- critical_review
+- dual-use
+- ethics
+triggers:
+- ethics review
+- harms assessment
+- dual-use check
+- misuse potential
+- responsible disclosure
+- harm register
+tools:
+- verb: read
+  purpose: ingest the artifact under review, its stated scope, and any existing ethics
+    documentation
+- verb: reason
+  purpose: apply multiple ethical frameworks and harm taxonomies to surface risks
+    and mitigations
+- verb: write
+  purpose: produce the structured harm register, mitigation table, and go/no-go recommendation
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: the project description, capability spec, dataset card, or publication
+    to be reviewed
+- name: intended_use
+  type: text
+  required: true
+  description: the authors' stated purpose and target audience
+- name: deployment_context
+  type: text
+  required: false
+  description: the environment, actors, and system in which the artifact will operate
+outputs:
+- name: harm_register
+  type: table
+  description: rows = harm scenario; columns = harm type, affected party, likelihood,
+    severity, mitigation, residual risk
+- name: ethics_assessment
+  type: markdown
+  description: narrative covering ethical-framework analysis, dual-use findings, consent/transparency
+    gaps, and go/no-go recommendation with conditions
+references:
+- 'Menlo Report: Ethical Principles Guiding Information and Communication Technology
+  Research (DHS, 2012).'
+- 'Belmont Report: Ethical Principles and Guidelines for the Protection of Human Subjects
+  of Research (DHEW, 1979).'
+- 'Brundage, M. et al. (2018). The Malicious Use of Artificial Intelligence: Forecasting,
+  Prevention, and Mitigation.'
+- Brey, P. (2012). Anticipatory Ethics for Emerging Technologies. NanoEthics 6(1).
+when_to_use:
+- before releasing a tool, dataset, or model that could be weaponized or repurposed
+  for manipulation
+- when a research capability has clear dual-use potential (e.g., deepfake detection
+  that also teaches generation)
+- when a proposed capability interacts with vulnerable populations or protected information
+- when organizational policy, IRB, or funder requires documented harm assessment
+what_it_produces:
+- a harm register listing specific harm scenarios with affected parties, likelihood,
+  severity, and mitigation controls
+- an ethical-framework analysis cross-checking the artifact against consequentialist,
+  deontological, and rights-based standards
+- a transparency and consent gap analysis
+- a go/no-go recommendation with explicit conditions for release or further review
+key_discipline:
+- enumerate harms by affected party, not just by harm type — diffuse harms to third
+  parties are the ones most often missed
+- distinguish between proximate misuse (the tool directly used for harm) and distal
+  misuse (the tool enables a capability chain that causes harm)
+- apply at least two incommensurable ethical frameworks; agreement across frameworks
+  strengthens confidence, disagreement flags genuine ethical tension requiring human
+  judgment
+- do not conflate low-probability high-severity harms with low-probability low-severity
+  ones — they require different responses
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest and scope
+  text: 'Read the artifact, its stated purpose, deployment context, and any prior
+    ethics documentation. Extract the capability boundaries: what can the artifact
+    do at maximum capability and what happens when it is misused or combined with
+    other tools?'
+- verbs:
+  - reason
+  title: Multi-framework harm identification
+  text: 'Apply at least two ethical frameworks systematically. Consequentialist pass:
+    list plausible harm scenarios, estimate likelihood (rare/possible/likely) and
+    severity (minor/moderate/severe/catastrophic) for each affected party including
+    third parties and society. Deontological pass: identify rights violations, consent
+    failures, or duties breached. Rights-based pass: flag protected-characteristic
+    impacts. Cross-reference discipline-specific codes (Menlo, Belmont, or relevant
+    professional code).'
+- verbs:
+  - reason
+  title: Dual-use and misuse path analysis
+  text: 'For each high-likelihood or high-severity harm, trace the misuse path: who
+    would do it, what capability or access is required, what barriers exist, and whether
+    the artifact meaningfully lowers those barriers relative to existing alternatives.
+    Differentiate meaningful uplift from marginal uplift.'
+- verbs:
+  - reason
+  - write
+  title: Mitigation design and residual-risk assessment
+  text: For each material harm, propose specific, enforceable mitigations (access
+    controls, disclosure requirements, watermarking, staged release, use-case restrictions).
+    Assess residual risk after mitigations. Flag harms that cannot be adequately mitigated
+    for escalation.
+- verbs:
+  - write
+  title: Produce harm register and recommendation
+  text: Compile the structured harm register table. Write the ethics assessment narrative
+    covering framework analysis, dual-use findings, and consent/transparency gaps.
+    Issue a go/no-go recommendation with explicit conditions (e.g., 'release with
+    access controls and responsible-disclosure policy; re-review if capability is
+    extended to X').
+anti_criteria:
+- do not produce a harm register that lists only harms to direct users — third-party
+  and societal harms are typically the most serious and must be enumerated
+- do not conflate a low-probability harm with a negligible harm — catastrophic low-probability
+  risks require explicit treatment
+- do not issue a blanket go recommendation without stating specific mitigation conditions
+- do not treat 'others are already doing this' as an ethical justification — marginal
+  uplift still requires assessment
+defensive_boundary: 'Use Ethics & Harms Review only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Ethics & Harms Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Ethics & Harms Review, tie each harm register, and ethics assessment claim to
+  concrete evidence from the specific artifact, intended use, and deployment context
+  item, source excerpt, observation, or command result that supports it.
+- For Ethics & Harms Review, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the harm register.
+- Before recommending any Ethics & Harms Review action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Ethics & Harms Review: the harm register is supported by multiple independent
+  artifact excerpts, test output, citations, assumptions, and reproducibility records;
+  ingest and scope and multi-framework harm identification checks agree, and no unresolved
+  contradiction would change the result.'
+- 'Medium for Ethics & Harms Review: the harm register is plausible, but one important
+  artifact source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Ethics & Harms Review: the harm register rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Ethics & Harms Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Ethics & Harms Review, use only authorized artifact, intended use, and deployment
+  context, public or source-approved records, and caller-provided context needed for
+  the defensive task.
+- For Ethics & Harms Review, minimize person-level detail in the harm register; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Ethics & Harms Review, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Ethics & Harms Review: treating artifact as complete when ingest and scope and
+  multi-framework harm identification checks or contradictory evidence are missing.'
+- 'Ethics & Harms Review: producing advice that would help a requester launder weak
+  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Ethics & Harms Review: reporting the harm register without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Ethics & Harms Review outputs to launder weak claims, fabricate review
+  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the harm register from Ethics & Harms Review into an operational
+  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
+  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Ethics & Harms Review to review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures with artifact, intended
+  use, and deployment context'' -> produce bounded findings with evidence and uncertainty
+  labels.'

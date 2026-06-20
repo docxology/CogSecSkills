@@ -1,11 +1,16 @@
-# Template-format manuscript configuration for CogSecSkills.
-# Scaffolded from the project README/AGENTS context; update before publication.
+# Manuscript configuration for CogSecSkills.
+# PDF and HTML render the reader-facing manuscript. Slides are disabled because
+# the generated 100-skill supplements are document material, not presentation
+# material.
 
 paper:
   title: "CogSecSkills: Multiharness Cognitive Security Skill Library"
-  subtitle: "A reproducible manuscript scaffold for defensive analytic tradecraft skills"
+  subtitle: "A reproducible skills-system manuscript for defensive analytic tradecraft"
   version: "0.1.0"
   date: ""
+  cover:
+    image: "../figures/cogsecskills_cover_installation.png"
+    alt: "Install CogSecSkills from github.com/docxology/CogSecSkills, validate the library, and bind default or configured agent harness adapters."
 
 authors:
   - name: "Daniel Ari Friedman"
@@ -17,8 +22,8 @@ authors:
 publication:
   doi: ""
   version_doi: ""
-  version_record: ""
-  github_repository: ""
+  version_record: "v0.1.0-2-ge85ecf2-dirty; local hardening snapshot, not an archived release DOI"
+  github_repository: "https://github.com/docxology/CogSecSkills"
   year: "2026"
   transmission_bookends:
     enabled: false
@@ -33,7 +38,7 @@ keywords:
   - "multiharness"
 
 metadata:
-  license: "TBD"
+  license: "Apache-2.0"
   language: "en"
 
 manuscript_dir: "manuscript"
@@ -42,7 +47,7 @@ render:
   formats:
     pdf: true
     html: true
-    slides: true
+    slides: false
     docx: false
     epub: false
 

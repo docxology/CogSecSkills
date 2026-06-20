@@ -14,6 +14,34 @@ Compare the draft's actual structure, lead, and conclusions against the resolved
 ## Step 4 — Produce worksheet and revision recommendations (write)
 Fill the AIMS worksheet with the four resolved parameters. Write specific, actionable revision recommendations for every misalignment found, citing the paragraph or section that needs revision and explaining why it fails the relevant parameter.
 
+## Evidence requirements
+- For Customer (AIMS) Checklist, tie each aims worksheet, and gap and misalignment report claim to concrete evidence from the specific product or outline, and consumer context item, source excerpt, observation, or command result that supports it.
+- For Customer (AIMS) Checklist, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the aims worksheet.
+- Before recommending any Customer (AIMS) Checklist action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Customer (AIMS) Checklist: the aims worksheet is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest tasking and draft and resolve aims parameters checks agree, and no unresolved contradiction would change the result.
+- Medium for Customer (AIMS) Checklist: the aims worksheet is plausible, but one important product or outline source, comparison case, or alternative explanation remains incomplete.
+- Low for Customer (AIMS) Checklist: the aims worksheet rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Customer (AIMS) Checklist cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Customer (AIMS) Checklist, use only authorized product or outline, and consumer context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Customer (AIMS) Checklist, minimize person-level detail in the aims worksheet; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Customer (AIMS) Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Customer (AIMS) Checklist: treating product or outline as complete when ingest tasking and draft and resolve aims parameters checks or contradictory evidence are missing.
+- Customer (AIMS) Checklist: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Customer (AIMS) Checklist: reporting the aims worksheet without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Customer (AIMS) Checklist outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the aims worksheet from Customer (AIMS) Checklist into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Customer (AIMS) Checklist to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with product or outline, and consumer context' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not allow the Message field to be a topic sentence ('this paper discusses X') — it must be an assertive conclusion ('we assess X because Y')
 - do not conflate the Issue (the precise question) with the Audience's broader area of responsibility

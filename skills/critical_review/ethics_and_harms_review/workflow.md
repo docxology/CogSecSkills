@@ -17,6 +17,34 @@ For each material harm, propose specific, enforceable mitigations (access contro
 ## Step 5 — Produce harm register and recommendation (write)
 Compile the structured harm register table. Write the ethics assessment narrative covering framework analysis, dual-use findings, and consent/transparency gaps. Issue a go/no-go recommendation with explicit conditions (e.g., 'release with access controls and responsible-disclosure policy; re-review if capability is extended to X').
 
+## Evidence requirements
+- For Ethics & Harms Review, tie each harm register, and ethics assessment claim to concrete evidence from the specific artifact, intended use, and deployment context item, source excerpt, observation, or command result that supports it.
+- For Ethics & Harms Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the harm register.
+- Before recommending any Ethics & Harms Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Ethics & Harms Review: the harm register is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; ingest and scope and multi-framework harm identification checks agree, and no unresolved contradiction would change the result.
+- Medium for Ethics & Harms Review: the harm register is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
+- Low for Ethics & Harms Review: the harm register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Ethics & Harms Review cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Ethics & Harms Review, use only authorized artifact, intended use, and deployment context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Ethics & Harms Review, minimize person-level detail in the harm register; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Ethics & Harms Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Ethics & Harms Review: treating artifact as complete when ingest and scope and multi-framework harm identification checks or contradictory evidence are missing.
+- Ethics & Harms Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Ethics & Harms Review: reporting the harm register without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Ethics & Harms Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the harm register from Ethics & Harms Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Ethics & Harms Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, intended use, and deployment context' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not produce a harm register that lists only harms to direct users — third-party and societal harms are typically the most serious and must be enumerated
 - do not conflate a low-probability harm with a negligible harm — catastrophic low-probability risks require explicit treatment

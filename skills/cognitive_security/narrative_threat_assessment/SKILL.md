@@ -1,57 +1,65 @@
 ---
 name: cognitive_security.narrative_threat_assessment
-description: >-
-  Defensive cognitive-security skill that characterizes a circulating narrative
-  as a potential cognitive threat — its claims, target audience, manipulation
-  mechanics, provenance, reach, and harm potential — to protect audiences. It
-  produces an accountable threat assessment and defensive recommendations; it
-  never authors manipulation or a how-to for running an influence operation.
+description: Characterize a narrative's intent, mechanics, reach, and harm potential as a cognitive threat.
 ---
 
 # Narrative Threat Assessment
 
-Characterize a circulating narrative as a potential cognitive threat and produce
-a defensive assessment that helps protect the people it targets. The goal is to
-understand how a narrative works on an audience so defenders can prebunk, teach
-lateral reading, and counter-frame — not to reproduce or improve the narrative.
+A defensive cognitive-security procedure that examines a circulating narrative to characterize it as a potential cognitive threat. It captures the narrative's claims and framing, identifies the target audience and the belief or identity levers it exploits, classifies the manipulation techniques present, assesses provenance and likely intent, estimates reach and harm potential, and recommends defensive responses such as prebunking and lateral reading. The output protects audiences; it never authors manipulation or a playbook for running an influence operation.
 
 ## When to use
 
 - A narrative is spreading and you need to know whether it is a cognitive threat,
-  how it manipulates, and how harmful it is.
 - You must brief a community, platform, or newsroom on a suspected influence
-  narrative and recommend defensive responses.
 - You want an accountable, evidence-bound read on provenance and likely intent
-  (organic vs coordinated; profit, ideology, or state) without over-attributing.
-
-Do not use this skill to plan messaging that manipulates an audience, to seed or
-amplify a narrative, or to attribute an operation with confidence the evidence
-does not support.
 
 ## What it produces
 
 - A **threat assessment** document covering: captured claims and framing; target
-  audience and the belief/identity levers exploited; manipulation techniques
-  present (emotional triggers, false dichotomy, out-group threat, manufactured
-  consensus); provenance and likely intent; estimated reach and virality drivers;
-  and a rated harm potential and urgency.
 - A prioritized list of **defensive recommendations** — prebunking, lateral
-  reading prompts, and counter-framing — aimed at the target audience.
+
+## Defensive boundary
+
+Use Narrative Threat Assessment only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+
+## Misuse redirect
+
+If a request asks Narrative Threat Assessment to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
+
+## Evidence discipline
+
+- For Narrative Threat Assessment, tie each threat assessment, and defensive recommendations claim to concrete evidence from the specific narrative text, and context item, source excerpt, observation, or command result that supports it.
+- For Narrative Threat Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the threat assessment.
+- Before recommending any Narrative Threat Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Narrative Threat Assessment: the threat assessment is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; capture the narrative precisely and identify target audience and levers checks agree, and no unresolved contradiction would change the result.
+- Medium for Narrative Threat Assessment: the threat assessment is plausible, but one important narrative text source, comparison case, or alternative explanation remains incomplete.
+- Low for Narrative Threat Assessment: the threat assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Narrative Threat Assessment cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Narrative Threat Assessment, use only authorized narrative text, and context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Narrative Threat Assessment, minimize person-level detail in the threat assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Narrative Threat Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Narrative Threat Assessment: treating narrative text as complete when capture the narrative precisely and identify target audience and levers checks or contradictory evidence are missing.
+- Narrative Threat Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Narrative Threat Assessment: reporting the threat assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Narrative Threat Assessment outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the threat assessment from Narrative Threat Assessment into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Narrative Threat Assessment to assess supplied material for manipulation indicators and recommend resilience measures with narrative text, and context' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Procedure
 
-Follow the full step-by-step procedure in [workflow.md](workflow.md). In brief:
-capture the narrative precisely, identify the target audience and its levers,
-classify manipulation techniques, assess provenance and intent, estimate reach,
-rate harm and urgency, then recommend defensive responses.
+See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-This is a **defensive, educational, and accountable** skill. Assess threats to
-protect audiences — never to author manipulation. Do not produce a how-to for
-running the influence operation. Do not amplify the narrative by restating it
-uncritically; quote only as much as analysis requires and always frame it as
-the object of study. Do not attribute with false confidence — label provenance
-and intent with explicit, calibrated uncertainty, and prefer "consistent with"
-over "proven." The output should make defenders more capable and audiences more
-resilient, and it should be auditable by a reviewer.
+- bind every finding to evidence and defensive use

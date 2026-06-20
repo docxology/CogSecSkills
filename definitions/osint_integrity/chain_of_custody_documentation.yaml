@@ -1,0 +1,186 @@
+id: osint_integrity.chain_of_custody_documentation
+description: Chain-of-custody documentation records every step in the collection,
+  transfer, and analysis of OSINT evidence — capturing who handled each item, when,
+  by what method, and what cryptographic hashes confirm it remained unaltered. The
+  technique adapts law-enforcement chain-of-custody principles to open-source intelligence
+  so that findings can withstand legal, journalistic, or organizational scrutiny.
+  Without it, adversaries and skeptics can challenge whether evidence was fabricated,
+  tampered, or misidentified. A complete chain anchors findings in verifiable, time-stamped,
+  hash-confirmed records.
+tags:
+- cognitive-security
+- osint_integrity
+- evidence-integrity
+- provenance
+triggers:
+- chain of custody
+- evidence integrity
+- hash and preserve
+- document collection
+- prove evidence wasn't tampered
+tools:
+- verb: read
+  purpose: ingest the evidence items, existing collection logs, and any prior handling
+    records
+- verb: exec
+  purpose: compute cryptographic hashes (SHA-256) of collected files or archived pages
+    to seal integrity
+- verb: write
+  purpose: produce the chain-of-custody log entries, hash manifest, and custody transfer
+    records
+- verb: reason
+  purpose: identify gaps in custody records, flag suspicious handling steps, and assess
+    overall integrity
+inputs:
+- name: evidence_items
+  type: list
+  required: true
+  description: Collected OSINT artifacts — URLs, screenshots, files, archived copies
+    — to be documented
+- name: collection_context
+  type: text
+  required: true
+  description: Who collected each item, the tools used, the timestamp, and the original
+    source URL or identifier
+- name: prior_custody_log
+  type: table
+  required: false
+  description: Any existing custody records for items that changed hands before this
+    documentation step
+outputs:
+- name: custody_log
+  type: table
+  description: Structured table of each evidence item with collector, timestamp, tool,
+    hash, and handling events
+- name: integrity_summary
+  type: markdown
+  description: Narrative assessment of chain completeness, any gaps or anomalies,
+    and recommendations for remediation
+references:
+- 'Casey, E. (2011). Digital Evidence and Computer Crime: Forensic Science, Computers,
+  and the Internet. Academic Press.'
+- Toler, A. & Koenig, S. (2020). Bellingcat's Chain of Custody Guidelines. Bellingcat.
+- SWGDE (2016). Best Practices for Computer Forensic Acquisitions. Scientific Working
+  Group on Digital Evidence.
+when_to_use:
+- Before sharing OSINT findings with legal, journalistic, or institutional decision-makers
+  who may face adversarial challenge
+- When evidence could be subpoenaed or used in formal proceedings
+- After collecting from volatile sources (social media, live websites) where content
+  may disappear or be altered
+- When multiple analysts or teams handle the same artifacts across time
+what_it_produces:
+- A row-per-artifact custody table with hash, timestamps, collector identity, and
+  tool used
+- A completeness assessment flagging any gaps where handling is undocumented
+- A hash manifest that allows third-party verification that files have not been altered
+  since collection
+key_discipline:
+- Hash at the moment of collection — post-hoc hashing only proves integrity from that
+  later moment, not from capture
+- Each transfer event (person A to person B, local to cloud storage) must be logged
+  as its own row
+- Volatile web content must be archived to a persistent store (Wayback Machine, local
+  WARC) before any hash is considered meaningful
+- A gap in custody is not automatically disqualifying but must be explicitly acknowledged
+  and explained
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory evidence items
+  text: List every artifact to be documented — files, screenshots, archived pages,
+    raw URLs. Record the original collection timestamp, source URL, and the identity
+    of the collector for each item.
+- verbs:
+  - exec
+  title: Compute and record hashes
+  text: Generate a SHA-256 (or SHA-3) hash of each file or archived page at the point
+    of collection or at the earliest available moment. Log the hash alongside the
+    timestamp in the custody table. For web captures, archive to a persistent store
+    first.
+- verbs:
+  - reason
+  title: Identify gaps and anomalies
+  text: Review the chain for missing handling events, undocumented transfers, or time
+    gaps where tampering could have occurred. Flag any item where the hash cannot
+    be verified against the original collection moment.
+- verbs:
+  - write
+  title: Produce custody log and integrity summary
+  text: Write the structured custody table and a narrative summary that acknowledges
+    gaps, explains their cause, and recommends remediation steps (re-collection, additional
+    archiving, or explicit uncertainty disclosure).
+anti_criteria:
+- Do not backfill hashes after files have been processed, converted, or shared — only
+  original-capture hashes have integrity value
+- Do not omit transfer events on the assumption they are routine — every hand-off
+  is a potential integrity break
+- Do not declare custody complete when there are undocumented time gaps; acknowledge
+  gaps explicitly in the integrity summary
+defensive_boundary: 'Use Chain-of-Custody Documentation only for OSINT integrity and
+  source-verification defense: recognize, assess, document, or defend source provenance,
+  privacy, chain of custody, and public-source accountability. Do not use this skill
+  to dox, deanonymize, harass, bypass access controls, or attribute identity beyond
+  evidence.'
+misuse_redirect: 'If a request asks Chain-of-Custody Documentation to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence, refuse that
+  path and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Chain-of-Custody Documentation, tie each custody log, and integrity summary
+  claim to concrete evidence from the specific evidence items, collection context,
+  and prior custody log item, source excerpt, observation, or command result that
+  supports it.
+- For Chain-of-Custody Documentation, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the custody
+  log.
+- Before recommending any Chain-of-Custody Documentation action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Chain-of-Custody Documentation: the custody log is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; inventory evidence items and compute and record hashes checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Chain-of-Custody Documentation: the custody log is plausible, but one
+  important evidence items source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Chain-of-Custody Documentation: the custody log rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Chain-of-Custody Documentation cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Chain-of-Custody Documentation, use only authorized evidence items, collection
+  context, and prior custody log, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Chain-of-Custody Documentation, minimize person-level detail in the custody
+  log; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Chain-of-Custody Documentation, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Chain-of-Custody Documentation: treating evidence items as complete when inventory
+  evidence items and compute and record hashes checks or contradictory evidence are
+  missing.'
+- 'Chain-of-Custody Documentation: producing advice that would help a requester dox,
+  deanonymize, harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Chain-of-Custody Documentation: reporting the custody log without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Chain-of-Custody Documentation outputs to dox, deanonymize, harass,
+  bypass access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the custody log from Chain-of-Custody Documentation into an operational
+  playbook to dox, deanonymize, harass, bypass access controls, or attribute identity
+  beyond evidence'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Chain-of-Custody Documentation to verify supplied claims,
+  media, sources, or datasets with documented public-source methods with evidence
+  items, collection context, and prior custody log'' -> produce bounded findings with
+  evidence and uncertainty labels.'

@@ -1,13 +1,30 @@
-# Introduction {#sec:introduction}
+# Library Purpose and Reader Map {#sec:introduction}
 
-## Motivation
+## Why Harness-Neutral Defensive Skills
 
-Analytic tradecraft can drift when agents improvise tool-use procedures without a portable skill contract.
+Agentic analysis needs reusable tradecraft, but reuse breaks down when procedures are written only for one interface or one model runtime. A useful cognitive-security skill should say what evidence it needs, which neutral capabilities it may use, what it produces, and when it should be invoked. It should not depend on a single harness syntax, and it should not smuggle offensive persuasion or influence playbooks into a defensive analytic library.
 
-## Contribution of This Scaffold
+CogSecSkills addresses that problem as a source-owned skills system. The project separates the catalogue, the canonical definition layer, the rendered implementation tree, the educational upstream, and the runner code so each repository-local claim about the library has a concrete surface to inspect. The same skill can be rendered into the default Claude, Codex, and Hermes adapter language, or into an additional configured harness, because durable skill substance lives in `definitions/<group>/<slug>.yaml` and the rendered `skill.yaml` specification is a checked harness-neutral interface rather than a model-specific prompt.
 
-This manuscript directory supplies the parent template surfaces that were absent from the project root. It adds modular sections, local rendering metadata, a bibliography placeholder, manuscript-specific agent guidance, and a source-surface supplement.
+The manuscript is framed as a harness-neutral agent-interface contribution situated across four literatures. Intelligence-analysis research explains why structured procedures matter under ambiguity and bias; information-disorder research explains why defensive work must distinguish agents, messages, interpreters, and distribution dynamics; research-software standards explain why metadata, versioning, and regeneration are epistemic controls rather than build conveniences; and LLM tool-use work explains why an interface between reasoning, actions, and external tools needs explicit boundaries [@heuer1999psychology; @wardleDerakhshan2017informationDisorder; @wilkinson2016fair; @smith2016softwareCitation; @yao2022react; @schick2023toolformer].
 
-## Reader Orientation
+That separation matters for defensive cognitive-security work because the reader needs to audit both intent and execution. A skill named for claim provenance, narrative inversion, or deception detection is not sufficient by itself; the library must also show the triggers that route to the skill, the inputs it expects, the output it promises, the tool verbs it may use, the harness adapters that bind those verbs, and the AGEINT teaching topic that explains why the skill exists [@ageint2026]. CogSecSkills makes those surfaces explicit and then regenerates the manuscript views from them.
 
-The manuscript should be read as a controlled starting point. It names the project evidence surfaces and the claims they may eventually support, but it does not yet assert final publication readiness.
+The tradecraft vocabulary is anchored in structured analytic techniques and adjacent defensive source-evaluation methods, but the manuscript uses those sources as context rather than as evidence that this library improves decisions in practice. Analysis of Competing Hypotheses and the broader structured-analytic-techniques family are treated as canonical analytic-tradecraft references [@heuer1999psychology; @heuerPherson2019structured]. Named method families that appear in the library catalogue, including Nominal Group Technique, premortem analysis, prebunking or inoculation, lateral reading, and Admiralty/NATO reliability grading, are cited at the manuscript level to prevent generated skill metadata from standing in for scholarly attribution [@delbecq1971groupProcess; @klein2007premortem; @roozenbeek2022inoculation; @wineburg2019lateralReading; @ukmod2023jdp200]. The wider problem setting also includes misinformation correction, platform-scale diffusion, social bots, computational propaganda, and synthetic-media provenance, which motivate the library's defensive skill classes without validating their operational effectiveness [@lewandowsky2012misinformationCorrection; @vosoughi2018spread; @ferrara2016socialBots; @woolleyHoward2017computationalPropaganda; @bradshawHoward2019globalDisinformation; @mirskyLee2021deepfakes].
+
+The manuscript is therefore written for two audiences at once. A library maintainer should be able to trace every table, figure, and count back to source files and gates. A reader who only opens the PDF should still be able to see the shape of the system: which groups dominate, where the optional tool verbs appear, whether the adapters cover Codex and Hermes as well as Claude, and how the educational AGEINT layer connects to implemented skill folders.
+
+## Project-Native Contributions
+
+This manuscript contributes four project-native artifacts:
+
+1. A description of the Plan/Build/Teach architecture that keeps `registry/`, `skills/`, and `docs/ageint/` coherent.
+2. A harness-neutral skill contract based on a closed set of tool verbs: `read`, `search`, `write`, `exec`, `reason`, `web`, `delegate`, and `ask`.
+3. A repository-local authoring and verification workflow that validates the registry, adapters, quality linting, and tests before claims are promoted into prose.
+4. Generated manuscript supplements and figures that let a reader scan all 100 skills by group, functionality, use case, AGEINT topic, tool verbs, references, source path, reference density, and harness coverage.
+
+## How to Read the Main Text and Supplements
+
+The main sections explain the library boundary, methods, artifacts, and reproducibility contract. The supplemental sections are generated from the live library and should be treated as synchronized source inputs, not hand-authored narrative. `S10_skill_catalogue.md` lists every skill with one-line functionality and use conditions; `S11_skill_metadata_matrix.md` compresses the same library into matrices for group counts, verb usage, AGEINT crosswalks, harness coverage, and figure inventory.
+
+The figures are intentionally redundant with the supplements. The supplements support lookup; the figures support orientation. A reader can use the taxonomy count chart to see group concentration, the grid to scan the full 100-skill surface, the heatmap to understand capability mix, the AGEINT crosswalk to follow teaching alignment, the Reference Density view to inspect declared source backing, and the Harness Contract view to confirm that the configured adapters are part of the same multiharness package.

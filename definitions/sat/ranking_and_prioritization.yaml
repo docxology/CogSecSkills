@@ -1,0 +1,188 @@
+id: sat.ranking_and_prioritization
+description: Ranking and Prioritization techniques (including paired comparison, weighted
+  scoring, and ranked voting) impose structured criteria on a list of items — threats,
+  hypotheses, options, or findings — to produce a defensible, criterion-transparent
+  ordering. Rather than relying on unaided intuition or the implicit dominance of
+  the most vocal participant, these methods make evaluative weights explicit and replicable.
+  In cognitive-security contexts the technique surfaces hidden priority divergence
+  among analysts and defends against availability and anchoring biases that distort
+  informal ranking.
+tags:
+- cognitive-security
+- sat
+- decision-support
+triggers:
+- rank these options
+- prioritize threats
+- weighted scoring
+- paired comparison
+- what matters most
+- rank by importance
+tools:
+- verb: read
+  purpose: ingest the item list, the decision context, and any pre-stated criteria
+    or weights
+- verb: reason
+  purpose: select or derive scoring criteria, assign weights, perform pairwise or
+    weighted comparisons, and resolve ties
+- verb: write
+  purpose: emit the scoring matrix, ranked list with scores, weight rationale, and
+    sensitivity notes
+- verb: ask
+  purpose: elicit missing criteria weights or priority values from the analyst or
+    decision maker when they cannot be inferred
+inputs:
+- name: item_list
+  type: list
+  required: true
+  description: the items to be ranked (threats, hypotheses, options, indicators, etc.)
+- name: criteria
+  type: list
+  required: false
+  description: evaluation criteria with optional weights; if omitted, the skill will
+    derive candidate criteria from the decision context
+- name: decision_context
+  type: text
+  required: false
+  description: the purpose of the ranking (e.g., resource allocation, analytic focus,
+    response sequencing) to guide criterion selection
+outputs:
+- name: scoring_matrix
+  type: table
+  description: items as rows, criteria as columns, with raw scores, weights, and weighted
+    totals
+- name: ranked_list
+  type: markdown
+  description: items in priority order with total weighted score, brief rationale
+    for top and bottom placements, and ties noted
+- name: sensitivity_analysis
+  type: markdown
+  description: identification of items whose rank would change most if key weights
+    shifted; highlights where the ranking is fragile
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Ranking, Scoring, and Prioritizing.
+- Saaty, T. L. (1980). The Analytic Hierarchy Process. McGraw-Hill. (foundational
+  pairwise-comparison method)
+when_to_use:
+- a group must allocate limited attention, resources, or response capacity across
+  multiple competing items
+- informal or intuitive ranking risks being dominated by availability bias, anchoring,
+  or loudest-voice dynamics
+- a decision maker needs a documented, auditable priority order rather than an undifferentiated
+  list
+- multiple analysts or stakeholders hold divergent implicit priorities that need to
+  be surfaced and reconciled
+what_it_produces:
+- a criterion-weighted scoring matrix making evaluative assumptions explicit and auditable
+- a ranked priority list with per-item scores and placement rationale
+- a sensitivity analysis showing which items are most sensitive to weight choices,
+  guiding further deliberation
+key_discipline:
+- define criteria before scoring items — post-hoc criteria inversion is a bias amplifier,
+  not a correction
+- weights must reflect the decision context, not the analyst's prior preference for
+  the ranking outcome
+- paired comparison is preferred when the number of items is small (≤10) and criteria
+  feel incommensurable; weighted scoring scales better
+- sensitivity analysis is not optional — a ranking that collapses under small weight
+  changes deserves explicit acknowledgment
+workflow_steps:
+- verbs:
+  - read
+  - ask
+  title: Establish criteria and weights
+  text: Read the item list and decision context. Identify two to five evaluation criteria
+    (e.g., likelihood, impact, reversibility, time-sensitivity). Assign relative weights
+    summing to 1.0. If weights cannot be derived from context, ask the analyst or
+    decision maker to specify them explicitly. Document the rationale for each criterion
+    and its weight.
+- verbs:
+  - reason
+  title: Score each item
+  text: 'For each item, assign a raw score (e.g., 1–5) on each criterion using a consistent,
+    pre-defined scale. For paired comparison: compare each item pair on each criterion
+    and record the winner. Compute total weighted scores. Flag any item that scores
+    near the median on all criteria — it may deserve reconsideration as a borderline
+    case.'
+- verbs:
+  - reason
+  - write
+  title: Rank, sense-check, and emit
+  text: Order items by total weighted score. Identify any rank that conflicts strongly
+    with subject-matter intuition and investigate the conflict — it is either a criterion
+    gap or an informative analytic finding. Run a one-factor sensitivity sweep varying
+    each top weight by ±20% to identify rank-sensitive placements. Emit the scoring
+    matrix, ranked list, placement rationales, and sensitivity notes.
+anti_criteria:
+- do not define or adjust criteria after scoring has begun — this retroactively rationalizes
+  a pre-held ranking
+- do not allow a single high-salience item to anchor the scoring scale for all others
+  (set the scale independently)
+- do not suppress the sensitivity analysis when the top-ranked item is fragile — fragility
+  is analytically material
+- do not present the ranked list without disclosing the weights and criteria that
+  produced it
+defensive_boundary: 'Use Ranking & Prioritization only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Ranking & Prioritization to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Ranking & Prioritization, tie each scoring matrix, ranked list, and sensitivity
+  analysis claim to concrete evidence from the specific item list, criteria, and decision
+  context item, source excerpt, observation, or command result that supports it.
+- For Ranking & Prioritization, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the scoring
+  matrix.
+- Before recommending any Ranking & Prioritization action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Ranking & Prioritization: the scoring matrix is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; establish criteria and weights and score each item checks agree, and no unresolved
+  contradiction would change the result.'
+- 'Medium for Ranking & Prioritization: the scoring matrix is plausible, but one important
+  item list source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Ranking & Prioritization: the scoring matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Ranking & Prioritization cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Ranking & Prioritization, use only authorized item list, criteria, and decision
+  context, public or source-approved records, and caller-provided context needed for
+  the defensive task.
+- For Ranking & Prioritization, minimize person-level detail in the scoring matrix;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Ranking & Prioritization, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Ranking & Prioritization: treating item list as complete when establish criteria
+  and weights and score each item checks or contradictory evidence are missing.'
+- 'Ranking & Prioritization: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Ranking & Prioritization: reporting the scoring matrix without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Ranking & Prioritization outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the scoring matrix from Ranking & Prioritization into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Ranking & Prioritization to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with item list,
+  criteria, and decision context'' -> produce bounded findings with evidence and uncertainty
+  labels.'

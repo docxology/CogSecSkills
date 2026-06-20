@@ -1,0 +1,217 @@
+id: information_environment.trend_and_emergence_monitoring
+description: Trend and Emergence Monitoring provides a structured, continuous-or-periodic
+  process for detecting nascent narratives, coordinated-behavior signals, and inflection-point
+  events before they reach mainstream salience in an information space. Drawing on
+  open-source intelligence tradecraft and social-network analysis, the technique combines
+  quantitative signal monitoring (volume spikes, velocity changes, network topology
+  shifts) with qualitative analysis to distinguish organic trend formation from artificially
+  amplified or coordinated emergence. It is designed as an early-warning system that
+  cues deeper analytic responses before an influence operation or harmful narrative
+  achieves significant reach.
+tags:
+- cognitive-security
+- information_environment
+- early-warning
+- osint
+triggers:
+- monitor this information space for emerging threats
+- early warning on narratives
+- what is just starting to trend
+- detect emerging influence operations
+- inflection point detection
+- trend monitoring
+tools:
+- verb: read
+  purpose: ingest existing monitoring baselines, keyword lists, prior trend reports,
+    and defined watchlist parameters
+- verb: search
+  purpose: retrieve current content from monitored platforms, news sources, and social
+    media to scan for signals
+- verb: web
+  purpose: access live platform content and public data streams where API or direct
+    search is insufficient
+- verb: reason
+  purpose: distinguish organic from artificial trends, assess emergence stage, and
+    prioritize signals for escalation
+- verb: write
+  purpose: produce the monitoring report, signal assessments, and escalation recommendations
+inputs:
+- name: monitoring_scope
+  type: text
+  required: true
+  description: 'Definition of the information space: topic domain, platform set, language(s),
+    geographic focus, and time window for this monitoring cycle'
+- name: watchlist
+  type: list
+  required: false
+  description: Keywords, hashtags, account handles, or narrative themes that are priority
+    signals for this monitoring cycle
+- name: baseline_report
+  type: text
+  required: false
+  description: Prior monitoring cycle output establishing the baseline volume and
+    topic distribution against which emergence is measured
+outputs:
+- name: signal_log
+  type: table
+  description: 'Each detected signal with: signal type, observed platform, estimated
+    volume or velocity, emergence stage (seeding/early-growth/acceleration/plateau),
+    and initial authenticity assessment'
+- name: monitoring_report
+  type: markdown
+  description: Analyst narrative covering the top emerging signals, evidence for each,
+    assessment of organic vs. coordinated origin, and escalation/follow-on recommendations
+references:
+- Ferrara, E., et al. (2016). The Rise of Social Bots. Communications of the ACM.
+- Starbird, K. (2017). Examining the Alternative Media Ecosystem through the Production
+  of Alternative Narratives of Mass Shooting Events. ICWSM.
+- 'Bradshaw, S. & Howard, P. (2019). The Global Disinformation Order: 2019 Global
+  Inventory of Organised Social Media Manipulation. Oxford Internet Institute.'
+- 'Nimmo, B. (2015). Anatomy of an Info-War: How Russia''s Propaganda Machine Works
+  and How to Counter It. StopFake / EU vs Disinfo.'
+when_to_use:
+- when running an ongoing information-environment monitoring program and you need
+  a structured cycle to distinguish signal from noise
+- when a high-risk event (election, crisis, policy decision) is approaching and early-warning
+  is operationally valuable
+- when you have previously identified a threat actor and want to monitor for new activity
+  from that actor or their narrative templates
+- when standing up a new monitoring program and need to establish baselines before
+  emergence detection becomes meaningful
+what_it_produces:
+- a prioritized signal log of emerging narratives, accounts, or topics with emergence-stage
+  classification
+- an authenticity assessment for each signal distinguishing organic trend formation
+  from coordinated or artificial amplification
+- escalation recommendations indicating which signals warrant deeper investigation
+  (attribution, network mapping, content analysis)
+- a new baseline for the next monitoring cycle, enabling trend-over-time comparisons
+key_discipline:
+- measure velocity (rate of change) not just volume — a small signal growing rapidly
+  is more operationally relevant than a large stable signal
+- compare against baseline — emergence is meaningful only relative to the established
+  normal distribution in the space
+- 'apply the three-signal rule before escalating: corroborate an apparent signal across
+  at least three independent content instances or sources to avoid single-post false
+  alarms'
+- classify emergence stage (seeding, early-growth, acceleration, plateau) — the appropriate
+  countermeasure differs by stage
+workflow_steps:
+- verbs:
+  - read
+  title: Refresh scope and baseline
+  text: Load the monitoring scope definition and the baseline report from the prior
+    cycle. Review the current watchlist. Identify any scope updates warranted by recent
+    events. Confirm the time window for this cycle and the platforms to be scanned.
+- verbs:
+  - search
+  - web
+  title: Collect current signals
+  text: Execute searches across the defined platform set using watchlist terms, hashtags,
+    and related semantic queries. Retrieve a representative sample of content from
+    each platform. Where direct API access is unavailable, use web retrieval of public-facing
+    content. Log raw signal counts and note any content that appears new or anomalous
+    relative to the baseline.
+- verbs:
+  - reason
+  title: Detect and classify emergence
+  text: 'Compare observed content volume and topic distribution against the baseline.
+    Flag topics, hashtags, or narratives showing elevated velocity (not just volume).
+    For each flagged signal, classify its emergence stage: seeding (low volume, specific
+    seed accounts), early-growth (beginning organic spread or amplification), acceleration
+    (rapid uptake), or plateau (peak reach, beginning to recede). Apply the three-signal
+    corroboration threshold before escalating.'
+- verbs:
+  - reason
+  title: Assess authenticity and coordination
+  text: 'For each escalated signal, assess whether spread appears organic or coordinated.
+    Indicators of coordination: synchronized posting times, identical or near-identical
+    content across unrelated accounts, unusual account-age or follower-acquisition
+    patterns, content appearing on fringe platforms before mainstream ones (cross-platform
+    seeding). Flag signals showing multiple coordination indicators for follow-on
+    network analysis.'
+- verbs:
+  - write
+  title: Produce report and update baseline
+  text: Populate the signal log table with all detected signals and their assessments.
+    Write the monitoring report narrative covering the top three to five emerging
+    signals with evidence, authenticity assessment, emergence stage, and recommended
+    follow-on actions. Update the baseline with this cycle's observed distribution
+    to enable next-cycle comparison.
+anti_criteria:
+- do not escalate a single-instance observation as an emerging trend — the three-signal
+  corroboration threshold must be met before escalation
+- do not conflate high volume with emergence — a consistently high-volume topic is
+  the baseline, not an emergence signal; only velocity above baseline constitutes
+  emergence
+- do not attribute coordinated appearance to a state or non-state actor without separate
+  attribution evidence — coordination indicators establish synthetic amplification,
+  not actor identity
+- do not allow watchlist tunnel-vision to prevent detection of novel signals outside
+  the existing watchlist — include an unstructured scan component each cycle
+defensive_boundary: 'Use Trend & Emergence Monitoring only for information-environment
+  monitoring and platform-risk defense: recognize, assess, document, or defend platform
+  integrity, narrative context, and authentic community behavior. Do not use this
+  skill to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement.'
+misuse_redirect: 'If a request asks Trend & Emergence Monitoring to amplify coordinated
+  behavior, tune platform manipulation, or design inauthentic engagement, refuse that
+  path and redirect to the safe defensive form: map supplied narratives, automation
+  signals, or platform affordance risks for defensive review.'
+evidence_requirements:
+- For Trend & Emergence Monitoring, tie each signal log, and monitoring report claim
+  to concrete evidence from the specific monitoring scope, watchlist, and baseline
+  report item, source excerpt, observation, or command result that supports it.
+- For Trend & Emergence Monitoring, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the signal
+  log.
+- Before recommending any Trend & Emergence Monitoring action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Trend & Emergence Monitoring: the signal log is supported by multiple
+  independent platform observations, narrative movement, automation signals, and provenance
+  data; refresh scope and baseline and collect current signals checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Trend & Emergence Monitoring: the signal log is plausible, but one important
+  monitoring scope source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Trend & Emergence Monitoring: the signal log rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Trend & Emergence Monitoring cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating information_environment evidence to collect when
+  confidence is low or medium.
+privacy_legal_constraints:
+- For Trend & Emergence Monitoring, use only authorized monitoring scope, watchlist,
+  and baseline report, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Trend & Emergence Monitoring, minimize person-level detail in the signal log;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Trend & Emergence Monitoring, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Trend & Emergence Monitoring: treating monitoring scope as complete when refresh
+  scope and baseline and collect current signals checks or contradictory evidence
+  are missing.'
+- 'Trend & Emergence Monitoring: producing advice that would help a requester amplify
+  coordinated behavior, tune platform manipulation, or design inauthentic engagement.'
+- 'Trend & Emergence Monitoring: reporting the signal log without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Trend & Emergence Monitoring outputs to amplify coordinated behavior,
+  tune platform manipulation, or design inauthentic engagement'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the signal log from Trend & Emergence Monitoring into an operational
+  playbook to amplify coordinated behavior, tune platform manipulation, or design
+  inauthentic engagement'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Trend & Emergence Monitoring to map supplied narratives,
+  automation signals, or platform affordance risks for defensive review with monitoring
+  scope, watchlist, and baseline report'' -> produce bounded findings with evidence
+  and uncertainty labels.'

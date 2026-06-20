@@ -16,13 +16,66 @@ navigate quickly:
 from __future__ import annotations
 
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from .config import Config
 from .loader import SPEC_FILENAME, discover_skills, load_skill, skill_dir, skills_root
 from .registry import load_registry
 from .spec import SkillSpec
+
+QUALITY_FIELD_NAMES = (
+    "defensive_boundary",
+    "misuse_redirect",
+    "evidence_requirements",
+    "confidence_rubric",
+    "uncertainty_handling",
+    "privacy_legal_constraints",
+    "failure_modes",
+    "negative_controls",
+)
+
+GENERIC_NEGATIVE_CONTROL_PHRASES = (
+    "help me manipulate this audience",
+    "optimize this influence operation",
+    "assess this material for manipulation indicators",
+)
+QUALITY_SPECIFICITY_FIELDS = (
+    "confidence_rubric",
+    "evidence_requirements",
+    "privacy_legal_constraints",
+    "failure_modes",
+)
+REUSED_QUALITY_FIELDS = (
+    "confidence_rubric",
+    "evidence_requirements",
+    "privacy_legal_constraints",
+)
+ALLOWED_SHARED_QUALITY_ITEMS: dict[str, set[str]] = {
+    "confidence_rubric": set(),
+    "evidence_requirements": set(),
+    "privacy_legal_constraints": set(),
+}
+
+SENSITIVE_GROUPS = {
+    "cognitive_security",
+    "counterintelligence",
+    "information_environment",
+    "osint_integrity",
+}
+
+SENSITIVE_TERMS = (
+    "audience",
+    "account",
+    "person",
+    "platform",
+    "influence",
+    "deception",
+    "attribution",
+    "insider",
+    "bot",
+    "sock",
+)
 
 _TOKEN = re.compile(r"[a-z0-9]+")
 
@@ -74,12 +127,14 @@ def library_stats(root: Path | None = None) -> dict:
     """Counts across the catalogue and on-disk skills."""
     registry = load_registry(root)
     specs = discover_skills(root)
-    by_group = Counter(e.group for e in registry.entries)
-    verb_use: Counter = Counter()
+    by_group: Counter[str] = Counter(e.group for e in registry.entries)
+    verb_use: Counter[str] = Counter()
     for spec in specs:
         for verb in spec.verbs:
             verb_use[verb.value] += 1
-    topics = Counter(e.ageint_topic for e in registry.entries if e.ageint_topic)
+    topics: Counter[str] = Counter(
+        e.ageint_topic for e in registry.entries if e.ageint_topic
+    )
     return {
         "registry_total": len(registry),
         "on_disk": len(specs),
@@ -132,8 +187,10 @@ def doctor(root: Path | None = None, config: Config | None = None) -> list[dict]
     tree = skills_root(root)
     if not tree.is_dir():
         return findings
+    specs: list[SkillSpec] = []
     for spec_path in sorted(tree.rglob(SPEC_FILENAME)):
         spec = load_skill(spec_path)
+        specs.append(spec)
         directory = skill_dir(spec_path)
         workflow = directory / spec.workflow
         text = workflow.read_text(encoding="utf-8") if workflow.is_file() else ""
@@ -163,7 +220,215 @@ def doctor(root: Path | None = None, config: Config | None = None) -> list[dict]
             findings.append(
                 {"skill_id": spec.id, "level": "warn", "message": "no references"}
             )
+        if spec.status == "implemented":
+            findings.extend(_quality_findings(spec, text))
+    findings.extend(_reused_quality_field_findings(specs))
     return findings
+
+
+def _quality_findings(spec: SkillSpec, workflow_text: str) -> list[dict]:
+    findings: list[dict] = []
+    for field in QUALITY_FIELD_NAMES:
+        value = getattr(spec, field)
+        if isinstance(value, str):
+            empty = not value.strip()
+        else:
+            empty = not value
+        if empty:
+            findings.append(
+                {
+                    "skill_id": spec.id,
+                    "level": "warn",
+                    "message": f"missing quality field: {field}",
+                }
+            )
+
+    lower = "\n".join(
+        [
+            spec.defensive_boundary,
+            spec.misuse_redirect,
+            "\n".join(spec.negative_controls),
+            workflow_text,
+        ]
+    ).lower()
+    if "chain-of-thought" in lower:
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "forbidden chain-of-thought wording",
+            }
+        )
+    if "unsafe" not in lower or "redirect" not in lower:
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "negative controls must include unsafe redirect coverage",
+            }
+        )
+    negative = "\n".join(spec.negative_controls).lower()
+    if "safe" not in negative or "defensive" not in negative:
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "negative controls must include a safe defensive example",
+            }
+        )
+    if not _negative_controls_are_specific(spec, negative):
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "negative controls are too generic for the skill or group",
+            }
+        )
+    if any(phrase in negative for phrase in GENERIC_NEGATIVE_CONTROL_PHRASES):
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "negative controls repeat generic boilerplate examples",
+            }
+        )
+    for field in QUALITY_SPECIFICITY_FIELDS:
+        values = getattr(spec, field)
+        items = [
+            str(item) for item in (values if isinstance(values, tuple) else (values,))
+        ]
+        if items and not any(_text_is_skill_specific(spec, item) for item in items):
+            findings.append(
+                {
+                    "skill_id": spec.id,
+                    "level": "warn",
+                    "message": f"{field} must include skill-specific language",
+                }
+            )
+    evidence = "\n".join(spec.evidence_requirements).lower()
+    if "evidence" not in evidence or "inference" not in evidence:
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "evidence requirements must label evidence and inference",
+            }
+        )
+    uncertainty = "\n".join(spec.uncertainty_handling).lower()
+    if "unknown" not in uncertainty or "alternative" not in uncertainty:
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "uncertainty handling must preserve unknowns and alternatives",
+            }
+        )
+    if _is_sensitive_skill(spec) and (
+        "refuse" not in lower
+        or "defensive" not in lower
+        or "privacy" not in lower
+        or "authorized" not in lower
+    ):
+        findings.append(
+            {
+                "skill_id": spec.id,
+                "level": "warn",
+                "message": "sensitive skill missing defensive/privacy misuse guardrails",
+            }
+        )
+    return findings
+
+
+def _normalize_quality_item(item: object) -> str:
+    return " ".join(str(item).lower().split())
+
+
+def _reused_quality_field_findings(specs: list[SkillSpec]) -> list[dict]:
+    findings: list[dict] = []
+    implemented = [spec for spec in specs if spec.status == "implemented"]
+    for field in REUSED_QUALITY_FIELDS:
+        seen: dict[str, list[str]] = defaultdict(list)
+        for spec in implemented:
+            for item in getattr(spec, field):
+                normalized = _normalize_quality_item(item)
+                if normalized:
+                    seen[normalized].append(spec.id)
+        allowed = ALLOWED_SHARED_QUALITY_ITEMS.get(field, set())
+        for normalized, skill_ids in sorted(seen.items()):
+            if normalized in allowed or len(skill_ids) <= 1:
+                continue
+            sample = normalized[:100]
+            suffix = "" if len(skill_ids) <= 5 else f", +{len(skill_ids) - 5} more"
+            findings.append(
+                {
+                    "skill_id": ",".join(skill_ids[:5]),
+                    "level": "warn",
+                    "message": (
+                        f"{field} entry reused across skills: {sample!r} "
+                        f"({', '.join(skill_ids[:5])}{suffix})"
+                    ),
+                }
+            )
+    return findings
+
+
+def _negative_controls_are_specific(spec: SkillSpec, negative_text: str) -> bool:
+    if spec.name.lower() in negative_text:
+        return True
+    slug_phrase = spec.id.split(".", 1)[-1].replace("_", " ").lower()
+    if slug_phrase in negative_text:
+        return True
+    name_tokens = {
+        token
+        for token in _tokens(spec.name)
+        if len(token) >= 5 and token not in {"analysis", "review", "assessment"}
+    }
+    slug_tokens = {
+        token
+        for token in _tokens(spec.id.split(".", 1)[-1].replace("_", " "))
+        if len(token) >= 5 and token not in {"analysis", "review", "assessment"}
+    }
+    return bool(
+        spec.group.lower() in negative_text
+        or any(token in negative_text for token in name_tokens | slug_tokens)
+    )
+
+
+def _text_is_skill_specific(spec: SkillSpec, text: str) -> bool:
+    lower = text.lower()
+    if spec.name.lower() in lower:
+        return True
+    slug_phrase = spec.id.split(".", 1)[-1].replace("_", " ").lower()
+    if slug_phrase in lower:
+        return True
+    name_tokens = {
+        token
+        for token in _tokens(spec.name)
+        if len(token) >= 5 and token not in {"analysis", "review", "assessment"}
+    }
+    slug_tokens = {
+        token
+        for token in _tokens(spec.id.split(".", 1)[-1].replace("_", " "))
+        if len(token) >= 5 and token not in {"analysis", "review", "assessment"}
+    }
+    return any(token in lower for token in name_tokens | slug_tokens)
+
+
+def _is_sensitive_skill(spec: SkillSpec) -> bool:
+    haystack = " ".join(
+        [
+            spec.id,
+            spec.group,
+            spec.name,
+            spec.summary,
+            spec.description,
+            " ".join(spec.triggers),
+            " ".join(spec.tags),
+        ]
+    ).lower()
+    return spec.group in SENSITIVE_GROUPS or any(
+        term in haystack for term in SENSITIVE_TERMS
+    )
 
 
 def _count_steps(workflow_text: str) -> int:

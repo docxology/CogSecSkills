@@ -22,6 +22,44 @@ Causal Flow Diagramming (also called causal loop diagramming or process mapping 
 - A set of identified leverage points — nodes where targeted intervention produces disproportionate system-wide effects
 - An explicit record of delays and non-linear paths that linear narrative analysis would miss
 
+## Defensive boundary
+
+Use Causal Flow Diagramming only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks Causal Flow Diagramming to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For Causal Flow Diagramming, tie each causal flow diagram, loop inventory, and leverage point assessment claim to concrete evidence from the specific system description, known variables, and scope boundary item, source excerpt, observation, or command result that supports it.
+- For Causal Flow Diagramming, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the causal flow diagram.
+- Before recommending any Causal Flow Diagramming action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Causal Flow Diagramming: the causal flow diagram is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; define behavior-over-time and boundary and map causal links and polarities checks agree, and no unresolved contradiction would change the result.
+- Medium for Causal Flow Diagramming: the causal flow diagram is plausible, but one important system description source, comparison case, or alternative explanation remains incomplete.
+- Low for Causal Flow Diagramming: the causal flow diagram rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Causal Flow Diagramming cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Causal Flow Diagramming, use only authorized system description, known variables, and scope boundary, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Causal Flow Diagramming, minimize person-level detail in the causal flow diagram; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Causal Flow Diagramming, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Causal Flow Diagramming: treating system description as complete when define behavior-over-time and boundary and map causal links and polarities checks or contradictory evidence are missing.
+- Causal Flow Diagramming: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Causal Flow Diagramming: reporting the causal flow diagram without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Causal Flow Diagramming outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the causal flow diagram from Causal Flow Diagramming into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Causal Flow Diagramming to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with system description, known variables, and scope boundary' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

@@ -1,0 +1,201 @@
+id: cognitive_security.emotional_manipulation_analysis
+description: Emotional Manipulation Analysis identifies the specific affective levers
+  — fear, outrage, disgust, in-group loyalty, grief, hope — that a message, campaign,
+  or artifact deliberately exploits to bypass deliberative reasoning. Rooted in the
+  dual-process literature (Kahneman) and influence-operation research (Wardle & Derakhshan),
+  it deconstructs persuasion technique by technique, distinguishing legitimate pathos
+  from weaponized emotion. The output is a structured threat map that analysts and
+  communicators can use to recognize manipulation in real time and design inoculation
+  or counter-messaging responses.
+tags:
+- cognitive-security
+- cognitive_security
+- affective-manipulation
+- influence-analysis
+triggers:
+- emotional manipulation
+- affective lever
+- fear appeal analysis
+- outrage bait
+- what emotion is this exploiting
+- manipulative framing
+- emotional exploitation
+tools:
+- verb: read
+  purpose: ingest the message, content, or campaign materials to be analyzed
+- verb: reason
+  purpose: identify which emotions are targeted, how they are triggered, and which
+    cognitive shortcuts are exploited
+- verb: write
+  purpose: produce a structured emotional-lever map with technique labels, severity
+    ratings, and defensive recommendations
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The message, article, social-media post, video transcript, or campaign
+    excerpt to be analyzed
+- name: context
+  type: text
+  required: false
+  description: Background on the intended audience, distribution channel, and current
+    socio-political climate that may amplify certain levers
+outputs:
+- name: emotional_lever_map
+  type: table
+  description: 'Table of identified affective levers: emotion targeted, specific trigger
+    phrase or device, manipulation technique label, severity (low/medium/high), and
+    potential audience impact'
+- name: defensive_brief
+  type: markdown
+  description: Narrative summary explaining the overall manipulation strategy, which
+    deliberative faculties are bypassed, and recommended inoculation or counter-framing
+    approaches
+references:
+- Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
+- 'Wardle, C. & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework. Council of Europe Report DGI(2017)09.'
+- 'Cialdini, R. B. (2001). Influence: Science and Practice (4th ed.). Allyn & Bacon.'
+- 'Bail, C. A. (2021). Breaking the Social Media Prism: How to Make Our Platforms
+  Less Polarizing. Princeton University Press.'
+- 'van der Linden, S. (2023). Foolproof: Why Misinformation Infects Our Minds and
+  How to Build Immunity. W. W. Norton.'
+when_to_use:
+- Assessing a piece of suspected disinformation or propaganda for manipulation techniques
+  before amplifying or responding
+- Training analysts to recognize affective exploitation patterns across message formats
+- Designing inoculation content that pre-exposes audiences to manipulation techniques
+  before harmful narratives arrive
+- Auditing organizational communications to ensure persuasion is legitimate pathos,
+  not weaponized emotion
+- Conducting post-incident analysis of how an influence operation achieved virality
+  through emotional resonance
+what_it_produces:
+- A technique-labeled inventory of every affective lever the content activates (e.g.,
+  fear appeal, moral outrage, in-group/out-group contrast, disgust evocation, false
+  urgency)
+- Severity ratings indicating how strongly each lever is likely to bypass deliberative
+  evaluation in the target audience
+- A diagnosis of which System 1 shortcuts (availability heuristic, confirmation bias,
+  identity-protective cognition) are being exploited
+- Concrete inoculation and counter-messaging recommendations tied to each identified
+  lever
+key_discipline:
+- Separate description from condemnation — label the technique precisely before judging
+  intent, to preserve analytic rigor
+- 'Map emotion to cognitive shortcut: every affective lever works by routing around
+  a specific deliberative faculty — name which one'
+- Distinguish legitimate emotional appeal (accurate pathos) from manipulation (emotion
+  decoupled from or contradicting evidence)
+- 'Assess audience fit: the same lever may be inert for one demographic and highly
+  effective for another — always specify target population'
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest and segment content
+  text: Read the full content to be analyzed. Segment it into units (headline, lead
+    paragraph, image caption, call-to-action, etc.) that can each be independently
+    evaluated for emotional loading.
+- verbs:
+  - reason
+  title: Identify and label affective levers
+  text: For each segment, identify the primary emotion being targeted (fear, outrage,
+    disgust, nostalgia, hope, tribal belonging, shame, grief). Label the specific
+    persuasion technique in use (fear appeal, guilt trip, in-group solidarity trigger,
+    moral outrage bait, false urgency, etc.). Note the exact phrase or device that
+    triggers the emotion.
+- verbs:
+  - reason
+  title: Map emotion to bypassed cognition
+  text: For each identified lever, name the deliberative faculty it bypasses or short-circuits
+    (e.g., evidence evaluation, source verification, proportionality judgment, identity-protective
+    cognition). Rate severity (low/medium/high) based on how completely the lever
+    disconnects affect from deliberation in the likely audience.
+- verbs:
+  - reason
+  title: Assess audience amplification factors
+  text: 'Consider contextual factors that amplify lever effectiveness: pre-existing
+    fears, recent trauma or crisis, in-group vs. out-group salience, platform affordances
+    that reward emotional content, and audience demographics associated with higher
+    susceptibility to each technique.'
+- verbs:
+  - write
+  title: Produce lever map and defensive brief
+  text: Compile the emotional lever map as a structured table. Write a defensive brief
+    summarizing the overall manipulation strategy, the most dangerous levers, and
+    specific inoculation or counter-messaging recommendations for each high-severity
+    lever. Distinguish legitimate emotional appeals from weaponized ones explicitly.
+anti_criteria:
+- Do not conflate all emotional content with manipulation — legitimate journalism
+  and advocacy use emotion; the test is whether emotion tracks evidence
+- Do not produce output that could serve as a how-to guide for running influence operations;
+  all output must be oriented toward recognition and defense
+- Do not render severity verdicts without specifying the target audience — the same
+  lever has different potency across populations
+- Do not omit labeling the specific cognitive shortcut being exploited — generic 'emotional'
+  labels are analytically useless
+defensive_boundary: 'Use Emotional Manipulation Analysis only for cognitive-security
+  defense: recognize, assess, document, or defend audiences, decision-makers, and
+  public discourse. Do not use this skill to increase persuasive impact, exploit audience
+  vulnerabilities, or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Emotional Manipulation Analysis to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Emotional Manipulation Analysis, tie each emotional lever map, and defensive
+  brief claim to concrete evidence from the specific content, and context item, source
+  excerpt, observation, or command result that supports it.
+- For Emotional Manipulation Analysis, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the emotional
+  lever map.
+- Before recommending any Emotional Manipulation Analysis action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Emotional Manipulation Analysis: the emotional lever map is supported
+  by multiple independent content, behavioral, narrative, media, and audience-risk
+  evidence; ingest and segment content and identify and label affective levers checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Emotional Manipulation Analysis: the emotional lever map is plausible,
+  but one important content source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Emotional Manipulation Analysis: the emotional lever map rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Emotional Manipulation Analysis cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Emotional Manipulation Analysis, use only authorized content, and context, public
+  or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Emotional Manipulation Analysis, minimize person-level detail in the emotional
+  lever map; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Emotional Manipulation Analysis, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Emotional Manipulation Analysis: treating content as complete when ingest and segment
+  content and identify and label affective levers checks or contradictory evidence
+  are missing.'
+- 'Emotional Manipulation Analysis: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Emotional Manipulation Analysis: reporting the emotional lever map without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Emotional Manipulation Analysis outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the emotional lever map from Emotional Manipulation Analysis
+  into an operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Emotional Manipulation Analysis to assess supplied material
+  for manipulation indicators and recommend resilience measures with content, and
+  context'' -> produce bounded findings with evidence and uncertainty labels.'

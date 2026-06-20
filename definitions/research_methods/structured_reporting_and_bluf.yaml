@@ -1,0 +1,198 @@
+id: research_methods.structured_reporting_and_bluf
+description: Structured Reporting with Bottom-Line-Up-Front (BLUF) is an analytic
+  communication standard that places the key judgment and its confidence level in
+  the first sentence or paragraph, then supports it with traceable evidence, clearly
+  stated assumptions, and logical argumentation in descending order of importance.
+  Originating in military and intelligence tradecraft and codified in intelligence
+  community analytic standards (ICD 203, ODNI), BLUF prevents the common failure mode
+  in which important caveats or contrary evidence are buried where decision-makers
+  never read them. The structure enforces accountability by requiring each claim in
+  the body to be traceable to a specific source or assumption stated explicitly.
+tags:
+- cognitive-security
+- research_methods
+- communication
+- analytic-standards
+triggers:
+- write up the findings
+- draft the assessment
+- bottom line up front
+- BLUF format
+- structured analytic report
+- summarize with confidence
+tools:
+- verb: read
+  purpose: ingest the analytic judgment, evidence set, graded sources, and confidence
+    assessment to be reported
+- verb: reason
+  purpose: structure the argument from conclusion to supporting evidence, identify
+    key assumptions and caveats, and determine what belongs in the BLUF versus the
+    body
+- verb: write
+  purpose: produce the structured report with BLUF, sourced body paragraphs, assumptions,
+    caveats, and implications sections
+inputs:
+- name: analytic_judgment
+  type: text
+  required: true
+  description: the main analytic conclusion or estimate, with confidence level, to
+    be communicated
+- name: evidence_and_sources
+  type: list
+  required: true
+  description: the supporting evidence items and sources (ideally already graded)
+    that underpin the judgment
+- name: assumptions
+  type: list
+  required: false
+  description: key assumptions the judgment depends on, for explicit statement in
+    the report
+- name: audience_and_purpose
+  type: text
+  required: false
+  description: the intended audience and the decision they face, to calibrate detail
+    level and implications section
+outputs:
+- name: structured_report
+  type: markdown
+  description: 'a complete structured analytic report with labeled sections: BLUF
+    (key judgment + confidence), Key Evidence, Assumptions, Argument, Caveats and
+    Countervailing Evidence, and Implications'
+references:
+- 'Office of the Director of National Intelligence (2015). ICD 203: Analytic Standards.
+  ODNI.'
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- 'U.S. Army (2013). ATP 2-33.4: Intelligence Analysis. Headquarters, Department of
+  the Army. (BLUF and analytic line standards.)'
+when_to_use:
+- when delivering any analytic product that will inform a decision by someone who
+  may not read past the first paragraph
+- when accountability requires every claim to be traceable to a source or stated assumption
+- when communicating to mixed audiences who need the bottom line but may want to drill
+  into supporting evidence
+- when drafting an assessment that will be challenged, peer reviewed, or used as a
+  record
+what_it_produces:
+- a structured report beginning with the key judgment and confidence level
+- a body in which every claim is traceable to a specific source or explicitly stated
+  assumption
+- a caveats section that surfaces disconfirming evidence and conditions under which
+  the judgment would change
+- an implications section tailored to the audience's decision context
+key_discipline:
+- the BLUF must be self-sufficient — a reader who stops after one paragraph should
+  have the judgment, its confidence level, and the single most important caveat
+- every factual claim in the body must cite a source or be labeled as an assumption
+  — unlabeled inferences are invisible liabilities
+- caveats and countervailing evidence belong in the report body, not as an afterthought
+  or footnote
+- 'descending order of importance: each paragraph should matter less than the one
+  before it, so truncation at any point leaves the most important content intact'
+workflow_steps:
+- verbs:
+  - read
+  title: Assemble the inputs
+  text: Read the analytic judgment (with its stated confidence level), all supporting
+    evidence and sources, the key assumptions, and any prior confidence assessment.
+    Note the audience and the decision the report will inform.
+- verbs:
+  - reason
+  title: Draft the BLUF and argument structure
+  text: 'Write the BLUF first: one to three sentences stating the key judgment, the
+    confidence level in standardized language (High/Moderate/Low), and the single
+    most important caveat. Then outline the body in descending order of importance:
+    which evidence is strongest, which assumptions are load-bearing, what countervailing
+    evidence exists.'
+- verbs:
+  - reason
+  title: Check traceability and completeness
+  text: Review each claim in the draft body. Every factual assertion must link to
+    a cited source or be flagged as an explicit assumption. Confirm that the caveats
+    section includes the two or three conditions that would most change the judgment.
+    Verify the BLUF accurately reflects the body — inconsistencies between headline
+    and body are a common analytic failure mode.
+- verbs:
+  - write
+  title: Produce the final structured report
+  text: 'Write the final report with clearly labeled sections: BLUF, Key Evidence
+    (graded if available), Key Assumptions, Argument, Caveats and Countervailing Evidence,
+    and Implications for the decision audience. Use standardized confidence language
+    throughout. Include a one-line ''What Would Change This Assessment'' note at the
+    end.'
+anti_criteria:
+- do not bury the main judgment at the end of the report in a narrative-reveal structure
+  — the BLUF must appear first
+- do not state confidence verbally (e.g., 'we believe') without a standardized confidence
+  tier label (High/Moderate/Low)
+- do not omit countervailing evidence to protect the main judgment — selective omission
+  is an analytic integrity violation
+- do not make claims in the body that are not traceable to a cited source or explicitly
+  labeled assumption
+defensive_boundary: 'Use Structured Reporting & BLUF only for research-methods and
+  synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated
+  confidence, and transparent synthesis. Do not use this skill to cherry-pick sources,
+  fabricate citations, or overstate certainty from weak evidence.'
+misuse_redirect: 'If a request asks Structured Reporting & BLUF to cherry-pick sources,
+  fabricate citations, or overstate certainty from weak evidence, refuse that path
+  and redirect to the safe defensive form: synthesize supplied or authorized sources
+  with explicit confidence and uncertainty labels.'
+evidence_requirements:
+- For Structured Reporting & BLUF, tie each structured report claim to concrete evidence
+  from the specific analytic judgment, evidence and sources, and assumptions item,
+  source excerpt, observation, or command result that supports it.
+- For Structured Reporting & BLUF, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the structured
+  report.
+- Before recommending any Structured Reporting & BLUF action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Structured Reporting & BLUF: the structured report is supported by multiple
+  independent study designs, source quality, reproducibility artifacts, and uncertainty
+  records; assemble the inputs and draft the bluf and argument structure checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Structured Reporting & BLUF: the structured report is plausible, but
+  one important analytic judgment source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Structured Reporting & BLUF: the structured report rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Structured Reporting & BLUF cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Structured Reporting & BLUF, use only authorized analytic judgment, evidence
+  and sources, and assumptions, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Structured Reporting & BLUF, minimize person-level detail in the structured
+  report; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Structured Reporting & BLUF, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Structured Reporting & BLUF: treating analytic judgment as complete when assemble
+  the inputs and draft the bluf and argument structure checks or contradictory evidence
+  are missing.'
+- 'Structured Reporting & BLUF: producing advice that would help a requester cherry-pick
+  sources, fabricate citations, or overstate certainty from weak evidence.'
+- 'Structured Reporting & BLUF: reporting the structured report without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Structured Reporting & BLUF outputs to cherry-pick sources, fabricate
+  citations, or overstate certainty from weak evidence'' -> refuse and redirect to
+  defensive risk assessment.'
+- 'Unsafe: ''Convert the structured report from Structured Reporting & BLUF into an
+  operational playbook to cherry-pick sources, fabricate citations, or overstate certainty
+  from weak evidence'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Structured Reporting & BLUF to synthesize supplied or authorized
+  sources with explicit confidence and uncertainty labels with analytic judgment,
+  evidence and sources, and assumptions'' -> produce bounded findings with evidence
+  and uncertainty labels.'

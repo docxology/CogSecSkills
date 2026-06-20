@@ -1,0 +1,212 @@
+id: critical_review.threat_model_review
+description: 'Threat Model Review systematically audits an existing threat model —
+  such as a STRIDE, PASTA, attack tree, or narrative threat assessment — to identify
+  missing actors, overlooked attack surfaces, unvalidated assumptions, and incomplete
+  trust boundaries. The technique applies adversarial thinking to the threat model
+  itself, asking whether it captures the realistic threat population, whether its
+  mitigations are actually implemented, and whether its scope boundaries are justified
+  or merely convenient. In cognitive-security contexts this extends to information-environment
+  threat models: identifying omitted influence actors, uncovered cognitive attack
+  surfaces, and assumptions about audience resilience that have not been empirically
+  validated.'
+tags:
+- cognitive-security
+- critical_review
+- adversarial-assurance
+- threat-modeling
+triggers:
+- review this threat model
+- what actors are missing from our threat model
+- are there attack surfaces we haven't considered
+- check our STRIDE model
+- validate our threat assessment
+- red team our threat model
+- threat model gaps
+tools:
+- verb: read
+  purpose: ingest the existing threat model, its scope statement, actor list, attack
+    surface inventory, and stated mitigations
+- verb: reason
+  purpose: apply adversarial review to identify missing actors, surfaces, trust-boundary
+    errors, unvalidated assumptions, and mitigation gaps
+- verb: write
+  purpose: produce a structured gap report mapping each finding to threat-model dimension,
+    severity, and recommended remediation
+inputs:
+- name: threat_model
+  type: text
+  required: true
+  description: 'The existing threat model document: STRIDE table, PASTA analysis,
+    attack tree, or narrative threat assessment to be reviewed'
+- name: system_description
+  type: text
+  required: false
+  description: A description of the system or information environment being modeled,
+    if not fully embedded in the threat model; used to independently derive what actors
+    and surfaces should be present
+- name: review_focus
+  type: text
+  required: false
+  description: 'Optional focus area: e.g., insider threats, supply chain actors, cognitive/social
+    engineering surfaces, or a specific trust boundary'
+outputs:
+- name: gap_report
+  type: table
+  description: 'A structured table of identified gaps: each row contains dimension
+    (actors/surfaces/assumptions/mitigations/scope), specific finding, severity (critical/high/medium/low),
+    and recommended remediation or addition'
+- name: assumption_register
+  type: markdown
+  description: A list of explicit and implicit assumptions found in the threat model,
+    each tagged as validated, unvalidated-plausible, or unvalidated-risky
+- name: revised_scope_recommendation
+  type: markdown
+  description: A narrative recommendation on whether the threat model's scope boundaries
+    are justified or should be expanded, with rationale
+references:
+- 'Shostack, A. (2014). Threat Modeling: Designing for Security. Wiley. (esp. Ch.
+  3 on finding threats and Ch. 14 on threat model review)'
+- 'Herley, C. & Van Oorschot, P.C. (2017). SoK: Science, Security and the Elusive
+  Goal of Security as a Scientific Pursuit. IEEE Symposium on Security and Privacy.'
+- 'Swanson, M. et al. (2010). NIST SP 800-30 Rev. 1: Guide for Conducting Risk Assessments.
+  NIST.'
+- Hutchins, E.M., Cloppert, M.J. & Amin, R.M. (2011). Intelligence-Driven Computer
+  Network Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains.
+  Lockheed Martin Corp.
+- Rid, T. & McBurney, P. (2012). Cyber-Weapons. RUSI Journal, 157(1), 6-13. (on adversary
+  actor taxonomy and motivations)
+when_to_use:
+- a threat model has not been reviewed since its initial creation and the system or
+  threat environment has changed
+- a security or cognitive-security assessment depends on an existing threat model
+  that may have been authored under optimistic assumptions
+- a red-team exercise has surfaced attack paths not present in the official threat
+  model
+- the threat model was authored by internal stakeholders with blind spots toward insider
+  threats or sociotechnical surfaces
+- an information-environment assessment needs to check whether all relevant influence
+  actors and cognitive attack vectors are represented
+what_it_produces:
+- a gap table identifying missing actors, surfaces, trust-boundary errors, unvalidated
+  assumptions, and mitigation gaps with severity ratings
+- an assumption register distinguishing validated from unvalidated assumptions and
+  flagging the highest-risk unvalidated ones
+- a revised scope recommendation with rationale for expanding or recentering the model's
+  boundaries
+- a prioritized remediation list so owners can address critical gaps first
+key_discipline:
+- derive what the threat model should contain independently from the system description
+  before reading the existing model — compare derived set to present set to surface
+  omissions
+- treat every scope exclusion as an implicit assumption; make those assumptions explicit
+  and then evaluate whether they are warranted
+- for each stated mitigation, ask whether it is actually implemented and testable
+  — a paper mitigation is not a real control
+- in cognitive-security threat models, explicitly audit for social-engineering and
+  influence-operation surfaces, which are systematically underrepresented in technically-oriented
+  models
+workflow_steps:
+- verbs:
+  - read
+  title: Extract the model's declared elements
+  text: Read the threat model and extract its declared scope boundary, actor/adversary
+    list, attack surface inventory, trust boundaries, threat categories, and stated
+    mitigations. Note the modeling methodology used (STRIDE, PASTA, attack tree, narrative)
+    and the date of last update.
+- verbs:
+  - reason
+  title: Independently derive expected elements
+  text: 'From the system description (or the threat model''s own system description),
+    independently enumerate: who could plausibly threaten this system (insiders, nation-state,
+    criminal, activist, ideological actor, supply chain, cognitive/influence actors);
+    what attack surfaces exist (technical, organizational, social, informational);
+    what trust relationships are asserted. Do this derivation before re-reading the
+    model to avoid anchoring on its existing content.'
+- verbs:
+  - reason
+  title: Compute gaps and audit assumptions
+  text: 'Compare the derived set to the model''s declared set. Identify: missing actors,
+    missing surfaces, incorrect trust-boundary placements, and missing threat categories.
+    Extract all explicit and implicit assumptions (e.g., ''insiders are trusted'',
+    ''users will recognize phishing'', ''the supply chain vendor is low-risk''). Rate
+    each assumption as validated, unvalidated-plausible, or unvalidated-risky. For
+    each stated mitigation, judge whether it is actually implemented or merely planned.'
+- verbs:
+  - write
+  title: Produce gap report and recommendations
+  text: 'Write the gap table: each row maps to a dimension (actors/surfaces/assumptions/mitigations/scope),
+    cites evidence, assigns severity (critical/high/medium/low), and recommends a
+    specific remediation. Write the assumption register as a tagged list. Write the
+    scope recommendation narrative explaining whether boundaries should be expanded
+    and why. Produce a prioritized remediation list (critical gaps first).'
+anti_criteria:
+- do not accept the existing model's scope as the correct scope without independently
+  deriving what should be in scope from the system description
+- do not treat a stated mitigation as an implemented control — verify that it is operationally
+  active and testable before crediting it
+- do not restrict the actor taxonomy to technical adversaries — cognitive-security
+  and social-engineering actors must be assessed for any system involving human users
+- do not produce a gap report without severity ratings — an undifferentiated list
+  of concerns is not actionable
+defensive_boundary: 'Use Threat Model Review only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Threat Model Review to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation, refuse that path
+  and redirect to the safe defensive form: review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Threat Model Review, tie each gap report, assumption register, and revised scope
+  recommendation claim to concrete evidence from the specific threat model, system
+  description, and review focus item, source excerpt, observation, or command result
+  that supports it.
+- For Threat Model Review, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the gap report.
+- Before recommending any Threat Model Review action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Threat Model Review: the gap report is supported by multiple independent
+  artifact excerpts, test output, citations, assumptions, and reproducibility records;
+  extract the model''s declared elements and independently derive expected elements
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Threat Model Review: the gap report is plausible, but one important
+  threat model source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Threat Model Review: the gap report rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Threat Model Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Threat Model Review, use only authorized threat model, system description, and
+  review focus, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Threat Model Review, minimize person-level detail in the gap report; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Threat Model Review, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Threat Model Review: treating threat model as complete when extract the model''s
+  declared elements and independently derive expected elements checks or contradictory
+  evidence are missing.'
+- 'Threat Model Review: producing advice that would help a requester launder weak
+  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Threat Model Review: reporting the gap report without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Threat Model Review outputs to launder weak claims, fabricate review
+  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the gap report from Threat Model Review into an operational playbook
+  to launder weak claims, fabricate review findings, or produce exploit guidance without
+  mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Threat Model Review to review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures with threat model, system
+  description, and review focus'' -> produce bounded findings with evidence and uncertainty
+  labels.'

@@ -1,25 +1,18 @@
-# Harness Adapter — Claude Code
+# Claude Code adapter — Source Credibility Evaluation
 
-Adapter mapping the neutral workflow verbs to Claude Code tools for the
-Source Credibility Evaluation skill.
+Binds the neutral `skill.yaml` tool verbs to Claude Code tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Claude Code tool | Notes |
 | --- | --- | --- |
-| read | Read | Read the source material, claim text, and corroborating documents. |
-| search | Grep / WebSearch | Grep local evidence; WebSearch for independent corroboration and track record. |
-| reason | (model) | Internal weighing of proximity, motive, independence, and corroboration. |
-| write | Write | Emit the A–F / 1–6 grade pair and the usage bound. |
+| `read` | `Read` / `Grep` | Read supplied material and locate local evidence. |
+| `search` | `Grep` / `WebSearch` / `Agent` | Search local and external sources. |
+| `reason` | private model reasoning | Apply the technique; expose concise rationale. |
+| `write` | `Write` / final response | Emit the structured product. |
 
 ## Invocation
 
-Invoke from Claude Code with the source identity and the specific claim. Read
-the supplied material and any corroboration, run WebSearch for independent
-confirmation where allowed, reason through the two axes, then Write the result.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Source Credibility Evaluation only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Source Credibility Evaluation to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
 
 ## Output contract
 
-- `reliability_grade`: letter A–F with justification.
-- `credibility_grade`: number 1–6 with justification.
-- `usage_bound`: how the combined grade (e.g. `B2`) bounds downstream use.
-- Reliability and credibility are reported as a pair; A1 only with independent
-  confirmation.
+Return the `skill.yaml` outputs (reliability_grade, credibility_grade, usage_bound) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

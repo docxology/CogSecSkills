@@ -20,6 +20,34 @@ Integrate tell-tale checklist, provenance findings, and contextual plausibility 
 ## Step 6 — Emit triage report with caveats (write)
 Output the final triage_report and anomaly_log. Include mandatory caveats: this is a non-evidentiary triage assessment; specific observations that could not be assessed at triage level; and the escalation path if evidentiary conclusions are required. Never state a definitive conclusion of manipulation or authenticity — state the suspicion rating and its confidence level.
 
+## Evidence requirements
+- For Deepfake & Synthetic Media Triage, tie each triage report, and anomaly log claim to concrete evidence from the specific media artifact, claim context, and available metadata item, source excerpt, observation, or command result that supports it.
+- For Deepfake & Synthetic Media Triage, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the triage report.
+- Before recommending any Deepfake & Synthetic Media Triage action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Deepfake & Synthetic Media Triage: the triage report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the artifact and claim and provenance trace checks agree, and no unresolved contradiction would change the result.
+- Medium for Deepfake & Synthetic Media Triage: the triage report is plausible, but one important media artifact source, comparison case, or alternative explanation remains incomplete.
+- Low for Deepfake & Synthetic Media Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Deepfake & Synthetic Media Triage cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Deepfake & Synthetic Media Triage, use only authorized media artifact, claim context, and available metadata, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Deepfake & Synthetic Media Triage, minimize person-level detail in the triage report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Deepfake & Synthetic Media Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Deepfake & Synthetic Media Triage: treating media artifact as complete when characterize the artifact and claim and provenance trace checks or contradictory evidence are missing.
+- Deepfake & Synthetic Media Triage: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Deepfake & Synthetic Media Triage: reporting the triage report without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Deepfake & Synthetic Media Triage outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the triage report from Deepfake & Synthetic Media Triage into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Deepfake & Synthetic Media Triage to assess supplied material for manipulation indicators and recommend resilience measures with media artifact, claim context, and available metadata' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not claim evidentiary or forensic-grade conclusions — always label the output as a triage assessment with explicit confidence bounds
 - do not declare media 'authentic' based solely on absence of observable tell-tales — advanced synthetic media may not show current-generation artifacts

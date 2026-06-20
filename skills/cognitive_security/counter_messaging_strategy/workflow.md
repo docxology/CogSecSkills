@@ -17,6 +17,34 @@ Define: (1) the CORE TRUTH to center — the accurate, affirmative statement tha
 ## Step 5 — Draft and quality-check the strategy document (write)
 Write the full counter_messaging_strategy document. For each message variant in the table, verify: Does it lead with the truth? Does it name the technique rather than repeat the false claim verbatim? Is the messenger appropriate? Is the format right for the channel? Apply the 'ethical check': would this message use any manipulation technique to counter manipulation? If yes, redesign. Emit the strategy document and message variants table.
 
+## Evidence requirements
+- For Counter-Messaging Strategy, tie each counter messaging strategy, and message variants table claim to concrete evidence from the specific false claim or narrative, audience profile, and intervention timing item, source excerpt, observation, or command result that supports it.
+- For Counter-Messaging Strategy, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the counter messaging strategy.
+- Before recommending any Counter-Messaging Strategy action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Counter-Messaging Strategy: the counter messaging strategy is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the falsehood and context and profile audience and select framework checks agree, and no unresolved contradiction would change the result.
+- Medium for Counter-Messaging Strategy: the counter messaging strategy is plausible, but one important false claim or narrative source, comparison case, or alternative explanation remains incomplete.
+- Low for Counter-Messaging Strategy: the counter messaging strategy rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Counter-Messaging Strategy cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Counter-Messaging Strategy, use only authorized false claim or narrative, audience profile, and intervention timing, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Counter-Messaging Strategy, minimize person-level detail in the counter messaging strategy; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Counter-Messaging Strategy, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Counter-Messaging Strategy: treating false claim or narrative as complete when characterize the falsehood and context and profile audience and select framework checks or contradictory evidence are missing.
+- Counter-Messaging Strategy: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Counter-Messaging Strategy: reporting the counter messaging strategy without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Counter-Messaging Strategy outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the counter messaging strategy from Counter-Messaging Strategy into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Counter-Messaging Strategy to assess supplied material for manipulation indicators and recommend resilience measures with false claim or narrative, audience profile, and intervention timing' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not design counter-messages that lead with the false claim — stating the falsehood first strengthens its memory trace even when labeled false
 - do not repeat the exact false phrasing of the claim in the counter-message text — use indirect reference or technique-naming instead

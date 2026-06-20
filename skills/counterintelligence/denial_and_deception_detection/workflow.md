@@ -17,6 +17,34 @@ Score each deception scenario on adversary capability to execute, motive (what t
 ## Step 5 — Prescribe discriminating collection (write)
 Output the deception indicators table and a prioritized collection plan. Rank collection gaps by their discriminating power: which single piece of new evidence would most sharply distinguish genuine from managed? Include recommendations for accessing channels the adversary cannot realistically control.
 
+## Evidence requirements
+- For Denial & Deception Detection, tie each dd assessment, deception indicators, and collection recommendations claim to concrete evidence from the specific evidence body, current assessment, and adversary profile item, source excerpt, observation, or command result that supports it.
+- For Denial & Deception Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the dd assessment.
+- Before recommending any Denial & Deception Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Denial & Deception Detection: the dd assessment is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; characterize the evidence and the beneficiary and apply the deceiver's calculus checks agree, and no unresolved contradiction would change the result.
+- Medium for Denial & Deception Detection: the dd assessment is plausible, but one important evidence body source, comparison case, or alternative explanation remains incomplete.
+- Low for Denial & Deception Detection: the dd assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Denial & Deception Detection cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Denial & Deception Detection, use only authorized evidence body, current assessment, and adversary profile, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Denial & Deception Detection, minimize person-level detail in the dd assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Denial & Deception Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Denial & Deception Detection: treating evidence body as complete when characterize the evidence and the beneficiary and apply the deceiver's calculus checks or contradictory evidence are missing.
+- Denial & Deception Detection: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
+- Denial & Deception Detection: reporting the dd assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Denial & Deception Detection outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the dd assessment from Denial & Deception Detection into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Denial & Deception Detection to review supplied interactions or processes for deception, elicitation, or insider-risk indicators with evidence body, current assessment, and adversary profile' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not dismiss a deception scenario solely because it would be 'too complicated' — sophisticated adversaries routinely execute multi-year, multi-source denial and deception operations
 - do not conflate low base rate of deception with low current probability — if adversary motive and opportunity are present, base rates are not the right prior

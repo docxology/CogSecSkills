@@ -1,0 +1,183 @@
+id: sat.customer_aims_checklist
+description: 'The Customer AIMS Checklist is a structured pre-production technique
+  that forces analysts to explicitly specify four parameters before drafting any intelligence
+  or analytic product: the Audience (who will read it and what their role is), the
+  Issue (the precise question being answered), the Message (the single most important
+  takeaway the customer needs to act on), and the Storyline (the logical flow from
+  evidence to conclusion that will persuade the specific audience). By making these
+  four parameters explicit, the checklist prevents the common failure mode of producing
+  analytically correct but decision-irrelevant products. It is equally useful as a
+  post-production review gate to assess whether a completed product actually serves
+  its intended consumer.'
+tags:
+- cognitive-security
+- sat
+- communication-clarity
+triggers:
+- AIMS checklist
+- who is the audience
+- what is the key message
+- does this product fit the customer
+- clarity check before drafting
+tools:
+- verb: read
+  purpose: ingest the draft product or its outline, tasking requirements, and any
+    consumer context available
+- verb: reason
+  purpose: evaluate how well the draft or plan addresses each AIMS parameter and identify
+    gaps
+- verb: ask
+  purpose: surface the AIMS parameters that are ambiguous or missing from the available
+    context
+- verb: write
+  purpose: produce the completed AIMS worksheet and actionable revision recommendations
+inputs:
+- name: product_or_outline
+  type: text
+  required: true
+  description: The draft analytic product, outline, or tasking directive being evaluated
+- name: consumer_context
+  type: text
+  required: false
+  description: 'Any known information about the intended audience: role, decision
+    context, prior knowledge, time constraints'
+outputs:
+- name: aims_worksheet
+  type: table
+  description: A four-row table specifying the resolved Audience, Issue, Message,
+    and Storyline for this product
+- name: gap_and_misalignment_report
+  type: markdown
+  description: Assessment of where the current draft or outline fails to align with
+    one or more AIMS parameters, with specific revision recommendations
+references:
+- Pherson, R. H., & Heuer, R. J. (2021). Critical Thinking for Strategic Intelligence,
+  3rd ed. CQ Press.
+- 'Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
+  CQ Press. (Chapter: AIMS Checklist)'
+- 'Office of the Director of National Intelligence. (2015). A Tradecraft Primer: Structured
+  Analytic Techniques for Improving Intelligence Analysis. ODNI.'
+when_to_use:
+- before drafting any intelligence product to ensure it is scoped to the decision-maker's
+  actual need
+- when a product review reveals that the analysis is accurate but the customer did
+  not find it useful
+- when multiple analysts are contributing to one product and a shared framing is needed
+- as a quality gate before publication or dissemination to catch decision-irrelevance
+  before delivery
+what_it_produces:
+- a precise one-sentence statement of the audience, their role, and their decision
+  context
+- a precise one-sentence statement of the issue being answered (narrow enough to be
+  answerable in this product)
+- a precise one-sentence statement of the single most important message the customer
+  must take away
+- a brief outline of the storyline — the logical path from evidence to conclusion
+  that will resonate with this audience
+key_discipline:
+- the Message must be a single declarative sentence the customer can act on — 'we
+  assess that X' not 'this paper examines X'
+- the Audience field must name a role or position, not just an organization — the
+  question is what decision they need to make
+- the Storyline should be derived from the Message and Audience, not from the analyst's
+  preferred logical order
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest tasking and draft
+  text: Read the tasking directive, the draft or outline, and any available consumer
+    context. Note the stated purpose, the stated audience, and any explicit or implicit
+    constraints on scope.
+- verbs:
+  - ask
+  - reason
+  title: Resolve AIMS parameters
+  text: For each of the four parameters, determine whether it is explicitly stated,
+    inferrable from context, or genuinely unknown. For unknown parameters, generate
+    targeted clarifying questions. For inferrable ones, state the inferred value and
+    the basis for the inference.
+- verbs:
+  - reason
+  title: Assess alignment between draft and AIMS
+  text: Compare the draft's actual structure, lead, and conclusions against the resolved
+    AIMS parameters. Does the lead sentence state the Message? Does the logical flow
+    match the Storyline? Is technical depth appropriate for the Audience? Is the Issue
+    actually answered?
+- verbs:
+  - write
+  title: Produce worksheet and revision recommendations
+  text: Fill the AIMS worksheet with the four resolved parameters. Write specific,
+    actionable revision recommendations for every misalignment found, citing the paragraph
+    or section that needs revision and explaining why it fails the relevant parameter.
+anti_criteria:
+- do not allow the Message field to be a topic sentence ('this paper discusses X')
+  — it must be an assertive conclusion ('we assess X because Y')
+- do not conflate the Issue (the precise question) with the Audience's broader area
+  of responsibility
+- do not skip the Storyline parameter — 'accurate analysis in the wrong order' is
+  a common and costly failure mode
+defensive_boundary: 'Use Customer (AIMS) Checklist only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Customer (AIMS) Checklist to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Customer (AIMS) Checklist, tie each aims worksheet, and gap and misalignment
+  report claim to concrete evidence from the specific product or outline, and consumer
+  context item, source excerpt, observation, or command result that supports it.
+- For Customer (AIMS) Checklist, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the aims
+  worksheet.
+- Before recommending any Customer (AIMS) Checklist action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Customer (AIMS) Checklist: the aims worksheet is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; ingest tasking and draft and resolve aims parameters checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Customer (AIMS) Checklist: the aims worksheet is plausible, but one
+  important product or outline source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Customer (AIMS) Checklist: the aims worksheet rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Customer (AIMS) Checklist cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Customer (AIMS) Checklist, use only authorized product or outline, and consumer
+  context, public or source-approved records, and caller-provided context needed for
+  the defensive task.
+- For Customer (AIMS) Checklist, minimize person-level detail in the aims worksheet;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Customer (AIMS) Checklist, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Customer (AIMS) Checklist: treating product or outline as complete when ingest
+  tasking and draft and resolve aims parameters checks or contradictory evidence are
+  missing.'
+- 'Customer (AIMS) Checklist: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Customer (AIMS) Checklist: reporting the aims worksheet without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Customer (AIMS) Checklist outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the aims worksheet from Customer (AIMS) Checklist into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Customer (AIMS) Checklist to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with product
+  or outline, and consumer context'' -> produce bounded findings with evidence and
+  uncertainty labels.'

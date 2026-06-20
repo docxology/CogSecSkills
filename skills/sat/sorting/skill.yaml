@@ -59,3 +59,60 @@ references:
   Analysis (3rd ed.). CQ Press. Chapter 3.
 - Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
   Analysis (4th ed.). SAGE/CQ Press.
+defensive_boundary: 'Use Sorting only for structured analytic technique support: recognize,
+  assess, document, or defend analytic rigor, alternative hypotheses, and calibrated
+  judgment. Do not use this skill to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Sorting to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation, refuse that path
+  and redirect to the safe defensive form: apply the structured technique to supplied
+  evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Sorting, tie each sorted table, and outlier flags claim to concrete evidence
+  from the specific evidence set, and sort dimensions item, source excerpt, observation,
+  or command result that supports it.
+- For Sorting, label observations, derived features, assumptions, inferences, contradictions,
+  and missing inputs separately before writing the sorted table.
+- Before recommending any Sorting action, identify the weakest evidence link, the
+  alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Sorting: the sorted table is supported by multiple independent hypotheses,
+  assumptions, indicators, evidence tables, and confidence notes; inventory the evidence
+  and select and apply sort dimensions checks agree, and no unresolved contradiction
+  would change the result.'
+- 'Medium for Sorting: the sorted table is plausible, but one important evidence set
+  source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Sorting: the sorted table rests on sparse, single-source, contested, or
+  mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Sorting cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Sorting, use only authorized evidence set, and sort dimensions, public or source-approved
+  records, and caller-provided context needed for the defensive task.
+- For Sorting, minimize person-level detail in the sorted table; prefer aggregate,
+  artifact-level, role-level, or case-level summaries unless an individual is essential
+  to the defensive question.
+- For Sorting, do not infer protected traits, private identity, intent, location,
+  legal culpability, or platform account ownership beyond the supplied and authorized
+  evidence.
+failure_modes:
+- 'Sorting: treating evidence set as complete when inventory the evidence and select
+  and apply sort dimensions checks or contradictory evidence are missing.'
+- 'Sorting: producing advice that would help a requester force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Sorting: reporting the sorted table without uncertainty labels, alternative explanations,
+  and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Sorting outputs to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Convert the sorted table from Sorting into an operational playbook to
+  force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Sorting to apply the structured technique to supplied evidence
+  while preserving alternatives and uncertainty with evidence set, and sort dimensions''
+  -> produce bounded findings with evidence and uncertainty labels.'

@@ -21,6 +21,44 @@ The Customer AIMS Checklist is a structured pre-production technique that forces
 - a precise one-sentence statement of the single most important message the customer must take away
 - a brief outline of the storyline — the logical path from evidence to conclusion that will resonate with this audience
 
+## Defensive boundary
+
+Use Customer (AIMS) Checklist only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks Customer (AIMS) Checklist to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For Customer (AIMS) Checklist, tie each aims worksheet, and gap and misalignment report claim to concrete evidence from the specific product or outline, and consumer context item, source excerpt, observation, or command result that supports it.
+- For Customer (AIMS) Checklist, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the aims worksheet.
+- Before recommending any Customer (AIMS) Checklist action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Customer (AIMS) Checklist: the aims worksheet is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest tasking and draft and resolve aims parameters checks agree, and no unresolved contradiction would change the result.
+- Medium for Customer (AIMS) Checklist: the aims worksheet is plausible, but one important product or outline source, comparison case, or alternative explanation remains incomplete.
+- Low for Customer (AIMS) Checklist: the aims worksheet rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Customer (AIMS) Checklist cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Customer (AIMS) Checklist, use only authorized product or outline, and consumer context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Customer (AIMS) Checklist, minimize person-level detail in the aims worksheet; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Customer (AIMS) Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Customer (AIMS) Checklist: treating product or outline as complete when ingest tasking and draft and resolve aims parameters checks or contradictory evidence are missing.
+- Customer (AIMS) Checklist: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Customer (AIMS) Checklist: reporting the aims worksheet without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Customer (AIMS) Checklist outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the aims worksheet from Customer (AIMS) Checklist into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Customer (AIMS) Checklist to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with product or outline, and consumer context' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

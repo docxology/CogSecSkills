@@ -21,6 +21,44 @@ Quadrant Crunching (Pherson & Heuer) systematically permutes two or more key unc
 - identification of which cells the current assessment neglects and why that neglect may be unwarranted
 - early indicators that would signal movement toward each cell
 
+## Defensive boundary
+
+Use Quadrant Crunching only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+
+## Misuse redirect
+
+If a request asks Quadrant Crunching to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
+
+## Evidence discipline
+
+- For Quadrant Crunching, tie each scenario matrix, scenario narratives, and neglected cells claim to concrete evidence from the specific problem statement, dominant assessment, and candidate assumptions item, source excerpt, observation, or command result that supports it.
+- For Quadrant Crunching, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the scenario matrix.
+- Before recommending any Quadrant Crunching action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Quadrant Crunching: the scenario matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; select axes and populate the matrix checks agree, and no unresolved contradiction would change the result.
+- Medium for Quadrant Crunching: the scenario matrix is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
+- Low for Quadrant Crunching: the scenario matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Quadrant Crunching cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Quadrant Crunching, use only authorized problem statement, dominant assessment, and candidate assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Quadrant Crunching, minimize person-level detail in the scenario matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Quadrant Crunching, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Quadrant Crunching: treating problem statement as complete when select axes and populate the matrix checks or contradictory evidence are missing.
+- Quadrant Crunching: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Quadrant Crunching: reporting the scenario matrix without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Quadrant Crunching outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the scenario matrix from Quadrant Crunching into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Quadrant Crunching to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with problem statement, dominant assessment, and candidate assumptions' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

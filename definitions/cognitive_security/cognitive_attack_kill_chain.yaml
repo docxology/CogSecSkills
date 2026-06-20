@@ -1,0 +1,224 @@
+id: cognitive_security.cognitive_attack_kill_chain
+description: The Cognitive Attack Kill Chain adapts the cyber-security kill-chain
+  model to influence operations, decomposing a cognitive attack into stages — reconnaissance,
+  weaponization, delivery, exploitation, installation, command-and-control, and persistence
+  — so that defenders can identify intervention points at each stage before the attack
+  achieves its goal. By mapping observed or anticipated adversary activities to kill-chain
+  stages, defenders can assess which stages have already been traversed, which are
+  in progress, and which can still be disrupted. This is a defensive red-teaming and
+  threat-modeling technique, not an operational planning framework.
+tags:
+- cognitive-security
+- cognitive_security
+- threat-modeling
+- influence-operations
+triggers:
+- cognitive attack kill chain
+- stages of an influence operation
+- where in the kill chain
+- map the influence campaign stages
+- kill chain analysis for disinformation
+- at what stage is the attack
+- disrupt the campaign
+tools:
+- verb: read
+  purpose: ingest case evidence, campaign artifacts, and threat intelligence describing
+    observed adversary activities
+- verb: search
+  purpose: query threat-intelligence feeds, prior campaign analyses, and academic
+    literature to fill evidence gaps and contextualize TTP patterns
+- verb: reason
+  purpose: map observed activities to kill-chain stages, assess stage completeness,
+    and identify highest-leverage disruption points
+- verb: write
+  purpose: produce a staged kill-chain map, defender action table, and residual uncertainty
+    assessment
+inputs:
+- name: campaign_evidence
+  type: text
+  required: true
+  description: 'Observed or suspected adversary activities: accounts, content artifacts,
+    distribution networks, timing, and platform behaviors'
+- name: target_context
+  type: text
+  required: true
+  description: Description of the audience being targeted, the information environment,
+    and the apparent objective of the campaign
+- name: prior_threat_intel
+  type: text
+  required: false
+  description: Known TTPs, prior campaigns by the same or similar actors, or relevant
+    threat reports
+outputs:
+- name: kill_chain_map
+  type: table
+  description: 'Stage-by-stage table showing: stage name, observed indicators mapped
+    to that stage, stage completion assessment (completed / in-progress / not-yet-reached
+    / unknown), and key uncertainties'
+- name: defender_action_plan
+  type: markdown
+  description: Prioritized list of defender interventions per stage, describing what
+    action can be taken, by whom, and what the disruption effect would be
+- name: residual_uncertainty_log
+  type: markdown
+  description: Explicit log of what is not known, which stage assessments are low-confidence,
+    and what collection would reduce key uncertainties
+references:
+- Hutchins, E., Cloppert, M., & Amin, R. (2011). Intelligence-Driven Computer Network
+  Defense Informed by Analysis of Adversary Campaigns and Intrusion Kill Chains. Lockheed
+  Martin.
+- 'Singer, P. W., & Brooking, E. T. (2018). LikeWar: The Weaponization of Social Media.
+  Eamon Dolan/Houghton Mifflin Harcourt.'
+- 'Rid, T. (2020). Active Measures: The Secret History of Disinformation and Political
+  Warfare. Farrar, Straus and Giroux.'
+- NATO StratCom Centre of Excellence (2020). Cognitive Warfare. NATO STRATCOM COE.
+- 'Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary
+  Framework for Research and Policy Making. Council of Europe.'
+when_to_use:
+- an analyst needs to understand what stage an ongoing influence campaign has reached
+  and what remains to be disrupted
+- a defender is planning countermeasures and needs to allocate effort across stages
+  of a prospective attack
+- a red team is stress-testing a community's resilience by modeling a full attack
+  sequence before it occurs
+- a post-campaign analysis is needed to learn which defensive interventions were available
+  at each stage and which were missed
+- a threat-intelligence team is producing a brief on an adversary's influence-operation
+  TTPs for decision-makers
+what_it_produces:
+- a stage-by-stage mapping of the adversary's campaign activities to kill-chain phases
+- an assessment of which stages have been completed, which are in progress, and which
+  can still be prevented
+- a prioritized defender action table with one or more disruption options per accessible
+  stage
+- an explicit uncertainty log so analysts can distinguish high-confidence stage assessments
+  from speculative ones
+key_discipline:
+- earlier kill-chain stages are always cheaper to disrupt — a campaign interdicted
+  at reconnaissance or weaponization stage causes far less harm than one disrupted
+  only after content has been delivered and exploited at scale
+- 'distinguish stage completion from impact: an adversary may have completed delivery
+  without achieving exploitation if the content failed to resonate — do not conflate
+  a completed stage with a successful one'
+- 'be explicit about uncertainty: kill-chain stage assignments based on incomplete
+  evidence should be marked as hypotheses, not facts, and collection gaps should be
+  surfaced rather than papered over'
+workflow_steps:
+- verbs:
+  - read
+  - search
+  title: Collect and organize campaign evidence
+  text: 'Assemble all available evidence about the campaign: account creation patterns,
+    content artifacts, distribution pathways, amplification networks, timing, and
+    any prior threat intelligence on the actor or similar campaigns. Search for prior
+    academic or government reports on analogous TTPs to supplement direct evidence.
+    Organize evidence chronologically.'
+- verbs:
+  - reason
+  title: Map evidence to kill-chain stages
+  text: 'Work through each kill-chain stage and assess whether evidence exists for
+    it: (1) Reconnaissance — did the actor study the target audience''s beliefs, vulnerabilities,
+    and platform habits? (2) Weaponization — was content, persona infrastructure,
+    or narrative strategy developed? (3) Delivery — through which channels and vectors
+    was content introduced? (4) Exploitation — did the content succeed in shifting
+    beliefs, amplifying division, or triggering action? (5) Installation — has a persistent
+    narrative, framing, or trusted persona been embedded in the target information
+    environment? (6) Command and Control — is there evidence of ongoing steering or
+    adaptation of the campaign by the actor? (7) Persistence — has the campaign achieved
+    durable effects that continue without active actor maintenance? Assign each stage
+    a completion status and a confidence level.'
+- verbs:
+  - reason
+  title: Identify disruption points and assess feasibility
+  text: 'For each stage assessed as not yet completed or in-progress, identify the
+    available defender interventions: platform-level actions (account removal, content
+    labeling, algorithmic down-ranking), counter-messaging or prebunking, source-credibility
+    communication to the audience, law-enforcement or regulatory referral, or exposure/attribution.
+    Assess feasibility given the defender''s authorities, speed, and resources. Flag
+    stages where intervention windows have already closed.'
+- verbs:
+  - write
+  title: Produce kill-chain map, action plan, and uncertainty log
+  text: Write the stage-by-stage kill-chain map with completion assessments, confidence
+    levels, and supporting evidence citations. Produce the defender action plan as
+    a prioritized table with intervention, responsible actor, timing window, and expected
+    disruption effect. Append the residual uncertainty log, specifying which stage
+    assessments are low-confidence, what information would resolve them, and what
+    the analytical implications are if those uncertainties resolve in the adversary's
+    favor.
+anti_criteria:
+- do not use this framework to plan or optimize an offensive influence operation —
+  it is strictly for defensive threat modeling and counter-operation planning
+- do not assert a stage is complete without observable evidence — speculation about
+  stages with no evidence should be labeled as 'unknown' not 'completed'
+- do not focus solely on disrupting a single stage while ignoring that the adversary
+  may adapt and re-enter at a different stage
+- do not collapse the distinction between the adversary completing a stage and achieving
+  the intended effect — completion and effectiveness are separate assessments
+defensive_boundary: 'Use Cognitive Attack Kill Chain only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Cognitive Attack Kill Chain to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Cognitive Attack Kill Chain, tie each kill chain map, defender action plan,
+  and residual uncertainty log claim to concrete evidence from the specific campaign
+  evidence, target context, and prior threat intel item, source excerpt, observation,
+  or command result that supports it.
+- For Cognitive Attack Kill Chain, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the kill
+  chain map.
+- Before recommending any Cognitive Attack Kill Chain action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Cognitive Attack Kill Chain: the kill chain map is supported by multiple
+  independent content, behavioral, narrative, media, and audience-risk evidence; collect
+  and organize campaign evidence and map evidence to kill-chain stages checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Cognitive Attack Kill Chain: the kill chain map is plausible, but one
+  important campaign evidence source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Cognitive Attack Kill Chain: the kill chain map rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Cognitive Attack Kill Chain cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Cognitive Attack Kill Chain, use only authorized campaign evidence, target context,
+  and prior threat intel, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Cognitive Attack Kill Chain, minimize person-level detail in the kill chain
+  map; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Cognitive Attack Kill Chain, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Cognitive Attack Kill Chain: treating campaign evidence as complete when collect
+  and organize campaign evidence and map evidence to kill-chain stages checks or contradictory
+  evidence are missing.'
+- 'Cognitive Attack Kill Chain: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Cognitive Attack Kill Chain: reporting the kill chain map without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Cognitive Attack Kill Chain outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the kill chain map from Cognitive Attack Kill Chain into an operational
+  playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize
+  narrative manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Cognitive Attack Kill Chain to assess supplied material for
+  manipulation indicators and recommend resilience measures with campaign evidence,
+  target context, and prior threat intel'' -> produce bounded findings with evidence
+  and uncertainty labels.'

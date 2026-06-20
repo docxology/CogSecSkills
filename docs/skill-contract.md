@@ -17,19 +17,23 @@ enforces it. See [`architecture.md`](architecture.md) for the design rationale.
 
 ```
 skills/<group>/<slug>/
-  skill.yaml          # harness-neutral spec — the single source of truth
+  skill.yaml          # generated harness-neutral spec
   SKILL.md            # Claude Code native entry point (required)
   workflow.md         # the procedure (filename must match the spec's `workflow:`)
   harness/
-    claude.md         # one adapter per configured harness, each declared in skill.yaml
+    claude.md         # default adapter; one adapter per configured harness
     codex.md
     hermes.md
+    <name>.md         # optional configured harness adapter
 ```
 
 - The folder is `skills/<group>/<slug>/`.
 - The id is `<group>.<slug>`.
 - The parent directory name must equal the spec's `group`; the leaf directory
   name must equal the `slug`.
+- The source-owned definition for repo-wide editing lives at
+  `definitions/<group>/<slug>.yaml`; the folder above is the rendered
+  harness-facing build output.
 
 ## Part 1 — `skill.yaml` parsing (`spec.py`)
 
@@ -66,7 +70,8 @@ than producing a half-built spec. Checklist:
 
 `validate_skill(spec, directory, harnesses)` checks one skill's on-disk folder.
 `harnesses` defaults to `HARNESSES` (`claude`, `codex`, `hermes`) but is
-overridden from `cogsecskills.yaml` when the CLI runs.
+overridden from `cogsecskills.yaml` when the CLI runs; every configured harness
+is part of the same structural contract.
 
 - [ ] **`SKILL.md` is present.** Missing `SKILL.md` (the Claude Code native
   entry point) is an error.
@@ -131,6 +136,27 @@ is `ok` only when:
   vocabulary, so adding a harness needs only an adapter file — not a code
   change. `validate_skill` surfaces any `unsupported_verbs` as an error.
 
+### Harness status labels
+
+The contract uses three labels consistently:
+
+| Label | Contract role |
+| --- | --- |
+| default adapters | `claude`, `codex`, and `hermes` are the default `HARNESSES` and are rendered for every committed skill. |
+| configured structural adapters | Any name in `cogsecskills.yaml` becomes part of the configured harness set checked by `validate`. |
+| documented external profiles | Entries such as `gemini_cli`, `github_copilot`, `devin_local`, `devin_cascade`, `cursor`, `cline`, `aider`, `continue`, `jetbrains_ai`, `openai_agents_sdk`, `langgraph`, `microsoft_agent_framework`, `autogen`, `crewai`, `pydantic_ai`, `mcp_host`, and `perplexity_research` are integration examples only until configured. |
+
+`registry/harness_profiles.yaml` does not affect parsing, rendering, or
+validation by itself. To make one of those documented external profiles part of
+the contract, copy its id into `cogsecskills.yaml`, run `definitions --write`,
+review the generated adapter language, and then run `validate`.
+
+The profile class matters. Instruction-file products, IDE rule systems,
+terminal pair-programming tools, SDK frameworks, and MCP tool hosts do not share
+one universal adapter semantics. CogSecSkills validates the rendered adapter
+files against the closed verb contract; it does not certify a vendor runtime,
+connector policy, or application wrapper.
+
 ## Part 4 — Registry coherence (`validate_library`)
 
 `validate_library(root, harnesses)` discovers every on-disk skill, runs
@@ -161,9 +187,10 @@ validation-asymmetry lesson):
 | On-disk skill not in the registry | **ERROR** | A skill ships that the catalogue never accounted for. |
 | On-disk skill whose group disagrees with the registry | **ERROR** | The plan and build name the same skill differently. |
 
-So a registry can list ~100 areas while only some are built — `planned` rows
-are fine. Only `implemented`-without-build, and on-disk-without-catalogue, are
-errors. `conformance_report` summarizes the totals
+The current library has 100 implemented areas, but the contract still supports
+future planned rows. A registry may list a future area as `planned` before its
+folder exists. Only `implemented`-without-build, and on-disk-without-catalogue,
+are errors. `conformance_report` summarizes the totals
 (`registry_total`, `on_disk_skills`, `registry_status_counts`, `errors`,
 `warnings`, `ok`).
 
@@ -190,7 +217,8 @@ parsing.
   artifacts.
 - [`authoring-skills.md`](authoring-skills.md) — how the deterministic renderer
   makes skills conform by construction.
-- [`cli.md`](cli.md) — the `validate`, `report`, and `doctor` commands.
+- [`cli.md`](cli.md) — the `validate`, `report`, `doctor`, and
+  `scenarios --check` commands.
 - [`configuration.md`](configuration.md) — overriding the harness set the
   contract checks against.
 - [project README](../README.md) — overview and exemplar roster.

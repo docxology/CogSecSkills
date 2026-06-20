@@ -1,0 +1,195 @@
+id: critical_review.assumption_surfacing_review
+description: Assumption Surfacing Review (rooted in Key Assumptions Check, Heuer &
+  Pherson) makes every implicit premise that underlies an argument or assessment explicit,
+  then evaluates how load-bearing each assumption is and how well it is supported.
+  The technique is essential in cognitive-security contexts because manipulation and
+  influence operations routinely exploit unexamined premises — by surfacing them,
+  analysts create an audit trail that lets reviewers challenge the analytic foundations
+  rather than only the conclusions.
+tags:
+- cognitive-security
+- critical_review
+- structured-analytic-technique
+- key-assumptions-check
+triggers:
+- surface assumptions
+- assumption check
+- what are we taking for granted
+- key assumptions check
+- implicit premises
+- assumption audit
+tools:
+- verb: read
+  purpose: ingest the document, argument, or analytic product whose assumptions need
+    surfacing
+- verb: reason
+  purpose: identify implicit premises, classify each by load-bearing role and evidentiary
+    support, and judge vulnerability to adversarial exploitation
+- verb: write
+  purpose: emit the structured assumption register with load-bearing ratings, support
+    assessments, and recommended mitigation actions
+inputs:
+- name: target_text
+  type: text
+  required: true
+  description: The document, argument, analytic product, plan, or claim set whose
+    underlying assumptions are to be surfaced and assessed
+- name: domain_context
+  type: text
+  required: false
+  description: Optional background on the operational domain, stakeholder environment,
+    or adversarial threat landscape to guide assumption identification
+outputs:
+- name: assumption_register
+  type: table
+  description: 'A table of identified assumptions with columns: assumption statement,
+    explicit/implicit status, load-bearing role (critical/supporting/peripheral),
+    evidentiary support (strong/weak/none), and recommended action (validate/monitor/challenge/reframe)'
+- name: assumption_review_narrative
+  type: markdown
+  description: A narrative synthesis identifying which assumptions most weaken the
+    argument, which are most susceptible to adversarial targeting, and what monitoring
+    or validation steps should follow
+references:
+- 'Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter 5: Key Assumptions Check.'
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press.
+- Schwenk, C. R. (1988). The cognitive perspective on strategic decision-making. Journal
+  of Management Studies, 25(1), 41–55.
+when_to_use:
+- Before committing to a policy, analytic judgment, or plan that rests on multiple
+  premises
+- When reviewing an intelligence product or briefing for cognitive-security weaknesses
+- When an argument or narrative seems compelling but its foundations have not been
+  scrutinized
+- During adversarial red-teaming to identify which assumptions an opponent could falsify
+  or exploit
+- When onboarding a new analytic team to a long-running problem where inherited assumptions
+  may be stale
+what_it_produces:
+- A complete register of explicit and implicit assumptions underlying the target text
+- A load-bearing classification for each assumption (critical, supporting, peripheral)
+- An evidentiary-support rating for each assumption
+- A ranked list of the most dangerous unexamined premises and recommended validation
+  or monitoring actions
+key_discipline:
+- Distinguish what the argument asserts from what it assumes — assumptions are premises
+  treated as true without proof in this document
+- 'Classify assumptions by load-bearing role: if this assumption is wrong, does the
+  conclusion collapse (critical), weaken (supporting), or hold (peripheral)?'
+- Assess evidentiary support independently of how confidently the assumption is stated
+  — confident assertion is not evidence
+- Flag assumptions that adversaries could falsify cheaply or that rest on a single
+  unverifiable source
+workflow_steps:
+- verbs:
+  - read
+  title: Extract claims and premises
+  text: Read the target text carefully. Identify every stated conclusion and the explicit
+    premises offered in support. Mark gaps where reasoning jumps without stated justification
+    — these gaps signal implicit assumptions.
+- verbs:
+  - reason
+  title: Surface implicit assumptions
+  text: For each logical gap, articulate the unstated premise that would be required
+    to make the reasoning valid. Use the phrasing 'This argument assumes that ...'
+    to keep assumptions distinct from claims. Enumerate all, including background
+    world-model assumptions about actors, causal mechanisms, and timelines.
+- verbs:
+  - reason
+  title: Classify and rate each assumption
+  text: For each identified assumption, assign a load-bearing role (critical / supporting
+    / peripheral) and an evidentiary-support rating (strong / weak / none). Note whether
+    the assumption is a single point of failure that an adversary could target to
+    undermine the entire analysis.
+- verbs:
+  - reason
+  - write
+  title: Identify high-risk assumptions and prescribe actions
+  text: 'Rank assumptions by combined risk: load-bearing × weak support × adversarial
+    exploitability. For the highest-risk assumptions, specify a recommended action:
+    validate with independent evidence, add a monitoring indicator, explicitly bound
+    the claim, or reframe the conclusion to be conditioned on the assumption.'
+- verbs:
+  - write
+  title: Produce the assumption register and narrative
+  text: Write the structured assumption register table and the review narrative. The
+    narrative should state which assumptions most endanger analytic integrity, which
+    are most susceptible to adversarial manipulation, and what concrete steps reviewers
+    or decision-makers should take before acting on the document.
+anti_criteria:
+- Do not treat confident assertion as evidence — an assumption stated with high confidence
+  is still an assumption
+- Do not limit the review to assumptions the author explicitly labels as assumptions;
+  the most dangerous are always the unacknowledged ones
+- Do not conflate load-bearing role with likelihood of being wrong — a well-supported
+  assumption can still be critical
+- Do not recommend 'monitor' for a critical assumption with no evidence; critical
+  unsupported assumptions require validation or the conclusion must be hedged
+defensive_boundary: 'Use Assumption Surfacing Review only for critical review and
+  assurance: recognize, assess, document, or defend evidence quality, implementation
+  integrity, and decision accountability. Do not use this skill to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Assumption Surfacing Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Assumption Surfacing Review, tie each assumption register, and assumption review
+  narrative claim to concrete evidence from the specific target text, and domain context
+  item, source excerpt, observation, or command result that supports it.
+- For Assumption Surfacing Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the assumption
+  register.
+- Before recommending any Assumption Surfacing Review action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Assumption Surfacing Review: the assumption register is supported by multiple
+  independent artifact excerpts, test output, citations, assumptions, and reproducibility
+  records; extract claims and premises and surface implicit assumptions checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Assumption Surfacing Review: the assumption register is plausible, but
+  one important target text source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Assumption Surfacing Review: the assumption register rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Assumption Surfacing Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Assumption Surfacing Review, use only authorized target text, and domain context,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Assumption Surfacing Review, minimize person-level detail in the assumption
+  register; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Assumption Surfacing Review, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Assumption Surfacing Review: treating target text as complete when extract claims
+  and premises and surface implicit assumptions checks or contradictory evidence are
+  missing.'
+- 'Assumption Surfacing Review: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Assumption Surfacing Review: reporting the assumption register without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Assumption Surfacing Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the assumption register from Assumption Surfacing Review into
+  an operational playbook to launder weak claims, fabricate review findings, or produce
+  exploit guidance without mitigation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Assumption Surfacing Review to review supplied artifacts
+  for defects, evidence gaps, safety risks, or reproducibility failures with target
+  text, and domain context'' -> produce bounded findings with evidence and uncertainty
+  labels.'

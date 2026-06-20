@@ -1,0 +1,187 @@
+id: sat.chronologies_and_timelines
+description: Chronologies and Timelines is a structured-analytic technique that arranges
+  known events in strict temporal order to reveal gaps in the record, surface correlations
+  between concurrent streams, and clarify causal versus coincidental sequencing. By
+  making the time dimension explicit and visual, analysts can spot anomalies — missing
+  intervals, suspicious clustering, or reversed apparent causality — that narrative
+  prose conceals. The technique is foundational in targeting, deception detection,
+  and incident reconstruction, and it underpins more complex temporal analytics such
+  as event-driven scenario building and link analysis.
+tags:
+- cognitive-security
+- sat
+- temporal-analysis
+triggers:
+- build a timeline
+- put these events in order
+- when did this happen relative to that
+- find gaps in the sequence
+- reconstruct the sequence of events
+tools:
+- verb: read
+  purpose: ingest source documents, reports, and data streams to extract dated events
+- verb: reason
+  purpose: assess temporal relationships, identify gaps, correlations, and causal
+    candidates
+- verb: write
+  purpose: produce the ordered chronology, annotated gap analysis, and analytic findings
+inputs:
+- name: event_sources
+  type: list
+  required: true
+  description: Documents, reports, or data items each containing at least one datable
+    event (date/time + what happened)
+- name: analytic_question
+  type: text
+  required: true
+  description: The focal question the timeline is meant to illuminate (e.g., 'Did
+    actor X have foreknowledge?')
+- name: parallel_streams
+  type: list
+  required: false
+  description: 'Optional: separate event series to be displayed in parallel lanes
+    (e.g., diplomatic, military, economic)'
+outputs:
+- name: chronology
+  type: table
+  description: Sorted table of events with date/time, actor, event description, source,
+    and confidence level
+- name: gap_and_anomaly_report
+  type: markdown
+  description: Narrative identifying unexplained gaps, suspiciously clustered events,
+    reversed apparent causality, and their analytic significance
+- name: key_findings
+  type: markdown
+  description: Bulleted summary of the most significant temporal patterns and their
+    implications for the focal question
+references:
+- 'Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis, 3rd ed. CQ Press. (Chapter: Chronologies and Timelines)'
+- 'Clark, R. M. (2019). Intelligence Analysis: A Target-Centric Approach, 5th ed.
+  CQ Press.'
+- Moore, D. T. (2007). Critical Thinking and Intelligence Analysis. National Defense
+  Intelligence College Press.
+when_to_use:
+- reconstructing an incident or attack campaign where sequence of actions is disputed
+  or unclear
+- detecting deception by comparing declared timelines against independently sourced
+  event dates
+- preparing for an analysis of competing hypotheses where causality order matters
+- surfacing intelligence gaps before a collection tasking decision
+what_it_produces:
+- a sorted, sourced table of events anchored to specific dates and actors
+- explicit identification of gaps — periods with no sourced events — and their potential
+  significance
+- 'correlation findings: events in different streams that cluster or co-vary suspiciously'
+- a prioritized list of collection requirements to fill identified gaps
+key_discipline:
+- separate WHAT IS KNOWN (sourced, dated) from WHAT IS INFERRED — never merge them
+  in the same row
+- record confidence level per event, not just the event itself — a low-confidence
+  date poisons downstream causal claims
+- 'a gap in the record is itself a datum: note it explicitly rather than silently
+  skipping it'
+workflow_steps:
+- verbs:
+  - read
+  title: Extract and date events
+  text: 'Read all source documents and extract every datable event: assign a date/time,
+    an actor, a one-sentence description, and a source citation. Flag events where
+    the date is approximate or inferred rather than explicit.'
+- verbs:
+  - reason
+  title: Sort, align, and segment streams
+  text: Sort events chronologically. If the focal question involves multiple actors
+    or domains, arrange them in parallel lanes. Identify the boundaries of the period
+    of interest and mark any sub-periods with distinct analytic significance.
+- verbs:
+  - reason
+  title: Identify gaps, clusters, and reversals
+  text: 'Scan the sorted order for: (a) unexplained silence — intervals where sourced
+    events are absent but activity is expected; (b) suspicious clustering — multiple
+    consequential events bunched within a narrow window; (c) reversed apparent causality
+    — where the purported cause post-dates the purported effect.'
+- verbs:
+  - reason
+  - write
+  title: Assess analytic significance
+  text: 'For each gap or anomaly, assess: Is this absence of evidence or evidence
+    of absence? What alternative explanations account for the pattern? Rate each anomaly
+    by analytic significance and document the reasoning.'
+- verbs:
+  - write
+  title: Produce chronology table and findings
+  text: Emit the final chronology table with confidence ratings, the gap-and-anomaly
+    report, key findings tied to the focal question, and a list of collection requirements
+    to address residual gaps.
+anti_criteria:
+- do not merge inferred dates with sourced dates in the same table column — keep a
+  confidence or date-type field
+- do not treat absence of events in the record as evidence of absence of activity
+  without explicitly noting the collection limitations
+- do not allow the narrative framing of the focal question to dictate which events
+  are included — include all sourced events and let the pattern speak
+defensive_boundary: 'Use Chronologies & Timelines only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Chronologies & Timelines to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Chronologies & Timelines, tie each chronology, gap and anomaly report, and key
+  findings claim to concrete evidence from the specific event sources, analytic question,
+  and parallel streams item, source excerpt, observation, or command result that supports
+  it.
+- For Chronologies & Timelines, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the chronology.
+- Before recommending any Chronologies & Timelines action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Chronologies & Timelines: the chronology is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; extract
+  and date events and sort, align, and segment streams checks agree, and no unresolved
+  contradiction would change the result.'
+- 'Medium for Chronologies & Timelines: the chronology is plausible, but one important
+  event sources source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Chronologies & Timelines: the chronology rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Chronologies & Timelines cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Chronologies & Timelines, use only authorized event sources, analytic question,
+  and parallel streams, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Chronologies & Timelines, minimize person-level detail in the chronology; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Chronologies & Timelines, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Chronologies & Timelines: treating event sources as complete when extract and date
+  events and sort, align, and segment streams checks or contradictory evidence are
+  missing.'
+- 'Chronologies & Timelines: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Chronologies & Timelines: reporting the chronology without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Chronologies & Timelines outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the chronology from Chronologies & Timelines into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Chronologies & Timelines to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with event sources,
+  analytic question, and parallel streams'' -> produce bounded findings with evidence
+  and uncertainty labels.'

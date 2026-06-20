@@ -64,3 +64,68 @@ references:
 - First Draft News (2019). Visual Verification Guide, Chapter on Metadata. firstdraftnews.org.
 - Berghel, H. (2000). Hiding Data, Forensics, and Anti-Forensics. Communications of
   the ACM, 50(4).
+defensive_boundary: 'Use Metadata Integrity Check only for OSINT integrity and source-verification
+  defense: recognize, assess, document, or defend source provenance, privacy, chain
+  of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+misuse_redirect: 'If a request asks Metadata Integrity Check to dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence, refuse that
+  path and redirect to the safe defensive form: verify supplied claims, media, sources,
+  or datasets with documented public-source methods.'
+evidence_requirements:
+- For Metadata Integrity Check, tie each metadata assessment, and integrity narrative
+  claim to concrete evidence from the specific media file or post, and claimed provenance
+  item, source excerpt, observation, or command result that supports it.
+- For Metadata Integrity Check, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the metadata
+  assessment.
+- Before recommending any Metadata Integrity Check action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Metadata Integrity Check: the metadata assessment is supported by multiple
+  independent source records, custody notes, metadata, corroborating references, and
+  contradiction logs; extract all metadata fields and assess internal and external
+  consistency checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Metadata Integrity Check: the metadata assessment is plausible, but
+  one important media file or post source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Metadata Integrity Check: the metadata assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Metadata Integrity Check cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating osint_integrity evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Metadata Integrity Check, use only authorized media file or post, and claimed
+  provenance, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Metadata Integrity Check, minimize person-level detail in the metadata assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Metadata Integrity Check, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Metadata Integrity Check: treating media file or post as complete when extract
+  all metadata fields and assess internal and external consistency checks or contradictory
+  evidence are missing.'
+- 'Metadata Integrity Check: producing advice that would help a requester dox, deanonymize,
+  harass, bypass access controls, or attribute identity beyond evidence.'
+- 'Metadata Integrity Check: reporting the metadata assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Metadata Integrity Check outputs to dox, deanonymize, harass, bypass
+  access controls, or attribute identity beyond evidence'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the metadata assessment from Metadata Integrity Check into an
+  operational playbook to dox, deanonymize, harass, bypass access controls, or attribute
+  identity beyond evidence'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Metadata Integrity Check to verify supplied claims, media,
+  sources, or datasets with documented public-source methods with media file or post,
+  and claimed provenance'' -> produce bounded findings with evidence and uncertainty
+  labels.'

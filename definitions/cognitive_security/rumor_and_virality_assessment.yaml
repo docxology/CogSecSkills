@@ -1,0 +1,232 @@
+id: cognitive_security.rumor_and_virality_assessment
+description: Rumor and virality assessment applies social-epidemiological and computational
+  models to estimate how quickly and widely a claim is likely to spread through social
+  networks. It examines emotional valence, ambiguity, moral outrage, information gaps,
+  and structural network properties to predict transmission probability and identify
+  leverage points for early counter-messaging. Rooted in DiFonzo & Bordia's rumor
+  research and computational work on information cascades, this technique helps analysts
+  forecast misinformation spread before it becomes entrenched.
+tags:
+- cognitive-security
+- cognitive_security
+- misinformation
+- virality
+triggers:
+- how far will this spread
+- virality assessment
+- rumor spread potential
+- estimate misinformation reach
+- how viral is this claim
+- predict information cascade
+tools:
+- verb: read
+  purpose: ingest the claim text, its originating context, and any known network propagation
+    data
+- verb: reason
+  purpose: apply virality factors (emotional charge, ambiguity, moral outrage, novelty,
+    network fit) to score spread potential
+- verb: search
+  purpose: look up prior similar claims, known virality patterns, or existing platform
+    spread data for calibration
+- verb: write
+  purpose: produce the structured virality assessment with score, factor breakdown,
+    and recommended counter-messaging windows
+inputs:
+- name: claim
+  type: text
+  required: true
+  description: the specific claim, narrative fragment, or rumor to be assessed
+- name: originating_context
+  type: text
+  required: true
+  description: platform, community, or channel where the claim originated or is circulating
+- name: audience_profile
+  type: text
+  required: false
+  description: known characteristics of the receiving audience — prior beliefs, in-group
+    affiliations, emotional priming
+- name: propagation_data
+  type: table
+  required: false
+  description: early sharing or engagement metrics if available (shares, replies,
+    quote-tweets, reshare velocity)
+outputs:
+- name: virality_assessment
+  type: markdown
+  description: structured report with composite virality score, factor-by-factor breakdown,
+    predicted spread trajectory, and counter-messaging windows
+- name: factor_table
+  type: table
+  description: row-per-factor table showing emotional valence, ambiguity level, moral-outrage
+    load, novelty, narrative fit, and network amplification potential with rating
+    and rationale
+references:
+- 'DiFonzo, N., & Bordia, P. (2007). Rumor Psychology: Social and Organizational Approaches.
+  American Psychological Association.'
+- Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online.
+  Science, 359(6380), 1146–1151.
+- 'Berger, J. (2013). Contagious: Why Things Catch On. Simon & Schuster.'
+- Ferrara, E., et al. (2016). The rise of social bots. Communications of the ACM,
+  59(7), 96–104.
+- 'Sunstein, C. R. (2009). On Rumors: How Falsehoods Spread, Why We Believe Them,
+  and What Can Be Done. Farrar, Straus and Giroux.'
+when_to_use:
+- a novel claim or narrative fragment has just appeared and you need to decide how
+  urgently to respond
+- planning counter-messaging and need to know the optimal intervention window before
+  the claim hardens into belief
+- conducting a post-hoc analysis to understand why a past claim spread or stalled
+- evaluating the information environment around a forthcoming event that adversaries
+  might exploit
+- assessing whether a slow-burning rumor is accelerating toward critical spread velocity
+what_it_produces:
+- a composite virality score (Low / Moderate / High / Critical) with confidence level
+- a factor breakdown rating emotional charge, ambiguity, moral-outrage load, novelty,
+  audience resonance, and network amplification potential
+- a predicted spread trajectory curve (hours-to-peak, estimated reach tier, decay
+  rate)
+- a list of counter-messaging leverage windows ranked by time-sensitivity and estimated
+  effectiveness
+- identified amplifier archetypes — bots, partisan influencers, media laundering pathways
+  — likely to accelerate spread
+key_discipline:
+- false claims spread faster than true ones because they carry higher novelty and
+  emotional charge — weight these factors heavily
+- 'ambiguity is a virality accelerant: under-specified claims invite projection and
+  partisan completion, broadening the audience'
+- moral-outrage content activates in-group/out-group dynamics that override normal
+  credibility checking
+- the first 2–6 hours after seeding are the highest-leverage counter-messaging window
+  before sharing velocity compounds
+- 'assess network fit separately from content quality: a claim may be weak but perfectly
+  structured for the target network''s sharing norms'
+- distinguish organic spread from coordinated amplification — the latter shows anomalously
+  synchronized share timing and bot-signature accounts
+workflow_steps:
+- verbs:
+  - read
+  title: Ingest and normalize the claim
+  text: Read the full claim text, originating platform context, timestamp, and any
+    early engagement metrics. Note the exact wording, format (headline, meme, video
+    caption), and any embedded visual or audio cues that amplify emotional impact
+    independent of the text.
+- verbs:
+  - search
+  title: Establish baseline and precedent
+  text: Search for prior occurrences of the same or similar claims — earlier seedings,
+    dormant versions, analogous rumors in other contexts — and retrieve any known
+    spread data. Cross-reference against rumor databases, fact-check archives, and
+    platform transparency reports to calibrate against empirical spread rates for
+    comparable claims.
+- verbs:
+  - reason
+  title: Score virality factors
+  text: 'Apply the seven-factor virality model: (1) Emotional valence and intensity
+    — fear, anger, disgust, and awe drive sharing more than sadness or joy; (2) Ambiguity
+    — rate the claim''s specificity gap, which allows projection; (3) Moral-outrage
+    load — identify norm violations and in-group threat framing; (4) Novelty — how
+    surprising or schema-violating is the claim; (5) Narrative fit — how well it slots
+    into pre-existing conspiracy frameworks or culturally activated threat models;
+    (6) Network amplification potential — presence of hashtags, @ mentions, and formatting
+    optimized for resharing; (7) Audience resonance — estimated alignment between
+    the claim''s framing and the target audience''s prior beliefs and emotional priming.
+    Rate each factor Low/Moderate/High with a one-sentence rationale.'
+- verbs:
+  - reason
+  title: Assess spread trajectory and amplifier pathways
+  text: 'Combine the factor scores into a composite virality rating and estimate the
+    spread trajectory: time-to-peak engagement, likely reach tier (local / regional
+    / national / global), and decay rate. Identify the amplifier archetypes most likely
+    to accelerate spread — coordinated inauthentic accounts, partisan influencer networks,
+    mainstream media laundering, cross-platform migration pathways. Flag signals of
+    coordinated amplification (synchronized posting, bot-signature accounts, artificial
+    trending).'
+- verbs:
+  - reason
+  - write
+  title: Determine counter-messaging windows and produce report
+  text: Identify the intervention windows where counter-messaging or prebunking is
+    most leveraged — typically before or immediately after initial seeding, before
+    the claim achieves mainstream platform traction, and before it is cited as a source
+    by secondary outlets. Write the structured virality assessment report including
+    the composite score, factor table, trajectory estimate, amplifier map, and prioritized
+    intervention recommendations. Include confidence intervals and explicit caveats
+    for factors assessed with limited data.
+anti_criteria:
+- do not conflate virality potential with truth value — false claims often have higher
+  virality scores than accurate ones
+- do not treat a low initial engagement count as evidence of low virality potential
+  — dormant or slow-seeding claims can achieve rapid spread once a triggering event
+  occurs
+- do not recommend suppression as a default counter-measure — heavy-handed removal
+  frequently triggers Streisand-effect amplification
+- do not omit the confidence level and data limitations from the assessment — overconfident
+  virality predictions mislead response planning
+- do not assess the claim's wording alone without accounting for the embedding context
+  (platform norms, timing, audience priming)
+defensive_boundary: 'Use Rumor & Virality Assessment only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Rumor & Virality Assessment to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Rumor & Virality Assessment, tie each virality assessment, and factor table
+  claim to concrete evidence from the specific claim, originating context, and audience
+  profile item, source excerpt, observation, or command result that supports it.
+- For Rumor & Virality Assessment, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the virality
+  assessment.
+- Before recommending any Rumor & Virality Assessment action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Rumor & Virality Assessment: the virality assessment is supported by multiple
+  independent content, behavioral, narrative, media, and audience-risk evidence; ingest
+  and normalize the claim and establish baseline and precedent checks agree, and no
+  unresolved contradiction would change the result.'
+- 'Medium for Rumor & Virality Assessment: the virality assessment is plausible, but
+  one important claim source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Rumor & Virality Assessment: the virality assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Rumor & Virality Assessment cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Rumor & Virality Assessment, use only authorized claim, originating context,
+  and audience profile, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Rumor & Virality Assessment, minimize person-level detail in the virality assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Rumor & Virality Assessment, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Rumor & Virality Assessment: treating claim as complete when ingest and normalize
+  the claim and establish baseline and precedent checks or contradictory evidence
+  are missing.'
+- 'Rumor & Virality Assessment: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Rumor & Virality Assessment: reporting the virality assessment without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Rumor & Virality Assessment outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the virality assessment from Rumor & Virality Assessment into
+  an operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Rumor & Virality Assessment to assess supplied material for
+  manipulation indicators and recommend resilience measures with claim, originating
+  context, and audience profile'' -> produce bounded findings with evidence and uncertainty
+  labels.'

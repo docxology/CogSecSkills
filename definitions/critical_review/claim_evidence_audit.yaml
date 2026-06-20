@@ -1,0 +1,218 @@
+id: critical_review.claim_evidence_audit
+description: 'Claim-Evidence Audit is a structured review technique that walks through
+  every substantive claim in a document, identifies the evidence offered in support,
+  and renders a verdict on the strength and sufficiency of that support. It distinguishes
+  overclaims (conclusions that exceed what the evidence can bear), underclaims (conclusions
+  hedged beyond what strong evidence warrants), unsupported assertions (claims with
+  no evidence offered), and well-supported claims. In cognitive-security work, this
+  technique is a primary defense against epistemic manipulation: fabricated confidence,
+  cherry-picked data, and rhetorical amplification all fail a rigorous claim-evidence
+  audit.'
+tags:
+- cognitive-security
+- critical_review
+- epistemic-integrity
+- overclaim-detection
+triggers:
+- claim evidence audit
+- check the evidence
+- overclaim
+- unsupported assertion
+- bind claims to evidence
+- evidence audit
+- what supports this claim
+- confidence calibration review
+tools:
+- verb: read
+  purpose: ingest the document and systematically extract every substantive claim
+    and the evidence offered for it
+- verb: reason
+  purpose: evaluate the logical relationship between each claim and its offered evidence,
+    assess sufficiency, and detect overclaim or unsupported assertion
+- verb: write
+  purpose: emit the claim-evidence audit table and a calibrated summary with severity
+    ratings and recommendations
+inputs:
+- name: document
+  type: text
+  required: true
+  description: The document, report, or argument to be audited — should contain substantive
+    claims with some accompanying evidence or citations
+- name: claim_taxonomy
+  type: list
+  required: false
+  description: Optional list of claim types to focus on (e.g., causal, predictive,
+    quantitative, policy-recommendation) if a targeted audit is desired
+outputs:
+- name: claim_evidence_table
+  type: table
+  description: 'A table with one row per substantive claim: claim text, evidence offered,
+    evidence type (data/citation/inference/authority/none), sufficiency verdict (well-supported
+    / hedged-adequately / overclaim / underclaim / unsupported), severity rating,
+    and recommended correction'
+- name: audit_summary
+  type: markdown
+  description: A narrative summary identifying the overall claim integrity level,
+    the most serious overclaims and unsupported assertions, patterns of rhetorical
+    amplification or evidence cherry-picking, and a recommendation on whether the
+    document's conclusions can be trusted as stated
+references:
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press. Chapter on Argument Mapping and Evidence Evaluation.
+- Toulmin, S. (1958). The Uses of Argument. Cambridge University Press. (Foundational
+  claim-warrant-evidence framework.)
+- Walton, D. (2006). Fundamentals of Critical Argumentation. Cambridge University
+  Press.
+- 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
+  Prediction. Crown Publishers. (On calibration and overclaiming.)'
+- Nguyen, C. T. (2020). Echo chambers and epistemic bubbles. Episteme, 17(2), 141–161.
+when_to_use:
+- When reviewing a document intended to influence a decision and the strength of the
+  evidentiary support has not been independently assessed
+- When detecting potential disinformation or manipulated narrative — both rely heavily
+  on overclaiming from thin evidence
+- When performing quality assurance on an analytic product before it is disseminated
+- When calibrating confidence levels in a report — separating well-established findings
+  from speculative conclusions
+- When adversarial content has been introduced into a document pipeline and the evidence
+  basis of individual claims must be traced
+what_it_produces:
+- A complete inventory of substantive claims in the document
+- 'A per-claim evidence binding: what evidence was offered and whether it is sufficient'
+- Severity-rated overclaims, underclaims, and unsupported assertions
+- A pattern analysis of how the document systematically misrepresents the evidence-claim
+  relationship
+- 'Specific corrections: how each flagged claim should be reframed to match the actual
+  evidence'
+key_discipline:
+- Distinguish the claim (what is asserted) from the evidence (what is offered in support)
+  before assessing the relationship between them
+- Overclaiming is not the same as being wrong — a claim can be true yet still overclaim
+  the available evidence
+- 'Evidence types differ in evidentiary force: primary data > peer-reviewed synthesis
+  > expert opinion > authority citation > rhetorical assertion; apply corresponding
+  discount rates'
+- 'Cherry-picking is a structural overclaim: the evidence offered may be real and
+  accurate, but the omission of contradicting evidence means the overall inference
+  from ''this evidence'' to ''this conclusion'' is inflated'
+- Confidence language (certainly, clearly, obviously) is a claim amplifier — treat
+  it as a claim about evidence strength that must itself be evaluated
+workflow_steps:
+- verbs:
+  - read
+  title: Extract claims and linked evidence
+  text: 'Read the document and extract every substantive claim — factual, causal,
+    predictive, evaluative, or policy-recommendatory. For each claim, identify what
+    evidence the author offers at that point: data, citation, expert authority, logical
+    inference from prior claims, or none. Record each claim-evidence pair for audit.'
+- verbs:
+  - reason
+  title: Classify evidence type and quality
+  text: 'For each piece of offered evidence, classify its type (primary empirical
+    data, replicated study, single study, expert opinion, authority citation, anecdote,
+    rhetorical assertion) and note any quality concerns: sample size, replication
+    status, potential conflicts of interest, recency, or generalizability limits.
+    This classification sets the evidentiary ceiling for what the claim can legitimately
+    assert.'
+- verbs:
+  - reason
+  title: Assess claim-evidence sufficiency and render verdict
+  text: 'For each claim-evidence pair, assess whether the offered evidence is sufficient
+    in type and strength to support the claim as stated. Assign a verdict: well-supported
+    (evidence is sufficient and of appropriate type), adequately hedged (evidence
+    is limited but the claim is appropriately qualified), overclaim (the claim asserts
+    more certainty, scope, or causality than the evidence can support), underclaim
+    (evidence clearly supports a stronger statement but the author hedges excessively),
+    or unsupported (no evidence is offered for a substantive claim). Assign a severity
+    rating (high / medium / low) to each non-passing verdict.'
+- verbs:
+  - reason
+  - write
+  title: Detect patterns and formulate corrections
+  text: 'Look across all verdicts for systematic patterns: consistent use of confidence
+    language unsupported by evidence, citation of single weak studies for strong claims,
+    omission of contradicting evidence, or use of rhetorical amplifiers. For each
+    flagged claim, write a specific correction: how the claim should be reframed,
+    what qualification should be added, or what evidence would be needed to support
+    it as stated.'
+- verbs:
+  - write
+  title: Produce audit table and summary
+  text: Compile the complete claim-evidence audit table. Write the audit summary identifying
+    the overall integrity level of the document's evidentiary support, the most critical
+    overclaims and unsupported assertions, any detected cherry-picking patterns, and
+    a recommendation on whether the document's conclusions can be used as stated or
+    must be substantially re-hedged before acting on them.
+anti_criteria:
+- Do not conflate a claim being plausible or likely true with it being well-supported
+  by the evidence offered in this document
+- Do not let rhetorical confidence substitute for evidentiary strength — words like
+  'clearly' and 'obviously' must be treated as claims about evidence strength, not
+  as evidence
+- Do not restrict the audit to explicit claim-evidence pairs; the most dangerous overclaims
+  are often implicit in how conclusions are framed relative to the data actually presented
+- Do not apply a uniform evidentiary standard across claim types — causal claims require
+  stronger evidence than descriptive claims; policy recommendations require stronger
+  evidence than diagnostic claims
+defensive_boundary: 'Use Claim-Evidence Audit only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Claim-Evidence Audit to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation, refuse that path
+  and redirect to the safe defensive form: review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Claim-Evidence Audit, tie each claim evidence table, and audit summary claim
+  to concrete evidence from the specific document, and claim taxonomy item, source
+  excerpt, observation, or command result that supports it.
+- For Claim-Evidence Audit, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the claim evidence
+  table.
+- Before recommending any Claim-Evidence Audit action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Claim-Evidence Audit: the claim evidence table is supported by multiple
+  independent artifact excerpts, test output, citations, assumptions, and reproducibility
+  records; extract claims and linked evidence and classify evidence type and quality
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Claim-Evidence Audit: the claim evidence table is plausible, but one
+  important document source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Claim-Evidence Audit: the claim evidence table rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Claim-Evidence Audit cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Claim-Evidence Audit, use only authorized document, and claim taxonomy, public
+  or source-approved records, and caller-provided context needed for the defensive
+  task.
+- For Claim-Evidence Audit, minimize person-level detail in the claim evidence table;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Claim-Evidence Audit, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Claim-Evidence Audit: treating document as complete when extract claims and linked
+  evidence and classify evidence type and quality checks or contradictory evidence
+  are missing.'
+- 'Claim-Evidence Audit: producing advice that would help a requester launder weak
+  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Claim-Evidence Audit: reporting the claim evidence table without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Claim-Evidence Audit outputs to launder weak claims, fabricate review
+  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the claim evidence table from Claim-Evidence Audit into an operational
+  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
+  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Claim-Evidence Audit to review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures with document, and claim
+  taxonomy'' -> produce bounded findings with evidence and uncertainty labels.'

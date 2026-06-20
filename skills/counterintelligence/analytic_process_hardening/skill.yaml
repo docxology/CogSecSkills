@@ -82,3 +82,71 @@ references:
   Solving. Three Rivers Press.'
 - National Academies of Sciences (2019). Reproducibility and Replicability in Science.
   National Academies Press.
+defensive_boundary: 'Use Analytic Process Hardening only for counterintelligence and
+  analytic-process defense: recognize, assess, document, or defend analytic teams,
+  collection processes, and institutional trust boundaries. Do not use this skill
+  to evade detection, improve elicitation, profile targets for exploitation, or conceal
+  tradecraft.'
+misuse_redirect: 'If a request asks Analytic Process Hardening to evade detection,
+  improve elicitation, profile targets for exploitation, or conceal tradecraft, refuse
+  that path and redirect to the safe defensive form: review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators.'
+evidence_requirements:
+- For Analytic Process Hardening, tie each vulnerability map, hardening plan, and
+  residual risk statement claim to concrete evidence from the specific workflow description,
+  adversary context, and prior incidents item, source excerpt, observation, or command
+  result that supports it.
+- For Analytic Process Hardening, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the vulnerability
+  map.
+- Before recommending any Analytic Process Hardening action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Analytic Process Hardening: the vulnerability map is supported by multiple
+  independent interaction records, process artifacts, deception indicators, and alternative
+  explanations; map the workflow and identify manipulation surfaces checks agree,
+  and no unresolved contradiction would change the result.'
+- 'Medium for Analytic Process Hardening: the vulnerability map is plausible, but
+  one important workflow description source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Analytic Process Hardening: the vulnerability map rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Analytic Process Hardening cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Analytic Process Hardening, use only authorized workflow description, adversary
+  context, and prior incidents, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Analytic Process Hardening, minimize person-level detail in the vulnerability
+  map; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Analytic Process Hardening, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Analytic Process Hardening: treating workflow description as complete when map
+  the workflow and identify manipulation surfaces checks or contradictory evidence
+  are missing.'
+- 'Analytic Process Hardening: producing advice that would help a requester evade
+  detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.'
+- 'Analytic Process Hardening: reporting the vulnerability map without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Analytic Process Hardening outputs to evade detection, improve elicitation,
+  profile targets for exploitation, or conceal tradecraft'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the vulnerability map from Analytic Process Hardening into an
+  operational playbook to evade detection, improve elicitation, profile targets for
+  exploitation, or conceal tradecraft'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Analytic Process Hardening to review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators with workflow
+  description, adversary context, and prior incidents'' -> produce bounded findings
+  with evidence and uncertainty labels.'

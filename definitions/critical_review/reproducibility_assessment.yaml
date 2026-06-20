@@ -1,0 +1,215 @@
+id: critical_review.reproducibility_assessment
+description: 'Reproducibility Assessment systematically checks whether a claimed result
+  — computational, empirical, or analytical — can be regenerated from the stated data,
+  code, seeds, and environment by an independent party following only the documented
+  procedure. It distinguishes direct reproduction (same data, same code), replication
+  (same procedure, new data), and conceptual replication (same hypothesis, different
+  operationalization), and assesses the degree to which the artifact meets the requirements
+  of each tier. In the cognitive-security domain, reproducibility is a foundational
+  epistemic standard: assessments, threat models, and evidence bases that cannot be
+  independently verified are vulnerable to manipulation and should not be used as
+  sole justification for consequential decisions.'
+tags:
+- cognitive-security
+- critical_review
+- reproducibility
+- epistemic-assurance
+triggers:
+- reproducibility check
+- can this be replicated
+- verify the result
+- reproduce the findings
+- does the code match the paper
+- data availability check
+- open science review
+tools:
+- verb: read
+  purpose: ingest the artifact (paper, report, notebook, or analysis), its methods
+    section, and any supplementary materials
+- verb: exec
+  purpose: run the provided code or pipeline against the stated data and seeds to
+    attempt direct reproduction
+- verb: reason
+  purpose: assess gaps between stated methods and actual reproducibility, and classify
+    findings across reproduction tiers
+- verb: write
+  purpose: produce the reproducibility scorecard and gap report with recommendations
+inputs:
+- name: artifact
+  type: text
+  required: true
+  description: the paper, report, notebook, or analysis to be assessed, including
+    any supplementary materials or links to code/data repositories
+- name: key_claims
+  type: list
+  required: false
+  description: the specific quantitative or qualitative results whose reproducibility
+    is most critical to verify
+- name: environment_spec
+  type: text
+  required: false
+  description: the stated compute environment, software versions, and dependencies
+    from the artifact
+outputs:
+- name: reproducibility_scorecard
+  type: table
+  description: rows = reproducibility criterion; columns = tier (direct/replication/conceptual),
+    status (met/partial/not-met/not-assessable), evidence, gap description
+- name: gap_report
+  type: markdown
+  description: narrative analysis of each reproducibility gap, its likely cause, and
+    specific recommendations to close it; overall reproducibility tier assessment
+references:
+- National Academies of Sciences, Engineering, and Medicine (2019). Reproducibility
+  and Replicability in Science. National Academies Press.
+- ACM Artifact Review and Badging Policy v1.1 (2020). Available-Functional-Results-Reproduced
+  taxonomy.
+- 'Plesser, H. E. (2018). Reproducibility vs. Replicability: A Brief History of a
+  Confused Terminology. Frontiers in Neuroinformatics 11(76).'
+- 'Gundersen, O. E. & Kjensmo, S. (2018). State of the Art: Reproducibility in Artificial
+  Intelligence. AAAI-18.'
+when_to_use:
+- when evaluating a research claim, intelligence assessment, or analytical product
+  before using it as a basis for decisions
+- when accepting an external artifact into an evidence base that will support consequential
+  conclusions
+- when auditing a published result in the cognitive-security, AI, or social-science
+  domain for epistemic reliability
+- when a result has influenced policy or public belief and its provenance needs independent
+  verification
+what_it_produces:
+- a reproducibility scorecard rating each key criterion (data availability, code availability,
+  environment specification, seed/randomness control, result match) against the direct/replication/conceptual
+  tiers
+- a specific gap report identifying which claimed results could not be reproduced,
+  why, and what would be needed to close each gap
+- an overall reproducibility tier assessment (fully reproducible / partially reproducible
+  / not reproducible / not assessable) with confidence
+- a prioritized set of recommendations for the artifact authors to improve reproducibility
+key_discipline:
+- distinguish the three reproducibility tiers — direct reproduction, replication,
+  and conceptual replication — and assess each separately; conflating them obscures
+  what is actually verifiable
+- treat an undocumented seed, environment, or preprocessing step as a gap even if
+  the result seems plausible — undocumented steps cannot be independently verified
+  and create attack surfaces for manipulation
+- a result is not reproducible merely because the authors say it is — independent
+  execution is required for direct reproduction
+- missing data or code should be classified as 'not assessable' not 'reproducible'
+  — an absence of counter-evidence is not evidence of reproducibility
+workflow_steps:
+- verbs:
+  - read
+  title: Inventory stated methods and materials
+  text: 'Read the artifact in full. Extract: the key claims to be verified; the data
+    sources and their access status (public/private/restricted); the code repository
+    or notebook location; the stated environment (OS, language version, library versions);
+    any stated random seeds; and the preprocessing and analysis pipeline as documented.'
+- verbs:
+  - reason
+  title: Assess data and code availability
+  text: 'For each required input (data, code, model weights, preprocessing scripts),
+    check availability: is it accessible? is it versioned or pinned? does the described
+    artifact match what is actually provided? Flag discrepancies. If key data or code
+    is missing, mark the relevant claims as ''not assessable'' for direct reproduction.'
+- verbs:
+  - exec
+  title: Attempt direct reproduction
+  text: Where data, code, and environment are available, execute the pipeline following
+    only the documented steps. Record actual outputs and compare to claimed results
+    (numbers, figures, tables). Note any undocumented steps required to get the code
+    to run. Record exact deviations between claimed and reproduced results, including
+    direction and magnitude.
+- verbs:
+  - reason
+  title: Classify gaps and assess tiers
+  text: 'For each key claim, classify reproducibility status at each tier: direct
+    (same data + code), replication (same method + new data), and conceptual (same
+    hypothesis + different operationalization). Identify the root cause of each gap:
+    missing data, missing code, undocumented preprocessing, environment sensitivity,
+    randomness not controlled, or result genuinely differs. Assess whether gaps are
+    remediable (documentation fix) or fundamental (design issue).'
+- verbs:
+  - write
+  title: Produce scorecard and recommendations
+  text: Compile the reproducibility scorecard table with status and evidence for each
+    criterion. Write the gap report narrative with root causes and recommendations.
+    Assign the overall reproducibility tier. For cognitive-security use, explicitly
+    note whether non-reproducible results should be treated as provisional and what
+    additional evidence would be needed before treating them as reliable.
+anti_criteria:
+- do not classify a result as reproducible without actually attempting execution —
+  plausibility is not reproducibility
+- do not treat unavailable data or code as 'acceptable' without explicitly flagging
+  it as a non-assessable gap
+- do not conflate replication (new data, same method) with direct reproduction (same
+  data, same code) — they provide different epistemic assurance
+- do not issue recommendations that merely ask authors to assert reproducibility without
+  specifying what artifacts must be provided or what criteria must be met
+defensive_boundary: 'Use Reproducibility Assessment only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Reproducibility Assessment to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Reproducibility Assessment, tie each reproducibility scorecard, and gap report
+  claim to concrete evidence from the specific artifact, key claims, and environment
+  spec item, source excerpt, observation, or command result that supports it.
+- For Reproducibility Assessment, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the reproducibility
+  scorecard.
+- Before recommending any Reproducibility Assessment action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Reproducibility Assessment: the reproducibility scorecard is supported
+  by multiple independent artifact excerpts, test output, citations, assumptions,
+  and reproducibility records; inventory stated methods and materials and assess data
+  and code availability checks agree, and no unresolved contradiction would change
+  the result.'
+- 'Medium for Reproducibility Assessment: the reproducibility scorecard is plausible,
+  but one important artifact source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Reproducibility Assessment: the reproducibility scorecard rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Reproducibility Assessment cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Reproducibility Assessment, use only authorized artifact, key claims, and environment
+  spec, public or source-approved records, and caller-provided context needed for
+  the defensive task.
+- For Reproducibility Assessment, minimize person-level detail in the reproducibility
+  scorecard; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Reproducibility Assessment, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Reproducibility Assessment: treating artifact as complete when inventory stated
+  methods and materials and assess data and code availability checks or contradictory
+  evidence are missing.'
+- 'Reproducibility Assessment: producing advice that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Reproducibility Assessment: reporting the reproducibility scorecard without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Reproducibility Assessment outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the reproducibility scorecard from Reproducibility Assessment
+  into an operational playbook to launder weak claims, fabricate review findings,
+  or produce exploit guidance without mitigation'' -> refuse and offer governance,
+  detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Reproducibility Assessment to review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures with artifact,
+  key claims, and environment spec'' -> produce bounded findings with evidence and
+  uncertainty labels.'

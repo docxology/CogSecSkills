@@ -21,6 +21,44 @@ Structured Reporting with Bottom-Line-Up-Front (BLUF) is an analytic communicati
 - a caveats section that surfaces disconfirming evidence and conditions under which the judgment would change
 - an implications section tailored to the audience's decision context
 
+## Defensive boundary
+
+Use Structured Reporting & BLUF only for research-methods and synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
+
+## Misuse redirect
+
+If a request asks Structured Reporting & BLUF to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence, refuse that path and redirect to the safe defensive form: synthesize supplied or authorized sources with explicit confidence and uncertainty labels.
+
+## Evidence discipline
+
+- For Structured Reporting & BLUF, tie each structured report claim to concrete evidence from the specific analytic judgment, evidence and sources, and assumptions item, source excerpt, observation, or command result that supports it.
+- For Structured Reporting & BLUF, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the structured report.
+- Before recommending any Structured Reporting & BLUF action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Structured Reporting & BLUF: the structured report is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; assemble the inputs and draft the bluf and argument structure checks agree, and no unresolved contradiction would change the result.
+- Medium for Structured Reporting & BLUF: the structured report is plausible, but one important analytic judgment source, comparison case, or alternative explanation remains incomplete.
+- Low for Structured Reporting & BLUF: the structured report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Structured Reporting & BLUF cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating research_methods evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Structured Reporting & BLUF, use only authorized analytic judgment, evidence and sources, and assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Reporting & BLUF, minimize person-level detail in the structured report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Structured Reporting & BLUF, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Structured Reporting & BLUF: treating analytic judgment as complete when assemble the inputs and draft the bluf and argument structure checks or contradictory evidence are missing.
+- Structured Reporting & BLUF: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
+- Structured Reporting & BLUF: reporting the structured report without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Structured Reporting & BLUF outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the structured report from Structured Reporting & BLUF into an operational playbook to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Structured Reporting & BLUF to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with analytic judgment, evidence and sources, and assumptions' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

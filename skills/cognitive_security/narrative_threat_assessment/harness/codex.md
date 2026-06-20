@@ -1,25 +1,18 @@
-# Harness Adapter — Codex
+# Codex adapter — Narrative Threat Assessment
 
-Maps the neutral tool verbs in [`../workflow.md`](../workflow.md) to Codex tools
-for the Narrative Threat Assessment skill.
+Binds the neutral `skill.yaml` tool verbs to Codex tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Codex tool | Notes |
 | --- | --- | --- |
-| read | shell (cat/sed) | Read the narrative artifact and context via shell file reads. |
-| search | shell (rg) / web | Use `rg` on local circulation samples; `web` for provenance and prior debunks. Do not amplify the narrative. |
-| reason | (model reasoning) | Decompose claims, map levers, classify techniques, rate harm — no tool call. |
-| write | apply_patch | Write the defensive threat assessment and recommendations to a file. |
+| `read` | `shell` (`cat`, `rg`) | Read supplied files or stdin. |
+| `search` | `shell` + optional web | Search the workspace or the web if available. |
+| `reason` | private model reasoning | Apply the technique with concise rationale. |
+| `write` | `apply_patch` / stdout | Persist the product or return Markdown. |
 
 ## Invocation
 
-Invoke when the user asks to characterize a narrative as a cognitive threat.
-Supply `narrative_text` (required) and optional `context`. Execute the workflow
-steps in order; handle the narrative only as an object of study.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Narrative Threat Assessment only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Narrative Threat Assessment to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
 
 ## Output contract
 
-Emit a `threat_assessment` document (claims, audience and levers, manipulation
-techniques, provenance/intent with calibrated uncertainty, reach, rated harm and
-urgency) and a prioritized `defensive_recommendations` list (prebunking, lateral
-reading, counter-framing). Defensive and accountable only — never a manipulation
-how-to, never uncritical amplification, never false-confidence attribution.
+Return the `skill.yaml` outputs (threat_assessment, defensive_recommendations) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

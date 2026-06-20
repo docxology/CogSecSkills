@@ -20,6 +20,34 @@ Record any prior analytic judgments — published or informal — about the topi
 ## Step 6 — Produce the baseline checklist (write)
 Compile the above into a structured baseline document: primary question, subordinate questions, drivers, assumptions register, prior judgments log, and a gaps list. This document is the analytic contract for the work that follows.
 
+## Evidence requirements
+- For Getting Started Checklist, tie each getting started baseline claim to concrete evidence from the specific analytic task, and background material item, source excerpt, observation, or command result that supports it.
+- For Getting Started Checklist, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the getting started baseline.
+- Before recommending any Getting Started Checklist action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Getting Started Checklist: the getting started baseline is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; capture the tasking and articulate the primary question and subordinate questions checks agree, and no unresolved contradiction would change the result.
+- Medium for Getting Started Checklist: the getting started baseline is plausible, but one important analytic task source, comparison case, or alternative explanation remains incomplete.
+- Low for Getting Started Checklist: the getting started baseline rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Getting Started Checklist cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Getting Started Checklist, use only authorized analytic task, and background material, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Getting Started Checklist, minimize person-level detail in the getting started baseline; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Getting Started Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Getting Started Checklist: treating analytic task as complete when capture the tasking and articulate the primary question and subordinate questions checks or contradictory evidence are missing.
+- Getting Started Checklist: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Getting Started Checklist: reporting the getting started baseline without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Getting Started Checklist outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the getting started baseline from Getting Started Checklist into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Getting Started Checklist to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with analytic task, and background material' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not begin substantive research or drafting before the primary question is written down in one sentence
 - do not treat prior judgments as authoritative starting points — log them as potential anchors

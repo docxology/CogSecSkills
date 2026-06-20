@@ -1,0 +1,251 @@
+id: cognitive_security.counter_messaging_strategy
+description: 'Counter-Messaging Strategy designs ethical, evidence-based communications
+  that correct specific falsehoods without inadvertently reinforcing them — applying
+  the ''truth sandwich'' principle, inoculation theory, and cognitive science of misinformation
+  correction. The technique distinguishes between pre-bunking (raising immunity before
+  exposure) and de-bunking (correcting after exposure), and selects the appropriate
+  frame, messenger, channel, and format for the target audience and falsehood type.
+  It explicitly avoids the backfire effect trap and the amplification paradox (repeating
+  a lie to refute it), instead centering the accurate narrative and flagging the manipulation
+  technique rather than the specific false claim. This skill is strictly defensive
+  and educational: it produces counter-messaging designs for institutional or civil-society
+  use, not operational propaganda playbooks.'
+tags:
+- cognitive-security
+- cognitive_security
+- counter-disinformation
+- inoculation-theory
+triggers:
+- counter-messaging strategy
+- how do I correct this without amplifying it
+- design a rebuttal
+- prebunking versus debunking
+- inoculation message design
+- truth sandwich
+- counter this false narrative ethically
+tools:
+- verb: read
+  purpose: ingest the false claim or narrative, audience profile, and channel context
+- verb: reason
+  purpose: diagnose the falsehood type, manipulation technique, and audience vulnerability
+    factors; select the appropriate counter-messaging framework
+- verb: write
+  purpose: produce the counter-messaging strategy document including message frame,
+    messenger recommendation, channel guidance, and sample language
+inputs:
+- name: false_claim_or_narrative
+  type: text
+  required: true
+  description: The specific false or misleading claim, narrative, or piece of content
+    to be countered — quoted as precisely as possible to avoid scope creep
+- name: audience_profile
+  type: text
+  required: true
+  description: 'Description of the target audience for the counter-message: prior
+    beliefs, media diet, trusted messengers, vulnerability factors (polarization,
+    distrust of institutions, etc.)'
+- name: intervention_timing
+  type: text
+  required: false
+  description: Whether the audience has already been exposed (de-bunking) or the falsehood
+    is anticipated but not yet viral (pre-bunking/inoculation) — determines framework
+    selection
+- name: channel_constraints
+  type: list
+  required: false
+  description: Available channels and formats (e.g. social media, broadcast, community
+    meetings, trusted-messenger networks) and any constraints (character limits, prohibited
+    platforms)
+outputs:
+- name: counter_messaging_strategy
+  type: markdown
+  description: 'Full strategy document covering: framework selection rationale (pre-bunk
+    vs de-bunk), core accurate narrative to center, manipulation technique to name,
+    messenger recommendations, channel and format guidance, what NOT to say (amplification
+    risks), and sample counter-message language'
+- name: message_variants_table
+  type: table
+  description: Table of message variants by channel/audience segment with key framing
+    elements, recommended messenger type, and estimated exposure timing
+references:
+- 'Cook, J., Lewandowsky, S., & Ecker, U. K. H. (2017). Neutralizing misinformation
+  through inoculation: Exposing misleading argumentation techniques reduces their
+  influence. PLOS ONE, 12(5), e0175799.'
+- 'Lewandowsky, S., Ecker, U. K. H., & Cook, J. (2017). Beyond misinformation: Understanding
+  and coping with the ''post-truth'' era. Journal of Applied Research in Memory and
+  Cognition, 6(4), 353-369.'
+- 'Nyhan, B., & Reifler, J. (2010). When corrections fail: The persistence of political
+  misperceptions. Political Behavior, 32(2), 303-330.'
+- Roozenbeek, J., & van der Linden, S. (2019). Fake news game confers psychological
+  resistance against online misinformation. Palgrave Communications, 5(1), 65.
+- First Draft (2019). Understanding Information Disorder. First Draft News. https://firstdraftnews.org/
+- Pennycook, G., & Rand, D. G. (2021). The psychology of fake news. Trends in Cognitive
+  Sciences, 25(5), 388-402.
+when_to_use:
+- when an institution, public health body, or civil-society organization needs to
+  respond to a specific false or misleading narrative spreading in a target population
+- when the false claim is anticipated before wide spread (inoculation/pre-bunking
+  window is open)
+- when previous direct rebuttals have failed or appeared to backfire — need to redesign
+  the counter approach
+- when designing media-literacy or public-resilience campaigns against a class of
+  manipulation techniques (not a single claim)
+- when the counter-messaging effort must avoid partisan framing that would limit audience
+  reach
+what_it_produces:
+- a framework selection — inoculation (pre-bunk) vs. fact-check (de-bunk) vs. narrative
+  replacement — with rationale
+- the accurate narrative or frame to CENTER in the counter-message (not the falsehood)
+- identification of the manipulation TECHNIQUE to name (rather than repeating the
+  false content), such as 'this uses false-authority appeal' or 'this exploits emotional
+  amplification'
+- messenger recommendations based on audience trust structures
+- specific language to avoid (amplification risks) and sample counter-message language
+  for each channel
+- timing and sequencing guidance relative to the falsehood's spread curve
+key_discipline:
+- center the accurate narrative first — state the truth prominently before naming
+  the falsehood, not after (truth sandwich structure)
+- name the manipulation TECHNIQUE, not the specific false claim — this confers broader
+  immunity than single-claim correction
+- match messenger to audience trust network — the right fact is less effective than
+  the right messenger delivering a true fact
+- inoculation requires a 'weakened dose' of the manipulation technique and an explicit
+  warning label; never deploy inoculation content without the warning
+- 'measure amplification risk: if repeating the false claim to refute it will expose
+  it to more people than currently know it, a non-amplifying frame (technique disclosure)
+  is mandatory'
+- never design counter-messaging that uses the same manipulation techniques as the
+  target — it corrodes trust in the corrector and the correction
+workflow_steps:
+- verbs:
+  - read
+  title: Characterize the falsehood and context
+  text: 'Read the false claim or narrative precisely. Identify: (1) the factual error
+    or misleading element; (2) the manipulation technique being used (fabrication,
+    decontextualization, false amplification, false authority, emotional exploitation,
+    etc.); (3) why the claim is compelling to the target audience — what psychological
+    or social need it meets; (4) the current spread state (pre-viral, viral, post-peak).'
+- verbs:
+  - read
+  - reason
+  title: Profile audience and select framework
+  text: 'Review the audience profile: prior beliefs, trust anchors, media channels,
+    vulnerability factors. Determine intervention timing. Select primary framework:
+    (a) inoculation/pre-bunking if the claim has not yet reached the audience widely
+    — expose them to a weakened form of the manipulation technique with a warning
+    label; (b) accuracy nudge if the audience is exposed but not deeply committed
+    — a simple, clear factual correction from a trusted source may suffice; (c) narrative
+    replacement if the false claim fills a genuine explanatory gap — provide a more
+    compelling true alternative narrative that meets the same psychological need;
+    (d) technique disclosure if the claim is too viral to de-bunk by repetition —
+    publicly name and explain the manipulation technique being used.'
+- verbs:
+  - reason
+  title: Assess amplification risk and design constraints
+  text: 'Estimate whether any counter-message format risks amplifying the falsehood:
+    does quoting it expose it to a larger audience? Does the correction framing seem
+    partisan and thus limit reach? Are there backfire-effect risks for a strongly
+    identity-committed audience? Identify what must NOT appear in the counter-message
+    (specific false phrases, inflammatory framing, institutional logos that trigger
+    distrust for this audience). Document constraints that will govern the message
+    design.'
+- verbs:
+  - reason
+  - write
+  title: Design the counter-message architecture
+  text: 'Define: (1) the CORE TRUTH to center — the accurate, affirmative statement
+    that should dominate audience memory after exposure; (2) the MANIPULATION LABEL
+    — the name of the technique being used, stated plainly; (3) the MESSENGER — who
+    should deliver this message to maximize credibility with the target audience;
+    (4) the CHANNEL SEQUENCE — which platforms or formats to use, in what order, to
+    maximize reach within amplification constraints; (5) the TIMING — relative to
+    the spread curve and any news cycle.'
+- verbs:
+  - write
+  title: Draft and quality-check the strategy document
+  text: 'Write the full counter_messaging_strategy document. For each message variant
+    in the table, verify: Does it lead with the truth? Does it name the technique
+    rather than repeat the false claim verbatim? Is the messenger appropriate? Is
+    the format right for the channel? Apply the ''ethical check'': would this message
+    use any manipulation technique to counter manipulation? If yes, redesign. Emit
+    the strategy document and message variants table.'
+anti_criteria:
+- do not design counter-messages that lead with the false claim — stating the falsehood
+  first strengthens its memory trace even when labeled false
+- do not repeat the exact false phrasing of the claim in the counter-message text
+  — use indirect reference or technique-naming instead
+- do not use emotional manipulation, false urgency, or social-proof amplification
+  in the counter-message even if those techniques would 'work' — the corrector must
+  not model the attack
+- do not recommend messenger or channel without grounding in the specific audience's
+  trust structure — generic 'trusted authority' advice is insufficient
+- do not conflate this skill with an operational influence-operation design tool —
+  this skill is strictly for institutional defensive and educational counter-messaging
+defensive_boundary: 'Use Counter-Messaging Strategy only for cognitive-security defense:
+  recognize, assess, document, or defend audiences, decision-makers, and public discourse.
+  Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Counter-Messaging Strategy to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse
+  that path and redirect to the safe defensive form: assess supplied material for
+  manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Counter-Messaging Strategy, tie each counter messaging strategy, and message
+  variants table claim to concrete evidence from the specific false claim or narrative,
+  audience profile, and intervention timing item, source excerpt, observation, or
+  command result that supports it.
+- For Counter-Messaging Strategy, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the counter
+  messaging strategy.
+- Before recommending any Counter-Messaging Strategy action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Counter-Messaging Strategy: the counter messaging strategy is supported
+  by multiple independent content, behavioral, narrative, media, and audience-risk
+  evidence; characterize the falsehood and context and profile audience and select
+  framework checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Counter-Messaging Strategy: the counter messaging strategy is plausible,
+  but one important false claim or narrative source, comparison case, or alternative
+  explanation remains incomplete.'
+- 'Low for Counter-Messaging Strategy: the counter messaging strategy rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Counter-Messaging Strategy cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Counter-Messaging Strategy, use only authorized false claim or narrative, audience
+  profile, and intervention timing, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Counter-Messaging Strategy, minimize person-level detail in the counter messaging
+  strategy; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Counter-Messaging Strategy, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Counter-Messaging Strategy: treating false claim or narrative as complete when
+  characterize the falsehood and context and profile audience and select framework
+  checks or contradictory evidence are missing.'
+- 'Counter-Messaging Strategy: producing advice that would help a requester increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
+- 'Counter-Messaging Strategy: reporting the counter messaging strategy without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Counter-Messaging Strategy outputs to increase persuasive impact,
+  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the counter messaging strategy from Counter-Messaging Strategy
+  into an operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Counter-Messaging Strategy to assess supplied material for
+  manipulation indicators and recommend resilience measures with false claim or narrative,
+  audience profile, and intervention timing'' -> produce bounded findings with evidence
+  and uncertainty labels.'

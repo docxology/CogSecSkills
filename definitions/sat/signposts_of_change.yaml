@@ -1,0 +1,201 @@
+id: sat.signposts_of_change
+description: Signposts of Change (Heuer & Pherson) is a prospective monitoring technique
+  that derives observable leading indicators from a set of alternative scenarios or
+  hypotheses, then tracks those indicators over time to detect which trajectory is
+  unfolding before it becomes undeniable. Unlike static indicators lists, the technique
+  pairs each signpost explicitly with the scenario it confirms or rules out, allowing
+  analysts to update scenario probabilities continuously as new evidence arrives.
+  In cognitive-security contexts it also serves as an early-warning system for narrative
+  shifts, influence campaign pivots, and disinformation trajectory changes.
+tags:
+- cognitive-security
+- sat
+- warning-analysis
+triggers:
+- signposts of change
+- leading indicators
+- track trajectory shifts
+- early warning indicators
+- monitor for change
+- watch for signs
+tools:
+- verb: read
+  purpose: ingest the alternative scenarios or hypotheses whose divergence the signposts
+    will track, and any existing indicators or monitoring frameworks
+- verb: reason
+  purpose: derive observable leading indicators for each scenario that are mutually
+    discriminating — each signpost should confirm one scenario and constrain others
+- verb: write
+  purpose: emit the signpost matrix with per-scenario indicator assignments, collection
+    guidance, and the update protocol for revising scenario probabilities
+- verb: search
+  purpose: query available open-source information to check current signpost status
+    when the skill is used for active monitoring rather than indicator design
+inputs:
+- name: scenarios_or_hypotheses
+  type: list
+  required: true
+  description: the alternative trajectories or hypotheses among which the signposts
+    must discriminate; at minimum two, typically three to five
+- name: current_assessment
+  type: text
+  required: false
+  description: the current dominant analytic judgment, including its assumed trajectory,
+    to establish the baseline from which change would be detected
+- name: collection_resources
+  type: list
+  required: false
+  description: available monitoring sources (data streams, reporting channels, open-source
+    feeds) that constrain which signposts are observable in practice
+outputs:
+- name: signpost_matrix
+  type: table
+  description: rows are signposts; columns are scenarios; cells indicate whether the
+    signpost confirms (C), is neutral (N), or disconfirms (D) each scenario; includes
+    observability rating and collection source for each signpost
+- name: collection_guidance
+  type: markdown
+  description: 'for each signpost: what to look for, where to look, how often, and
+    what threshold constitutes a confirmed observation'
+- name: update_protocol
+  type: markdown
+  description: rules for revising scenario probabilities when signposts fire or remain
+    absent; includes absence-of-evidence handling and re-evaluation triggers
+references:
+- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Signposts of Change.
+- Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
+- 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint
+  Military Intelligence College. (classical warning indicators framework)'
+when_to_use:
+- multiple plausible trajectories exist and the current analytic line could be invalidated
+  by emerging developments
+- a situation is evolving and continuous monitoring is needed to detect trajectory
+  shifts before they become obvious
+- an influence campaign, narrative, or adversary operation is suspected and early
+  pivot detection is required
+- decision makers need a structured watch-list rather than periodic re-assessments
+  from scratch
+what_it_produces:
+- a scenario-keyed signpost matrix where each indicator is explicitly tied to the
+  scenario(s) it confirms or disconfirms
+- observable, collection-source-anchored indicators with defined observation thresholds
+- an update protocol that prevents analysts from ignoring the absence of expected
+  signposts (absence as evidence)
+key_discipline:
+- each signpost must be discriminating — it must confirm at least one scenario and
+  be neutral or disconfirming for at least one other; a signpost consistent with all
+  scenarios has no diagnostic value
+- observable means actually collectible from identified sources, not theoretically
+  possible to observe
+- absence of an expected signpost is evidence — the update protocol must handle non-observation
+  as a probabilistic signal, not a null
+- signpost thresholds must be set before collection begins; post-hoc threshold adjustment
+  to protect the current assessment is a bias
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Map scenarios to divergence points
+  text: 'Read the alternative scenarios or hypotheses. Identify the key decision nodes,
+    behavioral commitments, or structural changes at which the trajectories diverge.
+    These divergence points are the natural parents of signposts. For each divergence
+    point, ask: what observable event, behavior, or signal would occur before this
+    point if Scenario A is unfolding versus Scenario B? Document the divergence map.'
+- verbs:
+  - reason
+  title: Derive and filter signposts
+  text: 'From each divergence point, derive one to three candidate signposts. For
+    each candidate, check: (a) Is it observable from an identified collection source?
+    (b) Is it discriminating — does it change probabilities differently across at
+    least two scenarios? (c) Is it a leading indicator, not a confirming indicator
+    that arrives only after the trajectory is already clear? Remove non-discriminating
+    and non-observable candidates. Assign each signpost to a collection source and
+    a check frequency.'
+- verbs:
+  - reason
+  - write
+  - search
+  title: Build the matrix, set thresholds, and emit
+  text: 'Construct the signpost matrix: signposts as rows, scenarios as columns, with
+    Confirm / Neutral / Disconfirm in each cell. Set explicit observation thresholds
+    (e.g., ''two independent reporting references within 30 days constitutes confirmation'').
+    Write the update protocol: how scenario probabilities shift when a signpost fires
+    or when an expected signpost is absent. If active monitoring mode is requested,
+    search available sources for current signpost status and emit an initial scenario-probability
+    update.'
+anti_criteria:
+- do not include signposts that are consistent with all scenarios — they consume collection
+  resources without diagnostic value
+- do not set observation thresholds after collection results are known — this retroactively
+  protects the preferred scenario
+- do not treat absence of a signpost as uninformative — if a signpost was expected
+  and did not appear, the update protocol must apply
+- do not let the signpost list grow so large that it is not operationally monitorable;
+  prioritize the most discriminating and most observable indicators
+defensive_boundary: 'Use Signposts of Change only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Signposts of Change to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation, refuse that
+  path and redirect to the safe defensive form: apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Signposts of Change, tie each signpost matrix, collection guidance, and update
+  protocol claim to concrete evidence from the specific scenarios or hypotheses, current
+  assessment, and collection resources item, source excerpt, observation, or command
+  result that supports it.
+- For Signposts of Change, label observations, derived features, assumptions, inferences,
+  contradictions, and missing inputs separately before writing the signpost matrix.
+- Before recommending any Signposts of Change action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Signposts of Change: the signpost matrix is supported by multiple independent
+  hypotheses, assumptions, indicators, evidence tables, and confidence notes; map
+  scenarios to divergence points and derive and filter signposts checks agree, and
+  no unresolved contradiction would change the result.'
+- 'Medium for Signposts of Change: the signpost matrix is plausible, but one important
+  scenarios or hypotheses source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Signposts of Change: the signpost matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Signposts of Change cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Signposts of Change, use only authorized scenarios or hypotheses, current assessment,
+  and collection resources, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Signposts of Change, minimize person-level detail in the signpost matrix; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Signposts of Change, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Signposts of Change: treating scenarios or hypotheses as complete when map scenarios
+  to divergence points and derive and filter signposts checks or contradictory evidence
+  are missing.'
+- 'Signposts of Change: producing advice that would help a requester force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Signposts of Change: reporting the signpost matrix without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Signposts of Change outputs to force a preferred conclusion, hide
+  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Convert the signpost matrix from Signposts of Change into an operational
+  playbook to force a preferred conclusion, hide uncertainty, or use the technique
+  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Signposts of Change to apply the structured technique to
+  supplied evidence while preserving alternatives and uncertainty with scenarios or
+  hypotheses, current assessment, and collection resources'' -> produce bounded findings
+  with evidence and uncertainty labels.'

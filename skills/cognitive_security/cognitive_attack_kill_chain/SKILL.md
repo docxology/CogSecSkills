@@ -22,6 +22,44 @@ The Cognitive Attack Kill Chain adapts the cyber-security kill-chain model to in
 - a prioritized defender action table with one or more disruption options per accessible stage
 - an explicit uncertainty log so analysts can distinguish high-confidence stage assessments from speculative ones
 
+## Defensive boundary
+
+Use Cognitive Attack Kill Chain only for cognitive-security defense: recognize, assess, document, or defend audiences, decision-makers, and public discourse. Do not use this skill to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+
+## Misuse redirect
+
+If a request asks Cognitive Attack Kill Chain to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation, refuse that path and redirect to the safe defensive form: assess supplied material for manipulation indicators and recommend resilience measures.
+
+## Evidence discipline
+
+- For Cognitive Attack Kill Chain, tie each kill chain map, defender action plan, and residual uncertainty log claim to concrete evidence from the specific campaign evidence, target context, and prior threat intel item, source excerpt, observation, or command result that supports it.
+- For Cognitive Attack Kill Chain, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the kill chain map.
+- Before recommending any Cognitive Attack Kill Chain action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+
+- High for Cognitive Attack Kill Chain: the kill chain map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; collect and organize campaign evidence and map evidence to kill-chain stages checks agree, and no unresolved contradiction would change the result.
+- Medium for Cognitive Attack Kill Chain: the kill chain map is plausible, but one important campaign evidence source, comparison case, or alternative explanation remains incomplete.
+- Low for Cognitive Attack Kill Chain: the kill chain map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Cognitive Attack Kill Chain cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+
+- For Cognitive Attack Kill Chain, use only authorized campaign evidence, target context, and prior threat intel, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cognitive Attack Kill Chain, minimize person-level detail in the kill chain map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Cognitive Attack Kill Chain, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes and negative controls
+
+- Cognitive Attack Kill Chain: treating campaign evidence as complete when collect and organize campaign evidence and map evidence to kill-chain stages checks or contradictory evidence are missing.
+- Cognitive Attack Kill Chain: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Cognitive Attack Kill Chain: reporting the kill chain map without uncertainty labels, alternative explanations, and the next discriminating check.
+- Unsafe: 'Use Cognitive Attack Kill Chain outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the kill chain map from Cognitive Attack Kill Chain into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Cognitive Attack Kill Chain to assess supplied material for manipulation indicators and recommend resilience measures with campaign evidence, target context, and prior threat intel' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Procedure
 
 See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).

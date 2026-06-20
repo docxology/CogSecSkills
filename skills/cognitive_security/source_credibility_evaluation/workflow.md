@@ -1,61 +1,61 @@
 # Workflow — Source Credibility Evaluation
 
-Grade a source (A–F) and a claim (1–6) on the NATO/Admiralty Code. The two axes
-are scored independently and combined into a pair (e.g. `B2`).
+Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
-1. **Identify the source and its proximity to the information.** `[read]`
-   Determine who or what the source is, and how close it sits to the events:
-   primary (direct witness / originator) vs secondary (relaying others), the
-   level of access it had, and its domain expertise. Distance from the event
-   weakens reliability.
+## Step 1 — Identify the source and its proximity (read)
+Determine who or what the source is, how close it sits to the events, what access it had, and whether it is primary, secondary, expert, or merely relaying others.
 
-2. **Assess track record, motive/bias, and independence.** `[read][search]`
-   Has the source been accurate before? What incentive does it have to mislead
-   (financial, political, reputational)? Is it independent, or is it echoing /
-   funded by another party? Independence is required before a source can
-   corroborate itself in step 4.
+## Step 2 — Assess track record, motive, and independence (read, search)
+Check past accuracy, incentives to mislead, funding or affiliation signals, and whether the source is independent enough to corroborate anything.
 
-3. **Assign the source-reliability letter (A–F) with justification.** `[reason][write]`
-   Map the findings to a letter: A completely reliable, B usually reliable,
-   C fairly reliable, D not usually reliable, E unreliable, F reliability cannot
-   be judged. Write one or two sentences explaining *why* this letter, citing
-   proximity, track record, motive, and independence.
+## Step 3 — Assign the source-reliability letter (reason, write)
+Map proximity, track record, motive, and independence to A through F, then justify the letter in evidence-bound language.
 
-4. **Assess the specific claim against independent sources.** `[read][search][reason]`
-   Take the exact claim. Is it confirmed by *independent* sources (not the same
-   source restated, and not outlets that merely re-syndicate it)? Is it
-   plausible? Is it consistent with established, known facts? Distinguish
-   confirmation from mere repetition.
+## Step 4 — Assess the specific claim independently (read, search, reason)
+Check whether the exact claim is confirmed by independent sources, plausible, and consistent with known facts. Distinguish confirmation from repetition.
 
-5. **Assign the information-credibility number (1–6) with justification.** `[reason][write]`
-   Map to a number: 1 confirmed by independent sources, 2 probably true,
-   3 possibly true, 4 doubtful, 5 improbable, 6 truth cannot be judged. Write
-   the justification, naming the corroborating or contradicting evidence.
+## Step 5 — Assign the information-credibility number (reason, write)
+Map corroboration and plausibility to 1 through 6, naming confirming, contradicting, or absent evidence.
 
-6. **State that reliability and credibility are independent.** `[write]`
-   Make explicit that the letter grades the *source* and the number grades the
-   *claim* — a usually-reliable source can carry an uncorroborated claim (B3),
-   and an unknown source can carry an independently confirmed claim (F1). Report
-   the combined pair, e.g. `B2`.
+## Step 6 — Preserve the two-axis distinction (write)
+State that the letter grades the source and the number grades this specific claim, then report the combined pair such as B2.
 
-7. **State how the grade should bound downstream use.** `[reason][write]`
-   Translate the grade into action: e.g. a high-letter / low-number grade means
-   "do not act on this claim without further corroboration"; A1 means "safe to
-   rely on." The grade sets the ceiling on how the information may be used.
+## Step 7 — Bound downstream use (reason, write)
+Translate the combined grade into practical constraints, including whether the claim can be used, requires more corroboration, or should be withheld.
+
+## Evidence requirements
+- For Source Credibility Evaluation, tie each reliability grade, credibility grade, and usage bound claim to concrete evidence from the specific source, claim, and corroboration item, source excerpt, observation, or command result that supports it.
+- For Source Credibility Evaluation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the reliability grade.
+- Before recommending any Source Credibility Evaluation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Source Credibility Evaluation: the reliability grade is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; identify the source and its proximity and assess track record, motive, and independence checks agree, and no unresolved contradiction would change the result.
+- Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source source, comparison case, or alternative explanation remains incomplete.
+- Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Source Credibility Evaluation cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Source Credibility Evaluation, use only authorized source, claim, and corroboration, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Source Credibility Evaluation, minimize person-level detail in the reliability grade; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Source Credibility Evaluation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Source Credibility Evaluation: treating source as complete when identify the source and its proximity and assess track record, motive, and independence checks or contradictory evidence are missing.
+- Source Credibility Evaluation: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Source Credibility Evaluation: reporting the reliability grade without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Source Credibility Evaluation outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the reliability grade from Source Credibility Evaluation into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Source Credibility Evaluation to assess supplied material for manipulation indicators and recommend resilience measures with source, claim, and corroboration' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-
 - Do **not** conflate source reliability with claim credibility — never collapse
-  the two axes into a single judgment.
 - Do **not** let prestige, fame, or authority substitute for corroboration of
-  the specific claim.
 - Do **not** assign **A1** without genuine independent confirmation — A1
-  requires both a completely reliable source and a claim verified by separate,
-  independent sources.
 - Do **not** treat repetition or re-syndication of the same originating claim as
-  independent confirmation.
 
 ## AGEINT upstream
-
-This skill operationalizes material under `docs/ageint/` for the
-**cognitive-security** topic (source evaluation and verification discipline).
+`docs/ageint/cognitive-security.md`

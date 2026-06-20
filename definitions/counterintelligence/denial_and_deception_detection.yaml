@@ -1,0 +1,215 @@
+id: counterintelligence.denial_and_deception_detection
+description: Denial and Deception (D&D) detection applies counterintelligence logic
+  to assess whether an adversary is actively withholding information (denial) or fabricating/staging
+  evidence to mislead analysis (deception). The technique reverses the analyst's natural
+  posture — instead of asking 'what does the evidence tell us?', it asks 'what would
+  a rational deceiver need to hide or plant for us to reach this conclusion?' Introduced
+  systematically by Godson and Wirtz and codified by Heuer, it is the foundational
+  check against being manipulated through sources the analyst believes are reliable.
+tags:
+- cognitive-security
+- counterintelligence
+- deception-detection
+- source-integrity
+triggers:
+- could this be deception
+- denial and deception check
+- is this evidence planted
+- D&D analysis
+- are we being manipulated here
+- test for deception
+- adversary denial check
+tools:
+- verb: read
+  purpose: ingest the body of evidence under assessment, prior analytic judgments
+    built on it, and adversary capability profiles
+- verb: reason
+  purpose: 'apply the deceiver''s calculus: test what a motivated, capable adversary
+    would need to do to produce this evidence picture, and assess whether that scenario
+    is plausible'
+- verb: write
+  purpose: produce a D&D assessment with a deception-plausibility score, key deception
+    indicators, and recommended collection to resolve ambiguity
+inputs:
+- name: evidence_body
+  type: list
+  required: true
+  description: The body of information or intelligence under review — reports, data,
+    observations — that may be subject to adversary manipulation
+- name: current_assessment
+  type: text
+  required: true
+  description: The analytic judgment or conclusion currently supported by this evidence
+- name: adversary_profile
+  type: text
+  required: false
+  description: Known adversary capability, motivation, and history of D&D operations
+    against this or similar analytic processes
+outputs:
+- name: dd_assessment
+  type: markdown
+  description: 'Structured assessment: deception scenario(s) that would produce the
+    observed evidence, plausibility rating for each, and key observable differences
+    between the genuine and the deception scenario'
+- name: deception_indicators
+  type: table
+  description: Observable markers that would confirm or refute each deception hypothesis,
+    with current status (observed / not observed / unknown)
+- name: collection_recommendations
+  type: markdown
+  description: Prioritized gaps in collection that, if filled, would most sharply
+    discriminate between the genuine and the deception scenario
+references:
+- 'Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+  of Intelligence. (Chapter 12: Biases in Evaluation of Evidence).'
+- 'Godson, R. & Wirtz, J.J. (2000). ''Strategic Denial and Deception.'' International
+  Journal of Intelligence and Counterintelligence 13(4): 424-437.'
+- 'Whaley, B. (2007). Stratagem: Deception and Surprise in War. Artech House.'
+- 'Grabo, C.M. (2004). Anticipating Surprise: Analysis for Strategic Warning. University
+  Press of America.'
+- Jervis, R. (1976). Perception and Misperception in International Politics. Princeton
+  University Press. (Chapter 6).
+when_to_use:
+- a high-stakes assessment rests on evidence that an adversary had both motive and
+  opportunity to manipulate
+- evidence is unusually consistent or convenient — too clean a picture can be a signature
+  of staging
+- a prior analytic conclusion is later suspected of having been built on planted information
+- intelligence arrives through channels the adversary is known to have penetrated
+  or controlled
+what_it_produces:
+- an explicit deception scenario — what the adversary would have had to do to produce
+  this evidence — with a plausibility rating
+- a set of observable deception indicators and their current confirmed/unconfirmed/absent
+  status
+- targeted collection priorities that would most effectively discriminate a genuine
+  picture from a managed one
+key_discipline:
+- ask 'what would I see if this were deception?' before asking 'is this deception?'
+  — absence of deception indicators is not evidence of their absence, only evidence
+  you haven't looked
+- deception requires capability, motive, and opportunity; assess all three before
+  rating plausibility
+- the most dangerous deception scenarios are those where the deceived party has already
+  acted and is invested in the conclusion — look especially hard when the evidence
+  confirms a strongly held prior
+workflow_steps:
+- verbs:
+  - read
+  title: Characterize the evidence and the beneficiary
+  text: 'Document the full evidence body: each item, its source, how it entered the
+    collection pipeline, and when it arrived relative to the analytic cycle. Identify
+    who benefits most if the current assessment stands — that is the candidate deceiver.
+    Assess their known D&D history and capability to access or influence each source
+    channel.'
+- verbs:
+  - reason
+  title: Apply the deceiver's calculus
+  text: 'Construct one or more deception scenarios: for each, specify what the adversary
+    would need to (a) conceal (denial elements) and (b) fabricate or stage (deception
+    elements) to produce the observed evidence picture. Ask: is this technically feasible?
+    Would it require penetrating multiple independent sources simultaneously? What
+    would the adversary risk in mounting this operation?'
+- verbs:
+  - reason
+  title: Identify observable differences
+  text: 'For each deception scenario, list what would be observably different between
+    the real world and the managed scenario. These are the deception indicators. Check
+    each against existing collection: is it currently observed, absent, or unknown?
+    Note that absence of expected confirmatory evidence is itself a potential deception
+    indicator (''dog that didn''t bark'').'
+- verbs:
+  - reason
+  - write
+  title: Rate plausibility and flag the assessment
+  text: Score each deception scenario on adversary capability to execute, motive (what
+    they gain from our erroneous conclusion), opportunity (access to collection channels),
+    and the plausibility cost (how many improbable things must be simultaneously true).
+    Assign HIGH/MEDIUM/LOW deception plausibility. Flag the current analytic assessment
+    with the appropriate D&D caveat.
+- verbs:
+  - write
+  title: Prescribe discriminating collection
+  text: 'Output the deception indicators table and a prioritized collection plan.
+    Rank collection gaps by their discriminating power: which single piece of new
+    evidence would most sharply distinguish genuine from managed? Include recommendations
+    for accessing channels the adversary cannot realistically control.'
+anti_criteria:
+- do not dismiss a deception scenario solely because it would be 'too complicated'
+  — sophisticated adversaries routinely execute multi-year, multi-source denial and
+  deception operations
+- do not conflate low base rate of deception with low current probability — if adversary
+  motive and opportunity are present, base rates are not the right prior
+- do not allow the current assessment's investment — resources committed, policies
+  built on it — to suppress the D&D check; anchoring to sunk costs is a key adversary
+  exploitation target
+- do not treat a passed D&D check as permanent; circumstances change and an assessment
+  that was clean yesterday can be contaminated today
+defensive_boundary: 'Use Denial & Deception Detection only for counterintelligence
+  and analytic-process defense: recognize, assess, document, or defend analytic teams,
+  collection processes, and institutional trust boundaries. Do not use this skill
+  to evade detection, improve elicitation, profile targets for exploitation, or conceal
+  tradecraft.'
+misuse_redirect: 'If a request asks Denial & Deception Detection to evade detection,
+  improve elicitation, profile targets for exploitation, or conceal tradecraft, refuse
+  that path and redirect to the safe defensive form: review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators.'
+evidence_requirements:
+- For Denial & Deception Detection, tie each dd assessment, deception indicators,
+  and collection recommendations claim to concrete evidence from the specific evidence
+  body, current assessment, and adversary profile item, source excerpt, observation,
+  or command result that supports it.
+- For Denial & Deception Detection, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the dd
+  assessment.
+- Before recommending any Denial & Deception Detection action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Denial & Deception Detection: the dd assessment is supported by multiple
+  independent interaction records, process artifacts, deception indicators, and alternative
+  explanations; characterize the evidence and the beneficiary and apply the deceiver''s
+  calculus checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Denial & Deception Detection: the dd assessment is plausible, but one
+  important evidence body source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Denial & Deception Detection: the dd assessment rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Denial & Deception Detection cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating counterintelligence evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Denial & Deception Detection, use only authorized evidence body, current assessment,
+  and adversary profile, public or source-approved records, and caller-provided context
+  needed for the defensive task.
+- For Denial & Deception Detection, minimize person-level detail in the dd assessment;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Denial & Deception Detection, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Denial & Deception Detection: treating evidence body as complete when characterize
+  the evidence and the beneficiary and apply the deceiver''s calculus checks or contradictory
+  evidence are missing.'
+- 'Denial & Deception Detection: producing advice that would help a requester evade
+  detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.'
+- 'Denial & Deception Detection: reporting the dd assessment without uncertainty labels,
+  alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Denial & Deception Detection outputs to evade detection, improve
+  elicitation, profile targets for exploitation, or conceal tradecraft'' -> refuse
+  and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the dd assessment from Denial & Deception Detection into an operational
+  playbook to evade detection, improve elicitation, profile targets for exploitation,
+  or conceal tradecraft'' -> refuse and offer governance, detection, or mitigation
+  analysis.'
+- 'Safe defensive: ''Use Denial & Deception Detection to review supplied interactions
+  or processes for deception, elicitation, or insider-risk indicators with evidence
+  body, current assessment, and adversary profile'' -> produce bounded findings with
+  evidence and uncertainty labels.'

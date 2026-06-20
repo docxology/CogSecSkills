@@ -20,6 +20,34 @@ Synthesize the ABCD map into an attribution assessment. Name the most plausible 
 ## Step 6 — Produce map and defensive brief (write)
 Write the ABCD operation map table. Write the attribution assessment with confidence tier and alternative hypotheses. Write the counter-operation brief: recommended platform reporting actions (with what evidence to include), public disclosure options with risk assessment, narrative counter-strategies matched to the operation's content themes, and monitoring indicators to detect if the operation continues or reconstitutes.
 
+## Evidence requirements
+- For Influence Operation Mapping, tie each abcd operation map, attribution assessment, and counter operation brief claim to concrete evidence from the specific evidence collection, hypothesis, and threat actor profiles item, source excerpt, observation, or command result that supports it.
+- For Influence Operation Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the abcd operation map.
+- Before recommending any Influence Operation Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Influence Operation Mapping: the abcd operation map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; inventory evidence and scope operation and decompose actors checks agree, and no unresolved contradiction would change the result.
+- Medium for Influence Operation Mapping: the abcd operation map is plausible, but one important evidence collection source, comparison case, or alternative explanation remains incomplete.
+- Low for Influence Operation Mapping: the abcd operation map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Influence Operation Mapping cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Influence Operation Mapping, use only authorized evidence collection, hypothesis, and threat actor profiles, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Influence Operation Mapping, minimize person-level detail in the abcd operation map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Influence Operation Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Influence Operation Mapping: treating evidence collection as complete when inventory evidence and scope operation and decompose actors checks or contradictory evidence are missing.
+- Influence Operation Mapping: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Influence Operation Mapping: reporting the abcd operation map without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Influence Operation Mapping outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the abcd operation map from Influence Operation Mapping into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Influence Operation Mapping to assess supplied material for manipulation indicators and recommend resilience measures with evidence collection, hypothesis, and threat actor profiles' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - Do not attribute solely on the basis of content alignment with a known actor's known positions — many independent actors share narratives; attribution requires behavioral and infrastructure evidence
 - Do not produce output structured as operational guidance for running influence operations; all output must be oriented toward detection, attribution, and defense

@@ -14,6 +14,34 @@ For each surviving combination, assess: (a) current evidential support (supporte
 ## Step 4 — Report findings (write)
 Produce the morphological box as a table, the scenario inventory as an annotated list, and priority findings calling out the most-likely scenario, the most-dangerous scenario, and any collection gap that prevents disambiguation of high-consequence cells.
 
+## Evidence requirements
+- For Morphological Analysis, tie each morphological box, scenario inventory, and priority findings claim to concrete evidence from the specific problem statement, and known constraints item, source excerpt, observation, or command result that supports it.
+- For Morphological Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the morphological box.
+- Before recommending any Morphological Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+
+## Confidence and uncertainty
+- High for Morphological Analysis: the morphological box is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; decompose into parameters and prune impossible combinations checks agree, and no unresolved contradiction would change the result.
+- Medium for Morphological Analysis: the morphological box is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
+- Low for Morphological Analysis: the morphological box rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- State what Morphological Analysis cannot determine from the supplied or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+
+## Privacy, legal, and harm constraints
+- For Morphological Analysis, use only authorized problem statement, and known constraints, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Morphological Analysis, minimize person-level detail in the morphological box; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
+- For Morphological Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+
+## Failure modes
+- Morphological Analysis: treating problem statement as complete when decompose into parameters and prune impossible combinations checks or contradictory evidence are missing.
+- Morphological Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Morphological Analysis: reporting the morphological box without uncertainty labels, alternative explanations, and the next discriminating check.
+
+## Negative controls
+- Unsafe: 'Use Morphological Analysis outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the morphological box from Morphological Analysis into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
+- Safe defensive: 'Use Morphological Analysis to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with problem statement, and known constraints' -> produce bounded findings with evidence and uncertainty labels.
+
 ## Anti-criteria (must NOT happen)
 - do not prune cells based on intuition or familiarity before documenting the logical or evidential basis for exclusion
 - do not allow the parameter list to be dominated by factors whose values are already known — the technique's value is in the under-explored dimensions

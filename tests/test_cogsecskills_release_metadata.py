@@ -1,0 +1,87 @@
+from __future__ import annotations
+
+import json
+import shutil
+from pathlib import Path
+
+import yaml
+
+from cogsecskills.release_metadata import (
+    check_release_metadata,
+    write_release_metadata,
+)
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _copy_release_fixture(tmp_path: Path) -> Path:
+    for filename in ("pyproject.toml", "CITATION.cff", "codemeta.json", "LICENSE"):
+        shutil.copy2(PROJECT_ROOT / filename, tmp_path / filename)
+    for dirname in ("docs", "manuscript", "output", "figures"):
+        if (PROJECT_ROOT / dirname).exists():
+            shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
+    return tmp_path
+
+
+def test_release_metadata_write_and_check_local_mode(tmp_path):
+    root = _copy_release_fixture(tmp_path)
+
+    result = write_release_metadata(root)
+
+    assert result["mode"] == "local"
+    assert check_release_metadata(root) == []
+    markdown = (root / "docs" / "release-claim-matrix.md").read_text(encoding="utf-8")
+    payload = json.loads(
+        (root / "output" / "data" / "release_metadata.json").read_text(encoding="utf-8")
+    )
+    assert "does not publish" in markdown
+    assert payload["archive"]["status"] == "unavailable"
+    assert (
+        payload["repository"]["expected"] == "https://github.com/docxology/CogSecSkills"
+    )
+
+
+def test_release_metadata_detects_version_repo_and_license_drift(tmp_path):
+    root = _copy_release_fixture(tmp_path)
+    write_release_metadata(root)
+
+    cff_path = root / "CITATION.cff"
+    cff = yaml.safe_load(cff_path.read_text(encoding="utf-8"))
+    cff["version"] = "9.9.9"
+    cff_path.write_text(yaml.safe_dump(cff, sort_keys=False), encoding="utf-8")
+    findings = check_release_metadata(root)
+    assert any("version mismatch" in finding for finding in findings)
+
+    cff["version"] = "0.1.0"
+    cff["repository-code"] = "https://example.invalid/CogSecSkills"
+    cff_path.write_text(yaml.safe_dump(cff, sort_keys=False), encoding="utf-8")
+    findings = check_release_metadata(root)
+    assert any("repository URL mismatch" in finding for finding in findings)
+
+    cff["repository-code"] = "https://github.com/docxology/CogSecSkills"
+    cff["license"] = "Proprietary"
+    cff_path.write_text(yaml.safe_dump(cff, sort_keys=False), encoding="utf-8")
+    findings = check_release_metadata(root)
+    assert any("CITATION.cff license" in finding for finding in findings)
+
+
+def test_release_metadata_public_archive_mode_requires_real_archive(tmp_path):
+    root = _copy_release_fixture(tmp_path)
+    write_release_metadata(root)
+
+    findings = check_release_metadata(root, mode="public-archive")
+
+    assert any(
+        "public-archive mode requires a real DOI" in finding for finding in findings
+    )
+
+
+def test_cli_release_metadata_write_and_check(tmp_path, capsys):
+    from cogsecskills.cli import main
+
+    root = _copy_release_fixture(tmp_path)
+    assert main(["--root", str(root), "release-metadata", "--write"]) == 0
+    assert "wrote release metadata" in capsys.readouterr().out
+    assert main(["--root", str(root), "release-metadata", "--check"]) == 0
+    assert "release metadata is current" in capsys.readouterr().out

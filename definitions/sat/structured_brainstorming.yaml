@@ -1,0 +1,185 @@
+id: sat.structured_brainstorming
+description: Structured Brainstorming is a two-phase diverge-then-converge technique
+  that separates unconstrained idea generation from critical evaluation to prevent
+  anchoring, groupthink, and premature convergence on the most socially acceptable
+  or seniority-endorsed hypothesis. The divergence phase enforces deferral of judgment
+  while the convergence phase uses explicit criteria to cluster, rank, and discard
+  ideas. In cognitive-security analysis it surfaces hypotheses and threat vectors
+  that a linear, hierarchical review would suppress, and the explicit anti-anchoring
+  steps protect against an adversary's ability to pre-seed the analytic frame.
+tags:
+- cognitive-security
+- sat
+- divergent-thinking
+triggers:
+- brainstorm
+- structured brainstorming
+- generate hypotheses
+- diverge then converge
+- what are all the possibilities
+tools:
+- verb: read
+  purpose: ingest the problem statement and any prior analytic framing to be deliberately
+    set aside during divergence
+- verb: reason
+  purpose: execute the divergence phase (unconstrained ideation) and convergence phase
+    (criteria-based clustering and ranking)
+- verb: ask
+  purpose: elicit additional ideas from the analyst when the divergence phase appears
+    to be closing prematurely
+- verb: write
+  purpose: produce the raw idea inventory, clustered groupings, ranked shortlist,
+    and discarded-but-documented ideas
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: the question, challenge, or hypothesis space to be explored
+- name: prior_framing
+  type: text
+  required: false
+  description: existing analysis or dominant hypothesis the team holds, to be explicitly
+    set aside during divergence
+- name: convergence_criteria
+  type: list
+  required: false
+  description: criteria for ranking ideas in the convergence phase (e.g., plausibility,
+    novelty, threat severity); if omitted the agent proposes criteria
+outputs:
+- name: raw_idea_inventory
+  type: markdown
+  description: the full unconstrained list of ideas generated in the divergence phase,
+    unfiltered
+- name: ranked_shortlist
+  type: table
+  description: clustered and ranked ideas from the convergence phase with rationale
+    for ranking and notes on discarded ideas
+references:
+- 'Osborn, A. F. (1953). Applied Imagination: Principles and Procedures of Creative
+  Problem-Solving. Scribner.'
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Ch. 3.
+- Pherson, R. H., & Pherson, K. H. (2020). Analytic Writing Guide. Pherson Associates.
+when_to_use:
+- the problem space has not been rigorously scoped and unknown hypotheses may have
+  been missed
+- a dominant hypothesis has hardened in the analytic team and alternative possibilities
+  are being systematically overlooked
+- an adversary may have deliberately seeded a single compelling narrative to anchor
+  analytic attention
+- planning stage of a complex investigation where the hypothesis list is the first
+  deliverable
+what_it_produces:
+- a raw, unconstrained idea inventory that captures every plausible hypothesis or
+  option before filtering
+- a convergence output with ideas clustered by theme, ranked by stated criteria, and
+  a record of discarded ideas and the reasons for discarding them
+key_discipline:
+- no criticism, evaluation, or ranking is permitted during the divergence phase —
+  deferral of judgment is the technique's core mechanism
+- 'quantity of ideas in divergence is a feature: more ideas reduce the probability
+  that the best one was anchored out'
+- every discarded idea from convergence must be recorded with an explicit reason —
+  silent omission is how groupthink re-enters
+workflow_steps:
+- verbs:
+  - read
+  title: Frame the problem and set aside prior framing
+  text: Read the problem statement. If prior analytic framing exists, note it explicitly
+    and declare it suspended for the divergence phase. Doing so acknowledges the anchor
+    without being constrained by it.
+- verbs:
+  - reason
+  - ask
+  title: 'Diverge: unconstrained idea generation'
+  text: 'Generate every plausible idea, hypothesis, threat vector, or option, including
+    low-probability ones. Defer all judgment. If idea flow is drying up early, ask
+    the analyst: ''What would an adversary want us not to think of here?'' and ''What
+    assumption would have to be wrong for a completely different hypothesis to be
+    correct?'''
+- verbs:
+  - reason
+  title: Cluster and apply convergence criteria
+  text: Group ideas by theme or type. Apply the convergence criteria to rank clusters
+    and individual ideas. Explicitly flag ideas that are novel but low-probability
+    — they belong in the output even if not in the shortlist.
+- verbs:
+  - write
+  title: Produce raw inventory and ranked shortlist
+  text: Emit the complete raw idea inventory (divergence output) and the ranked shortlist
+    table (convergence output). For every idea excluded from the shortlist, write
+    a one-line reason. Note any idea suppressed by social or hierarchical pressure
+    that re-emerged during the structured process.
+anti_criteria:
+- do not allow criticism, ranking, or comparative judgment during the divergence phase
+  — even implicit facial reactions that signal 'that is a bad idea' violate the technique
+- do not allow the prior dominant hypothesis to appear first in the divergence list;
+  it anchors generation — introduce it mid-list or randomize order
+- do not omit discarded ideas from the written output; they must appear with explicit
+  rejection rationale so reviewers can challenge the convergence step
+defensive_boundary: 'Use Structured Brainstorming only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Structured Brainstorming to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Structured Brainstorming, tie each raw idea inventory, and ranked shortlist
+  claim to concrete evidence from the specific problem statement, prior framing, and
+  convergence criteria item, source excerpt, observation, or command result that supports
+  it.
+- For Structured Brainstorming, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the raw
+  idea inventory.
+- Before recommending any Structured Brainstorming action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Structured Brainstorming: the raw idea inventory is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; frame the problem and set aside prior framing and diverge: unconstrained
+  idea generation checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Structured Brainstorming: the raw idea inventory is plausible, but one
+  important problem statement source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Structured Brainstorming: the raw idea inventory rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Structured Brainstorming cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Structured Brainstorming, use only authorized problem statement, prior framing,
+  and convergence criteria, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Structured Brainstorming, minimize person-level detail in the raw idea inventory;
+  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
+  individual is essential to the defensive question.
+- For Structured Brainstorming, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Structured Brainstorming: treating problem statement as complete when frame the
+  problem and set aside prior framing and diverge: unconstrained idea generation checks
+  or contradictory evidence are missing.'
+- 'Structured Brainstorming: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Structured Brainstorming: reporting the raw idea inventory without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Structured Brainstorming outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the raw idea inventory from Structured Brainstorming into an
+  operational playbook to force a preferred conclusion, hide uncertainty, or use the
+  technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Structured Brainstorming to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with problem
+  statement, prior framing, and convergence criteria'' -> produce bounded findings
+  with evidence and uncertainty labels.'

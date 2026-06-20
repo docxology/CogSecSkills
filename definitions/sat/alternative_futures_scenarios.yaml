@@ -1,0 +1,212 @@
+id: sat.alternative_futures_scenarios
+description: Alternative Futures Analysis (Scenarios) constructs a small set of mutually
+  exclusive, collectively exhaustive futures defined by the intersection of critical
+  uncertainties, forcing analysts and decision-makers to reason beyond the single
+  most-likely-outcome trap. Rooted in the RAND/Shell scenario planning tradition and
+  codified for intelligence analysis by Heuer & Pherson, the technique stresses strategy
+  against each scenario and surfaces indicators that discriminate between them. It
+  counters anchoring, mirror-imaging, and surprise-aversion by keeping multiple divergent
+  worlds simultaneously in view.
+tags:
+- cognitive-security
+- sat
+- scenario-planning
+- uncertainty-management
+triggers:
+- alternative futures
+- scenario planning
+- what if the future goes differently
+- stress-test our strategy
+- multiple worlds
+- build scenarios around uncertainties
+tools:
+- verb: read
+  purpose: ingest the problem statement, known drivers, and existing assessments
+- verb: reason
+  purpose: identify critical uncertainties, construct scenario axes, populate each
+    future, and derive indicators
+- verb: write
+  purpose: produce the scenario matrix, narrative descriptions, strategy stress-test,
+    and indicator list
+inputs:
+- name: problem_statement
+  type: text
+  required: true
+  description: The focal question or decision for which futures are needed
+- name: known_drivers
+  type: list
+  required: false
+  description: Trends, forces, or variables already identified as relevant to the
+    outcome
+- name: current_assessment
+  type: text
+  required: false
+  description: Existing baseline or single-point forecast to be stress-tested
+outputs:
+- name: scenario_matrix
+  type: table
+  description: 2x2 (or similar) matrix cross-tabulating the two most critical, independent
+    uncertainties defining the scenario space
+- name: scenario_narratives
+  type: markdown
+  description: A brief, vivid narrative for each scenario quadrant describing its
+    internal logic and key features
+- name: indicator_set
+  type: table
+  description: Observable indicators that would signal which scenario is emerging,
+    including discriminating signals unique to each
+- name: strategy_stress_test
+  type: markdown
+  description: Assessment of how well the current strategy or plan performs under
+    each scenario
+references:
+- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). CQ Press. Chapter on Alternative Futures Analysis.
+- 'Schwartz, P. (1991). The Art of the Long View: Planning for the Future in an Uncertain
+  World. Doubleday.'
+- 'Van der Heijden, K. (1996). Scenarios: The Art of Strategic Conversation. Wiley.'
+- Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
+  Associates.
+when_to_use:
+- The situation involves high uncertainty across two or more independent dimensions
+  where the outcome could diverge sharply
+- Decision-makers need to stress-test a strategy or plan against multiple possible
+  futures rather than optimizing for one
+- An existing single-point forecast may be anchoring analysis and suppressing consideration
+  of tail risks
+- Early-warning indicators are needed to detect which future is emerging before it
+  is confirmed
+what_it_produces:
+- A structured set of 2–4 distinct, plausible futures organized around the most critical
+  uncertainties
+- A scenario matrix making the logic of each future transparent and comparable
+- A discriminating indicator list enabling real-time tracking of which scenario is
+  unfolding
+- An explicit record of strategy vulnerabilities exposed under each alternative world
+key_discipline:
+- Select uncertainty axes that are genuinely independent and truly uncertain — not
+  disguised probability estimates dressed as scenarios
+- Each scenario must be internally coherent and plausible, not merely a best-case
+  / worst-case / status-quo triplet
+- Indicators must discriminate between scenarios — a signal that is consistent with
+  all scenarios has no diagnostic value
+- 'The technique''s primary value is cognitive: holding multiple futures simultaneously
+  forces the analyst off the single-outcome default'
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Identify critical uncertainties
+  text: Review the problem statement and known drivers. Through structured brainstorming
+    (e.g., sticky-note diverge-converge), identify the forces most likely to determine
+    the outcome and most uncertain in direction. Select the two that are (a) most
+    impactful and (b) most independent of each other to serve as scenario axes.
+- verbs:
+  - reason
+  title: Construct the scenario matrix
+  text: 'Place the two chosen uncertainties on perpendicular axes with their extreme
+    poles labeled. The four quadrants define four distinct alternative futures. Name
+    each scenario memorably (evocative label, not ''Scenario A''). Confirm each is
+    internally coherent: does a world where axis-1 is high and axis-2 is low make
+    logical sense?'
+- verbs:
+  - reason
+  - write
+  title: Populate scenario narratives
+  text: 'For each quadrant, write a brief (one-paragraph) narrative describing what
+    the world looks like in that future: key actors, conditions, dynamics, and consequences
+    for the focal question. Include a date or time horizon. Ensure each narrative
+    is distinct — if two quadrants feel similar, the axes may not be truly independent.'
+- verbs:
+  - reason
+  - write
+  title: Derive discriminating indicators
+  text: 'For each scenario, identify 3–5 observable signals that would be present
+    in that world but absent or weak in others. Prioritize leading indicators over
+    lagging. Compile into a tracking table: indicator, which scenario(s) it favors,
+    current status, and collection priority.'
+- verbs:
+  - reason
+  - write
+  title: Stress-test strategy and document
+  text: 'Evaluate the current strategy or plan against each scenario: Where does it
+    succeed? Where does it fail? Identify robust actions (effective across all or
+    most scenarios) and fragile actions (optimal only in the assumed-most-likely scenario).
+    Write the final deliverable: matrix, narratives, indicator table, and strategy
+    assessment.'
+anti_criteria:
+- Do not construct scenarios as best-case / worst-case / most-likely — this is a disguised
+  single-point forecast, not genuine alternatives
+- Do not assign probabilities to scenarios during construction; probability assignment
+  reintroduces the anchoring the technique is designed to defeat
+- Do not let the 'most likely' scenario receive disproportionate narrative detail,
+  as this biases consumers back toward single-outcome thinking
+- Do not skip the indicator step — scenarios without discriminating signals cannot
+  be operationally monitored
+defensive_boundary: 'Use Alternative Futures (Scenarios) only for structured analytic
+  technique support: recognize, assess, document, or defend analytic rigor, alternative
+  hypotheses, and calibrated judgment. Do not use this skill to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Alternative Futures (Scenarios) to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Alternative Futures (Scenarios), tie each scenario matrix, scenario narratives,
+  and indicator set claim to concrete evidence from the specific problem statement,
+  known drivers, and current assessment item, source excerpt, observation, or command
+  result that supports it.
+- For Alternative Futures (Scenarios), label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the scenario
+  matrix.
+- Before recommending any Alternative Futures (Scenarios) action, identify the weakest
+  evidence link, the alternative most likely to overturn it, and the next discriminating
+  check.
+confidence_rubric:
+- 'High for Alternative Futures (Scenarios): the scenario matrix is supported by multiple
+  independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; identify critical uncertainties and construct the scenario matrix checks
+  agree, and no unresolved contradiction would change the result.'
+- 'Medium for Alternative Futures (Scenarios): the scenario matrix is plausible, but
+  one important problem statement source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Alternative Futures (Scenarios): the scenario matrix rests on sparse, single-source,
+  contested, or mostly inferential evidence; keep the result provisional and list
+  the next check.'
+uncertainty_handling:
+- State what Alternative Futures (Scenarios) cannot determine from the supplied or
+  authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Alternative Futures (Scenarios), use only authorized problem statement, known
+  drivers, and current assessment, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Alternative Futures (Scenarios), minimize person-level detail in the scenario
+  matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless
+  an individual is essential to the defensive question.
+- For Alternative Futures (Scenarios), do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Alternative Futures (Scenarios): treating problem statement as complete when identify
+  critical uncertainties and construct the scenario matrix checks or contradictory
+  evidence are missing.'
+- 'Alternative Futures (Scenarios): producing advice that would help a requester force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Alternative Futures (Scenarios): reporting the scenario matrix without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Alternative Futures (Scenarios) outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the scenario matrix from Alternative Futures (Scenarios) into
+  an operational playbook to force a preferred conclusion, hide uncertainty, or use
+  the technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Alternative Futures (Scenarios) to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with problem
+  statement, known drivers, and current assessment'' -> produce bounded findings with
+  evidence and uncertainty labels.'

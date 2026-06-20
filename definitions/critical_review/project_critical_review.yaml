@@ -1,0 +1,229 @@
+id: critical_review.project_critical_review
+description: The flagship critical-review skill. It reviews a project — codebase,
+  research project, or initiative — by first MAPPING what the project claims and how
+  it is built, then running an ADVERSARIAL pass that attacks every load-bearing claim
+  for missing evidence, silent-failure and dual-use risk, and unstated assumptions,
+  followed by a CONSTRUCTIVE pass that names genuine strengths and the cheapest fix
+  for each top risk. Findings are classified by severity and confidence, every finding
+  is bound to evidence (file:line or command output), and the project's own tests
+  and gates are run to confirm they actually have teeth before any "all passing" claim
+  is trusted. The product is a BLUF report with a calibrated go/no-go recommendation
+  and the top three things to fix first.
+tags:
+- critical-review
+- assurance
+- red-team
+- go-no-go
+triggers:
+- critical review
+- review this project
+- red team this project
+- go/no-go
+- is this ready to ship
+- audit this project
+- claims vs evidence
+- what are the risks here
+tools:
+- verb: read
+  purpose: ingest the artifact — code, manuscript, docs, configs, test files
+- verb: search
+  purpose: locate load-bearing claims, gates, and the evidence (or its absence)
+- verb: exec
+  purpose: run the project's own tests/gates to check they have teeth
+- verb: reason
+  purpose: run the adversarial and constructive passes and calibrate severity
+- verb: write
+  purpose: emit the BLUF report, findings table, and go/no-go recommendation
+inputs:
+- name: artifact
+  type: path
+  required: true
+  description: the project root, repo, manuscript, or directory under review
+- name: decision
+  type: text
+  required: false
+  description: the decision the review informs (ship, merge, fund, publish)
+- name: success_criteria
+  type: list[str]
+  required: false
+  description: what "good enough" means for this decision; inferred if omitted
+outputs:
+- name: report
+  type: markdown
+  description: BLUF report with map, findings, strengths, and recommendation
+- name: findings
+  type: table
+  description: each finding with severity, confidence, and evidence (file:line)
+- name: recommendation
+  type: markdown
+  description: calibrated go/no-go plus the top three things to fix first
+references:
+- Heuer & Pherson (2014). Structured Analytic Techniques — challenge analysis & structured
+  self-critique.
+- Google SRE (2017). Site Reliability Engineering — testing reliability & 'is the
+  test actually testing?'.
+when_to_use:
+- A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong
+- A project reports "all tests passing / everything works" and you need to know
+- You inherited a codebase, manuscript, or initiative and must form an honest
+what_it_produces:
+- BLUF report with map, findings, strengths, and recommendation
+- each finding with severity, confidence, and evidence (file:line)
+- calibrated go/no-go plus the top three things to fix first
+key_discipline:
+- '**Bind every finding to evidence.** A claimed defect with no file:line or no'
+- '**Verify-the-verifier.** A green test suite that stays green when you inject a'
+- '**Calibrate severity and confidence separately.** Severity is "how bad if'
+- '**The constructive pass does not launder the critical pass.** Strengths are'
+- '**Distrust self-report.** "All passing" is a claim about a process; reproduce'
+workflow_steps:
+- verbs:
+  - read
+  - reason
+  title: Scope the review
+  text: "Pin down three things before reading anything else:\n- **Artifact** — what\
+    \ exactly is under review (repo root, manuscript, subsystem).\n- **Decision**\
+    \ — what call this review informs (ship / merge / fund / publish).\n  The decision\
+    \ sets the bar: a research-preview bar is not a production bar.\n- **Success criteria**\
+    \ — what \"good enough\" means for *this* decision. If the\n  caller did not supply\
+    \ them, infer them, state them explicitly, and proceed.\nOut-of-scope must be\
+    \ named too, so the review cannot be blamed for missing it."
+- verbs:
+  - read
+  - search
+  title: MAP the project
+  text: "Build a factual map with no judgement yet:\n- **Purpose** — what problem\
+    \ it claims to solve.\n- **Load-bearing claims** — the handful of assertions the\
+    \ project's value rests\n  on (\"X is correct\", \"Y is fast\", \"Z is secure\"\
+    , \"all gates pass\"). List them.\n- **Architecture & deliverables** — the real\
+    \ components, entry points, outputs,\n  and where the tests/gates live. Record\
+    \ file paths now; you will cite them later."
+- verbs:
+  - reason
+  - search
+  - read
+  title: ADVERSARIAL pass
+  text: "For **each load-bearing claim**, attack it on four axes. Bind every hit to\n\
+    evidence (file:line, config value, or command output):\n- **Strongest reason it's\
+    \ wrong** — the most credible failure of the claim, not\n  a strawman.\n- **Missing\
+    \ evidence** — what would have to be true for the claim to hold, and\n  whether\
+    \ that evidence actually exists in the repo. Absence is a finding.\n- **Silent-failure\
+    \ risk** — code/paths that swallow errors, fall back quietly,\n  or pass when\
+    \ they should fail (`except: pass`, `|| true`, `2>/dev/null`,\n  vacuous/empty-scan\
+    \ gates, green-by-construction tests).\n- **Dual-use / misuse risk** — how a correct-looking\
+    \ capability could be turned\n  to harm or be abused, and whether anything constrains\
+    \ it.\nRecord each as a candidate finding with a draft severity and a draft confidence."
+- verbs:
+  - reason
+  title: CONSTRUCTIVE pass
+  text: "Now switch stance. For the same project:\n- **Genuine strengths** — what\
+    \ is actually solid and must be preserved (do not\n  invent these; a thin project\
+    \ gets a short list).\n- **Cheapest fix per top risk** — for each high/critical\
+    \ finding, the smallest\n  change that retires or de-risks it. Prefer fixes that\
+    \ add teeth (a failing\n  test, a fail-closed guard) over fixes that only add\
+    \ prose.\nThe constructive pass produces remedies; it must not rewrite or soften\
+    \ any\nfinding's severity."
+- verbs:
+  - reason
+  title: Classify findings
+  text: "Assign every finding a **severity** and a **confidence** using the rubric\
+    \ below.\nKeep them independent — a finding can be critical-severity / low-confidence.\n\
+    \n**Severity**\n- **Critical** — blocks the decision; failure causes data loss,\
+    \ security breach,\n  invalid headline result, or a false \"it works\" claim shipping.\n\
+    - **High** — likely to cause real harm or rework; not an automatic blocker but\n\
+    \  must be addressed before the decision or explicitly accepted in writing.\n\
+    - **Medium** — real defect/gap with bounded blast radius; schedule a fix.\n- **Low**\
+    \ — minor, cosmetic, or stylistic; note and move on.\n\n**Confidence**\n- **High**\
+    \ — reproduced; evidence is direct (failing run, file:line proof).\n- **Medium**\
+    \ — strong inference from evidence, not yet reproduced.\n- **Low** — plausible\
+    \ hypothesis; flag as *needs verification*, never as fact."
+- verbs:
+  - exec
+  - read
+  title: Verify-the-verifier
+  text: "Do not trust \"all passing.\" **Run the project's own tests/gates** and confirm\n\
+    they have teeth:\n- Execute the suite / gate and capture the real output (not\
+    \ the README's claim).\n- **Inject one realistic defect** into a load-bearing\
+    \ path (flip a constant,\n  break an assertion's target, corrupt one input) and\
+    \ re-run — a real gate must\n  now **fail**. If it stays green, the gate is vacuous:\
+    \ that is itself a\n  **critical** finding. Revert the injection.\n- Note any\
+    \ gate that is skipped, tolerated, or reports `skipped`/empty-scan as\n  \"clean\"\
+    \ — those are unverified, not passing."
+- verbs:
+  - write
+  title: Deliver the BLUF report
+  text: "Lead with the bottom line. Emit, in order:\n1. **BLUF** — one paragraph:\
+    \ the recommendation and why, up front.\n2. **Recommendation** — **GO / NO-GO\
+    \ / GO-WITH-CONDITIONS**, calibrated, with\n   the conditions made explicit if\
+    \ conditional.\n3. **Top 3 to fix first** — ranked, each with its cheapest fix.\n\
+    4. **Findings table** — severity, confidence, evidence (file:line / command),\n\
+    \   and remedy for each.\n5. **Strengths** — what to preserve.\n6. **Verify-the-verifier\
+    \ result** — did the injected defect get caught?\n7. **Scope & success criteria**\
+    \ — what was and was not reviewed."
+anti_criteria:
+- Vague "looks good" / "seems solid" praise with no evidence behind it.
+- Asserting a defect without binding it to file:line or reproduced output.
+- Letting the constructive pass soften, merge away, or bury a critical finding.
+- Trusting a self-reported "all passing" without running the gate yourself.
+- Reporting a gate as a safeguard without checking it fails on an injected defect.
+- Conflating severity with confidence (e.g. downgrading a critical risk just
+defensive_boundary: 'Use Project Critical Review only for critical review and assurance:
+  recognize, assess, document, or defend evidence quality, implementation integrity,
+  and decision accountability. Do not use this skill to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation.'
+misuse_redirect: 'If a request asks Project Critical Review to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation, refuse
+  that path and redirect to the safe defensive form: review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures.'
+evidence_requirements:
+- For Project Critical Review, tie each report, findings, and recommendation claim
+  to concrete evidence from the specific artifact, decision, and success criteria
+  item, source excerpt, observation, or command result that supports it.
+- For Project Critical Review, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the report.
+- Before recommending any Project Critical Review action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Project Critical Review: the report is supported by multiple independent
+  artifact excerpts, test output, citations, assumptions, and reproducibility records;
+  scope the review and map the project checks agree, and no unresolved contradiction
+  would change the result.'
+- 'Medium for Project Critical Review: the report is plausible, but one important
+  artifact source, comparison case, or alternative explanation remains incomplete.'
+- 'Low for Project Critical Review: the report rests on sparse, single-source, contested,
+  or mostly inferential evidence; keep the result provisional and list the next check.'
+uncertainty_handling:
+- State what Project Critical Review cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating critical_review evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Project Critical Review, use only authorized artifact, decision, and success
+  criteria, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Project Critical Review, minimize person-level detail in the report; prefer
+  aggregate, artifact-level, role-level, or case-level summaries unless an individual
+  is essential to the defensive question.
+- For Project Critical Review, do not infer protected traits, private identity, intent,
+  location, legal culpability, or platform account ownership beyond the supplied and
+  authorized evidence.
+failure_modes:
+- 'Project Critical Review: treating artifact as complete when scope the review and
+  map the project checks or contradictory evidence are missing.'
+- 'Project Critical Review: producing advice that would help a requester launder weak
+  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Project Critical Review: reporting the report without uncertainty labels, alternative
+  explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Project Critical Review outputs to launder weak claims, fabricate
+  review findings, or produce exploit guidance without mitigation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the report from Project Critical Review into an operational playbook
+  to launder weak claims, fabricate review findings, or produce exploit guidance without
+  mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Safe defensive: ''Use Project Critical Review to review supplied artifacts for
+  defects, evidence gaps, safety risks, or reproducibility failures with artifact,
+  decision, and success criteria'' -> produce bounded findings with evidence and uncertainty
+  labels.'

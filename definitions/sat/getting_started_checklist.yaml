@@ -1,0 +1,185 @@
+id: sat.getting_started_checklist
+description: The Getting Started Checklist is a structured analytic technique that
+  disciplines analysts to articulate the core question, identify key drivers, surface
+  explicit assumptions, and inventory prior judgments before any substantive analysis
+  begins. It counteracts anchoring and premature closure by creating a documented
+  baseline against which later reasoning can be compared. The checklist operationalizes
+  the discipline of separating problem framing from problem solving, a foundational
+  step in the Heuer-Pherson SAT family.
+tags:
+- cognitive-security
+- sat
+- framing
+- analytical-discipline
+triggers:
+- where do I start
+- frame this analytic task
+- getting started checklist
+- how do I set up this analysis
+- what is the core question
+tools:
+- verb: read
+  purpose: ingest the raw analytic request, available background material, and any
+    prior assessments
+- verb: ask
+  purpose: clarify the consumer's key questions and decision needs when the tasking
+    is ambiguous
+- verb: reason
+  purpose: 'identify and make explicit: the primary analytic question, key drivers,
+    stated and unstated assumptions, and pre-existing judgments'
+- verb: write
+  purpose: produce the completed checklist as a structured baseline document
+inputs:
+- name: analytic_task
+  type: text
+  required: true
+  description: the analytic request, intelligence requirement, or decision problem
+    to be scoped
+- name: background_material
+  type: text
+  required: false
+  description: any prior reports, assessments, or briefings already in hand
+outputs:
+- name: getting_started_baseline
+  type: markdown
+  description: 'a structured document recording: restated primary question, subordinate
+    questions, key drivers, explicit assumptions and their confidence levels, prior
+    analytic judgments, and gaps identified before analysis begins'
+references:
+- Heuer, R. J., Jr., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press/SAGE. Chapter 2, 'Getting Started Checklist'.
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). CQ Press/SAGE.
+- Chang, W., Berdini, E., Mandel, D. R., & Tetlock, P. E. (2018). Restructuring structured
+  analytic techniques in intelligence. Intelligence and National Security, 33(3),
+  337-356.
+when_to_use:
+- at the very start of any analytic task before research or drafting begins
+- when the question feels confused or the consumer's actual need is unclear
+- when a team needs a shared, explicit problem statement to coordinate work
+- when reviewing an inherited or ongoing assessment to check framing drift
+what_it_produces:
+- an explicit primary question in one answerable sentence
+- a list of key drivers — variables whose state most affects the answer
+- a register of assumptions with their confidence levels
+- a log of prior judgments that could anchor subsequent reasoning
+- 'a gap list: information needed but not yet available'
+key_discipline:
+- state the question in one sentence before doing anything else — vague questions
+  produce vague answers
+- distinguish drivers (variables) from assumptions (things treated as true but unverified)
+- log prior judgments explicitly so anchoring bias can be recognized and controlled
+- the checklist is a living document — revisit it when new information reframes the
+  problem
+workflow_steps:
+- verbs:
+  - read
+  - ask
+  title: Capture the tasking
+  text: Read the analytic request and any background material. If the consumer's actual
+    decision need is unclear, ask targeted clarifying questions. Resist beginning
+    substantive research until the question is explicit.
+- verbs:
+  - reason
+  title: Articulate the primary question and subordinate questions
+  text: Restate the primary analytic question in one precise, answerable sentence.
+    Break it into subordinate questions that, when answered, will resolve the primary.
+    Identify the time horizon and the relevant actor or domain.
+- verbs:
+  - reason
+  title: Identify key drivers
+  text: List the variables whose values most determine the answer. For each driver,
+    note its current estimated state and the direction of change that would shift
+    the analytic outcome most significantly.
+- verbs:
+  - reason
+  title: Surface assumptions
+  text: Enumerate assumptions — things being treated as true without verification.
+    Rate each assumption for confidence (high/medium/low) and note what evidence would
+    challenge it. Flag any assumption whose failure would overturn the analysis.
+- verbs:
+  - reason
+  title: Log prior judgments
+  text: Record any prior analytic judgments — published or informal — about the topic.
+    Note who held them, on what evidence, and how strongly. These are anchors to be
+    tested, not necessarily adopted.
+- verbs:
+  - write
+  title: Produce the baseline checklist
+  text: 'Compile the above into a structured baseline document: primary question,
+    subordinate questions, drivers, assumptions register, prior judgments log, and
+    a gaps list. This document is the analytic contract for the work that follows.'
+anti_criteria:
+- do not begin substantive research or drafting before the primary question is written
+  down in one sentence
+- do not treat prior judgments as authoritative starting points — log them as potential
+  anchors
+- do not skip the assumptions register when the problem feels straightforward — that
+  intuition is itself an assumption
+- do not conflate drivers (variables to be tracked) with assumptions (claims accepted
+  without current verification)
+defensive_boundary: 'Use Getting Started Checklist only for structured analytic technique
+  support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
+  and calibrated judgment. Do not use this skill to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation.'
+misuse_redirect: 'If a request asks Getting Started Checklist to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation,
+  refuse that path and redirect to the safe defensive form: apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty.'
+evidence_requirements:
+- For Getting Started Checklist, tie each getting started baseline claim to concrete
+  evidence from the specific analytic task, and background material item, source excerpt,
+  observation, or command result that supports it.
+- For Getting Started Checklist, label observations, derived features, assumptions,
+  inferences, contradictions, and missing inputs separately before writing the getting
+  started baseline.
+- Before recommending any Getting Started Checklist action, identify the weakest evidence
+  link, the alternative most likely to overturn it, and the next discriminating check.
+confidence_rubric:
+- 'High for Getting Started Checklist: the getting started baseline is supported by
+  multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence
+  notes; capture the tasking and articulate the primary question and subordinate questions
+  checks agree, and no unresolved contradiction would change the result.'
+- 'Medium for Getting Started Checklist: the getting started baseline is plausible,
+  but one important analytic task source, comparison case, or alternative explanation
+  remains incomplete.'
+- 'Low for Getting Started Checklist: the getting started baseline rests on sparse,
+  single-source, contested, or mostly inferential evidence; keep the result provisional
+  and list the next check.'
+uncertainty_handling:
+- State what Getting Started Checklist cannot determine from the supplied or authorized
+  evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating sat evidence to collect when confidence is low
+  or medium.
+privacy_legal_constraints:
+- For Getting Started Checklist, use only authorized analytic task, and background
+  material, public or source-approved records, and caller-provided context needed
+  for the defensive task.
+- For Getting Started Checklist, minimize person-level detail in the getting started
+  baseline; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Getting Started Checklist, do not infer protected traits, private identity,
+  intent, location, legal culpability, or platform account ownership beyond the supplied
+  and authorized evidence.
+failure_modes:
+- 'Getting Started Checklist: treating analytic task as complete when capture the
+  tasking and articulate the primary question and subordinate questions checks or
+  contradictory evidence are missing.'
+- 'Getting Started Checklist: producing advice that would help a requester force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Getting Started Checklist: reporting the getting started baseline without uncertainty
+  labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Getting Started Checklist outputs to force a preferred conclusion,
+  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
+  redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the getting started baseline from Getting Started Checklist into
+  an operational playbook to force a preferred conclusion, hide uncertainty, or use
+  the technique to rationalize manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Getting Started Checklist to apply the structured technique
+  to supplied evidence while preserving alternatives and uncertainty with analytic
+  task, and background material'' -> produce bounded findings with evidence and uncertainty
+  labels.'

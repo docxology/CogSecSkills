@@ -1,25 +1,17 @@
 # Hermes adapter — Key Assumptions Check
 
-Binds the neutral `skill.yaml` tool verbs to a Hermes-style tool-calling agent
-(JSON function-calling loop). Follow `../workflow.md`.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
-| Neutral verb | Hermes tool (function call) | Notes |
-|--------------|-----------------------------|-------|
-| `read`   | `fs.read` / context payload | The judgment and analytic line are supplied in the prompt or via a read tool. |
-| `reason` | private model reasoning | Surface unstated assumptions, interrogate each, classify, and report concise rationale. |
-| `write`  | `fs.write` or final message | Emit the Markdown assumptions table + key flags + revised judgment. |
-
-`web.search` / `kb.query` are optional aids for reasoning about contrary
-conditions; degrade gracefully if unavailable.
+| Neutral verb | Hermes tool | Notes |
+| --- | --- | --- |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
-Register the six workflow steps as the system/developer instruction. Hermes emits
-one `fs.read`/`fs.write` tool call where a tool is needed and reasons inline for
-the `reason` steps. If no tools are bound, Hermes runs the entire procedure
-in-context from the supplied judgment and analytic line (single-turn fallback).
+
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Key Assumptions Check only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Key Assumptions Check to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
 
 ## Output contract
-Same as the neutral spec. When `fs.write` is available, write
-`key_assumptions_check.md` containing the assumptions table, the key assumptions
-with collapse analysis and testing collection, and the revised judgment;
-otherwise return the product in the final assistant message.
+
+Return the `skill.yaml` outputs (assumptions_table, key_assumptions, revised_judgment) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.

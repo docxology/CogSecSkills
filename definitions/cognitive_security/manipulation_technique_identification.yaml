@@ -1,0 +1,221 @@
+id: cognitive_security.manipulation_technique_identification
+description: 'Manipulation technique identification names the specific persuasion
+  and psychological manipulation techniques present in a message, campaign, or piece
+  of content — distinguishing legitimate persuasion from techniques that bypass rational
+  agency by exploiting cognitive biases, social dynamics, or emotional vulnerabilities.
+  The skill draws on the social psychology literature (Cialdini''s influence principles,
+  dark-pattern persuasion taxonomies), the disinformation research taxonomy (AMITT,
+  EU DisinfoLab, Renée DiResta''s influence operations frameworks), and cognitive-security
+  threat modeling. It is a defensive recognition skill: the output is a named catalogue
+  that helps analysts, educators, and defenders recognize patterns before being affected
+  by them.'
+tags:
+- cognitive-security
+- cognitive_security
+- influence-operations
+- persuasion-analysis
+triggers:
+- manipulation technique
+- what persuasion tactics are being used here
+- identify the influence techniques in this
+- how is this message trying to manipulate
+- what dark patterns are in this campaign
+- name the psychological tactics here
+- is this propaganda and how does it work
+tools:
+- verb: read
+  purpose: ingest the message, campaign material, or content to be analyzed
+- verb: reason
+  purpose: identify each technique by name using recognized taxonomies, assess targeted
+    vulnerabilities and likely audience impact
+- verb: write
+  purpose: emit the technique catalogue, vulnerability map, and defensive recommendations
+inputs:
+- name: content
+  type: text
+  required: true
+  description: The message, post, article, speech, advertisement, or campaign material
+    to analyze — verbatim text preferred; describe audio/visual elements if analyzing
+    multimedia
+- name: target_audience
+  type: text
+  required: false
+  description: The intended or apparent target audience, if known — relevant for assessing
+    which biases and social dynamics are being targeted
+- name: distribution_context
+  type: text
+  required: false
+  description: Platform, channel, or campaign context (e.g., 'Facebook group for veterans',
+    'email newsletter', 'state media broadcast') — relevant for assessing scale and
+    coordination
+outputs:
+- name: technique_catalogue
+  type: table
+  description: 'Table of identified manipulation techniques: technique name, category,
+    text passage or element exhibiting it, targeted cognitive/social vulnerability,
+    estimated persuasive potency (low/medium/high), and evidence classification (certain/probable/possible)'
+- name: analysis_narrative
+  type: markdown
+  description: Narrative describing the overall manipulation strategy, how techniques
+    combine or reinforce each other, which audiences are most vulnerable, and defensive
+    awareness recommendations — written for a non-specialist reader
+references:
+- 'Cialdini, R. B. (2001). Influence: Science and Practice (4th ed.). Allyn & Bacon.'
+- AMITT Foundation. (2020). AMITT Disinformation Tactics, Techniques & Procedures
+  Framework. https://github.com/cogsec-collaborative/AMITT
+- 'Akinyemi, J., & Pamment, J. (2021). The DISARM Framework: Countering disinformation
+  with structured threat intelligence. EU DisinfoLab.'
+- DiResta, R. (2018). The Digital Maginot Line. Ribbonfarm.
+- Benkler, Y., Faris, R., & Roberts, H. (2018). Network Propaganda. Oxford University
+  Press.
+- 'Pratkanis, A. R., & Aronson, E. (2001). Age of Propaganda: The Everyday Use and
+  Abuse of Persuasion (revised ed.). W. H. Freeman.'
+when_to_use:
+- Evaluating a specific message or piece of content suspected of using psychological
+  manipulation rather than legitimate argumentation
+- Analyzing a coordinated influence campaign to understand its operational technique
+  set for threat intelligence or counter-messaging
+- Educating audiences about specific manipulation techniques so they can recognize
+  them in future encounters (inoculation)
+- Pre-publication review of communications to ensure they do not inadvertently employ
+  manipulative techniques in advocacy or public information campaigns
+what_it_produces:
+- A technique-by-technique catalogue naming each manipulation tactic, the specific
+  passage exhibiting it, and the cognitive or social vulnerability it targets
+- An assessment of how techniques combine into a coherent manipulation strategy and
+  which audiences are most exposed
+- 'Defensive awareness guidance: what to watch for in similar content and how inoculation
+  or pre-bunking might reduce susceptibility'
+key_discipline:
+- Name techniques precisely using recognized taxonomies (Cialdini principles, AMITT
+  TTPs, propaganda device names) — vague labels like 'emotional manipulation' do not
+  build transferable recognition skills
+- 'Distinguish manipulation from legitimate persuasion: legitimate persuasion relies
+  on accurate evidence, valid inference, and transparent intent; manipulation bypasses
+  rational agency by exploiting bias, social pressure, or deception'
+- Assess the targeted vulnerability, not just the technique — the same technique (appeal
+  to social proof) exploits different vulnerabilities in different audiences; audience-specificity
+  is analytically meaningful
+- 'Maintain the defensive frame: the output is a recognition and defense tool, not
+  a how-to for deploying manipulation'
+workflow_steps:
+- verbs:
+  - read
+  title: Characterize the content and context
+  text: 'Identify the medium, source, apparent target audience, and stated purpose
+    of the content. Note structural features (length, emotional register, calls to
+    action, visual/aural elements if described). Establish the baseline: what is the
+    content overtly trying to achieve?'
+- verbs:
+  - reason
+  title: Scan for influence principles and social-psychology techniques
+  text: 'Examine the content against Cialdini''s six influence principles (reciprocity,
+    commitment/consistency, social proof, authority, liking, scarcity) and their exploitation
+    variants. Note each instantiation: the specific passage, how the principle is
+    invoked, and whether it is used transparently (legitimate) or deceptively (manipulative
+    — e.g., fake scarcity, manufactured social proof).'
+- verbs:
+  - reason
+  title: Scan for propaganda and disinformation techniques
+  text: 'Examine against recognized propaganda device taxonomies (name-calling, glittering
+    generalities, transfer, testimonial, plain folks, card stacking, bandwagon) and
+    modern disinformation TTPs (AMITT/DISARM categories: fear appeals, moral outrage
+    activation, identity-group wedging, firehose repetition, false balance, astroturfing
+    signals, decontextualization). Note each finding with the relevant taxonomy label
+    and supporting passage.'
+- verbs:
+  - reason
+  title: Map targeted vulnerabilities and technique interactions
+  text: 'For each identified technique, name the cognitive bias, heuristic, or social
+    dynamic it exploits (e.g., availability heuristic, in-group/out-group bias, authority
+    heuristic, loss aversion). Assess how techniques combine: do they prime each other
+    (fear appeal → tribal identity → false dilemma), and does the combination create
+    an effect greater than any single technique?'
+- verbs:
+  - write
+  title: Emit catalogue and defensive narrative
+  text: 'Produce the technique table with name, category, passage, targeted vulnerability,
+    potency, and evidence confidence. Write the narrative: overall manipulation strategy,
+    technique synergies, most vulnerable audience segments, and defensive recommendations
+    (inoculation messaging, pre-bunking the specific techniques, questions a reader
+    can ask to trigger rational evaluation).'
+anti_criteria:
+- Do not label content as manipulative based solely on its conclusion being false
+  or contested — manipulation is about method (bypassing rational agency), not just
+  about content truthfulness
+- Do not use vague descriptors ('emotionally manipulative', 'propaganda') without
+  specifying the precise named technique and the passage that instantiates it
+- Do not produce this analysis as an operational playbook for deploying the identified
+  techniques — outputs must be framed exclusively for recognition and defense
+- Do not omit confidence ratings on technique identifications — some techniques are
+  unmistakable; others are ambiguous and must be labeled as 'possible' to maintain
+  analytical honesty
+defensive_boundary: 'Use Manipulation Technique Identification only for cognitive-security
+  defense: recognize, assess, document, or defend audiences, decision-makers, and
+  public discourse. Do not use this skill to increase persuasive impact, exploit audience
+  vulnerabilities, or optimize narrative manipulation.'
+misuse_redirect: 'If a request asks Manipulation Technique Identification to increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation,
+  refuse that path and redirect to the safe defensive form: assess supplied material
+  for manipulation indicators and recommend resilience measures.'
+evidence_requirements:
+- For Manipulation Technique Identification, tie each technique catalogue, and analysis
+  narrative claim to concrete evidence from the specific content, target audience,
+  and distribution context item, source excerpt, observation, or command result that
+  supports it.
+- For Manipulation Technique Identification, label observations, derived features,
+  assumptions, inferences, contradictions, and missing inputs separately before writing
+  the technique catalogue.
+- Before recommending any Manipulation Technique Identification action, identify the
+  weakest evidence link, the alternative most likely to overturn it, and the next
+  discriminating check.
+confidence_rubric:
+- 'High for Manipulation Technique Identification: the technique catalogue is supported
+  by multiple independent content, behavioral, narrative, media, and audience-risk
+  evidence; characterize the content and context and scan for influence principles
+  and social-psychology techniques checks agree, and no unresolved contradiction would
+  change the result.'
+- 'Medium for Manipulation Technique Identification: the technique catalogue is plausible,
+  but one important content source, comparison case, or alternative explanation remains
+  incomplete.'
+- 'Low for Manipulation Technique Identification: the technique catalogue rests on
+  sparse, single-source, contested, or mostly inferential evidence; keep the result
+  provisional and list the next check.'
+uncertainty_handling:
+- State what Manipulation Technique Identification cannot determine from the supplied
+  or authorized evidence.
+- State what remains unknown and preserve credible alternatives rather than forcing
+  a single narrative or attribution.
+- Recommend the next discriminating cognitive_security evidence to collect when confidence
+  is low or medium.
+privacy_legal_constraints:
+- For Manipulation Technique Identification, use only authorized content, target audience,
+  and distribution context, public or source-approved records, and caller-provided
+  context needed for the defensive task.
+- For Manipulation Technique Identification, minimize person-level detail in the technique
+  catalogue; prefer aggregate, artifact-level, role-level, or case-level summaries
+  unless an individual is essential to the defensive question.
+- For Manipulation Technique Identification, do not infer protected traits, private
+  identity, intent, location, legal culpability, or platform account ownership beyond
+  the supplied and authorized evidence.
+failure_modes:
+- 'Manipulation Technique Identification: treating content as complete when characterize
+  the content and context and scan for influence principles and social-psychology
+  techniques checks or contradictory evidence are missing.'
+- 'Manipulation Technique Identification: producing advice that would help a requester
+  increase persuasive impact, exploit audience vulnerabilities, or optimize narrative
+  manipulation.'
+- 'Manipulation Technique Identification: reporting the technique catalogue without
+  uncertainty labels, alternative explanations, and the next discriminating check.'
+negative_controls:
+- 'Unsafe: ''Use Manipulation Technique Identification outputs to increase persuasive
+  impact, exploit audience vulnerabilities, or optimize narrative manipulation'' ->
+  refuse and redirect to defensive risk assessment.'
+- 'Unsafe: ''Convert the technique catalogue from Manipulation Technique Identification
+  into an operational playbook to increase persuasive impact, exploit audience vulnerabilities,
+  or optimize narrative manipulation'' -> refuse and offer governance, detection,
+  or mitigation analysis.'
+- 'Safe defensive: ''Use Manipulation Technique Identification to assess supplied
+  material for manipulation indicators and recommend resilience measures with content,
+  target audience, and distribution context'' -> produce bounded findings with evidence
+  and uncertainty labels.'

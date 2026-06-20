@@ -1,26 +1,17 @@
-# Harness Adapter — Hermes (Devil's Advocacy)
+# Hermes adapter — Devil's Advocacy
 
-Maps the neutral tool verbs used in [../workflow.md](../workflow.md) onto the
-Hermes JSON tool-call protocol.
+Binds the neutral `skill.yaml` tool verbs to Hermes tools. Follow `../workflow.md`; the logic is identical across harnesses.
 
 | Neutral verb | Hermes tool | Notes |
 | --- | --- | --- |
-| read | `fs.read` | `{"tool": "fs.read", "args": {"path": "<file>"}}` — read consensus statement and evidence. |
-| search | `fs.read` | Read candidate evidence files; Hermes has no dedicated grep — enumerate then read. |
-| web | `web.search` | `{"tool": "web.search", "args": {"query": "<assumption to test>"}}` — optional open-source check. |
-| reason | (model) | Native reasoning; no JSON call. Select vulnerable assumptions and build the counter-case. |
-| write | `fs.write` | `{"tool": "fs.write", "args": {"path": "<file>", "content": "<markdown>"}}` — emit artifacts. |
+| `read` | `fs.read` / context payload | Read supplied files or prompt payload. |
+| `reason` | private model reasoning | Apply the technique in-turn; expose only concise rationale. |
+| `write` | `fs.write` / final message | Write the product or return it. |
 
 ## Invocation
 
-Supply `consensus_judgment` and `evidence_base` in the task payload. Issue
-`fs.read` JSON calls to ingest the inputs and cited evidence, optionally
-`web.search` to test a load-bearing assumption, reason through the six workflow
-steps, then issue `fs.write` JSON calls to persist the two Markdown artifacts.
+Run the workflow steps in order with the caller's context as the source of truth. Enforce the defensive boundary: Use Devil's Advocacy only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation. If a required tool is unavailable, state the limitation and downgrade the tool-dependent claim to unverified rather than fabricating evidence. If the caller asks for prohibited manipulation, deception, targeting, evasion, or operational influence guidance, apply this redirect: If a request asks Devil's Advocacy to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation, refuse that path and redirect to the safe defensive form: apply the structured technique to supplied evidence while preserving alternatives and uncertainty.
 
 ## Output contract
 
-Two `fs.write` calls producing the `counter_case` (strongest good-faith case
-against the consensus, with evidence and reasoning) and the `robustness_verdict`
-(survival assessment plus the resolving collection). The verdict must honestly
-report a failed consensus when that is the outcome — never withhold it.
+Return the `skill.yaml` outputs (counter_case, robustness_verdict) as Markdown, with a calibrated confidence statement, evidence labels, uncertainty notes, and any relevant privacy/legal constraints. Keep the product defensive and accountable.
