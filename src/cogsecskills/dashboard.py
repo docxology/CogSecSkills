@@ -125,6 +125,13 @@ def _dashboard_payload(root: Path | None = None) -> dict:
                 "harnesses": list(row.harnesses),
                 "references": row.references_count,
                 "quality_capsule_present": _quality_present(row),
+                "quality_capsule": {
+                    "defensive_boundary": row.defensive_boundary,
+                    "evidence_discipline": row.evidence_discipline,
+                    "confidence_anchor": row.confidence_anchor,
+                    "unsafe_redirect": row.unsafe_redirect,
+                    "safe_defensive_pattern": row.safe_defensive_pattern,
+                },
                 "scenario_ids": scenario_ids,
                 "scenario_kinds": [item["kind"] for item in scenario_trace],
                 "expected_answer_kinds": [
@@ -321,6 +328,25 @@ def _html_list(items: list[str]) -> str:
     return ", ".join(f"<code>{escape(item)}</code>" for item in items)
 
 
+def _quality_capsule_html(capsule: dict[str, str]) -> str:
+    rows = [
+        ("Boundary", capsule.get("defensive_boundary", "")),
+        ("Evidence", capsule.get("evidence_discipline", "")),
+        ("Confidence", capsule.get("confidence_anchor", "")),
+        ("Redirect", capsule.get("unsafe_redirect", "")),
+        ("Safe pattern", capsule.get("safe_defensive_pattern", "")),
+    ]
+    return (
+        "<dl>"
+        + "".join(
+            f"<dt>{escape(label)}</dt><dd>{escape(value)}</dd>"
+            for label, value in rows
+            if value
+        )
+        + "</dl>"
+    )
+
+
 def _render_html(payload: dict) -> str:
     summary = payload["summary"]
     skill_rows = payload["skills"]
@@ -361,6 +387,31 @@ def _render_html(payload: dict) -> str:
         "</tr>"
         for row in scenario_rows
     )
+    evidence_ladder_html = "\n".join(
+        f"<tr><td>{surface}</td><td>{checked}</td><td>{boundary}</td></tr>"
+        for surface, checked, boundary in (
+            (
+                "Scenario readiness",
+                "Routed safe and unsafe fixtures with expected answers",
+                "No live model runtime or field-effectiveness claim",
+            ),
+            (
+                "Skill worked examples",
+                "One deterministic local worked example per skill",
+                "Reviewed examples are fixtures, not model transcripts",
+            ),
+            (
+                "Offline output review",
+                "Scenario-linked reviewed answers scored with the analyst-output rubric",
+                "Deterministic local fixture only, not benchmark or runtime certification",
+            ),
+            (
+                "Quality dashboard",
+                "Cross-checks quality capsule text, scenarios, worked examples, harnesses, references, and source paths",
+                "Drift and navigation surface only",
+            ),
+        )
+    )
     skill_html = "\n".join(
         '<tr data-skill-id="{skill_id}" data-group="{group}">'
         "<td><code>{skill_id}</code><span>{name}</span></td>"
@@ -368,11 +419,14 @@ def _render_html(payload: dict) -> str:
         "<td>{verbs}</td>"
         "<td>{harnesses}</td>"
         "<td>{refs}</td>"
-        "<td>{quality}</td>"
+        "<td>{quality_capsule}</td>"
         "<td>{scenarios}</td>"
+        "<td>{answer_kinds}</td>"
         "<td>{evals}</td>"
         "<td>{example}</td>"
+        "<td>{evidence_ladder}</td>"
         "<td>{boundary}</td>"
+        "<td><code>{source_path}</code></td>"
         "</tr>".format(
             skill_id=escape(row["id"]),
             name=escape(row["name"]),
@@ -381,11 +435,16 @@ def _render_html(payload: dict) -> str:
             verbs=_html_list(row["verbs"]),
             harnesses=_html_list(row["harnesses"]),
             refs=row["references"],
-            quality="yes" if row["quality_capsule_present"] else "no",
+            quality_capsule=_quality_capsule_html(row["quality_capsule"])
+            if row["quality_capsule_present"]
+            else "missing",
             scenarios=_html_list(row["scenario_ids"]),
+            answer_kinds=_html_list(row["expected_answer_kinds"]),
             evals=_html_list(row["evaluation_scenario_ids"]),
             example="yes" if row["worked_example_id"] else "no",
+            evidence_ladder=escape(row["evidence_ladder"]),
             boundary=escape(row["claim_boundary_status"]),
+            source_path=escape(row["source_path"]),
         )
         for row in skill_rows
     )
@@ -534,6 +593,18 @@ def _render_html(payload: dict) -> str:
       margin-top: 4px;
       color: var(--muted);
     }
+    dl {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      column-gap: 8px;
+      row-gap: 4px;
+    }
+    dt {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    dd { margin: 0; }
     code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.88em;
@@ -598,6 +669,19 @@ def _render_html(payload: dict) -> str:
       </section>
     </div>
     <section>
+      <h2>Evidence Ladder</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Surface</th><th>Local evidence checked</th><th>Boundary</th></tr></thead>
+          <tbody>
+"""
+        + evidence_ladder_html
+        + """
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section>
       <h2>Scenario Readiness</h2>
       <div class="table-wrap">
         <table>
@@ -614,7 +698,7 @@ def _render_html(payload: dict) -> str:
       <h2>100-Skill Evidence Rows</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Skill</th><th>Group</th><th>Verbs</th><th>Harnesses</th><th>Refs</th><th>Quality</th><th>Scenarios</th><th>Evals</th><th>Example</th><th>Boundary</th></tr></thead>
+          <thead><tr><th>Skill</th><th>Group</th><th>Verbs</th><th>Harnesses</th><th>Refs</th><th>Quality capsule</th><th>Scenarios</th><th>Answer kinds</th><th>Evals</th><th>Example</th><th>Evidence ladder</th><th>Boundary</th><th>Source</th></tr></thead>
           <tbody>
 """
         + skill_html

@@ -29,7 +29,7 @@ Use Pandoc citation syntax only, for example `[@sandve2013reproducible]`. Every 
 Generated figures live under `../output/figures/` and are referenced with labels such as:
 
 ```markdown
-![Caption text.](../output/figures/example.png){#fig:example width=80%}
+![Caption text.](../output/figures/cogsecskills_taxonomy_counts.png){#fig:taxonomy-counts width=80%}
 ```
 
 Current generated figure labels:

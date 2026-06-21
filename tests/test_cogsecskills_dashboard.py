@@ -42,6 +42,10 @@ def test_dashboard_write_and_check_on_repo_shaped_fixture(tmp_path):
     assert "<title>CogSecSkills Quality Dashboard</title>" in html
     assert "data-skill-id=" in html
     assert "not field validation or live runtime certification" in html
+    assert "Evidence Ladder" in html
+    assert "Quality capsule" in html
+    assert "Answer kinds" in html
+    assert "Source" in html
     assert "not field validation" in markdown
     assert payload["summary"]["skills"] == 100
     assert payload["summary"]["groups"] == 7
@@ -56,6 +60,12 @@ def test_dashboard_write_and_check_on_repo_shaped_fixture(tmp_path):
     assert all("worked_example_id" in row for row in payload["skills"])
     assert all("expected_answer_kinds" in row for row in payload["skills"])
     assert all("evaluation_scenario_ids" in row for row in payload["skills"])
+    assert all("quality_capsule" in row for row in payload["skills"])
+    assert all("source_path" in row for row in payload["skills"])
+    assert "Boundary" in html
+    assert "Evidence" in html
+    assert "Confidence" in html
+    assert "Safe pattern" in html
 
 
 def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
@@ -75,8 +85,12 @@ def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
         assert f"`{scenario_id}`" in markdown
         assert scenario_id in html
     assert "Evidence Ladder" in markdown
+    assert "Evidence Ladder" in html
     assert "Worked example" in markdown
+    assert "Skill worked examples" in html
     assert "Offline output review" in markdown
+    assert "Offline output review" in html
+    assert "local deterministic fixture only" in html
     assert html.count("data-skill-id=") == 100
 
 
