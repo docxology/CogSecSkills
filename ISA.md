@@ -179,7 +179,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.93%`.
+- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.

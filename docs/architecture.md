@@ -198,7 +198,7 @@ to deepen and then promote.
 - **No-mocks testing.** Tests use real `tmp_path` directories and real YAML —
   no `MagicMock`, `unittest.mock`, or patching. The live conformance test
   exercises the actual `skills/` tree.
-- **90% coverage gate** on `src/`; the current focused suite reports 90.93% coverage.
+- **90% coverage gate** on `src/`; the current focused suite reports 90.94% coverage.
 - **Defensive only.** Skills recognize, assess, and defend against cognitive
   attack — they never author manipulation. This is inherited from AGEINT and
   enforced by review.

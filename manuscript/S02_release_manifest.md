@@ -62,7 +62,7 @@ certificate [@cogsecskills2026software].
 | `ruff check src/cogsecskills tests` | `All checks passed!` |
 | `ruff format --check src/cogsecskills tests` | `38 files already formatted` |
 | `mypy` | `Success: no issues found in 19 source files` |
-| `pytest --cov=src/cogsecskills` | `622 passed`; total coverage `90.93%` |
+| `pytest --cov=src/cogsecskills` | `622 passed`; total coverage `90.94%` |
 | Template markdown validation | `No issues found!` |
 | Template PDF render | 13 manuscript sections rendered; 8/8 figures found; combined PDF and HTML generated |
 | PDF content smoke | Required strings found: References, Supplemental 100-Skill Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill Worked Examples, Scenario Readiness, expected answers, Quality Dashboard, Release Manifest, and install cover text |
