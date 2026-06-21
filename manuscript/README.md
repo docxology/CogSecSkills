@@ -44,7 +44,7 @@ quality-dashboard data are written under `../output/data/`.
 | `scenarios/` | Curated safe-use, unsafe-redirect, expected-response, and expected-answer fixtures for deterministic readiness checks. |
 | `examples/skill-worked-examples.yaml` | Source-owned deterministic worked examples, one per skill. |
 | `docs/skill-worked-examples.md` | Generated worked-example view over all 100 skills. |
-| `docs/quality-dashboard.md` | Generated dashboard over all 100 skills, scenarios, worked examples, and quality capsules. |
+| `docs/quality-dashboard.md` / `docs/quality-dashboard.html` | Generated dashboard views over all 100 skills, scenarios, worked examples, and quality capsules. |
 | `docs/ageint/` | Source directory to inspect before turning prose into claims. |
 | `src/cogsecskills/` | Source directory to inspect before turning prose into claims. |
 | `tests/` | Source directory to inspect before turning prose into claims. |

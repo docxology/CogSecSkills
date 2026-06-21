@@ -13,8 +13,9 @@ The complete documentation map. Start with whichever row matches what you need.
 | **See one worked example per group** | [`../examples/group-worked-examples.md`](../examples/group-worked-examples.md) — defensive output shapes across all seven groups |
 | **See one worked example per skill** | [`skill-worked-examples.md`](skill-worked-examples.md) — generated deterministic local examples for all 100 skills (regenerate: `cogsecskills examples --write`) |
 | **Review offline output fixtures** | [`evaluation-readiness.md`](evaluation-readiness.md) — generated 28-scenario offline review matrix (regenerate: `cogsecskills evals --write`) |
-| **Scan the evidence ladder** | [`quality-dashboard.md`](quality-dashboard.md) — generated 100-skill dashboard with quality, scenarios, offline evals, worked examples, harnesses, references, and claim-boundary status |
+| **Scan the evidence ladder** | [`quality-dashboard.md`](quality-dashboard.md) or [`quality-dashboard.html`](quality-dashboard.html) — generated 100-skill dashboard with quality, scenarios, offline evals, worked examples, harnesses, references, and claim-boundary status |
 | **Check release claims** | [`release-claim-matrix.md`](release-claim-matrix.md) — generated local release metadata and claim-boundary matrix |
+| **Review the visual contract** | [`../DESIGN.md`](../DESIGN.md) — print-first style rules for figures, cover, HTML dashboard, and manuscript tables |
 | **Know the exact rules a skill must satisfy** | [`skill-contract.md`](skill-contract.md) — the conformance contract `validate` enforces |
 | **Add or deepen a skill** | [`authoring-skills.md`](authoring-skills.md) — canonical `definitions/`, `definitions --write|--check`, `author`, and `scaffold` |
 | **Use the command line** | [`cli.md`](cli.md) — every `cogsecskills` subcommand with examples |

@@ -422,7 +422,7 @@ cogsecskills dashboard (--write | --check)
 
 | Flag | Meaning |
 | --- | --- |
-| `--write` | Write `docs/quality-dashboard.md` and `output/data/quality_dashboard.json`. |
+| `--write` | Write `docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and `output/data/quality_dashboard.json`. |
 | `--check` | Fail if the generated dashboard files are missing, stale, missing 100-skill coverage, missing scenario coverage, missing worked-example coverage, missing quality capsules, or missing verified-state rows. |
 
 ```bash
@@ -431,7 +431,7 @@ cogsecskills dashboard --check
 ```
 
 ```
-wrote quality dashboard: 100 skills, 28 scenarios, 100 worked examples, docs/quality-dashboard.md, output/data/quality_dashboard.json
+wrote quality dashboard: 100 skills, 28 scenarios, 100 worked examples, docs/quality-dashboard.md, docs/quality-dashboard.html, output/data/quality_dashboard.json
 quality dashboard is current
 ```
 
@@ -446,6 +446,8 @@ coverage, worked-example coverage, local claim-boundary status, and source paths
 Generate a local release claim matrix and JSON metadata snapshot. Default
 `local` mode reports dirty git state truthfully without failing; stricter modes
 can be used before public archive work.
+Exact git revision, branch, and dirty-state values are runtime observations,
+not drift-checked committed values.
 
 ```
 cogsecskills release-metadata (--write | --check) [--mode local|release-candidate|public-archive]
@@ -463,7 +465,7 @@ cogsecskills release-metadata --check
 ```
 
 ```
-wrote release metadata: mode=local, docs/release-claim-matrix.md, output/data/release_metadata.json
+wrote release metadata: mode=local, docs/release-claim-matrix.md, output/data/release_metadata.json; runtime git=<revision>, dirty=<true|false>
 release metadata is current (local mode)
 ```
 

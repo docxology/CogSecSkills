@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import subprocess
 from pathlib import Path
 
 import yaml
@@ -13,6 +14,10 @@ from cogsecskills.release_metadata import (
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+
+def _git(root: Path, *args: str) -> None:
+    subprocess.run(["git", *args], cwd=root, check=True, capture_output=True, text=True)
 
 
 def _copy_release_fixture(tmp_path: Path) -> Path:
@@ -40,6 +45,21 @@ def test_release_metadata_write_and_check_local_mode(tmp_path):
     assert (
         payload["repository"]["expected"] == "https://github.com/docxology/CogSecSkills"
     )
+    assert payload["git"]["snapshot_policy"].startswith("Exact git revision")
+    assert "Git snapshot policy" in markdown
+
+
+def test_release_metadata_check_survives_the_commit_that_changes_head(tmp_path):
+    root = _copy_release_fixture(tmp_path)
+    _git(root, "init")
+    _git(root, "config", "user.email", "codex@example.invalid")
+    _git(root, "config", "user.name", "Codex Test")
+
+    write_release_metadata(root)
+    _git(root, "add", ".")
+    _git(root, "commit", "-m", "release metadata snapshot")
+
+    assert check_release_metadata(root) == []
 
 
 def test_release_metadata_detects_version_repo_and_license_drift(tmp_path):

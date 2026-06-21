@@ -36,6 +36,9 @@ fixtures that are current. These gates
 prove source and contract coherence; they do not prove live model behavior or
 field effectiveness.
 
+For a visual scan after validation, open `docs/quality-dashboard.html` locally
+or read the Markdown mirror at `docs/quality-dashboard.md`.
+
 ## Find And Inspect A Skill
 
 ```bash

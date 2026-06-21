@@ -121,7 +121,7 @@ FIGURE_SIZES = {
     "plan_build_teach_flow": (18.4, 8.8),
     "reference_density": (16.2, 9.2),
     "harness_contract": (18.4, 8.0),
-    "cover_installation": (16.4, 8.9),
+    "cover_installation": (17.2, 9.2),
 }
 
 TOKENS = {
@@ -1793,14 +1793,14 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         edge: str,
         text_color: str | None = None,
     ) -> None:
-        ax.add_patch(box(x, y, 0.046, 0.026, face=face, edge=edge, radius=0.012))
+        ax.add_patch(box(x, y, 0.052, 0.032, face=face, edge=edge, radius=0.013))
         ax.text(
-            x + 0.023,
-            y + 0.013,
+            x + 0.026,
+            y + 0.016,
             text,
             ha="center",
             va="center",
-            fontsize=10.5,
+            fontsize=13.0,
             fontweight="semibold",
             color=text_color or _readable_text_color(face),
         )
@@ -1827,7 +1827,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
             label,
             ha="left",
             va="center",
-            fontsize=13.6,
+            fontsize=COVER_STAT_LABEL_SIZE,
             color=TOKENS["muted"],
             linespacing=0.95,
         )
@@ -1838,7 +1838,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         text: str,
         *,
         step: str,
-        size: float = 17.2,
+        size: float = COVER_COMMAND_SIZE,
     ) -> None:
         label_chip(
             x,
@@ -1849,7 +1849,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
             text_color=TOKENS["ink"],
         )
         ax.text(
-            x + 0.060,
+            x + 0.066,
             y,
             text,
             ha="left",
@@ -1874,10 +1874,10 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     ax.text(
         0.075,
         0.902,
-        "CogSecSkills setup for agent harnesses",
+        "Install and bind the skill library",
         ha="left",
         va="top",
-        fontsize=35,
+        fontsize=34,
         fontweight="bold",
         color=TOKENS["ink"],
     )
@@ -1887,17 +1887,17 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         "github.com/docxology/CogSecSkills",
         ha="left",
         va="top",
-        fontsize=24,
+        fontsize=25,
         color=COLOR_FAMILIES["blue"]["dark"],
         fontfamily="monospace",
     )
     ax.text(
         0.655,
         0.858,
-        "Defaults: Claude/Codex/Hermes.\nOptional profiles: Gemini CLI, Copilot,\nDevin, Cursor, Cline, Aider, SDK agents.",
+        "Default adapters: Claude, Codex, Hermes.\nOptional profiles become structural only\nafter config, regeneration, and validation.",
         ha="left",
         va="top",
-        fontsize=13.2,
+        fontsize=15.2,
         color=TOKENS["muted"],
         linespacing=1.12,
     )
@@ -1953,8 +1953,9 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     command_line(
         0.098,
         0.555,
-        "git clone <repo-url>",
+        "git clone https://github.com/docxology/CogSecSkills.git",
         step="1",
+        size=15.8,
     )
     command_line(0.098, 0.518, "cd CogSecSkills && uv sync", step="2")
     command_line(

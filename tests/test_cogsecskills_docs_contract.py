@@ -59,6 +59,7 @@ def test_quickstart_and_docs_map_expose_next_reader_paths():
     quickstart = _read(PROJECT_ROOT / "QUICKSTART.md")
     docs_index = _read(PROJECT_ROOT / "docs" / "README.md")
     readme = _read(PROJECT_ROOT / "README.md")
+    design = _read(PROJECT_ROOT / "DESIGN.md")
 
     assert "git clone https://github.com/docxology/CogSecSkills.git" in quickstart
     assert "python -m cogsecskills scenarios --check" in quickstart
@@ -71,6 +72,7 @@ def test_quickstart_and_docs_map_expose_next_reader_paths():
     assert "harness-cookbook.md" in docs_index
     assert "claim-boundaries.md" in docs_index
     assert "quality-dashboard.md" in docs_index
+    assert "quality-dashboard.html" in docs_index
     assert "skill-worked-examples.md" in docs_index
     assert "evaluation-readiness.md" in docs_index
     assert "release-claim-matrix.md" in docs_index
@@ -80,6 +82,8 @@ def test_quickstart_and_docs_map_expose_next_reader_paths():
     assert "examples --write" in readme
     assert "evals --write" in readme
     assert "release-metadata --write" in readme
+    assert "DESIGN.md" in readme
+    assert "Generated Dashboard" in design
 
 
 def test_claim_boundary_and_connector_docs_preserve_local_claim_limits():

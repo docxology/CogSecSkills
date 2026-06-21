@@ -96,8 +96,9 @@ expected-answer examples, not live harness transcripts or empirical validation.
 
 ## Quality Dashboard
 
-`docs/quality-dashboard.md` and `output/data/quality_dashboard.json` are generated
-drift surfaces. Regenerate and check them from the project root:
+`docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and
+`output/data/quality_dashboard.json` are generated drift surfaces. Regenerate and
+check them from the project root:
 
 ```bash
 PYTHONPATH="src:." python -m cogsecskills dashboard --write

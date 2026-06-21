@@ -63,7 +63,7 @@ These gates are deliberately deterministic. They do not ask Claude, Codex, Herme
 
 ## Quality Dashboard
 
-`python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md` and `output/data/quality_dashboard.json`. The dashboard gives readers a compact row for every implemented skill: group, verbs, configured harnesses, reference count, quality-capsule presence, scenario coverage, worked-example coverage, local claim-boundary status, and source path. It also surfaces the 28 scenario fixtures, their expected-answer section titles, the 100 worked examples, and the latest verified-state lines from `TODO.md`.
+`python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and `output/data/quality_dashboard.json`. The dashboard gives readers a compact row for every implemented skill: group, verbs, configured harnesses, reference count, quality-capsule presence, scenario coverage, worked-example coverage, local claim-boundary status, and source path. The static HTML view is a dependency-free reader surface for scanning the same payload with responsive tables and print styling. It also surfaces the 28 scenario fixtures, their expected-answer section titles, the 100 worked examples, and the latest verified-state lines from `TODO.md`.
 
 The dashboard is useful for review because it turns the corpus into a scanable drift surface. Missing scenario coverage, missing worked examples, missing quality capsules, stale generated files, or missing verified-state rows make `dashboard --check` fail. It is not a benchmark, user study, or live harness transcript; it is a generated view of repository-local evidence.
 

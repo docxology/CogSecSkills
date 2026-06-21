@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import json
 import shutil
+from copy import deepcopy
 from pathlib import Path
 
+from cogsecskills.dashboard import _dashboard_payload, _payload_findings
 from cogsecskills.dashboard import check_dashboard, write_dashboard
 
 
@@ -30,12 +32,16 @@ def test_dashboard_write_and_check_on_repo_shaped_fixture(tmp_path):
     assert check_dashboard(root) == []
 
     markdown = (root / "docs" / "quality-dashboard.md").read_text(encoding="utf-8")
+    html = (root / "docs" / "quality-dashboard.html").read_text(encoding="utf-8")
     payload = json.loads(
         (root / "output" / "data" / "quality_dashboard.json").read_text(
             encoding="utf-8"
         )
     )
     assert "# CogSecSkills Quality Dashboard" in markdown
+    assert "<title>CogSecSkills Quality Dashboard</title>" in html
+    assert "data-skill-id=" in html
+    assert "not field validation or live runtime certification" in html
     assert "not field validation" in markdown
     assert payload["summary"]["skills"] == 100
     assert payload["summary"]["groups"] == 7
@@ -57,6 +63,7 @@ def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
     write_dashboard(root)
 
     markdown = (root / "docs" / "quality-dashboard.md").read_text(encoding="utf-8")
+    html = (root / "docs" / "quality-dashboard.html").read_text(encoding="utf-8")
     payload = json.loads(
         (root / "output" / "data" / "quality_dashboard.json").read_text(
             encoding="utf-8"
@@ -66,9 +73,11 @@ def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
     assert len(scenario_ids) == 28
     for scenario_id in scenario_ids:
         assert f"`{scenario_id}`" in markdown
+        assert scenario_id in html
     assert "Evidence Ladder" in markdown
     assert "Worked example" in markdown
     assert "Offline output review" in markdown
+    assert html.count("data-skill-id=") == 100
 
 
 def test_dashboard_check_detects_missing_and_stale_outputs(tmp_path):
@@ -84,6 +93,64 @@ def test_dashboard_check_detects_missing_and_stale_outputs(tmp_path):
     data_path.unlink()
     findings = check_dashboard(root)
     assert any("missing generated dashboard file" in finding for finding in findings)
+
+    write_dashboard(root)
+    html_path = root / "docs" / "quality-dashboard.html"
+    html_path.write_text(
+        html_path.read_text(encoding="utf-8").replace("Claim Boundary", "Drift"),
+        encoding="utf-8",
+    )
+    findings = check_dashboard(root)
+    assert any("stale generated dashboard file" in finding for finding in findings)
+
+
+def test_dashboard_payload_findings_report_each_quality_gate(tmp_path):
+    root = _copy_dashboard_fixture(tmp_path)
+    payload = _dashboard_payload(root)
+
+    broken = deepcopy(payload)
+    broken["summary"]["skills"] = 99
+    broken["summary"]["groups"] = 6
+    broken["summary"]["scenarios"] = 27
+    broken["summary"]["worked_examples"] = 99
+    broken["summary"]["offline_evaluations"] = 1
+    broken["summary"]["expected_answers"] = 1
+    broken["summary"]["scenario_summary_consistent"] = False
+    broken["verified_state"] = []
+    broken["scenarios"] = broken["scenarios"][:-1]
+    covered_index = next(
+        index for index, row in enumerate(broken["skills"]) if row["scenario_ids"]
+    )
+    broken["skills"][0]["quality_capsule_present"] = False
+    broken["skills"][1]["worked_example_id"] = ""
+    broken["skills"][covered_index]["evaluation_scenario_ids"] = []
+    broken["skills"][3]["selected_skill_consistent"] = False
+    broken["skills"][4]["claim_boundary_status"] = "unbounded"
+
+    findings = "\n".join(_payload_findings(broken))
+
+    for expected in (
+        "expected 100 skills",
+        "expected 7 groups",
+        "expected 28 scenario fixtures",
+        "expected 100 worked examples",
+        "offline evaluation fixtures do not match",
+        "not every scenario has an expected answer",
+        "one or more skills are missing a quality capsule",
+        "one or more skills are missing a worked example",
+        "one or more scenario-covered skills lack eval fixtures",
+        "one or more scenario selected-skill checks are inconsistent",
+        "scenario summary does not match dashboard scenario rows",
+        "one or more skills are missing a local claim boundary",
+        "verified-state lines are missing",
+    ):
+        assert expected in findings
+
+    duplicated = deepcopy(payload)
+    duplicated["scenarios"][1]["id"] = duplicated["scenarios"][0]["id"]
+    assert "scenario ids are missing or duplicated" in "\n".join(
+        _payload_findings(duplicated)
+    )
 
 
 def test_cli_dashboard_write_and_check(tmp_path, capsys):

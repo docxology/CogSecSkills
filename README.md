@@ -66,9 +66,12 @@ fixtures and reports from scenario expected answers; it does not call live
 models.
 `python -m cogsecskills dashboard --write` generates a 100-skill quality
 dashboard for navigation and drift review across scenarios, offline evals,
-worked examples, quality capsules, harnesses, references, and source paths.
+worked examples, quality capsules, harnesses, references, and source paths,
+with Markdown, static HTML, and JSON views.
 `python -m cogsecskills release-metadata --write` generates the local release
 claim matrix and metadata snapshot without publishing, tagging, or archiving.
+Exact git revision, branch, and dirty-state values are observed at command
+runtime rather than embedded in committed generated files.
 
 ## Anatomy of a skill
 
@@ -163,7 +166,10 @@ For bounded examples, see
 [`docs/skill-worked-examples.md`](docs/skill-worked-examples.md).
 For claim discipline, see [`docs/claim-boundaries.md`](docs/claim-boundaries.md).
 For the generated quality dashboard, see
-[`docs/quality-dashboard.md`](docs/quality-dashboard.md).
+[`docs/quality-dashboard.md`](docs/quality-dashboard.md) and
+[`docs/quality-dashboard.html`](docs/quality-dashboard.html). Visual style rules
+for generated figures, the cover image, dashboard pages, and manuscript tables
+live in [`DESIGN.md`](DESIGN.md).
 
 ## The 8 reference exemplars
 

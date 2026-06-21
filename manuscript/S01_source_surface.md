@@ -17,7 +17,7 @@ or verification statements.
 | `examples/` | Local non-secret harness smoke transcripts, group examples, and source worked examples; these are fixtures, not live runtime evidence. |
 | `docs/skill-worked-examples.md` | Generated Markdown worked-example catalogue for all 100 skills. |
 | `output/data/skill_worked_examples.json` | Generated machine-readable worked-example snapshot. |
-| `docs/quality-dashboard.md` | Generated Markdown dashboard over all 100 skills, quality capsules, scenario coverage, worked-example coverage, harnesses, references, claim-boundary status, and verified-state rows. |
+| `docs/quality-dashboard.md` / `docs/quality-dashboard.html` | Generated Markdown and static HTML dashboard over all 100 skills, quality capsules, scenario coverage, worked-example coverage, harnesses, references, claim-boundary status, and verified-state rows. |
 | `output/data/quality_dashboard.json` | Generated machine-readable dashboard snapshot used for drift review. |
 | `docs/claim-boundaries.md` | Reader-facing statement of what local gates prove and do not prove. |
 | `docs/connector-boundaries.md` | Optional OSINT/web connector boundaries before any live connector is wired. |

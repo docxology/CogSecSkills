@@ -23,7 +23,8 @@ and figures that document those source surfaces.
    source row per implemented skill.
 7. **`evals/local_output_review.yaml`** — offline reviewed output fixtures
    linked to deterministic scenarios.
-8. **`docs/quality-dashboard.md`**, **`docs/evaluation-readiness.md`**,
+8. **`docs/quality-dashboard.md`**, **`docs/quality-dashboard.html`**,
+   **`docs/evaluation-readiness.md`**,
    **`docs/release-claim-matrix.md`**, and **`manuscript/S10*`/`S11*`** —
    generated documentation mirrors, not hand-authored sources.
 
@@ -51,6 +52,9 @@ PYTHONPATH="src:." python -m cogsecskills release-metadata --check
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --write
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 ```
+
+Use [`DESIGN.md`](DESIGN.md) as the visual contract for generated figures, the
+cover image, the HTML dashboard, and manuscript table density.
 
 ## Local AGENTS hierarchy
 

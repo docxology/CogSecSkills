@@ -179,13 +179,13 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `620 passed`, `Total coverage: 90.10%`.
+- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.93%`.
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
 - ISC-17: `python -m cogsecskills manuscript-assets --check` → `manuscript assets are current`.
 - Scenario readiness: `python -m cogsecskills scenarios --check` -> `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked`.
 - Worked examples: `python -m cogsecskills examples --check` -> `worked examples are current`.
-- Quality dashboard: `python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
+- Quality dashboard: `python -m cogsecskills dashboard --check` -> `quality dashboard is current`; the generator owns Markdown, static HTML, and JSON views.
 - Skill quality audit: `cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; pytest verifies skill-specific negative controls, safe defensive examples, evidence/inference labels, unknown/alternative handling, workflow specificity, no reused negative-control sets, no reused individual negative-control entries, and no reused confidence/evidence/privacy quality entries.
 - Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.

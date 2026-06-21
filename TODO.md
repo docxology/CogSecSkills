@@ -14,7 +14,7 @@ work.
 - Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
 - Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
 - Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `620 passed`, `Total coverage: 90.10%`.
+- Test gate: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.93%`.
 - Template markdown gate: `uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/` -> `No issues found!`.
 - Template render gate: `uv run python scripts/03_render_pdf.py --project working/CogSecSkills` -> combined PDF and HTML generated, 13 manuscript sections, 8/8 figures found.
 
@@ -40,7 +40,8 @@ work.
 
 ## Completed: Quality Dashboard
 
-- `python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md` and `output/data/quality_dashboard.json`.
+- `python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and `output/data/quality_dashboard.json`.
+- `python -m cogsecskills release-metadata --write` keeps committed release metadata deterministic; exact git state is observed at runtime so `--check` remains stable after the release metadata commit.
 - `dashboard --check` detects missing or stale dashboard files, missing 100-skill coverage, missing scenario coverage, missing worked-example coverage, missing quality capsules, and missing verified-state rows.
 - The dashboard is a navigation and drift surface, not evidence of field effectiveness.
 

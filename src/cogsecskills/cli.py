@@ -207,7 +207,7 @@ def _cmd_dashboard(args: argparse.Namespace) -> int:
             "wrote quality dashboard: "
             f"{result['skills']} skills, {result['scenarios']} scenarios, "
             f"{result['examples']} worked examples, "
-            f"{result['markdown']}, {result['data']}"
+            f"{result['markdown']}, {result['html']}, {result['data']}"
         )
         return 0
 
@@ -265,7 +265,9 @@ def _cmd_release_metadata(args: argparse.Namespace) -> int:
         result = write_release_metadata(args.root, mode=args.mode)
         print(
             "wrote release metadata: "
-            f"mode={result['mode']}, {result['markdown']}, {result['data']}"
+            f"mode={result['mode']}, {result['markdown']}, {result['data']}; "
+            f"runtime git={result['git_revision'] or 'unavailable'}, "
+            f"dirty={result['git_dirty']}"
         )
         return 0
 
@@ -450,7 +452,7 @@ def build_parser() -> argparse.ArgumentParser:
     dashboard_mode.add_argument(
         "--write",
         action="store_true",
-        help="write generated quality dashboard Markdown and JSON",
+        help="write generated quality dashboard Markdown, HTML, and JSON",
     )
     dashboard_mode.add_argument(
         "--check",
