@@ -206,6 +206,17 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 ## Verification
 
+- 2026-06-22 v1.0.0 PUBLISHED (production): Zenodo concept DOI
+  `10.5281/zenodo.20804585`, version DOI `10.5281/zenodo.20804586`
+  (https://doi.org/10.5281/zenodo.20804586 resolves, record state `done`,
+  combined PDF attached). Reserve-first flow stamped the concept DOI on the
+  title cover and into config/CITATION.cff/codemeta.json/.zenodo.json. GitHub:
+  `origin/main` at `651351a`, release `v1.0.0`
+  (https://github.com/docxology/CogSecSkills/releases/tag/v1.0.0) with the
+  manuscript PDF asset. Pre-publish gate: 622 tests / 91.18%, ruff clean,
+  validate+doctor+all generator `--check` gates current.
+
+
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
 - ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
