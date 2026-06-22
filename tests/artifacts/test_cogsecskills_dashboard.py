@@ -11,7 +11,7 @@ from cogsecskills.artifacts.dashboard import _dashboard_payload, _payload_findin
 from cogsecskills.artifacts.dashboard import check_dashboard, write_dashboard
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_dashboard_fixture(tmp_path: Path) -> Path:

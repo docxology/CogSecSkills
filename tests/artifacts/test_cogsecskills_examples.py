@@ -15,7 +15,7 @@ from cogsecskills.artifacts.examples import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_examples_fixture(tmp_path: Path) -> Path:

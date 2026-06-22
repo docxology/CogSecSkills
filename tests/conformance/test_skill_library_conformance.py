@@ -35,7 +35,7 @@ from cogsecskills.core.registry import load_registry
 from cogsecskills.quality.validate import validate_library
 
 #: The real project root (this file lives at <root>/tests/).
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_registry_enumerates_one_hundred_areas():

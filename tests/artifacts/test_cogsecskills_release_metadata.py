@@ -13,7 +13,7 @@ from cogsecskills.artifacts.release_metadata import (
 )
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _git(root: Path, *args: str) -> None:

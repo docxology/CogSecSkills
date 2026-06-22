@@ -9,7 +9,7 @@ import yaml
 from cogsecskills.artifacts.evals import check_evals, load_evaluations, write_evals
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_eval_fixture(tmp_path: Path) -> Path:
