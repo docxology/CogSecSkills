@@ -15,12 +15,12 @@ Assess how directly each item speaks to the analytic question: does it address t
 Combine quality and relevance grades into a composite weight for each item. Aggregate across all items to identify the weight-of-evidence direction, confidence tier, critical gaps (things that would strongly bear on the question but are absent), and any contradictions between high-weight items. Write the graded evidence table and weight-of-evidence summary narrative.
 
 ## Evidence requirements
-- For Evidence Grading, tie each graded evidence table, and weight of evidence summary claim to concrete evidence from the specific analytic question, evidence items, and grading rubric item, source excerpt, observation, or command result that supports it.
+- For Evidence Grading, attach to every quality grade, relevance grade, and composite weight the concrete evidence behind it — the source's provenance, collection limitations, and how directly it speaks to the question — and record gaps and contradictions as their own rows so a reviewer can reproduce or challenge each grade from the same materials.
 - For Evidence Grading, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the graded evidence table.
 - Before recommending any Evidence Grading action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Evidence Grading: the graded evidence table is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; inventory and characterize each evidence item and grade quality for each item checks agree, and no unresolved contradiction would change the result.
+- High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the composite weights are computed multiplicatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.
 - Medium for Evidence Grading: the graded evidence table is plausible, but one important analytic question source, comparison case, or alternative explanation remains incomplete.
 - Low for Evidence Grading: the graded evidence table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Evidence Grading cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Combine quality and relevance grades into a composite weight for each item. Aggr
 - For Evidence Grading, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Evidence Grading: treating analytic question as complete when inventory and characterize each evidence item and grade quality for each item checks or contradictory evidence are missing.
+- Evidence Grading: letting a high volume of low-quality items substitute for a few rigorous ones, grading relevance toward the preferred conclusion instead of against the analytic question, double-counting sources from a shared reporting chain, or dropping disconfirming evidence, so the table inflates confidence rather than weighing the evidence honestly.
 - Evidence Grading: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Evidence Grading: reporting the graded evidence table without uncertainty labels, alternative explanations, and the next discriminating check.
 

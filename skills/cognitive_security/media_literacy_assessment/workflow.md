@@ -15,12 +15,12 @@ For each Partial or Weak dimension, identify the root cause: skill deficit (neve
 Compile the scored gap map as a table. For each significant gap, write a targeted intervention matched to its root cause: skill deficits → structured practice; motivation deficits → relevance framing and salience; friction barriers → tool integration; social norm barriers → peer-norm messaging. Sequence interventions from highest-impact gaps to lower. Flag any gaps that require external expertise (e.g., curriculum design specialists or platform policy levers).
 
 ## Evidence requirements
-- For Media Literacy Assessment, tie each competency gap map, and intervention recommendations claim to concrete evidence from the specific audience profile, sample content, and existing assessment data item, source excerpt, observation, or command result that supports it.
+- For Media Literacy Assessment, tie every dimension score, gap, and recommended intervention to concrete evidence — a behavioral observation, a sample-content response, or prior assessment data — and distinguish evidence of an applied habit from evidence of a memorized checklist before rating any competency.
 - For Media Literacy Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the competency gap map.
 - Before recommending any Media Literacy Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Media Literacy Assessment: the competency gap map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the audience and context and score against media-literacy dimensions checks agree, and no unresolved contradiction would change the result.
+- High for Media Literacy Assessment: each competency score across source evaluation, lateral reading, verification triggering, and emotional-override resistance is grounded in observed behavior from the audience profile, sample content, and any existing assessment data, the gap root-causes are corroborated rather than assumed, and no unresolved contradiction would change the prioritized intervention plan.
 - Medium for Media Literacy Assessment: the competency gap map is plausible, but one important audience profile source, comparison case, or alternative explanation remains incomplete.
 - Low for Media Literacy Assessment: the competency gap map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Media Literacy Assessment cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Compile the scored gap map as a table. For each significant gap, write a targete
 - For Media Literacy Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Media Literacy Assessment: treating audience profile as complete when characterize the audience and context and score against media-literacy dimensions checks or contradictory evidence are missing.
+- Media Literacy Assessment: scoring an audience as literate from declarative quiz knowledge while never observing whether lateral reading actually holds under high-arousal cognitive load, or treating a segmented population as homogeneous, so the gap map overstates real verification habits.
 - Media Literacy Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Media Literacy Assessment: reporting the competency gap map without uncertainty labels, alternative explanations, and the next discriminating check.
 

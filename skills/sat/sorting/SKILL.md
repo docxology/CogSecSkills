@@ -30,13 +30,13 @@ If a request asks Sorting to force a preferred conclusion, hide uncertainty, or 
 
 ## Evidence discipline
 
-- For Sorting, tie each sorted table, and outlier flags claim to concrete evidence from the specific evidence set, and sort dimensions item, source excerpt, observation, or command result that supports it.
+- For Sorting, bind every cluster label and every outlier flag to concrete evidence from a specific item in the evidence set, citing the attribute value or source excerpt that places it in or outside a cluster, and record which dimension was primary so reviewers can re-sort and test whether the anomaly survives.
 - For Sorting, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the sorted table.
 - Before recommending any Sorting action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Sorting: the sorted table is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; inventory the evidence and select and apply sort dimensions checks agree, and no unresolved contradiction would change the result.
+- High for Sorting: the cluster labels and outlier flags are each grounded in evidence items whose attributes were inventoried before any sorting dimension was chosen, the same clusters and anomalies recur under independently selected primary and secondary axes, and no unresolved contradiction in the underlying data would change which items the technique flags as anomalous.
 - Medium for Sorting: the sorted table is plausible, but one important evidence set source, comparison case, or alternative explanation remains incomplete.
 - Low for Sorting: the sorted table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Sorting cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Sorting to force a preferred conclusion, hide uncertainty, or 
 
 ## Failure modes and negative controls
 
-- Sorting: treating evidence set as complete when inventory the evidence and select and apply sort dimensions checks or contradictory evidence are missing.
+- Sorting: declaring the sorted table complete when the sort dimensions were picked after viewing the data to favour a hypothesis, or when flagged outliers were dropped without written justification, so the structure reflects the analyst's expectation rather than the genuine distribution of the evidence.
 - Sorting: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Sorting: reporting the sorted table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Sorting outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

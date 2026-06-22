@@ -31,13 +31,13 @@ If a request asks Claim Provenance Verification to dox, deanonymize, harass, byp
 
 ## Evidence discipline
 
-- For Claim Provenance Verification, tie each provenance chain, and verdict claim to concrete evidence from the specific claim, and starting sources item, source excerpt, observation, or command result that supports it.
+- For Claim Provenance Verification, tie every hop in the chain and the final verdict to concrete evidence — a dated URL, an outlet citation, or a primary-source excerpt showing its actual scope — and name the single weakest link, because a chain resting on uncorroborated repetition is a hypothesis, not a verified claim.
 - For Claim Provenance Verification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the provenance chain.
 - Before recommending any Claim Provenance Verification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Claim Provenance Verification: the provenance chain is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; state the claim atomically and anchor the point of encounter checks agree, and no unresolved contradiction would change the result.
+- High for Claim Provenance Verification: the provenance chain traces the atomic claim back to a reachable primary source whose scope genuinely supports it, at least one non-derivative source corroborates it independently of that origin, the chain is free of circular reporting, and no unresolved weak link would overturn the verdict.
 - Medium for Claim Provenance Verification: the provenance chain is plausible, but one important claim source, comparison case, or alternative explanation remains incomplete.
 - Low for Claim Provenance Verification: the provenance chain rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Claim Provenance Verification cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Claim Provenance Verification to dox, deanonymize, harass, byp
 
 ## Failure modes and negative controls
 
-- Claim Provenance Verification: treating claim as complete when state the claim atomically and anchor the point of encounter checks or contradictory evidence are missing.
+- Claim Provenance Verification: declaring a claim verified when repetition across many outlets was mistaken for corroboration, when tracing stopped at a secondary source that merely cited another secondary, or when scope drift from the primary source was never examined, so apparent confirmation reflects an incomplete trace rather than independent support.
 - Claim Provenance Verification: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Claim Provenance Verification: reporting the provenance chain without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Claim Provenance Verification outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.

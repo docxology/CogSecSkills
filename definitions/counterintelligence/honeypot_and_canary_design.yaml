@@ -133,19 +133,20 @@ misuse_redirect: 'If a request asks Honeypot & Canary Design to evade detection,
   path and redirect to the safe defensive form: review supplied interactions or processes
   for deception, elicitation, or insider-risk indicators.'
 evidence_requirements:
-- For Honeypot & Canary Design, tie each canary design spec claim to concrete evidence
-  from the specific threat model, asset inventory, and monitoring coverage item, source
-  excerpt, observation, or command result that supports it.
+- For Honeypot & Canary Design, justify each decoy type, placement, and triggering
+  event with concrete evidence from the threat model, asset inventory, or monitoring-coverage
+  description, and treat a triggered canary as evidence of access only, never of identity,
+  until corroborating evidence is named.
 - For Honeypot & Canary Design, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the canary
   design spec.
 - Before recommending any Honeypot & Canary Design action, identify the weakest evidence
   link, the alternative most likely to overturn it, and the next discriminating check.
 confidence_rubric:
-- 'High for Honeypot & Canary Design: the canary design spec is supported by multiple
-  independent interaction records, process artifacts, deception indicators, and alternative
-  explanations; review threat model and coverage gaps and select decoy types and placement
-  checks agree, and no unresolved contradiction would change the result.'
+- 'High for Honeypot & Canary Design: each decoy in the specification maps to a documented
+  coverage gap in the threat model, its placement passes both the adversary-plausibility
+  and no-legitimate-access tests, the alert logic and response playbook are fully
+  specified, and no unresolved contradiction would change the design.'
 - 'Medium for Honeypot & Canary Design: the canary design spec is plausible, but one
   important threat model source, comparison case, or alternative explanation remains
   incomplete.'
@@ -170,9 +171,10 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
-- 'Honeypot & Canary Design: treating threat model as complete when review threat
-  model and coverage gaps and select decoy types and placement checks or contradictory
-  evidence are missing.'
+- 'Honeypot & Canary Design: shipping a decoy whose alert path was never defined or
+  whose placement is so implausible that real adversaries ignore it and legitimate
+  users trip it, or omitting the legal and entrapment review, so the tripwire generates
+  false positives or liability instead of high-fidelity detection.'
 - 'Honeypot & Canary Design: producing advice that would help a requester evade detection,
   improve elicitation, profile targets for exploitation, or conceal tradecraft.'
 - 'Honeypot & Canary Design: reporting the canary design spec without uncertainty

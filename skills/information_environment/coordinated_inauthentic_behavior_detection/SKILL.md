@@ -32,13 +32,13 @@ If a request asks Coordinated Inauthentic Behavior Detection to amplify coordina
 
 ## Evidence discipline
 
-- For Coordinated Inauthentic Behavior Detection, tie each coordination clusters, and cib report claim to concrete evidence from the specific account activity dataset, investigation scope, and known seed accounts item, source excerpt, observation, or command result that supports it.
+- For Coordinated Inauthentic Behavior Detection, tie each coordination cluster and each reach estimate to concrete evidence from the supplied multi-account activity dataset and investigation scope, and keep any actor attribution on a separate evidence chain, since a coordination finding without corroborating cross-dimensional evidence is an unproven inference.
 - For Coordinated Inauthentic Behavior Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the coordination clusters.
 - Before recommending any Coordinated Inauthentic Behavior Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Coordinated Inauthentic Behavior Detection: the coordination clusters is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; build the co-activity matrix and cross-reference prior cib reports and known networks checks agree, and no unresolved contradiction would change the result.
+- High for Coordinated Inauthentic Behavior Detection: each coordination cluster is grounded in convergence across at least two independent dimensions of timing, content reuse, and network topology, cross-referenced against prior takedown reporting, the cluster boundaries hold when the co-activity window is varied, and no unresolved contradiction would change the manufactured-versus-organic-consensus conclusion.
 - Medium for Coordinated Inauthentic Behavior Detection: the coordination clusters is plausible, but one important account activity dataset source, comparison case, or alternative explanation remains incomplete.
 - Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Coordinated Inauthentic Behavior Detection cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Coordinated Inauthentic Behavior Detection to amplify coordina
 
 ## Failure modes and negative controls
 
-- Coordinated Inauthentic Behavior Detection: treating account activity dataset as complete when build the co-activity matrix and cross-reference prior cib reports and known networks checks or contradictory evidence are missing.
+- Coordinated Inauthentic Behavior Detection: declaring a coordinated operation found when the co-activity matrix was never validated across multiple dimensions, a single timing or content signal was treated as sufficient, or coincidental co-activity from organic movements was left unexamined, mistaking shared viewpoint for concealed organization.
 - Coordinated Inauthentic Behavior Detection: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Coordinated Inauthentic Behavior Detection: reporting the coordination clusters without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Coordinated Inauthentic Behavior Detection outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.

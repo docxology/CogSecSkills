@@ -30,13 +30,13 @@ If a request asks Denial & Deception Detection to evade detection, improve elici
 
 ## Evidence discipline
 
-- For Denial & Deception Detection, tie each dd assessment, deception indicators, and collection recommendations claim to concrete evidence from the specific evidence body, current assessment, and adversary profile item, source excerpt, observation, or command result that supports it.
+- For Denial & Deception Detection, anchor each deception scenario, plausibility rating, and indicator status to concrete evidence about a specific item in the evidence body, its source channel, and its arrival timing, and treat a missing confirmatory signal as a flagged gap rather than as evidence of authenticity.
 - For Denial & Deception Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the dd assessment.
 - Before recommending any Denial & Deception Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Denial & Deception Detection: the dd assessment is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; characterize the evidence and the beneficiary and apply the deceiver's calculus checks agree, and no unresolved contradiction would change the result.
+- High for Denial & Deception Detection: the deception scenario specifies which sources the adversary would need to control and conceal, the plausibility rating accounts for capability, motive, and opportunity together, the observable deception indicators are checked against actual collection, and no unresolved contradiction would change the conclusion.
 - Medium for Denial & Deception Detection: the dd assessment is plausible, but one important evidence body source, comparison case, or alternative explanation remains incomplete.
 - Low for Denial & Deception Detection: the dd assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Denial & Deception Detection cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Denial & Deception Detection to evade detection, improve elici
 
 ## Failure modes and negative controls
 
-- Denial & Deception Detection: treating evidence body as complete when characterize the evidence and the beneficiary and apply the deceiver's calculus checks or contradictory evidence are missing.
+- Denial & Deception Detection: treating an absence of observed deception indicators as proof of authenticity when the deceiver's calculus was never genuinely constructed, or when investment in the current assessment was allowed to suppress the check, so a clean verdict reflects unexamined evidence rather than a tested picture.
 - Denial & Deception Detection: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Denial & Deception Detection: reporting the dd assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Denial & Deception Detection outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.

@@ -66,18 +66,21 @@ misuse_redirect: 'If a request asks Premortem Analysis to force a preferred conc
   path and redirect to the safe defensive form: apply the structured technique to
   supplied evidence while preserving alternatives and uncertainty.'
 evidence_requirements:
-- For Premortem Analysis, tie each failure modes claim to concrete evidence from the
-  specific plan or assessment, and time horizon item, source excerpt, observation,
-  or command result that supports it.
+- For Premortem Analysis, bind each failure cause, plausibility-by-impact score, and
+  proposed mitigation to concrete evidence from the plan or assessment under review
+  and to the assumption it would break, and pair every retained cause with an observable
+  leading indicator, treating any cause that lacks a detectable signal as un-actionable
+  rather than confirmed.
 - For Premortem Analysis, label observations, derived features, assumptions, inferences,
   contradictions, and missing inputs separately before writing the failure modes.
 - Before recommending any Premortem Analysis action, identify the weakest evidence
   link, the alternative most likely to overturn it, and the next discriminating check.
 confidence_rubric:
-- 'High for Premortem Analysis: the failure modes is supported by multiple independent
-  hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame
-  the failure as fact and generate failure causes checks agree, and no unresolved
-  contradiction would change the result.'
+- 'High for Premortem Analysis: each top-ranked failure cause carries a plausibility-by-impact
+  score grounded in the plan''s actual dependencies, every retained cause has a defined
+  leading indicator and mitigation, the most dangerous assumption breaks are separately
+  surfaced, and no unresolved contradiction in the failure logic would change which
+  causes warrant a plan revision.'
 - 'Medium for Premortem Analysis: the failure modes is plausible, but one important
   plan or assessment source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Premortem Analysis: the failure modes rests on sparse, single-source, contested,
@@ -99,8 +102,11 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
-- 'Premortem Analysis: treating plan or assessment as complete when frame the failure
-  as fact and generate failure causes checks or contradictory evidence are missing.'
+- 'Premortem Analysis: declaring the plan stress-tested while softening the assumed-failure
+  frame into a tentative "it might fail," ranking causes by the seniority of whoever
+  raised them, or accepting failure modes with no leading indicator, so the exercise
+  produces comfortable consensus instead of the actionable, monitorable dissent record
+  it is designed to generate.'
 - 'Premortem Analysis: producing advice that would help a requester force a preferred
   conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
 - 'Premortem Analysis: reporting the failure modes without uncertainty labels, alternative

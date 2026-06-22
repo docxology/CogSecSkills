@@ -24,12 +24,12 @@ Apply a structured reliability scale (e.g., the NATO two-axis A–F × 1–6 sch
 Write the source-reliability assessment covering: verified identity, access plausibility verdict, motive summary, track-record summary with examples, overall reliability rating with confidence level, a table of red flags with evidence pointers, and recommended use conditions specifying what claims may be sourced to this source, what requires corroboration, and what falls outside its demonstrated scope.
 
 ## Evidence requirements
-- For Source Vetting, tie each source reliability assessment, and red flags claim to concrete evidence from the specific source identifier, claim context, and prior assessments item, source excerpt, observation, or command result that supports it.
+- For Source Vetting, bind every reliability score and every red flag to concrete evidence — a registration record, a credential confirmation, a dated prior claim, or a funding disclosure tied to the specific source identifier and claim context — and label inferences as inferences; a rating asserted without such evidence is an assumption, not a verified assessment.
 - For Source Vetting, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the source reliability assessment.
 - Before recommending any Source Vetting action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Source Vetting: the source reliability assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; characterize the source and verify identity and ownership checks agree, and no unresolved contradiction would change the result.
+- High for Source Vetting: the reliability rating and red-flags table are each corroborated by multiple independent records — registration and ownership data, verifiable biographical or credential evidence, and a dated track record from distinct origins — the identity, access, motive, and track-record axes are mutually consistent, and no unresolved contradiction would alter the recommended use conditions.
 - Medium for Source Vetting: the source reliability assessment is plausible, but one important source identifier source, comparison case, or alternative explanation remains incomplete.
 - Low for Source Vetting: the source reliability assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Vetting cannot determine from the supplied or authorized evidence.
@@ -42,7 +42,7 @@ Write the source-reliability assessment covering: verified identity, access plau
 - For Source Vetting, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Source Vetting: treating source identifier as complete when characterize the source and verify identity and ownership checks or contradictory evidence are missing.
+- Source Vetting: declaring a source vetted when one of the four axes was never actually examined — for instance verifying identity but skipping motive and funding analysis, or ignoring a track-record correction that contradicts the rating — so the assessment reflects an incomplete review rather than a genuinely credible source.
 - Source Vetting: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Source Vetting: reporting the source reliability assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 

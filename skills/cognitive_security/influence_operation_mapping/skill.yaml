@@ -100,10 +100,10 @@ misuse_redirect: 'If a request asks Influence Operation Mapping to increase pers
   that path and redirect to the safe defensive form: assess supplied material for
   manipulation indicators and recommend resilience measures.'
 evidence_requirements:
-- For Influence Operation Mapping, tie each abcd operation map, attribution assessment,
-  and counter operation brief claim to concrete evidence from the specific evidence
-  collection, hypothesis, and threat actor profiles item, source excerpt, observation,
-  or command result that supports it.
+- For Influence Operation Mapping, link every element of the ABCD map and every attribution
+  claim to concrete evidence — a specific account artifact, a behavioral indicator,
+  a content sample, or a distribution timing pattern — and name the alternative hypothesis
+  that the same evidence could equally support before assigning a confidence tier.
 - For Influence Operation Mapping, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the abcd
   operation map.
@@ -111,10 +111,11 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Influence Operation Mapping: the abcd operation map is supported by multiple
-  independent content, behavioral, narrative, media, and audience-risk evidence; inventory
-  evidence and scope operation and decompose actors checks agree, and no unresolved
-  contradiction would change the result.'
+- 'High for Influence Operation Mapping: the ABCD decomposition and attribution rest
+  on independent actor, behavioral, content, and distribution evidence drawn from
+  the collected artifacts and corroborating open sources, the most plausible actor
+  hypothesis survives the stated alternatives, and no unresolved contradiction would
+  change the confidence tier or the counter-operation brief.'
 - 'Medium for Influence Operation Mapping: the abcd operation map is plausible, but
   one important evidence collection source, comparison case, or alternative explanation
   remains incomplete.'
@@ -139,9 +140,10 @@ privacy_legal_constraints:
   intent, location, legal culpability, or platform account ownership beyond the supplied
   and authorized evidence.
 failure_modes:
-- 'Influence Operation Mapping: treating evidence collection as complete when inventory
-  evidence and scope operation and decompose actors checks or contradictory evidence
-  are missing.'
+- 'Influence Operation Mapping: calling the operation mapped when coordinated inauthentic
+  behavior was inferred from content alignment alone without infrastructure or timing
+  evidence, or when alternative attribution hypotheses were never examined, producing
+  circular attribution that conflates organic uptake with a coordinated campaign.'
 - 'Influence Operation Mapping: producing advice that would help a requester increase
   persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
 - 'Influence Operation Mapping: reporting the abcd operation map without uncertainty

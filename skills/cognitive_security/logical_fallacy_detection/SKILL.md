@@ -29,13 +29,13 @@ If a request asks Logical Fallacy Detection to increase persuasive impact, explo
 
 ## Evidence discipline
 
-- For Logical Fallacy Detection, tie each fallacy catalogue, and argument assessment claim to concrete evidence from the specific argument text, and context item, source excerpt, observation, or command result that supports it.
+- For Logical Fallacy Detection, tie every catalogued fallacy and severity rating to concrete evidence — a specific quoted passage and the numbered premise or inferential step it occupies — and state explicitly that a fallacy unsupported by such evidence is an assertion about reasoning, not a demonstrated flaw.
 - For Logical Fallacy Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the fallacy catalogue.
 - Before recommending any Logical Fallacy Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Logical Fallacy Detection: the fallacy catalogue is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; segment the argument into claims and inferences and check formal validity of each inferential step checks agree, and no unresolved contradiction would change the result.
+- High for Logical Fallacy Detection: each catalogued fallacy is anchored to a quoted passage and a precisely named formal or informal type, the validity verdict is stable after the argument is segmented into premises and inferential steps, and no unresolved contradiction would change which conclusions survive removal of the fallacious moves.
 - Medium for Logical Fallacy Detection: the fallacy catalogue is plausible, but one important argument text source, comparison case, or alternative explanation remains incomplete.
 - Low for Logical Fallacy Detection: the fallacy catalogue rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Logical Fallacy Detection cannot determine from the supplied or authorized evidence.
@@ -50,7 +50,7 @@ If a request asks Logical Fallacy Detection to increase persuasive impact, explo
 
 ## Failure modes and negative controls
 
-- Logical Fallacy Detection: treating argument text as complete when segment the argument into claims and inferences and check formal validity of each inferential step checks or contradictory evidence are missing.
+- Logical Fallacy Detection: treating the presence of a fallacy as proof the conclusion is false, or over-calling minor moves as fatal, while overlooking implicit premises where many informal fallacies hide, so the catalogue misstates the argument's true epistemic standing.
 - Logical Fallacy Detection: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Logical Fallacy Detection: reporting the fallacy catalogue without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Logical Fallacy Detection outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

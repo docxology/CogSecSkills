@@ -18,12 +18,12 @@ Return to the focal issue. For each dominant hypothesis, identify which macro fo
 List the assumptions the original inside-out framing carried that the outside-in scan reveals. Assess each as confirmed, challenged, or uncertain. Produce the final layered analysis with macro forces explicitly linked to focal-level implications.
 
 ## Evidence requirements
-- For Outside-In Thinking, tie each outside in analysis claim to concrete evidence from the specific focal issue, prior assessments, and environmental scan item, source excerpt, observation, or command result that supports it.
+- For Outside-In Thinking, anchor every macro force, mezzo constraint, and reweighted focal hypothesis to concrete evidence — an environmental-scan entry, a prior-assessment passage, or an observed condition — and show the causal path from each cited force to the focal issue, treating any factor without such evidence as speculation to be set aside rather than counted.
 - For Outside-In Thinking, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the outside in analysis.
 - Before recommending any Outside-In Thinking action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Outside-In Thinking: the outside in analysis is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; read and state the focal issue and populate the pestle macro layer checks agree, and no unresolved contradiction would change the result.
+- High for Outside-In Thinking: each PESTLE macro force in the inventory is linked to the focal issue by at least one traced causal path, the mezzo-level constraints connect those forces to actor behavior, the exposed assumptions are explicitly marked confirmed or challenged, and no unresolved contradiction in the macro scan would change the focal-level implications.
 - Medium for Outside-In Thinking: the outside in analysis is plausible, but one important focal issue source, comparison case, or alternative explanation remains incomplete.
 - Low for Outside-In Thinking: the outside in analysis rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Outside-In Thinking cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ List the assumptions the original inside-out framing carried that the outside-in
 - For Outside-In Thinking, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Outside-In Thinking: treating focal issue as complete when read and state the focal issue and populate the pestle macro layer checks or contradictory evidence are missing.
+- Outside-In Thinking: declaring the layered analysis complete while jumping to the focal actor before the macro layer was fully populated, listing PESTLE factors with no traceable causal path to the issue, or never testing a single inside-out assumption against the scan, so the product mimics structural rigor while preserving the very anchoring bias the technique is meant to break.
 - Outside-In Thinking: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Outside-In Thinking: reporting the outside in analysis without uncertainty labels, alternative explanations, and the next discriminating check.
 

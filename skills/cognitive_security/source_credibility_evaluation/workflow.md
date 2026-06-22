@@ -24,12 +24,12 @@ State that the letter grades the source and the number grades this specific clai
 Translate the combined grade into practical constraints, including whether the claim can be used, requires more corroboration, or should be withheld.
 
 ## Evidence requirements
-- For Source Credibility Evaluation, tie each reliability grade, credibility grade, and usage bound claim to concrete evidence from the specific source, claim, and corroboration item, source excerpt, observation, or command result that supports it.
+- For Source Credibility Evaluation, bind the reliability letter, the credibility number, and the usage bound to concrete evidence, naming the confirming, contradicting, or absent independent sources for the specific claim and keeping the source-judging evidence separate from the claim-judging evidence rather than letting one stand in for the other.
 - For Source Credibility Evaluation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the reliability grade.
 - Before recommending any Source Credibility Evaluation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Source Credibility Evaluation: the reliability grade is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; identify the source and its proximity and assess track record, motive, and independence checks agree, and no unresolved contradiction would change the result.
+- High for Source Credibility Evaluation: the source-reliability letter and the information-credibility number are each justified by distinct evidence — proximity, track record, motive, and independence for the letter; independent confirmation, plausibility, and consistency for the number — and no unresolved contradiction would change the combined grade or the bound it places on downstream use.
 - Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source source, comparison case, or alternative explanation remains incomplete.
 - Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Credibility Evaluation cannot determine from the supplied or authorized evidence.
@@ -42,7 +42,7 @@ Translate the combined grade into practical constraints, including whether the c
 - For Source Credibility Evaluation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Source Credibility Evaluation: treating source as complete when identify the source and its proximity and assess track record, motive, and independence checks or contradictory evidence are missing.
+- Source Credibility Evaluation: declaring a claim graded when source reliability was collapsed into claim credibility, prestige was allowed to substitute for corroboration, or repetition of the same originating report was counted as independent confirmation, yielding an unwarranted grade such as A1.
 - Source Credibility Evaluation: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Source Credibility Evaluation: reporting the reliability grade without uncertainty labels, alternative explanations, and the next discriminating check.
 

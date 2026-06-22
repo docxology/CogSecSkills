@@ -15,12 +15,12 @@ Select a tractable set of indicators (recommend 8–15 for an ongoing monitoring
 Compose the indicator schema as a structured table. Write the measurement protocol, covering: data collection schedule, normalization procedures (especially across platforms with different base rates), missing data handling, and inter-rater calibration for qualitative indicators. Write implementation guidance covering dashboard design (which indicators to surface at a glance vs. drill-down), alert thresholds and escalation procedures, reporting cadence and stakeholder communication, and a review cycle for revisiting and updating the metric set as the threat landscape evolves.
 
 ## Evidence requirements
-- For Resilience Metrics Design, tie each indicator schema, measurement protocol, and implementation guidance claim to concrete evidence from the specific ecosystem definition, stakeholder goals, and existing data sources item, source excerpt, observation, or command result that supports it.
+- For Resilience Metrics Design, bind every indicator, threshold, and benchmark to concrete evidence about the specific ecosystem, its available data sources, and the decisions the metrics inform, and treat any metric whose validity or manipulation-resistance lacks such evidence as a liability to be flagged rather than a measure.
 - For Resilience Metrics Design, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the indicator schema.
 - Before recommending any Resilience Metrics Design action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Resilience Metrics Design: the indicator schema is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; define the ecosystem and decision context and map resilience dimensions and candidate indicators checks agree, and no unresolved contradiction would change the result.
+- High for Resilience Metrics Design: each indicator in the schema is tied to a defined data source and a documented validity threat, the metric set is corroborated against the stated ecosystem definition and stakeholder decision context, and no unresolved contradiction in baselines or gaming-resistance would change the monitoring recommendation.
 - Medium for Resilience Metrics Design: the indicator schema is plausible, but one important ecosystem definition source, comparison case, or alternative explanation remains incomplete.
 - Low for Resilience Metrics Design: the indicator schema rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Resilience Metrics Design cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Compose the indicator schema as a structured table. Write the measurement protoc
 - For Resilience Metrics Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Resilience Metrics Design: treating ecosystem definition as complete when define the ecosystem and decision context and map resilience dimensions and candidate indicators checks or contradictory evidence are missing.
+- Resilience Metrics Design: declaring the indicator schema complete when the ecosystem and decision context were never grounded, leading indicators were omitted in favour of lagging ones, or gameable metrics were left in without examining how cheaply an adversary could distort them.
 - Resilience Metrics Design: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Resilience Metrics Design: reporting the indicator schema without uncertainty labels, alternative explanations, and the next discriminating check.
 

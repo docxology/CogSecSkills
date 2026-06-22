@@ -31,13 +31,13 @@ If a request asks Logical Coherence Review to launder weak claims, fabricate rev
 
 ## Evidence discipline
 
-- For Logical Coherence Review, tie each argument map, fallacy register, and coherence verdict claim to concrete evidence from the specific argument text, and key claims item, source excerpt, observation, or command result that supports it.
+- For Logical Coherence Review, bind each mapped premise, inferential step, and named fallacy to concrete textual evidence showing where it occurs, and assess the validity of the inference separately from the truth of the premises so that weak evidence for a premise is never confused with an invalid inference.
 - For Logical Coherence Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the argument map.
 - Before recommending any Logical Coherence Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Logical Coherence Review: the argument map is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract and segment and build argument map and surface hidden premises checks agree, and no unresolved contradiction would change the result.
+- High for Logical Coherence Review: each entry in the argument map and fallacy register is tied to a specific passage and a named formal or informal fallacy, the coherence verdict and its validity-versus-soundness separation hold when hidden premises are made explicit, and no unresolved contradiction in the inferential chain would change whether the conclusion is judged to follow from its premises.
 - Medium for Logical Coherence Review: the argument map is plausible, but one important argument text source, comparison case, or alternative explanation remains incomplete.
 - Low for Logical Coherence Review: the argument map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Logical Coherence Review cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Logical Coherence Review to launder weak claims, fabricate rev
 
 ## Failure modes and negative controls
 
-- Logical Coherence Review: treating argument text as complete when extract and segment and build argument map and surface hidden premises checks or contradictory evidence are missing.
+- Logical Coherence Review: judging an argument coherent when its hidden premises were never surfaced or the inferential steps were never tested for formal validity, so a narrative that carries through rhetorical momentum or equivocation on a key term is mistaken for sound deductive or inductive reasoning.
 - Logical Coherence Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Logical Coherence Review: reporting the argument map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Logical Coherence Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.

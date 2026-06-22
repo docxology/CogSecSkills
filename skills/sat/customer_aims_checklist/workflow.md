@@ -15,12 +15,12 @@ Compare the draft's actual structure, lead, and conclusions against the resolved
 Fill the AIMS worksheet with the four resolved parameters. Write specific, actionable revision recommendations for every misalignment found, citing the paragraph or section that needs revision and explaining why it fails the relevant parameter.
 
 ## Evidence requirements
-- For Customer (AIMS) Checklist, tie each aims worksheet, and gap and misalignment report claim to concrete evidence from the specific product or outline, and consumer context item, source excerpt, observation, or command result that supports it.
+- For Customer (AIMS) Checklist, ground each resolved Audience, Issue, Message, and Storyline value in evidence from the tasking directive, draft, or stated consumer context, label any inferred parameter with its basis, and raise targeted clarifying questions for parameters the available evidence cannot settle.
 - For Customer (AIMS) Checklist, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the aims worksheet.
 - Before recommending any Customer (AIMS) Checklist action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Customer (AIMS) Checklist: the aims worksheet is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest tasking and draft and resolve aims parameters checks agree, and no unresolved contradiction would change the result.
+- High for Customer (AIMS) Checklist: the Audience names a specific decision-making role, the Issue is narrow enough to answer in this product, the Message is a single actionable declarative assertion, the Storyline is derived from that Message and Audience, and no unresolved ambiguity in the tasking would change the worksheet.
 - Medium for Customer (AIMS) Checklist: the aims worksheet is plausible, but one important product or outline source, comparison case, or alternative explanation remains incomplete.
 - Low for Customer (AIMS) Checklist: the aims worksheet rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Customer (AIMS) Checklist cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Fill the AIMS worksheet with the four resolved parameters. Write specific, actio
 - For Customer (AIMS) Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Customer (AIMS) Checklist: treating product or outline as complete when ingest tasking and draft and resolve aims parameters checks or contradictory evidence are missing.
+- Customer (AIMS) Checklist: passing a product as customer-ready when the Message is still a topic sentence rather than an assertive conclusion, the Audience is an organization rather than a decision role, or the Storyline was skipped, so analytically correct work is delivered in a form the consumer cannot act on.
 - Customer (AIMS) Checklist: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Customer (AIMS) Checklist: reporting the aims worksheet without uncertainty labels, alternative explanations, and the next discriminating check.
 

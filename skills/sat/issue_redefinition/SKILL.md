@@ -31,13 +31,13 @@ If a request asks Issue Redefinition to force a preferred conclusion, hide uncer
 
 ## Evidence discipline
 
-- For Issue Redefinition, tie each restatements register, and preferred framing claim to concrete evidence from the specific original question, and tasking context item, source excerpt, observation, or command result that supports it.
+- For Issue Redefinition, anchor each restatement and the recommended framing in concrete evidence from the original question and its tasking context, documenting the specific assumption each lever exposes and recording the rejected framings; a preferred framing asserted without evidence that it better serves the decision is a preference, not a reasoned reframing.
 - For Issue Redefinition, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the restatements register.
 - Before recommending any Issue Redefinition action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Issue Redefinition: the restatements register is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; document the original framing and generate restatements using reframing levers checks agree, and no unresolved contradiction would change the result.
+- High for Issue Redefinition: each restatement applies a genuinely distinct reframing lever rather than paraphrasing the original, the assumption removed or added by each is articulated explicitly, the recommended framing is justified against the consumer's actual decision need, and no unresolved tension among the alternatives would overturn that choice.
 - Medium for Issue Redefinition: the restatements register is plausible, but one important original question source, comparison case, or alternative explanation remains incomplete.
 - Low for Issue Redefinition: the restatements register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Issue Redefinition cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Issue Redefinition to force a preferred conclusion, hide uncer
 
 ## Failure modes and negative controls
 
-- Issue Redefinition: treating original question as complete when document the original framing and generate restatements using reframing levers checks or contradictory evidence are missing.
+- Issue Redefinition: declaring the question reframed when the restatements are only paraphrases that change wording without changing the embedded assumptions, or when a preferred framing was selected before the full set was generated, so the original anchoring quietly survives the exercise.
 - Issue Redefinition: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Issue Redefinition: reporting the restatements register without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Issue Redefinition outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

@@ -18,12 +18,12 @@ Compare each link's version of the claim to adjacent links. Note where: key qual
 Produce the provenance table (earliest to latest) with source type ratings and mutation notes. Write a narrative identifying the earliest verifiable or probable origin, summarizing the mutation history, and stating a confidence-rated origin verdict. Where origin is ambiguous, enumerate the most plausible hypotheses and the evidence for each.
 
 ## Evidence requirements
-- For Information Provenance Tracing, tie each provenance chain, and origin assessment claim to concrete evidence from the specific artifact, known context, and scope item, source excerpt, observation, or command result that supports it.
+- For Information Provenance Tracing, record every link in the chain with retrievable evidence — an archive link, a WHOIS or account-creation date, a reverse-image result, or a verbatim quote — and tie each origin and mutation claim to that evidence so the chain can be independently re-verified.
 - For Information Provenance Tracing, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the provenance chain.
 - Before recommending any Information Provenance Tracing action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Information Provenance Tracing: the provenance chain is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; define and fingerprint the artifact and search backward through the chain checks agree, and no unresolved contradiction would change the result.
+- High for Information Provenance Tracing: the provenance chain reaches a retrievable earliest instance whose source authenticity is independently confirmed, each republication's mutations are documented against adjacent links, and no unresolved contradiction would change the confidence-rated origin verdict.
 - Medium for Information Provenance Tracing: the provenance chain is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Information Provenance Tracing: the provenance chain rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Information Provenance Tracing cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Produce the provenance table (earliest to latest) with source type ratings and m
 - For Information Provenance Tracing, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Information Provenance Tracing: treating artifact as complete when define and fingerprint the artifact and search backward through the chain checks or contradictory evidence are missing.
+- Information Provenance Tracing: treating the earliest found instance as the true origin without confirming the source node's authenticity or recording the mutation log, so a fabricated first publisher passes as a verified primary source and decontextualization goes unnoticed.
 - Information Provenance Tracing: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Information Provenance Tracing: reporting the provenance chain without uncertainty labels, alternative explanations, and the next discriminating check.
 

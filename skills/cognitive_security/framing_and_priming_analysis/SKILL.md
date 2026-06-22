@@ -32,13 +32,13 @@ If a request asks Framing & Priming Analysis to increase persuasive impact, expl
 
 ## Evidence discipline
 
-- For Framing & Priming Analysis, tie each frame inventory, and reframing brief claim to concrete evidence from the specific content, alternative versions, and audience context item, source excerpt, observation, or command result that supports it.
+- For Framing & Priming Analysis, anchor every named frame, prime, and severity rating to concrete evidence in the supplied content — a specific lexical choice, metaphor, omission, or anchor — and to the audience whose pre-loaded schema that evidence would activate, rather than asserting interpretive effects in the abstract.
 - For Framing & Priming Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the frame inventory.
 - Before recommending any Framing & Priming Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Framing & Priming Analysis: the frame inventory is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; close-read for linguistic markers and identify active frames and priming sequences checks agree, and no unresolved contradiction would change the result.
+- High for Framing & Priming Analysis: each entry in the frame inventory ties a named device to a specific textual marker and the schema it activates, the dominant-frame reading is corroborated by contrastive comparison across alternative versions and the stated audience context, and no unresolved contradiction would change the reframing brief.
 - Medium for Framing & Priming Analysis: the frame inventory is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
 - Low for Framing & Priming Analysis: the frame inventory rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Framing & Priming Analysis cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Framing & Priming Analysis to increase persuasive impact, expl
 
 ## Failure modes and negative controls
 
-- Framing & Priming Analysis: treating content as complete when close-read for linguistic markers and identify active frames and priming sequences checks or contradictory evidence are missing.
+- Framing & Priming Analysis: declaring a frame mapped when the close-read of linguistic markers skipped the priming sequence or assessed activation without specifying the audience, treating every communicative framing as manipulation and missing what the dominant frame quietly forecloses.
 - Framing & Priming Analysis: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Framing & Priming Analysis: reporting the frame inventory without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Framing & Priming Analysis outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

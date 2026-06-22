@@ -32,13 +32,13 @@ If a request asks Research Design Critique to launder weak claims, fabricate rev
 
 ## Evidence discipline
 
-- For Research Design Critique, tie each validity critique, and inferential reach assessment claim to concrete evidence from the specific study text, and claim under review item, source excerpt, observation, or command result that supports it.
+- For Research Design Critique, bind each validity threat and severity rating to concrete evidence quoted from the study's design and report the narrowest defensible claim that evidence actually supports, distinguishing a merely theoretical threat from one for which the study shows positive evidence of bias.
 - For Research Design Critique, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the validity critique.
 - Before recommending any Research Design Critique action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Research Design Critique: the validity critique is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract design parameters and apply the four-validity typology checks agree, and no unresolved contradiction would change the result.
+- High for Research Design Critique: each validity threat is tied to specific design evidence from the study's methods, sampling frame, and measures, the assessments across internal, external, construct, and statistical-conclusion validity are made independently, and no unresolved contradiction would change the narrowed claim the design is judged to actually support.
 - Medium for Research Design Critique: the validity critique is plausible, but one important study text source, comparison case, or alternative explanation remains incomplete.
 - Low for Research Design Critique: the validity critique rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Research Design Critique cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Research Design Critique to launder weak claims, fabricate rev
 
 ## Failure modes and negative controls
 
-- Research Design Critique: treating study text as complete when extract design parameters and apply the four-validity typology checks or contradictory evidence are missing.
+- Research Design Critique: accepting a study's stated conclusion when confounds, selection bias, construct mismatch, or underpowered statistics were never traced against its design, so an inferential leap from a measured outcome to a broad causal claim the design cannot license is mistaken for a finding the evidence supports.
 - Research Design Critique: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Research Design Critique: reporting the validity critique without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Research Design Critique outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.

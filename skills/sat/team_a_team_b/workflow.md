@@ -12,12 +12,12 @@ For Team A: construct the strongest honest argument for hypothesis A — which e
 Present Team A's core argument and Team B's core argument in parallel. Document the key points of evidentiary disagreement. Adjudicate: which hypothesis is better supported by the diagnostic evidence? At what confidence level? What residual uncertainties remain? What new evidence would most shift the balance? Write the team_debate_summary.
 
 ## Evidence requirements
-- For Team A / Team B, tie each team debate summary claim to concrete evidence from the specific shared evidence, hypothesis a, and hypothesis b item, source excerpt, observation, or command result that supports it.
+- For Team A / Team B, tie each team's core argument, every conceded weakness, and the final adjudication to concrete evidence from the shared evidence base, citing the specific item that discriminates between hypothesis A and hypothesis B, and label which points rest on assumption rather than observed evidence.
 - For Team A / Team B, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the team debate summary.
 - Before recommending any Team A / Team B action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Team A / Team B: the team debate summary is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; establish teams and shared evidence and develop each team's strongest case checks agree, and no unresolved contradiction would change the result.
+- High for Team A / Team B: each team's strongest case is built in good faith from the shared evidence base rather than a strawman, the adjudication of which hypothesis is better supported holds when the most diagnostic evidence item is reweighted, and no unresolved contradiction in that evidence would reverse the verdict.
 - Medium for Team A / Team B: the team debate summary is plausible, but one important shared evidence source, comparison case, or alternative explanation remains incomplete.
 - Low for Team A / Team B: the team debate summary rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Team A / Team B cannot determine from the supplied or authorized evidence.
@@ -30,7 +30,7 @@ Present Team A's core argument and Team B's core argument in parallel. Document 
 - For Team A / Team B, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Team A / Team B: treating shared evidence as complete when establish teams and shared evidence and develop each team's strongest case checks or contradictory evidence are missing.
+- Team A / Team B: declaring the debate concluded when one side was argued as a strawman, when the concession step that forces each team to acknowledge disconfirming evidence was skipped, or when the output collapsed into a split-the-difference compromise instead of an honest adjudication of which hypothesis the evidence supports.
 - Team A / Team B: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Team A / Team B: reporting the team debate summary without uncertainty labels, alternative explanations, and the next discriminating check.
 

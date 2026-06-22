@@ -15,12 +15,12 @@ From the dimension scores, enumerate exploitable attack surfaces. For each, desc
 Write the posture scorecard as a structured table. Write the attack surface narrative for the top-ranked vulnerabilities. Write the remediation roadmap: for each vulnerability, specify the structural fix, expected posture gain, implementation complexity (low/medium/high), and recommended owner. Sequence recommendations by urgency and dependency.
 
 ## Evidence requirements
-- For Epistemic Security Posture Review, tie each posture scorecard, attack surface narrative, and remediation roadmap claim to concrete evidence from the specific organizational profile, epistemic practices, and known incidents item, source excerpt, observation, or command result that supports it.
+- For Epistemic Security Posture Review, bind every dimension score, named attack surface, and remediation item to concrete evidence from a specific organizational document, a stated practice, a stakeholder answer, or a prior incident; where evidence is absent, mark the gap explicitly rather than assume baseline competence.
 - For Epistemic Security Posture Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the posture scorecard.
 - Before recommending any Epistemic Security Posture Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Epistemic Security Posture Review: the posture scorecard is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; map the epistemic architecture and score posture dimensions checks agree, and no unresolved contradiction would change the result.
+- High for Epistemic Security Posture Review: the posture scorecard and ranked attack surfaces draw on a mapped epistemic architecture and corroborating evidence from the organizational profile, documented practices, and prior incidents, each dimension rating is stable across independent stakeholder accounts, and no unresolved contradiction would change the prioritized remediation roadmap.
 - Medium for Epistemic Security Posture Review: the posture scorecard is plausible, but one important organizational profile source, comparison case, or alternative explanation remains incomplete.
 - Low for Epistemic Security Posture Review: the posture scorecard rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Epistemic Security Posture Review cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Write the posture scorecard as a structured table. Write the attack surface narr
 - For Epistemic Security Posture Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Epistemic Security Posture Review: treating organizational profile as complete when map the epistemic architecture and score posture dimensions checks or contradictory evidence are missing.
+- Epistemic Security Posture Review: scoring dimensions as adequate when the epistemic architecture was never actually mapped or a suppressed dissent channel went unexamined, so an absence of flagged attack surfaces reflects an unfinished review rather than a genuinely resilient knowledge-formation process.
 - Epistemic Security Posture Review: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Epistemic Security Posture Review: reporting the posture scorecard without uncertainty labels, alternative explanations, and the next discriminating check.
 

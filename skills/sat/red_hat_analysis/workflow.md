@@ -12,12 +12,12 @@ From inside the adversary's frame, identify the options available to them in the
 Review the current analytic line for mirror-imaging assumptions: places where adversary behavior is being explained by reference to how we would behave. For each flag, state the assumption, the evidence for and against it, and an alternative adversary-logic explanation. Emit the adversary frame, COAs with internal reasoning, and the mirror-imaging flag list. Include indicators that would confirm or disconfirm each COA.
 
 ## Evidence requirements
-- For Red Hat Analysis, tie each adversary frame, courses of action, and mirror imaging flags claim to concrete evidence from the specific adversary profile, situation context, and analytic question item, source excerpt, observation, or command result that supports it.
+- For Red Hat Analysis, anchor the adversary frame, each course of action, and its internal reasoning chain to concrete evidence — the adversary's documented goals, past behavior, and situation context — and for every mirror-imaging flag state the evidence for and against the projected assumption, treating any adversary motive asserted without such evidence as inference to be labeled rather than fact.
 - For Red Hat Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the adversary frame.
 - Before recommending any Red Hat Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Red Hat Analysis: the adversary frame is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; build the adversary frame and develop adversary courses of action checks agree, and no unresolved contradiction would change the result.
+- High for Red Hat Analysis: the adversary frame is built from the adversary's own stated goals, doctrine, and behavioral history rather than inferred intent, the most probable and most dangerous courses of action are separately reasoned from inside that frame, the mirror-imaging flags identify where our values were projected, and no unresolved contradiction in the adversary's decision logic would change the assessed courses of action.
 - Medium for Red Hat Analysis: the adversary frame is plausible, but one important adversary profile source, comparison case, or alternative explanation remains incomplete.
 - Low for Red Hat Analysis: the adversary frame rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Red Hat Analysis cannot determine from the supplied or authorized evidence.
@@ -30,7 +30,7 @@ Review the current analytic line for mirror-imaging assumptions: places where ad
 - For Red Hat Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Red Hat Analysis: treating adversary profile as complete when build the adversary frame and develop adversary courses of action checks or contradictory evidence are missing.
+- Red Hat Analysis: declaring the adversary understood while evaluating their options by our own values and risk calculus, conflating the adversary's capability with their intent or their rhetoric with their decision goals, or presenting only the most probable course of action without separately surfacing the most dangerous one, so mirror imaging persists under the label of adversary perspective.
 - Red Hat Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Red Hat Analysis: reporting the adversary frame without uncertainty labels, alternative explanations, and the next discriminating check.
 

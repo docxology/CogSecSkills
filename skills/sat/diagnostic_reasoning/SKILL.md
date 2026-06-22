@@ -31,13 +31,13 @@ If a request asks Diagnostic Reasoning to force a preferred conclusion, hide unc
 
 ## Evidence discipline
 
-- For Diagnostic Reasoning, tie each diagnostic table, updated ranking, and diagnostic value assessment claim to concrete evidence from the specific new datum, competing hypotheses, and prior assessments item, source excerpt, observation, or command result that supports it.
+- For Diagnostic Reasoning, bind every entry in the diagnostic table and every shift in the updated ranking to concrete evidence drawn from the specific new datum and the stated priors, naming the comparative likelihood that justifies it; a ranking change unsupported by an explicit likelihood-ratio judgment is an assertion, not a diagnostic finding.
 - For Diagnostic Reasoning, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the diagnostic table.
 - Before recommending any Diagnostic Reasoning action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Diagnostic Reasoning: the diagnostic table is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; state the datum and the hypothesis set and assess expected likelihood per hypothesis checks agree, and no unresolved contradiction would change the result.
+- High for Diagnostic Reasoning: each hypothesis's likelihood ratio is grounded in the specific datum rather than mere consistency, multiple independent considerations corroborate the same update direction, the revised ranking stays stable under reasonable reweighting, and no unresolved contradiction would change which hypothesis the datum best supports.
 - Medium for Diagnostic Reasoning: the diagnostic table is plausible, but one important new datum source, comparison case, or alternative explanation remains incomplete.
 - Low for Diagnostic Reasoning: the diagnostic table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Diagnostic Reasoning cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Diagnostic Reasoning to force a preferred conclusion, hide unc
 
 ## Failure modes and negative controls
 
-- Diagnostic Reasoning: treating new datum as complete when state the datum and the hypothesis set and assess expected likelihood per hypothesis checks or contradictory evidence are missing.
+- Diagnostic Reasoning: declaring the assessment complete when the datum's likelihood under each rival hypothesis was never genuinely compared, so evidence merely consistent with the favored hypothesis is mistaken for strong support and contradictory readings of the datum go unexamined.
 - Diagnostic Reasoning: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Diagnostic Reasoning: reporting the diagnostic table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Diagnostic Reasoning outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

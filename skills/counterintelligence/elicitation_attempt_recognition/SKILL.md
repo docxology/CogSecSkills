@@ -31,13 +31,13 @@ If a request asks Elicitation Attempt Recognition to evade detection, improve el
 
 ## Evidence discipline
 
-- For Elicitation Attempt Recognition, tie each elicitation recognition report claim to concrete evidence from the specific conversation or description, and context item, source excerpt, observation, or command result that supports it.
+- For Elicitation Attempt Recognition, tie each identified technique and the composite risk rating to concrete evidence quoted from the conversation transcript or behavioral description, noting whether the partner re-probed after deflection, and treat an unsupported intent claim as speculation rather than evidence of elicitation.
 - For Elicitation Attempt Recognition, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the elicitation recognition report.
 - Before recommending any Elicitation Attempt Recognition action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Elicitation Attempt Recognition: the elicitation recognition report is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; catalog the interaction and apply elicitation taxonomy checks agree, and no unresolved contradiction would change the result.
+- High for Elicitation Attempt Recognition: multiple named techniques from the taxonomy cluster around the same sensitive topic, the interaction demonstrably re-probed after deflection, the composite risk rating follows from that pattern, and no unresolved contradiction would change the recommended defensive response.
 - Medium for Elicitation Attempt Recognition: the elicitation recognition report is plausible, but one important conversation or description source, comparison case, or alternative explanation remains incomplete.
 - Low for Elicitation Attempt Recognition: the elicitation recognition report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Elicitation Attempt Recognition cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Elicitation Attempt Recognition to evade detection, improve el
 
 ## Failure modes and negative controls
 
-- Elicitation Attempt Recognition: treating conversation or description as complete when catalog the interaction and apply elicitation taxonomy checks or contradictory evidence are missing.
+- Elicitation Attempt Recognition: declaring an interaction hostile elicitation on a single isolated technique hit without the re-probing pattern that distinguishes it from genuine curiosity, or conversely dismissing a clustered pattern, so the risk rating reflects an incomplete behavioral log rather than the actual conversation.
 - Elicitation Attempt Recognition: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Elicitation Attempt Recognition: reporting the elicitation recognition report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Elicitation Attempt Recognition outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.

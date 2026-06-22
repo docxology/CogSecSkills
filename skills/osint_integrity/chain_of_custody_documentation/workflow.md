@@ -15,12 +15,12 @@ Review the chain for missing handling events, undocumented transfers, or time ga
 Write the structured custody table and a narrative summary that acknowledges gaps, explains their cause, and recommends remediation steps (re-collection, additional archiving, or explicit uncertainty disclosure).
 
 ## Evidence requirements
-- For Chain-of-Custody Documentation, tie each custody log, and integrity summary claim to concrete evidence from the specific evidence items, collection context, and prior custody log item, source excerpt, observation, or command result that supports it.
+- For Chain-of-Custody Documentation, bind every custody-log row and integrity-summary statement to concrete evidence — the actual collection timestamp, source identifier, computed hash, or persistent-archive record for that specific artifact — and where a handling step is undocumented, label it an explicit gap rather than presenting an unsupported entry as verified custody.
 - For Chain-of-Custody Documentation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the custody log.
 - Before recommending any Chain-of-Custody Documentation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Chain-of-Custody Documentation: the custody log is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; inventory evidence items and compute and record hashes checks agree, and no unresolved contradiction would change the result.
+- High for Chain-of-Custody Documentation: every artifact carries an original-capture SHA-256 hash a third party can independently re-verify, each handling event is logged as its own row with collector and timestamp, and no unresolved gap or contradiction would change the conclusion that the chain is unbroken.
 - Medium for Chain-of-Custody Documentation: the custody log is plausible, but one important evidence items source, comparison case, or alternative explanation remains incomplete.
 - Low for Chain-of-Custody Documentation: the custody log rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Chain-of-Custody Documentation cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Write the structured custody table and a narrative summary that acknowledges gap
 - For Chain-of-Custody Documentation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Chain-of-Custody Documentation: treating evidence items as complete when inventory evidence items and compute and record hashes checks or contradictory evidence are missing.
+- Chain-of-Custody Documentation: declaring custody complete when hashes were backfilled after files were processed rather than computed at capture, when transfer events were omitted as routine, or when undocumented time gaps were never acknowledged, so the log certifies integrity it cannot actually establish.
 - Chain-of-Custody Documentation: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Chain-of-Custody Documentation: reporting the custody log without uncertainty labels, alternative explanations, and the next discriminating check.
 

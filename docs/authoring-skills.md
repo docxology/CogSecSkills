@@ -1,6 +1,24 @@
 # Authoring skills
 
-This guide explains how to add a new CogSecSkill or deepen an existing one.
+This guide explains how to add a new CogSecSkill or deepen an existing one. The
+library is mature — 100 skills across 7 groups (`sat`, `cognitive_security`,
+`critical_review`, `osint_integrity`, `counterintelligence`,
+`information_environment`, `research_methods`) — so most authoring now means
+**deepening** an existing skill's definition rather than introducing a new one.
+Hold every change to the bar the corpus already meets.
+
+## The canonical workflow in one line
+
+> Edit `definitions/<group>/<slug>.yaml` → `definitions --write` → `validate` and `doctor`.
+
+That is the whole loop. You change the **substance** in one canonical YAML file,
+the renderer regenerates the conforming **files** from it, and the two gates
+prove the change is real and skill-specific. Everything below expands this loop;
+the other paths (`author`, `author-batch`, `scaffold`) exist for one-offs and
+bootstrapping, but the canonical `definitions/` file is the single source of
+truth for any skill that ships.
+
+## Substance vs. format
 
 CogSecSkills separates **substance** from **format**. An author supplies the
 substance of a technique in canonical YAML under `definitions/<group>/<slug>.yaml`:
@@ -12,6 +30,11 @@ and one harness adapter per configured harness under `harness/`).
 Because the renderer generates the adapters from the declared tool verbs, an
 authored skill passes the validator **by construction** — there are no format
 stragglers no matter how many skills are authored in parallel.
+
+This separation is why deepening is cheap: you never touch a generated file.
+Edit the definition, re-render, and the six conforming files follow. If you find
+yourself hand-editing a `SKILL.md` or a `harness/<name>.md`, stop — that change
+belongs in the definition, and `definitions --check` will flag the drift.
 
 There are four ways to produce a skill. Prefer them in this order:
 
@@ -64,6 +87,60 @@ stable YAML, and renders every definition-owned skill folder. `--check` fails
 when any registry entry lacks a definition, a definition contains unknown or
 stale schema fields, or any rendered `skills/**` file differs from what its
 definition would produce.
+
+### Quality fields must be grammatical and skill-specific (the de-stitch rule)
+
+The single most important authoring discipline is how you write the quality
+fields: `evidence_requirements`, `confidence_rubric`, `uncertainty_handling`,
+`privacy_legal_constraints`, `failure_modes`, `negative_controls`, and the
+`SKILL.md` prose (`when_to_use`, `what_it_produces`, `key_discipline`).
+
+Early in the library's life these fields were **machine-stitched** — assembled
+by concatenating the skill name with a generic template fragment. The result
+read as boilerplate: grammatically awkward, interchangeable between skills, and
+hollow. The whole corpus was de-stitched into **grammatical, domain-specific
+prose**, and `doctor` now enforces that bar (see the gate below). When you
+deepen or add a skill, write these fields the way you would write them for a
+reviewer who knows the technique:
+
+- **Grammatical.** Each entry is a real sentence or clause, not a name with a
+  suffix bolted on. "Label every claim with its source and the date it was
+  observed" — not "what_if_analysis evidence requirement."
+- **Skill-specific.** The entry must only make sense for *this* technique. If you
+  could paste it verbatim into another skill and it would still fit, it is too
+  generic and `doctor` will reject the repeated boilerplate.
+- **Concrete.** Name the actual artifact, the actual adversary move, the actual
+  unsafe request this skill must refuse. A negative control that says "refuse
+  unsafe requests" is worthless; "refuse a request to fabricate a corroborating
+  source for an uncorroborated claim" is a real control.
+
+#### Mini-example — stitched vs. de-stitched
+
+For `sat.what_if_analysis`, the difference looks like this.
+
+**Machine-stitched (rejected by `doctor`):**
+
+```yaml
+negative_controls:
+  - "Unsafe: what_if_analysis used for a manipulation goal — refuse."
+  - "Safe: what_if_analysis used defensively — proceed."
+failure_modes:
+  - "what_if_analysis can fail if inputs are bad."
+```
+
+**De-stitched (grammatical, skill-specific, concrete):**
+
+```yaml
+negative_controls:
+  - "Unsafe: a request to reason backward from an assumed shock in order to script a deception or disinformation pathway — refuse and redirect to defensive scenario stress-testing."
+  - "Safe: assume a named high-impact event has occurred against the team's own assessment, reconstruct plausible pathways, and surface leading indicators to monitor."
+failure_modes:
+  - "Relaxing 'the event has occurred' back into the conditional, which restores the dismissal reflex the technique exists to overcome."
+  - "Producing pathways with no observable leading indicator, leaving the analysis unmonitorable and therefore unactionable."
+```
+
+The second pair names the actual technique behavior, the actual unsafe ask, and
+the actual way the analysis goes wrong. That is the bar for every quality field.
 
 ---
 
@@ -342,3 +419,46 @@ python -m cogsecskills doctor
 ```
 
 When both come back clean, the skill is done.
+
+---
+
+## Authoring checklist
+
+Run through this before you call a definition finished. It mirrors what the
+gates enforce, plus the judgment calls they cannot make for you.
+
+**Substance**
+
+- [ ] The technique is described accurately in `description` (2–4 sentences) and
+      a reviewer who knows the field would recognize it.
+- [ ] `workflow_steps` capture the *real* procedure (at least
+      `min_workflow_steps`, default 3), each naming the verb(s) it uses.
+- [ ] `anti_criteria` (at least `min_anti_criteria`, default 2) state things
+      that must NOT happen — the integrity guard, not restatements of the steps.
+- [ ] `tools` use only the closed verb set, each with a non-empty, specific
+      `purpose`.
+
+**Quality fields (the de-stitch rule)**
+
+- [ ] Every quality field is **grammatical** — real sentences, never a skill
+      name with a suffix stitched on.
+- [ ] Every quality field is **skill-specific** — it would not fit verbatim in
+      any other skill.
+- [ ] `negative_controls` include at least one concrete unsafe refusal/redirect
+      and one concrete safe defensive use.
+- [ ] `defensive_boundary` and `misuse_redirect` keep the skill strictly
+      defensive and accountable, with no operational-attack guidance.
+- [ ] No quality entry is duplicated boilerplate shared across the corpus.
+
+**Format and gates**
+
+- [ ] Built from the canonical `definitions/<group>/<slug>.yaml` and rendered
+      with `definitions --write` (not by hand-editing generated files).
+- [ ] Registry `status` is `implemented` once the content is real.
+- [ ] `definitions --check`, `validate`, and `doctor` all come back clean.
+
+The flagship `red_team_review` skill is the reference for this bar: its
+definition carries an explicit adversary model, an attack-surface taxonomy, an
+exploitability×impact scoring rubric, and a go/no-go output — every field
+grammatical, concrete, and specific to red-team review. Read its definition when
+you want a model of how deep a mature CogSecSkill should go.

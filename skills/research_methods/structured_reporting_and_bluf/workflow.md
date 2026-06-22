@@ -15,12 +15,12 @@ Review each claim in the draft body. Every factual assertion must link to a cite
 Write the final report with clearly labeled sections: BLUF, Key Evidence (graded if available), Key Assumptions, Argument, Caveats and Countervailing Evidence, and Implications for the decision audience. Use standardized confidence language throughout. Include a one-line 'What Would Change This Assessment' note at the end.
 
 ## Evidence requirements
-- For Structured Reporting & BLUF, tie each structured report claim to concrete evidence from the specific analytic judgment, evidence and sources, and assumptions item, source excerpt, observation, or command result that supports it.
+- For Structured Reporting & BLUF, ensure every claim in the body is backed by concrete evidence — a cited source or an explicitly stated assumption — so that unlabeled inferences become visible, and verify the BLUF, caveats, and 'what would change this assessment' note all rest on that same traceable evidence rather than unsupported assertion.
 - For Structured Reporting & BLUF, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the structured report.
 - Before recommending any Structured Reporting & BLUF action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Structured Reporting & BLUF: the structured report is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; assemble the inputs and draft the bluf and argument structure checks agree, and no unresolved contradiction would change the result.
+- High for Structured Reporting & BLUF: the bottom-line judgment and its standardized confidence label appear first and accurately summarize the body, every factual claim is traceable to a cited source or an explicitly labeled assumption, the caveats section surfaces the conditions that would most change the judgment, and headline and supporting argument contain no contradiction a reader would catch.
 - Medium for Structured Reporting & BLUF: the structured report is plausible, but one important analytic judgment source, comparison case, or alternative explanation remains incomplete.
 - Low for Structured Reporting & BLUF: the structured report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Reporting & BLUF cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Write the final report with clearly labeled sections: BLUF, Key Evidence (graded
 - For Structured Reporting & BLUF, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Structured Reporting & BLUF: treating analytic judgment as complete when assemble the inputs and draft the bluf and argument structure checks or contradictory evidence are missing.
+- Structured Reporting & BLUF: burying the key judgment in a narrative-reveal structure, stating confidence verbally without a standardized tier, omitting countervailing evidence to protect the headline, or letting the BLUF drift out of sync with the body, so a decision-maker who reads only the first paragraph receives a distorted or unsupported conclusion.
 - Structured Reporting & BLUF: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Structured Reporting & BLUF: reporting the structured report without uncertainty labels, alternative explanations, and the next discriminating check.
 

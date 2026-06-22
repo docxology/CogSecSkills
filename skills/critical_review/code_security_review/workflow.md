@@ -21,12 +21,12 @@ Consolidate automated and manual findings. For each, assess severity (CVSS-infor
 Write the findings table with all rated defects. Write the security review narrative covering overall posture, most critical findings with reproduction-level detail, pattern analysis (especially silent failures and unsafe fallbacks), dependency risk summary, and a prioritized remediation roadmap. State explicitly what a reviewer must fix before deployment and what can be deferred to a follow-on sprint.
 
 ## Evidence requirements
-- For Code Security Review, tie each findings table, and security review narrative claim to concrete evidence from the specific code, threat model, and review scope item, source excerpt, observation, or command result that supports it.
+- For Code Security Review, bind every finding to concrete evidence — a specific file-and-line excerpt, a dependency manifest entry, or captured scanner or static-analysis command output — and name the trust boundary and adversary action that would turn that evidence into an exploit, never suppressing stderr or exit codes while gathering it.
 - For Code Security Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the findings table.
 - Before recommending any Code Security Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Code Security Review: the findings table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; scope and contextualize the review and run automated static analysis and dependency scans checks agree, and no unresolved contradiction would change the result.
+- High for Code Security Review: each finding in the table is pinned to a specific file and line and corroborated by both manual tracing and automated scanner output, the severity and exploitability ratings hold when the trust-boundary path is re-traced, and no unresolved contradiction about a silent-failure or unsafe-fallback path would change the deployment recommendation.
 - Medium for Code Security Review: the findings table is plausible, but one important code source, comparison case, or alternative explanation remains incomplete.
 - Low for Code Security Review: the findings table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Code Security Review cannot determine from the supplied or authorized evidence.
@@ -39,7 +39,7 @@ Write the findings table with all rated defects. Write the security review narra
 - For Code Security Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Code Security Review: treating code as complete when scope and contextualize the review and run automated static analysis and dependency scans checks or contradictory evidence are missing.
+- Code Security Review: treating a green automated scan as a clean bill of health when the manual pass for silent failures, unsafe fallbacks, and trust-boundary input validation was never performed, so swallowed exceptions and fail-open fallback paths that no tool detects propagate into a deployed system as invisible attack surface.
 - Code Security Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Code Security Review: reporting the findings table without uncertainty labels, alternative explanations, and the next discriminating check.
 

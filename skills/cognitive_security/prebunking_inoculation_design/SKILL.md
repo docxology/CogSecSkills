@@ -30,13 +30,13 @@ If a request asks Prebunking & Inoculation Design to increase persuasive impact,
 
 ## Evidence discipline
 
-- For Prebunking & Inoculation Design, tie each inoculation content, efficacy check items, and design rationale claim to concrete evidence from the specific manipulation technique, target audience, and deployment context item, source excerpt, observation, or command result that supports it.
+- For Prebunking & Inoculation Design, bind the warning, weakened-dose example, refutation, and call-to-action to concrete evidence about the named technique and the target audience — the lever it exploits, the audience's prior exposure, and the deployment constraints — and treat any inoculation claim without such evidence as an untested assumption to be flagged.
 - For Prebunking & Inoculation Design, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the inoculation content.
 - Before recommending any Prebunking & Inoculation Design action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Prebunking & Inoculation Design: the inoculation content is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the technique and audience and select inoculation structure and dose checks agree, and no unresolved contradiction would change the result.
+- High for Prebunking & Inoculation Design: the inoculation message, weakened-dose example, and named refutation are matched to the specific manipulation technique and audience profile, the chosen inoculation structure and dose are corroborated by the cited inoculation-theory evidence and the efficacy-check items, and no unresolved contradiction in the design rationale would change the resistance-transfer conclusion.
 - Medium for Prebunking & Inoculation Design: the inoculation content is plausible, but one important manipulation technique source, comparison case, or alternative explanation remains incomplete.
 - Low for Prebunking & Inoculation Design: the inoculation content rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Prebunking & Inoculation Design cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Prebunking & Inoculation Design to increase persuasive impact,
 
 ## Failure modes and negative controls
 
-- Prebunking & Inoculation Design: treating manipulation technique as complete when characterize the technique and audience and select inoculation structure and dose checks or contradictory evidence are missing.
+- Prebunking & Inoculation Design: declaring the inoculation content ready when the technique was never explicitly named and explained, the weakened dose was left uncalibrated, or the efficacy-check items were skipped, so an untested message gives false assurance of resistance rather than conferring it.
 - Prebunking & Inoculation Design: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Prebunking & Inoculation Design: reporting the inoculation content without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Prebunking & Inoculation Design outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

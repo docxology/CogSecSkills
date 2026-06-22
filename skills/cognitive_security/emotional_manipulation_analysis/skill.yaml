@@ -80,9 +80,11 @@ misuse_redirect: 'If a request asks Emotional Manipulation Analysis to increase 
   that path and redirect to the safe defensive form: assess supplied material for
   manipulation indicators and recommend resilience measures.'
 evidence_requirements:
-- For Emotional Manipulation Analysis, tie each emotional lever map, and defensive
-  brief claim to concrete evidence from the specific content, and context item, source
-  excerpt, observation, or command result that supports it.
+- For Emotional Manipulation Analysis, tie every identified lever and severity rating
+  to concrete evidence — the quoted trigger phrase, the segment it appears in, and
+  the System 1 shortcut it routes around — specify the target population for which
+  the rating holds, and distinguish emotion that tracks the evidence from emotion
+  decoupled from or contradicting it.
 - For Emotional Manipulation Analysis, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the emotional
   lever map.
@@ -90,10 +92,11 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Emotional Manipulation Analysis: the emotional lever map is supported
-  by multiple independent content, behavioral, narrative, media, and audience-risk
-  evidence; ingest and segment content and identify and label affective levers checks
-  agree, and no unresolved contradiction would change the result.'
+- 'High for Emotional Manipulation Analysis: each affective lever in the map is anchored
+  to the exact trigger phrase or device that activates it, mapped to the specific
+  deliberative faculty it bypasses, and rated for severity against a named target
+  population, with corroboration across content segments and no unresolved contradiction
+  that would change the defensive brief.'
 - 'Medium for Emotional Manipulation Analysis: the emotional lever map is plausible,
   but one important content source, comparison case, or alternative explanation remains
   incomplete.'
@@ -118,9 +121,10 @@ privacy_legal_constraints:
   intent, location, legal culpability, or platform account ownership beyond the supplied
   and authorized evidence.
 failure_modes:
-- 'Emotional Manipulation Analysis: treating content as complete when ingest and segment
-  content and identify and label affective levers checks or contradictory evidence
-  are missing.'
+- 'Emotional Manipulation Analysis: conflating legitimate evidence-tracking pathos
+  with weaponized emotion, rendering a severity verdict without specifying the target
+  audience, or omitting the cognitive shortcut a lever exploits, so the map either
+  over-flags honest advocacy or produces analytically useless generic emotion labels.'
 - 'Emotional Manipulation Analysis: producing advice that would help a requester increase
   persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
 - 'Emotional Manipulation Analysis: reporting the emotional lever map without uncertainty

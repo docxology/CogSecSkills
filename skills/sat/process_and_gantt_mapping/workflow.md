@@ -18,12 +18,12 @@ For each step, assign at least one observable indicator — a signal that would 
 Render the process map as a Gantt table (steps as rows, time buckets as columns, with critical-path and choke-point annotations). Summarize: estimated remaining lead time if activity is in progress, highest-confidence indicators to prioritize, and recommended collection actions for gaps.
 
 ## Evidence requirements
-- For Process & Gantt Mapping, tie each process map, and gantt table claim to concrete evidence from the specific activity description, known steps, and time constraints item, source excerpt, observation, or command result that supports it.
+- For Process & Gantt Mapping, tie each step, dependency, duration estimate, and choke-point designation to concrete evidence from the activity description, the confirmed known steps, and the time constraints, and assign every step an observable indicator with its diagnostic value, marking any step the activity's logic demands but no reporting confirms as a labeled collection gap rather than a verified node.
 - For Process & Gantt Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the process map.
 - Before recommending any Process & Gantt Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Process & Gantt Mapping: the process map is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; characterize and scope the activity and decompose into ordered steps checks agree, and no unresolved contradiction would change the result.
+- High for Process & Gantt Mapping: the dependency-ordered decomposition reflects what the activity logically requires, the critical path and choke points are identified from real predecessor and resource relationships, every step carries at least one observable indicator with a rated diagnostic value, and no unresolved contradiction in the sequence would change the estimated lead time.
 - Medium for Process & Gantt Mapping: the process map is plausible, but one important activity description source, comparison case, or alternative explanation remains incomplete.
 - Low for Process & Gantt Mapping: the process map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Process & Gantt Mapping cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Render the process map as a Gantt table (steps as rows, time buckets as columns,
 - For Process & Gantt Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Process & Gantt Mapping: treating activity description as complete when characterize and scope the activity and decompose into ordered steps checks or contradictory evidence are missing.
+- Process & Gantt Mapping: declaring the activity mapped while charting only confirmed steps and silently omitting logically required ones, treating every step as equally significant so the critical path and irreversible choke points are never isolated, or leaving steps without an observable indicator, so analytic gaps masquerade as confirmed blanks rather than collection requirements.
 - Process & Gantt Mapping: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Process & Gantt Mapping: reporting the process map without uncertainty labels, alternative explanations, and the next discriminating check.
 

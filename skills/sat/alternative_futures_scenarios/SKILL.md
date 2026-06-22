@@ -31,13 +31,13 @@ If a request asks Alternative Futures (Scenarios) to force a preferred conclusio
 
 ## Evidence discipline
 
-- For Alternative Futures (Scenarios), tie each scenario matrix, scenario narratives, and indicator set claim to concrete evidence from the specific problem statement, known drivers, and current assessment item, source excerpt, observation, or command result that supports it.
+- For Alternative Futures (Scenarios), bind each scenario narrative, axis selection, and discriminating indicator to concrete evidence from the problem statement, a named driver, or an observable signal, and never assign probabilities that smuggle the anchoring the technique exists to defeat.
 - For Alternative Futures (Scenarios), label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the scenario matrix.
 - Before recommending any Alternative Futures (Scenarios) action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Alternative Futures (Scenarios): the scenario matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; identify critical uncertainties and construct the scenario matrix checks agree, and no unresolved contradiction would change the result.
+- High for Alternative Futures (Scenarios): the scenario axes are genuinely independent and uncertain, each quadrant narrative is internally coherent and grounded in the supplied drivers, the discriminating indicators are confirmed by independent sources, and no unresolved contradiction would alter which futures the strategy must survive.
 - Medium for Alternative Futures (Scenarios): the scenario matrix is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
 - Low for Alternative Futures (Scenarios): the scenario matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Alternative Futures (Scenarios) cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Alternative Futures (Scenarios) to force a preferred conclusio
 
 ## Failure modes and negative controls
 
-- Alternative Futures (Scenarios): treating problem statement as complete when identify critical uncertainties and construct the scenario matrix checks or contradictory evidence are missing.
+- Alternative Futures (Scenarios): declaring the future space mapped when the critical-uncertainty axes were never tested for independence or collapsed into a disguised best-case/worst-case forecast, so the scenarios offer the comfort of breadth without genuinely diverging from the most-likely outcome.
 - Alternative Futures (Scenarios): producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Alternative Futures (Scenarios): reporting the scenario matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Alternative Futures (Scenarios) outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

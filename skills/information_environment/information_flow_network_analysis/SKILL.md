@@ -32,13 +32,13 @@ If a request asks Information Flow Network Analysis to amplify coordinated behav
 
 ## Evidence discipline
 
-- For Information Flow Network Analysis, tie each network role map, and flow analysis report claim to concrete evidence from the specific propagation data, narrative seed, and account metadata item, source excerpt, observation, or command result that supports it.
+- For Information Flow Network Analysis, anchor every role classification and structural-vulnerability claim to concrete evidence from the supplied propagation edge list and account metadata, citing the specific centrality metric, velocity event, or community-crossing observation that supports it, and flag where missing edges leave the inference underdetermined.
 - For Information Flow Network Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the network role map.
 - Before recommending any Information Flow Network Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Information Flow Network Analysis: the network role map is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; construct the propagation graph and compute network metrics and classify roles checks agree, and no unresolved contradiction would change the result.
+- High for Information Flow Network Analysis: the network role map assigns amplifier, bridge, gatekeeper, and sink labels from centrality metrics computed on adequately sampled propagation data, the structural roles and the identified chokepoints remain stable across temporal snapshots, and no unresolved contradiction would change the assessment of how the narrative achieved scale.
 - Medium for Information Flow Network Analysis: the network role map is plausible, but one important propagation data source, comparison case, or alternative explanation remains incomplete.
 - Low for Information Flow Network Analysis: the network role map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Information Flow Network Analysis cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Information Flow Network Analysis to amplify coordinated behav
 
 ## Failure modes and negative controls
 
-- Information Flow Network Analysis: treating propagation data as complete when construct the propagation graph and compute network metrics and classify roles checks or contradictory evidence are missing.
+- Information Flow Network Analysis: presenting the role map as a complete picture when the underlying propagation data was sampled or platform-limited, the temporal dimension was collapsed into a single static snapshot, or high centrality was read as culpability, so the structural conclusions overstate what the partial graph can support.
 - Information Flow Network Analysis: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Information Flow Network Analysis: reporting the network role map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Information Flow Network Analysis outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.

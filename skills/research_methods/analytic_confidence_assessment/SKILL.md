@@ -30,13 +30,13 @@ If a request asks Analytic Confidence Assessment to cherry-pick sources, fabrica
 
 ## Evidence discipline
 
-- For Analytic Confidence Assessment, tie each confidence assessment claim to concrete evidence from the specific judgment, evidence set, and key assumptions item, source excerpt, observation, or command result that supports it.
+- For Analytic Confidence Assessment, bind each sub-dimension score and the overall tier to concrete evidence — a specific source with its reliability history, an observed corroboration or contradiction, or a named load-bearing assumption — so a second analyst can reproduce the same tier from the same inputs rather than accept an impressionistic rating.
 - For Analytic Confidence Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the confidence assessment.
 - Before recommending any Analytic Confidence Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Analytic Confidence Assessment: the confidence assessment is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; inventory evidence and assumptions and score three confidence dimensions checks agree, and no unresolved contradiction would change the result.
+- High for Analytic Confidence Assessment: the assigned confidence tier is justified by strong sub-scores on source quality, corroboration, and assumption load, the corroboration comes from genuinely independent sources rather than a common reporting chain, the tier holds under the conservative weakest-dimension rule, and no unresolved contradiction in the evidence chain would change it.
 - Medium for Analytic Confidence Assessment: the confidence assessment is plausible, but one important judgment source, comparison case, or alternative explanation remains incomplete.
 - Low for Analytic Confidence Assessment: the confidence assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analytic Confidence Assessment cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Analytic Confidence Assessment to cherry-pick sources, fabrica
 
 ## Failure modes and negative controls
 
-- Analytic Confidence Assessment: treating judgment as complete when inventory evidence and assumptions and score three confidence dimensions checks or contradictory evidence are missing.
+- Analytic Confidence Assessment: assigning a tier from how comfortable the analyst feels rather than from scored dimensions, treating common-origin sources as independent corroboration, or leaving high-impact unstated assumptions untested, so a confident-looking label masks thin evidence rather than a defensible judgment.
 - Analytic Confidence Assessment: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Analytic Confidence Assessment: reporting the confidence assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Analytic Confidence Assessment outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.

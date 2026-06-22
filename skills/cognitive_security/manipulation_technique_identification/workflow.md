@@ -18,12 +18,12 @@ For each identified technique, name the cognitive bias, heuristic, or social dyn
 Produce the technique table with name, category, passage, targeted vulnerability, potency, and evidence confidence. Write the narrative: overall manipulation strategy, technique synergies, most vulnerable audience segments, and defensive recommendations (inoculation messaging, pre-bunking the specific techniques, questions a reader can ask to trigger rational evaluation).
 
 ## Evidence requirements
-- For Manipulation Technique Identification, tie each technique catalogue, and analysis narrative claim to concrete evidence from the specific content, target audience, and distribution context item, source excerpt, observation, or command result that supports it.
+- For Manipulation Technique Identification, bind every named technique, potency estimate, and targeted-vulnerability claim to concrete evidence — a specific passage or described element of the content — and assign a certain, probable, or possible confidence label so an ambiguous reading is never presented as established.
 - For Manipulation Technique Identification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the technique catalogue.
 - Before recommending any Manipulation Technique Identification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Manipulation Technique Identification: the technique catalogue is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the content and context and scan for influence principles and social-psychology techniques checks agree, and no unresolved contradiction would change the result.
+- High for Manipulation Technique Identification: each technique in the catalogue is named from a recognized taxonomy and tied to the passage that instantiates it and the cognitive or social vulnerability it targets, the read of how techniques combine is corroborated against the content and audience context, and no unresolved contradiction would change the defensive recommendations.
 - Medium for Manipulation Technique Identification: the technique catalogue is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
 - Low for Manipulation Technique Identification: the technique catalogue rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Manipulation Technique Identification cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Produce the technique table with name, category, passage, targeted vulnerability
 - For Manipulation Technique Identification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Manipulation Technique Identification: treating content as complete when characterize the content and context and scan for influence principles and social-psychology techniques checks or contradictory evidence are missing.
+- Manipulation Technique Identification: labelling content manipulative merely because its conclusion is contested rather than because its method bypasses rational agency, or using vague descriptors instead of a named technique and passage, so legitimate persuasion is misclassified and audience-specific vulnerabilities are missed.
 - Manipulation Technique Identification: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Manipulation Technique Identification: reporting the technique catalogue without uncertainty labels, alternative explanations, and the next discriminating check.
 

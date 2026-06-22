@@ -30,13 +30,13 @@ If a request asks Structured Analogies to force a preferred conclusion, hide unc
 
 ## Evidence discipline
 
-- For Structured Analogies, tie each case comparison table, and lessons and predictions claim to concrete evidence from the specific current situation, candidate cases, and comparison dimensions item, source excerpt, observation, or command result that supports it.
+- For Structured Analogies, bind every similarity rating, dissimilarity, and drawn lesson to concrete evidence from the current situation and each candidate case, citing the documented attribute or outcome that supports the comparison, and weight each prediction by how many cases and how close a fit the evidence actually provides.
 - For Structured Analogies, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the case comparison table.
 - Before recommending any Structured Analogies action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Structured Analogies: the case comparison table is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; characterize the current situation and identify and select candidate cases checks agree, and no unresolved contradiction would change the result.
+- High for Structured Analogies: the lessons and predictions rest on multiple precedent cases selected by criteria fixed before their outcomes were examined, the comparison ratings hold when the single most relied-upon analogy is removed from the set, and no unresolved disanalogy would change the predicted trajectory for the current situation.
 - Medium for Structured Analogies: the case comparison table is plausible, but one important current situation source, comparison case, or alternative explanation remains incomplete.
 - Low for Structured Analogies: the case comparison table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Analogies cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Structured Analogies to force a preferred conclusion, hide unc
 
 ## Failure modes and negative controls
 
-- Structured Analogies: treating current situation as complete when characterize the current situation and identify and select candidate cases checks or contradictory evidence are missing.
+- Structured Analogies: declaring the case comparison complete when cases were cherry-picked after their outcomes were known or a disconfirming precedent was excluded, so a single vivid analogy is over-extended and its key dissimilarities to the current situation go unexamined.
 - Structured Analogies: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Structured Analogies: reporting the case comparison table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Structured Analogies outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

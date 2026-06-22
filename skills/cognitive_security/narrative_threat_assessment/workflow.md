@@ -24,12 +24,12 @@ Rate plausible harm to individuals, groups, institutions, or public safety, then
 Write the assessment and prioritize strictly defensive responses such as prebunking, lateral-reading prompts, and protective counter-framing.
 
 ## Evidence requirements
-- For Narrative Threat Assessment, tie each threat assessment, and defensive recommendations claim to concrete evidence from the specific narrative text, and context item, source excerpt, observation, or command result that supports it.
+- For Narrative Threat Assessment, bind every captured claim, identified lever, classified technique, and harm rating to concrete evidence — a quoted passage held as object of study, an observed source, a circulation timestamp, or a prior debunk — and preserve credible alternatives wherever that evidence underdetermines intent or attribution.
 - For Narrative Threat Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the threat assessment.
 - Before recommending any Narrative Threat Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Narrative Threat Assessment: the threat assessment is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; capture the narrative precisely and identify target audience and levers checks agree, and no unresolved contradiction would change the result.
+- High for Narrative Threat Assessment: the captured claims, audience levers, classified manipulation techniques, provenance, and rated harm each rest on independent evidence from the narrative text and circulation context, the organic-versus-coordinated reading survives calibrated scrutiny, and no unresolved contradiction would change the harm rating or the defensive recommendations.
 - Medium for Narrative Threat Assessment: the threat assessment is plausible, but one important narrative text source, comparison case, or alternative explanation remains incomplete.
 - Low for Narrative Threat Assessment: the threat assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Narrative Threat Assessment cannot determine from the supplied or authorized evidence.
@@ -42,7 +42,7 @@ Write the assessment and prioritize strictly defensive responses such as prebunk
 - For Narrative Threat Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Narrative Threat Assessment: treating narrative text as complete when capture the narrative precisely and identify target audience and levers checks or contradictory evidence are missing.
+- Narrative Threat Assessment: rating harm or naming a sponsor with false confidence on provenance the evidence does not support, or restating the narrative as if true while characterizing it, so an unfinished read amplifies the threat instead of protecting the target audience.
 - Narrative Threat Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Narrative Threat Assessment: reporting the threat assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 

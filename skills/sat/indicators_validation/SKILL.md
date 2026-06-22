@@ -31,13 +31,13 @@ If a request asks Indicators Validation to force a preferred conclusion, hide un
 
 ## Evidence discipline
 
-- For Indicators Validation, tie each validated indicators matrix, and validation report claim to concrete evidence from the specific candidate indicators, scenarios or hypotheses, and base rate context item, source excerpt, observation, or command result that supports it.
+- For Indicators Validation, support each diagnosticity score and disposition with concrete evidence from the candidate indicators, the scenario set, and known base rates, and record the counterfactual reasoning that justifies it; a retained indicator whose cross-scenario behaviour was never tested against evidence is unvalidated and must be flagged, not certified.
 - For Indicators Validation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the validated indicators matrix.
 - Before recommending any Indicators Validation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Indicators Validation: the validated indicators matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest the candidate set and scenarios and apply the diagnosticity test to each indicator checks agree, and no unresolved contradiction would change the result.
+- High for Indicators Validation: each indicator's diagnosticity was tested by the counterfactual of whether it would appear when its target scenario is not unfolding, base-rate and overlap traps were checked rather than assumed away, every scenario has adequate high-diagnosticity coverage, and no unresolved contradiction would change a retain, revise, or drop disposition.
 - Medium for Indicators Validation: the validated indicators matrix is plausible, but one important candidate indicators source, comparison case, or alternative explanation remains incomplete.
 - Low for Indicators Validation: the validated indicators matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Indicators Validation cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Indicators Validation to force a preferred conclusion, hide un
 
 ## Failure modes and negative controls
 
-- Indicators Validation: treating candidate indicators as complete when ingest the candidate set and scenarios and apply the diagnosticity test to each indicator checks or contradictory evidence are missing.
+- Indicators Validation: passing a set as validated when individual indicators were scored without auditing aggregate scenario coverage or when confirmatory traps that fire under all outcomes were retained, leaving a scenario effectively unmonitored while the matrix looks rigorous.
 - Indicators Validation: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Indicators Validation: reporting the validated indicators matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Indicators Validation outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

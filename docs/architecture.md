@@ -1,12 +1,23 @@
 # Architecture
 
-CogSecSkills is a library of 100 analytic skills — Structured Analytic
-Techniques, cognitive-security defenses, OSINT integrity, counterintelligence,
-and critical review — each authored once as a **harness-neutral skill** that
+CogSecSkills is a mature, published library of 100 analytic skills —
+Structured Analytic Techniques (`sat`), cognitive-security defenses
+(`cognitive_security`), critical review (`critical_review`), OSINT integrity
+(`osint_integrity`), counterintelligence (`counterintelligence`), the
+information environment (`information_environment`), and research methods
+(`research_methods`) — each authored once as a **harness-neutral skill** that
 has default adapters for Claude Code, Codex, and Hermes and the same structural
 contract for any additional configured harness. This document describes the
 system design: the three coherent artifacts, the runner package, the
 harness-neutral contract, and the deterministic definition-to-skill pipeline.
+
+The single most important idea to hold while reading the rest of this document:
+**substance flows in exactly one direction.** A human edits the canonical YAML
+definition; the renderer turns that definition into the harness-facing skill
+folder; a drift gate proves the folder still matches the definition. You never
+hand-edit the rendered output and expect it to survive — the definition owns the
+skill's substance, and everything downstream is regenerated from it. The
+sections below trace that flow artifact by artifact and module by module.
 
 > The deliverable is the skills system. The package under
 > `src/cogsecskills/` is the small, fully-tested engine that discovers,
@@ -21,8 +32,30 @@ contract), [`cli.md`](cli.md) (commands), [`authoring-skills.md`](authoring-skil
 
 ## The three coherent artifacts
 
-A CogSecSkill area exists as three artifacts that must stay coherent. Each
-answers a different question, and the validation gate proves they agree.
+A CogSecSkill area is expressed across a small set of artifacts that must stay
+coherent. Each answers a different question, and the validation and drift gates
+prove they agree. Three of them carry the build itself — the **registry**
+(PLAN), the **canonical definitions** (BUILD SOURCE), and the **rendered skill
+folders** (BUILD OUTPUT) — and form the data-flow spine:
+
+```
+   registry/skills.yaml          definitions/<group>/<slug>.yaml          skills/<group>/<slug>/
+   (PLAN: what exists)    ──▶    (BUILD SOURCE: skill substance)   ──▶    (BUILD OUTPUT: what ships)
+        id, group,                tools, workflow_steps,                   skill.yaml + SKILL.md +
+        status, summary           anti_criteria, inputs/outputs            workflow.md + harness/*.md
+            │                              │                                        │
+            │  validate: PLAN ⇄ BUILD      │  author.render_definition()            │
+            └──────────────────────────────┴────────────────────────────────────────┘
+                                           │
+                              definitions --check  (no drift between SOURCE and OUTPUT)
+```
+
+The arrows are the contract: the registry names an area, the definition
+supplies its substance, and the renderer produces the folder. Substance never
+travels backward — a change made directly in `skills/` is detected as drift, not
+absorbed. Two further artifacts wrap this spine: the **AGEINT upstream**
+(TEACH, the conceptual *why*) and the **scenario fixtures** (CHECK, proof that
+curated defensive scenarios still route and bind).
 
 | Artifact | Question | Role | Where |
 |----------|----------|------|-------|
@@ -39,20 +72,35 @@ answers a different question, and the validation gate proves they agree.
   belong to. The registry is the *plan*: it can list a `planned` area that has
   no on-disk folder.
 - **BUILD SOURCE — canonical definitions.** Each implemented area has a YAML
-  definition under `definitions/<group>/<slug>.yaml`. This is the durable
-  source for all-skill editing and drift checking.
-- **BUILD OUTPUT — the skills tree.** Each implemented area is rendered under
-  `skills/<group>/<slug>/` with the harness-neutral spec plus its companion
-  files (see [Anatomy](#anatomy-of-a-skill-build)). This is the harness-facing
-  output that actually ships and runs.
+  definition under `definitions/<group>/<slug>.yaml`. This file **owns the
+  skill's substance** — its tool plan, workflow steps, anti-criteria, inputs,
+  outputs, and references. It is the one place a human edits a skill, and the
+  durable source for all-skill editing and drift checking. When the recent
+  de-stitching pass rewrote every skill's quality fields into grammatical,
+  domain-specific prose, that work landed here, in the definitions — not in the
+  generated output.
+- **BUILD OUTPUT — the skills tree.** Each implemented area is **rendered**
+  under `skills/<group>/<slug>/` with the harness-neutral spec plus its
+  companion files (see [Anatomy](#anatomy-of-a-skill-build)). This is the
+  harness-facing output that actually ships and runs. It is *generated* from the
+  definition — treat it as a build artifact, not a place to author. The drift
+  gate exists precisely so a stale or hand-edited folder cannot ship silently.
 - **TEACH — the AGEINT upstream.** `docs/ageint/` holds the educational
   concepts each skill references via its `ageint_topic`. The library is
   strictly defensive, educational, and accountable; the AGEINT material is the
   conceptual *why* behind each technique.
 - **CHECK — scenario fixtures.** `scenarios/defensive_readiness.yaml` contains
-  curated safe-use and unsafe-redirect probes for every group. The scenario gate
-  checks routing, declared outputs, expected response shape, quality metadata,
-  and refusal/redirect markers without executing an external model runtime.
+  curated safe-use and unsafe-redirect probes for every group. The scenario gate,
+  run with `python -m cogsecskills scenarios --check`, confirms routing, declared
+  outputs, expected response shape, quality metadata, and refusal/redirect
+  markers without executing an external model runtime. A safe-use probe must
+  route to the expected skill and surface the expected product; an
+  unsafe-redirect probe must be turned away. This keeps the library's defensive
+  posture verifiable rather than aspirational — for example, the flagship
+  `critical_review.red_team_review` skill now carries an adversary model, an
+  attack-surface taxonomy, an exploitability×impact scoring rubric, and a
+  go/no-go output, and its scenario fixtures assert that this deepened structure
+  still routes and binds.
 
 ### How `validate` keeps PLAN and BUILD coherent
 
@@ -74,7 +122,21 @@ ordinary backlog (silent and fine). The full enumeration of checks lives in
 
 ## The runner package
 
-All logic lives in `src/cogsecskills/`. Each module has one job:
+All logic lives in `src/cogsecskills/`. Each module has one job, and the modules
+fall into four bands that mirror the data flow above:
+
+- **Model the artifacts** — `spec.py` (a rendered skill), `registry.py` (the
+  catalogue).
+- **Read what exists** — `loader.py` (discover skills on disk), `config.py`
+  (optional overrides).
+- **Produce and prove** — `author.py` and `definitions.py` (generate from
+  canonical definitions), `scaffold.py` (skeletons), `harness.py` and
+  `validate.py` (conformance), `scenarios.py` (defensive-readiness check).
+- **Report and surface** — `insights.py` (route/stats/catalogue/doctor),
+  `manuscript_assets.py` (generated manuscript layer), `cli.py` (the thin
+  orchestrator over all of it).
+
+Each module in detail:
 
 | Module | Job |
 |--------|-----|
@@ -141,11 +203,19 @@ whose first column lists the neutral verb and whose remaining columns name the
 concrete tool. For example, in the default harness set, `read` binds to Claude
 Code `Read`/`Grep`, to Codex `shell` (`cat`, `rg`), and to Hermes `fs.read`.
 
+Concretely, a skill whose definition declares `read`, `reason`, and `write`
+produces an adapter table in each harness file binding exactly those three verbs
+— no more (an unbound verb is a stray tool) and no fewer (an unrealised verb is
+a broken skill). Add a fourth verb to the definition, regenerate, and the new
+row appears in every adapter.
+
 **"Multiharness" is a property the test suite proves, not a hope.** The
 validator checks that every declared verb appears in *every* adapter
 (`_adapter_bound_verbs`), and `harness.check_conformance` checks that each
 harness can realise every declared verb. The live conformance test runs against
 the real `skills/` tree, so a malformed or non-conforming skill fails the suite.
+Because the adapters are generated from the definition's verb set, this property
+holds across all 100 skills without per-skill bookkeeping.
 
 ## The authoring pipeline: substance vs format
 
@@ -181,9 +251,28 @@ The renderer reads name / group / summary / `ageint_topic` from the registry
 entry (not the definition), so substance and catalogue cannot disagree. Because
 adapters are generated to bind precisely the verbs the definition declares,
 **every authored skill passes the validator by construction** — there are no
-format stragglers no matter how many skills are authored in parallel. The live
-tree is checked by `python -m cogsecskills definitions --check`, which compares
-all canonical definitions with the rendered `skills/` files.
+format stragglers no matter how many skills are authored in parallel.
+
+### The generate → check drift discipline
+
+The pipeline is governed by a two-command loop that keeps the rendered output
+honest about its source:
+
+1. **Generate.** `python -m cogsecskills definitions --write` renders all 100
+   skills from `definitions/<group>/<slug>.yaml` into the `skills/` tree. This
+   is the only sanctioned way to change the rendered output.
+2. **Check.** `python -m cogsecskills definitions --check` re-renders in memory
+   and compares against the committed `skills/` files, failing on any
+   difference. Run in CI, it catches both a definition edited without a
+   re-render and a skill folder hand-edited out from under its definition.
+
+The discipline is simple to state and load-bearing in practice: **edit the
+definition, regenerate, and let `--check` prove the tree matches.** Pair it with
+`scenarios --check` and the two together assert that the shipped skills both
+*match their source* and *still behave defensively*. Anyone tempted to patch a
+file under `skills/` directly should instead patch the definition and rerun the
+generator — otherwise the next `--check` (or the next full regeneration) reverts
+the change.
 
 `scaffold_skill` is the lighter-weight sibling: it writes a `stub` skeleton
 (default `read`/`reason`/`write` tool plan) from the registry row for an author

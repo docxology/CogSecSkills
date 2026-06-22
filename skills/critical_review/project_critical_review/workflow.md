@@ -84,12 +84,12 @@ Lead with the bottom line. Emit, in order:
 7. **Scope & success criteria** — what was and was not reviewed.
 
 ## Evidence requirements
-- For Project Critical Review, tie each report, findings, and recommendation claim to concrete evidence from the specific artifact, decision, and success criteria item, source excerpt, observation, or command result that supports it.
+- For Project Critical Review, bind every finding and strength to concrete evidence — a file-and-line excerpt, a config value, or reproduced command output from running the project's own gates — and label any defect that was inferred but not reproduced as needing verification rather than presenting it as established evidence.
 - For Project Critical Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the report.
 - Before recommending any Project Critical Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Project Critical Review: the report is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; scope the review and map the project checks agree, and no unresolved contradiction would change the result.
+- High for Project Critical Review: each finding is bound to file-and-line or captured command output, the project's own gates were run and shown to fail on an injected defect rather than trusted on a self-reported 'all passing', severity and confidence are calibrated independently, and no unresolved contradiction would change the calibrated go/no-go recommendation.
 - Medium for Project Critical Review: the report is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Project Critical Review: the report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Project Critical Review cannot determine from the supplied or authorized evidence.
@@ -102,7 +102,7 @@ Lead with the bottom line. Emit, in order:
 - For Project Critical Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Project Critical Review: treating artifact as complete when scope the review and map the project checks or contradictory evidence are missing.
+- Project Critical Review: issuing a go recommendation when a load-bearing claim's adversarial pass was skipped or the test suite was trusted without injecting a defect to confirm it has teeth, so a vacuous green-by-construction gate or an unexamined silent-failure path is mistaken for a verified, ship-ready project.
 - Project Critical Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Project Critical Review: reporting the report without uncertainty labels, alternative explanations, and the next discriminating check.
 

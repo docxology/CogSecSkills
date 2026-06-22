@@ -13,6 +13,31 @@ python -m cogsecskills validate   # must report 0 errors
 Each check below cites the validator function (or `spec.py` parser) that
 enforces it. See [`architecture.md`](architecture.md) for the design rationale.
 
+## Two gates, two questions
+
+An author has two distinct gates to clear, and they answer different questions.
+Both must pass before a skill is committed.
+
+| Gate | Command | Question it answers | Code |
+| --- | --- | --- | --- |
+| **Conformance** | `python -m cogsecskills validate` | *Is this skill structurally well-formed and multiharness?* | `validate.py` |
+| **Quality lint** | `python -m cogsecskills doctor` | *Is this skill deep, specific, and defensively complete?* | `insights.py` → `doctor` |
+
+`validate` is binary and hard: any failure is an error and the skill does not
+ship. `doctor` runs `validate` first, then layers on quality findings (`warn`
+level) about *depth* rather than *form* — short workflows, thin quality fields,
+generic negative controls, and quality language copied between skills. The 100
+implemented areas in this mature library are expected to pass both cleanly.
+
+Parts 1–4 below specify the conformance contract. [Part 5](#part-5--quality-lint-doctor)
+specifies what `doctor` enforces so you can self-check the depth bar before you
+commit. The fastest route to a clean self-check is to run `doctor` and treat
+every finding as a to-do:
+
+```bash
+python -m cogsecskills doctor    # validate + the quality findings in Part 5
+```
+
 ## Canonical skill folder layout
 
 ```
@@ -194,6 +219,99 @@ are errors. `conformance_report` summarizes the totals
 (`registry_total`, `on_disk_skills`, `registry_status_counts`, `errors`,
 `warnings`, `ok`).
 
+## Part 5 — Quality lint (`doctor`)
+
+Structural conformance proves a skill is *well-formed*. The quality lint proves
+it is *worth shipping*. `doctor` (in `insights.py`) walks every implemented
+skill and emits `warn`-level findings; a clean library produces none. Use this
+section as the author's self-check: each row names the finding, what triggers
+it, and the fix.
+
+The depth thresholds come from `cogsecskills.yaml` (`Config` defaults shown);
+see [`configuration.md`](configuration.md) to tune them.
+
+### Workflow depth and references
+
+| Finding | Trigger | Default | Fix |
+| --- | --- | --- | --- |
+| `N workflow steps (< M)` | The workflow document has fewer numbered steps than `min_workflow_steps`. | `min_workflow_steps: 3` | Decompose the procedure into at least the minimum discrete, checkable steps. |
+| `N anti-criteria (< M)` | Fewer "do NOT / stop if" guardrails than `min_anti_criteria`. | `min_anti_criteria: 2` | Add explicit out-of-scope / refusal criteria so the skill knows when *not* to act. |
+| `no references` | An implemented skill has an empty `references` list while `require_references` is on. | `require_references: false` | Cite the methodological sources the technique rests on. |
+
+### Quality fields must be present and substantive
+
+Every implemented skill carries eight quality fields; an empty one is a
+finding (`missing quality field: <field>`). These are the de-stitched,
+domain-specific prose fields the recent improvement pass populated:
+
+- `defensive_boundary` — what the skill is *for*, framed defensively.
+- `misuse_redirect` — how the skill redirects an unsafe request.
+- `evidence_requirements` — what counts as evidence vs. inference.
+- `confidence_rubric` — how to assign HIGH / MEDIUM / LOW (or equivalent) calibration.
+- `uncertainty_handling` — how unknowns and alternatives are preserved.
+- `privacy_legal_constraints` — the privacy and authorization limits.
+- `failure_modes` — the characteristic ways the analysis goes wrong.
+- `negative_controls` — paired safe/unsafe examples that exercise the boundary.
+
+### Defensive-content lints
+
+These checks read the `defensive_boundary`, `misuse_redirect`,
+`negative_controls`, and the workflow text together:
+
+| Finding | What it enforces |
+| --- | --- |
+| `forbidden chain-of-thought wording` | The phrase `chain-of-thought` may not appear — expose concise rationale, not exhaustive private reasoning. |
+| `negative controls must include unsafe redirect coverage` | The combined text must mention both an `unsafe` case and a `redirect`, so the boundary is exercised, not just asserted. |
+| `negative controls must include a safe defensive example` | The `negative_controls` must contain both `safe` and `defensive`, so a legitimate use is shown alongside the refused one. |
+| `sensitive skill missing defensive/privacy misuse guardrails` | For skills in sensitive groups (`cognitive_security`, `counterintelligence`, `information_environment`, `osint_integrity`) or naming sensitive subjects, the text must address `refuse`, `defensive`, `privacy`, and `authorized`. |
+
+### Evidence, inference, unknowns, and alternatives
+
+Two fields have mandatory vocabulary because they encode the library's
+epistemic discipline:
+
+- `evidence_requirements` must label both `evidence` and `inference`
+  (*evidence requirements must label evidence and inference*) — observations and
+  the conclusions drawn from them are never conflated.
+- `uncertainty_handling` must preserve both `unknown` and `alternative`
+  (*uncertainty handling must preserve unknowns and alternatives*) — the skill
+  states what it does not know and keeps credible competing explanations alive
+  rather than forcing one narrative or attribution.
+
+### Specificity: nothing generic, nothing reused
+
+A mature library earns trust by being specific. Three families of finding guard
+against thin, boilerplate, or copy-pasted quality language:
+
+| Finding | What triggers it (`insights.py`) |
+| --- | --- |
+| `negative controls are too generic for the skill or group` | `_negative_controls_are_specific` finds no skill name, slug words, or group name in the controls — they could belong to any skill. |
+| `negative controls repeat generic boilerplate examples` | The controls reuse a known boilerplate phrase (e.g. *"assess this material for manipulation indicators"*). |
+| `<field> must include skill-specific language` | A specificity-checked field (`confidence_rubric`, `evidence_requirements`, `privacy_legal_constraints`, `failure_modes`) contains no token from the skill's name or slug. |
+| `<field> entry reused across skills` | A `confidence_rubric`, `evidence_requirements`, or `privacy_legal_constraints` entry is byte-identical (normalized) across two or more implemented skills — the de-stitching pass exists precisely to eliminate this. |
+
+The reuse check (`_reused_quality_field_findings`) is library-wide: it compares
+every implemented skill against every other, so a phrase copied between two
+skills is caught even though each skill passes on its own. This is what keeps
+100 skills from collapsing into one templated voice.
+
+### Author self-check, in order
+
+Before committing a new or edited skill:
+
+1. `python -m cogsecskills definitions --write` — re-render the harness adapters.
+2. `python -m cogsecskills validate` — clear all of Parts 1–4 (must report 0 errors).
+3. `python -m cogsecskills doctor` — clear every finding above.
+4. Re-read your `negative_controls`: one safe/defensive example, one unsafe case
+   that is *redirected*, both naming this skill's subject.
+5. Confirm `evidence_requirements` separates evidence from inference and
+   `uncertainty_handling` keeps unknowns and alternatives open.
+
+The flagship `cognitive_security.red_team_review` skill is the reference for
+this bar — its adversary model, attack-surface taxonomy, exploitability×impact
+rubric, and go/no-go output show the depth `doctor` is steering every skill
+toward.
+
 ## The closed tool-verb vocabulary
 
 A skill declares capabilities as harness-neutral verbs, never harness-specific
@@ -220,5 +338,6 @@ parsing.
 - [`cli.md`](cli.md) — the `validate`, `report`, `doctor`, and
   `scenarios --check` commands.
 - [`configuration.md`](configuration.md) — overriding the harness set the
-  contract checks against.
+  contract checks against, the claim-status labels, and the quality thresholds
+  used by [Part 5](#part-5--quality-lint-doctor).
 - [project README](../README.md) — overview and exemplar roster.

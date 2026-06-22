@@ -33,13 +33,13 @@ If a request asks Claim-Evidence Audit to launder weak claims, fabricate review 
 
 ## Evidence discipline
 
-- For Claim-Evidence Audit, tie each claim evidence table, and audit summary claim to concrete evidence from the specific document, and claim taxonomy item, source excerpt, observation, or command result that supports it.
+- For Claim-Evidence Audit, bind each claim's verdict to concrete evidence by recording exactly what the document offers in support and classifying its type, and treat confidence language such as 'clearly' or 'obviously' as a claim about evidence strength to be evaluated, never as the evidence itself.
 - For Claim-Evidence Audit, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the claim evidence table.
 - Before recommending any Claim-Evidence Audit action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Claim-Evidence Audit: the claim evidence table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract claims and linked evidence and classify evidence type and quality checks agree, and no unresolved contradiction would change the result.
+- High for Claim-Evidence Audit: each substantive claim's sufficiency verdict is anchored to the specific evidence the document actually offers for it, the evidence-type classification and overclaim or unsupported ratings remain stable when any single claim-evidence pair is re-examined, and no unresolved contradiction would change the overall judgment of whether the conclusions can be trusted as stated.
 - Medium for Claim-Evidence Audit: the claim evidence table is plausible, but one important document source, comparison case, or alternative explanation remains incomplete.
 - Low for Claim-Evidence Audit: the claim evidence table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Claim-Evidence Audit cannot determine from the supplied or authorized evidence.
@@ -54,7 +54,7 @@ If a request asks Claim-Evidence Audit to launder weak claims, fabricate review 
 
 ## Failure modes and negative controls
 
-- Claim-Evidence Audit: treating document as complete when extract claims and linked evidence and classify evidence type and quality checks or contradictory evidence are missing.
+- Claim-Evidence Audit: declaring the document sound when substantive claims were never separated from the evidence offered for them, so cherry-picked data, rhetorical confidence words, and implicit overclaims in how conclusions are framed pass unexamined and an unsupported assertion is mistaken for a well-supported finding.
 - Claim-Evidence Audit: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Claim-Evidence Audit: reporting the claim evidence table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Claim-Evidence Audit outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.

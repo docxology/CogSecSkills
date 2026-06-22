@@ -140,20 +140,22 @@ misuse_redirect: 'If a request asks Dataset Provenance Audit to dox, deanonymize
   path and redirect to the safe defensive form: verify supplied claims, media, sources,
   or datasets with documented public-source methods.'
 evidence_requirements:
-- For Dataset Provenance Audit, tie each provenance audit report, and integrity check
-  results claim to concrete evidence from the specific dataset, analytic question,
-  and dataset documentation item, source excerpt, observation, or command result that
-  supports it.
+- For Dataset Provenance Audit, tie every finding in the audit report and each integrity-check
+  result to concrete evidence — the original source publication, the license text,
+  the computed hash and schema-conformance output, and the documented sampling frame
+  — and where documentation is absent, record that absence as a disclosed limitation
+  rather than presenting unverified provenance as established.
 - For Dataset Provenance Audit, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the provenance
   audit report.
 - Before recommending any Dataset Provenance Audit action, identify the weakest evidence
   link, the alternative most likely to overturn it, and the next discriminating check.
 confidence_rubric:
-- 'High for Dataset Provenance Audit: the provenance audit report is supported by
-  multiple independent source records, custody notes, metadata, corroborating references,
-  and contradiction logs; establish origin and licensing and run integrity and sampling
-  checks checks agree, and no unresolved contradiction would change the result.'
+- 'High for Dataset Provenance Audit: the dataset''s origin, license, and sampling
+  frame are documented and corroborated, integrity checks such as hash comparison
+  and schema validation pass, the transformation chain from original collection to
+  current form is reconstructed, and the fitness-for-purpose rating against the specific
+  analytic question rests on no unresolved contradiction.'
 - 'Medium for Dataset Provenance Audit: the provenance audit report is plausible,
   but one important dataset source, comparison case, or alternative explanation remains
   incomplete.'
@@ -178,9 +180,10 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
-- 'Dataset Provenance Audit: treating dataset as complete when establish origin and
-  licensing and run integrity and sampling checks checks or contradictory evidence
-  are missing.'
+- 'Dataset Provenance Audit: declaring a dataset usable when its origin or licensing
+  could not actually be established, when a large dataset was assumed representative
+  despite an unexamined sampling frame, or when transformation steps that could introduce
+  bias were never reconstructed, so the audit certifies fitness it did not test.'
 - 'Dataset Provenance Audit: producing advice that would help a requester dox, deanonymize,
   harass, bypass access controls, or attribute identity beyond evidence.'
 - 'Dataset Provenance Audit: reporting the provenance audit report without uncertainty

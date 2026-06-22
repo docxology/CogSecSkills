@@ -49,12 +49,12 @@ Emit:
   hypothesis (link to `sat.indicators_generation`).
 
 ## Evidence requirements
-- For Analysis of Competing Hypotheses (ACH), tie each matrix, ranking, and indicators claim to concrete evidence from the specific question, hypotheses, and evidence item, source excerpt, observation, or command result that supports it.
+- For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as evidence in its own right, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.
 - For Analysis of Competing Hypotheses (ACH), label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the matrix.
 - Before recommending any Analysis of Competing Hypotheses (ACH) action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Analysis of Competing Hypotheses (ACH): the matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; enumerate hypotheses and list evidence and arguments checks agree, and no unresolved contradiction would change the result.
+- High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and mutually exclusive, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.
 - Medium for Analysis of Competing Hypotheses (ACH): the matrix is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
 - Low for Analysis of Competing Hypotheses (ACH): the matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analysis of Competing Hypotheses (ACH) cannot determine from the supplied or authorized evidence.
@@ -67,7 +67,7 @@ Emit:
 - For Analysis of Competing Hypotheses (ACH), do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Analysis of Competing Hypotheses (ACH): treating question as complete when enumerate hypotheses and list evidence and arguments checks or contradictory evidence are missing.
+- Analysis of Competing Hypotheses (ACH): ranking the hypothesis with the most confirming marks as strongest instead of the least disconfirmed, or omitting the deception and residual hypotheses, so an unfalsified favourite survives because rival explanations were never seriously tested.
 - Analysis of Competing Hypotheses (ACH): producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Analysis of Competing Hypotheses (ACH): reporting the matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 

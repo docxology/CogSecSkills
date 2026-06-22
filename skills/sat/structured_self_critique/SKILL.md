@@ -32,13 +32,13 @@ If a request asks Structured Self-Critique to force a preferred conclusion, hide
 
 ## Evidence discipline
 
-- For Structured Self-Critique, tie each critique report claim to concrete evidence from the specific analysis draft, key judgments, and supporting evidence item, source excerpt, observation, or command result that supports it.
+- For Structured Self-Critique, bind every flagged weakness and confidence adjustment to concrete evidence from the analysis draft, its key judgments, and its supporting sources, citing the specific claim or gap that triggered the annotation, and name what evidence would rule out each surviving alternative explanation.
 - For Structured Self-Critique, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the critique report.
 - Before recommending any Structured Self-Critique action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Structured Self-Critique: the critique report is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest and inventory and apply the challenge checklist checks agree, and no unresolved contradiction would change the result.
+- High for Structured Self-Critique: every challenge-checklist question received an explicit answer grounded in the draft's own evidence, the identified weaknesses and alternative explanations are corroborated across the supporting sources, and no unresolved contradiction in the critique would change which revisions the report deems mandatory before release.
 - Medium for Structured Self-Critique: the critique report is plausible, but one important analysis draft source, comparison case, or alternative explanation remains incomplete.
 - Low for Structured Self-Critique: the critique report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Self-Critique cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Structured Self-Critique to force a preferred conclusion, hide
 
 ## Failure modes and negative controls
 
-- Structured Self-Critique: treating analysis draft as complete when ingest and inventory and apply the challenge checklist checks or contradictory evidence are missing.
+- Structured Self-Critique: declaring the draft cleared when checklist questions were answered reflexively with no-issues-found, when alternative explanations were invented only to be dismissed, or when uncalibrated confidence language was left unresolved, so cognitive bias survives into the released product disguised as a passed quality gate.
 - Structured Self-Critique: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Structured Self-Critique: reporting the critique report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Structured Self-Critique outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

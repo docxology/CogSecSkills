@@ -21,12 +21,12 @@ Assemble the counter-case with its supporting facts, causal logic, predictions, 
 State whether the consensus survived intact, survived with caveats, or failed, then name the evidence that would resolve the dispute.
 
 ## Evidence requirements
-- For Devil's Advocacy, tie each counter case, and robustness verdict claim to concrete evidence from the specific consensus judgment, and evidence base item, source excerpt, observation, or command result that supports it.
+- For Devil's Advocacy, tie the counter-case and the robustness verdict to specific evidence from the consensus judgment and its evidence base, keep merely-assumed, single-sourced, and contradictory items in distinct categories rather than collapsing them, and name the new collection whose evidence would resolve the dispute.
 - For Devil's Advocacy, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the counter case.
 - Before recommending any Devil's Advocacy action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Devil's Advocacy: the counter case is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; state the consensus and its foundations and select the most vulnerable assumptions checks agree, and no unresolved contradiction would change the result.
+- High for Devil's Advocacy: the counter-case is the strongest good-faith reading a capable opposing analyst would mount, the consensus's load-bearing assumptions and evidence soft spots are surfaced from independent corroboration, the robustness verdict honestly reflects whether the consensus held, and no unresolved contradiction would change that verdict.
 - Medium for Devil's Advocacy: the counter case is plausible, but one important consensus judgment source, comparison case, or alternative explanation remains incomplete.
 - Low for Devil's Advocacy: the counter case rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Devil's Advocacy cannot determine from the supplied or authorized evidence.
@@ -39,7 +39,7 @@ State whether the consensus survived intact, survived with caveats, or failed, t
 - For Devil's Advocacy, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Devil's Advocacy: treating consensus judgment as complete when state the consensus and its foundations and select the most vulnerable assumptions checks or contradictory evidence are missing.
+- Devil's Advocacy: mounting a straw-man or contrarian-for-its-own-sake challenge, or suppressing a result in which the consensus actually failed, so the exercise produces the reassurance of having been challenged without genuinely testing whether the lead judgment is robust or merely comfortable.
 - Devil's Advocacy: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Devil's Advocacy: reporting the counter case without uncertainty labels, alternative explanations, and the next discriminating check.
 

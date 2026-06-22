@@ -18,12 +18,12 @@ Each participant independently allocates a fixed vote budget (e.g., 10 points) a
 Discuss divergences between the vote distribution and intuitive expectations. Flag items that received no votes but were raised by multiple participants. Produce the NGT record as input to subsequent structured analysis.
 
 ## Evidence requirements
-- For Nominal Group Technique, tie each ngt record claim to concrete evidence from the specific focal question, participant idea sets, and prior context item, source excerpt, observation, or command result that supports it.
+- For Nominal Group Technique, tie each ranked idea and its position to concrete evidence — the originating participant submissions, the clarification notes, and the recorded per-ballot vote tallies — and document that votes were cast independently and tallied only after collection, so the ranking is traceable to the process rather than to the loudest voice.
 - For Nominal Group Technique, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the ngt record.
 - Before recommending any Nominal Group Technique action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Nominal Group Technique: the ngt record is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame and distribute the focal question and silent independent generation checks agree, and no unresolved contradiction would change the result.
+- High for Nominal Group Technique: the ranked idea list reflects independently authored submissions collected before any discussion, the weighted vote tallies were cast on a fixed budget and revealed only after all ballots were in, the anonymized round-robin consolidation is auditable end to end, and no unresolved procedural contamination would change the ordering.
 - Medium for Nominal Group Technique: the ngt record is plausible, but one important focal question source, comparison case, or alternative explanation remains incomplete.
 - Low for Nominal Group Technique: the ngt record rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Nominal Group Technique cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Discuss divergences between the vote distribution and intuitive expectations. Fl
 - For Nominal Group Technique, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Nominal Group Technique: treating focal question as complete when frame and distribute the focal question and silent independent generation checks or contradictory evidence are missing.
+- Nominal Group Technique: declaring the prioritized list legitimate when the silent generation phase was contaminated by discussion, ideas were attributed to their authors, or running vote totals were revealed before all ballots were collected, so vocal-dominance and anchoring biases the method exists to neutralize quietly re-entered and shaped the ranking.
 - Nominal Group Technique: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Nominal Group Technique: reporting the ngt record without uncertainty labels, alternative explanations, and the next discriminating check.
 

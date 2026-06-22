@@ -15,12 +15,12 @@ For each in-scope source, specify the collection method (manual review, automate
 Produce the written collection plan document and the source priority table. Obtain approval from the tasking authority and legal or compliance review before collection begins. Record the approval in the plan.
 
 ## Evidence requirements
-- For Collection Plan Design, tie each collection plan, and source priority matrix claim to concrete evidence from the specific intelligence requirement, legal and policy constraints, and available resources item, source excerpt, observation, or command result that supports it.
+- For Collection Plan Design, ground every source selection, method, and exclusion in concrete evidence — the precise wording of the intelligence requirement, the applicable legal or terms-of-service constraint, and the available resources — and record the tasking authority's approval, because a plan that cites no authorizing basis is an assumption, not an approved collection mandate.
 - For Collection Plan Design, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the collection plan.
 - Before recommending any Collection Plan Design action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Collection Plan Design: the collection plan is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; clarify the intelligence requirement and derive scope, sources, and ethical boundaries checks agree, and no unresolved contradiction would change the result.
+- High for Collection Plan Design: each in-scope source in the priority matrix is justified by its ability to answer the stated intelligence requirement, the legal basis for every collection method is explicit and authorized, scope exclusions are documented, and no unresolved ambiguity in the requirement or legal environment would change the approved plan.
 - Medium for Collection Plan Design: the collection plan is plausible, but one important intelligence requirement source, comparison case, or alternative explanation remains incomplete.
 - Low for Collection Plan Design: the collection plan rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Collection Plan Design cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Produce the written collection plan document and the source priority table. Obta
 - For Collection Plan Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Collection Plan Design: treating intelligence requirement as complete when clarify the intelligence requirement and derive scope, sources, and ethical boundaries checks or contradictory evidence are missing.
+- Collection Plan Design: treating the requirement as settled and beginning collection when the legal basis and scope were never documented and approved, when sources were included merely because they were accessible, or when the plan was left static as the analytic question evolved, producing scope creep and legal exposure rather than disciplined collection.
 - Collection Plan Design: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Collection Plan Design: reporting the collection plan without uncertainty labels, alternative explanations, and the next discriminating check.
 

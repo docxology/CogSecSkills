@@ -30,13 +30,13 @@ If a request asks Morphological Analysis to force a preferred conclusion, hide u
 
 ## Evidence discipline
 
-- For Morphological Analysis, tie each morphological box, scenario inventory, and priority findings claim to concrete evidence from the specific problem statement, and known constraints item, source excerpt, observation, or command result that supports it.
+- For Morphological Analysis, tie each parameter, each enumerated value, and every pruning decision to concrete evidence from the problem statement and known constraints, recording the ruling-out reason per excluded cell; a combination removed without evidential justification is an unexamined possibility and must be reinstated or its exclusion explicitly defended.
 - For Morphological Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the morphological box.
 - Before recommending any Morphological Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Morphological Analysis: the morphological box is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; decompose into parameters and prune impossible combinations checks agree, and no unresolved contradiction would change the result.
+- High for Morphological Analysis: the chosen parameters are genuinely independent, each value set was enumerated exhaustively before any pruning, every excluded cell carries a documented logical or evidential reason, and no unresolved contradiction would change the surviving scenario inventory or which cells are flagged most-likely and most-dangerous.
 - Medium for Morphological Analysis: the morphological box is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
 - Low for Morphological Analysis: the morphological box rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Morphological Analysis cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Morphological Analysis to force a preferred conclusion, hide u
 
 ## Failure modes and negative controls
 
-- Morphological Analysis: treating problem statement as complete when decompose into parameters and prune impossible combinations checks or contradictory evidence are missing.
+- Morphological Analysis: treating the scenario space as bounded when cells were pruned on intuition or familiarity without a documented basis, or when co-varying parameters were left un-collapsed, so the configuration where the surprise actually lives is silently excluded from the inventory.
 - Morphological Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Morphological Analysis: reporting the morphological box without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Morphological Analysis outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

@@ -15,12 +15,12 @@ Walk every node: identify nodes with no inbound links (potential unexamined caus
 Output the map in a machine-readable format (Mermaid flowchart or adjacency list). Append a gap-and-conflict report that names each identified structural problem, states what additional evidence or reasoning would resolve it, and flags any section of the map that rests on an assumption rather than confirmed fact.
 
 ## Evidence requirements
-- For Mind Maps & Concept Maps, tie each concept graph, and gap and conflict report claim to concrete evidence from the specific source material, central topic, and map type item, source excerpt, observation, or command result that supports it.
+- For Mind Maps & Concept Maps, bind each node and each labeled edge to concrete evidence in the source material, preserving the raw language used for provenance, and mark any link that rests on inference rather than confirmed relationship; an edge asserted without supporting evidence is a hypothesis about structure, not a documented one.
 - For Mind Maps & Concept Maps, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the concept graph.
 - Before recommending any Mind Maps & Concept Maps action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Mind Maps & Concept Maps: the concept graph is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; extract concepts and draft links and labels checks agree, and no unresolved contradiction would change the result.
+- High for Mind Maps & Concept Maps: every node and labeled directed link traces to named concepts and relationships in the source material, distinct concepts are kept on separate nodes rather than conflated, the gap-and-conflict audit has been run over the whole graph, and no unresolved contradiction in the link structure would change the represented understanding.
 - Medium for Mind Maps & Concept Maps: the concept graph is plausible, but one important source material source, comparison case, or alternative explanation remains incomplete.
 - Low for Mind Maps & Concept Maps: the concept graph rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Mind Maps & Concept Maps cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Output the map in a machine-readable format (Mermaid flowchart or adjacency list
 - For Mind Maps & Concept Maps, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Mind Maps & Concept Maps: treating source material as complete when extract concepts and draft links and labels checks or contradictory evidence are missing.
+- Mind Maps & Concept Maps: presenting the graph as a faithful structure when edges were left unlabeled or distinct concepts were collapsed into one node to keep it tidy, so hidden conflation and uninterpretable links obscure the very relationships and contradictions the map exists to expose.
 - Mind Maps & Concept Maps: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Mind Maps & Concept Maps: reporting the concept graph without uncertainty labels, alternative explanations, and the next discriminating check.
 

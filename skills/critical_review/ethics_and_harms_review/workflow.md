@@ -18,12 +18,12 @@ For each material harm, propose specific, enforceable mitigations (access contro
 Compile the structured harm register table. Write the ethics assessment narrative covering framework analysis, dual-use findings, and consent/transparency gaps. Issue a go/no-go recommendation with explicit conditions (e.g., 'release with access controls and responsible-disclosure policy; re-review if capability is extended to X').
 
 ## Evidence requirements
-- For Ethics & Harms Review, tie each harm register, and ethics assessment claim to concrete evidence from the specific artifact, intended use, and deployment context item, source excerpt, observation, or command result that supports it.
+- For Ethics & Harms Review, tie each harm scenario, mitigation, and residual-risk rating to concrete evidence from the artifact's capability boundaries, stated intended use, and deployment context, and treat a claimed mitigation as effective only when the evidence shows it is enforceable rather than aspirational.
 - For Ethics & Harms Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the harm register.
 - Before recommending any Ethics & Harms Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Ethics & Harms Review: the harm register is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; ingest and scope and multi-framework harm identification checks agree, and no unresolved contradiction would change the result.
+- High for Ethics & Harms Review: each scenario in the harm register names a concrete affected party with likelihood and severity grounded in the artifact and its deployment context, at least two incommensurable ethical frameworks converge on the assessment, and no unresolved contradiction about a dual-use misuse path would change the go/no-go recommendation.
 - Medium for Ethics & Harms Review: the harm register is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Ethics & Harms Review: the harm register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Ethics & Harms Review cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Compile the structured harm register table. Write the ethics assessment narrativ
 - For Ethics & Harms Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Ethics & Harms Review: treating artifact as complete when ingest and scope and multi-framework harm identification checks or contradictory evidence are missing.
+- Ethics & Harms Review: issuing a go recommendation when the harm register enumerated only harms to direct users and the dual-use misuse paths to third parties and society were never traced, so diffuse low-probability high-severity risks and meaningful capability uplift to adversaries are silently omitted from the assessment.
 - Ethics & Harms Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Ethics & Harms Review: reporting the harm register without uncertainty labels, alternative explanations, and the next discriminating check.
 

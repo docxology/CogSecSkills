@@ -34,13 +34,13 @@ If a request asks Disinformation Campaign Analysis to increase persuasive impact
 
 ## Evidence discipline
 
-- For Disinformation Campaign Analysis, tie each campaign analysis report, narrative taxonomy table, and ttp inventory table claim to concrete evidence from the specific campaign artifacts, known context, and target audience indicators item, source excerpt, observation, or command result that supports it.
+- For Disinformation Campaign Analysis, bind every narrative, TTP, and attribution claim to concrete evidence — collected artifacts, timing and content-synchronization signals, or prior OSINT reporting — keep direct observation distinct from inference and from rated attribution, and state what could not be assessed from the available artifacts.
 - For Disinformation Campaign Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the campaign analysis report.
 - Before recommending any Disinformation Campaign Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Disinformation Campaign Analysis: the campaign analysis report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; inventory and characterize artifacts and cross-reference with prior documentation checks agree, and no unresolved contradiction would change the result.
+- High for Disinformation Campaign Analysis: the campaign model's objectives, narrative hierarchy, actor network, and DISARM-aligned TTP inventory are each corroborated by artifacts and prior documentation, coordination signals distinguish the campaign from spontaneous virality, attribution carries an explicitly rated confidence with stated basis, and no unresolved contradiction would change the assessment.
 - Medium for Disinformation Campaign Analysis: the campaign analysis report is plausible, but one important campaign artifacts source, comparison case, or alternative explanation remains incomplete.
 - Low for Disinformation Campaign Analysis: the campaign analysis report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Disinformation Campaign Analysis cannot determine from the supplied or authorized evidence.
@@ -55,7 +55,7 @@ If a request asks Disinformation Campaign Analysis to increase persuasive impact
 
 ## Failure modes and negative controls
 
-- Disinformation Campaign Analysis: treating campaign artifacts as complete when inventory and characterize artifacts and cross-reference with prior documentation checks or contradictory evidence are missing.
+- Disinformation Campaign Analysis: asserting attribution to a state or actor below moderate confidence, characterizing spontaneous viral misinformation as a coordinated campaign without coordination signals, or omitting the alternative-hypothesis section, so the model itself becomes an information hazard rather than a defensible characterization.
 - Disinformation Campaign Analysis: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Disinformation Campaign Analysis: reporting the campaign analysis report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Disinformation Campaign Analysis outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

@@ -30,13 +30,13 @@ If a request asks Information Laundering Tracing to increase persuasive impact, 
 
 ## Evidence discipline
 
-- For Information Laundering Tracing, tie each laundering chain, and analysis narrative claim to concrete evidence from the specific claim text, known publications, and time window item, source excerpt, observation, or command result that supports it.
+- For Information Laundering Tracing, tie every node, outlet-tier classification, and caveat-stripping claim to concrete evidence — a dated URL, an archive.org snapshot, or a direct quote of the claim — and require coordination signals such as identical phrasing or timing before any deliberate-laundering verdict rests on that evidence.
 - For Information Laundering Tracing, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the laundering chain.
 - Before recommending any Information Laundering Tracing action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Information Laundering Tracing: the laundering chain is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; canonicalize the claim and map the publication chain checks agree, and no unresolved contradiction would change the result.
+- High for Information Laundering Tracing: the laundering chain is built from independently retrievable publications across the canonicalized claim and known sources, each tier transition and caveat-stripping node is documented with a dated artifact, and no unresolved contradiction would change the assessment of which node most legitimized the claim.
 - Medium for Information Laundering Tracing: the laundering chain is plausible, but one important claim text source, comparison case, or alternative explanation remains incomplete.
 - Low for Information Laundering Tracing: the laundering chain rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Information Laundering Tracing cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Information Laundering Tracing to increase persuasive impact, 
 
 ## Failure modes and negative controls
 
-- Information Laundering Tracing: treating claim text as complete when canonicalize the claim and map the publication chain checks or contradictory evidence are missing.
+- Information Laundering Tracing: declaring the chain traced when only the most recent mainstream appearance was followed and the upstream origin nodes were skipped, or labelling the laundering deliberate without coordination evidence, so fast organic spread is mistaken for an orchestrated seeding campaign.
 - Information Laundering Tracing: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Information Laundering Tracing: reporting the laundering chain without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Information Laundering Tracing outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

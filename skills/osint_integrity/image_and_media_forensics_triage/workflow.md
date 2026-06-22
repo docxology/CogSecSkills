@@ -15,12 +15,12 @@ Assess editing artifacts: examine compression consistency across image regions (
 Synthesize all findings: reuse result, editing red flags, and context-plausibility assessment. Assign a triage confidence tier and recommend a disposition: (1) Accept as candidate — no red flags found, treat as provisional evidence subject to corroboration; (2) Escalate — anomalies detected, refer for deep forensic analysis before any evidentiary use; (3) Reject — confirmed earlier appearance in unrelated context, or physical inconsistencies that cannot be reconciled with the claim. Document findings in the triage report.
 
 ## Evidence requirements
-- For Image & Media Forensics Triage, tie each triage report claim to concrete evidence from the specific media item, accompanying claim, and source account item, source excerpt, observation, or command result that supports it.
+- For Image & Media Forensics Triage, tie every line of the triage report to concrete evidence — the reverse-image hit and its date, the specific compression or cloning artifact observed, and the contextual feature that matches or contradicts the claimed time and place — and label a clean triage as no-red-flags-found rather than authenticated, because triage is a filter and unsupported escalation or acceptance is a judgment, not a finding.
 - For Image & Media Forensics Triage, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the triage report.
 - Before recommending any Image & Media Forensics Triage action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Image & Media Forensics Triage: the triage report is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; capture claims and metadata and run reverse-image and archive search checks agree, and no unresolved contradiction would change the result.
+- High for Image & Media Forensics Triage: the reuse verdict rests on reverse-image and archive results that pin earlier or unrelated appearances, editing red flags are interpreted against the media's re-encoding history rather than in isolation, the context-collapse check confirms the visual is plausible for the claimed time and place, and no unresolved anomaly would change the recommended disposition.
 - Medium for Image & Media Forensics Triage: the triage report is plausible, but one important media item source, comparison case, or alternative explanation remains incomplete.
 - Low for Image & Media Forensics Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Image & Media Forensics Triage cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Synthesize all findings: reuse result, editing red flags, and context-plausibili
 - For Image & Media Forensics Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Image & Media Forensics Triage: treating media item as complete when capture claims and metadata and run reverse-image and archive search checks or contradictory evidence are missing.
+- Image & Media Forensics Triage: treating a single clean reverse-image result as proof of authenticity when the file may simply be unindexed, reading ELA artifacts in isolation from platform re-compression, or skipping the context-collapse check so recycled authentic media passes as original, mistaking the absence of found red flags for verified authenticity.
 - Image & Media Forensics Triage: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Image & Media Forensics Triage: reporting the triage report without uncertainty labels, alternative explanations, and the next discriminating check.
 

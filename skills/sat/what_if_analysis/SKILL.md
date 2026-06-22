@@ -33,13 +33,13 @@ If a request asks What-If Analysis to force a preferred conclusion, hide uncerta
 
 ## Evidence discipline
 
-- For What-If Analysis, tie each what if report claim to concrete evidence from the specific scenario posit, current context, and time horizon item, source excerpt, observation, or command result that supports it.
+- For What-If Analysis, bind every precondition, causal pathway, and indicator to concrete evidence from the scenario posit, current context, and time horizon, citing which existing evidence is consistent with each pathway, and justify the revised probability with the evidence the backward-reasoning surfaced rather than prevailing mindset.
 - For What-If Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the what if report.
 - Before recommending any What-If Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for What-If Analysis: the what if report is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; posit the scenario as fact and reason backward to preconditions and pathways checks agree, and no unresolved contradiction would change the result.
+- High for What-If Analysis: the enumerated preconditions and causal pathways are each consistent with current evidence, the observable indicators derived from them are independently checkable, and the revised probability estimate rests on reasoning robust enough that no unresolved contradiction in the baseline would change whether the posited scenario deserves more weight.
 - Medium for What-If Analysis: the what if report is plausible, but one important scenario posit source, comparison case, or alternative explanation remains incomplete.
 - Low for What-If Analysis: the what if report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what What-If Analysis cannot determine from the supplied or authorized evidence.
@@ -54,7 +54,7 @@ If a request asks What-If Analysis to force a preferred conclusion, hide uncerta
 
 ## Failure modes and negative controls
 
-- What-If Analysis: treating scenario posit as complete when posit the scenario as fact and reason backward to preconditions and pathways checks or contradictory evidence are missing.
+- What-If Analysis: declaring the report complete when the posit was softened to a mere possibility instead of stated as fact, when the precondition step was skipped to jump straight to implications, or when no observable indicators were produced, so the exercise yields no actionable warning guidance for collection or monitoring.
 - What-If Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - What-If Analysis: reporting the what if report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use What-If Analysis outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

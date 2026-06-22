@@ -15,12 +15,12 @@ Score each cause on plausibility and impact (1–5 each; multiply for a priority
 Produce the final failure-modes document. Flag any causes that require a plan revision versus a monitoring posture. Note which assumptions, if broken, would most change the assessment. Archive as a dissent record.
 
 ## Evidence requirements
-- For Premortem Analysis, tie each failure modes claim to concrete evidence from the specific plan or assessment, and time horizon item, source excerpt, observation, or command result that supports it.
+- For Premortem Analysis, bind each failure cause, plausibility-by-impact score, and proposed mitigation to concrete evidence from the plan or assessment under review and to the assumption it would break, and pair every retained cause with an observable leading indicator, treating any cause that lacks a detectable signal as un-actionable rather than confirmed.
 - For Premortem Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the failure modes.
 - Before recommending any Premortem Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Premortem Analysis: the failure modes is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame the failure as fact and generate failure causes checks agree, and no unresolved contradiction would change the result.
+- High for Premortem Analysis: each top-ranked failure cause carries a plausibility-by-impact score grounded in the plan's actual dependencies, every retained cause has a defined leading indicator and mitigation, the most dangerous assumption breaks are separately surfaced, and no unresolved contradiction in the failure logic would change which causes warrant a plan revision.
 - Medium for Premortem Analysis: the failure modes is plausible, but one important plan or assessment source, comparison case, or alternative explanation remains incomplete.
 - Low for Premortem Analysis: the failure modes rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Premortem Analysis cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Produce the final failure-modes document. Flag any causes that require a plan re
 - For Premortem Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Premortem Analysis: treating plan or assessment as complete when frame the failure as fact and generate failure causes checks or contradictory evidence are missing.
+- Premortem Analysis: declaring the plan stress-tested while softening the assumed-failure frame into a tentative "it might fail," ranking causes by the seniority of whoever raised them, or accepting failure modes with no leading indicator, so the exercise produces comfortable consensus instead of the actionable, monitorable dissent record it is designed to generate.
 - Premortem Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Premortem Analysis: reporting the failure modes without uncertainty labels, alternative explanations, and the next discriminating check.
 

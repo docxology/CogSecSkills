@@ -32,13 +32,13 @@ If a request asks Influence Operation Mapping to increase persuasive impact, exp
 
 ## Evidence discipline
 
-- For Influence Operation Mapping, tie each abcd operation map, attribution assessment, and counter operation brief claim to concrete evidence from the specific evidence collection, hypothesis, and threat actor profiles item, source excerpt, observation, or command result that supports it.
+- For Influence Operation Mapping, link every element of the ABCD map and every attribution claim to concrete evidence — a specific account artifact, a behavioral indicator, a content sample, or a distribution timing pattern — and name the alternative hypothesis that the same evidence could equally support before assigning a confidence tier.
 - For Influence Operation Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the abcd operation map.
 - Before recommending any Influence Operation Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Influence Operation Mapping: the abcd operation map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; inventory evidence and scope operation and decompose actors checks agree, and no unresolved contradiction would change the result.
+- High for Influence Operation Mapping: the ABCD decomposition and attribution rest on independent actor, behavioral, content, and distribution evidence drawn from the collected artifacts and corroborating open sources, the most plausible actor hypothesis survives the stated alternatives, and no unresolved contradiction would change the confidence tier or the counter-operation brief.
 - Medium for Influence Operation Mapping: the abcd operation map is plausible, but one important evidence collection source, comparison case, or alternative explanation remains incomplete.
 - Low for Influence Operation Mapping: the abcd operation map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Influence Operation Mapping cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Influence Operation Mapping to increase persuasive impact, exp
 
 ## Failure modes and negative controls
 
-- Influence Operation Mapping: treating evidence collection as complete when inventory evidence and scope operation and decompose actors checks or contradictory evidence are missing.
+- Influence Operation Mapping: calling the operation mapped when coordinated inauthentic behavior was inferred from content alignment alone without infrastructure or timing evidence, or when alternative attribution hypotheses were never examined, producing circular attribution that conflates organic uptake with a coordinated campaign.
 - Influence Operation Mapping: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Influence Operation Mapping: reporting the abcd operation map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Influence Operation Mapping outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

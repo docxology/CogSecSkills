@@ -32,13 +32,13 @@ If a request asks Cognitive Attack Kill Chain to increase persuasive impact, exp
 
 ## Evidence discipline
 
-- For Cognitive Attack Kill Chain, tie each kill chain map, defender action plan, and residual uncertainty log claim to concrete evidence from the specific campaign evidence, target context, and prior threat intel item, source excerpt, observation, or command result that supports it.
+- For Cognitive Attack Kill Chain, tie every stage assignment and every recommended intervention to concrete evidence — an observed account pattern, a content artifact, a distribution signal, or a prior threat report — record the confidence behind each assignment, and label any stage assessed on inference as a hypothesis rather than an established fact.
 - For Cognitive Attack Kill Chain, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the kill chain map.
 - Before recommending any Cognitive Attack Kill Chain action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Cognitive Attack Kill Chain: the kill chain map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; collect and organize campaign evidence and map evidence to kill-chain stages checks agree, and no unresolved contradiction would change the result.
+- High for Cognitive Attack Kill Chain: each stage-completion assessment in the map is backed by observable campaign evidence rather than speculation, stage completion is kept distinct from achieved effect, the identified disruption points hold when any single indicator is removed, and no unresolved contradiction would change the prioritized defender action plan.
 - Medium for Cognitive Attack Kill Chain: the kill chain map is plausible, but one important campaign evidence source, comparison case, or alternative explanation remains incomplete.
 - Low for Cognitive Attack Kill Chain: the kill chain map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cognitive Attack Kill Chain cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Cognitive Attack Kill Chain to increase persuasive impact, exp
 
 ## Failure modes and negative controls
 
-- Cognitive Attack Kill Chain: treating campaign evidence as complete when collect and organize campaign evidence and map evidence to kill-chain stages checks or contradictory evidence are missing.
+- Cognitive Attack Kill Chain: marking a stage completed without observable evidence or conflating a traversed stage with a successful one, so the residual uncertainty log understates speculation, intervention windows are misjudged, and the adversary's ability to re-enter at a different stage goes unaddressed.
 - Cognitive Attack Kill Chain: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Cognitive Attack Kill Chain: reporting the kill chain map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Cognitive Attack Kill Chain outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

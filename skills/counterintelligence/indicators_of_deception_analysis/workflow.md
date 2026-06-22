@@ -21,12 +21,12 @@ Evaluate the evidence that exists for or against a deception hypothesis. What co
 Write the structured report with one section per framework component, citing specific evidence for each finding. Include the composite deception-likelihood rating, a summary narrative of the proposed deception mechanism if applicable, and recommended analytic responses (caveat the intelligence, seek independent corroboration, tasked collection to test the hypothesis, or escalate to counterintelligence).
 
 ## Evidence requirements
-- For Indicators of Deception Analysis, tie each deception assessment report claim to concrete evidence from the specific evidence corpus, source profile, and baseline expectations item, source excerpt, observation, or command result that supports it.
+- For Indicators of Deception Analysis, cite concrete evidence from the evidence corpus, source profile, or stated baseline expectations for each finding under every framework component, document null findings as explicitly as positive ones, and require a proposed adversary mechanism before treating an anomaly as evidence of deception.
 - For Indicators of Deception Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the deception assessment report.
 - Before recommending any Indicators of Deception Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Indicators of Deception Analysis: the deception assessment report is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; establish baseline and ingest evidence and apply mom — motive, opportunity, means checks agree, and no unresolved contradiction would change the result.
+- High for Indicators of Deception Analysis: the MOM, POP, MOSES, and EVE components were each applied and documented before synthesis, a plausible adversary mechanism accompanies the flagged anomalies, the deception-likelihood rating survives scrutiny of independent corroboration, and no unresolved contradiction would change the result.
 - Medium for Indicators of Deception Analysis: the deception assessment report is plausible, but one important evidence corpus source, comparison case, or alternative explanation remains incomplete.
 - Low for Indicators of Deception Analysis: the deception assessment report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Indicators of Deception Analysis cannot determine from the supplied or authorized evidence.
@@ -39,7 +39,7 @@ Write the structured report with one section per framework component, citing spe
 - For Indicators of Deception Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Indicators of Deception Analysis: treating evidence corpus as complete when establish baseline and ingest evidence and apply mom — motive, opportunity, means checks or contradictory evidence are missing.
+- Indicators of Deception Analysis: elevating risk on anomalies alone without a MOM-grounded adversary mechanism, stopping at anomaly identification and skipping the EVE evaluation step, or reading a clean framework result as proof of accuracy, so the conclusion outruns what the structured checklist actually established.
 - Indicators of Deception Analysis: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Indicators of Deception Analysis: reporting the deception assessment report without uncertainty labels, alternative explanations, and the next discriminating check.
 

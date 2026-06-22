@@ -31,13 +31,13 @@ If a request asks Geolocation Verification to dox, deanonymize, harass, bypass a
 
 ## Evidence discipline
 
-- For Geolocation Verification, tie each geolocation assessment claim to concrete evidence from the specific image or video, claimed location, and claimed date time item, source excerpt, observation, or command result that supports it.
+- For Geolocation Verification, bind the location fix and every anchor in the assessment to concrete evidence — the specific reference imagery showing the matched terrain, building, or sign, and the sun-angle computation for the claimed date and time — and document each source so a second analyst can reproduce the result, because an undocumented match is an unreproducible assertion, not verified geolocation.
 - For Geolocation Verification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the geolocation assessment.
 - Before recommending any Geolocation Verification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Geolocation Verification: the geolocation assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; extract visual anchors and search reference data checks agree, and no unresolved contradiction would change the result.
+- High for Geolocation Verification: at least three independent visual anchors such as terrain, infrastructure, and signage match authoritative reference imagery with none contradicting, the computed shadow angle is consistent with the claimed date and time, the search began landmark-agnostic rather than anchored to the claim, and no unresolved discrepancy would move the confidence tier.
 - Medium for Geolocation Verification: the geolocation assessment is plausible, but one important image or video source, comparison case, or alternative explanation remains incomplete.
 - Low for Geolocation Verification: the geolocation assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Geolocation Verification cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Geolocation Verification to dox, deanonymize, harass, bypass a
 
 ## Failure modes and negative controls
 
-- Geolocation Verification: treating image or video as complete when extract visual anchors and search reference data checks or contradictory evidence are missing.
+- Geolocation Verification: confirming a location from a single spoofable landmark, anchoring the search to the claimed coordinates and selecting only confirming features, or treating EXIF GPS as ground truth, so the assessment reflects confirmation bias rather than convergent feature matching against reference data.
 - Geolocation Verification: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Geolocation Verification: reporting the geolocation assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Geolocation Verification outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.

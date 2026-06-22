@@ -32,13 +32,13 @@ If a request asks Bot & Automation Detection to amplify coordinated behavior, tu
 
 ## Evidence discipline
 
-- For Bot & Automation Detection, tie each account classifications, and detection report claim to concrete evidence from the specific account data, and context item, source excerpt, observation, or command result that supports it.
+- For Bot & Automation Detection, bind every account classification and every amplification estimate to concrete evidence drawn from the supplied account metadata and post histories, naming the specific temporal, content, or network signal that supports it; a label without converging evidence is provisional and must carry its confidence level.
 - For Bot & Automation Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the account classifications.
 - Before recommending any Bot & Automation Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Bot & Automation Detection: the account classifications is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; ingest and profile accounts and cross-reference known indicators checks agree, and no unresolved contradiction would change the result.
+- High for Bot & Automation Detection: the per-account classifications and the aggregate inauthentic-amplification estimate each rest on converging behavioral, temporal, network, and linguistic signals corroborated by independent platform observations and reputation lookups, the classifications stay stable when any single signal is removed, and no unresolved contradiction would change the authenticity conclusion.
 - Medium for Bot & Automation Detection: the account classifications is plausible, but one important account data source, comparison case, or alternative explanation remains incomplete.
 - Low for Bot & Automation Detection: the account classifications rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Bot & Automation Detection cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Bot & Automation Detection to amplify coordinated behavior, tu
 
 ## Failure modes and negative controls
 
-- Bot & Automation Detection: treating account data as complete when ingest and profile accounts and cross-reference known indicators checks or contradictory evidence are missing.
+- Bot & Automation Detection: declaring accounts classified when the multi-signal scoring relied on a single feature such as posting frequency, the platform base rates were never calibrated, or high-volume legitimate users were swept in, so the labels reflect an under-grounded heuristic rather than demonstrated automation.
 - Bot & Automation Detection: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Bot & Automation Detection: reporting the account classifications without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Bot & Automation Detection outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.

@@ -18,12 +18,12 @@ Identify where significant time lags exist between a cause and its effect (e.g.,
 Apply Meadows' hierarchy: interventions on numbers (quantities) are weak; on feedback loop structures (adding or removing a link) are strong; on paradigm or goal of the system are strongest. Rank the top 3–5 leverage points by estimated impact and feasibility. Write the loop inventory table. Produce the causal flow diagram in structured markdown notation (indented node list with → links and polarity labels). Write the leverage-point assessment with one paragraph on unintended consequence risks per intervention.
 
 ## Evidence requirements
-- For Causal Flow Diagramming, tie each causal flow diagram, loop inventory, and leverage point assessment claim to concrete evidence from the specific system description, known variables, and scope boundary item, source excerpt, observation, or command result that supports it.
+- For Causal Flow Diagramming, tie each variable, polarity-labeled link, and identified loop to concrete evidence from the system description or observed behavior-over-time, treat any contested polarity as a flagged analytic uncertainty, and justify every leverage-point recommendation with the mechanism and the unintended-consequence risk that evidence supports.
 - For Causal Flow Diagramming, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the causal flow diagram.
 - Before recommending any Causal Flow Diagramming action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Causal Flow Diagramming: the causal flow diagram is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; define behavior-over-time and boundary and map causal links and polarities checks agree, and no unresolved contradiction would change the result.
+- High for Causal Flow Diagramming: every causal link carries a justified polarity, each feedback loop is correctly typed from its negative-link count, delays and multi-step paths are verified link by link, the structure is corroborated by independent observations, and no unresolved contradiction would change the ranked leverage points.
 - Medium for Causal Flow Diagramming: the causal flow diagram is plausible, but one important system description source, comparison case, or alternative explanation remains incomplete.
 - Low for Causal Flow Diagramming: the causal flow diagram rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Causal Flow Diagramming cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Apply Meadows' hierarchy: interventions on numbers (quantities) are weak; on fee
 - For Causal Flow Diagramming, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Causal Flow Diagramming: treating system description as complete when define behavior-over-time and boundary and map causal links and polarities checks or contradictory evidence are missing.
+- Causal Flow Diagramming: drawing causal arrows between variables that are merely correlated, leaving polarities unlabeled, or recommending a leverage point without weighing the risk of reinforcing an unintended loop, so an intervention based on the map could accelerate the very behavior it meant to dampen.
 - Causal Flow Diagramming: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Causal Flow Diagramming: reporting the causal flow diagram without uncertainty labels, alternative explanations, and the next discriminating check.
 

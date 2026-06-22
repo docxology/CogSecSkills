@@ -33,13 +33,13 @@ If a request asks Statistical Validity Review to launder weak claims, fabricate 
 
 ## Evidence discipline
 
-- For Statistical Validity Review, tie each statistical findings table, and corrected inference claim to concrete evidence from the specific study text, and primary claim item, source excerpt, observation, or command result that supports it.
+- For Statistical Validity Review, bind each findings-table row and the corrected-inference statement to concrete evidence drawn from the supplied study text or primary claim — a specific reported sample size, p-value, effect size, confidence interval, or pre-registration record — and state the inferential consequence that evidence supports; a severity rating asserted without a cited statistical artifact is speculation, not a finding, and must be labelled as such.
 - For Statistical Validity Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the statistical findings table.
 - Before recommending any Statistical Validity Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Statistical Validity Review: the statistical findings table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract statistical claims and methods and audit power and multiple comparisons checks agree, and no unresolved contradiction would change the result.
+- High for Statistical Validity Review: every row of the statistical findings table cites a specific passage from the methods, results, or supplementary tables; the power, multiple-comparisons, test-appropriateness, and Type S/M assessments each rest on independently checkable figures rather than a single source; the corrected-inference verdict stays stable when any single excerpt is removed; and no unresolved contradiction in the reported statistics would change whether the primary claim is supported, partially supported, or insufficiently supported.
 - Medium for Statistical Validity Review: the statistical findings table is plausible, but one important study text source, comparison case, or alternative explanation remains incomplete.
 - Low for Statistical Validity Review: the statistical findings table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Statistical Validity Review cannot determine from the supplied or authorized evidence.
@@ -54,7 +54,7 @@ If a request asks Statistical Validity Review to launder weak claims, fabricate 
 
 ## Failure modes and negative controls
 
-- Statistical Validity Review: treating study text as complete when extract statistical claims and methods and audit power and multiple comparisons checks or contradictory evidence are missing.
+- Statistical Validity Review: declaring a quantitative claim audited when the test count was never actually reconciled against the reported outcomes or the power and assumption checks were skipped, so an empty findings table reflects an incomplete audit rather than a methodologically sound study, or rating severity by the convenience of a finding instead of by statistical criteria alone.
 - Statistical Validity Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Statistical Validity Review: reporting the statistical findings table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Statistical Validity Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.

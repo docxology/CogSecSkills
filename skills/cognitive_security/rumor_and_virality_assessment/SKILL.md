@@ -33,13 +33,13 @@ If a request asks Rumor & Virality Assessment to increase persuasive impact, exp
 
 ## Evidence discipline
 
-- For Rumor & Virality Assessment, tie each virality assessment, and factor table claim to concrete evidence from the specific claim, originating context, and audience profile item, source excerpt, observation, or command result that supports it.
+- For Rumor & Virality Assessment, bind the composite score, each virality-factor rating, the trajectory estimate, and every amplifier-pathway claim to concrete evidence — the claim text, the originating context, engagement metrics, or comparable precedent — and mark any factor scored without such evidence as a low-confidence estimate with explicit caveats.
 - For Rumor & Virality Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the virality assessment.
 - Before recommending any Rumor & Virality Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Rumor & Virality Assessment: the virality assessment is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest and normalize the claim and establish baseline and precedent checks agree, and no unresolved contradiction would change the result.
+- High for Rumor & Virality Assessment: the composite virality score and its per-factor ratings are each tied to the claim's wording, embedding context, and any propagation data, the score is corroborated by precedent spread rates for comparable claims, and no unresolved contradiction in the amplifier analysis would change the prioritised counter-messaging windows.
 - Medium for Rumor & Virality Assessment: the virality assessment is plausible, but one important claim source, comparison case, or alternative explanation remains incomplete.
 - Low for Rumor & Virality Assessment: the virality assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Rumor & Virality Assessment cannot determine from the supplied or authorized evidence.
@@ -54,7 +54,7 @@ If a request asks Rumor & Virality Assessment to increase persuasive impact, exp
 
 ## Failure modes and negative controls
 
-- Rumor & Virality Assessment: treating claim as complete when ingest and normalize the claim and establish baseline and precedent checks or contradictory evidence are missing.
+- Rumor & Virality Assessment: declaring spread assessed when the precedent-and-baseline search was skipped, low early engagement was read as low potential for a dormant claim, or coordinated amplification signals were left unexamined, so the score reflects an incomplete read rather than a calibrated forecast.
 - Rumor & Virality Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Rumor & Virality Assessment: reporting the virality assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Rumor & Virality Assessment outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

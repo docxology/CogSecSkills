@@ -18,12 +18,12 @@ For each high-priority surface, prescribe one or more controls from the hardenin
 State explicitly what manipulation surfaces remain after controls, why they cannot be fully mitigated, and what decision-maker behavior (e.g., seeking corroboration before acting) compensates. Provide a summary hardening scorecard comparing pre- and post-control risk for each node.
 
 ## Evidence requirements
-- For Analytic Process Hardening, tie each vulnerability map, hardening plan, and residual risk statement claim to concrete evidence from the specific workflow description, adversary context, and prior incidents item, source excerpt, observation, or command result that supports it.
+- For Analytic Process Hardening, tie each mapped manipulation surface, prioritized control, and residual-risk statement to concrete evidence from a specific stage of the supplied workflow description, prior incident, or adversary context, and never assert a node is protected without naming the control and its verification criterion.
 - For Analytic Process Hardening, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the vulnerability map.
 - Before recommending any Analytic Process Hardening action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Analytic Process Hardening: the vulnerability map is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; map the workflow and identify manipulation surfaces checks agree, and no unresolved contradiction would change the result.
+- High for Analytic Process Hardening: each manipulation surface in the vulnerability map is grounded in a documented workflow node, the risk prioritization by adversary access, detection probability, and consequence is stable, the prescribed controls trace to specific high-risk surfaces, and no unresolved contradiction would change the hardening plan.
 - Medium for Analytic Process Hardening: the vulnerability map is plausible, but one important workflow description source, comparison case, or alternative explanation remains incomplete.
 - Low for Analytic Process Hardening: the vulnerability map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analytic Process Hardening cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ State explicitly what manipulation surfaces remain after controls, why they cann
 - For Analytic Process Hardening, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Analytic Process Hardening: treating workflow description as complete when map the workflow and identify manipulation surfaces checks or contradictory evidence are missing.
+- Analytic Process Hardening: declaring the workflow hardened when the node-by-node mapping skipped a real handoff or single-source choke point, or when controls were added as bureaucratic sign-off layers that add drag without independent detection, leaving the residual risk understated.
 - Analytic Process Hardening: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Analytic Process Hardening: reporting the vulnerability map without uncertainty labels, alternative explanations, and the next discriminating check.
 

@@ -30,13 +30,13 @@ If a request asks Starbursting to force a preferred conclusion, hide uncertainty
 
 ## Evidence discipline
 
-- For Starbursting, tie each question map, and key unknowns summary claim to concrete evidence from the specific topic or artifact, and context item, source excerpt, observation, or command result that supports it.
+- For Starbursting, tie every question and every priority rating to concrete evidence from the topic statement or artifact and its context, citing the excerpt or gap that makes the question pressing, and justify with evidence why answering it would shift the assessment rather than asserting importance by intuition.
 - For Starbursting, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the question map.
 - Before recommending any Starbursting action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Starbursting: the question map is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame the topic and generate questions per interrogative checks agree, and no unresolved contradiction would change the result.
+- High for Starbursting: the question map covers all six interrogatives with multiple questions each including questions of absence, the priority ranking of the key unknowns is stable across independent reviewers of the topic, and no unresolved contradiction in the framing would alter which unanswered questions are judged most consequential.
 - Medium for Starbursting: the question map is plausible, but one important topic or artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Starbursting: the question map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Starbursting cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Starbursting to force a preferred conclusion, hide uncertainty
 
 ## Failure modes and negative controls
 
-- Starbursting: treating topic or artifact as complete when frame the topic and generate questions per interrogative checks or contradictory evidence are missing.
+- Starbursting: declaring the question map complete when one or more interrogatives produced only a token question or when answers were drafted during the generation phase, so premature closure was baked in and the most uncomfortable unknowns were never surfaced.
 - Starbursting: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Starbursting: reporting the question map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Starbursting outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

@@ -31,13 +31,13 @@ If a request asks Cross-Impact Matrix to force a preferred conclusion, hide unce
 
 ## Evidence discipline
 
-- For Cross-Impact Matrix, tie each cross impact matrix, loop inventory, and leverage ranking claim to concrete evidence from the specific driver list, influence scale, and focal question item, source excerpt, observation, or command result that supports it.
+- For Cross-Impact Matrix, justify each cell's direction and magnitude with specific evidence about that pairwise relationship, record a deliberate zero as an assessed finding rather than an unexamined default, and tie the loop inventory and leverage ranking to the scored cells that produced them.
 - For Cross-Impact Matrix, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the cross impact matrix.
 - Before recommending any Cross-Impact Matrix action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Cross-Impact Matrix: the cross impact matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; establish the driver set and fill the matrix cell by cell checks agree, and no unresolved contradiction would change the result.
+- High for Cross-Impact Matrix: each directional cell was assessed independently before any holistic reading, the identified loops and active-versus-passive leverage rankings follow from the row and column sums, the influence judgments are corroborated by multiple sources, and no unresolved contradiction would change the high-leverage drivers.
 - Medium for Cross-Impact Matrix: the cross impact matrix is plausible, but one important driver list source, comparison case, or alternative explanation remains incomplete.
 - Low for Cross-Impact Matrix: the cross impact matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cross-Impact Matrix cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Cross-Impact Matrix to force a preferred conclusion, hide unce
 
 ## Failure modes and negative controls
 
-- Cross-Impact Matrix: treating driver list as complete when establish the driver set and fill the matrix cell by cell checks or contradictory evidence are missing.
+- Cross-Impact Matrix: assuming a relationship is negligible and skipping cells, treating the influence of driver i on j as symmetric with j on i, or reading the matrix as a forecast of trajectories rather than a map of structure, so unassessed or conflated cells distort the leverage ranking.
 - Cross-Impact Matrix: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Cross-Impact Matrix: reporting the cross impact matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Cross-Impact Matrix outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

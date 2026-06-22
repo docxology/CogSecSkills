@@ -18,12 +18,12 @@ For each escalated signal, assess whether spread appears organic or coordinated.
 Populate the signal log table with all detected signals and their assessments. Write the monitoring report narrative covering the top three to five emerging signals with evidence, authenticity assessment, emergence stage, and recommended follow-on actions. Update the baseline with this cycle's observed distribution to enable next-cycle comparison.
 
 ## Evidence requirements
-- For Trend & Emergence Monitoring, tie each signal log, and monitoring report claim to concrete evidence from the specific monitoring scope, watchlist, and baseline report item, source excerpt, observation, or command result that supports it.
+- For Trend & Emergence Monitoring, tie each logged signal, emergence-stage classification, and escalation recommendation to concrete evidence from the supplied monitoring scope, watchlist, and baseline report, citing the specific velocity change or coordination indicator that supports it, and treat coordination signals as evidence of synthetic amplification rather than actor attribution.
 - For Trend & Emergence Monitoring, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the signal log.
 - Before recommending any Trend & Emergence Monitoring action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Trend & Emergence Monitoring: the signal log is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; refresh scope and baseline and collect current signals checks agree, and no unresolved contradiction would change the result.
+- High for Trend & Emergence Monitoring: each escalated signal in the log clears the three-signal corroboration threshold across independent sources, shows velocity above the established baseline rather than mere volume, carries a defensible emergence-stage and organic-versus-coordinated assessment, and no unresolved contradiction would change which signals warrant deeper investigation.
 - Medium for Trend & Emergence Monitoring: the signal log is plausible, but one important monitoring scope source, comparison case, or alternative explanation remains incomplete.
 - Low for Trend & Emergence Monitoring: the signal log rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Trend & Emergence Monitoring cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Populate the signal log table with all detected signals and their assessments. W
 - For Trend & Emergence Monitoring, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Trend & Emergence Monitoring: treating monitoring scope as complete when refresh scope and baseline and collect current signals checks or contradictory evidence are missing.
+- Trend & Emergence Monitoring: escalating a single-instance observation before the three-signal corroboration threshold is met, mistaking a consistently high-volume topic for emergence, or letting watchlist tunnel-vision suppress novel signals, so the early-warning output raises false alarms or misses genuine nascent narratives.
 - Trend & Emergence Monitoring: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Trend & Emergence Monitoring: reporting the signal log without uncertainty labels, alternative explanations, and the next discriminating check.
 

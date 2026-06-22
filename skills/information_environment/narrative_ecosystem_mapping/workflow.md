@@ -18,12 +18,12 @@ Identify the primary audience segments each narrative targets. Assess resonance 
 Identify structural vulnerabilities: narrative vacuums, over-reliance on a small number of high-centrality carriers, audiences with low counter-narrative exposure. Produce the narrative inventory table and the structured ecosystem map, noting the competition dynamics and flagging the highest-priority vulnerabilities.
 
 ## Evidence requirements
-- For Narrative Ecosystem Mapping, tie each narrative inventory, and ecosystem map claim to concrete evidence from the specific information space definition, content sample, and known actors item, source excerpt, observation, or command result that supports it.
+- For Narrative Ecosystem Mapping, bind each inventoried narrative, carrier profile, and ecosystem-vulnerability finding to concrete evidence from the supplied content sample and known-actor lists within the defined information space, citing the specific posts or reports that ground it, and label narrative vacuums as inferences rather than observations.
 - For Narrative Ecosystem Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the narrative inventory.
 - Before recommending any Narrative Ecosystem Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Narrative Ecosystem Mapping: the narrative inventory is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; scope and collect and identify and cluster narratives checks agree, and no unresolved contradiction would change the result.
+- High for Narrative Ecosystem Mapping: the narrative inventory names each master narrative and its carriers from a representative content sample within a defined information space, the carrier network and amplification pathways are corroborated across independent sources, salience is distinguished from resonance with evidence, and no unresolved contradiction would change the identified ecosystem vulnerabilities.
 - Medium for Narrative Ecosystem Mapping: the narrative inventory is plausible, but one important information space definition source, comparison case, or alternative explanation remains incomplete.
 - Low for Narrative Ecosystem Mapping: the narrative inventory rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Narrative Ecosystem Mapping cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Identify structural vulnerabilities: narrative vacuums, over-reliance on a small
 - For Narrative Ecosystem Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Narrative Ecosystem Mapping: treating information space definition as complete when scope and collect and identify and cluster narratives checks or contradictory evidence are missing.
+- Narrative Ecosystem Mapping: treating the map as finished when it was built from a single content snapshot without noting temporal scope, when the existence of a narrative was conflated with proof that it is coordinated, or when carrier networks were not mapped separately from narrative content, leaving the ecosystem picture distorted.
 - Narrative Ecosystem Mapping: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Narrative Ecosystem Mapping: reporting the narrative inventory without uncertainty labels, alternative explanations, and the next discriminating check.
 

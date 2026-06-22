@@ -31,13 +31,13 @@ If a request asks Network Analysis to force a preferred conclusion, hide uncerta
 
 ## Evidence discipline
 
-- For Network Analysis, tie each centrality report, structural findings, and collection gaps claim to concrete evidence from the specific node list, edge list, and analytic question item, source excerpt, observation, or command result that supports it.
+- For Network Analysis, bind every centrality ranking, broker claim, and cluster boundary to concrete evidence — a documented edge, its relationship type, and its recorded evidence quality drawn from the node and edge lists — and flag any node or link that rests only on low-confidence or single-source reporting as provisional rather than established.
 - For Network Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the centrality report.
 - Before recommending any Network Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Network Analysis: the centrality report is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; build the edge list and compute centrality and identify structure checks agree, and no unresolved contradiction would change the result.
+- High for Network Analysis: the betweenness-ranked centrality table, broker identification, and cluster partition are each corroborated by multiple independent edges whose evidence quality is documented, the rankings stay stable under removal of any weak-evidence link, the resilience and coordination-signature findings agree, and no unresolved contradiction would change the conclusion.
 - Medium for Network Analysis: the centrality report is plausible, but one important node list source, comparison case, or alternative explanation remains incomplete.
 - Low for Network Analysis: the centrality report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Network Analysis cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Network Analysis to force a preferred conclusion, hide uncerta
 
 ## Failure modes and negative controls
 
-- Network Analysis: treating node list as complete when build the edge list and compute centrality and identify structure checks or contradictory evidence are missing.
+- Network Analysis: declaring the network characterized when inferred or single-source edges were treated as confirmed links, so a high-degree hub is mistaken for the structurally critical actor and no sensitivity check or resilience simulation was run, leaving the centrality ranking an artifact of unexamined collection gaps rather than the actual topology.
 - Network Analysis: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Network Analysis: reporting the centrality report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Network Analysis outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

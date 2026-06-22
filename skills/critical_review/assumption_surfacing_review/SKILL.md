@@ -32,13 +32,13 @@ If a request asks Assumption Surfacing Review to launder weak claims, fabricate 
 
 ## Evidence discipline
 
-- For Assumption Surfacing Review, tie each assumption register, and assumption review narrative claim to concrete evidence from the specific target text, and domain context item, source excerpt, observation, or command result that supports it.
+- For Assumption Surfacing Review, bind each surfaced assumption and its load-bearing and support ratings to concrete evidence drawn from the specific target-text passage or domain-context detail that reveals it, and label any premise resting only on confident assertion as an unsupported assumption rather than established evidence.
 - For Assumption Surfacing Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the assumption register.
 - Before recommending any Assumption Surfacing Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Assumption Surfacing Review: the assumption register is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract claims and premises and surface implicit assumptions checks agree, and no unresolved contradiction would change the result.
+- High for Assumption Surfacing Review: every load-bearing assumption in the register is grounded in a specific passage of the target text, the critical/supporting/peripheral classification and evidentiary-support rating hold up when any single excerpt is reconsidered, and no unresolved contradiction would change which premises are flagged as the most dangerous to the conclusion.
 - Medium for Assumption Surfacing Review: the assumption register is plausible, but one important target text source, comparison case, or alternative explanation remains incomplete.
 - Low for Assumption Surfacing Review: the assumption register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Assumption Surfacing Review cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Assumption Surfacing Review to launder weak claims, fabricate 
 
 ## Failure modes and negative controls
 
-- Assumption Surfacing Review: treating target text as complete when extract claims and premises and surface implicit assumptions checks or contradictory evidence are missing.
+- Assumption Surfacing Review: declaring the assumption register complete when implicit premises behind unstated reasoning gaps were never extracted or contradictory evidence about a critical premise was left unexamined, so an empty findings list reflects a shallow scan rather than a genuinely well-founded argument.
 - Assumption Surfacing Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Assumption Surfacing Review: reporting the assumption register without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Assumption Surfacing Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.

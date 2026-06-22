@@ -30,13 +30,13 @@ If a request asks Multiple Hypothesis Generation to force a preferred conclusion
 
 ## Evidence discipline
 
-- For Multiple Hypothesis Generation, tie each hypothesis set, and completeness check claim to concrete evidence from the specific evidence set, initial hypotheses, and domain context item, source excerpt, observation, or command result that supports it.
+- For Multiple Hypothesis Generation, ground each hypothesis and the completeness audit in concrete evidence from the evidence set, initial hypotheses, and domain context, recording every merge, split, and identified gap; a hypothesis admitted or excluded without evidence tied to its distinguishing claim weakens the MECE guarantee and must be documented as such.
 - For Multiple Hypothesis Generation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the hypothesis set.
 - Before recommending any Multiple Hypothesis Generation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Multiple Hypothesis Generation: the hypothesis set is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; inventory the evidence and initial frame and generate a candidate hypothesis set checks agree, and no unresolved contradiction would change the result.
+- High for Multiple Hypothesis Generation: the hypothesis set passes pairwise mutual-exclusivity testing, the collective-exhaustiveness check includes an explicit residual for the uncovered logical space, each hypothesis carries a unique distinguishing claim, and no unresolved overlap or remainder would change the completeness of the set before evaluation begins.
 - Medium for Multiple Hypothesis Generation: the hypothesis set is plausible, but one important evidence set source, comparison case, or alternative explanation remains incomplete.
 - Low for Multiple Hypothesis Generation: the hypothesis set rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Multiple Hypothesis Generation cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Multiple Hypothesis Generation to force a preferred conclusion
 
 ## Failure modes and negative controls
 
-- Multiple Hypothesis Generation: treating evidence set as complete when inventory the evidence and initial frame and generate a candidate hypothesis set checks or contradictory evidence are missing.
+- Multiple Hypothesis Generation: declaring the set complete when no test for a logical remainder was run or low-probability but possible explanations were excluded on perceived likelihood, leaving an artificially narrow set that confirmation bias can then exploit downstream in ACH.
 - Multiple Hypothesis Generation: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Multiple Hypothesis Generation: reporting the hypothesis set without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Multiple Hypothesis Generation outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

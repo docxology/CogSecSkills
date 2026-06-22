@@ -31,13 +31,13 @@ If a request asks Indicators Generation to force a preferred conclusion, hide un
 
 ## Evidence discipline
 
-- For Indicators Generation, tie each indicators matrix, and indicators narrative claim to concrete evidence from the specific scenarios or hypotheses, actor profile, and collection environment item, source excerpt, observation, or command result that supports it.
+- For Indicators Generation, ground each indicator and its diagnostic weight in concrete evidence about the scenarios, the actor profile, and the available collection sources, and name the source that would actually observe it; an indicator with no collectable evidence path is aspirational and must be labelled as such rather than counted as active coverage.
 - For Indicators Generation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the indicators matrix.
 - Before recommending any Indicators Generation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Indicators Generation: the indicators matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest scenarios and context and derive candidate indicators per scenario checks agree, and no unresolved contradiction would change the result.
+- High for Indicators Generation: each indicator is derived from the actors' necessary preconditions rather than from hoped-for observations, every indicator is paired with both a scenario it supports and one it would undermine, the diagnostic-weight assignments hold across the scenario set, and no unresolved contradiction would change which signs warrant collection priority.
 - Medium for Indicators Generation: the indicators matrix is plausible, but one important scenarios or hypotheses source, comparison case, or alternative explanation remains incomplete.
 - Low for Indicators Generation: the indicators matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Indicators Generation cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Indicators Generation to force a preferred conclusion, hide un
 
 ## Failure modes and negative controls
 
-- Indicators Generation: treating scenarios or hypotheses as complete when ingest scenarios and context and derive candidate indicators per scenario checks or contradictory evidence are missing.
+- Indicators Generation: declaring the warning set ready when indicators consistent with every scenario were retained or the undermining pairing was skipped, so a confirmation-only list masquerades as diagnostic monitoring and uncollectable signs are treated as live tripwires.
 - Indicators Generation: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Indicators Generation: reporting the indicators matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Indicators Generation outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

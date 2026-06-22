@@ -15,12 +15,12 @@ Determine whether any genuinely independent sources (different origin, different
 Write the corroboration assessment table and the promotion decision with tier, rationale, confidence level, and — if held — the specific evidence that would warrant promotion. Record conditions under which the hold should be revisited.
 
 ## Evidence requirements
-- For Cross-Source Corroboration, tie each corroboration assessment, and promotion decision claim to concrete evidence from the specific candidate claim, source list, and source metadata item, source excerpt, observation, or command result that supports it.
+- For Cross-Source Corroboration, bind every entry in the corroboration assessment and the promotion decision to concrete evidence — each source's dated assertion, its traced origin, and any shared-phrasing or synchronized-timing signal — and treat a claim that rests on a single original origin as held rather than confirmed, because repetition without independent origination is not evidence of truth.
 - For Cross-Source Corroboration, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the corroboration assessment.
 - Before recommending any Cross-Source Corroboration action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Cross-Source Corroboration: the corroboration assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; characterize the claim and current source set and trace origins and assess source independence checks agree, and no unresolved contradiction would change the result.
+- High for Cross-Source Corroboration: at least two sources confirm the claim from genuinely distinct origins, origin tracing shows they do not collapse to a single wire report or controlling actor, no coordinated-amplification signal undermines their independence, and no unresolved contradiction would reverse the promote decision.
 - Medium for Cross-Source Corroboration: the corroboration assessment is plausible, but one important candidate claim source, comparison case, or alternative explanation remains incomplete.
 - Low for Cross-Source Corroboration: the corroboration assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cross-Source Corroboration cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Write the corroboration assessment table and the promotion decision with tier, r
 - For Cross-Source Corroboration, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Cross-Source Corroboration: treating candidate claim as complete when characterize the claim and current source set and trace origins and assess source independence checks or contradictory evidence are missing.
+- Cross-Source Corroboration: promoting a claim when multiple outlets sharing a single originating source were counted as independent confirmations, when manufactured consensus from timing or volume was mistaken for agreement, or when corroboration of a report's existence was conflated with corroboration of the underlying fact.
 - Cross-Source Corroboration: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Cross-Source Corroboration: reporting the corroboration assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 

@@ -129,19 +129,21 @@ misuse_redirect: 'If a request asks Quadrant Crunching to force a preferred conc
   path and redirect to the safe defensive form: apply the structured technique to
   supplied evidence while preserving alternatives and uncertainty.'
 evidence_requirements:
-- For Quadrant Crunching, tie each scenario matrix, scenario narratives, and neglected
-  cells claim to concrete evidence from the specific problem statement, dominant assessment,
-  and candidate assumptions item, source excerpt, observation, or command result that
-  supports it.
+- For Quadrant Crunching, anchor each cell's coherence judgment, plausibility rating,
+  and confirming indicators to concrete evidence rather than to confidence in the
+  base case, document the evidentiary reason any cell is labeled incoherent, and bind
+  the neglected-cell findings to specific evidence showing the dominant assessment's
+  blind spot rather than asserting it.
 - For Quadrant Crunching, label observations, derived features, assumptions, inferences,
   contradictions, and missing inputs separately before writing the scenario matrix.
 - Before recommending any Quadrant Crunching action, identify the weakest evidence
   link, the alternative most likely to overturn it, and the next discriminating check.
 confidence_rubric:
-- 'High for Quadrant Crunching: the scenario matrix is supported by multiple independent
-  hypotheses, assumptions, indicators, evidence tables, and confidence notes; select
-  axes and populate the matrix checks agree, and no unresolved contradiction would
-  change the result.'
+- 'High for Quadrant Crunching: the two axes were chosen for maximum consequence and
+  genuine independent uncertainty, every coherent matrix cell was examined on its
+  own internal logic before its evidence-anchored plausibility rating, the neglected
+  cells the dominant assessment ignores are explicitly surfaced with reasoning, and
+  no unresolved contradiction would change which alternatives deserve attention.'
 - 'Medium for Quadrant Crunching: the scenario matrix is plausible, but one important
   problem statement source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Quadrant Crunching: the scenario matrix rests on sparse, single-source,
@@ -164,8 +166,11 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
-- 'Quadrant Crunching: treating problem statement as complete when select axes and
-  populate the matrix checks or contradictory evidence are missing.'
+- 'Quadrant Crunching: declaring the scenario space mapped while letting the dominant
+  assessment pre-filter cells as impossible without incoherence reasoning, choosing
+  axes that are correlated rather than independent or merely easy to enumerate, or
+  anchoring plausibility on analyst confidence instead of evidence, so the matrix
+  reproduces tunnel vision under the appearance of having considered all combinations.'
 - 'Quadrant Crunching: producing advice that would help a requester force a preferred
   conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
 - 'Quadrant Crunching: reporting the scenario matrix without uncertainty labels, alternative

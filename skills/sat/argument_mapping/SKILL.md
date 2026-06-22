@@ -31,13 +31,13 @@ If a request asks Argument Mapping to force a preferred conclusion, hide uncerta
 
 ## Evidence discipline
 
-- For Argument Mapping, tie each argument map, load bearing assumption list, and logical gap report claim to concrete evidence from the specific argument source, and focal claim item, source excerpt, observation, or command result that supports it.
+- For Argument Mapping, bind each mapped claim, inferential connector, and ranked load-bearing assumption to a specific excerpt from the argument source or a named missing premise as its evidence, and mark any node with no supporting evidence as an undefended assertion rather than an established step.
 - For Argument Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the argument map.
 - Before recommending any Argument Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Argument Mapping: the argument map is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; identify the top-level conclusion and extract claims, premises, and evidence checks agree, and no unresolved contradiction would change the result.
+- High for Argument Mapping: every claim in the map traces to an evidence leaf or an explicitly marked assumption, the descriptive mapping faithfully represents the source argument, the ranked load-bearing assumptions are corroborated independently, and no unresolved contradiction would change which nodes are judged most brittle.
 - Medium for Argument Mapping: the argument map is plausible, but one important argument source source, comparison case, or alternative explanation remains incomplete.
 - Low for Argument Mapping: the argument map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Argument Mapping cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Argument Mapping to force a preferred conclusion, hide uncerta
 
 ## Failure modes and negative controls
 
-- Argument Mapping: treating argument source as complete when identify the top-level conclusion and extract claims, premises, and evidence checks or contradictory evidence are missing.
+- Argument Mapping: conflating faithful mapping with refutation or omitting the implicit premises hidden inside inferential connectors, so the diagram either becomes a straw-man of the source or declares the structure sound while its most dangerous unstated leaps go unexamined.
 - Argument Mapping: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Argument Mapping: reporting the argument map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Argument Mapping outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

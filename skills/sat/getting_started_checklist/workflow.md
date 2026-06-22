@@ -21,12 +21,12 @@ Record any prior analytic judgments — published or informal — about the topi
 Compile the above into a structured baseline document: primary question, subordinate questions, drivers, assumptions register, prior judgments log, and a gaps list. This document is the analytic contract for the work that follows.
 
 ## Evidence requirements
-- For Getting Started Checklist, tie each getting started baseline claim to concrete evidence from the specific analytic task, and background material item, source excerpt, observation, or command result that supports it.
+- For Getting Started Checklist, tie every restated question, listed driver, and registered assumption to concrete evidence from the supplied analytic task or background material, and flag each item that rests on inference rather than confirmed fact so its confidence level is visible before any drafting begins.
 - For Getting Started Checklist, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the getting started baseline.
 - Before recommending any Getting Started Checklist action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Getting Started Checklist: the getting started baseline is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; capture the tasking and articulate the primary question and subordinate questions checks agree, and no unresolved contradiction would change the result.
+- High for Getting Started Checklist: the restated primary question, key drivers, and assumptions register each trace to the supplied tasking and background material, the consumer's actual decision need has been confirmed rather than inferred, the framing is internally consistent, and no unresolved contradiction would change the baseline that subsequent analysis depends on.
 - Medium for Getting Started Checklist: the getting started baseline is plausible, but one important analytic task source, comparison case, or alternative explanation remains incomplete.
 - Low for Getting Started Checklist: the getting started baseline rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Getting Started Checklist cannot determine from the supplied or authorized evidence.
@@ -39,7 +39,7 @@ Compile the above into a structured baseline document: primary question, subordi
 - For Getting Started Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Getting Started Checklist: treating analytic task as complete when capture the tasking and articulate the primary question and subordinate questions checks or contradictory evidence are missing.
+- Getting Started Checklist: treating the baseline as set when the primary question was never narrowed to one answerable sentence or load-bearing assumptions were left off the register, so substantive analysis proceeds anchored to an unexamined framing and inherited prior judgments.
 - Getting Started Checklist: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Getting Started Checklist: reporting the getting started baseline without uncertainty labels, alternative explanations, and the next discriminating check.
 

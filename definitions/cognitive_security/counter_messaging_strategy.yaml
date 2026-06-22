@@ -191,10 +191,11 @@ misuse_redirect: 'If a request asks Counter-Messaging Strategy to increase persu
   that path and redirect to the safe defensive form: assess supplied material for
   manipulation indicators and recommend resilience measures.'
 evidence_requirements:
-- For Counter-Messaging Strategy, tie each counter messaging strategy, and message
-  variants table claim to concrete evidence from the specific false claim or narrative,
-  audience profile, and intervention timing item, source excerpt, observation, or
-  command result that supports it.
+- For Counter-Messaging Strategy, tie every framework choice, messenger recommendation,
+  and message variant to concrete evidence about the specific falsehood, the audience's
+  prior beliefs and trust anchors, and the intervention timing, and verify against
+  that evidence that the design centers the truth and names the technique rather than
+  amplifying the claim.
 - For Counter-Messaging Strategy, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the counter
   messaging strategy.
@@ -202,10 +203,11 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Counter-Messaging Strategy: the counter messaging strategy is supported
-  by multiple independent content, behavioral, narrative, media, and audience-risk
-  evidence; characterize the falsehood and context and profile audience and select
-  framework checks agree, and no unresolved contradiction would change the result.'
+- 'High for Counter-Messaging Strategy: the recommended framework, centered truth,
+  named technique, and messenger choice are each grounded in the audience''s documented
+  trust structure and the falsehood''s spread state, the amplification risk has been
+  measured rather than assumed, and no unresolved contradiction would change the pre-bunk
+  versus de-bunk decision or the channel sequence.'
 - 'Medium for Counter-Messaging Strategy: the counter messaging strategy is plausible,
   but one important false claim or narrative source, comparison case, or alternative
   explanation remains incomplete.'
@@ -230,9 +232,10 @@ privacy_legal_constraints:
   intent, location, legal culpability, or platform account ownership beyond the supplied
   and authorized evidence.
 failure_modes:
-- 'Counter-Messaging Strategy: treating false claim or narrative as complete when
-  characterize the falsehood and context and profile audience and select framework
-  checks or contradictory evidence are missing.'
+- 'Counter-Messaging Strategy: shipping a counter-message that leads with or repeats
+  the false claim, deploys inoculation content without a warning label, or borrows
+  the very manipulation techniques it opposes, so the correction strengthens the falsehood''s
+  memory trace or corrodes trust in the corrector.'
 - 'Counter-Messaging Strategy: producing advice that would help a requester increase
   persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
 - 'Counter-Messaging Strategy: reporting the counter messaging strategy without uncertainty

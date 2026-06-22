@@ -32,13 +32,13 @@ If a request asks Narrative Competition Analysis to amplify coordinated behavior
 
 ## Evidence discipline
 
-- For Narrative Competition Analysis, tie each narrative competition map, and competition assessment report claim to concrete evidence from the specific narrative corpus, topic definition, and engagement metrics item, source excerpt, observation, or command result that supports it.
+- For Narrative Competition Analysis, tie each narrative characterization, salience estimate, and identified rhetorical vulnerability to concrete evidence from the supplied narrative corpus and engagement metrics, citing the specific text excerpt or metric that supports it, and keep analytical findings separate from any recommended communications response.
 - For Narrative Competition Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the narrative competition map.
 - Before recommending any Narrative Competition Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Narrative Competition Analysis: the narrative competition map is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; collect and enumerate competing narratives and characterize each narrative using framing analysis checks agree, and no unresolved contradiction would change the result.
+- High for Narrative Competition Analysis: the narrative competition map characterizes each rival framing's core claim, emotional frame, and rhetorical devices from a representative corpus, the relative-salience ranking is corroborated by independent engagement and search-trend signals, and no unresolved contradiction would change the judgment of which narrative currently holds frame advantage.
 - Medium for Narrative Competition Analysis: the narrative competition map is plausible, but one important narrative corpus source, comparison case, or alternative explanation remains incomplete.
 - Low for Narrative Competition Analysis: the narrative competition map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Narrative Competition Analysis cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Narrative Competition Analysis to amplify coordinated behavior
 
 ## Failure modes and negative controls
 
-- Narrative Competition Analysis: treating narrative corpus as complete when collect and enumerate competing narratives and characterize each narrative using framing analysis checks or contradictory evidence are missing.
+- Narrative Competition Analysis: treating the corpus as a complete picture of the landscape when distinct narrative threads were never enumerated, salience was conflated with truth value, or a narrative's durability against debunking was left unassessed, so the comparison rests on an incomplete reading of the competing framings.
 - Narrative Competition Analysis: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Narrative Competition Analysis: reporting the narrative competition map without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Narrative Competition Analysis outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.

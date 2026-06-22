@@ -18,12 +18,12 @@ Scan completed rows for dominance (one hypothesis/option consistently rates bett
 Write a pattern summary: which row(s) are best supported, which evidence is most diagnostic, what the key gaps are, and what the matrix implies for the analytic question. Include the matrix itself and the legend as the core deliverable. Note any cells where the analyst's confidence is low and additional collection would be highest value.
 
 ## Evidence requirements
-- For Analytic Matrices, tie each analytic matrix, and pattern summary claim to concrete evidence from the specific analytic question, variables or hypotheses, and evidence or criteria item, source excerpt, observation, or command result that supports it.
+- For Analytic Matrices, anchor each cell rating and the pattern summary to a cited source excerpt or rationale, record blank cells as explicit collection gaps rather than silent omissions, and present the full grid as evidence so a reviewer can audit the reasoning instead of trusting a collapsed single answer.
 - For Analytic Matrices, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the analytic matrix.
 - Before recommending any Analytic Matrices action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Analytic Matrices: the analytic matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; define matrix dimensions and establish the rating scheme checks agree, and no unresolved contradiction would change the result.
+- High for Analytic Matrices: the row and column axes capture a genuinely independent, decidable relationship, every cell is rated against a scheme fixed before population, blank and conflicting cells are explicitly adjudicated, the dominant pattern is corroborated by multiple sources, and no unresolved contradiction would overturn the leading row.
 - Medium for Analytic Matrices: the analytic matrix is plausible, but one important analytic question source, comparison case, or alternative explanation remains incomplete.
 - Low for Analytic Matrices: the analytic matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analytic Matrices cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Write a pattern summary: which row(s) are best supported, which evidence is most
 - For Analytic Matrices, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Analytic Matrices: treating analytic question as complete when define matrix dimensions and establish the rating scheme checks or contradictory evidence are missing.
+- Analytic Matrices: treating a grid riddled with blank cells as a finished analysis or letting the rating scale drift during population, so unexamined gaps and post-hoc scoring quietly manufacture a winning row that the underlying evidence never earned.
 - Analytic Matrices: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Analytic Matrices: reporting the analytic matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 

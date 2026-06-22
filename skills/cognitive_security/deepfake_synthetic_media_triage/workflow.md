@@ -21,12 +21,12 @@ Integrate tell-tale checklist, provenance findings, and contextual plausibility 
 Output the final triage_report and anomaly_log. Include mandatory caveats: this is a non-evidentiary triage assessment; specific observations that could not be assessed at triage level; and the escalation path if evidentiary conclusions are required. Never state a definitive conclusion of manipulation or authenticity — state the suspicion rating and its confidence level.
 
 ## Evidence requirements
-- For Deepfake & Synthetic Media Triage, tie each triage report, and anomaly log claim to concrete evidence from the specific media artifact, claim context, and available metadata item, source excerpt, observation, or command result that supports it.
+- For Deepfake & Synthetic Media Triage, tie the suspicion rating to concrete evidence — specific tell-tale observations with diagnostic weight, reverse-search provenance findings, metadata checks, and contextual cross-references against verifiable external facts — and state explicitly what could not be assessed at triage level and what escalation an evidentiary conclusion would require.
 - For Deepfake & Synthetic Media Triage, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the triage report.
 - Before recommending any Deepfake & Synthetic Media Triage action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Deepfake & Synthetic Media Triage: the triage report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the artifact and claim and provenance trace checks agree, and no unresolved contradiction would change the result.
+- High for Deepfake & Synthetic Media Triage: the suspicion rating rests on a pattern of independently observed anomalies or a strong provenance disconfirmation rather than any single tell-tale, the reverse-search trace and contextual plausibility assessment corroborate the rating, and no unresolved contradiction would change the escalation recommendation — while the output remains explicitly non-evidentiary.
 - Medium for Deepfake & Synthetic Media Triage: the triage report is plausible, but one important media artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Deepfake & Synthetic Media Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Deepfake & Synthetic Media Triage cannot determine from the supplied or authorized evidence.
@@ -39,7 +39,7 @@ Output the final triage_report and anomaly_log. Include mandatory caveats: this 
 - For Deepfake & Synthetic Media Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Deepfake & Synthetic Media Triage: treating media artifact as complete when characterize the artifact and claim and provenance trace checks or contradictory evidence are missing.
+- Deepfake & Synthetic Media Triage: declaring media authentic from the mere absence of current-generation artifacts, treating one anomaly as conclusive, skipping the provenance trace, or stating a definitive forensic verdict, so a triage-level judgment is mistaken for an evidentiary conclusion that advanced synthetic media could defeat.
 - Deepfake & Synthetic Media Triage: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Deepfake & Synthetic Media Triage: reporting the triage report without uncertainty labels, alternative explanations, and the next discriminating check.
 

@@ -12,12 +12,12 @@ For each item, assign a raw score (e.g., 1–5) on each criterion using a consis
 Order items by total weighted score. Identify any rank that conflicts strongly with subject-matter intuition and investigate the conflict — it is either a criterion gap or an informative analytic finding. Run a one-factor sensitivity sweep varying each top weight by ±20% to identify rank-sensitive placements. Emit the scoring matrix, ranked list, placement rationales, and sensitivity notes.
 
 ## Evidence requirements
-- For Ranking & Prioritization, tie each scoring matrix, ranked list, and sensitivity analysis claim to concrete evidence from the specific item list, criteria, and decision context item, source excerpt, observation, or command result that supports it.
+- For Ranking & Prioritization, tie each raw score, weight, and final placement to concrete evidence about the item list and decision context, disclose the criteria and weights that produced the order, and report the sensitivity sweep so that any ranking fragile to small weight changes is flagged as material rather than presented as a settled conclusion.
 - For Ranking & Prioritization, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the scoring matrix.
 - Before recommending any Ranking & Prioritization action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Ranking & Prioritization: the scoring matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; establish criteria and weights and score each item checks agree, and no unresolved contradiction would change the result.
+- High for Ranking & Prioritization: the criteria and weights were fixed before scoring and reflect the decision context rather than a preferred outcome, each item's scores trace to a consistent pre-defined scale, the sensitivity sweep shows the top placements survive plausible weight shifts, and no unresolved contradiction between the ranking and subject-matter intuition is left uninvestigated.
 - Medium for Ranking & Prioritization: the scoring matrix is plausible, but one important item list source, comparison case, or alternative explanation remains incomplete.
 - Low for Ranking & Prioritization: the scoring matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Ranking & Prioritization cannot determine from the supplied or authorized evidence.
@@ -30,7 +30,7 @@ Order items by total weighted score. Identify any rank that conflicts strongly w
 - For Ranking & Prioritization, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Ranking & Prioritization: treating item list as complete when establish criteria and weights and score each item checks or contradictory evidence are missing.
+- Ranking & Prioritization: declaring the priority order defensible while defining or adjusting criteria after scoring began, letting a single high-salience item anchor the scale for all others, or suppressing the sensitivity analysis when the top-ranked item collapses under a small weight change, so a pre-held preference is retroactively rationalized as an objective, criterion-transparent result.
 - Ranking & Prioritization: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Ranking & Prioritization: reporting the scoring matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 

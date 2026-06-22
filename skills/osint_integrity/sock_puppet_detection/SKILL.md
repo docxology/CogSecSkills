@@ -33,13 +33,13 @@ If a request asks Sock-Puppet Detection to dox, deanonymize, harass, bypass acce
 
 ## Evidence discipline
 
-- For Sock-Puppet Detection, tie each indicator assessment, and inauthenticity report claim to concrete evidence from the specific account identifier, platform, and related accounts item, source excerpt, observation, or command result that supports it.
+- For Sock-Puppet Detection, tie every flagged indicator in the assessment to concrete evidence — the archived creation date, posting-pace data, follower-growth curve, reverse-image result, or interaction-cluster overlap that supports it — record alternative explanations considered, and treat account signals as support for a hypothesis rather than a definitive identification, because an unsupported inauthenticity label is speculation, not evidence.
 - For Sock-Puppet Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the indicator assessment.
 - Before recommending any Sock-Puppet Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Sock-Puppet Detection: the indicator assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; collect account baseline data and run cross-platform and image lookups checks agree, and no unresolved contradiction would change the result.
+- High for Sock-Puppet Detection: indicators converge across the behavioral, temporal, network, and content classes rather than resting on any single signature, the account is compared against an authentic baseline from the same community, alternative explanations such as an obsessive lone real user are weighed and excluded, and no unresolved contradiction would change the inauthenticity verdict.
 - Medium for Sock-Puppet Detection: the indicator assessment is plausible, but one important account identifier source, comparison case, or alternative explanation remains incomplete.
 - Low for Sock-Puppet Detection: the indicator assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Sock-Puppet Detection cannot determine from the supplied or authorized evidence.
@@ -54,7 +54,7 @@ If a request asks Sock-Puppet Detection to dox, deanonymize, harass, bypass acce
 
 ## Failure modes and negative controls
 
-- Sock-Puppet Detection: treating account identifier as complete when collect account baseline data and run cross-platform and image lookups checks or contradictory evidence are missing.
+- Sock-Puppet Detection: labelling an account inauthentic from one indicator such as high posting volume or a stock-looking photo, conflating automation with inauthenticity, or publishing operator attribution from behavioral OSINT alone, so a hypothesis is mistaken for identification and legitimate adversarial speech risks being suppressed.
 - Sock-Puppet Detection: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
 - Sock-Puppet Detection: reporting the indicator assessment without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Sock-Puppet Detection outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.

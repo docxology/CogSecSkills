@@ -15,12 +15,12 @@ Compare the derived set to the model's declared set. Identify: missing actors, m
 Write the gap table: each row maps to a dimension (actors/surfaces/assumptions/mitigations/scope), cites evidence, assigns severity (critical/high/medium/low), and recommends a specific remediation. Write the assumption register as a tagged list. Write the scope recommendation narrative explaining whether boundaries should be expanded and why. Produce a prioritized remediation list (critical gaps first).
 
 ## Evidence requirements
-- For Threat Model Review, tie each gap report, assumption register, and revised scope recommendation claim to concrete evidence from the specific threat model, system description, and review focus item, source excerpt, observation, or command result that supports it.
+- For Threat Model Review, bind every gap, flagged assumption, and scope recommendation to concrete evidence from the supplied threat model, system description, or review focus — a quoted scope exclusion, a named actor or trust relationship, or a mitigation statement — and identify what an attacker would do where that element is missing; an unsupported gap is a conjecture, not a finding, and must be labelled as such.
 - For Threat Model Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the gap report.
 - Before recommending any Threat Model Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Threat Model Review: the gap report is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract the model's declared elements and independently derive expected elements checks agree, and no unresolved contradiction would change the result.
+- High for Threat Model Review: every gap-report row ties a missing actor, surface, trust-boundary error, or unvalidated assumption to a specific element absent from the reviewed model and present in the independently derived expected set; the assumption register and revised scope recommendation are each corroborated by the system description rather than a single anchoring read of the model; the prioritized remediation ordering holds when any one finding is set aside; and no unresolved contradiction about realistic threats would change the scope conclusion.
 - Medium for Threat Model Review: the gap report is plausible, but one important threat model source, comparison case, or alternative explanation remains incomplete.
 - Low for Threat Model Review: the gap report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Threat Model Review cannot determine from the supplied or authorized evidence.
@@ -33,7 +33,7 @@ Write the gap table: each row maps to a dimension (actors/surfaces/assumptions/m
 - For Threat Model Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Threat Model Review: treating threat model as complete when extract the model's declared elements and independently derive expected elements checks or contradictory evidence are missing.
+- Threat Model Review: declaring a model reviewed when the expected actors and attack surfaces were never independently derived from the system description, so the analysis merely echoes the original authors' blind spots — for example crediting a stated mitigation as an implemented control without verifying it, or omitting social-engineering and influence surfaces entirely — and the absence of gaps reflects an anchored review rather than a complete one.
 - Threat Model Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Threat Model Review: reporting the gap report without uncertainty labels, alternative explanations, and the next discriminating check.
 

@@ -18,12 +18,12 @@ For each key claim, classify reproducibility status at each tier: direct (same d
 Compile the reproducibility scorecard table with status and evidence for each criterion. Write the gap report narrative with root causes and recommendations. Assign the overall reproducibility tier. For cognitive-security use, explicitly note whether non-reproducible results should be treated as provisional and what additional evidence would be needed before treating them as reliable.
 
 ## Evidence requirements
-- For Reproducibility Assessment, tie each reproducibility scorecard, and gap report claim to concrete evidence from the specific artifact, key claims, and environment spec item, source excerpt, observation, or command result that supports it.
+- For Reproducibility Assessment, tie each scorecard status to concrete evidence — the available data and code, the pinned environment spec, and captured output from the reproduction attempt compared against the claimed numbers — and classify any input that is missing or unversioned as a not-assessable gap rather than as supporting evidence.
 - For Reproducibility Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the reproducibility scorecard.
 - Before recommending any Reproducibility Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Reproducibility Assessment: the reproducibility scorecard is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; inventory stated methods and materials and assess data and code availability checks agree, and no unresolved contradiction would change the result.
+- High for Reproducibility Assessment: each scorecard criterion's status is backed by an actual execution attempt against the stated data, code, seeds, and environment, the direct-versus-replication-versus-conceptual tier assignments hold when the documented procedure is re-run, and no unresolved contradiction between claimed and reproduced results would change the overall reproducibility tier.
 - Medium for Reproducibility Assessment: the reproducibility scorecard is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
 - Low for Reproducibility Assessment: the reproducibility scorecard rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Reproducibility Assessment cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Compile the reproducibility scorecard table with status and evidence for each cr
 - For Reproducibility Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Reproducibility Assessment: treating artifact as complete when inventory stated methods and materials and assess data and code availability checks or contradictory evidence are missing.
+- Reproducibility Assessment: rating a result reproducible when no independent execution was attempted and an undocumented seed, preprocessing step, or missing dataset was treated as acceptable, so plausibility is mistaken for verification and a not-assessable claim is wrongly recorded as reproduced.
 - Reproducibility Assessment: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
 - Reproducibility Assessment: reporting the reproducibility scorecard without uncertainty labels, alternative explanations, and the next discriminating check.
 

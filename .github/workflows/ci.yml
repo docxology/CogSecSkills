@@ -21,7 +21,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install (into the uv-managed venv from setup-uv)
-        run: uv pip install -e ".[dev]"
+        # manuscript extra pulls matplotlib/seaborn/numpy so the figure-asset
+        # tests run for real (no skips) rather than failing on a missing import.
+        run: uv pip install -e ".[dev,manuscript]"
 
       - name: Lint (ruff)
         run: |

@@ -30,13 +30,13 @@ If a request asks Adversary Tradecraft Profiling to evade detection, improve eli
 
 ## Evidence discipline
 
-- For Adversary Tradecraft Profiling, tie each tradecraft profile, anticipatory indicators, and profile caveats claim to concrete evidence from the specific incident corpus, adversary identifier, and collection gaps item, source excerpt, observation, or command result that supports it.
+- For Adversary Tradecraft Profiling, bind every tactic, technique, signature, and anticipatory indicator to concrete evidence from a specific attributed incident in the corpus, naming the case, source, and attribution confidence, and flag any pattern resting on a single operation as provisional rather than probative evidence.
 - For Adversary Tradecraft Profiling, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the tradecraft profile.
 - Before recommending any Adversary Tradecraft Profiling action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Adversary Tradecraft Profiling: the tradecraft profile is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; assemble the incident corpus and extract and cluster ttps checks agree, and no unresolved contradiction would change the result.
+- High for Adversary Tradecraft Profiling: each stable TTP in the tradecraft profile is corroborated across two or more independently attributed incidents, the consistency-and-confidence scoring holds when any single case is removed, the anticipatory indicators follow logically from those patterns, and no unresolved contradiction would change the assessment.
 - Medium for Adversary Tradecraft Profiling: the tradecraft profile is plausible, but one important incident corpus source, comparison case, or alternative explanation remains incomplete.
 - Low for Adversary Tradecraft Profiling: the tradecraft profile rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Adversary Tradecraft Profiling cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Adversary Tradecraft Profiling to evade detection, improve eli
 
 ## Failure modes and negative controls
 
-- Adversary Tradecraft Profiling: treating incident corpus as complete when assemble the incident corpus and extract and cluster ttps checks or contradictory evidence are missing.
+- Adversary Tradecraft Profiling: declaring the profile durable when the clustering step never separated stable signatures from one-off adaptive camouflage, or when known collection gaps were left unstated, so apparent patterns reflect biased visibility rather than genuine adversary habits.
 - Adversary Tradecraft Profiling: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Adversary Tradecraft Profiling: reporting the tradecraft profile without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Adversary Tradecraft Profiling outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.

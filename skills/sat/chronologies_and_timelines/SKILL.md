@@ -31,13 +31,13 @@ If a request asks Chronologies & Timelines to force a preferred conclusion, hide
 
 ## Evidence discipline
 
-- For Chronologies & Timelines, tie each chronology, gap and anomaly report, and key findings claim to concrete evidence from the specific event sources, analytic question, and parallel streams item, source excerpt, observation, or command result that supports it.
+- For Chronologies & Timelines, anchor every entry and every gap-and-anomaly finding to the dated source evidence that supports it, record a confidence level per event, and explicitly note collection limitations so absence of evidence is never silently read as evidence of absence.
 - For Chronologies & Timelines, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the chronology.
 - Before recommending any Chronologies & Timelines action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Chronologies & Timelines: the chronology is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; extract and date events and sort, align, and segment streams checks agree, and no unresolved contradiction would change the result.
+- High for Chronologies & Timelines: each event carries an explicit date, actor, source, and confidence level, sourced facts are kept strictly separate from inferences, identified gaps and clustering are corroborated across independent streams, and no unresolved contradiction would change the timeline's bearing on the focal question.
 - Medium for Chronologies & Timelines: the chronology is plausible, but one important event sources source, comparison case, or alternative explanation remains incomplete.
 - Low for Chronologies & Timelines: the chronology rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Chronologies & Timelines cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Chronologies & Timelines to force a preferred conclusion, hide
 
 ## Failure modes and negative controls
 
-- Chronologies & Timelines: treating event sources as complete when extract and date events and sort, align, and segment streams checks or contradictory evidence are missing.
+- Chronologies & Timelines: merging inferred dates with sourced ones or treating a silent interval as proof of inactivity rather than a recorded collection gap, so a low-confidence or absent date poisons the downstream causal and foreknowledge claims the timeline is meant to test.
 - Chronologies & Timelines: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Chronologies & Timelines: reporting the chronology without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Chronologies & Timelines outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

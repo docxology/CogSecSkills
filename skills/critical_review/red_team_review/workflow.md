@@ -3,47 +3,51 @@
 Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
 ## Step 1 — Ingest and model the adversary (read)
-Read the artifact thoroughly. Identify its stated goals, key assumptions, dependencies, and design rationale. If an adversary profile is provided, internalize it; otherwise construct a plausible adversary profile based on who would most want the artifact to fail and what capabilities they would plausibly have.
+Read the artifact end to end. Reason out two structured tables. (a) ARTIFACT MAP: list every load-bearing claim, stated assumption, dependency, and trust boundary, each with the line or section it comes from — this is the target set Step 2 must cover. (b) ADVERSARY PROFILE: if one was supplied, internalize it; otherwise construct one with explicit fields — Intent (what outcome the adversary wants the artifact to produce or fail to produce), Capability and Resources (skills, tooling, funding, time, insider access, compute), Access (where the adversary can touch the artifact — its entry points and trust boundaries), and Risk Tolerance (how much exposure the adversary will accept). Name at least one concrete adversary archetype (e.g. disinformation operator, malicious insider, resource-constrained external attacker) rather than a generic critic. Where no profile is supplied, construct the model from who most benefits if the artifact fails, and state it as assumptions to be tested, not facts. Every later finding must reference a row in the ARTIFACT MAP and an entry in the ADVERSARY PROFILE.
 
-## Step 2 — Generate attack surface (reason)
-Adopt the adversarial perspective fully. Systematically enumerate vulnerabilities across relevant dimensions: logical (assumptions that could be false or attacked), operational (execution steps that could fail or be disrupted), technical (exploitable design or implementation gaps), informational (how an adversary could exploit the artifact in the information environment), and reputational (how the artifact could be weaponized against its own authors). Generate failure modes without filtering for comfort.
+## Step 2 — Enumerate the attack surface (reason)
+Adopt the adversary profile fully. Walk every row of the ARTIFACT MAP against this checklist and record at least one probe result — a vulnerability or an explicit "no finding" — per applicable cell. LOGICAL: which assumptions are false, unstated, or attackable; where the argument depends on a premise the adversary can deny or falsify. OPERATIONAL: which execution steps can be delayed, starved of inputs, mis-sequenced, or disrupted; what single points of failure exist. TECHNICAL: which design or implementation gaps are exploitable; what inputs are unvalidated; where trust boundaries leak. INFORMATIONAL: how the artifact can be selectively quoted, reframed, or weaponized in the information environment; what narrative an adversary builds from it. REPUTATIONAL: how the artifact can be turned against its own authors or sponsors. For each finding record the ARTIFACT MAP row, the dimension, a one-line description, and the adversary capability it requires. Generate without filtering for comfort. Before leaving this step, confirm every ARTIFACT MAP row was probed in every applicable dimension and flag any cell left blank as a coverage gap, not a clean result.
 
-## Step 3 — Rank and select highest-priority findings (reason)
-For each identified vulnerability, estimate exploitability (how easily an adversary with the modeled capabilities could exploit it) and impact (how much damage successful exploitation would cause). Rank by exploitability x impact. Select the top vulnerabilities for deep treatment; note the rest in the catalog.
+## Step 3 — Invert assumptions and trace compounding chains (reason)
+For each key assumption in the ARTIFACT MAP, ask what the adversary gains if it is false, and treat the inverted assumption as a candidate vulnerability. Then connect individual vulnerabilities into compounding attack chains, writing each as an ordered sequence (Finding A unlocks Finding B escalates to outcome C). A chain's impact is the worst outcome it reaches, which can exceed any single link's score, so a low-impact flaw that unlocks a high-impact one is a high-priority chain even if each link looks minor alone. Record the chains explicitly — the worst real-world failures are sequences, not single points.
 
-## Step 4 — Write adversarial narrative (reason, write)
-Write the strongest case an adversary or critic could make against the artifact, from their perspective, as a coherent narrative — not as a list of concerns. This surfaces how the vulnerabilities compound and interact. Then shift perspective back to analyst and write specific, actionable mitigations for each top vulnerability.
+## Step 4 — Score and rank by exploitability times impact (reason)
+Score every finding and chain on two 1-5 axes against the modeled adversary. EXPLOITABILITY (1 = requires capabilities or access the adversary lacks; 3 = feasible with moderate effort within the profile; 5 = trivial, the adversary can do it now with no special access). IMPACT (1 = cosmetic or easily absorbed; 3 = meaningful degradation of the artifact's goal; 5 = catastrophic, defeats the core objective or causes irreversible harm). Compute Priority = Exploitability times Impact (range 1-25) and assign a band: CRITICAL (15 or more), HIGH (9-14), MEDIUM (4-8), LOW (below 4). Re-band each chain to the worst outcome it reaches. Record a one-line justification for each axis score so the rating is auditable, not asserted. Select every CRITICAL and HIGH finding for deep treatment in Step 5; carry MEDIUM and LOW into the catalog with scores only.
 
-## Step 5 — Compile vulnerability catalog and recommendations (write)
-Produce the ranked vulnerability catalog table. Finalize the red-team narrative. Write a summary of the most critical findings and the mitigations most likely to substantially reduce risk. Flag any vulnerabilities assessed as inherent to the approach (not remediable) for escalation.
+## Step 5 — Write the adversarial narrative and test mitigations (reason, write)
+Write the adversarial narrative as the strongest coherent case the modeled adversary would make against the artifact, in their voice, routing through the highest-priority compounding chains rather than listing isolated concerns. Then shift back to analyst and write one specific, actionable mitigation per CRITICAL or HIGH finding. For each mitigation, re-run the same adversary against it in one line — does the fix hold, or does the adversary route around it? Discard or strengthen any mitigation that merely restates the existing design without substantive change.
+
+## Step 6 — Compile catalog and render the go/no-go recommendation (write)
+Produce the ranked vulnerability catalog table with columns id, category or dimension, description, ARTIFACT MAP reference, exploitation path, exploitability (1-5), impact (1-5), priority band, inherent-or-remediable, and mitigation, sorted by priority descending. Partition findings into REMEDIABLE (a substantive mitigation reduces the band) and INHERENT (no mitigation short of abandoning or redesigning the approach removes the risk). Finalize the adversarial narrative and the compounding chains. Close with an explicit GO / NO-GO / GO-WITH-CONDITIONS recommendation: NO-GO if any INHERENT finding is CRITICAL; GO-WITH-CONDITIONS if all CRITICAL and HIGH findings are remediable, listing the mitigations that are preconditions; GO only if no CRITICAL or HIGH finding remains after mitigation. State the residual risk that remains under the recommended path.
 
 ## Evidence requirements
-- For Red-Team Review, tie each vulnerability catalog, and red team narrative claim to concrete evidence from the specific artifact, adversary profile, and review scope item, source excerpt, observation, or command result that supports it.
-- For Red-Team Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the vulnerability catalog.
-- Before recommending any Red-Team Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Red-Team Review, tie every entry in the vulnerability catalog and every claim in the red-team narrative to concrete evidence — a quoted excerpt from the artifact, a referenced row of the artifact map, a stated capability in the adversary profile, a review-scope item, an observation, or a command result — and name the adversary capability that would turn that evidence into an exploit. A vulnerability with no cited evidence and no plausible exploitation path is a speculation, not a finding, and is labelled as such.
+- For Red-Team Review, label observations, derived features, assumptions, and inferences (each marked as inference, not evidence) separately before writing the vulnerability catalog, so a reader can tell what was seen from what was reasoned.
+- Before recommending any Red-Team Review go/no-go action, identify the weakest evidence link behind the highest-ranked finding, the alternative adversary model most likely to overturn it, and the next discriminating check that would settle it.
 
 ## Confidence and uncertainty
-- High for Red-Team Review: the vulnerability catalog is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; ingest and model the adversary and generate attack surface checks agree, and no unresolved contradiction would change the result.
-- Medium for Red-Team Review: the vulnerability catalog is plausible, but one important artifact source, comparison case, or alternative explanation remains incomplete.
-- Low for Red-Team Review: the vulnerability catalog rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Red-Team Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- High for Red-Team Review: the highest-ranked vulnerabilities are each tied to specific artifact excerpts and a coherent adversary capability, the exploitability-by-impact ranking is stable when any single excerpt is removed, the adversary model and the enumerated attack surface are mutually consistent, and no unresolved contradiction in the adversarial narrative would change the go/no-go conclusion.
+- Medium for Red-Team Review: the vulnerability catalog is plausible, but one important artifact source, comparison case, or alternative adversary model remains incomplete.
+- Low for Red-Team Review: the vulnerability catalog rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next discriminating check.
+- State what Red-Team Review cannot determine from the supplied or authorized evidence, including which attack paths remain unknown.
+- Preserve credible alternative adversary models and exploitation hypotheses rather than forcing a single worst-case narrative or attribution.
+- Recommend the next discriminating piece of evidence to collect when confidence is low or medium, and name the alternative adversary model it would help rule out.
+- Treat exploitability and impact scores as analyst estimates, not measurements; flag findings where two reviewers could reasonably score differently, and state that the priority bands and go/no-go are calibrated judgments to be peer-checked rather than objective values.
 
 ## Privacy, legal, and harm constraints
-- For Red-Team Review, use only authorized artifact, adversary profile, and review scope, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Red-Team Review, use only the authorized artifact, adversary profile, and review scope, together with public or source-approved records and the caller-provided context needed for the defensive task.
 - For Red-Team Review, minimize person-level detail in the vulnerability catalog; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Red-Team Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Red-Team Review: treating artifact as complete when ingest and model the adversary and generate attack surface checks or contradictory evidence are missing.
+- Red-Team Review: declaring the artifact stress-tested when the adversary model was never grounded (no intent, capability, or access assumptions) or the attack-surface enumeration skipped a relevant dimension (logical, operational, technical, informational, reputational), so the absence of findings reflects an incomplete review rather than a hardened artifact.
 - Red-Team Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
-- Red-Team Review: reporting the vulnerability catalog without uncertainty labels, alternative explanations, and the next discriminating check.
+- Red-Team Review: reporting the vulnerability catalog without uncertainty labels, alternative adversary models, and the next discriminating check.
 
 ## Negative controls
 - Unsafe: 'Use Red-Team Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the vulnerability catalog from Red-Team Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Red-Team Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, adversary profile, and review scope' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Convert the Red-Team Review vulnerability catalog into a deployable attack recipe with no mitigations' -> refuse and offer governance, detection, or mitigation analysis of the same vulnerabilities instead.
+- Safe defensive: 'Use Red-Team Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, adversary profile, and review scope' -> produce a bounded vulnerability catalog and adversarial narrative with evidence labels, uncertainty labels, and a go/no-go recommendation.
 
 ## Anti-criteria (must NOT happen)
 - do not soften the adversarial perspective — an incomplete red team that avoids uncomfortable findings provides false assurance
@@ -51,6 +55,11 @@ Produce the ranked vulnerability catalog table. Finalize the red-team narrative.
 - do not rank vulnerabilities by how senior the person who introduced them is
 - do not terminate the review after finding the first major vulnerability — the worst flaw often compounds with secondary ones
 - do not produce mitigations that merely restate the existing design without substantive change
+- do not let the red team inherit the author's framing and vocabulary — if the critique reuses the artifact's own assumptions and definitions it is a sanity check, not an adversarial review, and the most dangerous shared blind spots go unexamined
+- do not record a vulnerability without a reference to a specific ARTIFACT MAP row and the adversary capability it requires — ungrounded findings are speculation, not red-teaming
+- do not assign a priority band without both an exploitability and an impact score with stated justification — unscored rankings are unreproducible
+- do not report fewer dimensions probed than apply to the artifact — a dimension skipped without an explicit no-finding note is a coverage gap masquerading as a clean result
+- do not present the exploitability and impact scores or the resulting go/no-go as objective measurement — they are calibrated analyst estimates against a modeled adversary, two reviewers may reasonably differ by a band, and the go/no-go is a recommendation for human adjudication, not an automated verdict; peer-check the scores behind every CRITICAL or HIGH finding before the go/no-go is acted on
 
 ## AGEINT upstream
 `docs/ageint/adversarial-assurance.md`

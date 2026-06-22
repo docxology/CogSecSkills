@@ -31,13 +31,13 @@ If a request asks Platform Affordance Risk Assessment to amplify coordinated beh
 
 ## Evidence discipline
 
-- For Platform Affordance Risk Assessment, tie each affordance risk matrix, and risk narrative claim to concrete evidence from the specific platform name, threat actor profile, and prior incident reports item, source excerpt, observation, or command result that supports it.
+- For Platform Affordance Risk Assessment, tie each feature-to-vector mapping and every severity rating to concrete evidence from the supplied platform documentation and prior incident reports, citing the specific documented abuse case or articulated exploitation pathway that justifies it, and distinguish design risk from enforcement failure in that evidence.
 - For Platform Affordance Risk Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the affordance risk matrix.
 - Before recommending any Platform Affordance Risk Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Platform Affordance Risk Assessment: the affordance risk matrix is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; inventory platform features and map features to manipulation vectors checks agree, and no unresolved contradiction would change the result.
+- High for Platform Affordance Risk Assessment: the affordance risk matrix maps each platform feature to its manipulation vectors with severity ratings grounded in documented incident precedent, the cross-feature interaction effects are demonstrated rather than asserted, mitigating affordances are included for balance, and no unresolved contradiction would change the prioritized mitigation recommendations.
 - Medium for Platform Affordance Risk Assessment: the affordance risk matrix is plausible, but one important platform name source, comparison case, or alternative explanation remains incomplete.
 - Low for Platform Affordance Risk Assessment: the affordance risk matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Platform Affordance Risk Assessment cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Platform Affordance Risk Assessment to amplify coordinated beh
 
 ## Failure modes and negative controls
 
-- Platform Affordance Risk Assessment: treating platform name as complete when inventory platform features and map features to manipulation vectors checks or contradictory evidence are missing.
+- Platform Affordance Risk Assessment: assigning High severity to a feature without a documented precedent or a clearly articulated exploitation pathway, taking policy text at face value instead of testing enforcement, or omitting mitigating affordances, so the matrix inflates risk and misprioritizes the design and policy levers.
 - Platform Affordance Risk Assessment: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
 - Platform Affordance Risk Assessment: reporting the affordance risk matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Platform Affordance Risk Assessment outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.

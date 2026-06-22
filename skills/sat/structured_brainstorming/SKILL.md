@@ -29,13 +29,13 @@ If a request asks Structured Brainstorming to force a preferred conclusion, hide
 
 ## Evidence discipline
 
-- For Structured Brainstorming, tie each raw idea inventory, and ranked shortlist claim to concrete evidence from the specific problem statement, prior framing, and convergence criteria item, source excerpt, observation, or command result that supports it.
+- For Structured Brainstorming, tie every shortlist ranking and every discard decision to concrete evidence from the problem statement and convergence criteria, citing the rationale that justifies each idea's position, and label which ideas rest on assumption versus observation so reviewers can challenge the convergence step against the evidence.
 - For Structured Brainstorming, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the raw idea inventory.
 - Before recommending any Structured Brainstorming action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Structured Brainstorming: the raw idea inventory is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame the problem and set aside prior framing and diverge: unconstrained idea generation checks agree, and no unresolved contradiction would change the result.
+- High for Structured Brainstorming: the ranked shortlist emerges from a raw inventory broad enough that no plausible hypothesis was anchored out, the convergence ranking is reproducible under the stated criteria, and no unresolved contradiction in the problem framing would promote a discarded idea or demote a shortlisted one.
 - Medium for Structured Brainstorming: the raw idea inventory is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
 - Low for Structured Brainstorming: the raw idea inventory rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Brainstorming cannot determine from the supplied or authorized evidence.
@@ -50,7 +50,7 @@ If a request asks Structured Brainstorming to force a preferred conclusion, hide
 
 ## Failure modes and negative controls
 
-- Structured Brainstorming: treating problem statement as complete when frame the problem and set aside prior framing and diverge: unconstrained idea generation checks or contradictory evidence are missing.
+- Structured Brainstorming: declaring the inventory complete when judgment intruded during the divergence phase or the prior dominant hypothesis anchored generation, so alternative threat vectors were silently pruned, and when discarded ideas were omitted from the record rather than logged with an explicit reason.
 - Structured Brainstorming: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Structured Brainstorming: reporting the raw idea inventory without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Structured Brainstorming outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.

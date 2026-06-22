@@ -32,13 +32,13 @@ If a request asks Structured Literature Synthesis to cherry-pick sources, fabric
 
 ## Evidence discipline
 
-- For Structured Literature Synthesis, tie each synthesis briefing, and evidence table claim to concrete evidence from the specific synthesis question, sources, and inclusion criteria item, source excerpt, observation, or command result that supports it.
+- For Structured Literature Synthesis, map every synthesized statement, theme grade, and reported conflict to concrete evidence in the per-claim evidence table — a specific source citation with its quality grade — and treat any uncited statement or unanswered question as a labelled gap rather than a supported finding.
 - For Structured Literature Synthesis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the synthesis briefing.
 - Before recommending any Structured Literature Synthesis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Structured Literature Synthesis: the synthesis briefing is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; define the synthesis question and scope and gather and deduplicate sources checks agree, and no unresolved contradiction would change the result.
+- High for Structured Literature Synthesis: the BLUF briefing rests on a well-scoped synthesis question, the corpus is deduplicated so mirrors are not counted as independent agreement, every themed statement traces to a graded source in the evidence table, conflicts and gaps are reported rather than smoothed, and the dominant theme grades would not flip if any single source were removed.
 - Medium for Structured Literature Synthesis: the synthesis briefing is plausible, but one important synthesis question source, comparison case, or alternative explanation remains incomplete.
 - Low for Structured Literature Synthesis: the synthesis briefing rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Literature Synthesis cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Structured Literature Synthesis to cherry-pick sources, fabric
 
 ## Failure modes and negative controls
 
-- Structured Literature Synthesis: treating synthesis question as complete when define the synthesis question and scope and gather and deduplicate sources checks or contradictory evidence are missing.
+- Structured Literature Synthesis: presenting one source's claim as settled consensus, double-counting duplicate or reprinted studies as convergent support, smoothing over conflicting findings, or synthesizing beyond what the sources support, so the briefing reads as authoritative while resting on an incomplete or non-independent corpus.
 - Structured Literature Synthesis: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Structured Literature Synthesis: reporting the synthesis briefing without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Structured Literature Synthesis outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.

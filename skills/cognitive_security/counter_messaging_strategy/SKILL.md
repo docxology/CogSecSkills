@@ -34,13 +34,13 @@ If a request asks Counter-Messaging Strategy to increase persuasive impact, expl
 
 ## Evidence discipline
 
-- For Counter-Messaging Strategy, tie each counter messaging strategy, and message variants table claim to concrete evidence from the specific false claim or narrative, audience profile, and intervention timing item, source excerpt, observation, or command result that supports it.
+- For Counter-Messaging Strategy, tie every framework choice, messenger recommendation, and message variant to concrete evidence about the specific falsehood, the audience's prior beliefs and trust anchors, and the intervention timing, and verify against that evidence that the design centers the truth and names the technique rather than amplifying the claim.
 - For Counter-Messaging Strategy, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the counter messaging strategy.
 - Before recommending any Counter-Messaging Strategy action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Counter-Messaging Strategy: the counter messaging strategy is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the falsehood and context and profile audience and select framework checks agree, and no unresolved contradiction would change the result.
+- High for Counter-Messaging Strategy: the recommended framework, centered truth, named technique, and messenger choice are each grounded in the audience's documented trust structure and the falsehood's spread state, the amplification risk has been measured rather than assumed, and no unresolved contradiction would change the pre-bunk versus de-bunk decision or the channel sequence.
 - Medium for Counter-Messaging Strategy: the counter messaging strategy is plausible, but one important false claim or narrative source, comparison case, or alternative explanation remains incomplete.
 - Low for Counter-Messaging Strategy: the counter messaging strategy rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Counter-Messaging Strategy cannot determine from the supplied or authorized evidence.
@@ -55,7 +55,7 @@ If a request asks Counter-Messaging Strategy to increase persuasive impact, expl
 
 ## Failure modes and negative controls
 
-- Counter-Messaging Strategy: treating false claim or narrative as complete when characterize the falsehood and context and profile audience and select framework checks or contradictory evidence are missing.
+- Counter-Messaging Strategy: shipping a counter-message that leads with or repeats the false claim, deploys inoculation content without a warning label, or borrows the very manipulation techniques it opposes, so the correction strengthens the falsehood's memory trace or corrodes trust in the corrector.
 - Counter-Messaging Strategy: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Counter-Messaging Strategy: reporting the counter messaging strategy without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Counter-Messaging Strategy outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

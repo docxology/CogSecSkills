@@ -30,13 +30,13 @@ If a request asks Disinformation Attribution to evade detection, improve elicita
 
 ## Evidence discipline
 
-- For Disinformation Attribution, tie each attribution matrix, attribution assessment, and intelligence gaps claim to concrete evidence from the specific campaign artifacts, candidate actors, and strategic context item, source excerpt, observation, or command result that supports it.
+- For Disinformation Attribution, link every consistency rating in the matrix and every confidence claim in the assessment to concrete evidence from a specific campaign artifact, infrastructure overlap, narrative-timing observation, or linguistic sample, weighting only indicators that discriminate between candidate actors and labelling the rest as non-diagnostic evidence.
 - For Disinformation Attribution, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the attribution matrix.
 - Before recommending any Disinformation Attribution action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Disinformation Attribution: the attribution matrix is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; inventory the evidence and candidate actors and identify diagnostic indicators checks agree, and no unresolved contradiction would change the result.
+- High for Disinformation Attribution: the lead actor is supported by multiple independent high-diagnostic indicators in the ACH matrix, the false-flag hypothesis has been explicitly evaluated rather than assumed away, the ranking survives removal of any single indicator, and no unresolved contradiction would overturn the attribution judgment.
 - Medium for Disinformation Attribution: the attribution matrix is plausible, but one important campaign artifacts source, comparison case, or alternative explanation remains incomplete.
 - Low for Disinformation Attribution: the attribution matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Disinformation Attribution cannot determine from the supplied or authorized evidence.
@@ -51,7 +51,7 @@ If a request asks Disinformation Attribution to evade detection, improve elicita
 
 ## Failure modes and negative controls
 
-- Disinformation Attribution: treating campaign artifacts as complete when inventory the evidence and candidate actors and identify diagnostic indicators checks or contradictory evidence are missing.
+- Disinformation Attribution: presenting an attribution as settled when it rests on stylistic or cui-bono reasoning alone, when the false-flag and null hypotheses were named but never genuinely tested, or when alternatives were dropped before evidence ruled them out, producing false certainty.
 - Disinformation Attribution: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
 - Disinformation Attribution: reporting the attribution matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Disinformation Attribution outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.

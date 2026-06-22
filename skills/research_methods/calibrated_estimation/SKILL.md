@@ -31,13 +31,13 @@ If a request asks Calibrated Estimation to cherry-pick sources, fabricate citati
 
 ## Evidence discipline
 
-- For Calibrated Estimation, tie each calibrated estimate claim to concrete evidence from the specific question, evidence, and prior estimate item, source excerpt, observation, or command result that supports it.
+- For Calibrated Estimation, tie the point estimate, the base rate, and every adjustment to concrete evidence — the historical frequencies defining the reference class and the case-specific factors that warrant departing from it — and treat any move from the base rate without supporting evidence as an unjustified inside-view bias.
 - For Calibrated Estimation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the calibrated estimate.
 - Before recommending any Calibrated Estimation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Calibrated Estimation: the calibrated estimate is supported by multiple independent study designs, source quality, reproducibility artifacts, and uncertainty records; define the question and find the reference class and apply inside-view adjustments checks agree, and no unresolved contradiction would change the result.
+- High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are modest and individually justified, the stated 80% confidence interval is consistent with the analyst's historical calibration record, and the resolution criteria are specific enough that the forecast can later be scored.
 - Medium for Calibrated Estimation: the calibrated estimate is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
 - Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Calibrated Estimation cannot determine from the supplied or authorized evidence.
@@ -52,7 +52,7 @@ If a request asks Calibrated Estimation to cherry-pick sources, fabricate citati
 
 ## Failure modes and negative controls
 
-- Calibrated Estimation: treating question as complete when define the question and find the reference class and apply inside-view adjustments checks or contradictory evidence are missing.
+- Calibrated Estimation: skipping the reference class and reasoning only from inside-view case features, anchoring on a single source's number, stating vague verbal probabilities instead of a numeric estimate, or omitting resolution criteria, so the forecast cannot be scored and overconfidence goes uncorrected.
 - Calibrated Estimation: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Calibrated Estimation: reporting the calibrated estimate without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Calibrated Estimation outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment.

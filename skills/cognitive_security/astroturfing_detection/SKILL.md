@@ -32,13 +32,13 @@ If a request asks Astroturfing Detection to increase persuasive impact, exploit 
 
 ## Evidence discipline
 
-- For Astroturfing Detection, tie each detection report, and indicator table claim to concrete evidence from the specific campaign sample, and baseline context item, source excerpt, observation, or command result that supports it.
+- For Astroturfing Detection, bind every flagged cluster and every indicator-table entry to concrete evidence — a specific account record, a timestamp, a content hash, or a cross-platform observation — name the organic explanation it rules out, and label any cluster resting on inference alone as provisional rather than confirmed coordinated inauthentic behavior.
 - For Astroturfing Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the detection report.
 - Before recommending any Astroturfing Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Astroturfing Detection: the detection report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest and scope the sample and apply structural and behavioral heuristics checks agree, and no unresolved contradiction would change the result.
+- High for Astroturfing Detection: each coordinated cluster in the detection report is supported by multiple independent behavioral and structural indicators — creation-date spikes, posting-velocity anomalies, content-hash overlap, and follower-graph density — drawn from more than one source, organic alternatives have been examined and ruled out, and no unresolved contradiction would change the inauthenticity verdict.
 - Medium for Astroturfing Detection: the detection report is plausible, but one important campaign sample source, comparison case, or alternative explanation remains incomplete.
 - Low for Astroturfing Detection: the detection report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Astroturfing Detection cannot determine from the supplied or authorized evidence.
@@ -53,7 +53,7 @@ If a request asks Astroturfing Detection to increase persuasive impact, exploit 
 
 ## Failure modes and negative controls
 
-- Astroturfing Detection: treating campaign sample as complete when ingest and scope the sample and apply structural and behavioral heuristics checks or contradictory evidence are missing.
+- Astroturfing Detection: declaring activity inauthentic when the sample was never scoped for self-selection bias or the structural and behavioral heuristics were never actually run, so an absence of flagged clusters reflects an unfinished review rather than genuine grassroots discourse, and coordination has been conflated with deception.
 - Astroturfing Detection: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Astroturfing Detection: reporting the detection report without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Astroturfing Detection outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

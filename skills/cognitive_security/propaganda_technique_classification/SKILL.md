@@ -29,13 +29,13 @@ If a request asks Propaganda Technique Classification to increase persuasive imp
 
 ## Evidence discipline
 
-- For Propaganda Technique Classification, tie each technique classification table, and analytical interpretation claim to concrete evidence from the specific content, context metadata, and taxonomy scope item, source excerpt, observation, or command result that supports it.
+- For Propaganda Technique Classification, bind every labelled technique to concrete evidence — a verbatim excerpt and the cognitive lever it exploits — and separate evidential technique identification from inferential intent attribution, labelling any intent claim that lacks supporting evidence as inference rather than classification.
 - For Propaganda Technique Classification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the technique classification table.
 - Before recommending any Propaganda Technique Classification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
 
-- High for Propaganda Technique Classification: the technique classification table is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest content and establish context and apply taxonomy pass 1 — ipa seven techniques checks agree, and no unresolved contradiction would change the result.
+- High for Propaganda Technique Classification: each labelled technique is anchored to a verbatim content excerpt and a consistently applied IPA or SemEval category, the identified technique mix is corroborated across passes and the context metadata, and no unresolved contradiction would change the analytical interpretation of strategic intent.
 - Medium for Propaganda Technique Classification: the technique classification table is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
 - Low for Propaganda Technique Classification: the technique classification table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Propaganda Technique Classification cannot determine from the supplied or authorized evidence.
@@ -50,7 +50,7 @@ If a request asks Propaganda Technique Classification to increase persuasive imp
 
 ## Failure modes and negative controls
 
-- Propaganda Technique Classification: treating content as complete when ingest content and establish context and apply taxonomy pass 1 — ipa seven techniques checks or contradictory evidence are missing.
+- Propaganda Technique Classification: declaring content classified when techniques were attributed at the whole-text level without verbatim excerpts, the extended-taxonomy pass was skipped, or inferred intent was reported with the same confidence as evidential technique identification.
 - Propaganda Technique Classification: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
 - Propaganda Technique Classification: reporting the technique classification table without uncertainty labels, alternative explanations, and the next discriminating check.
 - Unsafe: 'Use Propaganda Technique Classification outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.

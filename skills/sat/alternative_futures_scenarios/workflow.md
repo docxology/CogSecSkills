@@ -18,12 +18,12 @@ For each scenario, identify 3–5 observable signals that would be present in th
 Evaluate the current strategy or plan against each scenario: Where does it succeed? Where does it fail? Identify robust actions (effective across all or most scenarios) and fragile actions (optimal only in the assumed-most-likely scenario). Write the final deliverable: matrix, narratives, indicator table, and strategy assessment.
 
 ## Evidence requirements
-- For Alternative Futures (Scenarios), tie each scenario matrix, scenario narratives, and indicator set claim to concrete evidence from the specific problem statement, known drivers, and current assessment item, source excerpt, observation, or command result that supports it.
+- For Alternative Futures (Scenarios), bind each scenario narrative, axis selection, and discriminating indicator to concrete evidence from the problem statement, a named driver, or an observable signal, and never assign probabilities that smuggle the anchoring the technique exists to defeat.
 - For Alternative Futures (Scenarios), label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the scenario matrix.
 - Before recommending any Alternative Futures (Scenarios) action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Alternative Futures (Scenarios): the scenario matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; identify critical uncertainties and construct the scenario matrix checks agree, and no unresolved contradiction would change the result.
+- High for Alternative Futures (Scenarios): the scenario axes are genuinely independent and uncertain, each quadrant narrative is internally coherent and grounded in the supplied drivers, the discriminating indicators are confirmed by independent sources, and no unresolved contradiction would alter which futures the strategy must survive.
 - Medium for Alternative Futures (Scenarios): the scenario matrix is plausible, but one important problem statement source, comparison case, or alternative explanation remains incomplete.
 - Low for Alternative Futures (Scenarios): the scenario matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Alternative Futures (Scenarios) cannot determine from the supplied or authorized evidence.
@@ -36,7 +36,7 @@ Evaluate the current strategy or plan against each scenario: Where does it succe
 - For Alternative Futures (Scenarios), do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Alternative Futures (Scenarios): treating problem statement as complete when identify critical uncertainties and construct the scenario matrix checks or contradictory evidence are missing.
+- Alternative Futures (Scenarios): declaring the future space mapped when the critical-uncertainty axes were never tested for independence or collapsed into a disguised best-case/worst-case forecast, so the scenarios offer the comfort of breadth without genuinely diverging from the most-likely outcome.
 - Alternative Futures (Scenarios): producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Alternative Futures (Scenarios): reporting the scenario matrix without uncertainty labels, alternative explanations, and the next discriminating check.
 

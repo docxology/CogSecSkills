@@ -138,9 +138,12 @@ misuse_redirect: 'If a request asks Image & Media Forensics Triage to dox, deano
   path and redirect to the safe defensive form: verify supplied claims, media, sources,
   or datasets with documented public-source methods.'
 evidence_requirements:
-- For Image & Media Forensics Triage, tie each triage report claim to concrete evidence
-  from the specific media item, accompanying claim, and source account item, source
-  excerpt, observation, or command result that supports it.
+- For Image & Media Forensics Triage, tie every line of the triage report to concrete
+  evidence — the reverse-image hit and its date, the specific compression or cloning
+  artifact observed, and the contextual feature that matches or contradicts the claimed
+  time and place — and label a clean triage as no-red-flags-found rather than authenticated,
+  because triage is a filter and unsupported escalation or acceptance is a judgment,
+  not a finding.
 - For Image & Media Forensics Triage, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the triage
   report.
@@ -148,10 +151,11 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Image & Media Forensics Triage: the triage report is supported by multiple
-  independent source records, custody notes, metadata, corroborating references, and
-  contradiction logs; capture claims and metadata and run reverse-image and archive
-  search checks agree, and no unresolved contradiction would change the result.'
+- 'High for Image & Media Forensics Triage: the reuse verdict rests on reverse-image
+  and archive results that pin earlier or unrelated appearances, editing red flags
+  are interpreted against the media''s re-encoding history rather than in isolation,
+  the context-collapse check confirms the visual is plausible for the claimed time
+  and place, and no unresolved anomaly would change the recommended disposition.'
 - 'Medium for Image & Media Forensics Triage: the triage report is plausible, but
   one important media item source, comparison case, or alternative explanation remains
   incomplete.'
@@ -176,9 +180,11 @@ privacy_legal_constraints:
   intent, location, legal culpability, or platform account ownership beyond the supplied
   and authorized evidence.
 failure_modes:
-- 'Image & Media Forensics Triage: treating media item as complete when capture claims
-  and metadata and run reverse-image and archive search checks or contradictory evidence
-  are missing.'
+- 'Image & Media Forensics Triage: treating a single clean reverse-image result as
+  proof of authenticity when the file may simply be unindexed, reading ELA artifacts
+  in isolation from platform re-compression, or skipping the context-collapse check
+  so recycled authentic media passes as original, mistaking the absence of found red
+  flags for verified authenticity.'
 - 'Image & Media Forensics Triage: producing advice that would help a requester dox,
   deanonymize, harass, bypass access controls, or attribute identity beyond evidence.'
 - 'Image & Media Forensics Triage: reporting the triage report without uncertainty

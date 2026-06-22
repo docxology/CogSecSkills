@@ -31,6 +31,14 @@ dev = [
     "ruff>=0.6",
     "types-PyYAML>=6.0",
 ]
+# Plotting dependencies for the manuscript-asset figure generators
+# (src/cogsecskills/manuscript_assets.py imports these lazily). Install with
+# `uv pip install -e '.[manuscript]'` to exercise the figure tests/CLI.
+manuscript = [
+    "matplotlib>=3.7",
+    "seaborn>=0.12",
+    "numpy>=1.24",
+]
 
 [project.urls]
 Repository = "https://github.com/docxology/CogSecSkills"
@@ -51,6 +59,20 @@ files = ["src/cogsecskills"]
 ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true
+
+# The manuscript-asset plotting stack (lazily imported in manuscript_assets.py)
+# ships type stubs that can use newer-Python syntax than this mypy target; skip
+# following them rather than parse third-party stubs. Our own code is still typed.
+[[tool.mypy.overrides]]
+module = [
+    "numpy", "numpy.*",
+    "matplotlib", "matplotlib.*",
+    "seaborn", "seaborn.*",
+    "pandas", "pandas.*",
+]
+follow_imports = "skip"
+follow_imports_for_stubs = true
+ignore_missing_imports = true
 
 [tool.ruff]
 target-version = "py310"
