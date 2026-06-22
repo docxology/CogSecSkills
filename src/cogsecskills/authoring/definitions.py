@@ -11,6 +11,8 @@ from __future__ import annotations
 from collections import defaultdict
 import re
 from pathlib import Path
+
+from cogsecskills.core.locate import project_root
 from typing import TypedDict
 
 import yaml
@@ -79,7 +81,7 @@ class DefinitionWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
+    return Path(root) if root is not None else project_root()
 
 
 def definitions_root(root: Path | None = None) -> Path:

@@ -15,13 +15,15 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+from cogsecskills.core.locate import project_root
+
 import yaml
 
 from cogsecskills.core.spec import SKILL_STATUSES, SpecError
 
 
 def _project_root() -> Path:
-    return Path(__file__).resolve().parents[3]
+    return project_root()
 
 
 def registry_path(root: Path | None = None) -> Path:

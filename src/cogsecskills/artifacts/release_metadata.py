@@ -4,6 +4,8 @@ import json
 import subprocess
 import tomllib
 from pathlib import Path
+
+from cogsecskills.core.locate import project_root
 from typing import Any, Literal, Mapping, TypedDict
 
 import yaml
@@ -35,7 +37,7 @@ class ReleaseWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
+    return Path(root) if root is not None else project_root()
 
 
 def _read_toml(path: Path) -> Mapping[str, Any]:

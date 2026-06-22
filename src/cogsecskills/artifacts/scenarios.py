@@ -11,6 +11,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+
+from cogsecskills.core.locate import project_root
 from typing import Any, Iterable, Mapping, TypedDict
 
 import yaml
@@ -111,7 +113,7 @@ RUBRIC_KEYS = (
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
+    return Path(root) if root is not None else project_root()
 
 
 def scenario_path(root: Path | None = None) -> Path:

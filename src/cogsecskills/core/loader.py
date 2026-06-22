@@ -11,6 +11,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from cogsecskills.core.locate import project_root
+
 import yaml
 
 from cogsecskills.core.spec import SkillSpec, SpecError
@@ -29,7 +31,7 @@ def _project_root() -> Path:
     ``<root>/skills/``. We resolve relative to this file so the loader works
     regardless of the caller's working directory.
     """
-    return Path(__file__).resolve().parents[3]
+    return project_root()
 
 
 def skills_root(root: Path | None = None) -> Path:
