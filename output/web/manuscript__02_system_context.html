@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>02_system_context.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1 id="sec:system_context">Source Boundary and the Harness-Neutral
+Skill Contract</h1>
+<h2 id="repository-local-evidence-boundary">Repository-Local Evidence
+Boundary</h2>
+<p>CogSecSkills is a defensive skills library, not a live influence
+system, benchmark suite, or external claim engine. Its authoritative
+inputs are plain-text project files: the registry declares the
+catalogue, canonical definitions own skill substance and quality
+controls, rendered skill directories expose harness-facing interfaces,
+AGEINT documents provide the teaching context, and the Python package
+validates and reports on the library. The manuscript describes those
+local surfaces and the gates that keep them synchronized.</p>
+<h2 id="planbuildteach-source-surfaces">Plan/Build/Teach Source
+Surfaces</h2>
+<p>The project uses three mutually reinforcing surfaces:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+<th>Reader question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code> and
+<code>registry/groups.yaml</code></td>
+<td>Plan</td>
+<td>What skills and groups are supposed to exist?</td>
+</tr>
+<tr>
+<td><code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code></td>
+<td>Build source</td>
+<td>What does the skill do, when should it be used, and what defensive
+quality controls must it carry?</td>
+</tr>
+<tr>
+<td><code>skills/&lt;group&gt;/&lt;slug&gt;/</code></td>
+<td>Build output</td>
+<td>What is actually rendered, and how does each skill bind to
+harnesses?</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Teach</td>
+<td>Which AGEINT topic or educational frame motivates the skill?</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Verify and render</td>
+<td>Which checks, reports, routes, and manuscript assets are generated
+from the source surfaces?</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Regression contract</td>
+<td>Which behaviors are guarded against drift?</td>
+</tr>
+</tbody>
+</table>
+<figure id="fig:plan-build-teach-flow">
+<img src="../figures/cogsecskills_plan_build_teach_flow.png"
+style="width:100.0%"
+alt="cogsecskills_plan_build_teach_flow.png: Source-to-render flow for the Plan, Build, and Teach surfaces. The figure proves that generated manuscript assets sit behind source-owned inputs and local gates; it does not prove field effectiveness." />
+<figcaption aria-hidden="true">cogsecskills_plan_build_teach_flow.png:
+Source-to-render flow for the Plan, Build, and Teach surfaces. The
+figure proves that generated manuscript assets sit behind source-owned
+inputs and local gates; it does not prove field
+effectiveness.</figcaption>
+</figure>
+<h2 id="harness-neutral-skill-specification">Harness-Neutral Skill
+Specification</h2>
+<p>Each implemented skill declares a small, inspectable contract:</p>
+<ul>
+<li>identity fields: <code>id</code>, <code>name</code>,
+<code>group</code>, <code>status</code>, <code>version</code>,
+<code>summary</code>, and <code>ageint_topic</code>;</li>
+<li>routing fields: <code>tags</code> and <code>triggers</code>;</li>
+<li>capability fields: a closed set of tool verbs with purposes;</li>
+<li>interface fields: structured inputs and outputs;</li>
+<li>adapter fields: one harness adapter path per configured
+harness.</li>
+</ul>
+<p>The default harness adapters translate the neutral verbs into Claude,
+Codex, and Hermes idioms while preserving the same workflow. The same
+contract also applies to any additional harness configured in
+<code>cogsecskills.yaml</code>. This keeps the library portable in the
+structural sense: a skill can be evaluated for conformance without
+executing any external service.</p>
+<p>For Codex and Hermes use, this means the adapter text is not a
+separate source of truth. It is a harness-facing binding layer that must
+list the same neutral verbs declared by the skill specification. If a
+skill declares <code>read</code>, <code>reason</code>, and
+<code>write</code>, each configured harness adapter must show how those
+verbs are realized in that harness. This is the smallest contract that
+makes the skill portable while still leaving each runtime free to
+express its own operational idiom.</p>
+<p>This contract is deliberately narrower than a general agent
+framework. ReAct-style work shows why reasoning and action are often
+interleaved, and Toolformer-style work shows why model interfaces to
+external tools matter [yao2022react; schick2023toolformer]. CogSecSkills
+does not attempt to train or evaluate a model to choose tools. It fixes
+a defensive, inspectable vocabulary of tool verbs and requires every
+configured harness adapter to bind that vocabulary before the skill is
+treated as conforming. The contribution is the validated interface
+layer: source-owned skill substance, closed neutral capabilities,
+harness-specific bindings, and local drift checks.</p>
+<h2 id="harness-profile-classes">Harness Profile Classes</h2>
+<p>The harness profile layer is descriptive, not executable. It records
+named external runtimes and framework families that a reader might
+target after cloning the repository, but the validation contract remains
+controlled only by the configured harness set. In this manuscript,
+<strong>default adapters</strong> means the committed
+<code>claude</code>, <code>codex</code>, and <code>hermes</code>
+adapters. <strong>Configured structural adapters</strong> means any
+harness id placed in <code>cogsecskills.yaml</code>, regenerated into
+every skill folder, and checked by <code>validate</code>.
+<strong>Documented external profiles</strong> means optional metadata
+rows in <code>registry/harness_profiles.yaml</code>; those rows do not
+certify live runtime behavior, connector safety, vendor support, or
+field outcomes. The profiles are not one standard: Gemini CLI context
+files, Copilot instruction and agent surfaces, Cursor/Cline-style rule
+systems, SDK frameworks, and MCP tool hosts each require
+product-specific review before use.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Profile id</th>
+<th>Class</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gemini_cli</code></td>
+<td>terminal agent</td>
+<td>Candidate for a Gemini CLI-style local harness using
+product-specific context files after configuration and adapter
+review.</td>
+</tr>
+<tr>
+<td><code>github_copilot</code></td>
+<td>IDE or cloud agent</td>
+<td>Candidate for Copilot repository, path-specific, agent, CLI,
+cloud-agent, or review surfaces whose support varies by product
+mode.</td>
+</tr>
+<tr>
+<td><code>devin_local</code></td>
+<td>local agent</td>
+<td>Candidate for local-agent use with permissions, sandboxing, skills,
+and MCP controls.</td>
+</tr>
+<tr>
+<td><code>devin_cascade</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cascade/Devin Desktop AGENTS.md and rules
+surfaces.</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cursor rules or skill-style context.</td>
+</tr>
+<tr>
+<td><code>cline</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cline- or Roo-style rule/skill surfaces and configured
+tool permissions.</td>
+</tr>
+<tr>
+<td><code>aider</code></td>
+<td>terminal agent</td>
+<td>Candidate for read-only skill and convention files in a terminal
+pair-programming workflow.</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>IDE or CLI agent</td>
+<td>Candidate for Continue Agent, Chat, or Edit rule contexts.</td>
+</tr>
+<tr>
+<td><code>jetbrains_ai</code></td>
+<td>IDE agent</td>
+<td>Candidate for JetBrains AI Assistant instruction files.</td>
+</tr>
+<tr>
+<td><code>openai_agents_sdk</code></td>
+<td>programmatic runtime</td>
+<td>Application-owned wrapper target with tools, approvals, guardrails,
+and state.</td>
+</tr>
+<tr>
+<td><code>langgraph</code></td>
+<td>programmatic runtime</td>
+<td>Graph-node and state-machine integration target.</td>
+</tr>
+<tr>
+<td><code>microsoft_agent_framework</code></td>
+<td>programmatic runtime</td>
+<td>Agent or workflow integration target for .NET and Python
+applications.</td>
+</tr>
+<tr>
+<td><code>autogen</code></td>
+<td>programmatic runtime</td>
+<td>AgentChat/Core integration target.</td>
+</tr>
+<tr>
+<td><code>crewai</code></td>
+<td>programmatic runtime</td>
+<td>Crew, task, flow, and guardrail integration target.</td>
+</tr>
+<tr>
+<td><code>pydantic_ai</code></td>
+<td>programmatic runtime</td>
+<td>Typed agent and capability integration target.</td>
+</tr>
+<tr>
+<td><code>mcp_host</code></td>
+<td>protocol host</td>
+<td>Tool and context transport profile, not a standalone model
+harness.</td>
+</tr>
+<tr>
+<td><code>perplexity_research</code></td>
+<td>research companion</td>
+<td>Research-support profile unless wrapped by a local tool-executing
+application.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="formal-conformance-contract">Formal Conformance Contract</h2>
+<p>Let the closed neutral verb vocabulary be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:tool-verb-set}
+V := \{\mathtt{read}, \mathtt{search}, \mathtt{write}, \mathtt{exec},
+\mathtt{reason}, \mathtt{web}, \mathtt{delegate}, \mathtt{ask}\}.
+\end{equation}\]</span></p>
+<p>Let the default harness set be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:default-harness-set}
+H_0 := \{\mathtt{claude}, \mathtt{codex}, \mathtt{hermes}\}.
+\end{equation}\]</span></p>
+<p>Let the configured harness set be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:configured-harness-set}
+H_{\mathrm{cfg}} :=
+\operatorname{harnesses}(\mathtt{cogsecskills.yaml})\quad\text{with
+default }H_0.
+\end{equation}\]</span></p>
+<p>For each implemented skill <code>s</code> in set <code>S</code>, the
+source specification can be read as</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:skill-spec-tuple}
+s = (id_s, name_s, group_s, status_s, version_s, summary_s, topic_s,
+tags_s, triggers_s, V_s, I_s, O_s, refs_s, Q_s, wf_s, A_s)
+\end{equation}\]</span></p>
+<p>subject to</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:skill-conformance}
+V_s \subseteq V,\qquad \operatorname{dom}(A_s)=H_{\mathrm{cfg}},\qquad
+\forall h \in H_{\mathrm{cfg}}:\ V_s \subseteq B_{s,h}.
+\end{equation}\]</span></p>
+<p>Here <code>I_s</code> and <code>O_s</code> are the declared input and
+output schemas, <code>refs_s</code> is the per-skill metadata reference
+set, <code>Q_s</code> is the required quality-control bundle,
+<code>wf_s</code> is the workflow path, <code>A_s</code> maps each
+configured harness to exactly one adapter path, and <code>B_s,h</code>
+is the set of neutral verbs bound in harness <code>h</code> adapter
+table. Conformance consists of schema validity, registry-to-folder
+agreement, allowed-verb membership, required quality fields, workflow
+presence, adapter-path completeness for every harness in
+<code>H_cfg</code>, and adapter binding coverage for every declared verb
+in <code>V_s</code>.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field family</th>
+<th>Source field(s)</th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td><code>id</code>, <code>name</code>, <code>group</code>,
+<code>status</code>, <code>version</code></td>
+<td><code>id</code> must match <code>group.slug</code>; implemented
+skills must exist on disk.</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td><code>tags</code>, <code>triggers</code>,
+<code>ageint_topic</code></td>
+<td>Used for navigation and AGEINT crosswalks, not empirical routing
+claims.</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td><code>tools[*].verb</code></td>
+<td>Every verb must be a member of <code>V</code>.</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td><code>inputs</code>, <code>outputs</code></td>
+<td>Names and descriptions must be declared in
+<code>skill.yaml</code>.</td>
+</tr>
+<tr>
+<td>Provenance metadata</td>
+<td><code>refs</code></td>
+<td>Declared skill references; not the same as manuscript citation
+keys.</td>
+</tr>
+<tr>
+<td>Quality controls</td>
+<td><code>defensive_boundary</code>, <code>misuse_redirect</code>,
+<code>evidence_requirements</code>, <code>confidence_rubric</code>,
+<code>uncertainty_handling</code>,
+<code>privacy_legal_constraints</code>, <code>failure_modes</code>,
+<code>negative_controls</code></td>
+<td>Required by canonical definitions and surfaced in rendered skill
+files.</td>
+</tr>
+<tr>
+<td>Harness mapping</td>
+<td><code>harness</code></td>
+<td>Every harness in <code>H_cfg</code> must resolve to an adapter file
+whose first-column binding table covers <code>V_s</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="figure-guide-and-100-skill-taxonomy-snapshot">Figure Guide and
+100-Skill Taxonomy Snapshot</h2>
+<p>The manuscript figures are organized from overview to contract
+detail. The current registry groups the 100 implemented skills into
+seven taxonomy groups. Those groups are not claimed to be a complete or
+mutually exclusive theory of cognitive security; they are a defensive
+coverage map spanning information disorder, source integrity, deception
+and counterintelligence, structured analysis, research synthesis, and
+information-environment coordination
+[wardleDerakhshan2017informationDisorder; ukmod2023jdp200;
+lazer2018fakeNews; ferrara2016socialBots;
+bradshawHoward2019globalDisinformation]. The taxonomy count chart
+answers “how much of the library is in each group?” The skill grid
+answers “can I see all 100 areas at once?” The verb heatmap answers
+“which groups use which neutral capabilities?” The AGEINT crosswalk
+answers “which teaching topics motivate which implementation groups?”
+The Reference Density figure answers “where is declared source backing
+deepest?” The Harness Contract figure answers “does every group maintain
+adapter coverage for the configured harness set?” The flow figure ties
+those views back to the source surfaces and gates. The count and grid
+figures below are generated from the same ordered registry rows used by
+the supplemental catalogue, so the visual order and group membership
+remain synchronized with the source tree.</p>
+<figure id="fig:taxonomy-counts">
+<img src="../figures/cogsecskills_taxonomy_counts.png"
+style="width:100.0%"
+alt="cogsecskills_taxonomy_counts.png: Ranked group-count chart for the 100 implemented skills. The figure proves the current registry distribution and declared reference depth by group; it does not measure group quality or operational security value." />
+<figcaption aria-hidden="true">cogsecskills_taxonomy_counts.png: Ranked
+group-count chart for the 100 implemented skills. The figure proves the
+current registry distribution and declared reference depth by group; it
+does not measure group quality or operational security
+value.</figcaption>
+</figure>
+<figure id="fig:skill-grid">
+<img src="../figures/cogsecskills_skill_grid.png" style="width:100.0%"
+alt="cogsecskills_skill_grid.png: Full-library atlas showing all 100 registry skills in source order with taxonomy colors, boundaries, and source-order spans. The figure proves catalogue coverage and group ordering; it does not rank skills or indicate effectiveness." />
+<figcaption aria-hidden="true">cogsecskills_skill_grid.png: Full-library
+atlas showing all 100 registry skills in source order with taxonomy
+colors, boundaries, and source-order spans. The figure proves catalogue
+coverage and group ordering; it does not rank skills or indicate
+effectiveness.</figcaption>
+</figure>
+</body>
+</html>

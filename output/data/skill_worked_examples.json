@@ -1,0 +1,2209 @@
+{
+  "examples": [
+    {
+      "group": "sat",
+      "name": "Getting Started Checklist",
+      "provenance": "reviewed local fixture",
+      "request": "Use Getting Started Checklist defensively on authorized analytic_task, background_material and produce getting_started_baseline with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Getting Started Checklist to authorized materials and keep the output bounded to getting_started_baseline. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analytic_task, background_material before each getting_started_baseline claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for getting_started_baseline. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.getting_started_checklist",
+      "title": "Defensive Getting Started Checklist worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Customer (AIMS) Checklist",
+      "provenance": "reviewed local fixture",
+      "request": "Use Customer (AIMS) Checklist defensively on authorized product_or_outline, consumer_context and produce aims_worksheet, gap_and_misalignment_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Customer (AIMS) Checklist to authorized materials and keep the output bounded to aims_worksheet, gap_and_misalignment_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied product_or_outline, consumer_context before each aims_worksheet, gap_and_misalignment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for aims_worksheet, gap_and_misalignment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.customer_aims_checklist",
+      "title": "Defensive Customer (AIMS) Checklist worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Issue Redefinition",
+      "provenance": "reviewed local fixture",
+      "request": "Use Issue Redefinition defensively on authorized original_question, tasking_context and produce restatements_register, preferred_framing with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Issue Redefinition to authorized materials and keep the output bounded to restatements_register, preferred_framing. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied original_question, tasking_context before each restatements_register, preferred_framing claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for restatements_register, preferred_framing. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.issue_redefinition",
+      "title": "Defensive Issue Redefinition worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Chronologies & Timelines",
+      "provenance": "reviewed local fixture",
+      "request": "Use Chronologies & Timelines defensively on authorized event_sources, analytic_question, parallel_streams and produce chronology, gap_and_anomaly_report, key_findings with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Chronologies & Timelines to authorized materials and keep the output bounded to chronology, gap_and_anomaly_report, key_findings. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied event_sources, analytic_question, parallel_streams before each chronology, gap_and_anomaly_report, key_findings claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for chronology, gap_and_anomaly_report, key_findings. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.chronologies_and_timelines",
+      "title": "Defensive Chronologies & Timelines worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Sorting",
+      "provenance": "reviewed local fixture",
+      "request": "Use Sorting defensively on authorized evidence_set, sort_dimensions and produce sorted_table, outlier_flags with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Sorting to authorized materials and keep the output bounded to sorted_table, outlier_flags. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_set, sort_dimensions before each sorted_table, outlier_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for sorted_table, outlier_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.sorting",
+      "title": "Defensive Sorting worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Ranking & Prioritization",
+      "provenance": "reviewed local fixture",
+      "request": "Use Ranking & Prioritization defensively on authorized item_list, criteria, decision_context and produce scoring_matrix, ranked_list, sensitivity_analysis with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Ranking & Prioritization to authorized materials and keep the output bounded to scoring_matrix, ranked_list, sensitivity_analysis. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied item_list, criteria, decision_context before each scoring_matrix, ranked_list, sensitivity_analysis claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for scoring_matrix, ranked_list, sensitivity_analysis. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.ranking_and_prioritization",
+      "title": "Defensive Ranking & Prioritization worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Analytic Matrices",
+      "provenance": "reviewed local fixture",
+      "request": "Use Analytic Matrices defensively on authorized analytic_question, variables_or_hypotheses, evidence_or_criteria and produce analytic_matrix, pattern_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Analytic Matrices to authorized materials and keep the output bounded to analytic_matrix, pattern_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analytic_question, variables_or_hypotheses, evidence_or_criteria before each analytic_matrix, pattern_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for analytic_matrix, pattern_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.analytic_matrices",
+      "title": "Defensive Analytic Matrices worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Network Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Network Analysis defensively on authorized node_list, edge_list, analytic_question and produce centrality_report, structural_findings, collection_gaps with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Network Analysis to authorized materials and keep the output bounded to centrality_report, structural_findings, collection_gaps. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied node_list, edge_list, analytic_question before each centrality_report, structural_findings, collection_gaps claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for centrality_report, structural_findings, collection_gaps. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.network_analysis",
+      "title": "Defensive Network Analysis worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Mind Maps & Concept Maps",
+      "provenance": "reviewed local fixture",
+      "request": "Use Mind Maps & Concept Maps defensively on authorized source_material, central_topic, map_type and produce concept_graph, gap_and_conflict_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Mind Maps & Concept Maps to authorized materials and keep the output bounded to concept_graph, gap_and_conflict_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied source_material, central_topic, map_type before each concept_graph, gap_and_conflict_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for concept_graph, gap_and_conflict_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.mind_maps_and_concept_maps",
+      "title": "Defensive Mind Maps & Concept Maps worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Process & Gantt Mapping",
+      "provenance": "reviewed local fixture",
+      "request": "Use Process & Gantt Mapping defensively on authorized activity_description, known_steps, time_constraints and produce process_map, gantt_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Process & Gantt Mapping to authorized materials and keep the output bounded to process_map, gantt_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied activity_description, known_steps, time_constraints before each process_map, gantt_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for process_map, gantt_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.process_and_gantt_mapping",
+      "title": "Defensive Process & Gantt Mapping worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Structured Brainstorming",
+      "provenance": "reviewed local fixture",
+      "request": "Use Structured Brainstorming defensively on authorized problem_statement, prior_framing, convergence_criteria and produce raw_idea_inventory, ranked_shortlist with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Structured Brainstorming to authorized materials and keep the output bounded to raw_idea_inventory, ranked_shortlist. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied problem_statement, prior_framing, convergence_criteria before each raw_idea_inventory, ranked_shortlist claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for raw_idea_inventory, ranked_shortlist. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.structured_brainstorming",
+      "title": "Defensive Structured Brainstorming worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Nominal Group Technique",
+      "provenance": "reviewed local fixture",
+      "request": "Use Nominal Group Technique defensively on authorized focal_question, participant_idea_sets, prior_context and produce ngt_record with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Nominal Group Technique to authorized materials and keep the output bounded to ngt_record. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied focal_question, participant_idea_sets, prior_context before each ngt_record claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for ngt_record. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.nominal_group_technique",
+      "title": "Defensive Nominal Group Technique worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Starbursting",
+      "provenance": "reviewed local fixture",
+      "request": "Use Starbursting defensively on authorized topic_or_artifact, context and produce question_map, key_unknowns_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Starbursting to authorized materials and keep the output bounded to question_map, key_unknowns_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied topic_or_artifact, context before each question_map, key_unknowns_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for question_map, key_unknowns_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.starbursting",
+      "title": "Defensive Starbursting worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Cross-Impact Matrix",
+      "provenance": "reviewed local fixture",
+      "request": "Use Cross-Impact Matrix defensively on authorized driver_list, influence_scale, focal_question and produce cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Cross-Impact Matrix to authorized materials and keep the output bounded to cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied driver_list, influence_scale, focal_question before each cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.cross_impact_matrix",
+      "title": "Defensive Cross-Impact Matrix worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Morphological Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Morphological Analysis defensively on authorized problem_statement, known_constraints and produce morphological_box, scenario_inventory, priority_findings with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Morphological Analysis to authorized materials and keep the output bounded to morphological_box, scenario_inventory, priority_findings. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied problem_statement, known_constraints before each morphological_box, scenario_inventory, priority_findings claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for morphological_box, scenario_inventory, priority_findings. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.morphological_analysis",
+      "title": "Defensive Morphological Analysis worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Quadrant Crunching",
+      "provenance": "reviewed local fixture",
+      "request": "Use Quadrant Crunching defensively on authorized problem_statement, dominant_assessment, candidate_assumptions and produce scenario_matrix, scenario_narratives, neglected_cells with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Quadrant Crunching to authorized materials and keep the output bounded to scenario_matrix, scenario_narratives, neglected_cells. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied problem_statement, dominant_assessment, candidate_assumptions before each scenario_matrix, scenario_narratives, neglected_cells claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for scenario_matrix, scenario_narratives, neglected_cells. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.quadrant_crunching",
+      "title": "Defensive Quadrant Crunching worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Alternative Futures (Scenarios)",
+      "provenance": "reviewed local fixture",
+      "request": "Use Alternative Futures (Scenarios) defensively on authorized problem_statement, known_drivers, current_assessment and produce scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Alternative Futures (Scenarios) to authorized materials and keep the output bounded to scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied problem_statement, known_drivers, current_assessment before each scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.alternative_futures_scenarios",
+      "title": "Defensive Alternative Futures (Scenarios) worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Indicators Generation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Indicators Generation defensively on authorized scenarios_or_hypotheses, actor_profile, collection_environment and produce indicators_matrix, indicators_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Indicators Generation to authorized materials and keep the output bounded to indicators_matrix, indicators_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied scenarios_or_hypotheses, actor_profile, collection_environment before each indicators_matrix, indicators_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for indicators_matrix, indicators_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.indicators_generation",
+      "title": "Defensive Indicators Generation worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Indicators Validation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Indicators Validation defensively on authorized candidate_indicators, scenarios_or_hypotheses, base_rate_context and produce validated_indicators_matrix, validation_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Indicators Validation to authorized materials and keep the output bounded to validated_indicators_matrix, validation_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied candidate_indicators, scenarios_or_hypotheses, base_rate_context before each validated_indicators_matrix, validation_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for validated_indicators_matrix, validation_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.indicators_validation",
+      "title": "Defensive Indicators Validation worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Signposts of Change",
+      "provenance": "reviewed local fixture",
+      "request": "Use Signposts of Change defensively on authorized scenarios_or_hypotheses, current_assessment, collection_resources and produce signpost_matrix, collection_guidance, update_protocol with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Signposts of Change to authorized materials and keep the output bounded to signpost_matrix, collection_guidance, update_protocol. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied scenarios_or_hypotheses, current_assessment, collection_resources before each signpost_matrix, collection_guidance, update_protocol claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for signpost_matrix, collection_guidance, update_protocol. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.signposts_of_change",
+      "title": "Defensive Signposts of Change worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Analysis of Competing Hypotheses (ACH)",
+      "provenance": "reviewed local fixture",
+      "request": "Use Analysis of Competing Hypotheses (ACH) defensively on authorized question, hypotheses, evidence and produce matrix, ranking, indicators with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Analysis of Competing Hypotheses (ACH) to authorized materials and keep the output bounded to matrix, ranking, indicators. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied question, hypotheses, evidence before each matrix, ranking, indicators claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for matrix, ranking, indicators. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.analysis_of_competing_hypotheses",
+      "title": "Defensive Analysis of Competing Hypotheses (ACH) worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Key Assumptions Check",
+      "provenance": "reviewed local fixture",
+      "request": "Use Key Assumptions Check defensively on authorized judgment, analytic_line, stated_assumptions and produce assumptions_table, key_assumptions, revised_judgment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Key Assumptions Check to authorized materials and keep the output bounded to assumptions_table, key_assumptions, revised_judgment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied judgment, analytic_line, stated_assumptions before each assumptions_table, key_assumptions, revised_judgment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for assumptions_table, key_assumptions, revised_judgment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.key_assumptions_check",
+      "title": "Defensive Key Assumptions Check worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Multiple Hypothesis Generation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Multiple Hypothesis Generation defensively on authorized evidence_set, initial_hypotheses, domain_context and produce hypothesis_set, completeness_check with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Multiple Hypothesis Generation to authorized materials and keep the output bounded to hypothesis_set, completeness_check. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_set, initial_hypotheses, domain_context before each hypothesis_set, completeness_check claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for hypothesis_set, completeness_check. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.multiple_hypothesis_generation",
+      "title": "Defensive Multiple Hypothesis Generation worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Diagnostic Reasoning",
+      "provenance": "reviewed local fixture",
+      "request": "Use Diagnostic Reasoning defensively on authorized new_datum, competing_hypotheses, prior_assessments and produce diagnostic_table, updated_ranking, diagnostic_value_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Diagnostic Reasoning to authorized materials and keep the output bounded to diagnostic_table, updated_ranking, diagnostic_value_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied new_datum, competing_hypotheses, prior_assessments before each diagnostic_table, updated_ranking, diagnostic_value_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for diagnostic_table, updated_ranking, diagnostic_value_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.diagnostic_reasoning",
+      "title": "Defensive Diagnostic Reasoning worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Argument Mapping",
+      "provenance": "reviewed local fixture",
+      "request": "Use Argument Mapping defensively on authorized argument_source, focal_claim and produce argument_map, load_bearing_assumption_list, logical_gap_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Argument Mapping to authorized materials and keep the output bounded to argument_map, load_bearing_assumption_list, logical_gap_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied argument_source, focal_claim before each argument_map, load_bearing_assumption_list, logical_gap_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for argument_map, load_bearing_assumption_list, logical_gap_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.argument_mapping",
+      "title": "Defensive Argument Mapping worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Structured Analogies",
+      "provenance": "reviewed local fixture",
+      "request": "Use Structured Analogies defensively on authorized current_situation, candidate_cases, comparison_dimensions and produce case_comparison_table, lessons_and_predictions with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Structured Analogies to authorized materials and keep the output bounded to case_comparison_table, lessons_and_predictions. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied current_situation, candidate_cases, comparison_dimensions before each case_comparison_table, lessons_and_predictions claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for case_comparison_table, lessons_and_predictions. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.structured_analogies",
+      "title": "Defensive Structured Analogies worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Red Hat Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Red Hat Analysis defensively on authorized adversary_profile, situation_context, analytic_question and produce adversary_frame, courses_of_action, mirror_imaging_flags with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Red Hat Analysis to authorized materials and keep the output bounded to adversary_frame, courses_of_action, mirror_imaging_flags. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied adversary_profile, situation_context, analytic_question before each adversary_frame, courses_of_action, mirror_imaging_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for adversary_frame, courses_of_action, mirror_imaging_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.red_hat_analysis",
+      "title": "Defensive Red Hat Analysis worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Outside-In Thinking",
+      "provenance": "reviewed local fixture",
+      "request": "Use Outside-In Thinking defensively on authorized focal_issue, prior_assessments, environmental_scan and produce outside_in_analysis with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Outside-In Thinking to authorized materials and keep the output bounded to outside_in_analysis. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied focal_issue, prior_assessments, environmental_scan before each outside_in_analysis claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for outside_in_analysis. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.outside_in_thinking",
+      "title": "Defensive Outside-In Thinking worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Causal Flow Diagramming",
+      "provenance": "reviewed local fixture",
+      "request": "Use Causal Flow Diagramming defensively on authorized system_description, known_variables, scope_boundary and produce causal_flow_diagram, loop_inventory, leverage_point_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Causal Flow Diagramming to authorized materials and keep the output bounded to causal_flow_diagram, loop_inventory, leverage_point_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied system_description, known_variables, scope_boundary before each causal_flow_diagram, loop_inventory, leverage_point_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for causal_flow_diagram, loop_inventory, leverage_point_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.causal_flow_diagramming",
+      "title": "Defensive Causal Flow Diagramming worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Premortem Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Premortem Analysis defensively on authorized plan_or_assessment, time_horizon and produce failure_modes with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Premortem Analysis to authorized materials and keep the output bounded to failure_modes. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied plan_or_assessment, time_horizon before each failure_modes claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for failure_modes. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.premortem_analysis",
+      "title": "Defensive Premortem Analysis worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Devil's Advocacy",
+      "provenance": "reviewed local fixture",
+      "request": "Use Devil's Advocacy defensively on authorized consensus_judgment, evidence_base and produce counter_case, robustness_verdict with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Devil's Advocacy to authorized materials and keep the output bounded to counter_case, robustness_verdict. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied consensus_judgment, evidence_base before each counter_case, robustness_verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for counter_case, robustness_verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.devils_advocacy",
+      "title": "Defensive Devil's Advocacy worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Team A / Team B",
+      "provenance": "reviewed local fixture",
+      "request": "Use Team A / Team B defensively on authorized shared_evidence, hypothesis_a, hypothesis_b, context and produce team_debate_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Team A / Team B to authorized materials and keep the output bounded to team_debate_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied shared_evidence, hypothesis_a, hypothesis_b, context before each team_debate_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for team_debate_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.team_a_team_b",
+      "title": "Defensive Team A / Team B worked example"
+    },
+    {
+      "group": "sat",
+      "name": "Structured Self-Critique",
+      "provenance": "reviewed local fixture",
+      "request": "Use Structured Self-Critique defensively on authorized analysis_draft, key_judgments, supporting_evidence and produce critique_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Structured Self-Critique to authorized materials and keep the output bounded to critique_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analysis_draft, key_judgments, supporting_evidence before each critique_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for critique_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.structured_self_critique",
+      "title": "Defensive Structured Self-Critique worked example"
+    },
+    {
+      "group": "sat",
+      "name": "What-If Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use What-If Analysis defensively on authorized scenario_posit, current_context, time_horizon and produce what_if_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply What-If Analysis to authorized materials and keep the output bounded to what_if_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied scenario_posit, current_context, time_horizon before each what_if_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for what_if_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "sat.what_if_analysis",
+      "title": "Defensive What-If Analysis worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Narrative Threat Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Narrative Threat Assessment defensively on authorized narrative_text, context and produce threat_assessment, defensive_recommendations with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Narrative Threat Assessment to authorized materials and keep the output bounded to threat_assessment, defensive_recommendations. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied narrative_text, context before each threat_assessment, defensive_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for threat_assessment, defensive_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.narrative_threat_assessment",
+      "title": "Defensive Narrative Threat Assessment worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Source Credibility Evaluation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Source Credibility Evaluation defensively on authorized source, claim, corroboration and produce reliability_grade, credibility_grade, usage_bound with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Source Credibility Evaluation to authorized materials and keep the output bounded to reliability_grade, credibility_grade, usage_bound. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied source, claim, corroboration before each reliability_grade, credibility_grade, usage_bound claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for reliability_grade, credibility_grade, usage_bound. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.source_credibility_evaluation",
+      "title": "Defensive Source Credibility Evaluation worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Manipulation Technique Identification",
+      "provenance": "reviewed local fixture",
+      "request": "Use Manipulation Technique Identification defensively on authorized content, target_audience, distribution_context and produce technique_catalogue, analysis_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Manipulation Technique Identification to authorized materials and keep the output bounded to technique_catalogue, analysis_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied content, target_audience, distribution_context before each technique_catalogue, analysis_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for technique_catalogue, analysis_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.manipulation_technique_identification",
+      "title": "Defensive Manipulation Technique Identification worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Prebunking & Inoculation Design",
+      "provenance": "reviewed local fixture",
+      "request": "Use Prebunking & Inoculation Design defensively on authorized manipulation_technique, target_audience, deployment_context, existing_prebunking_assets and produce inoculation_content, efficacy_check_items, design_rationale with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Prebunking & Inoculation Design to authorized materials and keep the output bounded to inoculation_content, efficacy_check_items, design_rationale. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied manipulation_technique, target_audience, deployment_context, existing_prebunking_assets before each inoculation_content, efficacy_check_items, design_rationale claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for inoculation_content, efficacy_check_items, design_rationale. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.prebunking_inoculation_design",
+      "title": "Defensive Prebunking & Inoculation Design worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Cognitive Bias Audit",
+      "provenance": "reviewed local fixture",
+      "request": "Use Cognitive Bias Audit defensively on authorized analysis_or_decision, domain_context, known_pressures and produce bias_audit_report, priority_bias_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Cognitive Bias Audit to authorized materials and keep the output bounded to bias_audit_report, priority_bias_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analysis_or_decision, domain_context, known_pressures before each bias_audit_report, priority_bias_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for bias_audit_report, priority_bias_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.cognitive_bias_audit",
+      "title": "Defensive Cognitive Bias Audit worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Influence Operation Mapping",
+      "provenance": "reviewed local fixture",
+      "request": "Use Influence Operation Mapping defensively on authorized evidence_collection, hypothesis, threat_actor_profiles and produce abcd_operation_map, attribution_assessment, counter_operation_brief with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Influence Operation Mapping to authorized materials and keep the output bounded to abcd_operation_map, attribution_assessment, counter_operation_brief. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_collection, hypothesis, threat_actor_profiles before each abcd_operation_map, attribution_assessment, counter_operation_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for abcd_operation_map, attribution_assessment, counter_operation_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.influence_operation_mapping",
+      "title": "Defensive Influence Operation Mapping worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Disinformation Campaign Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Disinformation Campaign Analysis defensively on authorized campaign_artifacts, known_context, target_audience_indicators, prior_reports and produce campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Disinformation Campaign Analysis to authorized materials and keep the output bounded to campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied campaign_artifacts, known_context, target_audience_indicators, prior_reports before each campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.disinformation_campaign_analysis",
+      "title": "Defensive Disinformation Campaign Analysis worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Rumor & Virality Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Rumor & Virality Assessment defensively on authorized claim, originating_context, audience_profile, propagation_data and produce virality_assessment, factor_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Rumor & Virality Assessment to authorized materials and keep the output bounded to virality_assessment, factor_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied claim, originating_context, audience_profile, propagation_data before each virality_assessment, factor_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for virality_assessment, factor_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.rumor_and_virality_assessment",
+      "title": "Defensive Rumor & Virality Assessment worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Epistemic Security Posture Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Epistemic Security Posture Review defensively on authorized organizational_profile, epistemic_practices, known_incidents and produce posture_scorecard, attack_surface_narrative, remediation_roadmap with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Epistemic Security Posture Review to authorized materials and keep the output bounded to posture_scorecard, attack_surface_narrative, remediation_roadmap. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied organizational_profile, epistemic_practices, known_incidents before each posture_scorecard, attack_surface_narrative, remediation_roadmap claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for posture_scorecard, attack_surface_narrative, remediation_roadmap. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.epistemic_security_posture_review",
+      "title": "Defensive Epistemic Security Posture Review worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Trust & Credibility Modeling",
+      "provenance": "reviewed local fixture",
+      "request": "Use Trust & Credibility Modeling defensively on authorized information_environment, actor_set, threat_actor_context, existing_credibility_signals and produce trust_model, exploitation_vulnerability_audit with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Trust & Credibility Modeling to authorized materials and keep the output bounded to trust_model, exploitation_vulnerability_audit. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied information_environment, actor_set, threat_actor_context, existing_credibility_signals before each trust_model, exploitation_vulnerability_audit claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for trust_model, exploitation_vulnerability_audit. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.trust_and_credibility_modeling",
+      "title": "Defensive Trust & Credibility Modeling worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Information Provenance Tracing",
+      "provenance": "reviewed local fixture",
+      "request": "Use Information Provenance Tracing defensively on authorized artifact, known_context, scope and produce provenance_chain, origin_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Information Provenance Tracing to authorized materials and keep the output bounded to provenance_chain, origin_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied artifact, known_context, scope before each provenance_chain, origin_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for provenance_chain, origin_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.information_provenance_tracing",
+      "title": "Defensive Information Provenance Tracing worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Deepfake & Synthetic Media Triage",
+      "provenance": "reviewed local fixture",
+      "request": "Use Deepfake & Synthetic Media Triage defensively on authorized media_artifact, claim_context, available_metadata and produce triage_report, anomaly_log with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Deepfake & Synthetic Media Triage to authorized materials and keep the output bounded to triage_report, anomaly_log. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied media_artifact, claim_context, available_metadata before each triage_report, anomaly_log claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for triage_report, anomaly_log. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.deepfake_synthetic_media_triage",
+      "title": "Defensive Deepfake & Synthetic Media Triage worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Astroturfing Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Astroturfing Detection defensively on authorized campaign_sample, baseline_context and produce detection_report, indicator_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Astroturfing Detection to authorized materials and keep the output bounded to detection_report, indicator_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied campaign_sample, baseline_context before each detection_report, indicator_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for detection_report, indicator_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.astroturfing_detection",
+      "title": "Defensive Astroturfing Detection worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Emotional Manipulation Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Emotional Manipulation Analysis defensively on authorized content, context and produce emotional_lever_map, defensive_brief with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Emotional Manipulation Analysis to authorized materials and keep the output bounded to emotional_lever_map, defensive_brief. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied content, context before each emotional_lever_map, defensive_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for emotional_lever_map, defensive_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.emotional_manipulation_analysis",
+      "title": "Defensive Emotional Manipulation Analysis worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Framing & Priming Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Framing & Priming Analysis defensively on authorized content, alternative_versions, audience_context and produce frame_inventory, reframing_brief with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Framing & Priming Analysis to authorized materials and keep the output bounded to frame_inventory, reframing_brief. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied content, alternative_versions, audience_context before each frame_inventory, reframing_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for frame_inventory, reframing_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.framing_and_priming_analysis",
+      "title": "Defensive Framing & Priming Analysis worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Logical Fallacy Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Logical Fallacy Detection defensively on authorized argument_text, context and produce fallacy_catalogue, argument_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Logical Fallacy Detection to authorized materials and keep the output bounded to fallacy_catalogue, argument_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied argument_text, context before each fallacy_catalogue, argument_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for fallacy_catalogue, argument_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.logical_fallacy_detection",
+      "title": "Defensive Logical Fallacy Detection worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Propaganda Technique Classification",
+      "provenance": "reviewed local fixture",
+      "request": "Use Propaganda Technique Classification defensively on authorized content, context_metadata, taxonomy_scope and produce technique_classification_table, analytical_interpretation with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Propaganda Technique Classification to authorized materials and keep the output bounded to technique_classification_table, analytical_interpretation. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied content, context_metadata, taxonomy_scope before each technique_classification_table, analytical_interpretation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for technique_classification_table, analytical_interpretation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.propaganda_technique_classification",
+      "title": "Defensive Propaganda Technique Classification worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Belief Attack-Surface Mapping",
+      "provenance": "reviewed local fixture",
+      "request": "Use Belief Attack-Surface Mapping defensively on authorized audience_profile, belief_inventory, adversary_playbook and produce belief_attack_surface_map, priority_interventions with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Belief Attack-Surface Mapping to authorized materials and keep the output bounded to belief_attack_surface_map, priority_interventions. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied audience_profile, belief_inventory, adversary_playbook before each belief_attack_surface_map, priority_interventions claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for belief_attack_surface_map, priority_interventions. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.attack_surface_of_belief_mapping",
+      "title": "Defensive Belief Attack-Surface Mapping worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Counter-Messaging Strategy",
+      "provenance": "reviewed local fixture",
+      "request": "Use Counter-Messaging Strategy defensively on authorized false_claim_or_narrative, audience_profile, intervention_timing, channel_constraints and produce counter_messaging_strategy, message_variants_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Counter-Messaging Strategy to authorized materials and keep the output bounded to counter_messaging_strategy, message_variants_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied false_claim_or_narrative, audience_profile, intervention_timing, channel_constraints before each counter_messaging_strategy, message_variants_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for counter_messaging_strategy, message_variants_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.counter_messaging_strategy",
+      "title": "Defensive Counter-Messaging Strategy worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Media Literacy Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Media Literacy Assessment defensively on authorized audience_profile, sample_content, existing_assessment_data and produce competency_gap_map, intervention_recommendations with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Media Literacy Assessment to authorized materials and keep the output bounded to competency_gap_map, intervention_recommendations. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied audience_profile, sample_content, existing_assessment_data before each competency_gap_map, intervention_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for competency_gap_map, intervention_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.media_literacy_assessment",
+      "title": "Defensive Media Literacy Assessment worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Cognitive Attack Kill Chain",
+      "provenance": "reviewed local fixture",
+      "request": "Use Cognitive Attack Kill Chain defensively on authorized campaign_evidence, target_context, prior_threat_intel and produce kill_chain_map, defender_action_plan, residual_uncertainty_log with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Cognitive Attack Kill Chain to authorized materials and keep the output bounded to kill_chain_map, defender_action_plan, residual_uncertainty_log. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied campaign_evidence, target_context, prior_threat_intel before each kill_chain_map, defender_action_plan, residual_uncertainty_log claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for kill_chain_map, defender_action_plan, residual_uncertainty_log. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.cognitive_attack_kill_chain",
+      "title": "Defensive Cognitive Attack Kill Chain worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Audience Vulnerability Segmentation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Audience Vulnerability Segmentation defensively on authorized audience_research, threat_vectors, intervention_constraints and produce segment_profiles, intervention_map with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Audience Vulnerability Segmentation to authorized materials and keep the output bounded to segment_profiles, intervention_map. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied audience_research, threat_vectors, intervention_constraints before each segment_profiles, intervention_map claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for segment_profiles, intervention_map. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.audience_vulnerability_segmentation",
+      "title": "Defensive Audience Vulnerability Segmentation worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Information Laundering Tracing",
+      "provenance": "reviewed local fixture",
+      "request": "Use Information Laundering Tracing defensively on authorized claim_text, known_publications, time_window and produce laundering_chain, analysis_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Information Laundering Tracing to authorized materials and keep the output bounded to laundering_chain, analysis_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied claim_text, known_publications, time_window before each laundering_chain, analysis_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for laundering_chain, analysis_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.information_laundering_tracing",
+      "title": "Defensive Information Laundering Tracing worked example"
+    },
+    {
+      "group": "cognitive_security",
+      "name": "Resilience Metrics Design",
+      "provenance": "reviewed local fixture",
+      "request": "Use Resilience Metrics Design defensively on authorized ecosystem_definition, stakeholder_goals, existing_data_sources, prior_metrics_or_assessments and produce indicator_schema, measurement_protocol, implementation_guidance with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Resilience Metrics Design to authorized materials and keep the output bounded to indicator_schema, measurement_protocol, implementation_guidance. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied ecosystem_definition, stakeholder_goals, existing_data_sources, prior_metrics_or_assessments before each indicator_schema, measurement_protocol, implementation_guidance claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for indicator_schema, measurement_protocol, implementation_guidance. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "cognitive_security.resilience_metrics_design",
+      "title": "Defensive Resilience Metrics Design worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Project Critical Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Project Critical Review defensively on authorized artifact, decision, success_criteria and produce report, findings, recommendation with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Project Critical Review to authorized materials and keep the output bounded to report, findings, recommendation. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied artifact, decision, success_criteria before each report, findings, recommendation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for report, findings, recommendation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.project_critical_review",
+      "title": "Defensive Project Critical Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Research Design Critique",
+      "provenance": "reviewed local fixture",
+      "request": "Use Research Design Critique defensively on authorized study_text, claim_under_review and produce validity_critique, inferential_reach_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Research Design Critique to authorized materials and keep the output bounded to validity_critique, inferential_reach_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied study_text, claim_under_review before each validity_critique, inferential_reach_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for validity_critique, inferential_reach_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.research_design_critique",
+      "title": "Defensive Research Design Critique worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Claim-Evidence Audit",
+      "provenance": "reviewed local fixture",
+      "request": "Use Claim-Evidence Audit defensively on authorized document, claim_taxonomy and produce claim_evidence_table, audit_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Claim-Evidence Audit to authorized materials and keep the output bounded to claim_evidence_table, audit_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied document, claim_taxonomy before each claim_evidence_table, audit_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for claim_evidence_table, audit_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.claim_evidence_audit",
+      "title": "Defensive Claim-Evidence Audit worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Reproducibility Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Reproducibility Assessment defensively on authorized artifact, key_claims, environment_spec and produce reproducibility_scorecard, gap_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Reproducibility Assessment to authorized materials and keep the output bounded to reproducibility_scorecard, gap_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied artifact, key_claims, environment_spec before each reproducibility_scorecard, gap_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for reproducibility_scorecard, gap_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.reproducibility_assessment",
+      "title": "Defensive Reproducibility Assessment worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Code Security Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Code Security Review defensively on authorized code, threat_model, review_scope and produce findings_table, security_review_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Code Security Review to authorized materials and keep the output bounded to findings_table, security_review_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied code, threat_model, review_scope before each findings_table, security_review_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for findings_table, security_review_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.code_security_review",
+      "title": "Defensive Code Security Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Statistical Validity Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Statistical Validity Review defensively on authorized study_text, primary_claim and produce statistical_findings_table, corrected_inference with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Statistical Validity Review to authorized materials and keep the output bounded to statistical_findings_table, corrected_inference. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied study_text, primary_claim before each statistical_findings_table, corrected_inference claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for statistical_findings_table, corrected_inference. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.statistical_validity_review",
+      "title": "Defensive Statistical Validity Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Assumption Surfacing Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Assumption Surfacing Review defensively on authorized target_text, domain_context and produce assumption_register, assumption_review_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Assumption Surfacing Review to authorized materials and keep the output bounded to assumption_register, assumption_review_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied target_text, domain_context before each assumption_register, assumption_review_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for assumption_register, assumption_review_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.assumption_surfacing_review",
+      "title": "Defensive Assumption Surfacing Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Logical Coherence Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Logical Coherence Review defensively on authorized argument_text, key_claims and produce argument_map, fallacy_register, coherence_verdict with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Logical Coherence Review to authorized materials and keep the output bounded to argument_map, fallacy_register, coherence_verdict. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied argument_text, key_claims before each argument_map, fallacy_register, coherence_verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for argument_map, fallacy_register, coherence_verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.logical_coherence_review",
+      "title": "Defensive Logical Coherence Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Citation Integrity Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Citation Integrity Review defensively on authorized document, citation_list and produce citation_audit_table, integrity_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Citation Integrity Review to authorized materials and keep the output bounded to citation_audit_table, integrity_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied document, citation_list before each citation_audit_table, integrity_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for citation_audit_table, integrity_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.citation_integrity_review",
+      "title": "Defensive Citation Integrity Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Threat Model Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Threat Model Review defensively on authorized threat_model, system_description, review_focus and produce gap_report, assumption_register, revised_scope_recommendation with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Threat Model Review to authorized materials and keep the output bounded to gap_report, assumption_register, revised_scope_recommendation. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied threat_model, system_description, review_focus before each gap_report, assumption_register, revised_scope_recommendation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for gap_report, assumption_register, revised_scope_recommendation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.threat_model_review",
+      "title": "Defensive Threat Model Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Ethics & Harms Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Ethics & Harms Review defensively on authorized artifact, intended_use, deployment_context and produce harm_register, ethics_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Ethics & Harms Review to authorized materials and keep the output bounded to harm_register, ethics_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied artifact, intended_use, deployment_context before each harm_register, ethics_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for harm_register, ethics_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.ethics_and_harms_review",
+      "title": "Defensive Ethics & Harms Review worked example"
+    },
+    {
+      "group": "critical_review",
+      "name": "Red-Team Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Red-Team Review defensively on authorized artifact, adversary_profile, review_scope and produce vulnerability_catalog, red_team_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Red-Team Review to authorized materials and keep the output bounded to vulnerability_catalog, red_team_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied artifact, adversary_profile, review_scope before each vulnerability_catalog, red_team_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for vulnerability_catalog, red_team_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "critical_review.red_team_review",
+      "title": "Defensive Red-Team Review worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Claim Provenance Verification",
+      "provenance": "reviewed local fixture",
+      "request": "Use Claim Provenance Verification defensively on authorized claim, starting_sources and produce provenance_chain, verdict with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Claim Provenance Verification to authorized materials and keep the output bounded to provenance_chain, verdict. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied claim, starting_sources before each provenance_chain, verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for provenance_chain, verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.claim_provenance_verification",
+      "title": "Defensive Claim Provenance Verification worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Source Vetting",
+      "provenance": "reviewed local fixture",
+      "request": "Use Source Vetting defensively on authorized source_identifier, claim_context, prior_assessments and produce source_reliability_assessment, red_flags with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Source Vetting to authorized materials and keep the output bounded to source_reliability_assessment, red_flags. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied source_identifier, claim_context, prior_assessments before each source_reliability_assessment, red_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for source_reliability_assessment, red_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.source_vetting",
+      "title": "Defensive Source Vetting worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Chain-of-Custody Documentation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Chain-of-Custody Documentation defensively on authorized evidence_items, collection_context, prior_custody_log and produce custody_log, integrity_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Chain-of-Custody Documentation to authorized materials and keep the output bounded to custody_log, integrity_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_items, collection_context, prior_custody_log before each custody_log, integrity_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for custody_log, integrity_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.chain_of_custody_documentation",
+      "title": "Defensive Chain-of-Custody Documentation worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Geolocation Verification",
+      "provenance": "reviewed local fixture",
+      "request": "Use Geolocation Verification defensively on authorized image_or_video, claimed_location, claimed_date_time and produce geolocation_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Geolocation Verification to authorized materials and keep the output bounded to geolocation_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied image_or_video, claimed_location, claimed_date_time before each geolocation_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for geolocation_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.geolocation_verification",
+      "title": "Defensive Geolocation Verification worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Image & Media Forensics Triage",
+      "provenance": "reviewed local fixture",
+      "request": "Use Image & Media Forensics Triage defensively on authorized media_item, accompanying_claim, source_account and produce triage_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Image & Media Forensics Triage to authorized materials and keep the output bounded to triage_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied media_item, accompanying_claim, source_account before each triage_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for triage_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.image_and_media_forensics_triage",
+      "title": "Defensive Image & Media Forensics Triage worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Cross-Source Corroboration",
+      "provenance": "reviewed local fixture",
+      "request": "Use Cross-Source Corroboration defensively on authorized candidate_claim, source_list, source_metadata and produce corroboration_assessment, promotion_decision with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Cross-Source Corroboration to authorized materials and keep the output bounded to corroboration_assessment, promotion_decision. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied candidate_claim, source_list, source_metadata before each corroboration_assessment, promotion_decision claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for corroboration_assessment, promotion_decision. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.cross_source_corroboration",
+      "title": "Defensive Cross-Source Corroboration worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Metadata Integrity Check",
+      "provenance": "reviewed local fixture",
+      "request": "Use Metadata Integrity Check defensively on authorized media_file_or_post, claimed_provenance and produce metadata_assessment, integrity_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Metadata Integrity Check to authorized materials and keep the output bounded to metadata_assessment, integrity_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied media_file_or_post, claimed_provenance before each metadata_assessment, integrity_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for metadata_assessment, integrity_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.metadata_integrity_check",
+      "title": "Defensive Metadata Integrity Check worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Collection Plan Design",
+      "provenance": "reviewed local fixture",
+      "request": "Use Collection Plan Design defensively on authorized intelligence_requirement, legal_and_policy_constraints, available_resources and produce collection_plan, source_priority_matrix with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Collection Plan Design to authorized materials and keep the output bounded to collection_plan, source_priority_matrix. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied intelligence_requirement, legal_and_policy_constraints, available_resources before each collection_plan, source_priority_matrix claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for collection_plan, source_priority_matrix. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.collection_plan_design",
+      "title": "Defensive Collection Plan Design worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Sock-Puppet Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Sock-Puppet Detection defensively on authorized account_identifier, platform, related_accounts, narrative_context and produce indicator_assessment, inauthenticity_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Sock-Puppet Detection to authorized materials and keep the output bounded to indicator_assessment, inauthenticity_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied account_identifier, platform, related_accounts, narrative_context before each indicator_assessment, inauthenticity_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for indicator_assessment, inauthenticity_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.sock_puppet_detection",
+      "title": "Defensive Sock-Puppet Detection worked example"
+    },
+    {
+      "group": "osint_integrity",
+      "name": "Dataset Provenance Audit",
+      "provenance": "reviewed local fixture",
+      "request": "Use Dataset Provenance Audit defensively on authorized dataset, analytic_question, dataset_documentation and produce provenance_audit_report, integrity_check_results with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Dataset Provenance Audit to authorized materials and keep the output bounded to provenance_audit_report, integrity_check_results. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied dataset, analytic_question, dataset_documentation before each provenance_audit_report, integrity_check_results claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for provenance_audit_report, integrity_check_results. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "osint_integrity.dataset_provenance_audit",
+      "title": "Defensive Dataset Provenance Audit worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Denial & Deception Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Denial & Deception Detection defensively on authorized evidence_body, current_assessment, adversary_profile and produce dd_assessment, deception_indicators, collection_recommendations with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Denial & Deception Detection to authorized materials and keep the output bounded to dd_assessment, deception_indicators, collection_recommendations. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_body, current_assessment, adversary_profile before each dd_assessment, deception_indicators, collection_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for dd_assessment, deception_indicators, collection_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.denial_and_deception_detection",
+      "title": "Defensive Denial & Deception Detection worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Indicators of Deception Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Indicators of Deception Analysis defensively on authorized evidence_corpus, source_profile, baseline_expectations and produce deception_assessment_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Indicators of Deception Analysis to authorized materials and keep the output bounded to deception_assessment_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied evidence_corpus, source_profile, baseline_expectations before each deception_assessment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for deception_assessment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.indicators_of_deception_analysis",
+      "title": "Defensive Indicators of Deception Analysis worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Adversary Tradecraft Profiling",
+      "provenance": "reviewed local fixture",
+      "request": "Use Adversary Tradecraft Profiling defensively on authorized incident_corpus, adversary_identifier, collection_gaps and produce tradecraft_profile, anticipatory_indicators, profile_caveats with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Adversary Tradecraft Profiling to authorized materials and keep the output bounded to tradecraft_profile, anticipatory_indicators, profile_caveats. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied incident_corpus, adversary_identifier, collection_gaps before each tradecraft_profile, anticipatory_indicators, profile_caveats claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for tradecraft_profile, anticipatory_indicators, profile_caveats. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.adversary_tradecraft_profiling",
+      "title": "Defensive Adversary Tradecraft Profiling worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Honeypot & Canary Design",
+      "provenance": "reviewed local fixture",
+      "request": "Use Honeypot & Canary Design defensively on authorized threat_model, asset_inventory, monitoring_coverage and produce canary_design_spec with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Honeypot & Canary Design to authorized materials and keep the output bounded to canary_design_spec. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied threat_model, asset_inventory, monitoring_coverage before each canary_design_spec claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for canary_design_spec. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.honeypot_and_canary_design",
+      "title": "Defensive Honeypot & Canary Design worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Analytic Process Hardening",
+      "provenance": "reviewed local fixture",
+      "request": "Use Analytic Process Hardening defensively on authorized workflow_description, adversary_context, prior_incidents and produce vulnerability_map, hardening_plan, residual_risk_statement with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Analytic Process Hardening to authorized materials and keep the output bounded to vulnerability_map, hardening_plan, residual_risk_statement. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied workflow_description, adversary_context, prior_incidents before each vulnerability_map, hardening_plan, residual_risk_statement claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for vulnerability_map, hardening_plan, residual_risk_statement. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.analytic_process_hardening",
+      "title": "Defensive Analytic Process Hardening worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Insider Threat Indicator Review",
+      "provenance": "reviewed local fixture",
+      "request": "Use Insider Threat Indicator Review defensively on authorized behavioral_observations, access_and_technical_indicators, contextual_background and produce insider_threat_indicator_review_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Insider Threat Indicator Review to authorized materials and keep the output bounded to insider_threat_indicator_review_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied behavioral_observations, access_and_technical_indicators, contextual_background before each insider_threat_indicator_review_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for insider_threat_indicator_review_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.insider_threat_indicator_review",
+      "title": "Defensive Insider Threat Indicator Review worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Elicitation Attempt Recognition",
+      "provenance": "reviewed local fixture",
+      "request": "Use Elicitation Attempt Recognition defensively on authorized conversation_or_description, context and produce elicitation_recognition_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Elicitation Attempt Recognition to authorized materials and keep the output bounded to elicitation_recognition_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied conversation_or_description, context before each elicitation_recognition_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for elicitation_recognition_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.elicitation_attempt_recognition",
+      "title": "Defensive Elicitation Attempt Recognition worked example"
+    },
+    {
+      "group": "counterintelligence",
+      "name": "Disinformation Attribution",
+      "provenance": "reviewed local fixture",
+      "request": "Use Disinformation Attribution defensively on authorized campaign_artifacts, candidate_actors, strategic_context and produce attribution_matrix, attribution_assessment, intelligence_gaps with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Disinformation Attribution to authorized materials and keep the output bounded to attribution_matrix, attribution_assessment, intelligence_gaps. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied campaign_artifacts, candidate_actors, strategic_context before each attribution_matrix, attribution_assessment, intelligence_gaps claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for attribution_matrix, attribution_assessment, intelligence_gaps. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "counterintelligence.disinformation_attribution",
+      "title": "Defensive Disinformation Attribution worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Narrative Ecosystem Mapping",
+      "provenance": "reviewed local fixture",
+      "request": "Use Narrative Ecosystem Mapping defensively on authorized information_space_definition, content_sample, known_actors and produce narrative_inventory, ecosystem_map with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Narrative Ecosystem Mapping to authorized materials and keep the output bounded to narrative_inventory, ecosystem_map. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied information_space_definition, content_sample, known_actors before each narrative_inventory, ecosystem_map claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for narrative_inventory, ecosystem_map. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.narrative_ecosystem_mapping",
+      "title": "Defensive Narrative Ecosystem Mapping worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Coordinated Inauthentic Behavior Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Coordinated Inauthentic Behavior Detection defensively on authorized account_activity_dataset, investigation_scope, known_seed_accounts and produce coordination_clusters, cib_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Coordinated Inauthentic Behavior Detection to authorized materials and keep the output bounded to coordination_clusters, cib_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied account_activity_dataset, investigation_scope, known_seed_accounts before each coordination_clusters, cib_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for coordination_clusters, cib_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.coordinated_inauthentic_behavior_detection",
+      "title": "Defensive Coordinated Inauthentic Behavior Detection worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Information Flow Network Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Information Flow Network Analysis defensively on authorized propagation_data, narrative_seed, account_metadata and produce network_role_map, flow_analysis_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Information Flow Network Analysis to authorized materials and keep the output bounded to network_role_map, flow_analysis_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied propagation_data, narrative_seed, account_metadata before each network_role_map, flow_analysis_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for network_role_map, flow_analysis_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.information_flow_network_analysis",
+      "title": "Defensive Information Flow Network Analysis worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Platform Affordance Risk Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Platform Affordance Risk Assessment defensively on authorized platform_name, threat_actor_profile, prior_incident_reports and produce affordance_risk_matrix, risk_narrative with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Platform Affordance Risk Assessment to authorized materials and keep the output bounded to affordance_risk_matrix, risk_narrative. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied platform_name, threat_actor_profile, prior_incident_reports before each affordance_risk_matrix, risk_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for affordance_risk_matrix, risk_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.platform_affordance_risk_assessment",
+      "title": "Defensive Platform Affordance Risk Assessment worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Bot & Automation Detection",
+      "provenance": "reviewed local fixture",
+      "request": "Use Bot & Automation Detection defensively on authorized account_data, context and produce account_classifications, detection_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Bot & Automation Detection to authorized materials and keep the output bounded to account_classifications, detection_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied account_data, context before each account_classifications, detection_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for account_classifications, detection_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.bot_and_automation_detection",
+      "title": "Defensive Bot & Automation Detection worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Trend & Emergence Monitoring",
+      "provenance": "reviewed local fixture",
+      "request": "Use Trend & Emergence Monitoring defensively on authorized monitoring_scope, watchlist, baseline_report and produce signal_log, monitoring_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Trend & Emergence Monitoring to authorized materials and keep the output bounded to signal_log, monitoring_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied monitoring_scope, watchlist, baseline_report before each signal_log, monitoring_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for signal_log, monitoring_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.trend_and_emergence_monitoring",
+      "title": "Defensive Trend & Emergence Monitoring worked example"
+    },
+    {
+      "group": "information_environment",
+      "name": "Narrative Competition Analysis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Narrative Competition Analysis defensively on authorized narrative_corpus, topic_definition, engagement_metrics and produce narrative_competition_map, competition_assessment_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Narrative Competition Analysis to authorized materials and keep the output bounded to narrative_competition_map, competition_assessment_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied narrative_corpus, topic_definition, engagement_metrics before each narrative_competition_map, competition_assessment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for narrative_competition_map, competition_assessment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "information_environment.narrative_competition_analysis",
+      "title": "Defensive Narrative Competition Analysis worked example"
+    },
+    {
+      "group": "research_methods",
+      "name": "Structured Literature Synthesis",
+      "provenance": "reviewed local fixture",
+      "request": "Use Structured Literature Synthesis defensively on authorized synthesis_question, sources, inclusion_criteria and produce synthesis_briefing, evidence_table with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Structured Literature Synthesis to authorized materials and keep the output bounded to synthesis_briefing, evidence_table. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied synthesis_question, sources, inclusion_criteria before each synthesis_briefing, evidence_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for synthesis_briefing, evidence_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "research_methods.structured_literature_synthesis",
+      "title": "Defensive Structured Literature Synthesis worked example"
+    },
+    {
+      "group": "research_methods",
+      "name": "Evidence Grading",
+      "provenance": "reviewed local fixture",
+      "request": "Use Evidence Grading defensively on authorized analytic_question, evidence_items, grading_rubric and produce graded_evidence_table, weight_of_evidence_summary with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Evidence Grading to authorized materials and keep the output bounded to graded_evidence_table, weight_of_evidence_summary. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analytic_question, evidence_items, grading_rubric before each graded_evidence_table, weight_of_evidence_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for graded_evidence_table, weight_of_evidence_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "research_methods.evidence_grading",
+      "title": "Defensive Evidence Grading worked example"
+    },
+    {
+      "group": "research_methods",
+      "name": "Calibrated Estimation",
+      "provenance": "reviewed local fixture",
+      "request": "Use Calibrated Estimation defensively on authorized question, evidence, prior_estimate and produce calibrated_estimate with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Calibrated Estimation to authorized materials and keep the output bounded to calibrated_estimate. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied question, evidence, prior_estimate before each calibrated_estimate claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for calibrated_estimate. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "research_methods.calibrated_estimation",
+      "title": "Defensive Calibrated Estimation worked example"
+    },
+    {
+      "group": "research_methods",
+      "name": "Analytic Confidence Assessment",
+      "provenance": "reviewed local fixture",
+      "request": "Use Analytic Confidence Assessment defensively on authorized judgment, evidence_set, key_assumptions and produce confidence_assessment with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Analytic Confidence Assessment to authorized materials and keep the output bounded to confidence_assessment. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied judgment, evidence_set, key_assumptions before each confidence_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for confidence_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "research_methods.analytic_confidence_assessment",
+      "title": "Defensive Analytic Confidence Assessment worked example"
+    },
+    {
+      "group": "research_methods",
+      "name": "Structured Reporting & BLUF",
+      "provenance": "reviewed local fixture",
+      "request": "Use Structured Reporting & BLUF defensively on authorized analytic_judgment, evidence_and_sources, assumptions, audience_and_purpose and produce structured_report with evidence labels, confidence, and uncertainty.",
+      "sections": [
+        {
+          "body": "Defensive use only: apply Structured Reporting & BLUF to authorized materials and keep the output bounded to structured_report. Do not treat this local fixture as a live model run or field validation.",
+          "title": "Defensive task boundary"
+        },
+        {
+          "body": "Evidence: cite the supplied analytic_judgment, evidence_and_sources, assumptions, audience_and_purpose before each structured_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion.",
+          "title": "Evidence and inference"
+        },
+        {
+          "body": "Confidence: state the support level for structured_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result.",
+          "title": "Confidence and uncertainty"
+        }
+      ],
+      "skill_id": "research_methods.structured_reporting_and_bluf",
+      "title": "Defensive Structured Reporting & BLUF worked example"
+    }
+  ],
+  "summary": {
+    "examples": 100,
+    "groups": 7,
+    "source": "examples/skill-worked-examples.yaml"
+  }
+}

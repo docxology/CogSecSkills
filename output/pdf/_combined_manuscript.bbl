@@ -1,0 +1,216 @@
+\begin{thebibliography}{24}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bradshaw and Howard(2019)]{bradshawHoward2019globalDisinformation}
+Samantha Bradshaw and Philip~N. Howard.
+\newblock The global disinformation order: 2019 global inventory of organised
+  social media manipulation.
+\newblock Technical Report Working Paper 2019.2, Project on Computational
+  Propaganda, Oxford Internet Institute, University of Oxford, 2019.
+\newblock URL
+  \url{https://www.oii.ox.ac.uk/news-events/reports/the-global-disinformation-order-2019-global-inventory-of-organised-social-media-manipulation/}.
+
+\bibitem[{Coalition for Content Provenance and
+  Authenticity}(2026)]{c2pa2026spec}
+{Coalition for Content Provenance and Authenticity}.
+\newblock Content credentials: C2pa technical specification, 2026.
+\newblock URL
+  \url{https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html}.
+\newblock Versioned technical specification for digital content provenance and
+  authenticity.
+
+\bibitem[Delbecq and Van~de Ven(1971)]{delbecq1971groupProcess}
+Andr{\'e}~L. Delbecq and Andrew~H. Van~de Ven.
+\newblock A group process model for problem identification and program
+  planning.
+\newblock \emph{The Journal of Applied Behavioral Science}, 7\penalty0
+  (4):\penalty0 466--492, 1971.
+\newblock \doi{10.1177/002188637100700404}.
+\newblock URL
+  \url{https://journals.sagepub.com/doi/10.1177/002188637100700404}.
+
+\bibitem[Ferrara et~al.(2016)Ferrara, Varol, Davis, Menczer, and
+  Flammini]{ferrara2016socialBots}
+Emilio Ferrara, Onur Varol, Clayton Davis, Filippo Menczer, and Alessandro
+  Flammini.
+\newblock The rise of social bots.
+\newblock \emph{Communications of the ACM}, 59\penalty0 (7):\penalty0 96--104,
+  2016.
+\newblock \doi{10.1145/2818717}.
+\newblock URL \url{https://dl.acm.org/doi/10.1145/2818717}.
+
+\bibitem[Friedman(2026{\natexlab{a}})]{ageint2026}
+Daniel~Ari Friedman.
+\newblock Ageint: Agentic intelligence -- a modular atlas, library, course,
+  textbook, cookbook, and playbook for agentic intelligence,
+  2026{\natexlab{a}}.
+\newblock URL \url{https://github.com/docxology/AGEINT}.
+\newblock Concept DOI resolves to the latest AGEINT version; version DOI for
+  Edition 0.1 is 10.5281/zenodo.20732275.
+
+\bibitem[Friedman(2026{\natexlab{b}})]{cogsecskills2026software}
+Daniel~Ari Friedman.
+\newblock Cogsecskills: Multiharness agentic skills for cognitive security,
+  2026{\natexlab{b}}.
+\newblock URL \url{https://github.com/docxology/CogSecSkills}.
+\newblock Software source code. Apache-2.0 license. No archive DOI is claimed
+  in this manuscript snapshot.
+
+\bibitem[Heuer(1999)]{heuer1999psychology}
+Richards~J. Heuer.
+\newblock \emph{Psychology of Intelligence Analysis}.
+\newblock Center for the Study of Intelligence, Central Intelligence Agency,
+  1999.
+\newblock URL
+  \url{https://www.cia.gov/resources/csi/books-monographs/psychology-of-intelligence-analysis-2/}.
+
+\bibitem[Kent(1964)]{kent1964estimativeProbability}
+Sherman Kent.
+\newblock Words of estimative probability.
+\newblock \emph{Studies in Intelligence}, 8\penalty0 (4):\penalty0 49--65,
+  1964.
+\newblock URL
+  \url{https://www.cia.gov/resources/csi/studies-in-intelligence/archives/vol-8-no-4/words-of-estimative-probability/}.
+
+\bibitem[Klein(2007)]{klein2007premortem}
+Gary Klein.
+\newblock Performing a project premortem.
+\newblock \emph{Harvard Business Review}, pages 18--19, September 2007.
+\newblock URL \url{https://hbr.org/2007/09/performing-a-project-premortem}.
+
+\bibitem[Lazer et~al.(2018)Lazer, Baum, Benkler, Berinsky, Greenhill, Menczer,
+  Metzger, Nyhan, Pennycook, Rothschild, Schudson, Sloman, Sunstein, Thorson,
+  Watts, and Zittrain]{lazer2018fakeNews}
+David M.~J. Lazer, Matthew~A. Baum, Yochai Benkler, Adam~J. Berinsky, Kelly~M.
+  Greenhill, Filippo Menczer, Miriam~J. Metzger, Brendan Nyhan, Gordon
+  Pennycook, David Rothschild, Michael Schudson, Steven~A. Sloman, Cass~R.
+  Sunstein, Emily~A. Thorson, Duncan~J. Watts, and Jonathan~L. Zittrain.
+\newblock The science of fake news.
+\newblock \emph{Science}, 359\penalty0 (6380):\penalty0 1094--1096, 2018.
+\newblock \doi{10.1126/science.aao2998}.
+\newblock URL \url{https://www.science.org/doi/10.1126/science.aao2998}.
+
+\bibitem[Lewandowsky et~al.(2012)Lewandowsky, Ecker, Seifert, Schwarz, and
+  Cook]{lewandowsky2012misinformationCorrection}
+Stephan Lewandowsky, Ullrich K.~H. Ecker, Colleen~M. Seifert, Norbert Schwarz,
+  and John Cook.
+\newblock Misinformation and its correction: Continued influence and successful
+  debiasing.
+\newblock \emph{Psychological Science in the Public Interest}, 13\penalty0
+  (3):\penalty0 106--131, 2012.
+\newblock \doi{10.1177/1529100612451018}.
+\newblock URL \url{https://journals.sagepub.com/doi/10.1177/1529100612451018}.
+
+\bibitem[{Ministry of Defence}(2023)]{ukmod2023jdp200}
+{Ministry of Defence}.
+\newblock Joint doctrine publication 2-00: Intelligence, counter-intelligence
+  and security support to joint operations.
+\newblock Technical report, UK Ministry of Defence, 2023.
+\newblock URL
+  \url{https://www.gov.uk/government/publications/jdp-2-00-understanding-and-intelligence-support-to-joint-operations}.
+
+\bibitem[Mirsky and Lee(2021)]{mirskyLee2021deepfakes}
+Yisroel Mirsky and Wenke Lee.
+\newblock The creation and detection of deepfakes: A survey.
+\newblock \emph{ACM Computing Surveys}, 54\penalty0 (1):\penalty0 1--41, 2021.
+\newblock \doi{10.1145/3425780}.
+\newblock URL \url{https://dl.acm.org/doi/10.1145/3425780}.
+
+\bibitem[Pherson and Heuer(2019)]{heuerPherson2019structured}
+Randolph~H. Pherson and Richards~J. Heuer.
+\newblock \emph{Structured Analytic Techniques for Intelligence Analysis}.
+\newblock CQ Press, 3 edition, 2019.
+\newblock ISBN 9781506368931.
+\newblock URL
+  \url{https://collegepublishing.sagepub.com/products/structured-analytic-techniques-for-intelligence-analysis-3-255432}.
+
+\bibitem[Roozenbeek et~al.(2022)Roozenbeek, van~der Linden, Goldberg, Rathje,
+  and Lewandowsky]{roozenbeek2022inoculation}
+Jon Roozenbeek, Sander van~der Linden, Beth Goldberg, Steve Rathje, and Stephan
+  Lewandowsky.
+\newblock Psychological inoculation improves resilience against misinformation
+  on social media.
+\newblock \emph{Science Advances}, 8\penalty0 (34):\penalty0 eabo6254, 2022.
+\newblock \doi{10.1126/sciadv.abo6254}.
+\newblock URL \url{https://www.science.org/doi/10.1126/sciadv.abo6254}.
+
+\bibitem[Sandve et~al.(2013)Sandve, Nekrutenko, Taylor, and
+  Hovig]{sandve2013reproducible}
+Geir~Kjetil Sandve, Anton Nekrutenko, James Taylor, and Eivind Hovig.
+\newblock Ten simple rules for reproducible computational research.
+\newblock \emph{PLOS Computational Biology}, 9\penalty0 (10):\penalty0
+  e1003285, 2013.
+\newblock \doi{10.1371/journal.pcbi.1003285}.
+\newblock URL
+  \url{https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285}.
+
+\bibitem[Schick et~al.(2023)Schick, Dwivedi-Yu, Dess{\`i}, Raileanu, Lomeli,
+  Zettlemoyer, Cancedda, and Scialom]{schick2023toolformer}
+Timo Schick, Jane Dwivedi-Yu, Roberto Dess{\`i}, Roberta Raileanu, Maria
+  Lomeli, Luke Zettlemoyer, Nicola Cancedda, and Thomas Scialom.
+\newblock Toolformer: Language models can teach themselves to use tools, 2023.
+\newblock URL \url{https://arxiv.org/abs/2302.04761}.
+
+\bibitem[Smith et~al.(2016)Smith, Katz, Niemeyer, and
+  Group]{smith2016softwareCitation}
+Arfon~M. Smith, Daniel~S. Katz, Kyle~E. Niemeyer, and FORCE11 Software
+  Citation~Working Group.
+\newblock Software citation principles.
+\newblock \emph{PeerJ Computer Science}, 2:\penalty0 e86, 2016.
+\newblock \doi{10.7717/peerj-cs.86}.
+\newblock URL
+  \url{https://force11.org/info/software-citation-principles-published-2016/}.
+
+\bibitem[Vosoughi et~al.(2018)Vosoughi, Roy, and Aral]{vosoughi2018spread}
+Soroush Vosoughi, Deb Roy, and Sinan Aral.
+\newblock The spread of true and false news online.
+\newblock \emph{Science}, 359\penalty0 (6380):\penalty0 1146--1151, 2018.
+\newblock \doi{10.1126/science.aap9559}.
+\newblock URL \url{https://www.science.org/doi/10.1126/science.aap9559}.
+
+\bibitem[Wardle and Derakhshan(2017)]{wardleDerakhshan2017informationDisorder}
+Claire Wardle and Hossein Derakhshan.
+\newblock Information disorder: Toward an interdisciplinary framework for
+  research and policy making.
+\newblock Technical report, Council of Europe, 2017.
+\newblock URL
+  \url{https://edoc.coe.int/en/media/7495-information-disorder-toward-an-interdisciplinary-framework-for-research-and-policy-making.html}.
+
+\bibitem[Wilkinson et~al.(2016)]{wilkinson2016fair}
+Mark~D. Wilkinson et~al.
+\newblock The fair guiding principles for scientific data management and
+  stewardship.
+\newblock \emph{Scientific Data}, 3:\penalty0 160018, 2016.
+\newblock \doi{10.1038/sdata.2016.18}.
+\newblock URL \url{https://www.nature.com/articles/sdata201618}.
+
+\bibitem[Wineburg and McGrew(2019)]{wineburg2019lateralReading}
+Sam Wineburg and Sarah McGrew.
+\newblock Lateral reading and the nature of expertise: Reading less and
+  learning more when evaluating digital information.
+\newblock \emph{Teachers College Record}, 121\penalty0 (11):\penalty0 1--40,
+  2019.
+\newblock \doi{10.1177/016146811912101102}.
+\newblock URL
+  \url{https://journals.sagepub.com/doi/10.1177/016146811912101102}.
+
+\bibitem[Woolley and Howard(2017)]{woolleyHoward2017computationalPropaganda}
+Samuel~C. Woolley and Philip~N. Howard.
+\newblock Computational propaganda worldwide: Executive summary.
+\newblock Technical report, Computational Propaganda Research Project, Oxford
+  Internet Institute, University of Oxford, 2017.
+\newblock URL
+  \url{https://demtech.oii.ox.ac.uk/research/posts/computational-propaganda-worldwide-executive-summary/}.
+
+\bibitem[Yao et~al.(2022)Yao, Zhao, Yu, Du, Shafran, Narasimhan, and
+  Cao]{yao2022react}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan,
+  and Yuan Cao.
+\newblock React: Synergizing reasoning and acting in language models, 2022.
+\newblock URL \url{https://arxiv.org/abs/2210.03629}.
+
+\end{thebibliography}

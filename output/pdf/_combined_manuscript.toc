@@ -1,0 +1,78 @@
+\contentsline {section}{\numberline {1}Abstract}{3}{section.1}%
+\contentsline {section}{\numberline {2}Library Purpose, Scope, and Reader Map}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Why Harness-Neutral Defensive Skills}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Related Work and Positioning}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Project-Native Contributions}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}How to Read the Main Text and Supplements}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Source Boundary and the Harness-Neutral Skill Contract}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Repository-Local Evidence Boundary}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Plan/Build/Teach Source Surfaces}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Harness-Neutral Skill Specification}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Harness Profile Classes}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Formal Conformance Contract}{8}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Figure Guide and 100-Skill Taxonomy Snapshot}{9}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Source-Owned Skill Authoring and Manuscript Generation}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Registry-to-Definition-to-Skill Construction}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Registry-to-Adapter Authoring Pipeline}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Generated Supplement and Figure Pipeline}{12}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Figure Question and Claim Contract}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Local Verification Gates}{12}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Evidence Surfaces, Generated Views, and Claim Discipline}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Claim-Support Surfaces}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Generated Figure Evidence}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Generated Catalogue and Matrix Supplements}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Per-Skill Quality Audit and Anti-Boilerplate Checks}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Evidence Ladder and Scenario Readiness Gate}{18}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Live Quality and Coverage Dashboard}{18}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Comparative Scholarship Map}{18}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Claim Support Rules}{19}{subsection.5.8}%
+\contentsline {section}{\numberline {6}Reproducibility, Local Verification, and Render Gates}{20}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Project-Local Asset and Validation Commands}{20}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Template Markdown/PDF Render Commands}{20}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Traceability and Render Contract}{20}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Evidence Boundaries, Defensive Governance, and Next Steps}{22}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Local Conformance Is Not Field Validation}{22}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Defensive Governance Review Rules}{22}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Evidence and Quality Next Steps}{22}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Publication Claim Boundary}{23}{subsection.7.4}%
+\contentsline {section}{\numberline {8}Ethics, Dual-Use, and Responsible Use}{24}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Dual-Use Stance and Defensive Framing}{24}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Defensive by Contract and Review}{24}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Human-Subjects and Institutional Scope}{24}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Responsibilities of Adopters and Operators}{24}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}What This Section Does Not Claim}{24}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Supplemental Claim-Provenance Source Map}{25}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Expansion Checklist}{26}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Supplemental Local Release and Render Manifest}{27}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Software And Source Identity}{27}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Environment And Locking}{27}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Generated Figure Inventory}{27}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}Verification Gates}{27}{subsection.10.4}%
+\contentsline {section}{\numberline {11}Supplemental 100-Skill Catalogue}{29}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Structured Analytic Techniques (\texttt {sat})}{29}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Cognitive Security (\breaktt {cognitive\_security})}{40}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Critical Review \& Assurance (\texttt {critical\_review})}{49}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}OSINT \& Source Integrity (\texttt {osint\_integrity})}{53}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Counterintelligence \& Deception Detection (\breaktt {counterintelligence})}{57}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Information Environment \& Influence Analysis (\breaktt {information\_environment})}{60}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}Research \& Synthesis Methods (\breaktt {research\_methods})}{63}{subsection.11.7}%
+\contentsline {section}{\numberline {12}Supplemental Skill Metadata and Figure Matrix}{66}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Group Counts}{66}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Tool Verb Usage By Group}{66}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}AGEINT Crosswalk}{66}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Harness Coverage}{66}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.5}Quality Capsule Coverage}{67}{subsection.12.5}%
+\contentsline {subsection}{\numberline {12.6}Generated Figure Inventory}{67}{subsection.12.6}%
+\contentsline {section}{\numberline {13}Symbols and Skill-System Glossary}{68}{section.13}%
+\contentsline {subsection}{\numberline {13.1}AGEINT}{68}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Harness}{68}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Skill Specification}{68}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Tool Verb}{68}{subsection.13.4}%
+\contentsline {subsection}{\numberline {13.5}Plan/Build/Teach}{68}{subsection.13.5}%
+\contentsline {subsection}{\numberline {13.6}Defensive Boundary}{68}{subsection.13.6}%
+\contentsline {subsection}{\numberline {13.7}Misuse Redirect}{68}{subsection.13.7}%
+\contentsline {subsection}{\numberline {13.8}Negative Control}{68}{subsection.13.8}%
+\contentsline {subsection}{\numberline {13.9}Scenario Fixture}{68}{subsection.13.9}%
+\contentsline {subsection}{\numberline {13.10}Worked Example}{68}{subsection.13.10}%
+\contentsline {subsection}{\numberline {13.11}Reference Density}{68}{subsection.13.11}%
+\contentsline {section}{\numberline {14}References}{69}{section.14}%

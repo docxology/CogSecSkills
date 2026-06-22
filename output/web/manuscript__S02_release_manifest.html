@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>S02_release_manifest.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:release_manifest">Supplemental Local Release and Render
+Manifest</h1>
+<p>This manifest records the source and environment identifiers for the
+manuscript snapshot. It is a release-provenance surface for local
+review; it does not claim an archive DOI, public package publication, or
+empirical field validation.</p>
+<h2 id="software-and-source-identity">Software And Source Identity</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td><code>https://github.com/docxology/CogSecSkills</code></td>
+</tr>
+<tr>
+<td>Citation metadata</td>
+<td><code>CITATION.cff</code></td>
+</tr>
+<tr>
+<td>Code metadata</td>
+<td><code>codemeta.json</code></td>
+</tr>
+<tr>
+<td>Package version</td>
+<td><code>0.1.0</code></td>
+</tr>
+<tr>
+<td>License</td>
+<td><code>Apache-2.0</code></td>
+</tr>
+<tr>
+<td>Source revision</td>
+<td><code>e85ecf2cc54eebee1700f60a6a354b83f093ff4b</code></td>
+</tr>
+<tr>
+<td>Revision descriptor</td>
+<td><code>v0.1.0-2-ge85ecf2-dirty</code></td>
+</tr>
+<tr>
+<td>Archive DOI</td>
+<td>unavailable in this snapshot</td>
+</tr>
+<tr>
+<td>Concept DOI</td>
+<td>unavailable in this snapshot</td>
+</tr>
+</tbody>
+</table>
+<p>The revision descriptor is intentionally marked dirty because this
+manuscript hardening pass is performed in a working tree with source
+edits in progress. The manifest is therefore a local provenance record,
+not an immutable release certificate [cogsecskills2026software].</p>
+<h2 id="environment-and-locking">Environment And Locking</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td><code>Python 3.13.14</code></td>
+</tr>
+<tr>
+<td>uv</td>
+<td><code>uv 0.11.6 (65950801c 2026-04-09 aarch64-apple-darwin)</code></td>
+</tr>
+<tr>
+<td>Python requirement</td>
+<td><code>&gt;=3.10</code></td>
+</tr>
+<tr>
+<td>Runtime dependency</td>
+<td><code>pyyaml&gt;=6.0</code></td>
+</tr>
+<tr>
+<td>Development gates</td>
+<td><code>pytest</code>, <code>pytest-cov</code>, <code>mypy</code>,
+<code>ruff</code></td>
+</tr>
+<tr>
+<td>Lockfile</td>
+<td><code>uv.lock</code> present</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generated-figure-inventory">Generated Figure Inventory</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure file</th>
+<th>Manuscript label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>../figures/cogsecskills_taxonomy_counts.png</code></td>
+<td><code>@fig:taxonomy-counts</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_skill_grid.png</code></td>
+<td><code>@fig:skill-grid</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_verb_heatmap.png</code></td>
+<td><code>@fig:verb-heatmap</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_ageint_network.png</code></td>
+<td><code>@fig:ageint-network</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_plan_build_teach_flow.png</code></td>
+<td><code>@fig:plan-build-teach-flow</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_reference_density.png</code></td>
+<td><code>@fig:reference-density</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_harness_contract.png</code></td>
+<td><code>@fig:harness-contract</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_cover_installation.png</code></td>
+<td>title-page cover image</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification-gates">Verification Gates</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Current result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>definitions --check</code></td>
+<td><code>canonical definitions are current</code></td>
+</tr>
+<tr>
+<td><code>scenarios --check</code></td>
+<td><code>scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked</code></td>
+</tr>
+<tr>
+<td><code>examples --check</code></td>
+<td><code>worked examples are current</code></td>
+</tr>
+<tr>
+<td><code>dashboard --check</code></td>
+<td><code>quality dashboard is current</code></td>
+</tr>
+<tr>
+<td><code>manuscript-assets --check</code></td>
+<td><code>manuscript assets are current</code></td>
+</tr>
+<tr>
+<td><code>validate</code></td>
+<td><code>0 error(s), 0 warning(s)</code></td>
+</tr>
+<tr>
+<td><code>report</code></td>
+<td><code>registry_total: 100</code>, <code>implemented: 100</code>,
+<code>on_disk_skills: 100</code>, <code>ok: true</code></td>
+</tr>
+<tr>
+<td><code>doctor</code></td>
+<td><code>validation: 0 error(s); quality: 0 finding(s)</code></td>
+</tr>
+<tr>
+<td><code>ruff check src/cogsecskills tests</code></td>
+<td><code>All checks passed!</code></td>
+</tr>
+<tr>
+<td><code>ruff format --check src/cogsecskills tests</code></td>
+<td><code>38 files already formatted</code></td>
+</tr>
+<tr>
+<td><code>mypy</code></td>
+<td><code>Success: no issues found in 19 source files</code></td>
+</tr>
+<tr>
+<td><code>pytest --cov=src/cogsecskills</code></td>
+<td><code>622 passed</code>; total coverage <code>90.94%</code></td>
+</tr>
+<tr>
+<td>Template markdown validation</td>
+<td><code>No issues found!</code></td>
+</tr>
+<tr>
+<td>Template PDF render</td>
+<td>13 manuscript sections rendered; 8/8 figures found; combined PDF and
+HTML generated</td>
+</tr>
+<tr>
+<td>PDF content smoke</td>
+<td>Required strings found: References, Supplemental 100-Skill
+Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill
+Worked Examples, Scenario Readiness, expected answers, Quality
+Dashboard, Release Manifest, and install cover text</td>
+</tr>
+<tr>
+<td>PDF render log error scan</td>
+<td>No unresolved-reference, missing-character, missing-file, or
+package-error findings</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

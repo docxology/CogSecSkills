@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>00_abstract.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:abstract">Abstract</h1>
+<p>CogSecSkills is a defensive, harness-neutral agent-interface library
+that turns the human doctrine of cognitive security and analytic
+tradecraft into dependable, inspectable, agent-usable skills,
+distributed as an open repository from
+github.com/docxology/CogSecSkills; the motivation is an information
+environment in which mis-, dis-, and malinformation are analytically
+distinct but operationally entangled, false content can diffuse rapidly
+at platform scale, and credible source evaluation increasingly demands
+explicit expert practice rather than page-bound reading alone, so that
+agents asked to weigh competing hypotheses, trace provenance, or
+critically review a claim need a repeatable procedure and a stable
+tool-use contract rather than improvisation. The live generated
+catalogue reports one hundred implemented skills across seven taxonomy
+groups — Structured Analytic Techniques, Cognitive Security, Critical
+Review and Assurance, OSINT and Source Integrity, Counterintelligence
+and Deception Detection, Information Environment and Influence Analysis,
+and Research and Synthesis Methods — and the library is organized as a
+Plan, Build, and Teach system in which a registry declares the
+catalogue, a definitions layer owns the substance and quality controls
+of each skill, a skills tree exposes the harness-facing build, and a
+vendored educational upstream named AGEINT explains why each technique
+exists and how to use it responsibly. The central design choice is to
+make the reusable skill contract smaller than any one agent interface
+yet stricter than a prompt collection: each skill is owned by a single
+canonical definition that declares triggers, inputs, outputs, per-skill
+reference metadata, group-aware quality controls, and a closed
+vocabulary of neutral tool verbs before any harness-specific adapter is
+considered, and that definition is rendered deterministically into a
+harness-neutral specification, a human-readable skill description, an
+executable workflow, and one adapter per configured harness whose
+default members are Claude, Codex, and Hermes, so that portability
+becomes a property the test suite proves rather than a hope, and
+installation is concrete rather than interpretive — clone the public
+repository, install or run the Python package, run validation, point the
+agent harness at a chosen skill, execute its workflow, and bind runtime
+tools through the named harness adapter, regenerating adapters from a
+configuration file for any non-default harness. The quality discipline
+is the core of the contribution: an automated audit checks that every
+skill’s defensive boundaries, misuse redirects, evidence requirements,
+confidence rubrics, privacy and legal constraints, uncertainty handling,
+failure modes, and negative controls are not merely present but specific
+to that skill and not reused across the corpus, while an evidence ladder
+adds curated safe-use and unsafe-redirect scenarios with expected
+defensive response-shape contracts, reviewed expected answers, and one
+source-owned worked example per skill, and a generated quality
+dashboard, supplemental catalogue, metadata matrix, data exports, and a
+family of deterministic figures — taxonomy counts, the hundred-skill
+atlas, tool-verb coverage, AGEINT topic crosswalks, the Plan-Build-Teach
+flow, reference density, harness coverage, and a cover-page installation
+route — are all produced directly from the live registry and skill
+specifications so that every visual stays synchronized with the source
+tree. The evidence boundary is deliberately and explicitly
+repository-local and reproducible within the checked-out project state,
+following reproducible-computing, open-data stewardship, and
+software-citation norms for explicit workflows, version specificity, and
+citable artifacts; every claim is backed by source files, canonical
+definitions, generated supplements and figures, the generated dashboard,
+and project-local verification commands together with a focused test
+suite and a manuscript renderer, and the work positions CogSecSkills as
+a validated interface between reasoning, tool use, and defensive output
+discipline rather than as a claim that any particular model runtime
+behaves correctly in the field, so its figures, supplements, scenarios,
+worked examples, and dashboard should be read as synchronized views of
+the current library state and never as independent measurements of
+operational performance.</p>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>S01_source_surface.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:source_surface">Supplemental Claim-Provenance Source
+Map</h1>
+<p>This supplement records the source surfaces that own manuscript
+claims. Use it as the quick provenance map before editing prose,
+generated supplements, figures, or verification statements.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code></td>
+<td>Catalogue plan: skill ids, names, groups, status, summaries, and
+AGEINT topics.</td>
+</tr>
+<tr>
+<td><code>registry/groups.yaml</code></td>
+<td>Taxonomy plan: group ids and display titles.</td>
+</tr>
+<tr>
+<td><code>skills/**/skill.yaml</code></td>
+<td>Skill build contract: triggers, verbs, inputs, outputs, references,
+and harness paths.</td>
+</tr>
+<tr>
+<td><code>skills/**/SKILL.md</code></td>
+<td>Harness-facing one-skill description and “when to use”
+guidance.</td>
+</tr>
+<tr>
+<td><code>skills/**/workflow.md</code></td>
+<td>Harness-neutral step procedure and anti-criteria.</td>
+</tr>
+<tr>
+<td><code>skills/**/harness/*.md</code></td>
+<td>Adapter bindings for every configured harness; the default set is
+Claude, Codex, and Hermes.</td>
+</tr>
+<tr>
+<td><code>scenarios/defensive_readiness.yaml</code></td>
+<td>Curated safe-use, unsafe-redirect, expected response-shape, and
+expected-answer fixtures for deterministic scenario readiness.</td>
+</tr>
+<tr>
+<td><code>examples/skill-worked-examples.yaml</code></td>
+<td>Source-owned deterministic worked examples, one per skill.</td>
+</tr>
+<tr>
+<td><code>examples/</code></td>
+<td>Local non-secret harness smoke transcripts, group examples, and
+source worked examples; these are fixtures, not live runtime
+evidence.</td>
+</tr>
+<tr>
+<td><code>docs/skill-worked-examples.md</code></td>
+<td>Generated Markdown worked-example catalogue for all 100 skills.</td>
+</tr>
+<tr>
+<td><code>output/data/skill_worked_examples.json</code></td>
+<td>Generated machine-readable worked-example snapshot.</td>
+</tr>
+<tr>
+<td><code>docs/quality-dashboard.md</code> /
+<code>docs/quality-dashboard.html</code></td>
+<td>Generated Markdown and static HTML dashboard over all 100 skills,
+quality capsules, scenario coverage, worked-example coverage, harnesses,
+references, claim-boundary status, and verified-state rows.</td>
+</tr>
+<tr>
+<td><code>output/data/quality_dashboard.json</code></td>
+<td>Generated machine-readable dashboard snapshot used for drift
+review.</td>
+</tr>
+<tr>
+<td><code>docs/claim-boundaries.md</code></td>
+<td>Reader-facing statement of what local gates prove and do not
+prove.</td>
+</tr>
+<tr>
+<td><code>docs/connector-boundaries.md</code></td>
+<td>Optional OSINT/web connector boundaries before any live connector is
+wired.</td>
+</tr>
+<tr>
+<td><code>docs/analyst-output-review.md</code></td>
+<td>Lightweight rubric for future analyst-output review fixtures.</td>
+</tr>
+<tr>
+<td><code>docs/future-validation-protocols.md</code></td>
+<td>Future-only protocols for baseline comparison, analyst usability,
+connector readiness, and DOI/publication readiness.</td>
+</tr>
+<tr>
+<td><code>docs/release-checklist.md</code></td>
+<td>Release-candidate command and human-review checklist.</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Educational upstream and AGEINT topic context.</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Parser, validator, authoring, insights, scenario checker, CLI, and
+manuscript asset generator.</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Regression evidence for contract, CLI, configuration, insights,
+scenarios, and generated assets.</td>
+</tr>
+<tr>
+<td><code>CITATION.cff</code></td>
+<td>Software citation metadata for the repository-level artifact.</td>
+</tr>
+<tr>
+<td><code>codemeta.json</code></td>
+<td>Machine-readable software metadata.</td>
+</tr>
+<tr>
+<td><code>pyproject.toml</code></td>
+<td>Package metadata, dependency declaration, and test/coverage
+configuration.</td>
+</tr>
+<tr>
+<td><code>uv.lock</code></td>
+<td>Dependency lockfile for local reproducibility.</td>
+</tr>
+<tr>
+<td><code>manuscript/references.bib</code></td>
+<td>Verified manuscript-level bibliography.</td>
+</tr>
+<tr>
+<td><code>manuscript/S02_release_manifest.md</code></td>
+<td>Release provenance and gate-result surface.</td>
+</tr>
+<tr>
+<td><code>output/data/</code></td>
+<td>Generated machine-readable catalogue exports.</td>
+</tr>
+<tr>
+<td><code>../figures/</code></td>
+<td>Generated visualizations referenced by the manuscript.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="expansion-checklist">Expansion Checklist</h2>
+<ul>
+<li>Confirm which files are authored source and which are
+generated.</li>
+<li>Confirm which commands reproduce the current outputs.</li>
+<li>Confirm whether a value belongs in prose, a generated supplement, or
+a data export.</li>
+<li>Confirm which external references need verified BibTeX entries.</li>
+<li>Confirm all manuscript citation keys resolve in
+<code>manuscript/references.bib</code>.</li>
+<li>Confirm reproducibility instructions use
+<code>${PROJECT_ROOT}</code> and <code>${TEMPLATE_ROOT}</code> rather
+than author-local absolute paths.</li>
+<li>Confirm whether any private material must be summarized rather than
+quoted or copied.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>01_introduction.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:introduction">Library Purpose, Scope, and Reader Map</h1>
+<h2 id="why-harness-neutral-defensive-skills">Why Harness-Neutral
+Defensive Skills</h2>
+<p>Agentic analysis needs reusable tradecraft, but reuse breaks down
+when procedures are written only for one interface or one model runtime.
+A useful cognitive-security skill should say what evidence it needs,
+which neutral capabilities it may use, what it produces, and when it
+should be invoked. It should not depend on a single harness syntax, and
+it should not smuggle offensive persuasion or influence playbooks into a
+defensive analytic library.</p>
+<p>CogSecSkills addresses that problem as a source-owned skills system.
+The project separates the catalogue, the canonical definition layer, the
+rendered implementation tree, the educational upstream, and the runner
+code so each repository-local claim about the library has a concrete
+surface to inspect. The same skill can be rendered into the default
+Claude, Codex, and Hermes adapter language, or into an additional
+configured harness, because durable skill substance lives in
+<code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code> and the
+rendered <code>skill.yaml</code> specification is a checked
+harness-neutral interface rather than a model-specific prompt.</p>
+<p>The manuscript is framed as a harness-neutral agent-interface
+contribution situated across four literatures. Intelligence-analysis
+research explains why structured procedures matter under ambiguity and
+bias; information-disorder research explains why defensive work must
+distinguish agents, messages, interpreters, and distribution dynamics;
+research-software standards explain why metadata, versioning, and
+regeneration are epistemic controls rather than build conveniences; and
+LLM tool-use work explains why an interface between reasoning, actions,
+and external tools needs explicit boundaries [heuer1999psychology;
+wardleDerakhshan2017informationDisorder; wilkinson2016fair;
+smith2016softwareCitation; yao2022react; schick2023toolformer].</p>
+<p>That separation matters for defensive cognitive-security work because
+the reader needs to audit both intent and execution. A skill named for
+claim provenance, narrative inversion, or deception detection is not
+sufficient by itself; the library must also show the triggers that route
+to the skill, the inputs it expects, the output it promises, the tool
+verbs it may use, the harness adapters that bind those verbs, and the
+AGEINT teaching topic that explains why the skill exists [ageint2026].
+CogSecSkills makes those surfaces explicit and then regenerates the
+manuscript views from them.</p>
+<p>The tradecraft vocabulary is anchored in structured analytic
+techniques and adjacent defensive source-evaluation methods, but the
+manuscript uses those sources as context rather than as evidence that
+this library improves decisions in practice. Analysis of Competing
+Hypotheses and the broader structured-analytic-techniques family are
+treated as canonical analytic-tradecraft references
+[heuer1999psychology; heuerPherson2019structured]. Named method families
+that appear in the library catalogue, including Nominal Group Technique,
+premortem analysis, prebunking or inoculation, lateral reading, and
+Admiralty/NATO reliability grading, are cited at the manuscript level to
+prevent generated skill metadata from standing in for scholarly
+attribution [delbecq1971groupProcess; klein2007premortem;
+roozenbeek2022inoculation; wineburg2019lateralReading; ukmod2023jdp200].
+The wider problem setting also includes misinformation correction,
+platform-scale diffusion, social bots, computational propaganda, and
+synthetic-media provenance, which motivate the library’s defensive skill
+classes without validating their operational effectiveness
+[lewandowsky2012misinformationCorrection; vosoughi2018spread;
+ferrara2016socialBots; woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes].</p>
+<p>The manuscript is therefore written for two audiences at once. A
+library maintainer should be able to trace every table, figure, and
+count back to source files and gates. A reader who only opens the PDF
+should still be able to see the shape of the system: which groups
+dominate, where the optional tool verbs appear, whether the adapters
+cover Codex and Hermes as well as Claude, and how the educational AGEINT
+layer connects to implemented skill folders.</p>
+<h2 id="related-work-and-positioning">Related Work and Positioning</h2>
+<p>CogSecSkills sits between four bodies of work and duplicates none of
+them. The intent of this subsection is positioning, not a claim that the
+library improves on any cited source in practice.</p>
+<p>The first body is structured analytic tradecraft. Analysis of
+Competing Hypotheses, estimative-probability language, and the wider
+structured-techniques family describe <em>how</em> a disciplined analyst
+should reason under ambiguity and bias [heuer1999psychology;
+heuerPherson2019structured; kent1964estimativeProbability], and doctrine
+such as the UK reliability-grading scale standardizes <em>how</em>
+sources and claims are graded [ukmod2023jdp200]. That literature
+specifies method; it does not ship a harness-neutral, machine-checkable
+interface that an agent runtime can route to. CogSecSkills renders those
+methods into conformance-checked skill specifications and leaves the
+underlying tradecraft to its canonical sources.</p>
+<p>The second body is information-disorder and defensive-intervention
+research, which explains why cognitive-security work must separate
+agents, messages, and distribution dynamics, and why correction,
+inoculation, and lateral reading are defensive levers
+[wardleDerakhshan2017informationDisorder;
+lewandowsky2012misinformationCorrection; roozenbeek2022inoculation;
+wineburg2019lateralReading], against a threat surface of viral
+diffusion, social bots, computational propaganda, and synthetic media
+[vosoughi2018spread; ferrara2016socialBots;
+woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes;
+lazer2018fakeNews]. CogSecSkills operationalizes the <em>defensive
+recognition and mitigation</em> side of that research as skills, and
+explicitly refuses the offensive-influence inverse (see <span
+class="citation"
+data-cites="sec:ethics_responsible_use">@sec:ethics_responsible_use</span>).</p>
+<p>The third body is LLM tool-use and agent systems, where reasoning is
+interleaved with external actions through a tool interface
+[yao2022react; schick2023toolformer]. That work motivates the need for
+an explicit boundary between reasoning, tool verbs, and output
+discipline, but it does not supply a defensive analytic skill catalogue.
+CogSecSkills contributes the catalogue and the closed tool-verb contract
+that binds it to multiple harnesses.</p>
+<p>The fourth body is research-software and reproducibility practice,
+which treats metadata, versioning, and regenerability as epistemic
+controls [sandve2013reproducible; wilkinson2016fair;
+smith2016softwareCitation; c2pa2026spec]. CogSecSkills adopts that
+stance directly: every prose claim resolves to a source surface and a
+regeneration command, and the educational upstream is cited as such
+[ageint2026]. The novel surface is the combination — a defensive
+cognitive-security skill set that is simultaneously harness-neutral,
+source-owned, and drift-gated.</p>
+<h2 id="project-native-contributions">Project-Native Contributions</h2>
+<p>This manuscript contributes four project-native artifacts:</p>
+<ol type="1">
+<li>A description of the Plan/Build/Teach architecture that keeps
+<code>registry/</code>, <code>skills/</code>, and
+<code>docs/ageint/</code> coherent.</li>
+<li>A harness-neutral skill contract based on a closed set of tool
+verbs: <code>read</code>, <code>search</code>, <code>write</code>,
+<code>exec</code>, <code>reason</code>, <code>web</code>,
+<code>delegate</code>, and <code>ask</code>.</li>
+<li>A repository-local authoring and verification workflow that
+validates the registry, adapters, quality linting, and tests before
+claims are promoted into prose.</li>
+<li>Generated manuscript supplements and figures that let a reader scan
+all 100 skills by group, functionality, use case, AGEINT topic, tool
+verbs, references, source path, reference density, and harness
+coverage.</li>
+</ol>
+<h2 id="how-to-read-the-main-text-and-supplements">How to Read the Main
+Text and Supplements</h2>
+<p>The main sections explain the library boundary, methods, artifacts,
+and reproducibility contract. The supplemental sections are generated
+from the live library and should be treated as synchronized source
+inputs, not hand-authored narrative. <code>S10_skill_catalogue.md</code>
+lists every skill with one-line functionality and use conditions;
+<code>S11_skill_metadata_matrix.md</code> compresses the same library
+into matrices for group counts, verb usage, AGEINT crosswalks, harness
+coverage, and figure inventory.</p>
+<p>The figures are intentionally redundant with the supplements. The
+supplements support lookup; the figures support orientation. A reader
+can use the taxonomy count chart to see group concentration, the grid to
+scan the full 100-skill surface, the heatmap to understand capability
+mix, the AGEINT crosswalk to follow teaching alignment, the Reference
+Density view to inspect declared source backing, and the Harness
+Contract view to confirm that the configured adapters are part of the
+same multiharness package.</p>
+</body>
+</html>

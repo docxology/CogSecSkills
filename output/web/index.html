@@ -1,0 +1,3003 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>_combined_manuscript</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+
+<style>
+:root {
+  --brand-1: #5b6ee0;
+  --web-bg: #f8f8f8;
+  --web-surface: #ffffff;
+  --web-text: #2c3e50;
+  --web-border: #bdc3c7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-1: #7e8ce8;
+    --web-bg: #0f1420;
+    --web-surface: #161c2b;
+    --web-text: #e6eaf2;
+    --web-border: #2a3447;
+  }
+  body { background-color: var(--web-bg); color: var(--web-text); }
+}
+body {
+  font-family: 'Liberation Serif', 'Times New Roman', serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+}
+
+code {
+  background-color: #ecf0f1;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-family: 'Liberation Mono', 'Courier New', monospace;
+}
+
+pre {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #bdc3c7;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin: 20px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.toc {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.toc a {
+  color: #2c3e50;
+}
+
+.math {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.1em;
+}
+
+.figure {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.figure-caption {
+  font-style: italic;
+  color: #7f8c8d;
+  margin-top: 10px;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#sec:abstract" id="toc-sec:abstract"><span
+class="toc-section-number">1</span> Abstract</a></li>
+<li><a href="#sec:introduction" id="toc-sec:introduction"><span
+class="toc-section-number">2</span> Library Purpose, Scope, and Reader
+Map</a>
+<ul>
+<li><a href="#why-harness-neutral-defensive-skills"
+id="toc-why-harness-neutral-defensive-skills"><span
+class="toc-section-number">2.1</span> Why Harness-Neutral Defensive
+Skills</a></li>
+<li><a href="#related-work-and-positioning"
+id="toc-related-work-and-positioning"><span
+class="toc-section-number">2.2</span> Related Work and
+Positioning</a></li>
+<li><a href="#project-native-contributions"
+id="toc-project-native-contributions"><span
+class="toc-section-number">2.3</span> Project-Native
+Contributions</a></li>
+<li><a href="#how-to-read-the-main-text-and-supplements"
+id="toc-how-to-read-the-main-text-and-supplements"><span
+class="toc-section-number">2.4</span> How to Read the Main Text and
+Supplements</a></li>
+</ul></li>
+<li><a href="#sec:system_context" id="toc-sec:system_context"><span
+class="toc-section-number">3</span> Source Boundary and the
+Harness-Neutral Skill Contract</a>
+<ul>
+<li><a href="#repository-local-evidence-boundary"
+id="toc-repository-local-evidence-boundary"><span
+class="toc-section-number">3.1</span> Repository-Local Evidence
+Boundary</a></li>
+<li><a href="#planbuildteach-source-surfaces"
+id="toc-planbuildteach-source-surfaces"><span
+class="toc-section-number">3.2</span> Plan/Build/Teach Source
+Surfaces</a></li>
+<li><a href="#harness-neutral-skill-specification"
+id="toc-harness-neutral-skill-specification"><span
+class="toc-section-number">3.3</span> Harness-Neutral Skill
+Specification</a></li>
+<li><a href="#harness-profile-classes"
+id="toc-harness-profile-classes"><span
+class="toc-section-number">3.4</span> Harness Profile Classes</a></li>
+<li><a href="#formal-conformance-contract"
+id="toc-formal-conformance-contract"><span
+class="toc-section-number">3.5</span> Formal Conformance
+Contract</a></li>
+<li><a href="#figure-guide-and-100-skill-taxonomy-snapshot"
+id="toc-figure-guide-and-100-skill-taxonomy-snapshot"><span
+class="toc-section-number">3.6</span> Figure Guide and 100-Skill
+Taxonomy Snapshot</a></li>
+</ul></li>
+<li><a href="#sec:methods" id="toc-sec:methods"><span
+class="toc-section-number">4</span> Source-Owned Skill Authoring and
+Manuscript Generation</a>
+<ul>
+<li><a href="#registry-to-definition-to-skill-construction"
+id="toc-registry-to-definition-to-skill-construction"><span
+class="toc-section-number">4.1</span> Registry-to-Definition-to-Skill
+Construction</a></li>
+<li><a href="#registry-to-adapter-authoring-pipeline"
+id="toc-registry-to-adapter-authoring-pipeline"><span
+class="toc-section-number">4.2</span> Registry-to-Adapter Authoring
+Pipeline</a></li>
+<li><a href="#generated-supplement-and-figure-pipeline"
+id="toc-generated-supplement-and-figure-pipeline"><span
+class="toc-section-number">4.3</span> Generated Supplement and Figure
+Pipeline</a></li>
+<li><a href="#figure-question-and-claim-contract"
+id="toc-figure-question-and-claim-contract"><span
+class="toc-section-number">4.4</span> Figure Question and Claim
+Contract</a></li>
+<li><a href="#local-verification-gates"
+id="toc-local-verification-gates"><span
+class="toc-section-number">4.5</span> Local Verification Gates</a></li>
+</ul></li>
+<li><a href="#sec:artifacts_evidence"
+id="toc-sec:artifacts_evidence"><span
+class="toc-section-number">5</span> Evidence Surfaces, Generated Views,
+and Claim Discipline</a>
+<ul>
+<li><a href="#claim-support-surfaces"
+id="toc-claim-support-surfaces"><span
+class="toc-section-number">5.1</span> Claim-Support Surfaces</a></li>
+<li><a href="#generated-figure-evidence"
+id="toc-generated-figure-evidence"><span
+class="toc-section-number">5.2</span> Generated Figure Evidence</a></li>
+<li><a href="#generated-catalogue-and-matrix-supplements"
+id="toc-generated-catalogue-and-matrix-supplements"><span
+class="toc-section-number">5.3</span> Generated Catalogue and Matrix
+Supplements</a></li>
+<li><a href="#per-skill-quality-audit-and-anti-boilerplate-checks"
+id="toc-per-skill-quality-audit-and-anti-boilerplate-checks"><span
+class="toc-section-number">5.4</span> Per-Skill Quality Audit and
+Anti-Boilerplate Checks</a></li>
+<li><a href="#evidence-ladder-and-scenario-readiness-gate"
+id="toc-evidence-ladder-and-scenario-readiness-gate"><span
+class="toc-section-number">5.5</span> Evidence Ladder and Scenario
+Readiness Gate</a></li>
+<li><a href="#live-quality-and-coverage-dashboard"
+id="toc-live-quality-and-coverage-dashboard"><span
+class="toc-section-number">5.6</span> Live Quality and Coverage
+Dashboard</a></li>
+<li><a href="#comparative-scholarship-map"
+id="toc-comparative-scholarship-map"><span
+class="toc-section-number">5.7</span> Comparative Scholarship
+Map</a></li>
+<li><a href="#claim-support-rules" id="toc-claim-support-rules"><span
+class="toc-section-number">5.8</span> Claim Support Rules</a></li>
+</ul></li>
+<li><a href="#sec:reproducibility" id="toc-sec:reproducibility"><span
+class="toc-section-number">6</span> Reproducibility, Local Verification,
+and Render Gates</a>
+<ul>
+<li><a href="#project-local-asset-and-validation-commands"
+id="toc-project-local-asset-and-validation-commands"><span
+class="toc-section-number">6.1</span> Project-Local Asset and Validation
+Commands</a></li>
+<li><a href="#template-markdownpdf-render-commands"
+id="toc-template-markdownpdf-render-commands"><span
+class="toc-section-number">6.2</span> Template Markdown/PDF Render
+Commands</a></li>
+<li><a href="#traceability-and-render-contract"
+id="toc-traceability-and-render-contract"><span
+class="toc-section-number">6.3</span> Traceability and Render
+Contract</a></li>
+</ul></li>
+<li><a href="#sec:limitations_next_steps"
+id="toc-sec:limitations_next_steps"><span
+class="toc-section-number">7</span> Evidence Boundaries, Defensive
+Governance, and Next Steps</a>
+<ul>
+<li><a href="#local-conformance-is-not-field-validation"
+id="toc-local-conformance-is-not-field-validation"><span
+class="toc-section-number">7.1</span> Local Conformance Is Not Field
+Validation</a></li>
+<li><a href="#defensive-governance-review-rules"
+id="toc-defensive-governance-review-rules"><span
+class="toc-section-number">7.2</span> Defensive Governance Review
+Rules</a></li>
+<li><a href="#evidence-and-quality-next-steps"
+id="toc-evidence-and-quality-next-steps"><span
+class="toc-section-number">7.3</span> Evidence and Quality Next
+Steps</a></li>
+<li><a href="#publication-claim-boundary"
+id="toc-publication-claim-boundary"><span
+class="toc-section-number">7.4</span> Publication Claim
+Boundary</a></li>
+</ul></li>
+<li><a href="#sec:ethics_responsible_use"
+id="toc-sec:ethics_responsible_use"><span
+class="toc-section-number">8</span> Ethics, Dual-Use, and Responsible
+Use</a>
+<ul>
+<li><a href="#dual-use-stance-and-defensive-framing"
+id="toc-dual-use-stance-and-defensive-framing"><span
+class="toc-section-number">8.1</span> Dual-Use Stance and Defensive
+Framing</a></li>
+<li><a href="#defensive-by-contract-and-review"
+id="toc-defensive-by-contract-and-review"><span
+class="toc-section-number">8.2</span> Defensive by Contract and
+Review</a></li>
+<li><a href="#human-subjects-and-institutional-scope"
+id="toc-human-subjects-and-institutional-scope"><span
+class="toc-section-number">8.3</span> Human-Subjects and Institutional
+Scope</a></li>
+<li><a href="#responsibilities-of-adopters-and-operators"
+id="toc-responsibilities-of-adopters-and-operators"><span
+class="toc-section-number">8.4</span> Responsibilities of Adopters and
+Operators</a></li>
+<li><a href="#what-this-section-does-not-claim"
+id="toc-what-this-section-does-not-claim"><span
+class="toc-section-number">8.5</span> What This Section Does Not
+Claim</a></li>
+</ul></li>
+<li><a href="#sec:source_surface" id="toc-sec:source_surface"><span
+class="toc-section-number">9</span> Supplemental Claim-Provenance Source
+Map</a>
+<ul>
+<li><a href="#expansion-checklist" id="toc-expansion-checklist"><span
+class="toc-section-number">9.1</span> Expansion Checklist</a></li>
+</ul></li>
+<li><a href="#sec:release_manifest" id="toc-sec:release_manifest"><span
+class="toc-section-number">10</span> Supplemental Local Release and
+Render Manifest</a>
+<ul>
+<li><a href="#software-and-source-identity"
+id="toc-software-and-source-identity"><span
+class="toc-section-number">10.1</span> Software And Source
+Identity</a></li>
+<li><a href="#environment-and-locking"
+id="toc-environment-and-locking"><span
+class="toc-section-number">10.2</span> Environment And Locking</a></li>
+<li><a href="#generated-figure-inventory"
+id="toc-generated-figure-inventory"><span
+class="toc-section-number">10.3</span> Generated Figure
+Inventory</a></li>
+<li><a href="#verification-gates" id="toc-verification-gates"><span
+class="toc-section-number">10.4</span> Verification Gates</a></li>
+</ul></li>
+<li><a href="#sec:supplemental_skill_catalogue"
+id="toc-sec:supplemental_skill_catalogue"><span
+class="toc-section-number">11</span> Supplemental 100-Skill
+Catalogue</a>
+<ul>
+<li><a href="#structured-analytic-techniques-sat"
+id="toc-structured-analytic-techniques-sat"><span
+class="toc-section-number">11.1</span> Structured Analytic Techniques
+(<code>sat</code>)</a></li>
+<li><a href="#cognitive-security-cognitive_security"
+id="toc-cognitive-security-cognitive_security"><span
+class="toc-section-number">11.2</span> Cognitive Security
+(<code>cognitive_security</code>)</a></li>
+<li><a href="#critical-review-assurance-critical_review"
+id="toc-critical-review-assurance-critical_review"><span
+class="toc-section-number">11.3</span> Critical Review &amp; Assurance
+(<code>critical_review</code>)</a></li>
+<li><a href="#osint-source-integrity-osint_integrity"
+id="toc-osint-source-integrity-osint_integrity"><span
+class="toc-section-number">11.4</span> OSINT &amp; Source Integrity
+(<code>osint_integrity</code>)</a></li>
+<li><a
+href="#counterintelligence-deception-detection-counterintelligence"
+id="toc-counterintelligence-deception-detection-counterintelligence"><span
+class="toc-section-number">11.5</span> Counterintelligence &amp;
+Deception Detection (<code>counterintelligence</code>)</a></li>
+<li><a
+href="#information-environment-influence-analysis-information_environment"
+id="toc-information-environment-influence-analysis-information_environment"><span
+class="toc-section-number">11.6</span> Information Environment &amp;
+Influence Analysis (<code>information_environment</code>)</a></li>
+<li><a href="#research-synthesis-methods-research_methods"
+id="toc-research-synthesis-methods-research_methods"><span
+class="toc-section-number">11.7</span> Research &amp; Synthesis Methods
+(<code>research_methods</code>)</a></li>
+</ul></li>
+<li><a href="#sec:supplemental_skill_metadata_matrix"
+id="toc-sec:supplemental_skill_metadata_matrix"><span
+class="toc-section-number">12</span> Supplemental Skill Metadata and
+Figure Matrix</a>
+<ul>
+<li><a href="#group-counts" id="toc-group-counts"><span
+class="toc-section-number">12.1</span> Group Counts</a></li>
+<li><a href="#tool-verb-usage-by-group"
+id="toc-tool-verb-usage-by-group"><span
+class="toc-section-number">12.2</span> Tool Verb Usage By Group</a></li>
+<li><a href="#ageint-crosswalk" id="toc-ageint-crosswalk"><span
+class="toc-section-number">12.3</span> AGEINT Crosswalk</a></li>
+<li><a href="#harness-coverage" id="toc-harness-coverage"><span
+class="toc-section-number">12.4</span> Harness Coverage</a></li>
+<li><a href="#quality-capsule-coverage"
+id="toc-quality-capsule-coverage"><span
+class="toc-section-number">12.5</span> Quality Capsule Coverage</a></li>
+<li><a href="#generated-figure-inventory-1"
+id="toc-generated-figure-inventory-1"><span
+class="toc-section-number">12.6</span> Generated Figure
+Inventory</a></li>
+</ul></li>
+<li><a href="#sec:symbols_glossary" id="toc-sec:symbols_glossary"><span
+class="toc-section-number">13</span> Symbols and Skill-System
+Glossary</a>
+<ul>
+<li><a href="#ageint" id="toc-ageint"><span
+class="toc-section-number">13.1</span> AGEINT</a></li>
+<li><a href="#harness" id="toc-harness"><span
+class="toc-section-number">13.2</span> Harness</a></li>
+<li><a href="#skill-specification" id="toc-skill-specification"><span
+class="toc-section-number">13.3</span> Skill Specification</a></li>
+<li><a href="#tool-verb" id="toc-tool-verb"><span
+class="toc-section-number">13.4</span> Tool Verb</a></li>
+<li><a href="#planbuildteach" id="toc-planbuildteach"><span
+class="toc-section-number">13.5</span> Plan/Build/Teach</a></li>
+<li><a href="#defensive-boundary" id="toc-defensive-boundary"><span
+class="toc-section-number">13.6</span> Defensive Boundary</a></li>
+<li><a href="#misuse-redirect" id="toc-misuse-redirect"><span
+class="toc-section-number">13.7</span> Misuse Redirect</a></li>
+<li><a href="#negative-control" id="toc-negative-control"><span
+class="toc-section-number">13.8</span> Negative Control</a></li>
+<li><a href="#scenario-fixture" id="toc-scenario-fixture"><span
+class="toc-section-number">13.9</span> Scenario Fixture</a></li>
+<li><a href="#worked-example" id="toc-worked-example"><span
+class="toc-section-number">13.10</span> Worked Example</a></li>
+<li><a href="#reference-density" id="toc-reference-density"><span
+class="toc-section-number">13.11</span> Reference Density</a></li>
+</ul></li>
+<li><a href="#sec:references" id="toc-sec:references"><span
+class="toc-section-number">14</span> References</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="sec:abstract"><span
+class="header-section-number">1</span> Abstract</h1>
+<p>CogSecSkills is a defensive, harness-neutral agent-interface library
+that turns the human doctrine of cognitive security and analytic
+tradecraft into dependable, inspectable, agent-usable skills,
+distributed as an open repository from
+github.com/docxology/CogSecSkills; the motivation is an information
+environment in which mis-, dis-, and malinformation are analytically
+distinct but operationally entangled, false content can diffuse rapidly
+at platform scale, and credible source evaluation increasingly demands
+explicit expert practice rather than page-bound reading alone, so that
+agents asked to weigh competing hypotheses, trace provenance, or
+critically review a claim need a repeatable procedure and a stable
+tool-use contract rather than improvisation. The live generated
+catalogue reports one hundred implemented skills across seven taxonomy
+groups — Structured Analytic Techniques, Cognitive Security, Critical
+Review and Assurance, OSINT and Source Integrity, Counterintelligence
+and Deception Detection, Information Environment and Influence Analysis,
+and Research and Synthesis Methods — and the library is organized as a
+Plan, Build, and Teach system in which a registry declares the
+catalogue, a definitions layer owns the substance and quality controls
+of each skill, a skills tree exposes the harness-facing build, and a
+vendored educational upstream named AGEINT explains why each technique
+exists and how to use it responsibly. The central design choice is to
+make the reusable skill contract smaller than any one agent interface
+yet stricter than a prompt collection: each skill is owned by a single
+canonical definition that declares triggers, inputs, outputs, per-skill
+reference metadata, group-aware quality controls, and a closed
+vocabulary of neutral tool verbs before any harness-specific adapter is
+considered, and that definition is rendered deterministically into a
+harness-neutral specification, a human-readable skill description, an
+executable workflow, and one adapter per configured harness whose
+default members are Claude, Codex, and Hermes, so that portability
+becomes a property the test suite proves rather than a hope, and
+installation is concrete rather than interpretive — clone the public
+repository, install or run the Python package, run validation, point the
+agent harness at a chosen skill, execute its workflow, and bind runtime
+tools through the named harness adapter, regenerating adapters from a
+configuration file for any non-default harness. The quality discipline
+is the core of the contribution: an automated audit checks that every
+skill’s defensive boundaries, misuse redirects, evidence requirements,
+confidence rubrics, privacy and legal constraints, uncertainty handling,
+failure modes, and negative controls are not merely present but specific
+to that skill and not reused across the corpus, while an evidence ladder
+adds curated safe-use and unsafe-redirect scenarios with expected
+defensive response-shape contracts, reviewed expected answers, and one
+source-owned worked example per skill, and a generated quality
+dashboard, supplemental catalogue, metadata matrix, data exports, and a
+family of deterministic figures — taxonomy counts, the hundred-skill
+atlas, tool-verb coverage, AGEINT topic crosswalks, the Plan-Build-Teach
+flow, reference density, harness coverage, and a cover-page installation
+route — are all produced directly from the live registry and skill
+specifications so that every visual stays synchronized with the source
+tree. The evidence boundary is deliberately and explicitly
+repository-local and reproducible within the checked-out project state,
+following reproducible-computing, open-data stewardship, and
+software-citation norms for explicit workflows, version specificity, and
+citable artifacts; every claim is backed by source files, canonical
+definitions, generated supplements and figures, the generated dashboard,
+and project-local verification commands together with a focused test
+suite and a manuscript renderer, and the work positions CogSecSkills as
+a validated interface between reasoning, tool use, and defensive output
+discipline rather than as a claim that any particular model runtime
+behaves correctly in the field, so its figures, supplements, scenarios,
+worked examples, and dashboard should be read as synchronized views of
+the current library state and never as independent measurements of
+operational performance.</p>
+<hr />
+<h1 data-number="2" id="sec:introduction"><span
+class="header-section-number">2</span> Library Purpose, Scope, and
+Reader Map</h1>
+<h2 data-number="2.1" id="why-harness-neutral-defensive-skills"><span
+class="header-section-number">2.1</span> Why Harness-Neutral Defensive
+Skills</h2>
+<p>Agentic analysis needs reusable tradecraft, but reuse breaks down
+when procedures are written only for one interface or one model runtime.
+A useful cognitive-security skill should say what evidence it needs,
+which neutral capabilities it may use, what it produces, and when it
+should be invoked. It should not depend on a single harness syntax, and
+it should not smuggle offensive persuasion or influence playbooks into a
+defensive analytic library.</p>
+<p>CogSecSkills addresses that problem as a source-owned skills system.
+The project separates the catalogue, the canonical definition layer, the
+rendered implementation tree, the educational upstream, and the runner
+code so each repository-local claim about the library has a concrete
+surface to inspect. The same skill can be rendered into the default
+Claude, Codex, and Hermes adapter language, or into an additional
+configured harness, because durable skill substance lives in
+<code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code> and the
+rendered <code>skill.yaml</code> specification is a checked
+harness-neutral interface rather than a model-specific prompt.</p>
+<p>The manuscript is framed as a harness-neutral agent-interface
+contribution situated across four literatures. Intelligence-analysis
+research explains why structured procedures matter under ambiguity and
+bias; information-disorder research explains why defensive work must
+distinguish agents, messages, interpreters, and distribution dynamics;
+research-software standards explain why metadata, versioning, and
+regeneration are epistemic controls rather than build conveniences; and
+LLM tool-use work explains why an interface between reasoning, actions,
+and external tools needs explicit boundaries [heuer1999psychology;
+wardleDerakhshan2017informationDisorder; wilkinson2016fair;
+smith2016softwareCitation; yao2022react; schick2023toolformer].</p>
+<p>That separation matters for defensive cognitive-security work because
+the reader needs to audit both intent and execution. A skill named for
+claim provenance, narrative inversion, or deception detection is not
+sufficient by itself; the library must also show the triggers that route
+to the skill, the inputs it expects, the output it promises, the tool
+verbs it may use, the harness adapters that bind those verbs, and the
+AGEINT teaching topic that explains why the skill exists [ageint2026].
+CogSecSkills makes those surfaces explicit and then regenerates the
+manuscript views from them.</p>
+<p>The tradecraft vocabulary is anchored in structured analytic
+techniques and adjacent defensive source-evaluation methods, but the
+manuscript uses those sources as context rather than as evidence that
+this library improves decisions in practice. Analysis of Competing
+Hypotheses and the broader structured-analytic-techniques family are
+treated as canonical analytic-tradecraft references
+[heuer1999psychology; heuerPherson2019structured]. Named method families
+that appear in the library catalogue, including Nominal Group Technique,
+premortem analysis, prebunking or inoculation, lateral reading, and
+Admiralty/NATO reliability grading, are cited at the manuscript level to
+prevent generated skill metadata from standing in for scholarly
+attribution [delbecq1971groupProcess; klein2007premortem;
+roozenbeek2022inoculation; wineburg2019lateralReading; ukmod2023jdp200].
+The wider problem setting also includes misinformation correction,
+platform-scale diffusion, social bots, computational propaganda, and
+synthetic-media provenance, which motivate the library’s defensive skill
+classes without validating their operational effectiveness
+[lewandowsky2012misinformationCorrection; vosoughi2018spread;
+ferrara2016socialBots; woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes].</p>
+<p>The manuscript is therefore written for two audiences at once. A
+library maintainer should be able to trace every table, figure, and
+count back to source files and gates. A reader who only opens the PDF
+should still be able to see the shape of the system: which groups
+dominate, where the optional tool verbs appear, whether the adapters
+cover Codex and Hermes as well as Claude, and how the educational AGEINT
+layer connects to implemented skill folders.</p>
+<h2 data-number="2.2" id="related-work-and-positioning"><span
+class="header-section-number">2.2</span> Related Work and
+Positioning</h2>
+<p>CogSecSkills sits between four bodies of work and duplicates none of
+them. The intent of this subsection is positioning, not a claim that the
+library improves on any cited source in practice.</p>
+<p>The first body is structured analytic tradecraft. Analysis of
+Competing Hypotheses, estimative-probability language, and the wider
+structured-techniques family describe <em>how</em> a disciplined analyst
+should reason under ambiguity and bias [heuer1999psychology;
+heuerPherson2019structured; kent1964estimativeProbability], and doctrine
+such as the UK reliability-grading scale standardizes <em>how</em>
+sources and claims are graded [ukmod2023jdp200]. That literature
+specifies method; it does not ship a harness-neutral, machine-checkable
+interface that an agent runtime can route to. CogSecSkills renders those
+methods into conformance-checked skill specifications and leaves the
+underlying tradecraft to its canonical sources.</p>
+<p>The second body is information-disorder and defensive-intervention
+research, which explains why cognitive-security work must separate
+agents, messages, and distribution dynamics, and why correction,
+inoculation, and lateral reading are defensive levers
+[wardleDerakhshan2017informationDisorder;
+lewandowsky2012misinformationCorrection; roozenbeek2022inoculation;
+wineburg2019lateralReading], against a threat surface of viral
+diffusion, social bots, computational propaganda, and synthetic media
+[vosoughi2018spread; ferrara2016socialBots;
+woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes;
+lazer2018fakeNews]. CogSecSkills operationalizes the <em>defensive
+recognition and mitigation</em> side of that research as skills, and
+explicitly refuses the offensive-influence inverse (see sec. 8).</p>
+<p>The third body is LLM tool-use and agent systems, where reasoning is
+interleaved with external actions through a tool interface
+[yao2022react; schick2023toolformer]. That work motivates the need for
+an explicit boundary between reasoning, tool verbs, and output
+discipline, but it does not supply a defensive analytic skill catalogue.
+CogSecSkills contributes the catalogue and the closed tool-verb contract
+that binds it to multiple harnesses.</p>
+<p>The fourth body is research-software and reproducibility practice,
+which treats metadata, versioning, and regenerability as epistemic
+controls [sandve2013reproducible; wilkinson2016fair;
+smith2016softwareCitation; c2pa2026spec]. CogSecSkills adopts that
+stance directly: every prose claim resolves to a source surface and a
+regeneration command, and the educational upstream is cited as such
+[ageint2026]. The novel surface is the combination — a defensive
+cognitive-security skill set that is simultaneously harness-neutral,
+source-owned, and drift-gated.</p>
+<h2 data-number="2.3" id="project-native-contributions"><span
+class="header-section-number">2.3</span> Project-Native
+Contributions</h2>
+<p>This manuscript contributes four project-native artifacts:</p>
+<ol type="1">
+<li>A description of the Plan/Build/Teach architecture that keeps
+<code>registry/</code>, <code>skills/</code>, and
+<code>docs/ageint/</code> coherent.</li>
+<li>A harness-neutral skill contract based on a closed set of tool
+verbs: <code>read</code>, <code>search</code>, <code>write</code>,
+<code>exec</code>, <code>reason</code>, <code>web</code>,
+<code>delegate</code>, and <code>ask</code>.</li>
+<li>A repository-local authoring and verification workflow that
+validates the registry, adapters, quality linting, and tests before
+claims are promoted into prose.</li>
+<li>Generated manuscript supplements and figures that let a reader scan
+all 100 skills by group, functionality, use case, AGEINT topic, tool
+verbs, references, source path, reference density, and harness
+coverage.</li>
+</ol>
+<h2 data-number="2.4"
+id="how-to-read-the-main-text-and-supplements"><span
+class="header-section-number">2.4</span> How to Read the Main Text and
+Supplements</h2>
+<p>The main sections explain the library boundary, methods, artifacts,
+and reproducibility contract. The supplemental sections are generated
+from the live library and should be treated as synchronized source
+inputs, not hand-authored narrative. <code>S10_skill_catalogue.md</code>
+lists every skill with one-line functionality and use conditions;
+<code>S11_skill_metadata_matrix.md</code> compresses the same library
+into matrices for group counts, verb usage, AGEINT crosswalks, harness
+coverage, and figure inventory.</p>
+<p>The figures are intentionally redundant with the supplements. The
+supplements support lookup; the figures support orientation. A reader
+can use the taxonomy count chart to see group concentration, the grid to
+scan the full 100-skill surface, the heatmap to understand capability
+mix, the AGEINT crosswalk to follow teaching alignment, the Reference
+Density view to inspect declared source backing, and the Harness
+Contract view to confirm that the configured adapters are part of the
+same multiharness package.</p>
+<hr />
+<h1 data-number="3" id="sec:system_context"><span
+class="header-section-number">3</span> Source Boundary and the
+Harness-Neutral Skill Contract</h1>
+<h2 data-number="3.1" id="repository-local-evidence-boundary"><span
+class="header-section-number">3.1</span> Repository-Local Evidence
+Boundary</h2>
+<p>CogSecSkills is a defensive skills library, not a live influence
+system, benchmark suite, or external claim engine. Its authoritative
+inputs are plain-text project files: the registry declares the
+catalogue, canonical definitions own skill substance and quality
+controls, rendered skill directories expose harness-facing interfaces,
+AGEINT documents provide the teaching context, and the Python package
+validates and reports on the library. The manuscript describes those
+local surfaces and the gates that keep them synchronized.</p>
+<h2 data-number="3.2" id="planbuildteach-source-surfaces"><span
+class="header-section-number">3.2</span> Plan/Build/Teach Source
+Surfaces</h2>
+<p>The project uses three mutually reinforcing surfaces:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+<th>Reader question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code> and
+<code>registry/groups.yaml</code></td>
+<td>Plan</td>
+<td>What skills and groups are supposed to exist?</td>
+</tr>
+<tr>
+<td><code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code></td>
+<td>Build source</td>
+<td>What does the skill do, when should it be used, and what defensive
+quality controls must it carry?</td>
+</tr>
+<tr>
+<td><code>skills/&lt;group&gt;/&lt;slug&gt;/</code></td>
+<td>Build output</td>
+<td>What is actually rendered, and how does each skill bind to
+harnesses?</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Teach</td>
+<td>Which AGEINT topic or educational frame motivates the skill?</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Verify and render</td>
+<td>Which checks, reports, routes, and manuscript assets are generated
+from the source surfaces?</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Regression contract</td>
+<td>Which behaviors are guarded against drift?</td>
+</tr>
+</tbody>
+</table>
+<figure id="fig:plan-build-teach-flow">
+<img src="../figures/cogsecskills_plan_build_teach_flow.png"
+style="width:100.0%"
+alt="Figure 1: cogsecskills_plan_build_teach_flow.png: Source-to-render flow for the Plan, Build, and Teach surfaces. The figure proves that generated manuscript assets sit behind source-owned inputs and local gates; it does not prove field effectiveness." />
+<figcaption aria-hidden="true">Figure 1:
+cogsecskills_plan_build_teach_flow.png: Source-to-render flow for the
+Plan, Build, and Teach surfaces. The figure proves that generated
+manuscript assets sit behind source-owned inputs and local gates; it
+does not prove field effectiveness.</figcaption>
+</figure>
+<h2 data-number="3.3" id="harness-neutral-skill-specification"><span
+class="header-section-number">3.3</span> Harness-Neutral Skill
+Specification</h2>
+<p>Each implemented skill declares a small, inspectable contract:</p>
+<ul>
+<li>identity fields: <code>id</code>, <code>name</code>,
+<code>group</code>, <code>status</code>, <code>version</code>,
+<code>summary</code>, and <code>ageint_topic</code>;</li>
+<li>routing fields: <code>tags</code> and <code>triggers</code>;</li>
+<li>capability fields: a closed set of tool verbs with purposes;</li>
+<li>interface fields: structured inputs and outputs;</li>
+<li>adapter fields: one harness adapter path per configured
+harness.</li>
+</ul>
+<p>The default harness adapters translate the neutral verbs into Claude,
+Codex, and Hermes idioms while preserving the same workflow. The same
+contract also applies to any additional harness configured in
+<code>cogsecskills.yaml</code>. This keeps the library portable in the
+structural sense: a skill can be evaluated for conformance without
+executing any external service.</p>
+<p>For Codex and Hermes use, this means the adapter text is not a
+separate source of truth. It is a harness-facing binding layer that must
+list the same neutral verbs declared by the skill specification. If a
+skill declares <code>read</code>, <code>reason</code>, and
+<code>write</code>, each configured harness adapter must show how those
+verbs are realized in that harness. This is the smallest contract that
+makes the skill portable while still leaving each runtime free to
+express its own operational idiom.</p>
+<p>This contract is deliberately narrower than a general agent
+framework. ReAct-style work shows why reasoning and action are often
+interleaved, and Toolformer-style work shows why model interfaces to
+external tools matter [yao2022react; schick2023toolformer]. CogSecSkills
+does not attempt to train or evaluate a model to choose tools. It fixes
+a defensive, inspectable vocabulary of tool verbs and requires every
+configured harness adapter to bind that vocabulary before the skill is
+treated as conforming. The contribution is the validated interface
+layer: source-owned skill substance, closed neutral capabilities,
+harness-specific bindings, and local drift checks.</p>
+<h2 data-number="3.4" id="harness-profile-classes"><span
+class="header-section-number">3.4</span> Harness Profile Classes</h2>
+<p>The harness profile layer is descriptive, not executable. It records
+named external runtimes and framework families that a reader might
+target after cloning the repository, but the validation contract remains
+controlled only by the configured harness set. In this manuscript,
+<strong>default adapters</strong> means the committed
+<code>claude</code>, <code>codex</code>, and <code>hermes</code>
+adapters. <strong>Configured structural adapters</strong> means any
+harness id placed in <code>cogsecskills.yaml</code>, regenerated into
+every skill folder, and checked by <code>validate</code>.
+<strong>Documented external profiles</strong> means optional metadata
+rows in <code>registry/harness_profiles.yaml</code>; those rows do not
+certify live runtime behavior, connector safety, vendor support, or
+field outcomes. The profiles are not one standard: Gemini CLI context
+files, Copilot instruction and agent surfaces, Cursor/Cline-style rule
+systems, SDK frameworks, and MCP tool hosts each require
+product-specific review before use.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Profile id</th>
+<th>Class</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gemini_cli</code></td>
+<td>terminal agent</td>
+<td>Candidate for a Gemini CLI-style local harness using
+product-specific context files after configuration and adapter
+review.</td>
+</tr>
+<tr>
+<td><code>github_copilot</code></td>
+<td>IDE or cloud agent</td>
+<td>Candidate for Copilot repository, path-specific, agent, CLI,
+cloud-agent, or review surfaces whose support varies by product
+mode.</td>
+</tr>
+<tr>
+<td><code>devin_local</code></td>
+<td>local agent</td>
+<td>Candidate for local-agent use with permissions, sandboxing, skills,
+and MCP controls.</td>
+</tr>
+<tr>
+<td><code>devin_cascade</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cascade/Devin Desktop AGENTS.md and rules
+surfaces.</td>
+</tr>
+<tr>
+<td><code>cursor</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cursor rules or skill-style context.</td>
+</tr>
+<tr>
+<td><code>cline</code></td>
+<td>IDE agent</td>
+<td>Candidate for Cline- or Roo-style rule/skill surfaces and configured
+tool permissions.</td>
+</tr>
+<tr>
+<td><code>aider</code></td>
+<td>terminal agent</td>
+<td>Candidate for read-only skill and convention files in a terminal
+pair-programming workflow.</td>
+</tr>
+<tr>
+<td><code>continue</code></td>
+<td>IDE or CLI agent</td>
+<td>Candidate for Continue Agent, Chat, or Edit rule contexts.</td>
+</tr>
+<tr>
+<td><code>jetbrains_ai</code></td>
+<td>IDE agent</td>
+<td>Candidate for JetBrains AI Assistant instruction files.</td>
+</tr>
+<tr>
+<td><code>openai_agents_sdk</code></td>
+<td>programmatic runtime</td>
+<td>Application-owned wrapper target with tools, approvals, guardrails,
+and state.</td>
+</tr>
+<tr>
+<td><code>langgraph</code></td>
+<td>programmatic runtime</td>
+<td>Graph-node and state-machine integration target.</td>
+</tr>
+<tr>
+<td><code>microsoft_agent_framework</code></td>
+<td>programmatic runtime</td>
+<td>Agent or workflow integration target for .NET and Python
+applications.</td>
+</tr>
+<tr>
+<td><code>autogen</code></td>
+<td>programmatic runtime</td>
+<td>AgentChat/Core integration target.</td>
+</tr>
+<tr>
+<td><code>crewai</code></td>
+<td>programmatic runtime</td>
+<td>Crew, task, flow, and guardrail integration target.</td>
+</tr>
+<tr>
+<td><code>pydantic_ai</code></td>
+<td>programmatic runtime</td>
+<td>Typed agent and capability integration target.</td>
+</tr>
+<tr>
+<td><code>mcp_host</code></td>
+<td>protocol host</td>
+<td>Tool and context transport profile, not a standalone model
+harness.</td>
+</tr>
+<tr>
+<td><code>perplexity_research</code></td>
+<td>research companion</td>
+<td>Research-support profile unless wrapped by a local tool-executing
+application.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="3.5" id="formal-conformance-contract"><span
+class="header-section-number">3.5</span> Formal Conformance
+Contract</h2>
+<p>Let the closed neutral verb vocabulary be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:tool-verb-set}
+V := \{\mathtt{read}, \mathtt{search}, \mathtt{write}, \mathtt{exec},
+\mathtt{reason}, \mathtt{web}, \mathtt{delegate}, \mathtt{ask}\}.
+\end{equation}\]</span></p>
+<p>Let the default harness set be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:default-harness-set}
+H_0 := \{\mathtt{claude}, \mathtt{codex}, \mathtt{hermes}\}.
+\end{equation}\]</span></p>
+<p>Let the configured harness set be</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:configured-harness-set}
+H_{\mathrm{cfg}} :=
+\operatorname{harnesses}(\mathtt{cogsecskills.yaml})\quad\text{with
+default }H_0.
+\end{equation}\]</span></p>
+<p>For each implemented skill <code>s</code> in set <code>S</code>, the
+source specification can be read as</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:skill-spec-tuple}
+s = (id_s, name_s, group_s, status_s, version_s, summary_s, topic_s,
+tags_s, triggers_s, V_s, I_s, O_s, refs_s, Q_s, wf_s, A_s)
+\end{equation}\]</span></p>
+<p>subject to</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:skill-conformance}
+V_s \subseteq V,\qquad \operatorname{dom}(A_s)=H_{\mathrm{cfg}},\qquad
+\forall h \in H_{\mathrm{cfg}}:\ V_s \subseteq B_{s,h}.
+\end{equation}\]</span></p>
+<p>Here <code>I_s</code> and <code>O_s</code> are the declared input and
+output schemas, <code>refs_s</code> is the per-skill metadata reference
+set, <code>Q_s</code> is the required quality-control bundle,
+<code>wf_s</code> is the workflow path, <code>A_s</code> maps each
+configured harness to exactly one adapter path, and <code>B_s,h</code>
+is the set of neutral verbs bound in harness <code>h</code> adapter
+table. Conformance consists of schema validity, registry-to-folder
+agreement, allowed-verb membership, required quality fields, workflow
+presence, adapter-path completeness for every harness in
+<code>H_cfg</code>, and adapter binding coverage for every declared verb
+in <code>V_s</code>.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Field family</th>
+<th>Source field(s)</th>
+<th>Constraint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity</td>
+<td><code>id</code>, <code>name</code>, <code>group</code>,
+<code>status</code>, <code>version</code></td>
+<td><code>id</code> must match <code>group.slug</code>; implemented
+skills must exist on disk.</td>
+</tr>
+<tr>
+<td>Routing</td>
+<td><code>tags</code>, <code>triggers</code>,
+<code>ageint_topic</code></td>
+<td>Used for navigation and AGEINT crosswalks, not empirical routing
+claims.</td>
+</tr>
+<tr>
+<td>Capability</td>
+<td><code>tools[*].verb</code></td>
+<td>Every verb must be a member of <code>V</code>.</td>
+</tr>
+<tr>
+<td>Interface</td>
+<td><code>inputs</code>, <code>outputs</code></td>
+<td>Names and descriptions must be declared in
+<code>skill.yaml</code>.</td>
+</tr>
+<tr>
+<td>Provenance metadata</td>
+<td><code>refs</code></td>
+<td>Declared skill references; not the same as manuscript citation
+keys.</td>
+</tr>
+<tr>
+<td>Quality controls</td>
+<td><code>defensive_boundary</code>, <code>misuse_redirect</code>,
+<code>evidence_requirements</code>, <code>confidence_rubric</code>,
+<code>uncertainty_handling</code>,
+<code>privacy_legal_constraints</code>, <code>failure_modes</code>,
+<code>negative_controls</code></td>
+<td>Required by canonical definitions and surfaced in rendered skill
+files.</td>
+</tr>
+<tr>
+<td>Harness mapping</td>
+<td><code>harness</code></td>
+<td>Every harness in <code>H_cfg</code> must resolve to an adapter file
+whose first-column binding table covers <code>V_s</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="3.6"
+id="figure-guide-and-100-skill-taxonomy-snapshot"><span
+class="header-section-number">3.6</span> Figure Guide and 100-Skill
+Taxonomy Snapshot</h2>
+<p>The manuscript figures are organized from overview to contract
+detail. The current registry groups the 100 implemented skills into
+seven taxonomy groups. Those groups are not claimed to be a complete or
+mutually exclusive theory of cognitive security; they are a defensive
+coverage map spanning information disorder, source integrity, deception
+and counterintelligence, structured analysis, research synthesis, and
+information-environment coordination
+[wardleDerakhshan2017informationDisorder; ukmod2023jdp200;
+lazer2018fakeNews; ferrara2016socialBots;
+bradshawHoward2019globalDisinformation]. The taxonomy count chart
+answers “how much of the library is in each group?” The skill grid
+answers “can I see all 100 areas at once?” The verb heatmap answers
+“which groups use which neutral capabilities?” The AGEINT crosswalk
+answers “which teaching topics motivate which implementation groups?”
+The Reference Density figure answers “where is declared source backing
+deepest?” The Harness Contract figure answers “does every group maintain
+adapter coverage for the configured harness set?” The flow figure ties
+those views back to the source surfaces and gates. The count and grid
+figures below are generated from the same ordered registry rows used by
+the supplemental catalogue, so the visual order and group membership
+remain synchronized with the source tree.</p>
+<figure id="fig:taxonomy-counts">
+<img src="../figures/cogsecskills_taxonomy_counts.png"
+style="width:100.0%"
+alt="Figure 2: cogsecskills_taxonomy_counts.png: Ranked group-count chart for the 100 implemented skills. The figure proves the current registry distribution and declared reference depth by group; it does not measure group quality or operational security value." />
+<figcaption aria-hidden="true">Figure 2:
+cogsecskills_taxonomy_counts.png: Ranked group-count chart for the 100
+implemented skills. The figure proves the current registry distribution
+and declared reference depth by group; it does not measure group quality
+or operational security value.</figcaption>
+</figure>
+<figure id="fig:skill-grid">
+<img src="../figures/cogsecskills_skill_grid.png" style="width:100.0%"
+alt="Figure 3: cogsecskills_skill_grid.png: Full-library atlas showing all 100 registry skills in source order with taxonomy colors, boundaries, and source-order spans. The figure proves catalogue coverage and group ordering; it does not rank skills or indicate effectiveness." />
+<figcaption aria-hidden="true">Figure 3: cogsecskills_skill_grid.png:
+Full-library atlas showing all 100 registry skills in source order with
+taxonomy colors, boundaries, and source-order spans. The figure proves
+catalogue coverage and group ordering; it does not rank skills or
+indicate effectiveness.</figcaption>
+</figure>
+<hr />
+<h1 data-number="4" id="sec:methods"><span
+class="header-section-number">4</span> Source-Owned Skill Authoring and
+Manuscript Generation</h1>
+<h2 data-number="4.1"
+id="registry-to-definition-to-skill-construction"><span
+class="header-section-number">4.1</span> Registry-to-Definition-to-Skill
+Construction</h2>
+<p>The manuscript is generated and maintained from the same project
+surfaces that the CLI validates. The registry is loaded first so the
+catalogue order, group membership, status, and AGEINT topic remain the
+plan of record. Canonical definitions under <code>definitions/</code>
+own the skill substance; <code>definitions --write</code> renders those
+definitions into on-disk <code>skill.yaml</code>, <code>SKILL.md</code>,
+<code>workflow.md</code>, and harness adapters. The manuscript asset
+generator then joins the registry and rendered typed skill
+specifications by skill id and emits supplemental Markdown, compact JSON
+and CSV exports, body figures, and a title-page cover image that
+explains installation into an agent harness. This source-first approach
+follows the reproducibility principle that outputs should retain enough
+workflow, version, and source context to be regenerated and inspected
+[sandve2013reproducible; wilkinson2016fair].</p>
+<p>This source-first method prevents the manuscript from becoming a
+parallel catalogue. If skill substance changes,
+<code>cogsecskills definitions --check</code> proves the rendered skill
+tree still matches canonical YAML. If a skill name, trigger, tool verb,
+input, output, reference count, harness adapter, or source path changes,
+<code>cogsecskills manuscript-assets --check</code> detects drift in the
+generated manuscript inputs.</p>
+<h2 data-number="4.2" id="registry-to-adapter-authoring-pipeline"><span
+class="header-section-number">4.2</span> Registry-to-Adapter Authoring
+Pipeline</h2>
+<p>Skill implementation follows a conservative pipeline:</p>
+<ol type="1">
+<li>A row in <code>registry/skills.yaml</code> declares the intended
+skill area and group.</li>
+<li>A canonical definition under
+<code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code> declares the
+tool plan, triggers, inputs, outputs, workflow steps, defensive
+boundary, evidence discipline, uncertainty rules, failure modes, and
+negative controls.</li>
+<li><code>definitions --write</code> renders a skill directory under
+<code>skills/&lt;group&gt;/&lt;slug&gt;/</code> with
+<code>skill.yaml</code>, <code>SKILL.md</code>,
+<code>workflow.md</code>, and one adapter per configured harness.</li>
+<li><code>skill.yaml</code> carries the generated neutral verbs,
+triggers, inputs, outputs, references, and AGEINT topic.</li>
+<li>The validator checks that registry rows and implemented folders
+agree, that each adapter exists, and that tool verbs stay within the
+closed vocabulary.</li>
+<li>The doctor command applies quality linting for thin, generic,
+incomplete, or unsafe skill content, including missing safe defensive
+negative controls and weak evidence or uncertainty labeling.</li>
+<li>Tests exercise parsing, validation, definition drift, authoring,
+routing, reporting, configuration, and manuscript asset generation.</li>
+</ol>
+<p>The optional harness profile registry sits beside the skill registry
+but has a different function.
+<code>registry/harness_profiles.yaml</code> records documented external
+profiles such as <code>gemini_cli</code>, <code>github_copilot</code>,
+<code>devin_local</code>, <code>devin_cascade</code>,
+<code>cursor</code>, <code>cline</code>, <code>aider</code>,
+<code>continue</code>, <code>jetbrains_ai</code>,
+<code>openai_agents_sdk</code>, <code>langgraph</code>,
+<code>microsoft_agent_framework</code>, <code>autogen</code>,
+<code>crewai</code>, <code>pydantic_ai</code>, <code>mcp_host</code>,
+and <code>perplexity_research</code>. These are documented external
+profiles, not validation targets. A profile becomes one of the
+configured structural adapters only when its id is added to
+<code>cogsecskills.yaml</code>, the skill tree is regenerated, and the
+adapter files pass validation. The default adapters remain
+<code>claude</code>, <code>codex</code>, and <code>hermes</code>.
+Profile classes are deliberately separated: instruction-file products,
+IDE rule systems, terminal pair-programming tools, SDK frameworks, MCP
+hosts, and research companions require different integration reviews
+even when they share the same neutral skill files.</p>
+<h2 data-number="4.3"
+id="generated-supplement-and-figure-pipeline"><span
+class="header-section-number">4.3</span> Generated Supplement and Figure
+Pipeline</h2>
+<p><code>src/cogsecskills/artifacts/manuscript_assets/__init__.py</code>
+is the producer for the generated manuscript layer. Its outputs are
+intentionally committed as manuscript source inputs because they support
+review and PDF rendering, but they remain generated. The command
+writes:</p>
+<ul>
+<li><code>manuscript/S10_skill_catalogue.md</code>, a grouped catalogue
+of all skills with functionality, “Use when” text, verbs, inputs,
+outputs, AGEINT topic, reference count, and source path;</li>
+<li><code>manuscript/S11_skill_metadata_matrix.md</code>, a compact
+matrix view of group counts, verb usage, AGEINT crosswalks, harness
+coverage, and figure inventory;</li>
+<li><code>output/data/skill_catalogue.json</code> and
+<code>output/data/skill_catalogue.csv</code>, machine-readable exports
+of the same rows;</li>
+<li>deterministic PNG figures under <code>../figures/</code>, including
+manuscript body figures and the configured title-page installation
+cover.</li>
+</ul>
+<p>The generator treats static PNGs as the right output form because the
+manuscript is rendered to PDF and static web artifacts. Plot code uses
+explicit color maps for the seven real registry groups, direct labels
+where they reduce lookup, and subtitles that state the data scope. The
+chart data are not manually curated: counts, reference totals, harness
+coverage, AGEINT topics, verb matrices, and the install-cover skill
+counts are derived from the same <code>SkillRow</code> records used by
+the generated catalogue.</p>
+<h2 data-number="4.4" id="figure-question-and-claim-contract"><span
+class="header-section-number">4.4</span> Figure Question and Claim
+Contract</h2>
+<p>Each figure has a narrow analytical question. Taxonomy counts compare
+group size; the skill grid maps all 100 registry entries to one compact
+atlas; the verb heatmap counts closed-set tool verbs by group; the
+AGEINT crosswalk connects groups to teaching topics; the
+Plan/Build/Teach flow shows the source-to-render path; Reference Density
+compares declared source-reference backing; Harness Contract checks
+adapter coverage across the configured harness set, whose default is
+Claude, Codex, and Hermes; and the cover installation visual answers how
+a reader clones the public repository, validates it, and binds skills
+into an agent harness. These figures are descriptive views of the
+library metadata and installation contract. They do not measure field
+performance, adversary coverage, or user outcomes.</p>
+<p>Reference Density is defined here as declared references per
+implemented skill within a taxonomy group. For group <code>g</code> in
+set <code>G</code>,</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:reference-density}
+d_g := \frac{R_g}{N_g},
+\end{equation}\]</span></p>
+<p>where <code>R_g</code> is the total count of declared per-skill
+<code>refs</code> entries for implemented skills in <code>g</code>, and
+<code>N_g</code> is the number of implemented skills in <code>g</code>.
+The metric is metadata density, not evidence quality, empirical
+validity, or a proxy for operational effectiveness.</p>
+<h2 data-number="4.5" id="local-verification-gates"><span
+class="header-section-number">4.5</span> Local Verification Gates</h2>
+<p>The local gate sequence is designed to catch different failure
+classes: <code>definitions --check</code> catches canonical-definition
+and rendered-skill drift, <code>validate</code> catches structural
+contract drift, <code>report</code> summarizes implementation status,
+<code>doctor</code> catches weak, generic, or incomplete skill content,
+<code>pytest</code> catches regression bugs,
+<code>manuscript-assets --check</code> catches generated-manuscript
+drift, and the sibling template renderer catches Markdown and PDF
+integration failures.</p>
+<p>The stricter quality checks are deliberately local and textual. They
+require each canonical definition to include a defensive boundary,
+misuse redirect, evidence discipline, confidence rubric, uncertainty
+handling, privacy/legal constraints, failure modes, and negative
+controls. For sensitive skills, a generic safety sentence is
+insufficient: the negative controls must include an unsafe request
+redirected away from abuse, a safe defensive request pattern, wording
+specific to the skill, and no reused individual negative-control entry
+across the corpus. The same specificity pressure now applies to
+confidence rubrics, evidence requirements, and privacy/legal
+constraints: exact reused entries and group-only boilerplate fail the
+definition and doctor gates. Evidence requirements must distinguish
+evidence from inference, and uncertainty handling must preserve unknowns
+and credible alternatives. These checks raise the floor for the 100
+rendered skills without claiming that the text has been
+field-validated.</p>
+<p>The figure tests intentionally cover the inventory and palette
+contract as well as file existence. A missing generated PNG is easy to
+detect, but a stale palette can be more subtle: if the registry adds or
+renames a group, the visual system must be updated deliberately rather
+than silently falling back to an unrelated color.</p>
+<hr />
+<h1 data-number="5" id="sec:artifacts_evidence"><span
+class="header-section-number">5</span> Evidence Surfaces, Generated
+Views, and Claim Discipline</h1>
+<h2 data-number="5.1" id="claim-support-surfaces"><span
+class="header-section-number">5.1</span> Claim-Support Surfaces</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code></td>
+<td>Enumerates the 100 skill areas and their implementation status.</td>
+</tr>
+<tr>
+<td><code>registry/groups.yaml</code></td>
+<td>Defines the seven taxonomy groups used by the catalogue and
+figures.</td>
+</tr>
+<tr>
+<td><code>definitions/**.yaml</code></td>
+<td>Owns canonical skill substance, workflow steps, quality controls,
+and negative controls.</td>
+</tr>
+<tr>
+<td><code>skills/**/skill.yaml</code></td>
+<td>Declares the harness-neutral contract for each implemented
+skill.</td>
+</tr>
+<tr>
+<td><code>skills/**/SKILL.md</code> and <code>workflow.md</code></td>
+<td>Provide the human-facing skill description and neutral
+procedure.</td>
+</tr>
+<tr>
+<td><code>skills/**/harness/*.md</code></td>
+<td>Bind the neutral verbs to every configured harness; the default set
+is Claude, Codex, and Hermes.</td>
+</tr>
+<tr>
+<td><code>scenarios/defensive_readiness.yaml</code></td>
+<td>Curated safe-use, unsafe-redirect, expected-response, and
+expected-answer fixtures used by the deterministic scenario-readiness
+gate.</td>
+</tr>
+<tr>
+<td><code>examples/skill-worked-examples.yaml</code></td>
+<td>Source-owned deterministic worked examples, one per implemented
+skill.</td>
+</tr>
+<tr>
+<td><code>docs/skill-worked-examples.md</code> and
+<code>output/data/skill_worked_examples.json</code></td>
+<td>Generated worked-example views for all 100 skills.</td>
+</tr>
+<tr>
+<td><code>docs/quality-dashboard.md</code> and
+<code>output/data/quality_dashboard.json</code></td>
+<td>Generated dashboard and machine-readable snapshot over all 100
+skills, quality capsules, scenario coverage, worked-example coverage,
+harnesses, references, claim-boundary status, and verified-state
+rows.</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Supplies the educational upstream used for AGEINT topic
+alignment.</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Owns parsing, validation, reporting, routing, quality linting,
+scenario checking, and manuscript asset generation.</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Guards parser, authoring, validation, reporting, routing,
+configuration, scenario checking, and manuscript generator
+behavior.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="5.2" id="generated-figure-evidence"><span
+class="header-section-number">5.2</span> Generated Figure Evidence</h2>
+<p>The figure set is generated from the live registry and skill
+metadata. The taxonomy count and skill grid figures show library
+coverage at a glance. The verb heatmap shows how neutral tool
+capabilities are distributed by group. The AGEINT network shows how
+group membership connects to teaching topics. The Reference Density
+figure shows where declared source-reference backing is concentrated,
+and the Harness Contract figure shows whether the configured harness
+adapters cover every group. The flow figure in fig. 1 shows how the
+source surfaces, gates, and manuscript assets fit together. The
+title-page cover image is also generated: it shows the public GitHub
+install path, validation command, route command, and harness-binding
+files a reader needs to connect CogSecSkills to an agent harness.</p>
+<p>The figures should be read as descriptive system views. They are
+strong evidence for what is implemented, declared, generated,
+installable, and checked in the local project. They are not evidence
+that any specific defensive workflow will succeed in an operational
+setting. That distinction is important because visual polish can
+otherwise make metadata counts or installation diagrams feel like
+empirical validation.</p>
+<figure id="fig:verb-heatmap">
+<img src="../figures/cogsecskills_verb_heatmap.png" style="width:100.0%"
+alt="Figure 4: cogsecskills_verb_heatmap.png: Group-by-tool-verb heatmap over the closed neutral verb vocabulary. Use this figure to see which taxonomy groups require mostly reading and reasoning and which groups invoke web, search, delegation, or execution support. The figure proves declared capability distribution in source metadata; it does not prove that any agent used those tools successfully." />
+<figcaption aria-hidden="true">Figure 4: cogsecskills_verb_heatmap.png:
+Group-by-tool-verb heatmap over the closed neutral verb vocabulary. Use
+this figure to see which taxonomy groups require mostly reading and
+reasoning and which groups invoke web, search, delegation, or execution
+support. The figure proves declared capability distribution in source
+metadata; it does not prove that any agent used those tools
+successfully.</figcaption>
+</figure>
+<figure id="fig:ageint-network">
+<img src="../figures/cogsecskills_ageint_network.png"
+style="width:100.0%"
+alt="Figure 5: cogsecskills_ageint_network.png: Group-to-AGEINT-topic crosswalk with count-weighted links. Use this figure to move from a library group to the AGEINT teaching topics that explain why the skills exist. The figure proves declared teaching alignment for the current catalogue; it does not make a pedagogical or empirical learning-outcome claim." />
+<figcaption aria-hidden="true">Figure 5:
+cogsecskills_ageint_network.png: Group-to-AGEINT-topic crosswalk with
+count-weighted links. Use this figure to move from a library group to
+the AGEINT teaching topics that explain why the skills exist. The figure
+proves declared teaching alignment for the current catalogue; it does
+not make a pedagogical or empirical learning-outcome claim.</figcaption>
+</figure>
+<figure id="fig:reference-density">
+<img src="../figures/cogsecskills_reference_density.png"
+style="width:100.0%"
+alt="Figure 6: cogsecskills_reference_density.png: Declared references per implemented skill by taxonomy group. Use this figure to spot where source-reference metadata is concentrated and where future bibliography or source-curation work may be useful. The figure proves metadata density in skill.yaml; it does not grade evidence quality, citation authority, or operational validity." />
+<figcaption aria-hidden="true">Figure 6:
+cogsecskills_reference_density.png: Declared references per implemented
+skill by taxonomy group. Use this figure to spot where source-reference
+metadata is concentrated and where future bibliography or
+source-curation work may be useful. The figure proves metadata density
+in <code>skill.yaml</code>; it does not grade evidence quality, citation
+authority, or operational validity.</figcaption>
+</figure>
+<figure id="fig:harness-contract">
+<img src="../figures/cogsecskills_harness_contract.png"
+style="width:100.0%"
+alt="Figure 7: cogsecskills_harness_contract.png: Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes. Use this figure before installing the library into an agent harness to see, at a glance, that every group declares the configured-harness adapters. The cells count skills that declare an adapter for each configured harness, by group and as whole-library totals; the stronger invariants — that each declared adapter file exists on disk and that its binding table covers every verb the skill uses — are enforced separately by validate and the conformance suite, not by this figure. The figure does not claim behavioral success for any external runtime." />
+<figcaption aria-hidden="true">Figure 7:
+cogsecskills_harness_contract.png: Adapter coverage scorecard for the
+configured harness set, defaulting to Claude, Codex, and Hermes. Use
+this figure before installing the library into an agent harness to see,
+at a glance, that every group declares the configured-harness adapters.
+The cells count skills that <em>declare</em> an adapter for each
+configured harness, by group and as whole-library totals; the stronger
+invariants — that each declared adapter file exists on disk and that its
+binding table covers every verb the skill uses — are enforced separately
+by <code>validate</code> and the conformance suite, not by this figure.
+The figure does not claim behavioral success for any external
+runtime.</figcaption>
+</figure>
+<p>The Reference Density view complements the catalogue because it makes
+source backing visible by group rather than by individual row. The
+Harness Contract view complements the validator because it presents
+configured-harness adapter coverage in the reader’s visual path,
+including Codex and Hermes in the default set rather than treating them
+as secondary implementation details.</p>
+<p>Per-skill <code>refs</code> counts are metadata fields declared in
+<code>skill.yaml</code>; they are not equivalent to resolved citation
+markers in the manuscript bibliography. The manuscript-level
+bibliography supports external concepts, standards, and methods that
+appear in the prose, while per-skill <code>refs</code> support local
+navigation and source-backlog discipline inside the library.</p>
+<h2 data-number="5.3"
+id="generated-catalogue-and-matrix-supplements"><span
+class="header-section-number">5.3</span> Generated Catalogue and Matrix
+Supplements</h2>
+<p>The two generated supplemental sections make the library navigable
+without requiring the reader to open 100 folders. sec. 11 lists every
+skill with one-line functionality and use conditions. sec. 12 summarizes
+the same data as matrices and points back to the figure files. Both
+sections carry a generated-file header and should be refreshed with
+<code>python -m cogsecskills manuscript-assets --write</code>.</p>
+<p>The catalogue includes both broad analytic methods and concrete
+defensive checks: for example,
+<code>osint_integrity.claim_provenance_verification</code> appears as
+Claim Provenance Verification, with its use conditions, neutral verbs,
+AGEINT topic, reference count, and source path generated from the live
+skill metadata.</p>
+<h2 data-number="5.4"
+id="per-skill-quality-audit-and-anti-boilerplate-checks"><span
+class="header-section-number">5.4</span> Per-Skill Quality Audit and
+Anti-Boilerplate Checks</h2>
+<p>The skill-quality surface is now source-owned rather than a
+prose-only governance promise. Every canonical definition must carry the
+same required quality bundle: defensive boundary, misuse redirect,
+evidence requirements, confidence rubric, uncertainty handling,
+privacy/legal constraints, failure modes, and negative controls. The
+renderer places those fields into the skill files, while
+<code>definitions --check</code>, <code>doctor</code>, and the pytest
+contract suite check that the rendered tree and manuscript views remain
+synchronized with the definitions.</p>
+<p>The audit is intentionally stricter than checking whether a safety
+heading exists. It rejects negative controls that only repeat generic
+boilerplate, requires both an unsafe redirect and a safe defensive
+request pattern, requires each definition to include skill-specific
+unsafe and safe examples, and rejects reused individual negative-control
+entries across the corpus. It also rejects repeated confidence-rubric,
+evidence-requirement, and privacy/legal entries, requires evidence
+requirements to label evidence and inference, and requires uncertainty
+handling to preserve unknowns and credible alternatives. A
+cognitive-security manipulation skill, an OSINT geolocation skill, a
+counterintelligence elicitation skill, and a structured analytic
+technique should therefore carry different governance language even
+though they share the same defensive contract shape.</p>
+<p>This is a local quality gate, not a safety proof. It can show that
+all 100 skills include group-aware defensive boundaries, skill-specific
+and non-reused confidence, evidence, privacy/legal, and negative-control
+entries, evidence labeling, and uncertainty discipline in the current
+repository state. It cannot prove that every future user, external
+model, or organizational deployment will interpret the skill
+correctly.</p>
+<h2 data-number="5.5"
+id="evidence-ladder-and-scenario-readiness-gate"><span
+class="header-section-number">5.5</span> Evidence Ladder and Scenario
+Readiness Gate</h2>
+<p>The evidence ladder adds two levels above static corpus inspection.
+<code>scenarios/defensive_readiness.yaml</code> contains 28 curated
+fixtures: two safe defensive requests and two unsafe refusal/redirect
+probes for each of the seven groups.
+<code>python -m cogsecskills scenarios --check</code> loads those
+fixtures, runs the local router, confirms the expected implemented skill
+appears in the top route matches, checks declared output terms, verifies
+the fixture’s expected defensive response shape, verifies reviewed
+expected-answer sections and all-2 rubric scores, verifies quality terms
+such as defensive boundary, evidence/inference labeling, unknowns,
+alternatives, safe defensive examples, and unsafe refusal/redirect
+markers, and rejects fixture or expected-answer wording that embeds
+operational misuse detail.</p>
+<p><code>examples/skill-worked-examples.yaml</code> adds one reviewed
+local worked example per skill.
+<code>python -m cogsecskills examples --check</code> verifies exact
+100-skill coverage, defensive evidence/inference/gap labeling,
+confidence and uncertainty language, declared-output references, local
+fixture provenance, absence of operational misuse wording, and generated
+Markdown/JSON freshness. These examples are expected-answer shapes, not
+live model transcripts.</p>
+<p>These gates are deliberately deterministic. They do not ask Claude,
+Codex, Hermes, Gemini, a browser, an OSINT connector, or any live
+platform to perform the task. Their claim is narrower and more useful
+for a repository manuscript: curated defensive scenarios and worked
+examples can still be mapped to concrete skill contracts, and the
+referenced skills expose the local metadata an agent harness needs to
+stay bounded. The gates do not show that a live runtime will select the
+same skill, use tools correctly, or produce a high-quality answer in the
+field.</p>
+<h2 data-number="5.6" id="live-quality-and-coverage-dashboard"><span
+class="header-section-number">5.6</span> Live Quality and Coverage
+Dashboard</h2>
+<p><code>python -m cogsecskills dashboard --write</code> generates
+<code>docs/quality-dashboard.md</code>,
+<code>docs/quality-dashboard.html</code>, and
+<code>output/data/quality_dashboard.json</code>. The dashboard gives
+readers a compact row for every implemented skill: group, verbs,
+configured harnesses, reference count, quality-capsule presence,
+scenario coverage, worked-example coverage, local claim-boundary status,
+and source path. The static HTML view is a dependency-free reader
+surface for scanning the same payload with responsive tables and print
+styling. It also surfaces the 28 scenario fixtures, their
+expected-answer section titles, the 100 worked examples, and the latest
+verified-state lines from <code>TODO.md</code>.</p>
+<p>The dashboard is useful for review because it turns the corpus into a
+scanable drift surface. Missing scenario coverage, missing worked
+examples, missing quality capsules, stale generated files, or missing
+verified-state rows make <code>dashboard --check</code> fail. It is not
+a benchmark, user study, or live harness transcript; it is a generated
+view of repository-local evidence.</p>
+<h2 data-number="5.7" id="comparative-scholarship-map"><span
+class="header-section-number">5.7</span> Comparative Scholarship
+Map</h2>
+<p>External scholarship is used here to position the system, not to
+validate its effectiveness. The table below maps each literature spine
+to the local manuscript claim it supports and the claim it does not
+support.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Literature spine</th>
+<th>Supports in this manuscript</th>
+<th>Does not support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intelligence analysis, structured techniques, and estimative
+language [heuer1999psychology; heuerPherson2019structured;
+kent1964estimativeProbability; ukmod2023jdp200]</td>
+<td>The need for explicit analytic procedure, confidence discipline, and
+decision-support boundaries.</td>
+<td>That CogSecSkills improves analyst judgment in practice.</td>
+</tr>
+<tr>
+<td>Information disorder, false-news diffusion, correction, and
+inoculation [wardleDerakhshan2017informationDisorder;
+vosoughi2018spread; lewandowsky2012misinformationCorrection;
+roozenbeek2022inoculation; lazer2018fakeNews]</td>
+<td>The relevance of defensive skills for mis-, dis-, and
+malinformation, corrective reasoning, and resilience-oriented
+analysis.</td>
+<td>That the library reduces misinformation spread or changes user
+beliefs.</td>
+</tr>
+<tr>
+<td>Source evaluation, social bots, computational propaganda, and
+coordinated manipulation [wineburg2019lateralReading;
+ferrara2016socialBots; woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation]</td>
+<td>The need to analyze sources, lateral corroboration, account ecology,
+automation, and coordination rather than content alone.</td>
+<td>That the skills detect live campaigns, bots, or coordinated activity
+with validated accuracy.</td>
+</tr>
+<tr>
+<td>Synthetic media and provenance standards [mirskyLee2021deepfakes;
+c2pa2026spec]</td>
+<td>The need for authenticity-aware media review and explicit
+content-provenance metadata in source-integrity work.</td>
+<td>That C2PA metadata or this library proves authenticity, detects
+deepfakes, or replaces forensic analysis.</td>
+</tr>
+<tr>
+<td>LLM reasoning/action and tool-use systems [yao2022react;
+schick2023toolformer]</td>
+<td>The positioning of CogSecSkills as a validated interface between
+reasoning, tool verbs, and harness-specific adapters.</td>
+<td>That any configured model runtime will choose or execute tools
+correctly in the field.</td>
+</tr>
+<tr>
+<td>Reproducible research software, FAIR stewardship, and software
+citation [sandve2013reproducible; wilkinson2016fair;
+smith2016softwareCitation]</td>
+<td>The source-owned definition layer, generated supplements, release
+manifest, and citable software boundary.</td>
+<td>That local reproducibility proves empirical security efficacy.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="5.8" id="claim-support-rules"><span
+class="header-section-number">5.8</span> Claim Support Rules</h2>
+<p>A claim is manuscript-ready only when it has one of the following
+support types:</p>
+<ul>
+<li>A passing test or validator command.</li>
+<li>A generated output with a deterministic producer.</li>
+<li>A source ledger, manifest, or configuration file.</li>
+<li>A resolved entry in <code>references.bib</code> for external
+literature.</li>
+</ul>
+<p>This pass intentionally keeps external scholarly claims bounded. The
+manuscript therefore emphasizes local structure, implementation status,
+reproducibility, and visualization rather than empirical effectiveness
+or deployment outcomes. When external context is needed, citations are
+used for problem framing, agent-interface positioning, reproducibility
+and software-citation norms, AGEINT, structured analytic techniques,
+named defensive methods, information-environment scholarship, provenance
+standards, and official doctrine rather than for unsupported performance
+claims [sandve2013reproducible; smith2016softwareCitation; ageint2026;
+wardleDerakhshan2017informationDisorder; yao2022react].</p>
+<hr />
+<h1 data-number="6" id="sec:reproducibility"><span
+class="header-section-number">6</span> Reproducibility, Local
+Verification, and Render Gates</h1>
+<h2 data-number="6.1"
+id="project-local-asset-and-validation-commands"><span
+class="header-section-number">6.1</span> Project-Local Asset and
+Validation Commands</h2>
+<p>Run project-local gates from a checked-out CogSecSkills project
+root:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PROJECT_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${PROJECT_ROOT</span><span class="op">:-</span>/path/to/CogSecSkills<span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills definitions <span class="at">--write</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills definitions <span class="at">--check</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills scenarios <span class="at">--check</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills examples <span class="at">--write</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills examples <span class="at">--check</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills dashboard <span class="at">--write</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills dashboard <span class="at">--check</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills manuscript-assets <span class="at">--write</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills manuscript-assets <span class="at">--check</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills validate</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills report</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> cogsecskills doctor</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="va">PYTHONPATH</span><span class="op">=</span><span class="st">&quot;src:.&quot;</span> <span class="ex">python</span> <span class="at">-m</span> pytest tests/test_cogsecskills_<span class="pp">*</span>.py tests/test_skill_library_conformance.py <span class="at">--cov</span><span class="op">=</span>src/cogsecskills <span class="at">--cov-report</span><span class="op">=</span>term-missing</span></code></pre></div>
+<p><code>definitions --write</code> must run before rendering whenever
+skill substance or configured harnesses change.
+<code>definitions --check</code> should then pass before manuscript
+assets are regenerated. <code>scenarios --check</code> should pass
+before treating curated safe-use, unsafe-redirect, expected
+response-shape, and expected-answer fixtures as current.
+<code>examples --write</code> and <code>examples --check</code> keep the
+generated 100-skill worked-example views synchronized with their source
+YAML. <code>dashboard --write</code> should run after TODO, scenario,
+example, registry, or skill metadata changes, and
+<code>dashboard --check</code> should then pass before the Markdown,
+HTML, and JSON dashboard views are treated as current.
+<code>release-metadata --write</code> keeps committed release metadata
+deterministic by omitting exact git revision, branch, and dirty-state
+values from drift-checked files; those values are runtime observations
+used by stricter release modes. <code>manuscript-assets --write</code>
+must run before rendering whenever registry or rendered skill metadata
+changes. <code>manuscript-assets --check</code> should then pass with no
+findings; otherwise the committed manuscript sources and figures no
+longer match the live library.</p>
+<h2 data-number="6.2" id="template-markdownpdf-render-commands"><span
+class="header-section-number">6.2</span> Template Markdown/PDF Render
+Commands</h2>
+<p>Render and validate the manuscript through the sibling template
+checkout. Use repository-relative paths or environment variables; do not
+rely on author-local absolute filesystem paths.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PROJECT_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${PROJECT_ROOT</span><span class="op">:-</span>/path/to/CogSecSkills<span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">TEMPLATE_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${TEMPLATE_ROOT</span><span class="op">:-</span>/path/to/template<span class="va">}</span><span class="st">&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">&quot;</span><span class="va">${TEMPLATE_ROOT}</span><span class="st">&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python <span class="at">-m</span> infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python scripts/03_render_pdf.py <span class="at">--project</span> working/CogSecSkills</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pdftotext</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/CogSecSkills_combined.pdf&quot;</span> <span class="at">-</span> <span class="kw">|</span> <span class="ex">rg</span> <span class="st">&quot;References|Supplemental 100-Skill Catalogue|Use when|Claim Provenance Verification|Taxonomy|Reference Density|Harness Contract|Evidence Ladder|Skill Worked Examples|Scenario Readiness|expected answers|Quality Dashboard|Release Manifest&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">rg</span> <span class="at">-n</span> <span class="st">&quot;Citation .*undefined|undefined references|LaTeX Warning: Reference.*undefined|Missing character|Package .* Error|File .* not found&quot;</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/_combined_manuscript.log&quot;</span></span></code></pre></div>
+<p>The final <code>rg</code> command is expected to produce no matches.
+A nonzero exit status from that command is acceptable when it means the
+searched error strings were absent. Avoid broad <code>not found</code>
+log searches because some LaTeX packages emit benign informational lines
+such as <code>pdfdraftmode not found</code>.</p>
+<h2 data-number="6.3" id="traceability-and-render-contract"><span
+class="header-section-number">6.3</span> Traceability and Render
+Contract</h2>
+<ul>
+<li>Do not cite results that cannot be regenerated or directly
+traced.</li>
+<li>Keep generated outputs under <code>output/</code> and manuscript
+source under <code>manuscript/</code>.</li>
+<li>Keep private data, credentials, and unpublished sensitive details
+out of the manuscript.</li>
+<li>Treat <code>scenarios/defensive_readiness.yaml</code> as a curated
+local fixture set for route, quality-contract, and expected-answer
+readiness, not as empirical validation.</li>
+<li>Treat <code>examples/skill-worked-examples.yaml</code>,
+<code>docs/skill-worked-examples.md</code>, and
+<code>output/data/skill_worked_examples.json</code> as deterministic
+local worked-example fixtures, not live model transcripts.</li>
+<li>Treat <code>docs/quality-dashboard.md</code> and
+<code>output/data/quality_dashboard.json</code> as generated navigation
+and drift surfaces, not as field-effectiveness evidence.</li>
+<li>Treat <code>manuscript/S10_skill_catalogue.md</code>,
+<code>manuscript/S11_skill_metadata_matrix.md</code>,
+<code>output/data/skill_catalogue.*</code>, and the eight
+<code>../figures/*.png</code> manuscript figures as generated from
+source-owned inputs.</li>
+<li>Record exact verification command results before making release or
+publication claims.</li>
+<li>Keep repository URL, version, license, source revision, environment
+versions, lockfile presence, figure inventory, and gate results current
+in sec. 10 before representing the manuscript as a release snapshot
+[smith2016softwareCitation].</li>
+</ul>
+<p>The narrow PDF margin is part of the render contract because the
+generated catalogue and metadata matrix are table-heavy. Any future
+margin change should be checked in the rendered PDF, not only in
+Markdown, so long labels, figure captions, and long-table cells remain
+readable.</p>
+<hr />
+<h1 data-number="7" id="sec:limitations_next_steps"><span
+class="header-section-number">7</span> Evidence Boundaries, Defensive
+Governance, and Next Steps</h1>
+<h2 data-number="7.1"
+id="local-conformance-is-not-field-validation"><span
+class="header-section-number">7.1</span> Local Conformance Is Not Field
+Validation</h2>
+<p>The current evidence is local conformance evidence. It supports
+claims about the registry, implemented skill count, harness adapter
+presence, generated figures, generated supplements, curated defensive
+scenario fixtures, and project-local verification gates. It does not
+establish real-world operational effectiveness, adversary coverage, user
+outcomes, or comparative superiority over other skill libraries.</p>
+<p>The library is defensive by contract and review rather than by a
+complete formal safety proof. Skill text, harness adapters, scenarios,
+and AGEINT material still require human review when the library is
+adapted to a new organization, workflow, or model runtime. The current
+gates can detect missing files, invalid verbs, stale generated assets,
+thin content, generic negative controls, repeated individual
+negative-control entries, repeated confidence/evidence/privacy
+boilerplate, missing safe defensive request patterns, weak evidence or
+uncertainty labeling, and curated safe-use or unsafe-redirect scenario
+drift, but they cannot prove that every future use remains within a
+defensive analytic frame.</p>
+<p>The manuscript now includes a verified bibliography for
+reproducibility norms, software citation, AGEINT, structured analytic
+techniques, information disorder, misinformation diffusion and
+correction, computational propaganda, social bots, deepfakes, provenance
+standards, LLM tool-use systems, selected named methods, and official
+reliability-grading doctrine. It still avoids new empirical claims:
+citation support for a named method or problem domain is not evidence
+that this library implements that method effectively in operational
+settings.</p>
+<p>The visualizations have the same boundary. They make the library
+easier to inspect, but they do not transform metadata into empirical
+evidence. A complete heatmap cell means a verb is declared in source; a
+complete Harness Contract cell means the adapter file is present and
+bound; a higher Reference Density value means more declared references
+in the skill metadata. None of those observations prove that a future
+user will choose the right skill, interpret evidence correctly, obtain a
+better security outcome, detect a live bot campaign, or authenticate
+synthetic media.</p>
+<h2 data-number="7.2" id="defensive-governance-review-rules"><span
+class="header-section-number">7.2</span> Defensive Governance Review
+Rules</h2>
+<p>The defensive boundary is enforced by source review and manuscript
+claim discipline rather than by a complete formal safety proof. The
+following table is the minimum review rule-set for dual-use skill text
+and adapter wording.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Risk surface</th>
+<th>Disallowed output</th>
+<th>Allowed defensive transformation</th>
+<th>Review failure condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persuasion or influence</td>
+<td>Instructions to manipulate, target, coerce, or exploit an
+audience.</td>
+<td>Analysis that identifies persuasion tactics, vulnerabilities, or
+safeguards.</td>
+<td>Skill text tells an operator how to increase manipulative
+impact.</td>
+</tr>
+<tr>
+<td>Deception and impersonation</td>
+<td>Fabricated personas, deceptive outreach scripts, or concealment
+advice.</td>
+<td>Detection, provenance tracing, and defensive response planning.</td>
+<td>Adapter wording enables deception rather than analyzing it.</td>
+</tr>
+<tr>
+<td>OSINT and source work</td>
+<td>Doxing, evasion, account compromise, or harassment workflows.</td>
+<td>Public-source verification, citation repair, and source-quality
+assessment.</td>
+<td>Workflow asks for private data collection or bypass behavior.</td>
+</tr>
+<tr>
+<td>Counter-messaging</td>
+<td>Engagement playbooks that optimize emotional pressure or behavior
+change.</td>
+<td>Prebunking, inoculation, and audience-protection framing bounded to
+education.</td>
+<td>Output becomes an influence campaign plan rather than a defensive
+brief.</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Autonomous execution against people, platforms, or live
+targets.</td>
+<td>Human-reviewed checklists, audit notes, and bounded evidence
+summaries.</td>
+<td>Skill removes human review from high-impact or dual-use steps.</td>
+</tr>
+</tbody>
+</table>
+<p>Any skill or adapter that crosses those lines should fail review even
+if it passes structural validation. The current validator can prove file
+and schema conformance; it cannot prove future defensive intent
+[ageint2026].</p>
+<h2 data-number="7.3" id="evidence-and-quality-next-steps"><span
+class="header-section-number">7.3</span> Evidence and Quality Next
+Steps</h2>
+<ol type="1">
+<li>Expand scenario-based evaluation tasks from deterministic
+route/contract readiness into richer analyst-output review fixtures
+without converting defensive tradecraft into offensive playbooks.</li>
+<li>Add richer manuscript variables if future prose needs run-derived
+values beyond the generated catalogue and matrices.</li>
+<li>Extend the doctor checks when repeated review findings expose new
+quality failure modes.</li>
+<li>Add verified citations only when external context is necessary and
+the source boundary is clear.</li>
+<li>Keep the generated supplements and figures in the render gate so
+readers see the same library state that validation checked.</li>
+<li>Add figure-level regression checks when future charts begin encoding
+more complex relationships than counts, coverage, and crosswalks.</li>
+</ol>
+<p>Future evaluation should be split into three lanes. The first lane is
+repository integrity: definition drift, adapter coverage, citation
+resolution, render reproducibility, and release-manifest accuracy. The
+second lane is analyst usability and output quality: whether users can
+choose the right skill, follow the workflow, express uncertainty
+clearly, and produce auditable defensive outputs. The third lane is
+adversarial realism: scenario tasks involving misinformation correction,
+coordinated amplification, computational propaganda, and synthetic-media
+provenance, designed so they test defensive recognition and mitigation
+without generating offensive playbooks
+[lewandowsky2012misinformationCorrection; ferrara2016socialBots;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes;
+c2pa2026spec].</p>
+<h2 data-number="7.4" id="publication-claim-boundary"><span
+class="header-section-number">7.4</span> Publication Claim Boundary</h2>
+<p>The manuscript should remain a skills-system report until additional
+evidence exists. Local readiness means the source files, generated
+assets, and render gates agree; it should not be represented as field
+validation, public release readiness, or empirical proof of
+cognitive-security efficacy.</p>
+<hr />
+<h1 data-number="8" id="sec:ethics_responsible_use"><span
+class="header-section-number">8</span> Ethics, Dual-Use, and Responsible
+Use</h1>
+<p>Cognitive-security tradecraft is dual-use. The same techniques that
+let a defender recognize a coordinated influence operation, grade a
+source, or triage synthetic media can, if inverted, describe how to run
+such an operation. This section states the project’s ethical posture
+explicitly so that reviewers and adopters do not have to infer it.</p>
+<h2 data-number="8.1" id="dual-use-stance-and-defensive-framing"><span
+class="header-section-number">8.1</span> Dual-Use Stance and Defensive
+Framing</h2>
+<p>CogSecSkills is scoped to the <em>defensive recognition, assessment,
+documentation, and mitigation</em> side of every technique it
+implements. The library contains no offensive playbooks: it does not
+author manipulation campaigns, fabricate personas, optimize emotional
+pressure, plan harassment or doxing, or remove human review from
+high-impact action. Each skill carries an explicit defensive boundary, a
+misuse-redirect clause that refuses the offensive inverse and points
+back to the defensive form, and negative-control examples that pair an
+unsafe request with the safe defensive pattern it should be redirected
+to. These are not manuscript assertions; they are fields enforced per
+skill by the quality linter (<code>doctor</code>) and visible in the
+generated worked examples and quality dashboard.</p>
+<h2 data-number="8.2" id="defensive-by-contract-and-review"><span
+class="header-section-number">8.2</span> Defensive by Contract and
+Review</h2>
+<p>The defensive boundary is held by two mechanisms working together.
+The first is structural: the validator proves file and schema
+conformance, verb legality, adapter coverage, and the presence of the
+defensive quality bundle on every skill. The second is human review: the
+governance rule-set in sec. 7 defines, per risk surface, the disallowed
+output, the allowed defensive transformation, and the review-failure
+condition, and any skill or adapter that crosses those lines should fail
+review even when it passes structural validation. The structural gate
+can prove that the defensive bundle exists; it cannot prove future
+defensive intent [ageint2026]. Responsibility for that judgment stays
+with the maintainers and with anyone who adapts the library to a new
+organization or runtime.</p>
+<h2 data-number="8.3" id="human-subjects-and-institutional-scope"><span
+class="header-section-number">8.3</span> Human-Subjects and
+Institutional Scope</h2>
+<p>This work is open-source software with no human-subjects component.
+The scenario fixtures are curated, deterministic route-and-contract
+checks, and the worked examples are expected-answer shapes; neither is a
+live model evaluation, a study of human participants, or a record of
+operational use. No institutional review was required, and no personal
+data was collected or processed in producing the library, the
+manuscript, or its generated supplements.</p>
+<h2 data-number="8.4"
+id="responsibilities-of-adopters-and-operators"><span
+class="header-section-number">8.4</span> Responsibilities of Adopters
+and Operators</h2>
+<p>The library is provided under the Apache License 2.0, on an as-is
+basis, for defensive analytic work. Adopters remain responsible for
+using it within applicable law and platform terms, for keeping human
+review on dual-use and high-impact steps, for not repurposing defensive
+recognition skills into influence, surveillance, or harassment
+workflows, and for re-running the conformance and quality gates whenever
+skills are modified or extended. Distribution of the skills to a new
+harness does not transfer the defensive judgment those gates cannot
+encode; that judgment travels with the operator.</p>
+<h2 data-number="8.5" id="what-this-section-does-not-claim"><span
+class="header-section-number">8.5</span> What This Section Does Not
+Claim</h2>
+<p>Stating a defensive posture is not the same as proving safety. The
+gates and the review rule-set reduce the risk that the library ships
+offensive content or silently drifts; they do not guarantee that every
+downstream use remains defensive, nor do they make any claim about field
+effectiveness, which is out of scope for the current local evidence base
+(see sec. 7).</p>
+<hr />
+<h1 data-number="9" id="sec:source_surface"><span
+class="header-section-number">9</span> Supplemental Claim-Provenance
+Source Map</h1>
+<p>This supplement records the source surfaces that own manuscript
+claims. Use it as the quick provenance map before editing prose,
+generated supplements, figures, or verification statements.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code></td>
+<td>Catalogue plan: skill ids, names, groups, status, summaries, and
+AGEINT topics.</td>
+</tr>
+<tr>
+<td><code>registry/groups.yaml</code></td>
+<td>Taxonomy plan: group ids and display titles.</td>
+</tr>
+<tr>
+<td><code>skills/**/skill.yaml</code></td>
+<td>Skill build contract: triggers, verbs, inputs, outputs, references,
+and harness paths.</td>
+</tr>
+<tr>
+<td><code>skills/**/SKILL.md</code></td>
+<td>Harness-facing one-skill description and “when to use”
+guidance.</td>
+</tr>
+<tr>
+<td><code>skills/**/workflow.md</code></td>
+<td>Harness-neutral step procedure and anti-criteria.</td>
+</tr>
+<tr>
+<td><code>skills/**/harness/*.md</code></td>
+<td>Adapter bindings for every configured harness; the default set is
+Claude, Codex, and Hermes.</td>
+</tr>
+<tr>
+<td><code>scenarios/defensive_readiness.yaml</code></td>
+<td>Curated safe-use, unsafe-redirect, expected response-shape, and
+expected-answer fixtures for deterministic scenario readiness.</td>
+</tr>
+<tr>
+<td><code>examples/skill-worked-examples.yaml</code></td>
+<td>Source-owned deterministic worked examples, one per skill.</td>
+</tr>
+<tr>
+<td><code>examples/</code></td>
+<td>Local non-secret harness smoke transcripts, group examples, and
+source worked examples; these are fixtures, not live runtime
+evidence.</td>
+</tr>
+<tr>
+<td><code>docs/skill-worked-examples.md</code></td>
+<td>Generated Markdown worked-example catalogue for all 100 skills.</td>
+</tr>
+<tr>
+<td><code>output/data/skill_worked_examples.json</code></td>
+<td>Generated machine-readable worked-example snapshot.</td>
+</tr>
+<tr>
+<td><code>docs/quality-dashboard.md</code> /
+<code>docs/quality-dashboard.html</code></td>
+<td>Generated Markdown and static HTML dashboard over all 100 skills,
+quality capsules, scenario coverage, worked-example coverage, harnesses,
+references, claim-boundary status, and verified-state rows.</td>
+</tr>
+<tr>
+<td><code>output/data/quality_dashboard.json</code></td>
+<td>Generated machine-readable dashboard snapshot used for drift
+review.</td>
+</tr>
+<tr>
+<td><code>docs/claim-boundaries.md</code></td>
+<td>Reader-facing statement of what local gates prove and do not
+prove.</td>
+</tr>
+<tr>
+<td><code>docs/connector-boundaries.md</code></td>
+<td>Optional OSINT/web connector boundaries before any live connector is
+wired.</td>
+</tr>
+<tr>
+<td><code>docs/analyst-output-review.md</code></td>
+<td>Lightweight rubric for future analyst-output review fixtures.</td>
+</tr>
+<tr>
+<td><code>docs/future-validation-protocols.md</code></td>
+<td>Future-only protocols for baseline comparison, analyst usability,
+connector readiness, and DOI/publication readiness.</td>
+</tr>
+<tr>
+<td><code>docs/release-checklist.md</code></td>
+<td>Release-candidate command and human-review checklist.</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Educational upstream and AGEINT topic context.</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Parser, validator, authoring, insights, scenario checker, CLI, and
+manuscript asset generator.</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Regression evidence for contract, CLI, configuration, insights,
+scenarios, and generated assets.</td>
+</tr>
+<tr>
+<td><code>CITATION.cff</code></td>
+<td>Software citation metadata for the repository-level artifact.</td>
+</tr>
+<tr>
+<td><code>codemeta.json</code></td>
+<td>Machine-readable software metadata.</td>
+</tr>
+<tr>
+<td><code>pyproject.toml</code></td>
+<td>Package metadata, dependency declaration, and test/coverage
+configuration.</td>
+</tr>
+<tr>
+<td><code>uv.lock</code></td>
+<td>Dependency lockfile for local reproducibility.</td>
+</tr>
+<tr>
+<td><code>manuscript/references.bib</code></td>
+<td>Verified manuscript-level bibliography.</td>
+</tr>
+<tr>
+<td><code>manuscript/S02_release_manifest.md</code></td>
+<td>Release provenance and gate-result surface.</td>
+</tr>
+<tr>
+<td><code>output/data/</code></td>
+<td>Generated machine-readable catalogue exports.</td>
+</tr>
+<tr>
+<td><code>../figures/</code></td>
+<td>Generated visualizations referenced by the manuscript.</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="9.1" id="expansion-checklist"><span
+class="header-section-number">9.1</span> Expansion Checklist</h2>
+<ul>
+<li>Confirm which files are authored source and which are
+generated.</li>
+<li>Confirm which commands reproduce the current outputs.</li>
+<li>Confirm whether a value belongs in prose, a generated supplement, or
+a data export.</li>
+<li>Confirm which external references need verified BibTeX entries.</li>
+<li>Confirm all manuscript citation keys resolve in
+<code>manuscript/references.bib</code>.</li>
+<li>Confirm reproducibility instructions use
+<code>${PROJECT_ROOT}</code> and <code>${TEMPLATE_ROOT}</code> rather
+than author-local absolute paths.</li>
+<li>Confirm whether any private material must be summarized rather than
+quoted or copied.</li>
+</ul>
+<hr />
+<h1 data-number="10" id="sec:release_manifest"><span
+class="header-section-number">10</span> Supplemental Local Release and
+Render Manifest</h1>
+<p>This manifest records the source and environment identifiers for the
+manuscript snapshot. It is a release-provenance surface for local
+review; it does not claim an archive DOI, public package publication, or
+empirical field validation.</p>
+<h2 data-number="10.1" id="software-and-source-identity"><span
+class="header-section-number">10.1</span> Software And Source
+Identity</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository</td>
+<td><code>https://github.com/docxology/CogSecSkills</code></td>
+</tr>
+<tr>
+<td>Citation metadata</td>
+<td><code>CITATION.cff</code></td>
+</tr>
+<tr>
+<td>Code metadata</td>
+<td><code>codemeta.json</code></td>
+</tr>
+<tr>
+<td>Package version</td>
+<td><code>0.1.0</code></td>
+</tr>
+<tr>
+<td>License</td>
+<td><code>Apache-2.0</code></td>
+</tr>
+<tr>
+<td>Source revision</td>
+<td><code>e85ecf2cc54eebee1700f60a6a354b83f093ff4b</code></td>
+</tr>
+<tr>
+<td>Revision descriptor</td>
+<td><code>v0.1.0-2-ge85ecf2-dirty</code></td>
+</tr>
+<tr>
+<td>Archive DOI</td>
+<td>unavailable in this snapshot</td>
+</tr>
+<tr>
+<td>Concept DOI</td>
+<td>unavailable in this snapshot</td>
+</tr>
+</tbody>
+</table>
+<p>The revision descriptor is intentionally marked dirty because this
+manuscript hardening pass is performed in a working tree with source
+edits in progress. The manifest is therefore a local provenance record,
+not an immutable release certificate [cogsecskills2026software].</p>
+<h2 data-number="10.2" id="environment-and-locking"><span
+class="header-section-number">10.2</span> Environment And Locking</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td><code>Python 3.13.14</code></td>
+</tr>
+<tr>
+<td>uv</td>
+<td><code>uv 0.11.6 (65950801c 2026-04-09 aarch64-apple-darwin)</code></td>
+</tr>
+<tr>
+<td>Python requirement</td>
+<td><code>&gt;=3.10</code></td>
+</tr>
+<tr>
+<td>Runtime dependency</td>
+<td><code>pyyaml&gt;=6.0</code></td>
+</tr>
+<tr>
+<td>Development gates</td>
+<td><code>pytest</code>, <code>pytest-cov</code>, <code>mypy</code>,
+<code>ruff</code></td>
+</tr>
+<tr>
+<td>Lockfile</td>
+<td><code>uv.lock</code> present</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="10.3" id="generated-figure-inventory"><span
+class="header-section-number">10.3</span> Generated Figure
+Inventory</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure file</th>
+<th>Manuscript label</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>../figures/cogsecskills_taxonomy_counts.png</code></td>
+<td><code>@fig:taxonomy-counts</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_skill_grid.png</code></td>
+<td><code>@fig:skill-grid</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_verb_heatmap.png</code></td>
+<td><code>@fig:verb-heatmap</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_ageint_network.png</code></td>
+<td><code>@fig:ageint-network</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_plan_build_teach_flow.png</code></td>
+<td><code>@fig:plan-build-teach-flow</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_reference_density.png</code></td>
+<td><code>@fig:reference-density</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_harness_contract.png</code></td>
+<td><code>@fig:harness-contract</code></td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_cover_installation.png</code></td>
+<td>title-page cover image</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="10.4" id="verification-gates"><span
+class="header-section-number">10.4</span> Verification Gates</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Current result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>definitions --check</code></td>
+<td><code>canonical definitions are current</code></td>
+</tr>
+<tr>
+<td><code>scenarios --check</code></td>
+<td><code>scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked</code></td>
+</tr>
+<tr>
+<td><code>examples --check</code></td>
+<td><code>worked examples are current</code></td>
+</tr>
+<tr>
+<td><code>dashboard --check</code></td>
+<td><code>quality dashboard is current</code></td>
+</tr>
+<tr>
+<td><code>manuscript-assets --check</code></td>
+<td><code>manuscript assets are current</code></td>
+</tr>
+<tr>
+<td><code>validate</code></td>
+<td><code>0 error(s), 0 warning(s)</code></td>
+</tr>
+<tr>
+<td><code>report</code></td>
+<td><code>registry_total: 100</code>, <code>implemented: 100</code>,
+<code>on_disk_skills: 100</code>, <code>ok: true</code></td>
+</tr>
+<tr>
+<td><code>doctor</code></td>
+<td><code>validation: 0 error(s); quality: 0 finding(s)</code></td>
+</tr>
+<tr>
+<td><code>ruff check src/cogsecskills tests</code></td>
+<td><code>All checks passed!</code></td>
+</tr>
+<tr>
+<td><code>ruff format --check src/cogsecskills tests</code></td>
+<td><code>38 files already formatted</code></td>
+</tr>
+<tr>
+<td><code>mypy</code></td>
+<td><code>Success: no issues found in 19 source files</code></td>
+</tr>
+<tr>
+<td><code>pytest --cov=src/cogsecskills</code></td>
+<td><code>622 passed</code>; total coverage <code>90.94%</code></td>
+</tr>
+<tr>
+<td>Template markdown validation</td>
+<td><code>No issues found!</code></td>
+</tr>
+<tr>
+<td>Template PDF render</td>
+<td>13 manuscript sections rendered; 8/8 figures found; combined PDF and
+HTML generated</td>
+</tr>
+<tr>
+<td>PDF content smoke</td>
+<td>Required strings found: References, Supplemental 100-Skill
+Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill
+Worked Examples, Scenario Readiness, expected answers, Quality
+Dashboard, Release Manifest, and install cover text</td>
+</tr>
+<tr>
+<td>PDF render log error scan</td>
+<td>No unresolved-reference, missing-character, missing-file, or
+package-error findings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<!-- Generated by `python -m cogsecskills manuscript-assets --write`; do not edit by hand. -->
+<h1 data-number="11" id="sec:supplemental_skill_catalogue"><span
+class="header-section-number">11</span> Supplemental 100-Skill
+Catalogue</h1>
+<p>This generated supplement lists the live CogSecSkills library by
+taxonomy group. Each row is derived from
+<code>registry/skills.yaml</code> and the matching
+<code>skills/&lt;group&gt;/&lt;slug&gt;/skill.yaml</code> file, so the
+catalogue can be checked for drift with
+<code>python -m cogsecskills manuscript-assets --check</code>.</p>
+<h2 data-number="11.1" id="structured-analytic-techniques-sat"><span
+class="header-section-number">11.1</span> Structured Analytic Techniques
+(<code>sat</code>)</h2>
+<p>34 skills in this group.</p>
+<h2 data-number="11.2" id="cognitive-security-cognitive_security"><span
+class="header-section-number">11.2</span> Cognitive Security
+(<code>cognitive_security</code>)</h2>
+<p>24 skills in this group.</p>
+<h2 data-number="11.3"
+id="critical-review-assurance-critical_review"><span
+class="header-section-number">11.3</span> Critical Review &amp;
+Assurance (<code>critical_review</code>)</h2>
+<p>12 skills in this group.</p>
+<h2 data-number="11.4" id="osint-source-integrity-osint_integrity"><span
+class="header-section-number">11.4</span> OSINT &amp; Source Integrity
+(<code>osint_integrity</code>)</h2>
+<p>10 skills in this group.</p>
+<h2 data-number="11.5"
+id="counterintelligence-deception-detection-counterintelligence"><span
+class="header-section-number">11.5</span> Counterintelligence &amp;
+Deception Detection (<code>counterintelligence</code>)</h2>
+<p>8 skills in this group.</p>
+<h2 data-number="11.6"
+id="information-environment-influence-analysis-information_environment"><span
+class="header-section-number">11.6</span> Information Environment &amp;
+Influence Analysis (<code>information_environment</code>)</h2>
+<p>7 skills in this group.</p>
+<h2 data-number="11.7"
+id="research-synthesis-methods-research_methods"><span
+class="header-section-number">11.7</span> Research &amp; Synthesis
+Methods (<code>research_methods</code>)</h2>
+<p>5 skills in this group.</p>
+<hr />
+<!-- Generated by `python -m cogsecskills manuscript-assets --write`; do not edit by hand. -->
+<h1 data-number="12" id="sec:supplemental_skill_metadata_matrix"><span
+class="header-section-number">12</span> Supplemental Skill Metadata and
+Figure Matrix</h1>
+<p>This generated matrix view summarizes group sizes, tool-verb
+coverage, AGEINT crosswalks, and harness adapter coverage across the
+same skill rows used in the supplemental catalogue.</p>
+<h2 data-number="12.1" id="group-counts"><span
+class="header-section-number">12.1</span> Group Counts</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Group</th>
+<th>Title</th>
+<th style="text-align: right;">Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sat</code></td>
+<td>Structured Analytic Techniques</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr>
+<td><code>cognitive_security</code></td>
+<td>Cognitive Security</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr>
+<td><code>critical_review</code></td>
+<td>Critical Review &amp; Assurance</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><code>osint_integrity</code></td>
+<td>OSINT &amp; Source Integrity</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><code>counterintelligence</code></td>
+<td>Counterintelligence &amp; Deception Detection</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td><code>information_environment</code></td>
+<td>Information Environment &amp; Influence Analysis</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td><code>research_methods</code></td>
+<td>Research &amp; Synthesis Methods</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="12.2" id="tool-verb-usage-by-group"><span
+class="header-section-number">12.2</span> Tool Verb Usage By Group</h2>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Group</th>
+<th style="text-align: right;"><code>read</code></th>
+<th style="text-align: right;"><code>search</code></th>
+<th style="text-align: right;"><code>write</code></th>
+<th style="text-align: right;"><code>exec</code></th>
+<th style="text-align: right;"><code>reason</code></th>
+<th style="text-align: right;"><code>web</code></th>
+<th style="text-align: right;"><code>delegate</code></th>
+<th style="text-align: right;"><code>ask</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sat</code></td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr>
+<td><code>cognitive_security</code></td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><code>critical_review</code></td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>osint_integrity</code></td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr>
+<td><code>counterintelligence</code></td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>information_environment</code></td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>research_methods</code></td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="12.3" id="ageint-crosswalk"><span
+class="header-section-number">12.3</span> AGEINT Crosswalk</h2>
+<table>
+<thead>
+<tr>
+<th>AGEINT topic</th>
+<th>Groups represented</th>
+<th style="text-align: right;">Skills</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>structured-analytic-techniques</code></td>
+<td>sat</td>
+<td style="text-align: right;">34</td>
+</tr>
+<tr>
+<td><code>cognitive-security</code></td>
+<td>cognitive_security</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr>
+<td><code>adversarial-assurance</code></td>
+<td>critical_review</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr>
+<td><code>osint-integrity</code></td>
+<td>osint_integrity</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><code>counterintelligence</code></td>
+<td>counterintelligence</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td><code>information-environment</code></td>
+<td>information_environment</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr>
+<td><code>research-methods</code></td>
+<td>research_methods</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="12.4" id="harness-coverage"><span
+class="header-section-number">12.4</span> Harness Coverage</h2>
+<table>
+<thead>
+<tr>
+<th>Harness</th>
+<th style="text-align: right;">Skills declaring adapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>claude</code></td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr>
+<td><code>codex</code></td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr>
+<td><code>hermes</code></td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="12.5" id="quality-capsule-coverage"><span
+class="header-section-number">12.5</span> Quality Capsule Coverage</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Capsule field set</th>
+<th style="text-align: right;">Skills with complete generated
+capsule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>boundary + evidence + confidence + unsafe redirect + safe defensive
+pattern</td>
+<td style="text-align: right;">100</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="12.6" id="generated-figure-inventory-1"><span
+class="header-section-number">12.6</span> Generated Figure
+Inventory</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Figure source</th>
+<th>Reader question answered</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>../figures/cogsecskills_taxonomy_counts.png</code></td>
+<td>How are skills distributed across the seven taxonomy groups?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_skill_grid.png</code></td>
+<td>Can the reader scan all 100 skills as one compact library
+surface?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_verb_heatmap.png</code></td>
+<td>Which groups exercise which neutral tool verbs most often?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_ageint_network.png</code></td>
+<td>How do skill groups connect to AGEINT teaching topics?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_plan_build_teach_flow.png</code></td>
+<td>How do plan, build, teach, validation, and manuscript generation fit
+together?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_reference_density.png</code></td>
+<td>Which groups carry the deepest declared source-reference backing per
+skill?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_harness_contract.png</code></td>
+<td>Does each group maintain configured harness adapter coverage?</td>
+</tr>
+<tr>
+<td><code>../figures/cogsecskills_cover_installation.png</code></td>
+<td>How does a reader install CogSecSkills from GitHub into an agent
+harness?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 data-number="13" id="sec:symbols_glossary"><span
+class="header-section-number">13</span> Symbols and Skill-System
+Glossary</h1>
+<h2 data-number="13.1" id="ageint"><span
+class="header-section-number">13.1</span> AGEINT</h2>
+<p>Agentic Intelligence educational material used here as the teaching
+upstream for cognitive-security skill topics. Each skill records its
+teaching topic in the <code>ageint_topic</code> field of its
+specification, which is the crosswalk between an implemented skill and
+the AGEINT primer that explains why it exists.</p>
+<h2 data-number="13.2" id="harness"><span
+class="header-section-number">13.2</span> Harness</h2>
+<p>A model or agent runtime interface. CogSecSkills currently targets
+Claude, Codex, and Hermes adapters from one neutral skill
+specification.</p>
+<h2 data-number="13.3" id="skill-specification"><span
+class="header-section-number">13.3</span> Skill Specification</h2>
+<p>The <code>skill.yaml</code> file in each skill directory. It declares
+identity, status, summary, AGEINT topic, tags, triggers, allowed neutral
+tool verbs, inputs, outputs, references, workflow path, and harness
+adapter paths.</p>
+<h2 data-number="13.4" id="tool-verb"><span
+class="header-section-number">13.4</span> Tool Verb</h2>
+<p>One of the closed, harness-neutral capability labels accepted by the
+validator: <code>read</code>, <code>search</code>, <code>write</code>,
+<code>exec</code>, <code>reason</code>, <code>web</code>,
+<code>delegate</code>, and <code>ask</code>.</p>
+<h2 data-number="13.5" id="planbuildteach"><span
+class="header-section-number">13.5</span> Plan/Build/Teach</h2>
+<p>The project architecture: <code>registry/</code> plans the catalogue,
+<code>skills/</code> builds the implemented library, and
+<code>docs/ageint/</code> teaches the defensive analytic context.</p>
+<h2 data-number="13.6" id="defensive-boundary"><span
+class="header-section-number">13.6</span> Defensive Boundary</h2>
+<p>The per-skill statement of what the skill is for (recognize, assess,
+document, or defend) and what it must not be used for. Enforced as a
+required field on every skill specification.</p>
+<h2 data-number="13.7" id="misuse-redirect"><span
+class="header-section-number">13.7</span> Misuse Redirect</h2>
+<p>The per-skill clause that refuses an offensive or manipulative
+request and points back to the safe defensive form of the same
+technique. Required on every skill.</p>
+<h2 data-number="13.8" id="negative-control"><span
+class="header-section-number">13.8</span> Negative Control</h2>
+<p>A paired example that states an unsafe request and the safe defensive
+response it should be redirected to. The quality linter rejects reused
+or boilerplate negative controls so each skill carries
+technique-specific ones.</p>
+<h2 data-number="13.9" id="scenario-fixture"><span
+class="header-section-number">13.9</span> Scenario Fixture</h2>
+<p>A curated, deterministic safe-use or unsafe-redirect case in
+<code>scenarios/defensive_readiness.yaml</code>. Fixtures are local
+route-and-contract checks, not live model evaluations.</p>
+<h2 data-number="13.10" id="worked-example"><span
+class="header-section-number">13.10</span> Worked Example</h2>
+<p>A source-owned, expected-answer-shape example for a skill, one per
+skill, regenerated into the worked-examples view. It illustrates
+expected output structure, not a live model transcript.</p>
+<h2 data-number="13.11" id="reference-density"><span
+class="header-section-number">13.11</span> Reference Density</h2>
+<p>A metadata measure of how many references a skill declares in its
+specification. It indicates declared source backing, not evidence
+quality, citation authority, or operational validity.</p>
+<hr />
+<h1 data-number="14" id="sec:references"><span
+class="header-section-number">14</span> References</h1>
+<p>The bibliography is rendered from
+<code>manuscript/references.bib</code>. Citation keys in the manuscript
+are checked against that file by the local test suite.</p>
+<div id="refs" role="list">
+
+</div>
+</body>
+</html>

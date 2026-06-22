@@ -1,21 +1,47 @@
 # CogSecSkills
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20804585.svg)](https://doi.org/10.5281/zenodo.20804585)
 [![CI](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml/badge.svg)](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
 
-**Agentic tool-use skills for Cognitive Security and analytic tradecraft.**
+**Agentic tool-use skills for Cognitive Security and analytic tradecraft** — a
+library of **100 analytic skills** (Structured Analytic Techniques, cognitive-
+security defenses, OSINT integrity, counterintelligence, and critical review),
+each authored once as a **harness-neutral skill** with default adapters for
+Claude Code, Codex, and Hermes, and the same structural contract for any
+additional configured harness.
 
-CogSecSkills is a library of **100 analytic skills** — Structured Analytic
-Techniques (SATs), cognitive-security defenses, OSINT integrity, counter-
-intelligence, and critical review — each authored once as a **harness-neutral
-skill** with default adapters for Claude Code, Codex, and Hermes, and the same
-structural contract for any additional configured harness.
+## Install
 
-New here? Start with [`QUICKSTART.md`](QUICKSTART.md), then use the
-[documentation map](docs/README.md). To install the public repository into an
-agent harness, see [`docs/harness-installation.md`](docs/harness-installation.md)
-and [`docs/harness-cookbook.md`](docs/harness-cookbook.md).
+```bash
+git clone https://github.com/docxology/CogSecSkills.git
+cd CogSecSkills
+uv sync
+PYTHONPATH="src:." python -m cogsecskills validate     # 0 errors over all 100 skills
+
+# Find the right skill for an analytic need, then inspect it
+python -m cogsecskills route "verify a viral claim before sharing it"
+python -m cogsecskills show sat.analysis_of_competing_hypotheses
+```
+
+To connect an agent harness, point it at `skills/<group>/<slug>/SKILL.md`, run
+`workflow.md`, and bind tools through the matching `harness/<name>.md` adapter.
+The full command reference is in [Usage](#usage); harness details are in
+[`docs/harness-installation.md`](docs/harness-installation.md) and
+[`docs/harness-cookbook.md`](docs/harness-cookbook.md).
+
+## Read it / cite it
+
+- **Manuscript (PDF):** [`CogSecSkills.pdf`](CogSecSkills.pdf) — the full,
+  reproducible skills-system report (also attached to each release).
+- **Archived on Zenodo:** concept DOI
+  [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585) (always
+  resolves to the latest version); v1.0.0 version DOI
+  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586). Citation
+  metadata in [`CITATION.cff`](CITATION.cff).
+- **New here?** [`QUICKSTART.md`](QUICKSTART.md) · **Docs map:**
+  [`docs/README.md`](docs/README.md)
 
 The library is strictly **defensive, educational, and accountable**. Its
 educational upstream is the [AGEINT](docs/ageint/README.md) curriculum. These
@@ -206,6 +232,12 @@ entry with no build, fails the suite.
   the **deliverable is the skills system**: registry, skills, AGEINT docs,
   runner, tests, generated manuscript supplements, and figures that describe
   those source surfaces.
+- Archived release: **v1.0.0** on Zenodo — concept DOI
+  [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585) (all
+  versions), version DOI
+  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586). GitHub
+  releases at <https://github.com/docxology/CogSecSkills/releases> carry the
+  rendered manuscript PDF.
 - Educational upstream: [AGEINT](https://github.com/docxology/AGEINT)
   (concept DOI [10.5281/zenodo.20732274](https://doi.org/10.5281/zenodo.20732274)).
 - The skill catalogue draws on Heuer & Pherson, *Structured Analytic Techniques

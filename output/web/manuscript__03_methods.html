@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>03_methods.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1 id="sec:methods">Source-Owned Skill Authoring and Manuscript
+Generation</h1>
+<h2
+id="registry-to-definition-to-skill-construction">Registry-to-Definition-to-Skill
+Construction</h2>
+<p>The manuscript is generated and maintained from the same project
+surfaces that the CLI validates. The registry is loaded first so the
+catalogue order, group membership, status, and AGEINT topic remain the
+plan of record. Canonical definitions under <code>definitions/</code>
+own the skill substance; <code>definitions --write</code> renders those
+definitions into on-disk <code>skill.yaml</code>, <code>SKILL.md</code>,
+<code>workflow.md</code>, and harness adapters. The manuscript asset
+generator then joins the registry and rendered typed skill
+specifications by skill id and emits supplemental Markdown, compact JSON
+and CSV exports, body figures, and a title-page cover image that
+explains installation into an agent harness. This source-first approach
+follows the reproducibility principle that outputs should retain enough
+workflow, version, and source context to be regenerated and inspected
+[sandve2013reproducible; wilkinson2016fair].</p>
+<p>This source-first method prevents the manuscript from becoming a
+parallel catalogue. If skill substance changes,
+<code>cogsecskills definitions --check</code> proves the rendered skill
+tree still matches canonical YAML. If a skill name, trigger, tool verb,
+input, output, reference count, harness adapter, or source path changes,
+<code>cogsecskills manuscript-assets --check</code> detects drift in the
+generated manuscript inputs.</p>
+<h2 id="registry-to-adapter-authoring-pipeline">Registry-to-Adapter
+Authoring Pipeline</h2>
+<p>Skill implementation follows a conservative pipeline:</p>
+<ol type="1">
+<li>A row in <code>registry/skills.yaml</code> declares the intended
+skill area and group.</li>
+<li>A canonical definition under
+<code>definitions/&lt;group&gt;/&lt;slug&gt;.yaml</code> declares the
+tool plan, triggers, inputs, outputs, workflow steps, defensive
+boundary, evidence discipline, uncertainty rules, failure modes, and
+negative controls.</li>
+<li><code>definitions --write</code> renders a skill directory under
+<code>skills/&lt;group&gt;/&lt;slug&gt;/</code> with
+<code>skill.yaml</code>, <code>SKILL.md</code>,
+<code>workflow.md</code>, and one adapter per configured harness.</li>
+<li><code>skill.yaml</code> carries the generated neutral verbs,
+triggers, inputs, outputs, references, and AGEINT topic.</li>
+<li>The validator checks that registry rows and implemented folders
+agree, that each adapter exists, and that tool verbs stay within the
+closed vocabulary.</li>
+<li>The doctor command applies quality linting for thin, generic,
+incomplete, or unsafe skill content, including missing safe defensive
+negative controls and weak evidence or uncertainty labeling.</li>
+<li>Tests exercise parsing, validation, definition drift, authoring,
+routing, reporting, configuration, and manuscript asset generation.</li>
+</ol>
+<p>The optional harness profile registry sits beside the skill registry
+but has a different function.
+<code>registry/harness_profiles.yaml</code> records documented external
+profiles such as <code>gemini_cli</code>, <code>github_copilot</code>,
+<code>devin_local</code>, <code>devin_cascade</code>,
+<code>cursor</code>, <code>cline</code>, <code>aider</code>,
+<code>continue</code>, <code>jetbrains_ai</code>,
+<code>openai_agents_sdk</code>, <code>langgraph</code>,
+<code>microsoft_agent_framework</code>, <code>autogen</code>,
+<code>crewai</code>, <code>pydantic_ai</code>, <code>mcp_host</code>,
+and <code>perplexity_research</code>. These are documented external
+profiles, not validation targets. A profile becomes one of the
+configured structural adapters only when its id is added to
+<code>cogsecskills.yaml</code>, the skill tree is regenerated, and the
+adapter files pass validation. The default adapters remain
+<code>claude</code>, <code>codex</code>, and <code>hermes</code>.
+Profile classes are deliberately separated: instruction-file products,
+IDE rule systems, terminal pair-programming tools, SDK frameworks, MCP
+hosts, and research companions require different integration reviews
+even when they share the same neutral skill files.</p>
+<h2 id="generated-supplement-and-figure-pipeline">Generated Supplement
+and Figure Pipeline</h2>
+<p><code>src/cogsecskills/artifacts/manuscript_assets/__init__.py</code>
+is the producer for the generated manuscript layer. Its outputs are
+intentionally committed as manuscript source inputs because they support
+review and PDF rendering, but they remain generated. The command
+writes:</p>
+<ul>
+<li><code>manuscript/S10_skill_catalogue.md</code>, a grouped catalogue
+of all skills with functionality, “Use when” text, verbs, inputs,
+outputs, AGEINT topic, reference count, and source path;</li>
+<li><code>manuscript/S11_skill_metadata_matrix.md</code>, a compact
+matrix view of group counts, verb usage, AGEINT crosswalks, harness
+coverage, and figure inventory;</li>
+<li><code>output/data/skill_catalogue.json</code> and
+<code>output/data/skill_catalogue.csv</code>, machine-readable exports
+of the same rows;</li>
+<li>deterministic PNG figures under <code>../figures/</code>, including
+manuscript body figures and the configured title-page installation
+cover.</li>
+</ul>
+<p>The generator treats static PNGs as the right output form because the
+manuscript is rendered to PDF and static web artifacts. Plot code uses
+explicit color maps for the seven real registry groups, direct labels
+where they reduce lookup, and subtitles that state the data scope. The
+chart data are not manually curated: counts, reference totals, harness
+coverage, AGEINT topics, verb matrices, and the install-cover skill
+counts are derived from the same <code>SkillRow</code> records used by
+the generated catalogue.</p>
+<h2 id="figure-question-and-claim-contract">Figure Question and Claim
+Contract</h2>
+<p>Each figure has a narrow analytical question. Taxonomy counts compare
+group size; the skill grid maps all 100 registry entries to one compact
+atlas; the verb heatmap counts closed-set tool verbs by group; the
+AGEINT crosswalk connects groups to teaching topics; the
+Plan/Build/Teach flow shows the source-to-render path; Reference Density
+compares declared source-reference backing; Harness Contract checks
+adapter coverage across the configured harness set, whose default is
+Claude, Codex, and Hermes; and the cover installation visual answers how
+a reader clones the public repository, validates it, and binds skills
+into an agent harness. These figures are descriptive views of the
+library metadata and installation contract. They do not measure field
+performance, adversary coverage, or user outcomes.</p>
+<p>Reference Density is defined here as declared references per
+implemented skill within a taxonomy group. For group <code>g</code> in
+set <code>G</code>,</p>
+<p><span class="math display">\[\begin{equation}
+\label{eq:reference-density}
+d_g := \frac{R_g}{N_g},
+\end{equation}\]</span></p>
+<p>where <code>R_g</code> is the total count of declared per-skill
+<code>refs</code> entries for implemented skills in <code>g</code>, and
+<code>N_g</code> is the number of implemented skills in <code>g</code>.
+The metric is metadata density, not evidence quality, empirical
+validity, or a proxy for operational effectiveness.</p>
+<h2 id="local-verification-gates">Local Verification Gates</h2>
+<p>The local gate sequence is designed to catch different failure
+classes: <code>definitions --check</code> catches canonical-definition
+and rendered-skill drift, <code>validate</code> catches structural
+contract drift, <code>report</code> summarizes implementation status,
+<code>doctor</code> catches weak, generic, or incomplete skill content,
+<code>pytest</code> catches regression bugs,
+<code>manuscript-assets --check</code> catches generated-manuscript
+drift, and the sibling template renderer catches Markdown and PDF
+integration failures.</p>
+<p>The stricter quality checks are deliberately local and textual. They
+require each canonical definition to include a defensive boundary,
+misuse redirect, evidence discipline, confidence rubric, uncertainty
+handling, privacy/legal constraints, failure modes, and negative
+controls. For sensitive skills, a generic safety sentence is
+insufficient: the negative controls must include an unsafe request
+redirected away from abuse, a safe defensive request pattern, wording
+specific to the skill, and no reused individual negative-control entry
+across the corpus. The same specificity pressure now applies to
+confidence rubrics, evidence requirements, and privacy/legal
+constraints: exact reused entries and group-only boilerplate fail the
+definition and doctor gates. Evidence requirements must distinguish
+evidence from inference, and uncertainty handling must preserve unknowns
+and credible alternatives. These checks raise the floor for the 100
+rendered skills without claiming that the text has been
+field-validated.</p>
+<p>The figure tests intentionally cover the inventory and palette
+contract as well as file existence. A missing generated PNG is easy to
+detect, but a stale palette can be more subtle: if the registry adds or
+renames a group, the visual system must be updated deliberately rather
+than silently falling back to an unrelated color.</p>
+</body>
+</html>

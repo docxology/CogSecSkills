@@ -1,0 +1,27 @@
+{
+  "releases": [
+    {
+      "doi": "10.5281/zenodo.1000001",
+      "dry_run": true,
+      "github_release_url": null,
+      "github_repo": "docxology/CogSecSkills",
+      "pairing_valid": false,
+      "pdf_sha256": "6be2d09ebeec003067d63b77b0b5daffae0ddd44766fb18626dc3e4e4d76d893",
+      "sandbox": true,
+      "tag": "v1.0.0",
+      "timestamp": "2026-06-22T22:33:05.693168+00:00"
+    },
+    {
+      "doi": "10.5281/zenodo.20804586",
+      "dry_run": false,
+      "github_release_url": null,
+      "github_repo": "docxology/CogSecSkills",
+      "pairing_valid": false,
+      "pdf_sha256": "1a99a2e474b07d21593094b7a3b4fd923197904056189a53b206126506b1040d",
+      "sandbox": false,
+      "tag": "v1.0.0",
+      "timestamp": "2026-06-22T22:34:09.122985+00:00"
+    }
+  ],
+  "schema": "template-publication-ledger-v1"
+}

@@ -1,5 +1,11 @@
-# Generated outputs are regeneratable; never commit them.
-output/
+# Generated outputs (PDFs, figures, data, web, slides) ARE committed so the
+# rendered deliverables travel with the repo; regenerate with the pipeline.
+# The shared parent excludesfile (projects/.gitignore) ignores output/; re-include
+# it here (repo .gitignore wins over core.excludesfile) so outputs are tracked.
+!output/
+!output/**
+# Agent/tooling scratch — never committed.
+.omo/
 # Claude Code skill install — a regeneratable flat mirror of skills/ plus local
 # settings (see docs/claude-code-skills.md to rebuild).
 .claude/

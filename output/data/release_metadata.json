@@ -1,0 +1,78 @@
+{
+  "archive": {
+    "doi_present": true,
+    "status": "available"
+  },
+  "claim_matrix": [
+    {
+      "claim": "Local structural conformance",
+      "evidence": "validate, report, doctor, pytest, generated drift checks",
+      "status": "safe to claim after gates pass"
+    },
+    {
+      "claim": "Offline deterministic evaluation readiness",
+      "evidence": "evals/local_output_review.yaml and generated report",
+      "status": "safe to claim after evals --check passes"
+    },
+    {
+      "claim": "Public archive DOI",
+      "evidence": "CITATION.cff and CodeMeta contain no DOI",
+      "status": "unavailable until a real archive exists"
+    },
+    {
+      "claim": "Live runtime certification or field validation",
+      "evidence": "not established by local repository gates",
+      "status": "prohibited without external evaluation"
+    }
+  ],
+  "generated_files": {
+    "declared": [
+      "docs/quality-dashboard.md",
+      "docs/quality-dashboard.html",
+      "docs/skill-worked-examples.md",
+      "docs/evaluation-readiness.md",
+      "docs/release-claim-matrix.md",
+      "manuscript/S10_skill_catalogue.md",
+      "manuscript/S11_skill_metadata_matrix.md",
+      "output/figures/cogsecskills_taxonomy_counts.png",
+      "output/figures/cogsecskills_skill_grid.png",
+      "output/figures/cogsecskills_verb_heatmap.png",
+      "output/figures/cogsecskills_ageint_network.png",
+      "output/figures/cogsecskills_plan_build_teach_flow.png",
+      "output/figures/cogsecskills_reference_density.png",
+      "output/figures/cogsecskills_harness_contract.png",
+      "output/figures/cogsecskills_cover_installation.png"
+    ],
+    "missing": []
+  },
+  "git": {
+    "public_archive_requires_clean_worktree": true,
+    "release_candidate_requires_clean_worktree": true,
+    "runtime_observed_fields": [
+      "available",
+      "revision",
+      "branch",
+      "dirty"
+    ],
+    "snapshot_policy": "Exact git revision, branch, and dirty-state values are observed at command runtime and intentionally omitted from drift-checked committed outputs."
+  },
+  "license": {
+    "citation_cff": "Apache-2.0",
+    "codemeta": "https://spdx.org/licenses/Apache-2.0",
+    "expected": "Apache-2.0",
+    "license_file": true,
+    "pyproject": "Apache-2.0"
+  },
+  "mode": "local",
+  "repository": {
+    "citation_cff": "https://github.com/docxology/CogSecSkills",
+    "codemeta": "https://github.com/docxology/CogSecSkills",
+    "expected": "https://github.com/docxology/CogSecSkills",
+    "pyproject": "https://github.com/docxology/CogSecSkills"
+  },
+  "version": {
+    "citation_cff": "1.0.0",
+    "codemeta": "1.0.0",
+    "pyproject": "1.0.0"
+  }
+}

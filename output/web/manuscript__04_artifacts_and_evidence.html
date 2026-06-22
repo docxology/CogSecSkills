@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>04_artifacts_and_evidence.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:artifacts_evidence">Evidence Surfaces, Generated Views, and
+Claim Discipline</h1>
+<h2 id="claim-support-surfaces">Claim-Support Surfaces</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>registry/skills.yaml</code></td>
+<td>Enumerates the 100 skill areas and their implementation status.</td>
+</tr>
+<tr>
+<td><code>registry/groups.yaml</code></td>
+<td>Defines the seven taxonomy groups used by the catalogue and
+figures.</td>
+</tr>
+<tr>
+<td><code>definitions/**.yaml</code></td>
+<td>Owns canonical skill substance, workflow steps, quality controls,
+and negative controls.</td>
+</tr>
+<tr>
+<td><code>skills/**/skill.yaml</code></td>
+<td>Declares the harness-neutral contract for each implemented
+skill.</td>
+</tr>
+<tr>
+<td><code>skills/**/SKILL.md</code> and <code>workflow.md</code></td>
+<td>Provide the human-facing skill description and neutral
+procedure.</td>
+</tr>
+<tr>
+<td><code>skills/**/harness/*.md</code></td>
+<td>Bind the neutral verbs to every configured harness; the default set
+is Claude, Codex, and Hermes.</td>
+</tr>
+<tr>
+<td><code>scenarios/defensive_readiness.yaml</code></td>
+<td>Curated safe-use, unsafe-redirect, expected-response, and
+expected-answer fixtures used by the deterministic scenario-readiness
+gate.</td>
+</tr>
+<tr>
+<td><code>examples/skill-worked-examples.yaml</code></td>
+<td>Source-owned deterministic worked examples, one per implemented
+skill.</td>
+</tr>
+<tr>
+<td><code>docs/skill-worked-examples.md</code> and
+<code>output/data/skill_worked_examples.json</code></td>
+<td>Generated worked-example views for all 100 skills.</td>
+</tr>
+<tr>
+<td><code>docs/quality-dashboard.md</code> and
+<code>output/data/quality_dashboard.json</code></td>
+<td>Generated dashboard and machine-readable snapshot over all 100
+skills, quality capsules, scenario coverage, worked-example coverage,
+harnesses, references, claim-boundary status, and verified-state
+rows.</td>
+</tr>
+<tr>
+<td><code>docs/ageint/</code></td>
+<td>Supplies the educational upstream used for AGEINT topic
+alignment.</td>
+</tr>
+<tr>
+<td><code>src/cogsecskills/</code></td>
+<td>Owns parsing, validation, reporting, routing, quality linting,
+scenario checking, and manuscript asset generation.</td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Guards parser, authoring, validation, reporting, routing,
+configuration, scenario checking, and manuscript generator
+behavior.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generated-figure-evidence">Generated Figure Evidence</h2>
+<p>The figure set is generated from the live registry and skill
+metadata. The taxonomy count and skill grid figures show library
+coverage at a glance. The verb heatmap shows how neutral tool
+capabilities are distributed by group. The AGEINT network shows how
+group membership connects to teaching topics. The Reference Density
+figure shows where declared source-reference backing is concentrated,
+and the Harness Contract figure shows whether the configured harness
+adapters cover every group. The flow figure in <span class="citation"
+data-cites="fig:plan-build-teach-flow">@fig:plan-build-teach-flow</span>
+shows how the source surfaces, gates, and manuscript assets fit
+together. The title-page cover image is also generated: it shows the
+public GitHub install path, validation command, route command, and
+harness-binding files a reader needs to connect CogSecSkills to an agent
+harness.</p>
+<p>The figures should be read as descriptive system views. They are
+strong evidence for what is implemented, declared, generated,
+installable, and checked in the local project. They are not evidence
+that any specific defensive workflow will succeed in an operational
+setting. That distinction is important because visual polish can
+otherwise make metadata counts or installation diagrams feel like
+empirical validation.</p>
+<figure id="fig:verb-heatmap">
+<img src="../figures/cogsecskills_verb_heatmap.png" style="width:100.0%"
+alt="cogsecskills_verb_heatmap.png: Group-by-tool-verb heatmap over the closed neutral verb vocabulary. Use this figure to see which taxonomy groups require mostly reading and reasoning and which groups invoke web, search, delegation, or execution support. The figure proves declared capability distribution in source metadata; it does not prove that any agent used those tools successfully." />
+<figcaption aria-hidden="true">cogsecskills_verb_heatmap.png:
+Group-by-tool-verb heatmap over the closed neutral verb vocabulary. Use
+this figure to see which taxonomy groups require mostly reading and
+reasoning and which groups invoke web, search, delegation, or execution
+support. The figure proves declared capability distribution in source
+metadata; it does not prove that any agent used those tools
+successfully.</figcaption>
+</figure>
+<figure id="fig:ageint-network">
+<img src="../figures/cogsecskills_ageint_network.png"
+style="width:100.0%"
+alt="cogsecskills_ageint_network.png: Group-to-AGEINT-topic crosswalk with count-weighted links. Use this figure to move from a library group to the AGEINT teaching topics that explain why the skills exist. The figure proves declared teaching alignment for the current catalogue; it does not make a pedagogical or empirical learning-outcome claim." />
+<figcaption aria-hidden="true">cogsecskills_ageint_network.png:
+Group-to-AGEINT-topic crosswalk with count-weighted links. Use this
+figure to move from a library group to the AGEINT teaching topics that
+explain why the skills exist. The figure proves declared teaching
+alignment for the current catalogue; it does not make a pedagogical or
+empirical learning-outcome claim.</figcaption>
+</figure>
+<figure id="fig:reference-density">
+<img src="../figures/cogsecskills_reference_density.png"
+style="width:100.0%"
+alt="cogsecskills_reference_density.png: Declared references per implemented skill by taxonomy group. Use this figure to spot where source-reference metadata is concentrated and where future bibliography or source-curation work may be useful. The figure proves metadata density in skill.yaml; it does not grade evidence quality, citation authority, or operational validity." />
+<figcaption aria-hidden="true">cogsecskills_reference_density.png:
+Declared references per implemented skill by taxonomy group. Use this
+figure to spot where source-reference metadata is concentrated and where
+future bibliography or source-curation work may be useful. The figure
+proves metadata density in <code>skill.yaml</code>; it does not grade
+evidence quality, citation authority, or operational
+validity.</figcaption>
+</figure>
+<figure id="fig:harness-contract">
+<img src="../figures/cogsecskills_harness_contract.png"
+style="width:100.0%"
+alt="cogsecskills_harness_contract.png: Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes. Use this figure before installing the library into an agent harness to see, at a glance, that every group declares the configured-harness adapters. The cells count skills that declare an adapter for each configured harness, by group and as whole-library totals; the stronger invariants — that each declared adapter file exists on disk and that its binding table covers every verb the skill uses — are enforced separately by validate and the conformance suite, not by this figure. The figure does not claim behavioral success for any external runtime." />
+<figcaption aria-hidden="true">cogsecskills_harness_contract.png:
+Adapter coverage scorecard for the configured harness set, defaulting to
+Claude, Codex, and Hermes. Use this figure before installing the library
+into an agent harness to see, at a glance, that every group declares the
+configured-harness adapters. The cells count skills that
+<em>declare</em> an adapter for each configured harness, by group and as
+whole-library totals; the stronger invariants — that each declared
+adapter file exists on disk and that its binding table covers every verb
+the skill uses — are enforced separately by <code>validate</code> and
+the conformance suite, not by this figure. The figure does not claim
+behavioral success for any external runtime.</figcaption>
+</figure>
+<p>The Reference Density view complements the catalogue because it makes
+source backing visible by group rather than by individual row. The
+Harness Contract view complements the validator because it presents
+configured-harness adapter coverage in the reader’s visual path,
+including Codex and Hermes in the default set rather than treating them
+as secondary implementation details.</p>
+<p>Per-skill <code>refs</code> counts are metadata fields declared in
+<code>skill.yaml</code>; they are not equivalent to resolved citation
+markers in the manuscript bibliography. The manuscript-level
+bibliography supports external concepts, standards, and methods that
+appear in the prose, while per-skill <code>refs</code> support local
+navigation and source-backlog discipline inside the library.</p>
+<h2 id="generated-catalogue-and-matrix-supplements">Generated Catalogue
+and Matrix Supplements</h2>
+<p>The two generated supplemental sections make the library navigable
+without requiring the reader to open 100 folders. <span class="citation"
+data-cites="sec:supplemental_skill_catalogue">@sec:supplemental_skill_catalogue</span>
+lists every skill with one-line functionality and use conditions. <span
+class="citation"
+data-cites="sec:supplemental_skill_metadata_matrix">@sec:supplemental_skill_metadata_matrix</span>
+summarizes the same data as matrices and points back to the figure
+files. Both sections carry a generated-file header and should be
+refreshed with
+<code>python -m cogsecskills manuscript-assets --write</code>.</p>
+<p>The catalogue includes both broad analytic methods and concrete
+defensive checks: for example,
+<code>osint_integrity.claim_provenance_verification</code> appears as
+Claim Provenance Verification, with its use conditions, neutral verbs,
+AGEINT topic, reference count, and source path generated from the live
+skill metadata.</p>
+<h2 id="per-skill-quality-audit-and-anti-boilerplate-checks">Per-Skill
+Quality Audit and Anti-Boilerplate Checks</h2>
+<p>The skill-quality surface is now source-owned rather than a
+prose-only governance promise. Every canonical definition must carry the
+same required quality bundle: defensive boundary, misuse redirect,
+evidence requirements, confidence rubric, uncertainty handling,
+privacy/legal constraints, failure modes, and negative controls. The
+renderer places those fields into the skill files, while
+<code>definitions --check</code>, <code>doctor</code>, and the pytest
+contract suite check that the rendered tree and manuscript views remain
+synchronized with the definitions.</p>
+<p>The audit is intentionally stricter than checking whether a safety
+heading exists. It rejects negative controls that only repeat generic
+boilerplate, requires both an unsafe redirect and a safe defensive
+request pattern, requires each definition to include skill-specific
+unsafe and safe examples, and rejects reused individual negative-control
+entries across the corpus. It also rejects repeated confidence-rubric,
+evidence-requirement, and privacy/legal entries, requires evidence
+requirements to label evidence and inference, and requires uncertainty
+handling to preserve unknowns and credible alternatives. A
+cognitive-security manipulation skill, an OSINT geolocation skill, a
+counterintelligence elicitation skill, and a structured analytic
+technique should therefore carry different governance language even
+though they share the same defensive contract shape.</p>
+<p>This is a local quality gate, not a safety proof. It can show that
+all 100 skills include group-aware defensive boundaries, skill-specific
+and non-reused confidence, evidence, privacy/legal, and negative-control
+entries, evidence labeling, and uncertainty discipline in the current
+repository state. It cannot prove that every future user, external
+model, or organizational deployment will interpret the skill
+correctly.</p>
+<h2 id="evidence-ladder-and-scenario-readiness-gate">Evidence Ladder and
+Scenario Readiness Gate</h2>
+<p>The evidence ladder adds two levels above static corpus inspection.
+<code>scenarios/defensive_readiness.yaml</code> contains 28 curated
+fixtures: two safe defensive requests and two unsafe refusal/redirect
+probes for each of the seven groups.
+<code>python -m cogsecskills scenarios --check</code> loads those
+fixtures, runs the local router, confirms the expected implemented skill
+appears in the top route matches, checks declared output terms, verifies
+the fixture’s expected defensive response shape, verifies reviewed
+expected-answer sections and all-2 rubric scores, verifies quality terms
+such as defensive boundary, evidence/inference labeling, unknowns,
+alternatives, safe defensive examples, and unsafe refusal/redirect
+markers, and rejects fixture or expected-answer wording that embeds
+operational misuse detail.</p>
+<p><code>examples/skill-worked-examples.yaml</code> adds one reviewed
+local worked example per skill.
+<code>python -m cogsecskills examples --check</code> verifies exact
+100-skill coverage, defensive evidence/inference/gap labeling,
+confidence and uncertainty language, declared-output references, local
+fixture provenance, absence of operational misuse wording, and generated
+Markdown/JSON freshness. These examples are expected-answer shapes, not
+live model transcripts.</p>
+<p>These gates are deliberately deterministic. They do not ask Claude,
+Codex, Hermes, Gemini, a browser, an OSINT connector, or any live
+platform to perform the task. Their claim is narrower and more useful
+for a repository manuscript: curated defensive scenarios and worked
+examples can still be mapped to concrete skill contracts, and the
+referenced skills expose the local metadata an agent harness needs to
+stay bounded. The gates do not show that a live runtime will select the
+same skill, use tools correctly, or produce a high-quality answer in the
+field.</p>
+<h2 id="live-quality-and-coverage-dashboard">Live Quality and Coverage
+Dashboard</h2>
+<p><code>python -m cogsecskills dashboard --write</code> generates
+<code>docs/quality-dashboard.md</code>,
+<code>docs/quality-dashboard.html</code>, and
+<code>output/data/quality_dashboard.json</code>. The dashboard gives
+readers a compact row for every implemented skill: group, verbs,
+configured harnesses, reference count, quality-capsule presence,
+scenario coverage, worked-example coverage, local claim-boundary status,
+and source path. The static HTML view is a dependency-free reader
+surface for scanning the same payload with responsive tables and print
+styling. It also surfaces the 28 scenario fixtures, their
+expected-answer section titles, the 100 worked examples, and the latest
+verified-state lines from <code>TODO.md</code>.</p>
+<p>The dashboard is useful for review because it turns the corpus into a
+scanable drift surface. Missing scenario coverage, missing worked
+examples, missing quality capsules, stale generated files, or missing
+verified-state rows make <code>dashboard --check</code> fail. It is not
+a benchmark, user study, or live harness transcript; it is a generated
+view of repository-local evidence.</p>
+<h2 id="comparative-scholarship-map">Comparative Scholarship Map</h2>
+<p>External scholarship is used here to position the system, not to
+validate its effectiveness. The table below maps each literature spine
+to the local manuscript claim it supports and the claim it does not
+support.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Literature spine</th>
+<th>Supports in this manuscript</th>
+<th>Does not support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Intelligence analysis, structured techniques, and estimative
+language [heuer1999psychology; heuerPherson2019structured;
+kent1964estimativeProbability; ukmod2023jdp200]</td>
+<td>The need for explicit analytic procedure, confidence discipline, and
+decision-support boundaries.</td>
+<td>That CogSecSkills improves analyst judgment in practice.</td>
+</tr>
+<tr>
+<td>Information disorder, false-news diffusion, correction, and
+inoculation [wardleDerakhshan2017informationDisorder;
+vosoughi2018spread; lewandowsky2012misinformationCorrection;
+roozenbeek2022inoculation; lazer2018fakeNews]</td>
+<td>The relevance of defensive skills for mis-, dis-, and
+malinformation, corrective reasoning, and resilience-oriented
+analysis.</td>
+<td>That the library reduces misinformation spread or changes user
+beliefs.</td>
+</tr>
+<tr>
+<td>Source evaluation, social bots, computational propaganda, and
+coordinated manipulation [wineburg2019lateralReading;
+ferrara2016socialBots; woolleyHoward2017computationalPropaganda;
+bradshawHoward2019globalDisinformation]</td>
+<td>The need to analyze sources, lateral corroboration, account ecology,
+automation, and coordination rather than content alone.</td>
+<td>That the skills detect live campaigns, bots, or coordinated activity
+with validated accuracy.</td>
+</tr>
+<tr>
+<td>Synthetic media and provenance standards [mirskyLee2021deepfakes;
+c2pa2026spec]</td>
+<td>The need for authenticity-aware media review and explicit
+content-provenance metadata in source-integrity work.</td>
+<td>That C2PA metadata or this library proves authenticity, detects
+deepfakes, or replaces forensic analysis.</td>
+</tr>
+<tr>
+<td>LLM reasoning/action and tool-use systems [yao2022react;
+schick2023toolformer]</td>
+<td>The positioning of CogSecSkills as a validated interface between
+reasoning, tool verbs, and harness-specific adapters.</td>
+<td>That any configured model runtime will choose or execute tools
+correctly in the field.</td>
+</tr>
+<tr>
+<td>Reproducible research software, FAIR stewardship, and software
+citation [sandve2013reproducible; wilkinson2016fair;
+smith2016softwareCitation]</td>
+<td>The source-owned definition layer, generated supplements, release
+manifest, and citable software boundary.</td>
+<td>That local reproducibility proves empirical security efficacy.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="claim-support-rules">Claim Support Rules</h2>
+<p>A claim is manuscript-ready only when it has one of the following
+support types:</p>
+<ul>
+<li>A passing test or validator command.</li>
+<li>A generated output with a deterministic producer.</li>
+<li>A source ledger, manifest, or configuration file.</li>
+<li>A resolved entry in <code>references.bib</code> for external
+literature.</li>
+</ul>
+<p>This pass intentionally keeps external scholarly claims bounded. The
+manuscript therefore emphasizes local structure, implementation status,
+reproducibility, and visualization rather than empirical effectiveness
+or deployment outcomes. When external context is needed, citations are
+used for problem framing, agent-interface positioning, reproducibility
+and software-citation norms, AGEINT, structured analytic techniques,
+named defensive methods, information-environment scholarship, provenance
+standards, and official doctrine rather than for unsupported performance
+claims [sandve2013reproducible; smith2016softwareCitation; ageint2026;
+wardleDerakhshan2017informationDisorder; yao2022react].</p>
+</body>
+</html>

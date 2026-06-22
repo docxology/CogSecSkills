@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>07_ethics_and_responsible_use.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:ethics_responsible_use">Ethics, Dual-Use, and Responsible
+Use</h1>
+<p>Cognitive-security tradecraft is dual-use. The same techniques that
+let a defender recognize a coordinated influence operation, grade a
+source, or triage synthetic media can, if inverted, describe how to run
+such an operation. This section states the project’s ethical posture
+explicitly so that reviewers and adopters do not have to infer it.</p>
+<h2 id="dual-use-stance-and-defensive-framing">Dual-Use Stance and
+Defensive Framing</h2>
+<p>CogSecSkills is scoped to the <em>defensive recognition, assessment,
+documentation, and mitigation</em> side of every technique it
+implements. The library contains no offensive playbooks: it does not
+author manipulation campaigns, fabricate personas, optimize emotional
+pressure, plan harassment or doxing, or remove human review from
+high-impact action. Each skill carries an explicit defensive boundary, a
+misuse-redirect clause that refuses the offensive inverse and points
+back to the defensive form, and negative-control examples that pair an
+unsafe request with the safe defensive pattern it should be redirected
+to. These are not manuscript assertions; they are fields enforced per
+skill by the quality linter (<code>doctor</code>) and visible in the
+generated worked examples and quality dashboard.</p>
+<h2 id="defensive-by-contract-and-review">Defensive by Contract and
+Review</h2>
+<p>The defensive boundary is held by two mechanisms working together.
+The first is structural: the validator proves file and schema
+conformance, verb legality, adapter coverage, and the presence of the
+defensive quality bundle on every skill. The second is human review: the
+governance rule-set in <span class="citation"
+data-cites="sec:limitations_next_steps">@sec:limitations_next_steps</span>
+defines, per risk surface, the disallowed output, the allowed defensive
+transformation, and the review-failure condition, and any skill or
+adapter that crosses those lines should fail review even when it passes
+structural validation. The structural gate can prove that the defensive
+bundle exists; it cannot prove future defensive intent [ageint2026].
+Responsibility for that judgment stays with the maintainers and with
+anyone who adapts the library to a new organization or runtime.</p>
+<h2 id="human-subjects-and-institutional-scope">Human-Subjects and
+Institutional Scope</h2>
+<p>This work is open-source software with no human-subjects component.
+The scenario fixtures are curated, deterministic route-and-contract
+checks, and the worked examples are expected-answer shapes; neither is a
+live model evaluation, a study of human participants, or a record of
+operational use. No institutional review was required, and no personal
+data was collected or processed in producing the library, the
+manuscript, or its generated supplements.</p>
+<h2 id="responsibilities-of-adopters-and-operators">Responsibilities of
+Adopters and Operators</h2>
+<p>The library is provided under the Apache License 2.0, on an as-is
+basis, for defensive analytic work. Adopters remain responsible for
+using it within applicable law and platform terms, for keeping human
+review on dual-use and high-impact steps, for not repurposing defensive
+recognition skills into influence, surveillance, or harassment
+workflows, and for re-running the conformance and quality gates whenever
+skills are modified or extended. Distribution of the skills to a new
+harness does not transfer the defensive judgment those gates cannot
+encode; that judgment travels with the operator.</p>
+<h2 id="what-this-section-does-not-claim">What This Section Does Not
+Claim</h2>
+<p>Stating a defensive posture is not the same as proving safety. The
+gates and the review rule-set reduce the risk that the library ships
+offensive content or silently drifts; they do not guarantee that every
+downstream use remains defensive, nor do they make any claim about field
+effectiveness, which is out of scope for the current local evidence base
+(see <span class="citation"
+data-cites="sec:limitations_next_steps">@sec:limitations_next_steps</span>).</p>
+</body>
+</html>

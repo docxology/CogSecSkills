@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>06_limitations_and_next_steps.md.web</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<h1 id="sec:limitations_next_steps">Evidence Boundaries, Defensive
+Governance, and Next Steps</h1>
+<h2 id="local-conformance-is-not-field-validation">Local Conformance Is
+Not Field Validation</h2>
+<p>The current evidence is local conformance evidence. It supports
+claims about the registry, implemented skill count, harness adapter
+presence, generated figures, generated supplements, curated defensive
+scenario fixtures, and project-local verification gates. It does not
+establish real-world operational effectiveness, adversary coverage, user
+outcomes, or comparative superiority over other skill libraries.</p>
+<p>The library is defensive by contract and review rather than by a
+complete formal safety proof. Skill text, harness adapters, scenarios,
+and AGEINT material still require human review when the library is
+adapted to a new organization, workflow, or model runtime. The current
+gates can detect missing files, invalid verbs, stale generated assets,
+thin content, generic negative controls, repeated individual
+negative-control entries, repeated confidence/evidence/privacy
+boilerplate, missing safe defensive request patterns, weak evidence or
+uncertainty labeling, and curated safe-use or unsafe-redirect scenario
+drift, but they cannot prove that every future use remains within a
+defensive analytic frame.</p>
+<p>The manuscript now includes a verified bibliography for
+reproducibility norms, software citation, AGEINT, structured analytic
+techniques, information disorder, misinformation diffusion and
+correction, computational propaganda, social bots, deepfakes, provenance
+standards, LLM tool-use systems, selected named methods, and official
+reliability-grading doctrine. It still avoids new empirical claims:
+citation support for a named method or problem domain is not evidence
+that this library implements that method effectively in operational
+settings.</p>
+<p>The visualizations have the same boundary. They make the library
+easier to inspect, but they do not transform metadata into empirical
+evidence. A complete heatmap cell means a verb is declared in source; a
+complete Harness Contract cell means the adapter file is present and
+bound; a higher Reference Density value means more declared references
+in the skill metadata. None of those observations prove that a future
+user will choose the right skill, interpret evidence correctly, obtain a
+better security outcome, detect a live bot campaign, or authenticate
+synthetic media.</p>
+<h2 id="defensive-governance-review-rules">Defensive Governance Review
+Rules</h2>
+<p>The defensive boundary is enforced by source review and manuscript
+claim discipline rather than by a complete formal safety proof. The
+following table is the minimum review rule-set for dual-use skill text
+and adapter wording.</p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Risk surface</th>
+<th>Disallowed output</th>
+<th>Allowed defensive transformation</th>
+<th>Review failure condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Persuasion or influence</td>
+<td>Instructions to manipulate, target, coerce, or exploit an
+audience.</td>
+<td>Analysis that identifies persuasion tactics, vulnerabilities, or
+safeguards.</td>
+<td>Skill text tells an operator how to increase manipulative
+impact.</td>
+</tr>
+<tr>
+<td>Deception and impersonation</td>
+<td>Fabricated personas, deceptive outreach scripts, or concealment
+advice.</td>
+<td>Detection, provenance tracing, and defensive response planning.</td>
+<td>Adapter wording enables deception rather than analyzing it.</td>
+</tr>
+<tr>
+<td>OSINT and source work</td>
+<td>Doxing, evasion, account compromise, or harassment workflows.</td>
+<td>Public-source verification, citation repair, and source-quality
+assessment.</td>
+<td>Workflow asks for private data collection or bypass behavior.</td>
+</tr>
+<tr>
+<td>Counter-messaging</td>
+<td>Engagement playbooks that optimize emotional pressure or behavior
+change.</td>
+<td>Prebunking, inoculation, and audience-protection framing bounded to
+education.</td>
+<td>Output becomes an influence campaign plan rather than a defensive
+brief.</td>
+</tr>
+<tr>
+<td>Automation</td>
+<td>Autonomous execution against people, platforms, or live
+targets.</td>
+<td>Human-reviewed checklists, audit notes, and bounded evidence
+summaries.</td>
+<td>Skill removes human review from high-impact or dual-use steps.</td>
+</tr>
+</tbody>
+</table>
+<p>Any skill or adapter that crosses those lines should fail review even
+if it passes structural validation. The current validator can prove file
+and schema conformance; it cannot prove future defensive intent
+[ageint2026].</p>
+<h2 id="evidence-and-quality-next-steps">Evidence and Quality Next
+Steps</h2>
+<ol type="1">
+<li>Expand scenario-based evaluation tasks from deterministic
+route/contract readiness into richer analyst-output review fixtures
+without converting defensive tradecraft into offensive playbooks.</li>
+<li>Add richer manuscript variables if future prose needs run-derived
+values beyond the generated catalogue and matrices.</li>
+<li>Extend the doctor checks when repeated review findings expose new
+quality failure modes.</li>
+<li>Add verified citations only when external context is necessary and
+the source boundary is clear.</li>
+<li>Keep the generated supplements and figures in the render gate so
+readers see the same library state that validation checked.</li>
+<li>Add figure-level regression checks when future charts begin encoding
+more complex relationships than counts, coverage, and crosswalks.</li>
+</ol>
+<p>Future evaluation should be split into three lanes. The first lane is
+repository integrity: definition drift, adapter coverage, citation
+resolution, render reproducibility, and release-manifest accuracy. The
+second lane is analyst usability and output quality: whether users can
+choose the right skill, follow the workflow, express uncertainty
+clearly, and produce auditable defensive outputs. The third lane is
+adversarial realism: scenario tasks involving misinformation correction,
+coordinated amplification, computational propaganda, and synthetic-media
+provenance, designed so they test defensive recognition and mitigation
+without generating offensive playbooks
+[lewandowsky2012misinformationCorrection; ferrara2016socialBots;
+bradshawHoward2019globalDisinformation; mirskyLee2021deepfakes;
+c2pa2026spec].</p>
+<h2 id="publication-claim-boundary">Publication Claim Boundary</h2>
+<p>The manuscript should remain a skills-system report until additional
+evidence exists. Local readiness means the source files, generated
+assets, and render gates agree; it should not be represented as field
+validation, public release readiness, or empirical proof of
+cognitive-security efficacy.</p>
+</body>
+</html>
