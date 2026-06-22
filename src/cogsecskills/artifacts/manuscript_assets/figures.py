@@ -93,9 +93,9 @@ ANNOTATION_SIZE = 13
 CELL_LABEL_SIZE = 14
 SMALL_LABEL_SIZE = 11.5
 CAPTION_LABEL_SIZE = 14
-COVER_PANEL_TITLE_SIZE = 30
-COVER_COMMAND_SIZE = 20.2
-COVER_LABEL_SIZE = 16.8
+COVER_PANEL_TITLE_SIZE = 23
+COVER_COMMAND_SIZE = 15.2
+COVER_LABEL_SIZE = 18.5
 COVER_FLOW_TITLE_SIZE = 20
 COVER_STAT_VALUE_SIZE = 38
 COVER_STAT_LABEL_SIZE = 16.2
@@ -362,6 +362,23 @@ def _edge_for(group_id: str) -> str:
 
 def _light_for(group_id: str) -> str:
     return GROUP_LIGHT_COLORS.get(group_id, COLOR_FAMILIES["neutral"]["xlight"])
+
+
+def _publication_doi(root: Path | None = None) -> str:
+    """Return ``publication.doi`` from the manuscript config, or "" if unset.
+
+    The cover figure surfaces the archived DOI once a release reserves it; until
+    then the field is empty and the cover simply omits the DOI line.
+    """
+    import yaml
+
+    config_path = _project_root(root) / "manuscript" / "config.yaml"
+    try:
+        data = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+    except (OSError, yaml.YAMLError):
+        return ""
+    publication = data.get("publication") or {}
+    return str(publication.get("doi") or "").strip()
 
 
 def _group_short(group_id: str) -> str:
@@ -1252,6 +1269,8 @@ def _write_harness_contract(rows: list[SkillRow], figures_dir: Path) -> Path:
 
 
 def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
+    import textwrap
+
     import matplotlib.patches as patches
     import matplotlib.pyplot as plt
 
@@ -1315,11 +1334,12 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
             color=text_color or _readable_text_color(face),
         )
 
-    def stat_card(idx: int, value: str, label: str, face: str, edge: str) -> None:
-        stat_w = 0.210
-        x = 0.060 + idx * (stat_w + 0.022)
-        y = 0.676
-        h = 0.098
+    def stat_card(
+        idx: int, value: str, label: str, face: str, edge: str, *, y: float = 0.714
+    ) -> None:
+        stat_w = 0.205
+        x = 0.063 + idx * (stat_w + 0.022)
+        h = 0.084
         ax.add_patch(box(x, y, stat_w, h, face=face, edge=edge, radius=0.020))
         ax.text(
             x + 0.024,
@@ -1371,10 +1391,10 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
 
     ax.add_patch(
         box(
-            0.040,
-            0.055,
-            0.920,
-            0.890,
+            0.030,
+            0.045,
+            0.940,
+            0.910,
             face=TOKENS["panel"],
             edge=TOKENS["grid"],
             radius=0.028,
@@ -1382,34 +1402,67 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         )
     )
     ax.text(
-        0.075,
-        0.902,
-        "Install and bind the skill library",
+        0.060,
+        0.949,
+        "CogSecSkills",
         ha="left",
         va="top",
-        fontsize=34,
+        fontsize=42,
         fontweight="bold",
         color=TOKENS["ink"],
     )
+    # Accent rule under the wordmark to anchor the identity block.
+    ax.add_patch(
+        patches.Rectangle(
+            (0.062, 0.876),
+            0.252,
+            0.006,
+            facecolor=COLOR_FAMILIES["blue"]["mid"],
+            edgecolor="none",
+        )
+    )
     ax.text(
-        0.075,
-        0.844,
+        0.062,
+        0.858,
+        "A defensive, harness-neutral agent-skill library for cognitive security and analytic tradecraft.",
+        ha="left",
+        va="top",
+        fontsize=15.6,
+        color=TOKENS["muted"],
+    )
+    ax.text(
+        0.062,
+        0.822,
         "github.com/docxology/CogSecSkills",
         ha="left",
         va="top",
-        fontsize=25,
+        fontsize=16.5,
         color=COLOR_FAMILIES["blue"]["dark"],
         fontfamily="monospace",
     )
+    cover_doi = _publication_doi()
+    if cover_doi:
+        ax.text(
+            0.662,
+            0.838,
+            f"DOI: {cover_doi}",
+            ha="left",
+            va="top",
+            fontsize=14.5,
+            color=COLOR_FAMILIES["blue"]["dark"],
+            fontfamily="monospace",
+        )
     ax.text(
-        0.655,
-        0.858,
-        "Default adapters: Claude, Codex, Hermes.\nOptional profiles become structural only\nafter config, regeneration, and validation.",
+        0.662,
+        0.946,
+        "Default adapters: Claude, Codex, Hermes.\n"
+        "Optional profiles become structural only\n"
+        "after config, regeneration, and validation.",
         ha="left",
         va="top",
-        fontsize=15.2,
+        fontsize=14.2,
         color=TOKENS["muted"],
-        linespacing=1.12,
+        linespacing=1.16,
     )
     stats = [
         (
@@ -1440,95 +1493,161 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     for idx, (value, label, face, edge) in enumerate(stats):
         stat_card(idx, value, label, face, edge)
 
+    # Live taxonomy band: name every defensive group with its skill count,
+    # so the cover communicates the library's scope, not just its install route.
+    ax.text(
+        0.060,
+        0.706,
+        f"Seven defensive taxonomy groups · {total_skills} skills",
+        ha="left",
+        va="top",
+        fontsize=COVER_LABEL_SIZE,
+        fontweight="semibold",
+        color=TOKENS["ink"],
+    )
+    summaries = _group_summaries(rows)
+    band_x0 = 0.060
+    band_w = 0.880
+    band_gap = 0.012
+    chip_w = (band_w - band_gap * (len(summaries) - 1)) / len(summaries)
+    chip_y = 0.580
+    chip_h = 0.092
+    for gi, summary in enumerate(summaries):
+        gid = str(summary["id"])
+        gx = band_x0 + gi * (chip_w + band_gap)
+        ax.add_patch(
+            box(
+                gx,
+                chip_y,
+                chip_w,
+                chip_h,
+                face=_light_for(gid),
+                edge=_edge_for(gid),
+                radius=0.015,
+                linewidth=1.05,
+            )
+        )
+        ax.text(
+            gx + 0.013,
+            chip_y + chip_h - 0.013,
+            _group_short(gid),
+            ha="left",
+            va="top",
+            fontsize=13.5,
+            fontweight="bold",
+            color=_edge_for(gid),
+        )
+        ax.text(
+            gx + chip_w - 0.013,
+            chip_y + chip_h - 0.011,
+            str(summary["count"]),
+            ha="right",
+            va="top",
+            fontsize=18.0,
+            fontweight="bold",
+            color=TOKENS["ink"],
+        )
+        title_lines = textwrap.wrap(str(summary["title"]), width=15)[:3]
+        ax.text(
+            gx + 0.013,
+            chip_y + chip_h - 0.043,
+            "\n".join(title_lines),
+            ha="left",
+            va="top",
+            fontsize=8.0,
+            color=TOKENS["ink"],
+            linespacing=1.04,
+        )
+
     ax.add_patch(
         box(
-            0.075,
-            0.390,
-            0.410,
-            0.260,
+            0.060,
+            0.298,
+            0.430,
+            0.262,
             face=COLOR_FAMILIES["neutral"]["xlight"],
             edge=COLOR_FAMILIES["neutral"]["dark"],
         )
     )
     ax.text(
-        0.098,
-        0.623,
+        0.082,
+        0.540,
         "Install and verify",
         ha="left",
         va="top",
-        fontsize=25,
+        fontsize=COVER_PANEL_TITLE_SIZE,
         fontweight="semibold",
         color=TOKENS["ink"],
     )
     command_line(
-        0.098,
-        0.555,
+        0.082,
+        0.476,
         "git clone https://github.com/docxology/CogSecSkills.git",
         step="1",
-        size=15.8,
+        size=12.6,
     )
-    command_line(0.098, 0.518, "cd CogSecSkills && uv sync", step="2")
+    command_line(0.082, 0.439, "cd CogSecSkills && uv sync", step="2")
     command_line(
-        0.098,
-        0.481,
+        0.082,
+        0.402,
         'export PYTHONPATH="src:."',
         step="3",
     )
-    command_line(0.098, 0.444, "python -m cogsecskills validate", step="4")
+    command_line(0.082, 0.365, "python -m cogsecskills validate", step="4")
 
     ax.add_patch(
         box(
-            0.515,
-            0.390,
-            0.410,
-            0.260,
+            0.510,
+            0.298,
+            0.430,
+            0.262,
             face=COLOR_FAMILIES["blue"]["xlight"],
             edge=COLOR_FAMILIES["blue"]["dark"],
         )
     )
     ax.text(
-        0.538,
-        0.623,
+        0.532,
+        0.540,
         "Connect an agent harness",
         ha="left",
         va="top",
-        fontsize=25,
+        fontsize=COVER_PANEL_TITLE_SIZE,
         fontweight="semibold",
         color=TOKENS["ink"],
     )
     command_line(
-        0.538,
-        0.555,
+        0.532,
+        0.476,
         "python -m cogsecskills route",
         step="1",
     )
     command_line(
-        0.538,
-        0.518,
+        0.532,
+        0.439,
         "load SKILL.md + workflow.md",
         step="2",
     )
     command_line(
-        0.538,
-        0.481,
+        0.532,
+        0.402,
         "load harness/<name>.md",
         step="3",
     )
-    command_line(0.538, 0.444, "custom harness: edit config", step="4")
+    command_line(0.532, 0.365, "custom harness: edit config", step="4")
 
     ax.add_patch(
         box(
-            0.075,
-            0.142,
-            0.850,
-            0.175,
+            0.060,
+            0.108,
+            0.880,
+            0.172,
             face=TOKENS["panel"],
             edge=TOKENS["axis"],
             radius=0.022,
             linewidth=0.9,
         )
     )
-    lane_y = 0.185
+    lane_y = 0.150
     lane_items = [
         (
             "CLONE",
@@ -1562,18 +1681,18 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         ),
     ]
     ax.text(
-        0.098,
-        0.300,
+        0.082,
+        0.268,
         "Source-owned run flow",
         ha="left",
         va="top",
-        fontsize=21,
+        fontsize=COVER_FLOW_TITLE_SIZE,
         fontweight="semibold",
         color=TOKENS["ink"],
     )
     for idx, (title, label, face, edge) in enumerate(lane_items):
-        x = 0.100 + idx * 0.162
-        w = 0.132
+        x = 0.082 + idx * 0.172
+        w = 0.140
         ax.add_patch(
             box(
                 x,
@@ -1608,14 +1727,14 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         if idx < len(lane_items) - 1:
             ax.annotate(
                 "",
-                xy=(x + 0.156, lane_y + 0.037),
-                xytext=(x + w + 0.010, lane_y + 0.037),
+                xy=(x + 0.166, lane_y + 0.037),
+                xytext=(x + w + 0.008, lane_y + 0.037),
                 arrowprops=dict(arrowstyle="-|>", color=TOKENS["muted"], lw=1.9),
             )
 
     ax.text(
-        0.075,
-        0.086,
+        0.060,
+        0.074,
         "Structural claim only: defaults ship; optional profiles require config, regenerated adapters, validation, and runtime review.",
         ha="left",
         va="center",

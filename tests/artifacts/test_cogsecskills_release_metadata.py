@@ -20,17 +20,39 @@ def _git(root: Path, *args: str) -> None:
     subprocess.run(["git", *args], cwd=root, check=True, capture_output=True, text=True)
 
 
-def _copy_release_fixture(tmp_path: Path) -> Path:
+def _copy_release_fixture(tmp_path: Path, *, clear_doi: bool = False) -> Path:
     for filename in ("pyproject.toml", "CITATION.cff", "codemeta.json", "LICENSE"):
         shutil.copy2(PROJECT_ROOT / filename, tmp_path / filename)
     for dirname in ("docs", "manuscript", "output", "figures"):
         if (PROJECT_ROOT / dirname).exists():
             shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
+    if clear_doi:
+        # Simulate the pre-archive / local state regardless of whether the live
+        # project has since been published with a real Zenodo DOI. Archive
+        # availability is derived from CITATION.cff + codemeta.json (see
+        # release_metadata._has_doi), so strip the DOI from those too.
+        config_path = tmp_path / "manuscript" / "config.yaml"
+        config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+        config.setdefault("publication", {})
+        config["publication"]["doi"] = ""
+        config["publication"]["version_doi"] = ""
+        config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+
+        cff_path = tmp_path / "CITATION.cff"
+        cff = yaml.safe_load(cff_path.read_text(encoding="utf-8"))
+        cff.pop("doi", None)
+        cff.pop("identifiers", None)
+        cff_path.write_text(yaml.safe_dump(cff, sort_keys=False), encoding="utf-8")
+
+        codemeta_path = tmp_path / "codemeta.json"
+        codemeta = json.loads(codemeta_path.read_text(encoding="utf-8"))
+        codemeta.pop("identifier", None)
+        codemeta_path.write_text(json.dumps(codemeta, indent=2) + "\n", encoding="utf-8")
     return tmp_path
 
 
 def test_release_metadata_write_and_check_local_mode(tmp_path):
-    root = _copy_release_fixture(tmp_path)
+    root = _copy_release_fixture(tmp_path, clear_doi=True)
 
     result = write_release_metadata(root)
 
@@ -87,7 +109,7 @@ def test_release_metadata_detects_version_repo_and_license_drift(tmp_path):
 
 
 def test_release_metadata_public_archive_mode_requires_real_archive(tmp_path):
-    root = _copy_release_fixture(tmp_path)
+    root = _copy_release_fixture(tmp_path, clear_doi=True)
     write_release_metadata(root)
 
     findings = check_release_metadata(root, mode="public-archive")

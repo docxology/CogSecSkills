@@ -64,15 +64,19 @@ FORMALISM_FILES = (
 
 EXPECTED_MANUSCRIPT_H1S = (
     ("00_abstract.md", "Abstract", "sec:abstract"),
-    ("01_introduction.md", "Library Purpose and Reader Map", "sec:introduction"),
+    (
+        "01_introduction.md",
+        "Library Purpose, Scope, and Reader Map",
+        "sec:introduction",
+    ),
     (
         "02_system_context.md",
-        "Source Boundary and Harness-Neutral Skill Contract",
+        "Source Boundary and the Harness-Neutral Skill Contract",
         "sec:system_context",
     ),
     (
         "03_methods.md",
-        "Source-Owned Authoring and Manuscript Generation",
+        "Source-Owned Skill Authoring and Manuscript Generation",
         "sec:methods",
     ),
     (
@@ -82,7 +86,7 @@ EXPECTED_MANUSCRIPT_H1S = (
     ),
     (
         "05_reproducibility.md",
-        "Reproducibility and Render Gates",
+        "Reproducibility, Local Verification, and Render Gates",
         "sec:reproducibility",
     ),
     (
@@ -187,8 +191,9 @@ def test_manuscript_config_exposes_repository_and_license_metadata():
         "https://github.com/docxology/CogSecSkills"
     )
     assert config["metadata"]["license"] == "Apache-2.0"
-    assert config["publication"]["doi"] == ""
-    assert config["publication"]["version_doi"] == ""
+    # Published v1.0.0: concept + version DOIs are present and well-formed.
+    assert re.fullmatch(r"10\.5281/zenodo\.\d+", config["publication"]["doi"])
+    assert re.fullmatch(r"10\.5281/zenodo\.\d+", config["publication"]["version_doi"])
     assert config["paper"]["cover"]["image"] == (
         "../figures/cogsecskills_cover_installation.png"
     )

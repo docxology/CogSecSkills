@@ -189,9 +189,12 @@ def test_figure_inventory_is_exact():
 
 
 def test_cover_readability_constants_are_pdf_first():
-    assert COVER_COMMAND_SIZE >= 20
+    # The cover renders at ~17 inches wide, so these point sizes stay legible
+    # in the PDF. The command font sits lower than the section/label fonts so a
+    # full clone URL fits the install panel without overflowing.
+    assert COVER_COMMAND_SIZE >= 12
     assert COVER_LABEL_SIZE >= 16
-    assert COVER_PANEL_TITLE_SIZE >= 30
+    assert COVER_PANEL_TITLE_SIZE >= 22
 
 
 def test_live_group_palette_covers_registry_groups():

@@ -1,6 +1,6 @@
-# Source-Owned Authoring and Manuscript Generation {#sec:methods}
+# Source-Owned Skill Authoring and Manuscript Generation {#sec:methods}
 
-## Registry-to-Skill Construction
+## Registry-to-Definition-to-Skill Construction
 
 The manuscript is generated and maintained from the same project surfaces that the CLI validates. The registry is loaded first so the catalogue order, group membership, status, and AGEINT topic remain the plan of record. Canonical definitions under `definitions/` own the skill substance; `definitions --write` renders those definitions into on-disk `skill.yaml`, `SKILL.md`, `workflow.md`, and harness adapters. The manuscript asset generator then joins the registry and rendered typed skill specifications by skill id and emits supplemental Markdown, compact JSON and CSV exports, body figures, and a title-page cover image that explains installation into an agent harness. This source-first approach follows the reproducibility principle that outputs should retain enough workflow, version, and source context to be regenerated and inspected [@sandve2013reproducible; @wilkinson2016fair].
 

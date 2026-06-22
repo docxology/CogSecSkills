@@ -1,4 +1,4 @@
-# Library Purpose and Reader Map {#sec:introduction}
+# Library Purpose, Scope, and Reader Map {#sec:introduction}
 
 ## Why Harness-Neutral Defensive Skills
 

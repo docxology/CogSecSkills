@@ -4,6 +4,25 @@ All notable changes to CogSecSkills are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and the project aims to
 follow semantic versioning.
 
+## [1.0.0] - 2026-06-22
+
+First archived public release.
+
+### Added
+
+- Archived on Zenodo with a permanent DOI. Concept DOI (all versions):
+  [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585); version
+  DOI (v1.0.0): [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586).
+- Title-cover figure now renders the archived DOI alongside the repository URL,
+  leads with the `CogSecSkills` identity wordmark, and includes a live
+  seven-group taxonomy band generated from the registry.
+
+### Changed
+
+- Abstract rewritten as a single comprehensive plaintext paragraph (no
+  citations or code spans) for clean archive and citation metadata.
+- Sharpened section titles across the manuscript.
+
 ## [Unreleased]
 
 ### Added

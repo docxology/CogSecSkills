@@ -6,7 +6,7 @@
 paper:
   title: "CogSecSkills: Multiharness Cognitive Security Skill Library"
   subtitle: "A reproducible skills-system manuscript for defensive analytic tradecraft"
-  version: "0.1.0"
+  version: "1.0.0"
   date: ""
   cover:
     image: "../figures/cogsecskills_cover_installation.png"
@@ -20,9 +20,9 @@ authors:
     corresponding: true
 
 publication:
-  doi: ""
-  version_doi: ""
-  version_record: "v0.1.0-2-ge85ecf2-dirty; local hardening snapshot, not an archived release DOI"
+  doi: "10.5281/zenodo.20804585"
+  version_doi: "10.5281/zenodo.20804586"
+  version_record: "https://zenodo.org/records/20804586"
   github_repository: "https://github.com/docxology/CogSecSkills"
   year: "2026"
   transmission_bookends:

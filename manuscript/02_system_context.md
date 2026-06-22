@@ -1,4 +1,4 @@
-# Source Boundary and Harness-Neutral Skill Contract {#sec:system_context}
+# Source Boundary and the Harness-Neutral Skill Contract {#sec:system_context}
 
 ## Repository-Local Evidence Boundary
 

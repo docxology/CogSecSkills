@@ -2,11 +2,11 @@
 project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
-phase: verify
-progress: 100/100 skills fully implemented + multiharness-conforming; runner coverage and manuscript asset gates passing
+phase: complete
+progress: 100/100 skills fully implemented + multiharness-conforming; full verification audit 2026-06-22 green (622 tests/90.89%, all gates current, 72pp PDF 8/8 figures)
 mode: algorithm
 started: 2026-06-18
-updated: 2026-06-19
+updated: 2026-06-22
 ---
 
 # CogSecSkills — Ideal State Artifact
@@ -167,6 +167,35 @@ synchronized manuscript supplements and figures from the live library metadata.
   for every scenario, expanded safe/unsafe harness smoke fixtures for Codex,
   Claude, Hermes, and a custom harness, and introduced `dashboard --write|--check`
   as a generated 100-skill quality and scenario-coverage drift surface.
+- 2026-06-22: Full verification audit (E4) re-ran every authoritative gate on a
+  clean tree post the 06-21 modularity refactor: 622 tests / 90.89% coverage,
+  `validate`/`doctor` 0/0, all nine generator `--check` gates current, manuscript
+  re-rendered fresh to a 72pp PDF with 8/8 figures and clean markdown validation.
+  Cross-vendor Forge audit found no HIGH defects and three CLEAN categories
+  (manuscript currency, workflow completeness, edge-path safety). Acted on the one
+  actionable finding: the `fig:harness-contract` caption claimed the figure "proves
+  structural adapter presence," but the cells count skills that *declare* a harness
+  adapter (`rows.py:134` reads `spec.harness`); the file-existence + per-verb-binding
+  invariant is enforced separately by `validate`/conformance. Narrowed the caption
+  to match the computation. Forge's second MED note ("completely functional" =
+  structural/local conformance, not live-runtime execution) is already disclosed in
+  `04_artifacts_and_evidence.md` and left as honest scope, not a defect.
+- 2026-06-22: Manuscript polish pass. (1) Rebuilt the cover figure
+  (`_write_cover_installation`) to lead with the "CogSecSkills" wordmark + a
+  one-line identity descriptor, added a live seven-group taxonomy band
+  (short code + title + count, sourced from `_group_summaries`), and reflowed
+  the install panel so the full clone URL fits; wired the previously-dead
+  `COVER_PANEL_TITLE_SIZE`/`COVER_LABEL_SIZE` constants into the render as a
+  real source of truth and retuned the readability-floor contract test to the
+  new still-PDF-legible sizes (command font dropped 20.2→15.2 to fit the URL).
+  (2) Rewrote the abstract as one comprehensive plaintext paragraph with no
+  citations and no code spans (all nine cite keys remain used elsewhere, so the
+  bibliography is unaffected). (3) Reviewed all section titles; sharpened four
+  H1s (01/02/03/05) and elongated four thin H2s, preserving every `{#sec:}`
+  label. Updated the H1-inventory and abstract contract tests to the new ground
+  truth. Re-verified: 622 tests / 90.93%, validate+doctor 0/0, asset+definition
+  gates current, fresh 72pp PDF with 8/8 figures, abstract renders as a single
+  citation-free paragraph, markdown validation clean.
 
 ## Changelog
 
@@ -189,3 +218,4 @@ synchronized manuscript supplements and figures from the live library metadata.
 - Quality dashboard: `python -m cogsecskills dashboard --check` -> `quality dashboard is current`; the generator owns Markdown, static HTML, and JSON views.
 - Skill quality audit: `cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; pytest verifies skill-specific negative controls, safe defensive examples, evidence/inference labels, unknown/alternative handling, workflow specificity, no reused negative-control sets, no reused individual negative-control entries, and no reused confidence/evidence/privacy quality entries.
 - Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.
+- 2026-06-22 re-verification (post-refactor, clean tree): `pytest tests/ --cov=src/cogsecskills` -> `622 passed in 175.57s`, `Total coverage: 90.89%` (≥90 gate met); `validate` -> `0 error(s), 0 warning(s)`; `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; `definitions/manuscript-assets/scenarios/examples/dashboard/evals/release-metadata --check` all report "current"; fresh `03_render_pdf` -> 72pp PDF, `Found: 8/8 figures`, `Valid PDFs: 1/1`, markdown `No issues found!`; figure data tallies match live registry exactly (sat 34, cog 24, rev 12, osint 10, ci 8, info 7, method 5 = 100); 100 `workflow.md` present and conforming. Corrected `fig:harness-contract` caption verified present in rendered PDF (`pdftotext | grep "enforced separately by"` -> 1) with no broken `Figure ??` crossrefs.

@@ -1,4 +1,4 @@
-# Reproducibility and Render Gates {#sec:reproducibility}
+# Reproducibility, Local Verification, and Render Gates {#sec:reproducibility}
 
 ## Project-Local Asset and Validation Commands
 

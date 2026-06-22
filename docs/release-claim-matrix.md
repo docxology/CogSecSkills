@@ -10,11 +10,11 @@ This generated matrix is a local release-readiness surface. It records metadata 
 |---|---|
 | Mode | `local` |
 | Repository | `https://github.com/docxology/CogSecSkills` |
-| Version | `0.1.0` |
+| Version | `1.0.0` |
 | License | `Apache-2.0` |
 | Git state | runtime-observed by the CLI; not drift-checked in committed files |
 | Git snapshot policy | Exact git revision, branch, and dirty-state values are observed at command runtime and intentionally omitted from drift-checked committed outputs. |
-| DOI/archive status | `unavailable` |
+| DOI/archive status | `available` |
 
 ## Claim Matrix
 

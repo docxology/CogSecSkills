@@ -30,7 +30,7 @@ The figures should be read as descriptive system views. They are strong evidence
 
 ![cogsecskills_reference_density.png: Declared references per implemented skill by taxonomy group. Use this figure to spot where source-reference metadata is concentrated and where future bibliography or source-curation work may be useful. The figure proves metadata density in `skill.yaml`; it does not grade evidence quality, citation authority, or operational validity.](../output/figures/cogsecskills_reference_density.png){#fig:reference-density width=100%}
 
-![cogsecskills_harness_contract.png: Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes. Use this figure before installing the library into an agent harness to confirm that each configured harness has the expected adapter coverage. The figure proves structural adapter presence across groups and whole-library totals; it does not claim behavioral success for every external runtime.](../output/figures/cogsecskills_harness_contract.png){#fig:harness-contract width=100%}
+![cogsecskills_harness_contract.png: Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes. Use this figure before installing the library into an agent harness to see, at a glance, that every group declares the configured-harness adapters. The cells count skills that *declare* an adapter for each configured harness, by group and as whole-library totals; the stronger invariants — that each declared adapter file exists on disk and that its binding table covers every verb the skill uses — are enforced separately by `validate` and the conformance suite, not by this figure. The figure does not claim behavioral success for any external runtime.](../output/figures/cogsecskills_harness_contract.png){#fig:harness-contract width=100%}
 
 The Reference Density view complements the catalogue because it makes source backing visible by group rather than by individual row. The Harness Contract view complements the validator because it presents configured-harness adapter coverage in the reader's visual path, including Codex and Hermes in the default set rather than treating them as secondary implementation details.
 
@@ -45,7 +45,7 @@ for example, `osint_integrity.claim_provenance_verification` appears as Claim
 Provenance Verification, with its use conditions, neutral verbs, AGEINT topic,
 reference count, and source path generated from the live skill metadata.
 
-## Skill Quality Audit
+## Per-Skill Quality Audit and Anti-Boilerplate Checks
 
 The skill-quality surface is now source-owned rather than a prose-only governance promise. Every canonical definition must carry the same required quality bundle: defensive boundary, misuse redirect, evidence requirements, confidence rubric, uncertainty handling, privacy/legal constraints, failure modes, and negative controls. The renderer places those fields into the skill files, while `definitions --check`, `doctor`, and the pytest contract suite check that the rendered tree and manuscript views remain synchronized with the definitions.
 
@@ -61,7 +61,7 @@ The evidence ladder adds two levels above static corpus inspection. `scenarios/d
 
 These gates are deliberately deterministic. They do not ask Claude, Codex, Hermes, Gemini, a browser, an OSINT connector, or any live platform to perform the task. Their claim is narrower and more useful for a repository manuscript: curated defensive scenarios and worked examples can still be mapped to concrete skill contracts, and the referenced skills expose the local metadata an agent harness needs to stay bounded. The gates do not show that a live runtime will select the same skill, use tools correctly, or produce a high-quality answer in the field.
 
-## Quality Dashboard
+## Live Quality and Coverage Dashboard
 
 `python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and `output/data/quality_dashboard.json`. The dashboard gives readers a compact row for every implemented skill: group, verbs, configured harnesses, reference count, quality-capsule presence, scenario coverage, worked-example coverage, local claim-boundary status, and source path. The static HTML view is a dependency-free reader surface for scanning the same payload with responsive tables and print styling. It also surfaces the 28 scenario fixtures, their expected-answer section titles, the 100 worked examples, and the latest verified-state lines from `TODO.md`.
 

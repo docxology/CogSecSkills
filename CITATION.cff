@@ -15,8 +15,16 @@ authors:
     orcid: https://orcid.org/0000-0001-6232-9096
 repository-code: https://github.com/docxology/CogSecSkills
 license: Apache-2.0
-version: 0.1.0
-date-released: '2026-06-18'
+doi: 10.5281/zenodo.20804585
+version: 1.0.0
+date-released: '2026-06-22'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20804585
+    description: Concept DOI (all versions)
+  - type: doi
+    value: 10.5281/zenodo.20804586
+    description: Version DOI (v1.0.0)
 keywords:
   - cognitive security
   - structured analytic techniques
