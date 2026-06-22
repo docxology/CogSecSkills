@@ -4,6 +4,31 @@ All notable changes to CogSecSkills are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and the project aims to
 follow semantic versioning.
 
+## [Unreleased]
+
+### Added
+
+- `CLAUDE.md` — Claude Code session guidance (defers to `AGENTS.md`; pins the
+  generated-file boundary, gate sweep, and defensive contract).
+- `docs/claude-code-skills.md` — installing the library as native Claude Code
+  `/` skills by flattening `skills/` into `.claude/skills/cogsec-<slug>/`; linked
+  from the docs map.
+- `figures` optional-dependency extra (`matplotlib`, `numpy`, `seaborn`) so
+  `manuscript-assets --write` figure rendering is reproducible.
+
+### Fixed
+
+- Generated-file header attribution: `docs/evaluation-readiness.md` and
+  `docs/skill-worked-examples.md` now correctly credit `evals --write` and
+  `examples --write` (previously mislabeled `manuscript-assets --write`).
+- `mypy` no longer aborts on the optional figure libraries' stubs when the
+  `figures` extra is installed alongside `dev` (added a `tool.mypy` override).
+
+### Changed
+
+- `QUICKSTART.md` documents the `figures` extra and includes
+  `manuscript-assets --check` in the validation sweep.
+
 ## [0.1.0] — 2026-06-18
 
 Initial release. A multiharness agentic skill library for Cognitive Security and

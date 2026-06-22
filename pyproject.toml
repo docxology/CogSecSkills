@@ -31,6 +31,14 @@ dev = [
     "ruff>=0.6",
     "types-PyYAML>=6.0",
 ]
+# Manuscript/release figure rendering only (manuscript-assets --write). The core
+# runner and every CI gate run without these; they are needed solely to
+# regenerate the PNG figures under output/figures/.
+figures = [
+    "matplotlib>=3.7",
+    "numpy>=1.24",
+    "seaborn>=0.13",
+]
 
 [project.urls]
 Repository = "https://github.com/docxology/CogSecSkills"
@@ -51,6 +59,16 @@ files = ["src/cogsecskills"]
 ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true
+
+# The optional `figures` extra (matplotlib/numpy/seaborn/pandas) is needed only
+# to regenerate figures, not to type-check the runner. When it is installed
+# alongside `dev`, mypy must not descend into those third-party stubs (numpy's
+# stubs use 3.12-only `type` statements that abort the 3.10-targeted check).
+[[tool.mypy.overrides]]
+module = ["numpy.*", "matplotlib.*", "seaborn.*", "pandas.*"]
+follow_imports = "skip"
+follow_imports_for_stubs = true
+ignore_missing_imports = true
 
 [tool.ruff]
 target-version = "py310"

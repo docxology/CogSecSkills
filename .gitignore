@@ -1,5 +1,8 @@
 # Generated outputs are regeneratable; never commit them.
 output/
+# Claude Code skill install — a regeneratable flat mirror of skills/ plus local
+# settings (see docs/claude-code-skills.md to rebuild).
+.claude/
 .coverage
 .coverage.*
 .pytest_cache/

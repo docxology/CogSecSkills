@@ -8,6 +8,7 @@ The complete documentation map. Start with whichever row matches what you need.
 | **Start from clone to first harness use** | [`../QUICKSTART.md`](../QUICKSTART.md) — install, validate, route, inspect, and bind one skill |
 | **Understand the design** | [`architecture.md`](architecture.md) — three artifacts, runner modules, harness model, authoring pipeline |
 | **Install into an agent harness** | [`harness-installation.md`](harness-installation.md) — clone, validate, route, and bind `SKILL.md`/`workflow.md`/`harness/<name>.md` |
+| **Install as native Claude Code `/` skills** | [`claude-code-skills.md`](claude-code-skills.md) — flatten the `skills/` tree into `.claude/skills/` so skills appear in the Claude Code skill menu |
 | **Use harness-specific snippets** | [`harness-cookbook.md`](harness-cookbook.md) — Codex, Claude, Hermes, and custom-harness handoff patterns |
 | **See sample harness transcripts** | [`../examples/harness-smoke-transcripts.md`](../examples/harness-smoke-transcripts.md) — local non-secret transcript fixtures |
 | **See one worked example per group** | [`../examples/group-worked-examples.md`](../examples/group-worked-examples.md) — defensive output shapes across all seven groups |
