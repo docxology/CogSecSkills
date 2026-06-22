@@ -52,7 +52,12 @@ CogSecSkills/
 │   └── harness-installation.md · install and bind the library into an agent harness
 ├── manuscript/             manuscript source, including generated S10/S11 supplements
 ├── output/                 rebuild outputs: data exports, figures, PDF/HTML/slides
-├── src/cogsecskills/        the runner (spec, registry, validate, author, insights, manuscript assets, cli)
+├── src/cogsecskills/        the runner, organized into cohesive subpackages:
+│   ├── core/                · spec, registry, loader, config, harness (the data model)
+│   ├── authoring/           · author, scaffold, definitions (create & render skills)
+│   ├── quality/             · validate, insights (conformance + quality lint)
+│   ├── artifacts/           · manuscript_assets/, scenarios, examples, evals, dashboard, release_metadata (generated views)
+│   └── cli.py               · the thin command-line interface over the above
 └── cogsecskills.yaml        optional config (see configuration.md)
 ```
 

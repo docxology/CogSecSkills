@@ -1,7 +1,7 @@
 # The Skill Conformance Contract
 
 This is the exact contract a CogSecSkill must satisfy, as enforced by
-[`src/cogsecskills/validate.py`](../src/cogsecskills/validate.py). A skill is
+[`src/cogsecskills/quality/validate.py`](../src/cogsecskills/quality/validate.py). A skill is
 *conforming* when `validate_skill` reports zero errors against it, and the
 library is coherent when `validate_library` reports zero errors across every
 skill plus the registry. Run the gate with:

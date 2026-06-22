@@ -74,7 +74,7 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 - `output/figures/cogsecskills_cover_installation.png` - canonical generated cover image
 - `figures/cogsecskills_cover_installation.png` - synchronized title-page cover mirror configured in `config.yaml`
 
-If generated Markdown or data is wrong, fix `src/cogsecskills/manuscript_assets.py`
+If generated Markdown or data is wrong, fix `src/cogsecskills/artifacts/manuscript_assets/__init__.py`
 or the source registry/skill metadata, then regenerate.
 
 ## Citations And Provenance

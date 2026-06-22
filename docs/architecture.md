@@ -105,7 +105,7 @@ curated defensive scenarios still route and bind).
 ### How `validate` keeps PLAN and BUILD coherent
 
 `python -m cogsecskills validate` (implemented in
-[`validate.py`](../src/cogsecskills/validate.py)) cross-checks PLAN against
+[`validate.py`](../src/cogsecskills/quality/validate.py)) cross-checks PLAN against
 BUILD so the catalogue can never silently drift from what ships:
 
 - Every **on-disk skill must be catalogued** in the registry with a matching
@@ -122,36 +122,42 @@ ordinary backlog (silent and fine). The full enumeration of checks lives in
 
 ## The runner package
 
-All logic lives in `src/cogsecskills/`. Each module has one job, and the modules
-fall into four bands that mirror the data flow above:
+All logic lives in `src/cogsecskills/`, organized into cohesive subpackages that
+mirror the data flow above and form a clean dependency DAG (`core` ← `authoring`,
+`quality`; `quality` ← `artifacts`; everything ← `cli`):
 
-- **Model the artifacts** — `spec.py` (a rendered skill), `registry.py` (the
-  catalogue).
-- **Read what exists** — `loader.py` (discover skills on disk), `config.py`
-  (optional overrides).
-- **Produce and prove** — `author.py` and `definitions.py` (generate from
-  canonical definitions), `scaffold.py` (skeletons), `harness.py` and
-  `validate.py` (conformance), `scenarios.py` (defensive-readiness check).
-- **Report and surface** — `insights.py` (route/stats/catalogue/doctor),
-  `manuscript_assets.py` (generated manuscript layer), `cli.py` (the thin
-  orchestrator over all of it).
+- **`core/`** — the data model and what reads it: `spec.py` (a rendered skill),
+  `registry.py` (the catalogue), `loader.py` (discover skills on disk),
+  `config.py` (optional overrides), `harness.py` (the harness/verb model).
+- **`authoring/`** — produce skills from canonical definitions: `author.py` and
+  `definitions.py` (generate and render), `scaffold.py` (skeletons).
+- **`quality/`** — prove conformance: `validate.py` (the contract gate) and
+  `insights.py` (route/stats/catalogue/doctor quality lint).
+- **`artifacts/`** — generated views over the library: `scenarios.py`
+  (defensive-readiness), `examples.py`, `evals.py`, `dashboard.py`,
+  `release_metadata.py`, and the `manuscript_assets/` package (split into
+  `paths`, `rows`, `tables`, `figures`, `assets_io` behind a façade `__init__`).
+- **`cli.py`** — the thin command-line orchestrator over all of the above.
+
+Each subpackage has a single responsibility, so a reader can open one folder and
+see a complete layer without wading through the rest of the engine.
 
 Each module in detail:
 
 | Module | Job |
 |--------|-----|
-| [`spec.py`](../src/cogsecskills/spec.py) | The harness-neutral `SkillSpec` dataclass and the **closed** `ToolVerb` enum. Total parsing: malformed `skill.yaml` raises `SpecError` rather than producing a half-built object. Also `SkillTool`, `SkillIO`, and the `SKILL_STATUSES` tuple (`implemented`, `stub`, `planned`). |
-| [`registry.py`](../src/cogsecskills/registry.py) | The catalogue. `SkillRegistry` / `RegistryEntry` load and validate `registry/skills.yaml` and `registry/groups.yaml` (rejects duplicate ids, bad status, missing keys). Query helpers: `by_group`, `by_status`, `get`, `status_counts`. |
-| [`loader.py`](../src/cogsecskills/loader.py) | Discovery. Turns the on-disk `skills/**/skill.yaml` tree into validated `SkillSpec` objects (`load_skill`, `discover_skills`, `skills_root`, `skill_dir`). Returns an empty list when the tree is absent, so callers never special-case bootstrap. |
-| [`harness.py`](../src/cogsecskills/harness.py) | Multiharness conformance. Defines the default `HARNESSES` (`claude`, `codex`, `hermes`) and `HARNESS_VERB_SUPPORT`. `check_conformance` proves a spec declares an adapter for each configured harness and that each harness can realise every verb the skill uses. The check is structural, not behavioural. |
-| [`validate.py`](../src/cogsecskills/validate.py) | The validation gates. `validate_skill` (per-skill structure + conformance), `validate_library` (every skill + registry coherence), `conformance_report` (machine-readable summary). Produces `ValidationResult` / `ValidationIssue`. |
-| [`scaffold.py`](../src/cogsecskills/scaffold.py) | Skeletons. `scaffold_skill` reads a registry row and writes a conforming-but-shallow `stub` skill folder (spec + `SKILL.md` + `workflow.md` + one adapter per harness) for an author to deepen by hand. |
-| [`author.py`](../src/cogsecskills/author.py) | The deterministic renderer. `render_definition` turns a structured JSON or YAML definition into the conforming files; adapters are generated to bind **exactly** the declared verbs. `author_batch` remains as a compatibility path for `_def.json`. |
-| [`definitions.py`](../src/cogsecskills/definitions.py) | The canonical definition layer. `definitions --write` renders all 100 skills from `definitions/<group>/<slug>.yaml`; `definitions --check` proves the YAML definitions and rendered skill files have not drifted. |
-| [`config.py`](../src/cogsecskills/config.py) | Configuration. Optional `cogsecskills.yaml` overrides the harness set and `doctor` quality thresholds; everything has a default, so the file is never required. A present-but-malformed config raises rather than silently falling back. |
-| [`insights.py`](../src/cogsecskills/insights.py) | Affordances over the catalogue: `route_query` (rank skills for a free-text need), `library_stats` (counts by group/status/verb), `render_catalogue_markdown` (navigable index), `doctor` (quality lint vs configurable thresholds — depth, not conformance). |
-| [`scenarios.py`](../src/cogsecskills/scenarios.py) | Deterministic defensive-readiness checks. Loads curated safe-use and unsafe-redirect fixtures, confirms route matches, output terms, quality metadata, and refusal/redirect markers without calling external model runtimes. |
-| [`manuscript_assets.py`](../src/cogsecskills/manuscript_assets.py) | Generated manuscript layer. Joins registry entries to live skill specs and writes `S10_skill_catalogue.md`, `S11_skill_metadata_matrix.md`, data exports, and eight figures under `output/figures/`; `check_assets` detects drift. |
+| [`spec.py`](../src/cogsecskills/core/spec.py) | The harness-neutral `SkillSpec` dataclass and the **closed** `ToolVerb` enum. Total parsing: malformed `skill.yaml` raises `SpecError` rather than producing a half-built object. Also `SkillTool`, `SkillIO`, and the `SKILL_STATUSES` tuple (`implemented`, `stub`, `planned`). |
+| [`registry.py`](../src/cogsecskills/core/registry.py) | The catalogue. `SkillRegistry` / `RegistryEntry` load and validate `registry/skills.yaml` and `registry/groups.yaml` (rejects duplicate ids, bad status, missing keys). Query helpers: `by_group`, `by_status`, `get`, `status_counts`. |
+| [`loader.py`](../src/cogsecskills/core/loader.py) | Discovery. Turns the on-disk `skills/**/skill.yaml` tree into validated `SkillSpec` objects (`load_skill`, `discover_skills`, `skills_root`, `skill_dir`). Returns an empty list when the tree is absent, so callers never special-case bootstrap. |
+| [`harness.py`](../src/cogsecskills/core/harness.py) | Multiharness conformance. Defines the default `HARNESSES` (`claude`, `codex`, `hermes`) and `HARNESS_VERB_SUPPORT`. `check_conformance` proves a spec declares an adapter for each configured harness and that each harness can realise every verb the skill uses. The check is structural, not behavioural. |
+| [`validate.py`](../src/cogsecskills/quality/validate.py) | The validation gates. `validate_skill` (per-skill structure + conformance), `validate_library` (every skill + registry coherence), `conformance_report` (machine-readable summary). Produces `ValidationResult` / `ValidationIssue`. |
+| [`scaffold.py`](../src/cogsecskills/authoring/scaffold.py) | Skeletons. `scaffold_skill` reads a registry row and writes a conforming-but-shallow `stub` skill folder (spec + `SKILL.md` + `workflow.md` + one adapter per harness) for an author to deepen by hand. |
+| [`author.py`](../src/cogsecskills/authoring/author.py) | The deterministic renderer. `render_definition` turns a structured JSON or YAML definition into the conforming files; adapters are generated to bind **exactly** the declared verbs. `author_batch` remains as a compatibility path for `_def.json`. |
+| [`definitions.py`](../src/cogsecskills/authoring/definitions.py) | The canonical definition layer. `definitions --write` renders all 100 skills from `definitions/<group>/<slug>.yaml`; `definitions --check` proves the YAML definitions and rendered skill files have not drifted. |
+| [`config.py`](../src/cogsecskills/core/config.py) | Configuration. Optional `cogsecskills.yaml` overrides the harness set and `doctor` quality thresholds; everything has a default, so the file is never required. A present-but-malformed config raises rather than silently falling back. |
+| [`insights.py`](../src/cogsecskills/quality/insights.py) | Affordances over the catalogue: `route_query` (rank skills for a free-text need), `library_stats` (counts by group/status/verb), `render_catalogue_markdown` (navigable index), `doctor` (quality lint vs configurable thresholds — depth, not conformance). |
+| [`scenarios.py`](../src/cogsecskills/artifacts/scenarios.py) | Deterministic defensive-readiness checks. Loads curated safe-use and unsafe-redirect fixtures, confirms route matches, output terms, quality metadata, and refusal/redirect markers without calling external model runtimes. |
+| [`manuscript_assets.py`](../src/cogsecskills/artifacts/manuscript_assets/__init__.py) | Generated manuscript layer. Joins registry entries to live skill specs and writes `S10_skill_catalogue.md`, `S11_skill_metadata_matrix.md`, data exports, and eight figures under `output/figures/`; `check_assets` detects drift. |
 | [`cli.py`](../src/cogsecskills/cli.py) | Thin orchestrator. Parses args, calls the library API, prints results — `list`, `show`, `validate`, `report`, `route`, `stats`, `groups`, `catalogue`, `doctor`, `definitions`, `scenarios`, `manuscript-assets`, `export`, `scaffold`, `author`, `author-batch`. No business logic. |
 
 ## Anatomy of a skill (BUILD)

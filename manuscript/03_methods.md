@@ -22,7 +22,7 @@ The optional harness profile registry sits beside the skill registry but has a d
 
 ## Generated Supplement and Figure Pipeline
 
-`src/cogsecskills/manuscript_assets.py` is the producer for the generated manuscript layer. Its outputs are intentionally committed as manuscript source inputs because they support review and PDF rendering, but they remain generated. The command writes:
+`src/cogsecskills/artifacts/manuscript_assets/__init__.py` is the producer for the generated manuscript layer. Its outputs are intentionally committed as manuscript source inputs because they support review and PDF rendering, but they remain generated. The command writes:
 
 - `manuscript/S10_skill_catalogue.md`, a grouped catalogue of all skills with functionality, "Use when" text, verbs, inputs, outputs, AGEINT topic, reference count, and source path;
 - `manuscript/S11_skill_metadata_matrix.md`, a compact matrix view of group counts, verb usage, AGEINT crosswalks, harness coverage, and figure inventory;

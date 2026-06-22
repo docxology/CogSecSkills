@@ -15,7 +15,7 @@ This directory follows the docxology/template manuscript contract:
   `scenarios/defensive_readiness.yaml`; they are local route/contract checks,
   not live model evaluations.
 - Generated library catalogue and figure content belongs behind
-  `src/cogsecskills/manuscript_assets.py`, not hard-coded prose.
+  `src/cogsecskills/artifacts/manuscript_assets/__init__.py`, not hard-coded prose.
 
 ## Editing Rules
 
