@@ -19,10 +19,16 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from .config import Config
-from .loader import SPEC_FILENAME, discover_skills, load_skill, skill_dir, skills_root
-from .registry import load_registry
-from .spec import SkillSpec
+from cogsecskills.core.config import Config
+from cogsecskills.core.loader import (
+    SPEC_FILENAME,
+    discover_skills,
+    load_skill,
+    skill_dir,
+    skills_root,
+)
+from cogsecskills.core.registry import load_registry
+from cogsecskills.core.spec import SkillSpec
 
 QUALITY_FIELD_NAMES = (
     "defensive_boundary",

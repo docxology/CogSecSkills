@@ -15,7 +15,7 @@ from typing import TypedDict
 
 import yaml
 
-from .author import (
+from cogsecskills.authoring.author import (
     QUALITY_FIELDS,
     AuthorError,
     default_quality_fields,
@@ -23,9 +23,9 @@ from .author import (
     render_definition,
     rendered_definition_files,
 )
-from .loader import discover_skills, skills_root
-from .registry import RegistryEntry, load_registry
-from .spec import SkillSpec, SpecError, ToolVerb
+from cogsecskills.core.loader import discover_skills, skills_root
+from cogsecskills.core.registry import RegistryEntry, load_registry
+from cogsecskills.core.spec import SkillSpec, SpecError, ToolVerb
 
 DEFINITIONS_DIRNAME = "definitions"
 DEFINITION_SUFFIX = ".yaml"
@@ -79,7 +79,7 @@ class DefinitionWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def definitions_root(root: Path | None = None) -> Path:

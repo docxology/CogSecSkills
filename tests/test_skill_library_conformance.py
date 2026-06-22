@@ -16,23 +16,23 @@ from pathlib import Path
 
 import pytest
 
-from cogsecskills.author import QUALITY_FIELDS
-from cogsecskills.definitions import (
+from cogsecskills.authoring.author import QUALITY_FIELDS
+from cogsecskills.authoring.definitions import (
     check_definitions,
     definition_path,
     load_definitions,
 )
-from cogsecskills.harness import HARNESSES, check_conformance
-from cogsecskills.insights import GENERIC_NEGATIVE_CONTROL_PHRASES
-from cogsecskills.loader import (
+from cogsecskills.core.harness import HARNESSES, check_conformance
+from cogsecskills.quality.insights import GENERIC_NEGATIVE_CONTROL_PHRASES
+from cogsecskills.core.loader import (
     SPEC_FILENAME,
     discover_skills,
     load_skill,
     skill_dir,
     skills_root,
 )
-from cogsecskills.registry import load_registry
-from cogsecskills.validate import validate_library
+from cogsecskills.core.registry import load_registry
+from cogsecskills.quality.validate import validate_library
 
 #: The real project root (this file lives at <root>/tests/).
 ROOT = Path(__file__).resolve().parents[1]

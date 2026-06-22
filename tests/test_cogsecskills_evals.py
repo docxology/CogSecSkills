@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.evals import check_evals, load_evaluations, write_evals
+from cogsecskills.artifacts.evals import check_evals, load_evaluations, write_evals
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]

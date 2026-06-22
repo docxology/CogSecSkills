@@ -28,27 +28,34 @@ import argparse
 import json
 from pathlib import Path
 
-from .author import author_batch, load_definition_file, render_definition
-from .config import load_config
-from .dashboard import check_dashboard, write_dashboard
-from .definitions import check_definitions, write_definitions
-from .evals import check_evals, write_evals
-from .examples import check_examples, write_examples
-from .insights import (
+from cogsecskills.authoring.author import (
+    author_batch,
+    load_definition_file,
+    render_definition,
+)
+from cogsecskills.core.config import load_config
+from cogsecskills.artifacts.dashboard import check_dashboard, write_dashboard
+from cogsecskills.authoring.definitions import check_definitions, write_definitions
+from cogsecskills.artifacts.evals import check_evals, write_evals
+from cogsecskills.artifacts.examples import check_examples, write_examples
+from cogsecskills.quality.insights import (
     doctor,
     library_stats,
     render_catalogue_markdown,
     route_query,
 )
 from . import __version__
-from .loader import discover_skills
-from .manuscript_assets import check_assets, write_assets
-from .registry import load_registry
-from .release_metadata import check_release_metadata, write_release_metadata
-from .scenarios import check_scenarios, scenario_summary
-from .scaffold import scaffold_skill
-from .spec import SkillSpec
-from .validate import conformance_report, validate_library
+from cogsecskills.core.loader import discover_skills
+from cogsecskills.artifacts.manuscript_assets import check_assets, write_assets
+from cogsecskills.core.registry import load_registry
+from cogsecskills.artifacts.release_metadata import (
+    check_release_metadata,
+    write_release_metadata,
+)
+from cogsecskills.artifacts.scenarios import check_scenarios, scenario_summary
+from cogsecskills.authoring.scaffold import scaffold_skill
+from cogsecskills.core.spec import SkillSpec
+from cogsecskills.quality.validate import conformance_report, validate_library
 
 
 def _cmd_list(args: argparse.Namespace) -> int:

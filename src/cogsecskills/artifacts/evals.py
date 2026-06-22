@@ -7,8 +7,8 @@ from typing import Any, Mapping, TypedDict
 
 import yaml
 
-from .manuscript_assets import GENERATED_HEADER
-from .scenarios import (
+from cogsecskills.artifacts.manuscript_assets import GENERATED_HEADER
+from cogsecskills.artifacts.scenarios import (
     ANSWER_KINDS,
     OPERATIONAL_MISUSE_PHRASES,
     RUBRIC_KEYS,
@@ -54,7 +54,7 @@ class EvalWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def _clean_cell(value: object) -> str:

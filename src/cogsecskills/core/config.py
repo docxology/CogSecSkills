@@ -27,7 +27,7 @@ from pathlib import Path
 
 import yaml
 
-from .harness import HARNESSES
+from cogsecskills.core.harness import HARNESSES
 
 CONFIG_FILENAME = "cogsecskills.yaml"
 
@@ -47,7 +47,7 @@ class Config:
 
 
 def config_path(root: Path | None = None) -> Path:
-    base = Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    base = Path(root) if root is not None else Path(__file__).resolve().parents[3]
     return base / CONFIG_FILENAME
 
 

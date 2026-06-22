@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import pytest
 
-from cogsecskills.spec import (
+from cogsecskills.core.spec import (
     SKILL_STATUSES,
     SkillIO,
     SkillSpec,

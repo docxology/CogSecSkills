@@ -9,13 +9,13 @@ from pathlib import Path
 
 import pytest
 
-from cogsecskills.loader import discover_skills, load_skill, skill_dir, skills_root
-from cogsecskills.registry import (
+from cogsecskills.core.loader import discover_skills, load_skill, skill_dir, skills_root
+from cogsecskills.core.registry import (
     RegistryEntry,
     load_registry,
     registry_path,
 )
-from cogsecskills.spec import SpecError
+from cogsecskills.core.spec import SpecError
 
 
 def _write_skill(

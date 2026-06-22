@@ -7,7 +7,7 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.release_metadata import (
+from cogsecskills.artifacts.release_metadata import (
     check_release_metadata,
     write_release_metadata,
 )

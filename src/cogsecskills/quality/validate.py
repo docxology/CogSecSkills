@@ -22,16 +22,16 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from .harness import HARNESSES, check_conformance
-from .loader import (
+from cogsecskills.core.harness import HARNESSES, check_conformance
+from cogsecskills.core.loader import (
     SPEC_FILENAME,
     discover_skills,
     load_skill,
     skill_dir,
     skills_root,
 )
-from .registry import SkillRegistry, load_registry
-from .spec import SkillSpec, SpecError, ToolVerb
+from cogsecskills.core.registry import SkillRegistry, load_registry
+from cogsecskills.core.spec import SkillSpec, SpecError, ToolVerb
 
 SEVERITY_ERROR = "error"
 SEVERITY_WARNING = "warning"

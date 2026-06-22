@@ -344,12 +344,12 @@ def test_docs_do_not_call_generated_skill_yaml_the_source_of_truth():
         PROJECT_ROOT / "README.md",
         PROJECT_ROOT / "docs" / "architecture.md",
         PROJECT_ROOT / "docs" / "skill-contract.md",
-        PROJECT_ROOT / "src" / "cogsecskills" / "spec.py",
+        PROJECT_ROOT / "src" / "cogsecskills" / "core" / "spec.py",
     )
     for path in source_files:
         text = _read(path)
         assert stale_phrase not in text, path
     assert "definitions/<group>/<slug>.yaml" in _read(PROJECT_ROOT / "README.md")
     assert "canonical YAML under ``definitions/`` owns" in _read(
-        PROJECT_ROOT / "src" / "cogsecskills" / "spec.py"
+        PROJECT_ROOT / "src" / "cogsecskills" / "core" / "spec.py"
     )

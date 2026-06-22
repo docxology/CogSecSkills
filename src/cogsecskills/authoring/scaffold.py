@@ -14,9 +14,9 @@ from pathlib import Path
 
 import yaml
 
-from .harness import HARNESSES
-from .registry import RegistryEntry, load_registry, registry_path
-from .spec import SpecError
+from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
+from cogsecskills.core.spec import SpecError
 
 #: Default tool plan for a freshly scaffolded skill (authors refine it).
 _DEFAULT_TOOLS = [

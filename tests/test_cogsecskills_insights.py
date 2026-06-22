@@ -6,9 +6,9 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.author import render_definition
-from cogsecskills.config import Config
-from cogsecskills.insights import (
+from cogsecskills.authoring.author import render_definition
+from cogsecskills.core.config import Config
+from cogsecskills.quality.insights import (
     _count_anti_criteria,
     _count_steps,
     doctor,

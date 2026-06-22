@@ -1,0 +1,1 @@
+"""cogsecskills.quality subpackage."""

@@ -5,8 +5,8 @@ from __future__ import annotations
 import struct
 from pathlib import Path
 
-from cogsecskills.author import render_definition
-from cogsecskills.manuscript_assets import (
+from cogsecskills.authoring.author import render_definition
+from cogsecskills.artifacts.manuscript_assets import (
     CATALOGUE_PATH,
     COVER_COMMAND_SIZE,
     COVER_LABEL_SIZE,

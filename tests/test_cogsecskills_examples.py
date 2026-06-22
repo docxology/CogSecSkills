@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.examples import (
+from cogsecskills.artifacts.examples import (
     EXAMPLES_JSON_PATH,
     EXAMPLES_MD_PATH,
     check_examples,

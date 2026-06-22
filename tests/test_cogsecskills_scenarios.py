@@ -6,9 +6,9 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.author import render_definition
-from cogsecskills.registry import load_registry
-from cogsecskills.scenarios import (
+from cogsecskills.authoring.author import render_definition
+from cogsecskills.core.registry import load_registry
+from cogsecskills.artifacts.scenarios import (
     SCENARIO_KINDS,
     check_scenarios,
     load_scenarios,

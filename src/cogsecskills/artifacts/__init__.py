@@ -1,0 +1,1 @@
+"""cogsecskills.artifacts subpackage."""

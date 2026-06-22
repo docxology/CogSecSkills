@@ -13,7 +13,7 @@ from pathlib import Path
 
 import yaml
 
-from .spec import SkillSpec, SpecError
+from cogsecskills.core.spec import SkillSpec, SpecError
 
 #: Filename that marks a directory as a skill.
 SPEC_FILENAME = "skill.yaml"
@@ -29,7 +29,7 @@ def _project_root() -> Path:
     ``<root>/skills/``. We resolve relative to this file so the loader works
     regardless of the caller's working directory.
     """
-    return Path(__file__).resolve().parents[2]
+    return Path(__file__).resolve().parents[3]
 
 
 def skills_root(root: Path | None = None) -> Path:

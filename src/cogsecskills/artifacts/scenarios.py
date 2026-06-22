@@ -15,10 +15,10 @@ from typing import Any, Iterable, Mapping, TypedDict
 
 import yaml
 
-from .insights import route_query
-from .loader import discover_skills, skills_root
-from .registry import load_registry
-from .spec import SkillSpec
+from cogsecskills.quality.insights import route_query
+from cogsecskills.core.loader import discover_skills, skills_root
+from cogsecskills.core.registry import load_registry
+from cogsecskills.core.spec import SkillSpec
 
 SCENARIOS_DIRNAME = "scenarios"
 SCENARIO_FILENAME = "defensive_readiness.yaml"
@@ -111,7 +111,7 @@ RUBRIC_KEYS = (
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def scenario_path(root: Path | None = None) -> Path:

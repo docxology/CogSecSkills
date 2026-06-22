@@ -12,11 +12,15 @@ from html import escape
 from pathlib import Path
 from typing import TypedDict
 
-from .evals import load_evaluations
-from .examples import load_examples
-from .manuscript_assets import SkillRow, collect_skill_rows
-from .registry import load_registry
-from .scenarios import SCENARIO_KINDS, load_scenarios, scenario_summary
+from cogsecskills.artifacts.evals import load_evaluations
+from cogsecskills.artifacts.examples import load_examples
+from cogsecskills.artifacts.manuscript_assets import SkillRow, collect_skill_rows
+from cogsecskills.core.registry import load_registry
+from cogsecskills.artifacts.scenarios import (
+    SCENARIO_KINDS,
+    load_scenarios,
+    scenario_summary,
+)
 
 DASHBOARD_MD_PATH = Path("docs/quality-dashboard.md")
 DASHBOARD_HTML_PATH = Path("docs/quality-dashboard.html")
@@ -37,7 +41,7 @@ class DashboardWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def _clean_cell(value: object) -> str:

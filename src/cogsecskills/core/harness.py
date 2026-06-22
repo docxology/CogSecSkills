@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .spec import SkillSpec, ToolVerb
+from cogsecskills.core.spec import SkillSpec, ToolVerb
 
 #: Supported agent harnesses, by identifier.
 HARNESSES: tuple[str, ...] = ("claude", "codex", "hermes")

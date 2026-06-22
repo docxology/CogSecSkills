@@ -7,10 +7,10 @@ from typing import Any, Mapping, TypedDict
 
 import yaml
 
-from .loader import discover_skills
-from .manuscript_assets import GENERATED_HEADER
-from .registry import load_registry
-from .scenarios import OPERATIONAL_MISUSE_PHRASES
+from cogsecskills.core.loader import discover_skills
+from cogsecskills.artifacts.manuscript_assets import GENERATED_HEADER
+from cogsecskills.core.registry import load_registry
+from cogsecskills.artifacts.scenarios import OPERATIONAL_MISUSE_PHRASES
 
 EXAMPLES_SOURCE_PATH = Path("examples/skill-worked-examples.yaml")
 EXAMPLES_MD_PATH = Path("docs/skill-worked-examples.md")
@@ -39,7 +39,7 @@ class ExampleWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def _source_path(root: Path | None = None) -> Path:

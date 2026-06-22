@@ -43,9 +43,9 @@ from typing import TypeAlias
 
 import yaml
 
-from .harness import HARNESSES
-from .registry import RegistryEntry, load_registry, registry_path
-from .spec import SpecError, ToolVerb
+from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
+from cogsecskills.core.spec import SpecError, ToolVerb
 
 #: Default verb -> (tool, note) bindings per harness. Used when a definition does
 #: not override a binding. Every closed-set verb has an entry for every harness,

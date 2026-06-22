@@ -4,14 +4,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from cogsecskills.harness import (
+from cogsecskills.core.harness import (
     HARNESSES,
     HARNESS_VERB_SUPPORT,
     check_conformance,
     is_multiharness,
 )
-from cogsecskills.spec import SkillSpec, ToolVerb
-from cogsecskills.validate import (
+from cogsecskills.core.spec import SkillSpec, ToolVerb
+from cogsecskills.quality.validate import (
     conformance_report,
     validate_library,
     validate_skill,

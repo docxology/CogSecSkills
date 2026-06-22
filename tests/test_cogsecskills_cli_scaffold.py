@@ -7,10 +7,10 @@ from pathlib import Path
 import pytest
 
 from cogsecskills.cli import main
-from cogsecskills.loader import load_skill
-from cogsecskills.scaffold import scaffold_skill
-from cogsecskills.spec import SpecError
-from cogsecskills.validate import validate_skill
+from cogsecskills.core.loader import load_skill
+from cogsecskills.authoring.scaffold import scaffold_skill
+from cogsecskills.core.spec import SpecError
+from cogsecskills.quality.validate import validate_skill
 
 
 def _seed_registry(root: Path, *rows: str) -> None:

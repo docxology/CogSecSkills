@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 
 from cogsecskills.cli import build_parser
-from cogsecskills.manuscript_assets import GENERATED_HEADER
+from cogsecskills.artifacts.manuscript_assets import GENERATED_HEADER
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]

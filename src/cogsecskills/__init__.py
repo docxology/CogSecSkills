@@ -20,20 +20,25 @@ Public API
 
 from __future__ import annotations
 
-from .author import author_batch, render_definition
-from .config import Config, load_config
-from .harness import HARNESSES, HarnessConformance, check_conformance
-from .insights import (
+from cogsecskills.authoring.author import author_batch, render_definition
+from cogsecskills.core.config import Config, load_config
+from cogsecskills.core.harness import HARNESSES, HarnessConformance, check_conformance
+from cogsecskills.quality.insights import (
     doctor,
     library_stats,
     render_catalogue_markdown,
     route_query,
 )
-from .loader import discover_skills, load_skill, skills_root
-from .registry import RegistryEntry, SkillRegistry, load_registry, registry_path
-from .scaffold import scaffold_skill
-from .spec import SkillIO, SkillSpec, SkillTool, ToolVerb
-from .validate import (
+from cogsecskills.core.loader import discover_skills, load_skill, skills_root
+from cogsecskills.core.registry import (
+    RegistryEntry,
+    SkillRegistry,
+    load_registry,
+    registry_path,
+)
+from cogsecskills.authoring.scaffold import scaffold_skill
+from cogsecskills.core.spec import SkillIO, SkillSpec, SkillTool, ToolVerb
+from cogsecskills.quality.validate import (
     ValidationIssue,
     ValidationResult,
     conformance_report,

@@ -1,0 +1,1 @@
+"""cogsecskills.core subpackage."""

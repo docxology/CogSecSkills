@@ -56,6 +56,10 @@ cogsecskills = ["py.typed"]
 [tool.mypy]
 python_version = "3.10"
 files = ["src/cogsecskills"]
+# src-layout: treat src/ as the import base so nested subpackages resolve to a
+# single canonical module name (cogsecskills.<sub>.<mod>), not src.cogsecskills.*.
+mypy_path = "src"
+explicit_package_bases = true
 ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true

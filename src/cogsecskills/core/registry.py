@@ -17,11 +17,11 @@ from pathlib import Path
 
 import yaml
 
-from .spec import SKILL_STATUSES, SpecError
+from cogsecskills.core.spec import SKILL_STATUSES, SpecError
 
 
 def _project_root() -> Path:
-    return Path(__file__).resolve().parents[2]
+    return Path(__file__).resolve().parents[3]
 
 
 def registry_path(root: Path | None = None) -> Path:

@@ -8,7 +8,7 @@ from typing import Any, Literal, Mapping, TypedDict
 
 import yaml
 
-from .manuscript_assets import FIGURE_NAMES
+from cogsecskills.artifacts.manuscript_assets import FIGURE_NAMES
 
 RELEASE_MD_PATH = Path("docs/release-claim-matrix.md")
 RELEASE_JSON_PATH = Path("output/data/release_metadata.json")
@@ -35,7 +35,7 @@ class ReleaseWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else Path(__file__).resolve().parents[2]
+    return Path(root) if root is not None else Path(__file__).resolve().parents[3]
 
 
 def _read_toml(path: Path) -> Mapping[str, Any]:

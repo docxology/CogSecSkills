@@ -8,16 +8,16 @@ from pathlib import Path
 import pytest
 import yaml
 
-from cogsecskills.author import (
+from cogsecskills.authoring.author import (
     AuthorError,
     author_batch,
     promote_to_implemented,
     render_definition,
 )
-from cogsecskills.harness import HARNESSES
-from cogsecskills.loader import load_skill
-from cogsecskills.spec import SpecError
-from cogsecskills.validate import validate_skill
+from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.loader import load_skill
+from cogsecskills.core.spec import SpecError
+from cogsecskills.quality.validate import validate_skill
 
 
 def _seed_registry(root: Path, *, status: str = "stub") -> None:
@@ -238,7 +238,7 @@ def test_cli_definitions_write_check_and_drift(tmp_path, capsys):
 
 
 def test_check_definitions_reports_parser_errors_without_crashing(tmp_path):
-    from cogsecskills.definitions import (
+    from cogsecskills.authoring.definitions import (
         canonical_definition_text,
         check_definitions,
         definition_path,
@@ -263,7 +263,7 @@ def test_check_definitions_reports_parser_errors_without_crashing(tmp_path):
 
 
 def test_check_definitions_reports_rendered_file_drift(tmp_path):
-    from cogsecskills.definitions import check_definitions, write_definitions
+    from cogsecskills.authoring.definitions import check_definitions, write_definitions
 
     _seed_registry(tmp_path)
     render_definition(_good_def(), root=tmp_path)
@@ -282,7 +282,7 @@ def test_check_definitions_reports_rendered_file_drift(tmp_path):
 
 
 def test_check_definitions_reports_missing_and_extra_definitions(tmp_path):
-    from cogsecskills.definitions import (
+    from cogsecskills.authoring.definitions import (
         canonical_definition_text,
         check_definitions,
         definitions_root,
@@ -303,7 +303,7 @@ def test_check_definitions_reports_missing_and_extra_definitions(tmp_path):
 
 
 def test_check_definitions_reports_reused_negative_control_entry(tmp_path):
-    from cogsecskills.definitions import (
+    from cogsecskills.authoring.definitions import (
         canonical_definition_text,
         check_definitions,
         definition_path,
@@ -331,7 +331,7 @@ def test_check_definitions_reports_reused_negative_control_entry(tmp_path):
 
 
 def test_check_definitions_reports_reused_quality_entry(tmp_path):
-    from cogsecskills.definitions import (
+    from cogsecskills.authoring.definitions import (
         canonical_definition_text,
         check_definitions,
         definition_path,
@@ -408,7 +408,7 @@ def test_render_custom_harness_uses_fallback_bindings(tmp_path):
     text = gemini.read_text()
     assert "gemini `read` tool" in text  # generic fallback binding
     # the spec declares only the two configured harnesses
-    from cogsecskills.loader import load_skill
+    from cogsecskills.core.loader import load_skill
 
     spec = load_skill(tmp_path / "skills" / "sat" / "demo" / "skill.yaml")
     assert set(spec.harness) == {"claude", "gemini"}
