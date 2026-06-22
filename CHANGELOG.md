@@ -8,6 +8,19 @@ follow semantic versioning.
 
 ### Changed
 
+- **Package and tests reorganized for modularity.** The flat 19-module runner is now
+  grouped into cohesive subpackages along its (acyclic) dependency graph — `core/`
+  (spec, registry, loader, config, harness), `authoring/` (author, scaffold, definitions),
+  `quality/` (validate, insights), `artifacts/` (scenarios, examples, evals, dashboard,
+  release_metadata, and the `manuscript_assets/` package) — with `cli.py` as the thin
+  top-level interface. The 2,115-line `manuscript_assets.py` monolith was split into a
+  package (`paths`, `rows`, `tables`, `figures`, `assets_io`) behind a façade `__init__`
+  that re-exports the exact public API. Tests mirror the package layout
+  (`tests/{core,authoring,quality,artifacts,contract,conformance}/`). Project-root
+  discovery was centralized into `core.locate.project_root()` (a sentinel walk-up that
+  fails loud), replacing 10 fragile `Path(__file__).parents[N]` magic-depths. Public CLI
+  and import surfaces are unchanged; full suite green (622 tests, 90.89% coverage),
+  mypy/ruff clean, all validation/drift gates current.
 - **Documentation deepened and manuscript supplements refreshed.** The 8 AGEINT educational
   primers (`docs/ageint/`) and the main explanatory docs (`architecture.md`, `authoring-skills.md`,
   `configuration.md`, `harness-cookbook.md`, `skill-contract.md`) were substantially deepened —
