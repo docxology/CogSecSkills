@@ -30,6 +30,17 @@ follow semantic versioning.
 
 ### Fixed
 
+- **CI/test suite now passes from a clean checkout.** Four artifact tests
+  (`test_repository_examples_cover_all_rendered_skills`, three
+  `test_release_metadata_*`) and the `examples`/`evals`/`dashboard`/
+  `release-metadata`/`manuscript-assets` coherence gates assert against the
+  gitignored `output/` tree, which a fresh clone lacks and nothing generated
+  before pytest — so CI had been red since 2026-06-20 (4 failed / 618 passed on
+  a clean runner). A session-scoped autouse fixture in `tests/conftest.py` now
+  builds `output/` once when absent, making the suite self-contained; because
+  pytest runs before the coherence-gate steps in the same CI job, the whole
+  pipeline goes green (622 passed, all gates `current`). Idempotent — skipped
+  when a populated `output/` already exists.
 - Generated-file header attribution: `docs/evaluation-readiness.md` and
   `docs/skill-worked-examples.md` now correctly credit `evals --write` and
   `examples --write` (previously mislabeled `manuscript-assets --write`).
