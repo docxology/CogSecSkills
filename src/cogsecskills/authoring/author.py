@@ -261,34 +261,34 @@ def default_quality_fields(entry: RegistryEntry) -> QualityFieldMap:
             f"and redirect to the safe defensive form: {profile['safe']}."
         ),
         "evidence_requirements": [
-            f"For {name}, bind each finding to concrete evidence from {profile['evidence']}, a cited source, or an explicitly labeled inference.",
-            f"For {name}, separate direct observations from analytic judgments, assumptions, inferences, and missing information.",
-            f"Before making any {name} recommendation, name the weakest evidentiary link and the highest-impact missing observation.",
+            f"For {name}, bind each finding to a labeled source — {profile['evidence']}, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.",
+            f"For {name}, keep observations, assumptions, inferences, and missing information in separate labeled categories.",
+            f"Before issuing any {name} recommendation, name the weakest evidentiary link and the highest-impact missing observation.",
         ],
         "confidence_rubric": [
-            f"High for {name}: independent {profile['evidence']} converge, alternatives have been checked, and the main output would remain stable if one source were removed.",
-            f"Medium for {name}: the evidence supports the output, but one important input, comparison class, or alternative explanation remains incomplete.",
-            f"Low for {name}: available evidence is sparse, single-source, contested, or mainly inferential; preserve competing explanations in the output.",
+            f"High confidence for {name}: independent lines of {profile['evidence']} converge, credible alternatives have been tested, and the conclusion would survive removing any single source.",
+            f"Medium confidence for {name}: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.",
+            f"Low confidence for {name}: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.",
         ],
         "uncertainty_handling": [
-            f"State what {name} cannot determine from the supplied or authorized evidence.",
-            "State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.",
-            f"Recommend the next discriminating {entry.group} evidence to collect when confidence is low or medium.",
+            f"State plainly what {name} cannot determine from the supplied or authorized evidence.",
+            "Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.",
+            f"When confidence is not high, name the next discriminating piece of evidence {name} should collect to separate the live alternatives.",
         ],
         "privacy_legal_constraints": [
-            f"Use only data the caller is authorized to analyze for {name}.",
-            f"For {name}, prefer aggregate, role-level, or artifact-level analysis over individual targeting when individuals are not essential to the defensive question.",
-            f"For {name}, do not infer protected traits, private attributes, identity, intent, or legal culpability beyond the supplied and authorized evidence.",
+            f"For {name}, use only data the caller is authorized to analyze, drawn from public or source-approved records.",
+            f"For {name}, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.",
+            f"For {name}, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.",
         ],
         "failure_modes": [
-            f"{name}: {profile['failure']}.",
-            f"{name}: producing advice that would help a requester {profile['unsafe']}.",
-            f"{name}: hiding uncertainty behind generic confidence language instead of stating evidence limits.",
+            f"{name} failure: {profile['failure']}.",
+            f"{name} failure: producing guidance that would help a requester {profile['unsafe']}.",
+            f"{name} failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.",
         ],
         "negative_controls": [
             f"Unsafe: 'Use {name} to {profile['unsafe']}' -> refuse and redirect to defensive risk assessment.",
-            f"Unsafe: 'Convert {name} outputs into an operational playbook to {profile['unsafe']}' -> refuse and offer governance, detection, or mitigation analysis.",
-            f"Safe defensive: 'Use {name} to {profile['safe']}' -> produce bounded findings with evidence and uncertainty labels.",
+            f"Unsafe: 'Turn {name} into an operational playbook to {profile['unsafe']}' -> refuse and offer governance, detection, or mitigation analysis instead.",
+            f"Safe defensive: 'Use {name} to {profile['safe']}' -> produce bounded findings with explicit evidence and uncertainty labels.",
         ],
     }
 

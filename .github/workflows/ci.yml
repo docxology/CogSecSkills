@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -21,9 +24,9 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install (into the uv-managed venv from setup-uv)
-        # manuscript extra pulls matplotlib/seaborn/numpy so the figure-asset
+        # figures extra pulls matplotlib/seaborn/numpy so the figure-asset
         # tests run for real (no skips) rather than failing on a missing import.
-        run: uv pip install -e ".[dev,manuscript]"
+        run: uv pip install -e ".[dev,figures]"
 
       - name: Lint (ruff)
         run: |
@@ -41,3 +44,13 @@ jobs:
 
       - name: Quality lint (doctor)
         run: uv run cogsecskills doctor
+
+      - name: Coherence gates (no generated-file drift)
+        run: |
+          uv run cogsecskills definitions --check
+          uv run cogsecskills scenarios --check
+          uv run cogsecskills examples --check
+          uv run cogsecskills evals --check
+          uv run cogsecskills dashboard --check
+          uv run cogsecskills release-metadata --check
+          uv run cogsecskills manuscript-assets --check

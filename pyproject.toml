@@ -31,13 +31,14 @@ dev = [
     "ruff>=0.6",
     "types-PyYAML>=6.0",
 ]
-# Plotting dependencies for the manuscript-asset figure generators
-# (src/cogsecskills/manuscript_assets.py imports these lazily). Install with
-# `uv pip install -e '.[manuscript]'` to exercise the figure tests/CLI.
-manuscript = [
+# Manuscript/release figure rendering only (manuscript-assets --write). The core
+# runner and every CI gate run without these; they are needed solely to
+# regenerate the PNG figures under output/figures/ (figure generators in the
+# manuscript_assets package import these lazily).
+figures = [
     "matplotlib>=3.7",
-    "seaborn>=0.12",
     "numpy>=1.24",
+    "seaborn>=0.13",
 ]
 
 [project.urls]
@@ -64,9 +65,12 @@ ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true
 
-# The manuscript-asset plotting stack (lazily imported in manuscript_assets.py)
-# ships type stubs that can use newer-Python syntax than this mypy target; skip
-# following them rather than parse third-party stubs. Our own code is still typed.
+# The optional `figures` extra (matplotlib/numpy/seaborn/pandas) is needed only
+# to regenerate figures, not to type-check the runner. When it is installed
+# alongside `dev`, mypy must not descend into those third-party stubs (numpy's
+# stubs use 3.12-only `type` statements that abort the 3.10-targeted check). The
+# bare module names are listed alongside the wildcards so the override also fires
+# when a stub is imported as a top-level name.
 [[tool.mypy.overrides]]
 module = [
     "numpy", "numpy.*",

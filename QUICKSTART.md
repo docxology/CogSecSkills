@@ -18,6 +18,13 @@ Without `uv`:
 python -m pip install -e .
 ```
 
+Regenerating the manuscript/release **figures** (`manuscript-assets --write`)
+additionally needs the optional `figures` extra:
+
+```bash
+uv sync --extra figures        # or: python -m pip install -e ".[figures]"
+```
+
 ## Validate The Local Library
 
 ```bash
@@ -28,7 +35,12 @@ PYTHONPATH="src:." python -m cogsecskills examples --check
 PYTHONPATH="src:." python -m cogsecskills evals --check
 PYTHONPATH="src:." python -m cogsecskills dashboard --check
 PYTHONPATH="src:." python -m cogsecskills release-metadata --check
+PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check  # needs the figures extra
 ```
+
+The `--check` gates compare committed sources against regeneratable outputs
+under `output/` (gitignored); on a fresh clone, run the matching `--write` first
+(see "Keep Outputs Current" below).
 
 Expected local state is zero validation errors, zero quality findings, and
 scenario, worked-example, offline-eval, dashboard, and release-metadata

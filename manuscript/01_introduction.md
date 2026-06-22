@@ -14,6 +14,18 @@ The tradecraft vocabulary is anchored in structured analytic techniques and adja
 
 The manuscript is therefore written for two audiences at once. A library maintainer should be able to trace every table, figure, and count back to source files and gates. A reader who only opens the PDF should still be able to see the shape of the system: which groups dominate, where the optional tool verbs appear, whether the adapters cover Codex and Hermes as well as Claude, and how the educational AGEINT layer connects to implemented skill folders.
 
+## Related Work and Positioning
+
+CogSecSkills sits between four bodies of work and duplicates none of them. The intent of this subsection is positioning, not a claim that the library improves on any cited source in practice.
+
+The first body is structured analytic tradecraft. Analysis of Competing Hypotheses, estimative-probability language, and the wider structured-techniques family describe *how* a disciplined analyst should reason under ambiguity and bias [@heuer1999psychology; @heuerPherson2019structured; @kent1964estimativeProbability], and doctrine such as the UK reliability-grading scale standardizes *how* sources and claims are graded [@ukmod2023jdp200]. That literature specifies method; it does not ship a harness-neutral, machine-checkable interface that an agent runtime can route to. CogSecSkills renders those methods into conformance-checked skill specifications and leaves the underlying tradecraft to its canonical sources.
+
+The second body is information-disorder and defensive-intervention research, which explains why cognitive-security work must separate agents, messages, and distribution dynamics, and why correction, inoculation, and lateral reading are defensive levers [@wardleDerakhshan2017informationDisorder; @lewandowsky2012misinformationCorrection; @roozenbeek2022inoculation; @wineburg2019lateralReading], against a threat surface of viral diffusion, social bots, computational propaganda, and synthetic media [@vosoughi2018spread; @ferrara2016socialBots; @woolleyHoward2017computationalPropaganda; @bradshawHoward2019globalDisinformation; @mirskyLee2021deepfakes; @lazer2018fakeNews]. CogSecSkills operationalizes the *defensive recognition and mitigation* side of that research as skills, and explicitly refuses the offensive-influence inverse (see @sec:ethics_responsible_use).
+
+The third body is LLM tool-use and agent systems, where reasoning is interleaved with external actions through a tool interface [@yao2022react; @schick2023toolformer]. That work motivates the need for an explicit boundary between reasoning, tool verbs, and output discipline, but it does not supply a defensive analytic skill catalogue. CogSecSkills contributes the catalogue and the closed tool-verb contract that binds it to multiple harnesses.
+
+The fourth body is research-software and reproducibility practice, which treats metadata, versioning, and regenerability as epistemic controls [@sandve2013reproducible; @wilkinson2016fair; @smith2016softwareCitation; @c2pa2026spec]. CogSecSkills adopts that stance directly: every prose claim resolves to a source surface and a regeneration command, and the educational upstream is cited as such [@ageint2026]. The novel surface is the combination — a defensive cognitive-security skill set that is simultaneously harness-neutral, source-owned, and drift-gated.
+
 ## Project-Native Contributions
 
 This manuscript contributes four project-native artifacts:

@@ -147,7 +147,7 @@ def test_collect_skill_rows_derives_metadata(tmp_path):
     assert "Analysis of Competing Hypotheses" in rows[0].defensive_boundary
     assert "Analysis of Competing Hypotheses" in rows[0].evidence_discipline
     assert rows[0].confidence_anchor.startswith(
-        "High for Analysis of Competing Hypotheses"
+        "High confidence for Analysis of Competing Hypotheses"
     )
     assert "Unsafe:" in rows[0].unsafe_redirect
     assert "Safe defensive:" in rows[0].safe_defensive_pattern
