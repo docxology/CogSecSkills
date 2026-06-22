@@ -18,6 +18,7 @@ A defensive, educational, harness-neutral library of Cognitive Security and anal
 - `04_artifacts_and_evidence.md`
 - `05_reproducibility.md`
 - `06_limitations_and_next_steps.md`
+- `07_ethics_and_responsible_use.md`
 - `S01_source_surface.md`
 - `S02_release_manifest.md`
 - `S10_skill_catalogue.md` - generated; do not edit by hand

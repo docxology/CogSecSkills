@@ -31,33 +31,33 @@ If a request asks Claim Provenance Verification to dox, deanonymize, harass, byp
 
 ## Evidence discipline
 
-- For Claim Provenance Verification, tie each provenance chain, and verdict claim to concrete evidence from the specific claim, and starting sources item, source excerpt, observation, or command result that supports it.
-- For Claim Provenance Verification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the provenance chain.
-- Before recommending any Claim Provenance Verification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Claim Provenance Verification, bind each finding to a labeled source — source records, custody notes, metadata, corroborating references, and contradiction logs, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Claim Provenance Verification, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Claim Provenance Verification recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Claim Provenance Verification: the provenance chain is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; state the claim atomically and anchor the point of encounter checks agree, and no unresolved contradiction would change the result.
-- Medium for Claim Provenance Verification: the provenance chain is plausible, but one important claim source, comparison case, or alternative explanation remains incomplete.
-- Low for Claim Provenance Verification: the provenance chain rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Claim Provenance Verification cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- High confidence for Claim Provenance Verification: independent lines of source records, custody notes, metadata, corroborating references, and contradiction logs converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Claim Provenance Verification: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Claim Provenance Verification: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Claim Provenance Verification cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Claim Provenance Verification should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Claim Provenance Verification, use only authorized claim, and starting sources, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Claim Provenance Verification, minimize person-level detail in the provenance chain; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Claim Provenance Verification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Claim Provenance Verification, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Claim Provenance Verification, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Claim Provenance Verification, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Claim Provenance Verification: treating claim as complete when state the claim atomically and anchor the point of encounter checks or contradictory evidence are missing.
-- Claim Provenance Verification: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
-- Claim Provenance Verification: reporting the provenance chain without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Claim Provenance Verification outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the provenance chain from Claim Provenance Verification into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Claim Provenance Verification to verify supplied claims, media, sources, or datasets with documented public-source methods with claim, and starting sources' -> produce bounded findings with evidence and uncertainty labels.
+- Claim Provenance Verification failure: overstating identity, location, attribution, or source reliability from incomplete public traces.
+- Claim Provenance Verification failure: producing guidance that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Claim Provenance Verification failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Claim Provenance Verification to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Claim Provenance Verification into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Claim Provenance Verification to verify supplied claims, media, sources, or datasets with documented public-source methods' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

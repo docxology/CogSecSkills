@@ -15,32 +15,32 @@ For each decoy, specify the triggering event (HTTP callback, credential use atte
 Write the full canary/honeypot design specification covering: decoy inventory with placement rationale, alert logic per decoy, response playbook, naming and access-control requirements, and a legal/ethical review checklist addressing entrapment exposure, employee-monitoring law, authorized-use policies, and required sign-offs before deployment.
 
 ## Evidence requirements
-- For Honeypot & Canary Design, tie each canary design spec claim to concrete evidence from the specific threat model, asset inventory, and monitoring coverage item, source excerpt, observation, or command result that supports it.
-- For Honeypot & Canary Design, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the canary design spec.
-- Before recommending any Honeypot & Canary Design action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Honeypot & Canary Design, bind each finding to a labeled source — interaction records, process artifacts, deception indicators, and alternative explanations, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Honeypot & Canary Design, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Honeypot & Canary Design recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Honeypot & Canary Design: the canary design spec is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; review threat model and coverage gaps and select decoy types and placement checks agree, and no unresolved contradiction would change the result.
-- Medium for Honeypot & Canary Design: the canary design spec is plausible, but one important threat model source, comparison case, or alternative explanation remains incomplete.
-- Low for Honeypot & Canary Design: the canary design spec rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Honeypot & Canary Design cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- High confidence for Honeypot & Canary Design: independent lines of interaction records, process artifacts, deception indicators, and alternative explanations converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Honeypot & Canary Design: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Honeypot & Canary Design: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Honeypot & Canary Design cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Honeypot & Canary Design should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Honeypot & Canary Design, use only authorized threat model, asset inventory, and monitoring coverage, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Honeypot & Canary Design, minimize person-level detail in the canary design spec; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Honeypot & Canary Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Honeypot & Canary Design, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Honeypot & Canary Design, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Honeypot & Canary Design, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Honeypot & Canary Design: treating threat model as complete when review threat model and coverage gaps and select decoy types and placement checks or contradictory evidence are missing.
-- Honeypot & Canary Design: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
-- Honeypot & Canary Design: reporting the canary design spec without uncertainty labels, alternative explanations, and the next discriminating check.
+- Honeypot & Canary Design failure: turning defensive tradecraft recognition into operational evasion advice.
+- Honeypot & Canary Design failure: producing guidance that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
+- Honeypot & Canary Design failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Honeypot & Canary Design outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the canary design spec from Honeypot & Canary Design into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Honeypot & Canary Design to review supplied interactions or processes for deception, elicitation, or insider-risk indicators with threat model, asset inventory, and monitoring coverage' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Honeypot & Canary Design to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Honeypot & Canary Design into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Honeypot & Canary Design to review supplied interactions or processes for deception, elicitation, or insider-risk indicators' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - Do not include guidance for offensive deception operations — all designs here are strictly defensive detection tools

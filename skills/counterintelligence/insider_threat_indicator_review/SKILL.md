@@ -31,33 +31,33 @@ If a request asks Insider Threat Indicator Review to evade detection, improve el
 
 ## Evidence discipline
 
-- For Insider Threat Indicator Review, tie each insider threat indicator review report claim to concrete evidence from the specific behavioral observations, access and technical indicators, and contextual background item, source excerpt, observation, or command result that supports it.
-- For Insider Threat Indicator Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the insider threat indicator review report.
-- Before recommending any Insider Threat Indicator Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Insider Threat Indicator Review, bind each finding to a labeled source — interaction records, process artifacts, deception indicators, and alternative explanations, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Insider Threat Indicator Review, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Insider Threat Indicator Review recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Insider Threat Indicator Review: the insider threat indicator review report is supported by multiple independent interaction records, process artifacts, deception indicators, and alternative explanations; establish authorized scope and ingest observations and map indicators to framework categories checks agree, and no unresolved contradiction would change the result.
-- Medium for Insider Threat Indicator Review: the insider threat indicator review report is plausible, but one important behavioral observations source, comparison case, or alternative explanation remains incomplete.
-- Low for Insider Threat Indicator Review: the insider threat indicator review report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Insider Threat Indicator Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- High confidence for Insider Threat Indicator Review: independent lines of interaction records, process artifacts, deception indicators, and alternative explanations converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Insider Threat Indicator Review: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Insider Threat Indicator Review: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Insider Threat Indicator Review cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Insider Threat Indicator Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Insider Threat Indicator Review, use only authorized behavioral observations, access and technical indicators, and contextual background, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Insider Threat Indicator Review, minimize person-level detail in the insider threat indicator review report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Insider Threat Indicator Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Insider Threat Indicator Review, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Insider Threat Indicator Review, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Insider Threat Indicator Review, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Insider Threat Indicator Review: treating behavioral observations as complete when establish authorized scope and ingest observations and map indicators to framework categories checks or contradictory evidence are missing.
-- Insider Threat Indicator Review: producing advice that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
-- Insider Threat Indicator Review: reporting the insider threat indicator review report without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Insider Threat Indicator Review outputs to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the insider threat indicator review report from Insider Threat Indicator Review into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Insider Threat Indicator Review to review supplied interactions or processes for deception, elicitation, or insider-risk indicators with behavioral observations, access and technical indicators, and contextual background' -> produce bounded findings with evidence and uncertainty labels.
+- Insider Threat Indicator Review failure: turning defensive tradecraft recognition into operational evasion advice.
+- Insider Threat Indicator Review failure: producing guidance that would help a requester evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft.
+- Insider Threat Indicator Review failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Insider Threat Indicator Review to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Insider Threat Indicator Review into an operational playbook to evade detection, improve elicitation, profile targets for exploitation, or conceal tradecraft' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Insider Threat Indicator Review to review supplied interactions or processes for deception, elicitation, or insider-risk indicators' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

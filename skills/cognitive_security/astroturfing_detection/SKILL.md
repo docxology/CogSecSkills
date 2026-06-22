@@ -32,33 +32,33 @@ If a request asks Astroturfing Detection to increase persuasive impact, exploit 
 
 ## Evidence discipline
 
-- For Astroturfing Detection, tie each detection report, and indicator table claim to concrete evidence from the specific campaign sample, and baseline context item, source excerpt, observation, or command result that supports it.
-- For Astroturfing Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the detection report.
-- Before recommending any Astroturfing Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Astroturfing Detection, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Astroturfing Detection, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Astroturfing Detection recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Astroturfing Detection: the detection report is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest and scope the sample and apply structural and behavioral heuristics checks agree, and no unresolved contradiction would change the result.
-- Medium for Astroturfing Detection: the detection report is plausible, but one important campaign sample source, comparison case, or alternative explanation remains incomplete.
-- Low for Astroturfing Detection: the detection report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Astroturfing Detection cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Astroturfing Detection: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Astroturfing Detection: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Astroturfing Detection: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Astroturfing Detection cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Astroturfing Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Astroturfing Detection, use only authorized campaign sample, and baseline context, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Astroturfing Detection, minimize person-level detail in the detection report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Astroturfing Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Astroturfing Detection, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Astroturfing Detection, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Astroturfing Detection, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Astroturfing Detection: treating campaign sample as complete when ingest and scope the sample and apply structural and behavioral heuristics checks or contradictory evidence are missing.
-- Astroturfing Detection: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Astroturfing Detection: reporting the detection report without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Astroturfing Detection outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the detection report from Astroturfing Detection into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Astroturfing Detection to assess supplied material for manipulation indicators and recommend resilience measures with campaign sample, and baseline context' -> produce bounded findings with evidence and uncertainty labels.
+- Astroturfing Detection failure: mistaking persuasive resonance for verified harm or intent.
+- Astroturfing Detection failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Astroturfing Detection failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Astroturfing Detection to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Astroturfing Detection into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Astroturfing Detection to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

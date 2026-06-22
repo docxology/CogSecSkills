@@ -18,32 +18,32 @@ Rank assumptions by combined risk: load-bearing × weak support × adversarial e
 Write the structured assumption register table and the review narrative. The narrative should state which assumptions most endanger analytic integrity, which are most susceptible to adversarial manipulation, and what concrete steps reviewers or decision-makers should take before acting on the document.
 
 ## Evidence requirements
-- For Assumption Surfacing Review, tie each assumption register, and assumption review narrative claim to concrete evidence from the specific target text, and domain context item, source excerpt, observation, or command result that supports it.
-- For Assumption Surfacing Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the assumption register.
-- Before recommending any Assumption Surfacing Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Assumption Surfacing Review, bind each finding to a labeled source — artifact excerpts, test output, citations, assumptions, and reproducibility records, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Assumption Surfacing Review, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Assumption Surfacing Review recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Assumption Surfacing Review: the assumption register is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract claims and premises and surface implicit assumptions checks agree, and no unresolved contradiction would change the result.
-- Medium for Assumption Surfacing Review: the assumption register is plausible, but one important target text source, comparison case, or alternative explanation remains incomplete.
-- Low for Assumption Surfacing Review: the assumption register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Assumption Surfacing Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- High confidence for Assumption Surfacing Review: independent lines of artifact excerpts, test output, citations, assumptions, and reproducibility records converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Assumption Surfacing Review: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Assumption Surfacing Review: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Assumption Surfacing Review cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Assumption Surfacing Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Assumption Surfacing Review, use only authorized target text, and domain context, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Assumption Surfacing Review, minimize person-level detail in the assumption register; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Assumption Surfacing Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Assumption Surfacing Review, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Assumption Surfacing Review, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Assumption Surfacing Review, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Assumption Surfacing Review: treating target text as complete when extract claims and premises and surface implicit assumptions checks or contradictory evidence are missing.
-- Assumption Surfacing Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
-- Assumption Surfacing Review: reporting the assumption register without uncertainty labels, alternative explanations, and the next discriminating check.
+- Assumption Surfacing Review failure: performing theatrical critique without concrete evidence, severity, or remediation path.
+- Assumption Surfacing Review failure: producing guidance that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Assumption Surfacing Review failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Assumption Surfacing Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the assumption register from Assumption Surfacing Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Assumption Surfacing Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with target text, and domain context' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Assumption Surfacing Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Assumption Surfacing Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Assumption Surfacing Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - Do not treat confident assertion as evidence — an assumption stated with high confidence is still an assumption

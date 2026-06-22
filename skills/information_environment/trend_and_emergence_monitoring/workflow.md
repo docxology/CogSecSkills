@@ -18,32 +18,32 @@ For each escalated signal, assess whether spread appears organic or coordinated.
 Populate the signal log table with all detected signals and their assessments. Write the monitoring report narrative covering the top three to five emerging signals with evidence, authenticity assessment, emergence stage, and recommended follow-on actions. Update the baseline with this cycle's observed distribution to enable next-cycle comparison.
 
 ## Evidence requirements
-- For Trend & Emergence Monitoring, tie each signal log, and monitoring report claim to concrete evidence from the specific monitoring scope, watchlist, and baseline report item, source excerpt, observation, or command result that supports it.
-- For Trend & Emergence Monitoring, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the signal log.
-- Before recommending any Trend & Emergence Monitoring action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Trend & Emergence Monitoring, bind each finding to a labeled source — platform observations, narrative movement, automation signals, and provenance data, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Trend & Emergence Monitoring, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Trend & Emergence Monitoring recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Trend & Emergence Monitoring: the signal log is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; refresh scope and baseline and collect current signals checks agree, and no unresolved contradiction would change the result.
-- Medium for Trend & Emergence Monitoring: the signal log is plausible, but one important monitoring scope source, comparison case, or alternative explanation remains incomplete.
-- Low for Trend & Emergence Monitoring: the signal log rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Trend & Emergence Monitoring cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- High confidence for Trend & Emergence Monitoring: independent lines of platform observations, narrative movement, automation signals, and provenance data converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Trend & Emergence Monitoring: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Trend & Emergence Monitoring: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Trend & Emergence Monitoring cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Trend & Emergence Monitoring should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Trend & Emergence Monitoring, use only authorized monitoring scope, watchlist, and baseline report, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Trend & Emergence Monitoring, minimize person-level detail in the signal log; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Trend & Emergence Monitoring, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Trend & Emergence Monitoring, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Trend & Emergence Monitoring, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Trend & Emergence Monitoring, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Trend & Emergence Monitoring: treating monitoring scope as complete when refresh scope and baseline and collect current signals checks or contradictory evidence are missing.
-- Trend & Emergence Monitoring: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
-- Trend & Emergence Monitoring: reporting the signal log without uncertainty labels, alternative explanations, and the next discriminating check.
+- Trend & Emergence Monitoring failure: treating engagement volume as proof of authenticity or coordinated intent.
+- Trend & Emergence Monitoring failure: producing guidance that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
+- Trend & Emergence Monitoring failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Trend & Emergence Monitoring outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the signal log from Trend & Emergence Monitoring into an operational playbook to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Trend & Emergence Monitoring to map supplied narratives, automation signals, or platform affordance risks for defensive review with monitoring scope, watchlist, and baseline report' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Trend & Emergence Monitoring to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Trend & Emergence Monitoring into an operational playbook to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Trend & Emergence Monitoring to map supplied narratives, automation signals, or platform affordance risks for defensive review' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - do not escalate a single-instance observation as an emerging trend — the three-signal corroboration threshold must be met before escalation

@@ -31,33 +31,33 @@ If a request asks Logical Coherence Review to launder weak claims, fabricate rev
 
 ## Evidence discipline
 
-- For Logical Coherence Review, tie each argument map, fallacy register, and coherence verdict claim to concrete evidence from the specific argument text, and key claims item, source excerpt, observation, or command result that supports it.
-- For Logical Coherence Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the argument map.
-- Before recommending any Logical Coherence Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Logical Coherence Review, bind each finding to a labeled source — artifact excerpts, test output, citations, assumptions, and reproducibility records, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Logical Coherence Review, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Logical Coherence Review recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Logical Coherence Review: the argument map is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract and segment and build argument map and surface hidden premises checks agree, and no unresolved contradiction would change the result.
-- Medium for Logical Coherence Review: the argument map is plausible, but one important argument text source, comparison case, or alternative explanation remains incomplete.
-- Low for Logical Coherence Review: the argument map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Logical Coherence Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- High confidence for Logical Coherence Review: independent lines of artifact excerpts, test output, citations, assumptions, and reproducibility records converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Logical Coherence Review: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Logical Coherence Review: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Logical Coherence Review cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Logical Coherence Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Logical Coherence Review, use only authorized argument text, and key claims, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Logical Coherence Review, minimize person-level detail in the argument map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Logical Coherence Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Logical Coherence Review, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Logical Coherence Review, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Logical Coherence Review, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Logical Coherence Review: treating argument text as complete when extract and segment and build argument map and surface hidden premises checks or contradictory evidence are missing.
-- Logical Coherence Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
-- Logical Coherence Review: reporting the argument map without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Logical Coherence Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the argument map from Logical Coherence Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Logical Coherence Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with argument text, and key claims' -> produce bounded findings with evidence and uncertainty labels.
+- Logical Coherence Review failure: performing theatrical critique without concrete evidence, severity, or remediation path.
+- Logical Coherence Review failure: producing guidance that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Logical Coherence Review failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Logical Coherence Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Logical Coherence Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Logical Coherence Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

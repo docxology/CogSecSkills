@@ -73,58 +73,52 @@ misuse_redirect: 'If a request asks Nominal Group Technique to force a preferred
   path and redirect to the safe defensive form: apply the structured technique to
   supplied evidence while preserving alternatives and uncertainty.'
 evidence_requirements:
-- For Nominal Group Technique, tie each ngt record claim to concrete evidence from
-  the specific focal question, participant idea sets, and prior context item, source
-  excerpt, observation, or command result that supports it.
-- For Nominal Group Technique, label observations, derived features, assumptions,
-  inferences, contradictions, and missing inputs separately before writing the ngt
-  record.
-- Before recommending any Nominal Group Technique action, identify the weakest evidence
-  link, the alternative most likely to overturn it, and the next discriminating check.
+- For Nominal Group Technique, bind each finding to a labeled source — hypotheses,
+  assumptions, indicators, evidence tables, and confidence notes, a cited reference,
+  or an explicitly marked inference — and never present inference as observed evidence.
+- For Nominal Group Technique, keep observations, assumptions, inferences, and missing
+  information in separate labeled categories.
+- Before issuing any Nominal Group Technique recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Nominal Group Technique: the ngt record is supported by multiple independent
-  hypotheses, assumptions, indicators, evidence tables, and confidence notes; frame
-  and distribute the focal question and silent independent generation checks agree,
-  and no unresolved contradiction would change the result.'
-- 'Medium for Nominal Group Technique: the ngt record is plausible, but one important
-  focal question source, comparison case, or alternative explanation remains incomplete.'
-- 'Low for Nominal Group Technique: the ngt record rests on sparse, single-source,
-  contested, or mostly inferential evidence; keep the result provisional and list
-  the next check.'
+- 'High confidence for Nominal Group Technique: independent lines of hypotheses, assumptions,
+  indicators, evidence tables, and confidence notes converge, credible alternatives
+  have been tested, and the conclusion would survive removing any single source.'
+- 'Medium confidence for Nominal Group Technique: the evidence supports the conclusion,
+  but one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Nominal Group Technique: the evidence is sparse, single-source,
+  contested, or mostly inferential, so competing explanations must be preserved in
+  the output.'
 uncertainty_handling:
-- State what Nominal Group Technique cannot determine from the supplied or authorized
-  evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
-privacy_legal_constraints:
-- For Nominal Group Technique, use only authorized focal question, participant idea
-  sets, and prior context, public or source-approved records, and caller-provided
-  context needed for the defensive task.
-- For Nominal Group Technique, minimize person-level detail in the ngt record; prefer
-  aggregate, artifact-level, role-level, or case-level summaries unless an individual
-  is essential to the defensive question.
-- For Nominal Group Technique, do not infer protected traits, private identity, intent,
-  location, legal culpability, or platform account ownership beyond the supplied and
+- State plainly what Nominal Group Technique cannot determine from the supplied or
   authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Nominal
+  Group Technique should collect to separate the live alternatives.
+privacy_legal_constraints:
+- For Nominal Group Technique, use only data the caller is authorized to analyze,
+  drawn from public or source-approved records.
+- For Nominal Group Technique, protect privacy by preferring aggregate, role-level,
+  or artifact-level summaries over individual targeting unless an individual is essential
+  to the defensive question.
+- For Nominal Group Technique, do not infer protected traits, private identity, intent,
+  location, or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Nominal Group Technique: treating focal question as complete when frame and distribute
-  the focal question and silent independent generation checks or contradictory evidence
-  are missing.'
-- 'Nominal Group Technique: producing advice that would help a requester force a preferred
-  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
-- 'Nominal Group Technique: reporting the ngt record without uncertainty labels, alternative
-  explanations, and the next discriminating check.'
+- 'Nominal Group Technique failure: using the method as a checklist while skipping
+  diagnostic evidence and disconfirming tests.'
+- 'Nominal Group Technique failure: producing guidance that would help a requester
+  force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation.'
+- 'Nominal Group Technique failure: hiding uncertainty behind generic confidence language
+  instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Nominal Group Technique outputs to force a preferred conclusion,
-  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
-  redirect to defensive risk assessment.'
-- 'Unsafe: ''Convert the ngt record from Nominal Group Technique into an operational
-  playbook to force a preferred conclusion, hide uncertainty, or use the technique
-  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
-  analysis.'
+- 'Unsafe: ''Use Nominal Group Technique to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Turn Nominal Group Technique into an operational playbook to force a
+  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation''
+  -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Nominal Group Technique to apply the structured technique
-  to supplied evidence while preserving alternatives and uncertainty with focal question,
-  participant idea sets, and prior context'' -> produce bounded findings with evidence
-  and uncertainty labels.'
+  to supplied evidence while preserving alternatives and uncertainty'' -> produce
+  bounded findings with explicit evidence and uncertainty labels.'

@@ -15,32 +15,32 @@ Verify that the statistical test matches the data type and distribution (e.g., t
 Write the statistical findings table: each row is one identified issue with category, evidence, severity, and inferential consequence. Then write the corrected-inference narrative: state explicitly what the data support after applying honest statistical discipline, and classify the primary claim as: supported, partially supported (with caveats), or insufficiently supported.
 
 ## Evidence requirements
-- For Statistical Validity Review, tie each statistical findings table, and corrected inference claim to concrete evidence from the specific study text, and primary claim item, source excerpt, observation, or command result that supports it.
-- For Statistical Validity Review, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the statistical findings table.
-- Before recommending any Statistical Validity Review action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Statistical Validity Review, bind each finding to a labeled source — artifact excerpts, test output, citations, assumptions, and reproducibility records, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Statistical Validity Review, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Statistical Validity Review recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Statistical Validity Review: the statistical findings table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract statistical claims and methods and audit power and multiple comparisons checks agree, and no unresolved contradiction would change the result.
-- Medium for Statistical Validity Review: the statistical findings table is plausible, but one important study text source, comparison case, or alternative explanation remains incomplete.
-- Low for Statistical Validity Review: the statistical findings table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Statistical Validity Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- High confidence for Statistical Validity Review: independent lines of artifact excerpts, test output, citations, assumptions, and reproducibility records converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Statistical Validity Review: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Statistical Validity Review: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Statistical Validity Review cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Statistical Validity Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Statistical Validity Review, use only authorized study text, and primary claim, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Statistical Validity Review, minimize person-level detail in the statistical findings table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Statistical Validity Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Statistical Validity Review, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Statistical Validity Review, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Statistical Validity Review, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Statistical Validity Review: treating study text as complete when extract statistical claims and methods and audit power and multiple comparisons checks or contradictory evidence are missing.
-- Statistical Validity Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
-- Statistical Validity Review: reporting the statistical findings table without uncertainty labels, alternative explanations, and the next discriminating check.
+- Statistical Validity Review failure: performing theatrical critique without concrete evidence, severity, or remediation path.
+- Statistical Validity Review failure: producing guidance that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Statistical Validity Review failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Statistical Validity Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the statistical findings table from Statistical Validity Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Statistical Validity Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with study text, and primary claim' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Statistical Validity Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Statistical Validity Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Statistical Validity Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - do not treat a statistically significant p-value as self-validating — significance is necessary but not sufficient for a trustworthy finding

@@ -18,32 +18,32 @@ For each identified fallacy, rate severity: FATAL (the conclusion does not follo
 Produce the fallacy table with location, name, category, explanation, and severity. Write the argument assessment narrative: overall logical validity verdict, which moves are purely rhetorical (persuasive but not warranting), which conclusions survive scrutiny, and the argument's persuasive-vs-epistemic gap.
 
 ## Evidence requirements
-- For Logical Fallacy Detection, tie each fallacy catalogue, and argument assessment claim to concrete evidence from the specific argument text, and context item, source excerpt, observation, or command result that supports it.
-- For Logical Fallacy Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the fallacy catalogue.
-- Before recommending any Logical Fallacy Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Logical Fallacy Detection, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Logical Fallacy Detection, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Logical Fallacy Detection recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Logical Fallacy Detection: the fallacy catalogue is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; segment the argument into claims and inferences and check formal validity of each inferential step checks agree, and no unresolved contradiction would change the result.
-- Medium for Logical Fallacy Detection: the fallacy catalogue is plausible, but one important argument text source, comparison case, or alternative explanation remains incomplete.
-- Low for Logical Fallacy Detection: the fallacy catalogue rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Logical Fallacy Detection cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Logical Fallacy Detection: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Logical Fallacy Detection: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Logical Fallacy Detection: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Logical Fallacy Detection cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Logical Fallacy Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Logical Fallacy Detection, use only authorized argument text, and context, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Logical Fallacy Detection, minimize person-level detail in the fallacy catalogue; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Logical Fallacy Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Logical Fallacy Detection, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Logical Fallacy Detection, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Logical Fallacy Detection, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Logical Fallacy Detection: treating argument text as complete when segment the argument into claims and inferences and check formal validity of each inferential step checks or contradictory evidence are missing.
-- Logical Fallacy Detection: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Logical Fallacy Detection: reporting the fallacy catalogue without uncertainty labels, alternative explanations, and the next discriminating check.
+- Logical Fallacy Detection failure: mistaking persuasive resonance for verified harm or intent.
+- Logical Fallacy Detection failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Logical Fallacy Detection failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Logical Fallacy Detection outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the fallacy catalogue from Logical Fallacy Detection into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Logical Fallacy Detection to assess supplied material for manipulation indicators and recommend resilience measures with argument text, and context' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Logical Fallacy Detection to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Logical Fallacy Detection into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Logical Fallacy Detection to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - Do not treat the presence of any fallacy as automatic proof the conclusion is false — clearly state that a fallacy means the argument does not establish the conclusion, not that the conclusion is wrong

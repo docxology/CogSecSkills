@@ -33,33 +33,33 @@ If a request asks Sock-Puppet Detection to dox, deanonymize, harass, bypass acce
 
 ## Evidence discipline
 
-- For Sock-Puppet Detection, tie each indicator assessment, and inauthenticity report claim to concrete evidence from the specific account identifier, platform, and related accounts item, source excerpt, observation, or command result that supports it.
-- For Sock-Puppet Detection, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the indicator assessment.
-- Before recommending any Sock-Puppet Detection action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Sock-Puppet Detection, bind each finding to a labeled source — source records, custody notes, metadata, corroborating references, and contradiction logs, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Sock-Puppet Detection, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Sock-Puppet Detection recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Sock-Puppet Detection: the indicator assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; collect account baseline data and run cross-platform and image lookups checks agree, and no unresolved contradiction would change the result.
-- Medium for Sock-Puppet Detection: the indicator assessment is plausible, but one important account identifier source, comparison case, or alternative explanation remains incomplete.
-- Low for Sock-Puppet Detection: the indicator assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Sock-Puppet Detection cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- High confidence for Sock-Puppet Detection: independent lines of source records, custody notes, metadata, corroborating references, and contradiction logs converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Sock-Puppet Detection: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Sock-Puppet Detection: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Sock-Puppet Detection cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Sock-Puppet Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Sock-Puppet Detection, use only authorized account identifier, platform, and related accounts, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Sock-Puppet Detection, minimize person-level detail in the indicator assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Sock-Puppet Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Sock-Puppet Detection, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Sock-Puppet Detection, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Sock-Puppet Detection, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Sock-Puppet Detection: treating account identifier as complete when collect account baseline data and run cross-platform and image lookups checks or contradictory evidence are missing.
-- Sock-Puppet Detection: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
-- Sock-Puppet Detection: reporting the indicator assessment without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Sock-Puppet Detection outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the indicator assessment from Sock-Puppet Detection into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Sock-Puppet Detection to verify supplied claims, media, sources, or datasets with documented public-source methods with account identifier, platform, and related accounts' -> produce bounded findings with evidence and uncertainty labels.
+- Sock-Puppet Detection failure: overstating identity, location, attribution, or source reliability from incomplete public traces.
+- Sock-Puppet Detection failure: producing guidance that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Sock-Puppet Detection failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Sock-Puppet Detection to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Sock-Puppet Detection into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Sock-Puppet Detection to verify supplied claims, media, sources, or datasets with documented public-source methods' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

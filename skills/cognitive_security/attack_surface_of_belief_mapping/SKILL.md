@@ -32,33 +32,33 @@ If a request asks Belief Attack-Surface Mapping to increase persuasive impact, e
 
 ## Evidence discipline
 
-- For Belief Attack-Surface Mapping, tie each belief attack surface map, and priority interventions claim to concrete evidence from the specific audience profile, belief inventory, and adversary playbook item, source excerpt, observation, or command result that supports it.
-- For Belief Attack-Surface Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the belief attack surface map.
-- Before recommending any Belief Attack-Surface Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Belief Attack-Surface Mapping, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Belief Attack-Surface Mapping, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Belief Attack-Surface Mapping recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Belief Attack-Surface Mapping: the belief attack surface map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest audience and belief landscape and score each belief on vulnerability dimensions checks agree, and no unresolved contradiction would change the result.
-- Medium for Belief Attack-Surface Mapping: the belief attack surface map is plausible, but one important audience profile source, comparison case, or alternative explanation remains incomplete.
-- Low for Belief Attack-Surface Mapping: the belief attack surface map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Belief Attack-Surface Mapping cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Belief Attack-Surface Mapping: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Belief Attack-Surface Mapping: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Belief Attack-Surface Mapping: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Belief Attack-Surface Mapping cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Belief Attack-Surface Mapping should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Belief Attack-Surface Mapping, use only authorized audience profile, belief inventory, and adversary playbook, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Belief Attack-Surface Mapping, minimize person-level detail in the belief attack surface map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Belief Attack-Surface Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Belief Attack-Surface Mapping, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Belief Attack-Surface Mapping, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Belief Attack-Surface Mapping, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Belief Attack-Surface Mapping: treating audience profile as complete when ingest audience and belief landscape and score each belief on vulnerability dimensions checks or contradictory evidence are missing.
-- Belief Attack-Surface Mapping: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Belief Attack-Surface Mapping: reporting the belief attack surface map without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Belief Attack-Surface Mapping outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the belief attack surface map from Belief Attack-Surface Mapping into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Belief Attack-Surface Mapping to assess supplied material for manipulation indicators and recommend resilience measures with audience profile, belief inventory, and adversary playbook' -> produce bounded findings with evidence and uncertainty labels.
+- Belief Attack-Surface Mapping failure: mistaking persuasive resonance for verified harm or intent.
+- Belief Attack-Surface Mapping failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Belief Attack-Surface Mapping failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Belief Attack-Surface Mapping to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Belief Attack-Surface Mapping into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Belief Attack-Surface Mapping to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

@@ -30,33 +30,33 @@ If a request asks Outside-In Thinking to force a preferred conclusion, hide unce
 
 ## Evidence discipline
 
-- For Outside-In Thinking, tie each outside in analysis claim to concrete evidence from the specific focal issue, prior assessments, and environmental scan item, source excerpt, observation, or command result that supports it.
-- For Outside-In Thinking, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the outside in analysis.
-- Before recommending any Outside-In Thinking action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Outside-In Thinking, bind each finding to a labeled source — hypotheses, assumptions, indicators, evidence tables, and confidence notes, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Outside-In Thinking, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Outside-In Thinking recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Outside-In Thinking: the outside in analysis is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; read and state the focal issue and populate the pestle macro layer checks agree, and no unresolved contradiction would change the result.
-- Medium for Outside-In Thinking: the outside in analysis is plausible, but one important focal issue source, comparison case, or alternative explanation remains incomplete.
-- Low for Outside-In Thinking: the outside in analysis rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Outside-In Thinking cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- High confidence for Outside-In Thinking: independent lines of hypotheses, assumptions, indicators, evidence tables, and confidence notes converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Outside-In Thinking: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Outside-In Thinking: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Outside-In Thinking cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Outside-In Thinking should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Outside-In Thinking, use only authorized focal issue, prior assessments, and environmental scan, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Outside-In Thinking, minimize person-level detail in the outside in analysis; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Outside-In Thinking, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Outside-In Thinking, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Outside-In Thinking, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Outside-In Thinking, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Outside-In Thinking: treating focal issue as complete when read and state the focal issue and populate the pestle macro layer checks or contradictory evidence are missing.
-- Outside-In Thinking: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
-- Outside-In Thinking: reporting the outside in analysis without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Outside-In Thinking outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the outside in analysis from Outside-In Thinking into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Outside-In Thinking to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with focal issue, prior assessments, and environmental scan' -> produce bounded findings with evidence and uncertainty labels.
+- Outside-In Thinking failure: using the method as a checklist while skipping diagnostic evidence and disconfirming tests.
+- Outside-In Thinking failure: producing guidance that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Outside-In Thinking failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Outside-In Thinking to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Outside-In Thinking into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Outside-In Thinking to apply the structured technique to supplied evidence while preserving alternatives and uncertainty' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

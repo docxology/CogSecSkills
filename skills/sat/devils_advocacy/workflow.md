@@ -21,32 +21,32 @@ Assemble the counter-case with its supporting facts, causal logic, predictions, 
 State whether the consensus survived intact, survived with caveats, or failed, then name the evidence that would resolve the dispute.
 
 ## Evidence requirements
-- For Devil's Advocacy, tie each counter case, and robustness verdict claim to concrete evidence from the specific consensus judgment, and evidence base item, source excerpt, observation, or command result that supports it.
-- For Devil's Advocacy, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the counter case.
-- Before recommending any Devil's Advocacy action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Devil's Advocacy, bind each finding to a labeled source — hypotheses, assumptions, indicators, evidence tables, and confidence notes, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Devil's Advocacy, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Devil's Advocacy recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Devil's Advocacy: the counter case is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; state the consensus and its foundations and select the most vulnerable assumptions checks agree, and no unresolved contradiction would change the result.
-- Medium for Devil's Advocacy: the counter case is plausible, but one important consensus judgment source, comparison case, or alternative explanation remains incomplete.
-- Low for Devil's Advocacy: the counter case rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Devil's Advocacy cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- High confidence for Devil's Advocacy: independent lines of hypotheses, assumptions, indicators, evidence tables, and confidence notes converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Devil's Advocacy: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Devil's Advocacy: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Devil's Advocacy cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Devil's Advocacy should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Devil's Advocacy, use only authorized consensus judgment, and evidence base, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Devil's Advocacy, minimize person-level detail in the counter case; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Devil's Advocacy, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Devil's Advocacy, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Devil's Advocacy, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Devil's Advocacy, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Devil's Advocacy: treating consensus judgment as complete when state the consensus and its foundations and select the most vulnerable assumptions checks or contradictory evidence are missing.
-- Devil's Advocacy: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
-- Devil's Advocacy: reporting the counter case without uncertainty labels, alternative explanations, and the next discriminating check.
+- Devil's Advocacy failure: using the method as a checklist while skipping diagnostic evidence and disconfirming tests.
+- Devil's Advocacy failure: producing guidance that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Devil's Advocacy failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Devil's Advocacy outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the counter case from Devil's Advocacy into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Devil's Advocacy to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with consensus judgment, and evidence base' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Devil's Advocacy to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Devil's Advocacy into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Devil's Advocacy to apply the structured technique to supplied evidence while preserving alternatives and uncertainty' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - **No straw man.** The counter-case must be the strongest real case against the

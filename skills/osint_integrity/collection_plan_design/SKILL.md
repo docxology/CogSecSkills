@@ -30,33 +30,33 @@ If a request asks Collection Plan Design to dox, deanonymize, harass, bypass acc
 
 ## Evidence discipline
 
-- For Collection Plan Design, tie each collection plan, and source priority matrix claim to concrete evidence from the specific intelligence requirement, legal and policy constraints, and available resources item, source excerpt, observation, or command result that supports it.
-- For Collection Plan Design, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the collection plan.
-- Before recommending any Collection Plan Design action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Collection Plan Design, bind each finding to a labeled source — source records, custody notes, metadata, corroborating references, and contradiction logs, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Collection Plan Design, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Collection Plan Design recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Collection Plan Design: the collection plan is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; clarify the intelligence requirement and derive scope, sources, and ethical boundaries checks agree, and no unresolved contradiction would change the result.
-- Medium for Collection Plan Design: the collection plan is plausible, but one important intelligence requirement source, comparison case, or alternative explanation remains incomplete.
-- Low for Collection Plan Design: the collection plan rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Collection Plan Design cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- High confidence for Collection Plan Design: independent lines of source records, custody notes, metadata, corroborating references, and contradiction logs converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Collection Plan Design: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Collection Plan Design: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Collection Plan Design cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Collection Plan Design should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Collection Plan Design, use only authorized intelligence requirement, legal and policy constraints, and available resources, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Collection Plan Design, minimize person-level detail in the collection plan; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Collection Plan Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Collection Plan Design, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Collection Plan Design, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Collection Plan Design, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Collection Plan Design: treating intelligence requirement as complete when clarify the intelligence requirement and derive scope, sources, and ethical boundaries checks or contradictory evidence are missing.
-- Collection Plan Design: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
-- Collection Plan Design: reporting the collection plan without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Collection Plan Design outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the collection plan from Collection Plan Design into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Collection Plan Design to verify supplied claims, media, sources, or datasets with documented public-source methods with intelligence requirement, legal and policy constraints, and available resources' -> produce bounded findings with evidence and uncertainty labels.
+- Collection Plan Design failure: overstating identity, location, attribution, or source reliability from incomplete public traces.
+- Collection Plan Design failure: producing guidance that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Collection Plan Design failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Collection Plan Design to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Collection Plan Design into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Collection Plan Design to verify supplied claims, media, sources, or datasets with documented public-source methods' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

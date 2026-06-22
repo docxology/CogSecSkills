@@ -83,54 +83,53 @@ misuse_redirect: 'If a request asks Project Critical Review to launder weak clai
   that path and redirect to the safe defensive form: review supplied artifacts for
   defects, evidence gaps, safety risks, or reproducibility failures.'
 evidence_requirements:
-- For Project Critical Review, tie each report, findings, and recommendation claim
-  to concrete evidence from the specific artifact, decision, and success criteria
-  item, source excerpt, observation, or command result that supports it.
-- For Project Critical Review, label observations, derived features, assumptions,
-  inferences, contradictions, and missing inputs separately before writing the report.
-- Before recommending any Project Critical Review action, identify the weakest evidence
-  link, the alternative most likely to overturn it, and the next discriminating check.
+- For Project Critical Review, bind each finding to a labeled source — artifact excerpts,
+  test output, citations, assumptions, and reproducibility records, a cited reference,
+  or an explicitly marked inference — and never present inference as observed evidence.
+- For Project Critical Review, keep observations, assumptions, inferences, and missing
+  information in separate labeled categories.
+- Before issuing any Project Critical Review recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Project Critical Review: the report is supported by multiple independent
-  artifact excerpts, test output, citations, assumptions, and reproducibility records;
-  scope the review and map the project checks agree, and no unresolved contradiction
-  would change the result.'
-- 'Medium for Project Critical Review: the report is plausible, but one important
-  artifact source, comparison case, or alternative explanation remains incomplete.'
-- 'Low for Project Critical Review: the report rests on sparse, single-source, contested,
-  or mostly inferential evidence; keep the result provisional and list the next check.'
+- 'High confidence for Project Critical Review: independent lines of artifact excerpts,
+  test output, citations, assumptions, and reproducibility records converge, credible
+  alternatives have been tested, and the conclusion would survive removing any single
+  source.'
+- 'Medium confidence for Project Critical Review: the evidence supports the conclusion,
+  but one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Project Critical Review: the evidence is sparse, single-source,
+  contested, or mostly inferential, so competing explanations must be preserved in
+  the output.'
 uncertainty_handling:
-- State what Project Critical Review cannot determine from the supplied or authorized
-  evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence
-  is low or medium.
-privacy_legal_constraints:
-- For Project Critical Review, use only authorized artifact, decision, and success
-  criteria, public or source-approved records, and caller-provided context needed
-  for the defensive task.
-- For Project Critical Review, minimize person-level detail in the report; prefer
-  aggregate, artifact-level, role-level, or case-level summaries unless an individual
-  is essential to the defensive question.
-- For Project Critical Review, do not infer protected traits, private identity, intent,
-  location, legal culpability, or platform account ownership beyond the supplied and
+- State plainly what Project Critical Review cannot determine from the supplied or
   authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Project
+  Critical Review should collect to separate the live alternatives.
+privacy_legal_constraints:
+- For Project Critical Review, use only data the caller is authorized to analyze,
+  drawn from public or source-approved records.
+- For Project Critical Review, protect privacy by preferring aggregate, role-level,
+  or artifact-level summaries over individual targeting unless an individual is essential
+  to the defensive question.
+- For Project Critical Review, do not infer protected traits, private identity, intent,
+  location, or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Project Critical Review: treating artifact as complete when scope the review and
-  map the project checks or contradictory evidence are missing.'
-- 'Project Critical Review: producing advice that would help a requester launder weak
-  claims, fabricate review findings, or produce exploit guidance without mitigation.'
-- 'Project Critical Review: reporting the report without uncertainty labels, alternative
-  explanations, and the next discriminating check.'
+- 'Project Critical Review failure: performing theatrical critique without concrete
+  evidence, severity, or remediation path.'
+- 'Project Critical Review failure: producing guidance that would help a requester
+  launder weak claims, fabricate review findings, or produce exploit guidance without
+  mitigation.'
+- 'Project Critical Review failure: hiding uncertainty behind generic confidence language
+  instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Project Critical Review outputs to launder weak claims, fabricate
-  review findings, or produce exploit guidance without mitigation'' -> refuse and
-  redirect to defensive risk assessment.'
-- 'Unsafe: ''Convert the report from Project Critical Review into an operational playbook
-  to launder weak claims, fabricate review findings, or produce exploit guidance without
-  mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Unsafe: ''Use Project Critical Review to launder weak claims, fabricate review
+  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Turn Project Critical Review into an operational playbook to launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation''
+  -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Project Critical Review to review supplied artifacts for
-  defects, evidence gaps, safety risks, or reproducibility failures with artifact,
-  decision, and success criteria'' -> produce bounded findings with evidence and uncertainty
-  labels.'
+  defects, evidence gaps, safety risks, or reproducibility failures'' -> produce bounded
+  findings with explicit evidence and uncertainty labels.'

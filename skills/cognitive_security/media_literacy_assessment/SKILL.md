@@ -29,33 +29,33 @@ If a request asks Media Literacy Assessment to increase persuasive impact, explo
 
 ## Evidence discipline
 
-- For Media Literacy Assessment, tie each competency gap map, and intervention recommendations claim to concrete evidence from the specific audience profile, sample content, and existing assessment data item, source excerpt, observation, or command result that supports it.
-- For Media Literacy Assessment, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the competency gap map.
-- Before recommending any Media Literacy Assessment action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Media Literacy Assessment, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Media Literacy Assessment, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Media Literacy Assessment recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Media Literacy Assessment: the competency gap map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; characterize the audience and context and score against media-literacy dimensions checks agree, and no unresolved contradiction would change the result.
-- Medium for Media Literacy Assessment: the competency gap map is plausible, but one important audience profile source, comparison case, or alternative explanation remains incomplete.
-- Low for Media Literacy Assessment: the competency gap map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Media Literacy Assessment cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Media Literacy Assessment: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Media Literacy Assessment: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Media Literacy Assessment: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Media Literacy Assessment cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Media Literacy Assessment should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Media Literacy Assessment, use only authorized audience profile, sample content, and existing assessment data, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Media Literacy Assessment, minimize person-level detail in the competency gap map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Media Literacy Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Media Literacy Assessment, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Media Literacy Assessment, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Media Literacy Assessment, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Media Literacy Assessment: treating audience profile as complete when characterize the audience and context and score against media-literacy dimensions checks or contradictory evidence are missing.
-- Media Literacy Assessment: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Media Literacy Assessment: reporting the competency gap map without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Media Literacy Assessment outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the competency gap map from Media Literacy Assessment into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Media Literacy Assessment to assess supplied material for manipulation indicators and recommend resilience measures with audience profile, sample content, and existing assessment data' -> produce bounded findings with evidence and uncertainty labels.
+- Media Literacy Assessment failure: mistaking persuasive resonance for verified harm or intent.
+- Media Literacy Assessment failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Media Literacy Assessment failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Media Literacy Assessment to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Media Literacy Assessment into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Media Literacy Assessment to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

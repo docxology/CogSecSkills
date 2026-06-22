@@ -15,6 +15,15 @@ follow semantic versioning.
   from the docs map.
 - `figures` optional-dependency extra (`matplotlib`, `numpy`, `seaborn`) so
   `manuscript-assets --write` figure rendering is reproducible.
+- `manuscript/07_ethics_and_responsible_use.md` — standalone Ethics, Dual-Use,
+  and Responsible-Use section (dual-use stance, defensive-by-contract-and-review,
+  human-subjects scope, adopter responsibilities, and explicit non-claims).
+- `manuscript/01_introduction.md` — a "Related Work and Positioning" subsection
+  situating the library against the four cited literatures, grounded only in
+  already-verified `references.bib` keys.
+- Expanded `manuscript/98_symbols_glossary.md` from 4 to 11 terms (defensive
+  boundary, misuse redirect, negative control, scenario fixture, worked example,
+  reference density) and documented the `ageint_topic` crosswalk field.
 
 ### Fixed
 
@@ -23,11 +32,28 @@ follow semantic versioning.
   `examples --write` (previously mislabeled `manuscript-assets --write`).
 - `mypy` no longer aborts on the optional figure libraries' stubs when the
   `figures` extra is installed alongside `dev` (added a `tool.mypy` override).
+- CI now enforces the full conformance contract: `.github/workflows/ci.yml`
+  runs every generated-file drift gate (`definitions`, `scenarios`, `examples`,
+  `evals`, `dashboard`, `release-metadata`, `manuscript-assets` `--check`), not
+  just `validate`/`doctor`/`pytest`. Previously a hand-edit to a generated file
+  could pass CI while failing the local gate sweep. Added a least-privilege
+  `permissions: contents: read` block.
 
 ### Changed
 
 - `QUICKSTART.md` documents the `figures` extra and includes
   `manuscript-assets --check` in the validation sweep.
+- Regenerated the per-skill defensive quality bundle across all 100 skills.
+  `author.default_quality_fields` now emits clean, grammatical, article-safe
+  prose for `evidence_requirements`, `confidence_rubric`, `uncertainty_handling`,
+  `privacy_legal_constraints`, and `failure_modes`, replacing earlier
+  input/output/step-name interpolation that produced broken sentences (e.g.
+  "tie each sorted table, and outlier flags claim to concrete evidence from the
+  specific evidence set, and sort dimensions item"). Per-skill uniqueness,
+  specificity, keyword coverage, and scenario quality-term contracts are
+  preserved; two skills (`coordinated_inauthentic_behavior_detection`,
+  `calibrated_estimation`) carry a definition-level enrichment so their quality
+  guidance still names the core concept.
 
 ## [0.1.0] — 2026-06-18
 

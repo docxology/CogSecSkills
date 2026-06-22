@@ -15,32 +15,32 @@ For content warranting deeper analysis, apply the SEMEVAL 2020 extended taxonomy
 Interpret the overall technique mix: what emotional and cognitive state is the content designed to produce in the target audience? Which audience vulnerabilities (fear, identity threat, authority deference, in-group loyalty) does the mix exploit? Rate confidence in intent attribution separately from technique identification. Compose the classification table and the analytical interpretation narrative, including suggested countermeasures appropriate to each identified technique.
 
 ## Evidence requirements
-- For Propaganda Technique Classification, tie each technique classification table, and analytical interpretation claim to concrete evidence from the specific content, context metadata, and taxonomy scope item, source excerpt, observation, or command result that supports it.
-- For Propaganda Technique Classification, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the technique classification table.
-- Before recommending any Propaganda Technique Classification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Propaganda Technique Classification, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Propaganda Technique Classification, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Propaganda Technique Classification recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Propaganda Technique Classification: the technique classification table is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; ingest content and establish context and apply taxonomy pass 1 — ipa seven techniques checks agree, and no unresolved contradiction would change the result.
-- Medium for Propaganda Technique Classification: the technique classification table is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
-- Low for Propaganda Technique Classification: the technique classification table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Propaganda Technique Classification cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Propaganda Technique Classification: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Propaganda Technique Classification: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Propaganda Technique Classification: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Propaganda Technique Classification cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Propaganda Technique Classification should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Propaganda Technique Classification, use only authorized content, context metadata, and taxonomy scope, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Propaganda Technique Classification, minimize person-level detail in the technique classification table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Propaganda Technique Classification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Propaganda Technique Classification, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Propaganda Technique Classification, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Propaganda Technique Classification, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Propaganda Technique Classification: treating content as complete when ingest content and establish context and apply taxonomy pass 1 — ipa seven techniques checks or contradictory evidence are missing.
-- Propaganda Technique Classification: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Propaganda Technique Classification: reporting the technique classification table without uncertainty labels, alternative explanations, and the next discriminating check.
+- Propaganda Technique Classification failure: mistaking persuasive resonance for verified harm or intent.
+- Propaganda Technique Classification failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Propaganda Technique Classification failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Propaganda Technique Classification outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the technique classification table from Propaganda Technique Classification into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Propaganda Technique Classification to assess supplied material for manipulation indicators and recommend resilience measures with content, context metadata, and taxonomy scope' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Propaganda Technique Classification to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Propaganda Technique Classification into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Propaganda Technique Classification to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - do not attribute intent (who made this and why) with the same confidence level as technique identification — intent is an inference, not a classification

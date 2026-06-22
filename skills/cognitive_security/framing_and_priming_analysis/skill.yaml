@@ -89,59 +89,52 @@ misuse_redirect: 'If a request asks Framing & Priming Analysis to increase persu
   that path and redirect to the safe defensive form: assess supplied material for
   manipulation indicators and recommend resilience measures.'
 evidence_requirements:
-- For Framing & Priming Analysis, tie each frame inventory, and reframing brief claim
-  to concrete evidence from the specific content, alternative versions, and audience
-  context item, source excerpt, observation, or command result that supports it.
-- For Framing & Priming Analysis, label observations, derived features, assumptions,
-  inferences, contradictions, and missing inputs separately before writing the frame
-  inventory.
-- Before recommending any Framing & Priming Analysis action, identify the weakest
-  evidence link, the alternative most likely to overturn it, and the next discriminating
-  check.
+- For Framing & Priming Analysis, bind each finding to a labeled source — content,
+  behavioral, narrative, media, and audience-risk evidence, a cited reference, or
+  an explicitly marked inference — and never present inference as observed evidence.
+- For Framing & Priming Analysis, keep observations, assumptions, inferences, and
+  missing information in separate labeled categories.
+- Before issuing any Framing & Priming Analysis recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Framing & Priming Analysis: the frame inventory is supported by multiple
-  independent content, behavioral, narrative, media, and audience-risk evidence; close-read
-  for linguistic markers and identify active frames and priming sequences checks agree,
-  and no unresolved contradiction would change the result.'
-- 'Medium for Framing & Priming Analysis: the frame inventory is plausible, but one
-  important content source, comparison case, or alternative explanation remains incomplete.'
-- 'Low for Framing & Priming Analysis: the frame inventory rests on sparse, single-source,
-  contested, or mostly inferential evidence; keep the result provisional and list
-  the next check.'
+- 'High confidence for Framing & Priming Analysis: independent lines of content, behavioral,
+  narrative, media, and audience-risk evidence converge, credible alternatives have
+  been tested, and the conclusion would survive removing any single source.'
+- 'Medium confidence for Framing & Priming Analysis: the evidence supports the conclusion,
+  but one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Framing & Priming Analysis: the evidence is sparse, single-source,
+  contested, or mostly inferential, so competing explanations must be preserved in
+  the output.'
 uncertainty_handling:
-- State what Framing & Priming Analysis cannot determine from the supplied or authorized
-  evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- State plainly what Framing & Priming Analysis cannot determine from the supplied
+  or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Framing
+  & Priming Analysis should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Framing & Priming Analysis, use only authorized content, alternative versions,
-  and audience context, public or source-approved records, and caller-provided context
-  needed for the defensive task.
-- For Framing & Priming Analysis, minimize person-level detail in the frame inventory;
-  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
-  individual is essential to the defensive question.
+- For Framing & Priming Analysis, use only data the caller is authorized to analyze,
+  drawn from public or source-approved records.
+- For Framing & Priming Analysis, protect privacy by preferring aggregate, role-level,
+  or artifact-level summaries over individual targeting unless an individual is essential
+  to the defensive question.
 - For Framing & Priming Analysis, do not infer protected traits, private identity,
-  intent, location, legal culpability, or platform account ownership beyond the supplied
-  and authorized evidence.
+  intent, location, or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Framing & Priming Analysis: treating content as complete when close-read for linguistic
-  markers and identify active frames and priming sequences checks or contradictory
-  evidence are missing.'
-- 'Framing & Priming Analysis: producing advice that would help a requester increase
-  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.'
-- 'Framing & Priming Analysis: reporting the frame inventory without uncertainty labels,
-  alternative explanations, and the next discriminating check.'
+- 'Framing & Priming Analysis failure: mistaking persuasive resonance for verified
+  harm or intent.'
+- 'Framing & Priming Analysis failure: producing guidance that would help a requester
+  increase persuasive impact, exploit audience vulnerabilities, or optimize narrative
+  manipulation.'
+- 'Framing & Priming Analysis failure: hiding uncertainty behind generic confidence
+  language instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Framing & Priming Analysis outputs to increase persuasive impact,
-  exploit audience vulnerabilities, or optimize narrative manipulation'' -> refuse
-  and redirect to defensive risk assessment.'
-- 'Unsafe: ''Convert the frame inventory from Framing & Priming Analysis into an operational
-  playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize
-  narrative manipulation'' -> refuse and offer governance, detection, or mitigation
-  analysis.'
+- 'Unsafe: ''Use Framing & Priming Analysis to increase persuasive impact, exploit
+  audience vulnerabilities, or optimize narrative manipulation'' -> refuse and redirect
+  to defensive risk assessment.'
+- 'Unsafe: ''Turn Framing & Priming Analysis into an operational playbook to increase
+  persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation''
+  -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Framing & Priming Analysis to assess supplied material for
-  manipulation indicators and recommend resilience measures with content, alternative
-  versions, and audience context'' -> produce bounded findings with evidence and uncertainty
-  labels.'
+  manipulation indicators and recommend resilience measures'' -> produce bounded findings
+  with explicit evidence and uncertainty labels.'

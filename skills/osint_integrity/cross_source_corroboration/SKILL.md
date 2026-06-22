@@ -30,33 +30,33 @@ If a request asks Cross-Source Corroboration to dox, deanonymize, harass, bypass
 
 ## Evidence discipline
 
-- For Cross-Source Corroboration, tie each corroboration assessment, and promotion decision claim to concrete evidence from the specific candidate claim, source list, and source metadata item, source excerpt, observation, or command result that supports it.
-- For Cross-Source Corroboration, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the corroboration assessment.
-- Before recommending any Cross-Source Corroboration action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Cross-Source Corroboration, bind each finding to a labeled source — source records, custody notes, metadata, corroborating references, and contradiction logs, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Cross-Source Corroboration, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Cross-Source Corroboration recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Cross-Source Corroboration: the corroboration assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; characterize the claim and current source set and trace origins and assess source independence checks agree, and no unresolved contradiction would change the result.
-- Medium for Cross-Source Corroboration: the corroboration assessment is plausible, but one important candidate claim source, comparison case, or alternative explanation remains incomplete.
-- Low for Cross-Source Corroboration: the corroboration assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Cross-Source Corroboration cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- High confidence for Cross-Source Corroboration: independent lines of source records, custody notes, metadata, corroborating references, and contradiction logs converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Cross-Source Corroboration: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Cross-Source Corroboration: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Cross-Source Corroboration cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Cross-Source Corroboration should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Cross-Source Corroboration, use only authorized candidate claim, source list, and source metadata, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Cross-Source Corroboration, minimize person-level detail in the corroboration assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Cross-Source Corroboration, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Cross-Source Corroboration, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Cross-Source Corroboration, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Cross-Source Corroboration, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Cross-Source Corroboration: treating candidate claim as complete when characterize the claim and current source set and trace origins and assess source independence checks or contradictory evidence are missing.
-- Cross-Source Corroboration: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
-- Cross-Source Corroboration: reporting the corroboration assessment without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Cross-Source Corroboration outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the corroboration assessment from Cross-Source Corroboration into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Cross-Source Corroboration to verify supplied claims, media, sources, or datasets with documented public-source methods with candidate claim, source list, and source metadata' -> produce bounded findings with evidence and uncertainty labels.
+- Cross-Source Corroboration failure: overstating identity, location, attribution, or source reliability from incomplete public traces.
+- Cross-Source Corroboration failure: producing guidance that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Cross-Source Corroboration failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Cross-Source Corroboration to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Cross-Source Corroboration into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Cross-Source Corroboration to verify supplied claims, media, sources, or datasets with documented public-source methods' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

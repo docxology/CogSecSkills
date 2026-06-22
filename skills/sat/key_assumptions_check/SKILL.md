@@ -30,33 +30,33 @@ If a request asks Key Assumptions Check to force a preferred conclusion, hide un
 
 ## Evidence discipline
 
-- For Key Assumptions Check, tie each assumptions table, key assumptions, and revised judgment claim to concrete evidence from the specific judgment, analytic line, and stated assumptions item, source excerpt, observation, or command result that supports it.
-- For Key Assumptions Check, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the assumptions table.
-- Before recommending any Key Assumptions Check action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Key Assumptions Check, bind each finding to a labeled source — hypotheses, assumptions, indicators, evidence tables, and confidence notes, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Key Assumptions Check, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Key Assumptions Check recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Key Assumptions Check: the assumptions table is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; recover the analytic line and list assumptions and interrogate each assumption checks agree, and no unresolved contradiction would change the result.
-- Medium for Key Assumptions Check: the assumptions table is plausible, but one important judgment source, comparison case, or alternative explanation remains incomplete.
-- Low for Key Assumptions Check: the assumptions table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Key Assumptions Check cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- High confidence for Key Assumptions Check: independent lines of hypotheses, assumptions, indicators, evidence tables, and confidence notes converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Key Assumptions Check: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Key Assumptions Check: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Key Assumptions Check cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Key Assumptions Check should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Key Assumptions Check, use only authorized judgment, analytic line, and stated assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Key Assumptions Check, minimize person-level detail in the assumptions table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Key Assumptions Check, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Key Assumptions Check, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Key Assumptions Check, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Key Assumptions Check, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Key Assumptions Check: treating judgment as complete when recover the analytic line and list assumptions and interrogate each assumption checks or contradictory evidence are missing.
-- Key Assumptions Check: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
-- Key Assumptions Check: reporting the assumptions table without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Key Assumptions Check outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the assumptions table from Key Assumptions Check into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Key Assumptions Check to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with judgment, analytic line, and stated assumptions' -> produce bounded findings with evidence and uncertainty labels.
+- Key Assumptions Check failure: using the method as a checklist while skipping diagnostic evidence and disconfirming tests.
+- Key Assumptions Check failure: producing guidance that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Key Assumptions Check failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Key Assumptions Check to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Key Assumptions Check into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Key Assumptions Check to apply the structured technique to supplied evidence while preserving alternatives and uncertainty' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

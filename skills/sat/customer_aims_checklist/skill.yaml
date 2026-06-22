@@ -78,59 +78,53 @@ misuse_redirect: 'If a request asks Customer (AIMS) Checklist to force a preferr
   refuse that path and redirect to the safe defensive form: apply the structured technique
   to supplied evidence while preserving alternatives and uncertainty.'
 evidence_requirements:
-- For Customer (AIMS) Checklist, tie each aims worksheet, and gap and misalignment
-  report claim to concrete evidence from the specific product or outline, and consumer
-  context item, source excerpt, observation, or command result that supports it.
-- For Customer (AIMS) Checklist, label observations, derived features, assumptions,
-  inferences, contradictions, and missing inputs separately before writing the aims
-  worksheet.
-- Before recommending any Customer (AIMS) Checklist action, identify the weakest evidence
-  link, the alternative most likely to overturn it, and the next discriminating check.
+- For Customer (AIMS) Checklist, bind each finding to a labeled source — hypotheses,
+  assumptions, indicators, evidence tables, and confidence notes, a cited reference,
+  or an explicitly marked inference — and never present inference as observed evidence.
+- For Customer (AIMS) Checklist, keep observations, assumptions, inferences, and missing
+  information in separate labeled categories.
+- Before issuing any Customer (AIMS) Checklist recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Customer (AIMS) Checklist: the aims worksheet is supported by multiple
-  independent hypotheses, assumptions, indicators, evidence tables, and confidence
-  notes; ingest tasking and draft and resolve aims parameters checks agree, and no
-  unresolved contradiction would change the result.'
-- 'Medium for Customer (AIMS) Checklist: the aims worksheet is plausible, but one
-  important product or outline source, comparison case, or alternative explanation
-  remains incomplete.'
-- 'Low for Customer (AIMS) Checklist: the aims worksheet rests on sparse, single-source,
-  contested, or mostly inferential evidence; keep the result provisional and list
-  the next check.'
+- 'High confidence for Customer (AIMS) Checklist: independent lines of hypotheses,
+  assumptions, indicators, evidence tables, and confidence notes converge, credible
+  alternatives have been tested, and the conclusion would survive removing any single
+  source.'
+- 'Medium confidence for Customer (AIMS) Checklist: the evidence supports the conclusion,
+  but one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Customer (AIMS) Checklist: the evidence is sparse, single-source,
+  contested, or mostly inferential, so competing explanations must be preserved in
+  the output.'
 uncertainty_handling:
-- State what Customer (AIMS) Checklist cannot determine from the supplied or authorized
-  evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- State plainly what Customer (AIMS) Checklist cannot determine from the supplied
+  or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Customer
+  (AIMS) Checklist should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Customer (AIMS) Checklist, use only authorized product or outline, and consumer
-  context, public or source-approved records, and caller-provided context needed for
-  the defensive task.
-- For Customer (AIMS) Checklist, minimize person-level detail in the aims worksheet;
-  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
-  individual is essential to the defensive question.
+- For Customer (AIMS) Checklist, use only data the caller is authorized to analyze,
+  drawn from public or source-approved records.
+- For Customer (AIMS) Checklist, protect privacy by preferring aggregate, role-level,
+  or artifact-level summaries over individual targeting unless an individual is essential
+  to the defensive question.
 - For Customer (AIMS) Checklist, do not infer protected traits, private identity,
-  intent, location, legal culpability, or platform account ownership beyond the supplied
-  and authorized evidence.
+  intent, location, or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Customer (AIMS) Checklist: treating product or outline as complete when ingest
-  tasking and draft and resolve aims parameters checks or contradictory evidence are
-  missing.'
-- 'Customer (AIMS) Checklist: producing advice that would help a requester force a
-  preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
-- 'Customer (AIMS) Checklist: reporting the aims worksheet without uncertainty labels,
-  alternative explanations, and the next discriminating check.'
+- 'Customer (AIMS) Checklist failure: using the method as a checklist while skipping
+  diagnostic evidence and disconfirming tests.'
+- 'Customer (AIMS) Checklist failure: producing guidance that would help a requester
+  force a preferred conclusion, hide uncertainty, or use the technique to rationalize
+  manipulation.'
+- 'Customer (AIMS) Checklist failure: hiding uncertainty behind generic confidence
+  language instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Customer (AIMS) Checklist outputs to force a preferred conclusion,
-  hide uncertainty, or use the technique to rationalize manipulation'' -> refuse and
-  redirect to defensive risk assessment.'
-- 'Unsafe: ''Convert the aims worksheet from Customer (AIMS) Checklist into an operational
-  playbook to force a preferred conclusion, hide uncertainty, or use the technique
-  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
-  analysis.'
+- 'Unsafe: ''Use Customer (AIMS) Checklist to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Turn Customer (AIMS) Checklist into an operational playbook to force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation''
+  -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Customer (AIMS) Checklist to apply the structured technique
-  to supplied evidence while preserving alternatives and uncertainty with product
-  or outline, and consumer context'' -> produce bounded findings with evidence and
-  uncertainty labels.'
+  to supplied evidence while preserving alternatives and uncertainty'' -> produce
+  bounded findings with explicit evidence and uncertainty labels.'

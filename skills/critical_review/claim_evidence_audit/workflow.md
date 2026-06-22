@@ -18,32 +18,32 @@ Look across all verdicts for systematic patterns: consistent use of confidence l
 Compile the complete claim-evidence audit table. Write the audit summary identifying the overall integrity level of the document's evidentiary support, the most critical overclaims and unsupported assertions, any detected cherry-picking patterns, and a recommendation on whether the document's conclusions can be used as stated or must be substantially re-hedged before acting on them.
 
 ## Evidence requirements
-- For Claim-Evidence Audit, tie each claim evidence table, and audit summary claim to concrete evidence from the specific document, and claim taxonomy item, source excerpt, observation, or command result that supports it.
-- For Claim-Evidence Audit, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the claim evidence table.
-- Before recommending any Claim-Evidence Audit action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Claim-Evidence Audit, bind each finding to a labeled source — artifact excerpts, test output, citations, assumptions, and reproducibility records, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Claim-Evidence Audit, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Claim-Evidence Audit recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Claim-Evidence Audit: the claim evidence table is supported by multiple independent artifact excerpts, test output, citations, assumptions, and reproducibility records; extract claims and linked evidence and classify evidence type and quality checks agree, and no unresolved contradiction would change the result.
-- Medium for Claim-Evidence Audit: the claim evidence table is plausible, but one important document source, comparison case, or alternative explanation remains incomplete.
-- Low for Claim-Evidence Audit: the claim evidence table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Claim-Evidence Audit cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- High confidence for Claim-Evidence Audit: independent lines of artifact excerpts, test output, citations, assumptions, and reproducibility records converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Claim-Evidence Audit: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Claim-Evidence Audit: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Claim-Evidence Audit cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Claim-Evidence Audit should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Claim-Evidence Audit, use only authorized document, and claim taxonomy, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Claim-Evidence Audit, minimize person-level detail in the claim evidence table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Claim-Evidence Audit, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Claim-Evidence Audit, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Claim-Evidence Audit, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Claim-Evidence Audit, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Claim-Evidence Audit: treating document as complete when extract claims and linked evidence and classify evidence type and quality checks or contradictory evidence are missing.
-- Claim-Evidence Audit: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
-- Claim-Evidence Audit: reporting the claim evidence table without uncertainty labels, alternative explanations, and the next discriminating check.
+- Claim-Evidence Audit failure: performing theatrical critique without concrete evidence, severity, or remediation path.
+- Claim-Evidence Audit failure: producing guidance that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Claim-Evidence Audit failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Claim-Evidence Audit outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the claim evidence table from Claim-Evidence Audit into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Claim-Evidence Audit to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with document, and claim taxonomy' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Claim-Evidence Audit to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Claim-Evidence Audit into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Claim-Evidence Audit to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - Do not conflate a claim being plausible or likely true with it being well-supported by the evidence offered in this document

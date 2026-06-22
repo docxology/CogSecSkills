@@ -144,64 +144,56 @@ misuse_redirect: 'If a request asks Coordinated Inauthentic Behavior Detection t
   engagement, refuse that path and redirect to the safe defensive form: map supplied
   narratives, automation signals, or platform affordance risks for defensive review.'
 evidence_requirements:
-- For Coordinated Inauthentic Behavior Detection, tie each coordination clusters,
-  and cib report claim to concrete evidence from the specific account activity dataset,
-  investigation scope, and known seed accounts item, source excerpt, observation,
-  or command result that supports it.
-- For Coordinated Inauthentic Behavior Detection, label observations, derived features,
-  assumptions, inferences, contradictions, and missing inputs separately before writing
-  the coordination clusters.
-- Before recommending any Coordinated Inauthentic Behavior Detection action, identify
-  the weakest evidence link, the alternative most likely to overturn it, and the next
-  discriminating check.
+- For Coordinated Inauthentic Behavior Detection, bind each finding to a labeled source
+  — platform observations, coordination signals, narrative movement, automation signals,
+  and provenance data, a cited reference, or an explicitly marked inference — and
+  never present inference as observed evidence.
+- For Coordinated Inauthentic Behavior Detection, keep observations, assumptions,
+  inferences, and missing information in separate labeled categories.
+- Before issuing any Coordinated Inauthentic Behavior Detection recommendation, name
+  the weakest evidentiary link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Coordinated Inauthentic Behavior Detection: the coordination clusters
-  is supported by multiple independent platform observations, narrative movement,
-  automation signals, and provenance data; build the co-activity matrix and cross-reference
-  prior cib reports and known networks checks agree, and no unresolved contradiction
-  would change the result.'
-- 'Medium for Coordinated Inauthentic Behavior Detection: the coordination clusters
-  is plausible, but one important account activity dataset source, comparison case,
-  or alternative explanation remains incomplete.'
-- 'Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rests
-  on sparse, single-source, contested, or mostly inferential evidence; keep the result
-  provisional and list the next check.'
+- 'High confidence for Coordinated Inauthentic Behavior Detection: independent lines
+  of platform observations, narrative movement, automation signals, and provenance
+  data converge, credible alternatives have been tested, and the conclusion would
+  survive removing any single source.'
+- 'Medium confidence for Coordinated Inauthentic Behavior Detection: the evidence
+  supports the conclusion, but one important input, comparison class, or alternative
+  explanation is still incomplete.'
+- 'Low confidence for Coordinated Inauthentic Behavior Detection: the evidence is
+  sparse, single-source, contested, or mostly inferential, so competing explanations
+  must be preserved in the output.'
 uncertainty_handling:
-- State what Coordinated Inauthentic Behavior Detection cannot determine from the
-  supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when
-  confidence is low or medium.
+- State plainly what Coordinated Inauthentic Behavior Detection cannot determine from
+  the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Coordinated
+  Inauthentic Behavior Detection should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Coordinated Inauthentic Behavior Detection, use only authorized account activity
-  dataset, investigation scope, and known seed accounts, public or source-approved
-  records, and caller-provided context needed for the defensive task.
-- For Coordinated Inauthentic Behavior Detection, minimize person-level detail in
-  the coordination clusters; prefer aggregate, artifact-level, role-level, or case-level
-  summaries unless an individual is essential to the defensive question.
+- For Coordinated Inauthentic Behavior Detection, use only data the caller is authorized
+  to analyze, drawn from public or source-approved records.
+- For Coordinated Inauthentic Behavior Detection, protect privacy by preferring aggregate,
+  role-level, or artifact-level summaries over individual targeting unless an individual
+  is essential to the defensive question.
 - For Coordinated Inauthentic Behavior Detection, do not infer protected traits, private
-  identity, intent, location, legal culpability, or platform account ownership beyond
-  the supplied and authorized evidence.
+  identity, intent, location, or legal culpability beyond the supplied and authorized
+  evidence.
 failure_modes:
-- 'Coordinated Inauthentic Behavior Detection: treating account activity dataset as
-  complete when build the co-activity matrix and cross-reference prior cib reports
-  and known networks checks or contradictory evidence are missing.'
-- 'Coordinated Inauthentic Behavior Detection: producing advice that would help a
-  requester amplify coordinated behavior, tune platform manipulation, or design inauthentic
-  engagement.'
-- 'Coordinated Inauthentic Behavior Detection: reporting the coordination clusters
-  without uncertainty labels, alternative explanations, and the next discriminating
-  check.'
+- 'Coordinated Inauthentic Behavior Detection failure: treating engagement volume
+  as proof of authenticity or coordinated intent.'
+- 'Coordinated Inauthentic Behavior Detection failure: producing guidance that would
+  help a requester amplify coordinated behavior, tune platform manipulation, or design
+  inauthentic engagement.'
+- 'Coordinated Inauthentic Behavior Detection failure: hiding uncertainty behind generic
+  confidence language instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Coordinated Inauthentic Behavior Detection outputs to amplify coordinated
+- 'Unsafe: ''Use Coordinated Inauthentic Behavior Detection to amplify coordinated
   behavior, tune platform manipulation, or design inauthentic engagement'' -> refuse
   and redirect to defensive risk assessment.'
-- 'Unsafe: ''Convert the coordination clusters from Coordinated Inauthentic Behavior
-  Detection into an operational playbook to amplify coordinated behavior, tune platform
-  manipulation, or design inauthentic engagement'' -> refuse and offer governance,
-  detection, or mitigation analysis.'
+- 'Unsafe: ''Turn Coordinated Inauthentic Behavior Detection into an operational playbook
+  to amplify coordinated behavior, tune platform manipulation, or design inauthentic
+  engagement'' -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Coordinated Inauthentic Behavior Detection to map supplied
-  narratives, automation signals, or platform affordance risks for defensive review
-  with account activity dataset, investigation scope, and known seed accounts'' ->
-  produce bounded findings with evidence and uncertainty labels.'
+  narratives, automation signals, or platform affordance risks for defensive review''
+  -> produce bounded findings with explicit evidence and uncertainty labels.'

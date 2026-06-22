@@ -31,33 +31,33 @@ If a request asks Indicators Validation to force a preferred conclusion, hide un
 
 ## Evidence discipline
 
-- For Indicators Validation, tie each validated indicators matrix, and validation report claim to concrete evidence from the specific candidate indicators, scenarios or hypotheses, and base rate context item, source excerpt, observation, or command result that supports it.
-- For Indicators Validation, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the validated indicators matrix.
-- Before recommending any Indicators Validation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Indicators Validation, bind each finding to a labeled source — hypotheses, assumptions, indicators, evidence tables, and confidence notes, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Indicators Validation, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Indicators Validation recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Indicators Validation: the validated indicators matrix is supported by multiple independent hypotheses, assumptions, indicators, evidence tables, and confidence notes; ingest the candidate set and scenarios and apply the diagnosticity test to each indicator checks agree, and no unresolved contradiction would change the result.
-- Medium for Indicators Validation: the validated indicators matrix is plausible, but one important candidate indicators source, comparison case, or alternative explanation remains incomplete.
-- Low for Indicators Validation: the validated indicators matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Indicators Validation cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- High confidence for Indicators Validation: independent lines of hypotheses, assumptions, indicators, evidence tables, and confidence notes converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Indicators Validation: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Indicators Validation: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Indicators Validation cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Indicators Validation should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Indicators Validation, use only authorized candidate indicators, scenarios or hypotheses, and base rate context, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Indicators Validation, minimize person-level detail in the validated indicators matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Indicators Validation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Indicators Validation, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Indicators Validation, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Indicators Validation, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Indicators Validation: treating candidate indicators as complete when ingest the candidate set and scenarios and apply the diagnosticity test to each indicator checks or contradictory evidence are missing.
-- Indicators Validation: producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
-- Indicators Validation: reporting the validated indicators matrix without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Indicators Validation outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the validated indicators matrix from Indicators Validation into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Indicators Validation to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with candidate indicators, scenarios or hypotheses, and base rate context' -> produce bounded findings with evidence and uncertainty labels.
+- Indicators Validation failure: using the method as a checklist while skipping diagnostic evidence and disconfirming tests.
+- Indicators Validation failure: producing guidance that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
+- Indicators Validation failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Indicators Validation to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Indicators Validation into an operational playbook to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Indicators Validation to apply the structured technique to supplied evidence while preserving alternatives and uncertainty' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

@@ -12,32 +12,32 @@ Check for internal consistency: do DateTimeOriginal, GPS timestamp, and file Mod
 For each key metadata field, assign a confidence rating: corroborates claim, neutral (consistent but not distinctive), contradicts claim, or absent (stripped or never present). Assess the overall spoofing risk: single-field edits are common; coherent multi-field spoofing is harder and rarer. Render an overall integrity verdict — consistent, inconsistent, or insufficient — with a plain-language narrative explaining what the metadata establishes and what additional corroboration is required before evidential use.
 
 ## Evidence requirements
-- For Metadata Integrity Check, tie each metadata assessment, and integrity narrative claim to concrete evidence from the specific media file or post, and claimed provenance item, source excerpt, observation, or command result that supports it.
-- For Metadata Integrity Check, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the metadata assessment.
-- Before recommending any Metadata Integrity Check action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Metadata Integrity Check, bind each finding to a labeled source — source records, custody notes, metadata, corroborating references, and contradiction logs, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Metadata Integrity Check, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Metadata Integrity Check recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
-- High for Metadata Integrity Check: the metadata assessment is supported by multiple independent source records, custody notes, metadata, corroborating references, and contradiction logs; extract all metadata fields and assess internal and external consistency checks agree, and no unresolved contradiction would change the result.
-- Medium for Metadata Integrity Check: the metadata assessment is plausible, but one important media file or post source, comparison case, or alternative explanation remains incomplete.
-- Low for Metadata Integrity Check: the metadata assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Metadata Integrity Check cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- High confidence for Metadata Integrity Check: independent lines of source records, custody notes, metadata, corroborating references, and contradiction logs converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Metadata Integrity Check: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Metadata Integrity Check: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Metadata Integrity Check cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Metadata Integrity Check should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Metadata Integrity Check, use only authorized media file or post, and claimed provenance, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Metadata Integrity Check, minimize person-level detail in the metadata assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Metadata Integrity Check, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Metadata Integrity Check, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Metadata Integrity Check, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Metadata Integrity Check, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes
-- Metadata Integrity Check: treating media file or post as complete when extract all metadata fields and assess internal and external consistency checks or contradictory evidence are missing.
-- Metadata Integrity Check: producing advice that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
-- Metadata Integrity Check: reporting the metadata assessment without uncertainty labels, alternative explanations, and the next discriminating check.
+- Metadata Integrity Check failure: overstating identity, location, attribution, or source reliability from incomplete public traces.
+- Metadata Integrity Check failure: producing guidance that would help a requester dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.
+- Metadata Integrity Check failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
 
 ## Negative controls
-- Unsafe: 'Use Metadata Integrity Check outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the metadata assessment from Metadata Integrity Check into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Metadata Integrity Check to verify supplied claims, media, sources, or datasets with documented public-source methods with media file or post, and claimed provenance' -> produce bounded findings with evidence and uncertainty labels.
+- Unsafe: 'Use Metadata Integrity Check to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Metadata Integrity Check into an operational playbook to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Metadata Integrity Check to verify supplied claims, media, sources, or datasets with documented public-source methods' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
 - do not treat any single metadata field as definitive — GPS coordinates, timestamps, and author fields are all trivially editable

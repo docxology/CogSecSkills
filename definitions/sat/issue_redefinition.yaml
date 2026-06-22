@@ -142,56 +142,50 @@ misuse_redirect: 'If a request asks Issue Redefinition to force a preferred conc
   path and redirect to the safe defensive form: apply the structured technique to
   supplied evidence while preserving alternatives and uncertainty.'
 evidence_requirements:
-- For Issue Redefinition, tie each restatements register, and preferred framing claim
-  to concrete evidence from the specific original question, and tasking context item,
-  source excerpt, observation, or command result that supports it.
-- For Issue Redefinition, label observations, derived features, assumptions, inferences,
-  contradictions, and missing inputs separately before writing the restatements register.
-- Before recommending any Issue Redefinition action, identify the weakest evidence
-  link, the alternative most likely to overturn it, and the next discriminating check.
+- For Issue Redefinition, bind each finding to a labeled source — hypotheses, assumptions,
+  indicators, evidence tables, and confidence notes, a cited reference, or an explicitly
+  marked inference — and never present inference as observed evidence.
+- For Issue Redefinition, keep observations, assumptions, inferences, and missing
+  information in separate labeled categories.
+- Before issuing any Issue Redefinition recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Issue Redefinition: the restatements register is supported by multiple
-  independent hypotheses, assumptions, indicators, evidence tables, and confidence
-  notes; document the original framing and generate restatements using reframing levers
-  checks agree, and no unresolved contradiction would change the result.'
-- 'Medium for Issue Redefinition: the restatements register is plausible, but one
-  important original question source, comparison case, or alternative explanation
-  remains incomplete.'
-- 'Low for Issue Redefinition: the restatements register rests on sparse, single-source,
-  contested, or mostly inferential evidence; keep the result provisional and list
-  the next check.'
+- 'High confidence for Issue Redefinition: independent lines of hypotheses, assumptions,
+  indicators, evidence tables, and confidence notes converge, credible alternatives
+  have been tested, and the conclusion would survive removing any single source.'
+- 'Medium confidence for Issue Redefinition: the evidence supports the conclusion,
+  but one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Issue Redefinition: the evidence is sparse, single-source, contested,
+  or mostly inferential, so competing explanations must be preserved in the output.'
 uncertainty_handling:
-- State what Issue Redefinition cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- State plainly what Issue Redefinition cannot determine from the supplied or authorized
+  evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Issue
+  Redefinition should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Issue Redefinition, use only authorized original question, and tasking context,
-  public or source-approved records, and caller-provided context needed for the defensive
-  task.
-- For Issue Redefinition, minimize person-level detail in the restatements register;
-  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
-  individual is essential to the defensive question.
+- For Issue Redefinition, use only data the caller is authorized to analyze, drawn
+  from public or source-approved records.
+- For Issue Redefinition, protect privacy by preferring aggregate, role-level, or
+  artifact-level summaries over individual targeting unless an individual is essential
+  to the defensive question.
 - For Issue Redefinition, do not infer protected traits, private identity, intent,
-  location, legal culpability, or platform account ownership beyond the supplied and
-  authorized evidence.
+  location, or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Issue Redefinition: treating original question as complete when document the original
-  framing and generate restatements using reframing levers checks or contradictory
-  evidence are missing.'
-- 'Issue Redefinition: producing advice that would help a requester force a preferred
-  conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
-- 'Issue Redefinition: reporting the restatements register without uncertainty labels,
-  alternative explanations, and the next discriminating check.'
+- 'Issue Redefinition failure: using the method as a checklist while skipping diagnostic
+  evidence and disconfirming tests.'
+- 'Issue Redefinition failure: producing guidance that would help a requester force
+  a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.'
+- 'Issue Redefinition failure: hiding uncertainty behind generic confidence language
+  instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Issue Redefinition outputs to force a preferred conclusion, hide
-  uncertainty, or use the technique to rationalize manipulation'' -> refuse and redirect
-  to defensive risk assessment.'
-- 'Unsafe: ''Convert the restatements register from Issue Redefinition into an operational
-  playbook to force a preferred conclusion, hide uncertainty, or use the technique
-  to rationalize manipulation'' -> refuse and offer governance, detection, or mitigation
-  analysis.'
+- 'Unsafe: ''Use Issue Redefinition to force a preferred conclusion, hide uncertainty,
+  or use the technique to rationalize manipulation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Turn Issue Redefinition into an operational playbook to force a preferred
+  conclusion, hide uncertainty, or use the technique to rationalize manipulation''
+  -> refuse and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Issue Redefinition to apply the structured technique to supplied
-  evidence while preserving alternatives and uncertainty with original question, and
-  tasking context'' -> produce bounded findings with evidence and uncertainty labels.'
+  evidence while preserving alternatives and uncertainty'' -> produce bounded findings
+  with explicit evidence and uncertainty labels.'

@@ -32,33 +32,33 @@ If a request asks Influence Operation Mapping to increase persuasive impact, exp
 
 ## Evidence discipline
 
-- For Influence Operation Mapping, tie each abcd operation map, attribution assessment, and counter operation brief claim to concrete evidence from the specific evidence collection, hypothesis, and threat actor profiles item, source excerpt, observation, or command result that supports it.
-- For Influence Operation Mapping, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the abcd operation map.
-- Before recommending any Influence Operation Mapping action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Influence Operation Mapping, bind each finding to a labeled source — content, behavioral, narrative, media, and audience-risk evidence, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Influence Operation Mapping, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Influence Operation Mapping recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Influence Operation Mapping: the abcd operation map is supported by multiple independent content, behavioral, narrative, media, and audience-risk evidence; inventory evidence and scope operation and decompose actors checks agree, and no unresolved contradiction would change the result.
-- Medium for Influence Operation Mapping: the abcd operation map is plausible, but one important evidence collection source, comparison case, or alternative explanation remains incomplete.
-- Low for Influence Operation Mapping: the abcd operation map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Influence Operation Mapping cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- High confidence for Influence Operation Mapping: independent lines of content, behavioral, narrative, media, and audience-risk evidence converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Influence Operation Mapping: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Influence Operation Mapping: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Influence Operation Mapping cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Influence Operation Mapping should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Influence Operation Mapping, use only authorized evidence collection, hypothesis, and threat actor profiles, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Influence Operation Mapping, minimize person-level detail in the abcd operation map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Influence Operation Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Influence Operation Mapping, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Influence Operation Mapping, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Influence Operation Mapping, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Influence Operation Mapping: treating evidence collection as complete when inventory evidence and scope operation and decompose actors checks or contradictory evidence are missing.
-- Influence Operation Mapping: producing advice that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
-- Influence Operation Mapping: reporting the abcd operation map without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Influence Operation Mapping outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the abcd operation map from Influence Operation Mapping into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Influence Operation Mapping to assess supplied material for manipulation indicators and recommend resilience measures with evidence collection, hypothesis, and threat actor profiles' -> produce bounded findings with evidence and uncertainty labels.
+- Influence Operation Mapping failure: mistaking persuasive resonance for verified harm or intent.
+- Influence Operation Mapping failure: producing guidance that would help a requester increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation.
+- Influence Operation Mapping failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Influence Operation Mapping to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Influence Operation Mapping into an operational playbook to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Influence Operation Mapping to assess supplied material for manipulation indicators and recommend resilience measures' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

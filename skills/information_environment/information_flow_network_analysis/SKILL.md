@@ -32,33 +32,33 @@ If a request asks Information Flow Network Analysis to amplify coordinated behav
 
 ## Evidence discipline
 
-- For Information Flow Network Analysis, tie each network role map, and flow analysis report claim to concrete evidence from the specific propagation data, narrative seed, and account metadata item, source excerpt, observation, or command result that supports it.
-- For Information Flow Network Analysis, label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the network role map.
-- Before recommending any Information Flow Network Analysis action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
+- For Information Flow Network Analysis, bind each finding to a labeled source — platform observations, narrative movement, automation signals, and provenance data, a cited reference, or an explicitly marked inference — and never present inference as observed evidence.
+- For Information Flow Network Analysis, keep observations, assumptions, inferences, and missing information in separate labeled categories.
+- Before issuing any Information Flow Network Analysis recommendation, name the weakest evidentiary link and the highest-impact missing observation.
 
 ## Confidence and uncertainty
 
-- High for Information Flow Network Analysis: the network role map is supported by multiple independent platform observations, narrative movement, automation signals, and provenance data; construct the propagation graph and compute network metrics and classify roles checks agree, and no unresolved contradiction would change the result.
-- Medium for Information Flow Network Analysis: the network role map is plausible, but one important propagation data source, comparison case, or alternative explanation remains incomplete.
-- Low for Information Flow Network Analysis: the network role map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
-- State what Information Flow Network Analysis cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- High confidence for Information Flow Network Analysis: independent lines of platform observations, narrative movement, automation signals, and provenance data converge, credible alternatives have been tested, and the conclusion would survive removing any single source.
+- Medium confidence for Information Flow Network Analysis: the evidence supports the conclusion, but one important input, comparison class, or alternative explanation is still incomplete.
+- Low confidence for Information Flow Network Analysis: the evidence is sparse, single-source, contested, or mostly inferential, so competing explanations must be preserved in the output.
+- State plainly what Information Flow Network Analysis cannot determine from the supplied or authorized evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Information Flow Network Analysis should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Information Flow Network Analysis, use only authorized propagation data, narrative seed, and account metadata, public or source-approved records, and caller-provided context needed for the defensive task.
-- For Information Flow Network Analysis, minimize person-level detail in the network role map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
-- For Information Flow Network Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
+- For Information Flow Network Analysis, use only data the caller is authorized to analyze, drawn from public or source-approved records.
+- For Information Flow Network Analysis, protect privacy by preferring aggregate, role-level, or artifact-level summaries over individual targeting unless an individual is essential to the defensive question.
+- For Information Flow Network Analysis, do not infer protected traits, private identity, intent, location, or legal culpability beyond the supplied and authorized evidence.
 
 ## Failure modes and negative controls
 
-- Information Flow Network Analysis: treating propagation data as complete when construct the propagation graph and compute network metrics and classify roles checks or contradictory evidence are missing.
-- Information Flow Network Analysis: producing advice that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
-- Information Flow Network Analysis: reporting the network role map without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Information Flow Network Analysis outputs to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the network role map from Information Flow Network Analysis into an operational playbook to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and offer governance, detection, or mitigation analysis.
-- Safe defensive: 'Use Information Flow Network Analysis to map supplied narratives, automation signals, or platform affordance risks for defensive review with propagation data, narrative seed, and account metadata' -> produce bounded findings with evidence and uncertainty labels.
+- Information Flow Network Analysis failure: treating engagement volume as proof of authenticity or coordinated intent.
+- Information Flow Network Analysis failure: producing guidance that would help a requester amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement.
+- Information Flow Network Analysis failure: hiding uncertainty behind generic confidence language instead of stating the evidence limits.
+- Unsafe: 'Use Information Flow Network Analysis to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Turn Information Flow Network Analysis into an operational playbook to amplify coordinated behavior, tune platform manipulation, or design inauthentic engagement' -> refuse and offer governance, detection, or mitigation analysis instead.
+- Safe defensive: 'Use Information Flow Network Analysis to map supplied narratives, automation signals, or platform affordance risks for defensive review' -> produce bounded findings with explicit evidence and uncertainty labels.
 
 ## Procedure
 

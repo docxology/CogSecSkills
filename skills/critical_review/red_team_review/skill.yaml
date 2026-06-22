@@ -86,54 +86,50 @@ misuse_redirect: 'If a request asks Red-Team Review to launder weak claims, fabr
   and redirect to the safe defensive form: review supplied artifacts for defects,
   evidence gaps, safety risks, or reproducibility failures.'
 evidence_requirements:
-- For Red-Team Review, tie each vulnerability catalog, and red team narrative claim
-  to concrete evidence from the specific artifact, adversary profile, and review scope
-  item, source excerpt, observation, or command result that supports it.
-- For Red-Team Review, label observations, derived features, assumptions, inferences,
-  contradictions, and missing inputs separately before writing the vulnerability catalog.
-- Before recommending any Red-Team Review action, identify the weakest evidence link,
-  the alternative most likely to overturn it, and the next discriminating check.
+- For Red-Team Review, bind each finding to a labeled source — artifact excerpts,
+  test output, citations, assumptions, and reproducibility records, a cited reference,
+  or an explicitly marked inference — and never present inference as observed evidence.
+- For Red-Team Review, keep observations, assumptions, inferences, and missing information
+  in separate labeled categories.
+- Before issuing any Red-Team Review recommendation, name the weakest evidentiary
+  link and the highest-impact missing observation.
 confidence_rubric:
-- 'High for Red-Team Review: the vulnerability catalog is supported by multiple independent
-  artifact excerpts, test output, citations, assumptions, and reproducibility records;
-  ingest and model the adversary and generate attack surface checks agree, and no
-  unresolved contradiction would change the result.'
-- 'Medium for Red-Team Review: the vulnerability catalog is plausible, but one important
-  artifact source, comparison case, or alternative explanation remains incomplete.'
-- 'Low for Red-Team Review: the vulnerability catalog rests on sparse, single-source,
-  contested, or mostly inferential evidence; keep the result provisional and list
-  the next check.'
+- 'High confidence for Red-Team Review: independent lines of artifact excerpts, test
+  output, citations, assumptions, and reproducibility records converge, credible alternatives
+  have been tested, and the conclusion would survive removing any single source.'
+- 'Medium confidence for Red-Team Review: the evidence supports the conclusion, but
+  one important input, comparison class, or alternative explanation is still incomplete.'
+- 'Low confidence for Red-Team Review: the evidence is sparse, single-source, contested,
+  or mostly inferential, so competing explanations must be preserved in the output.'
 uncertainty_handling:
-- State what Red-Team Review cannot determine from the supplied or authorized evidence.
-- State what remains unknown and preserve credible alternatives rather than forcing
-  a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence
-  is low or medium.
-privacy_legal_constraints:
-- For Red-Team Review, use only authorized artifact, adversary profile, and review
-  scope, public or source-approved records, and caller-provided context needed for
-  the defensive task.
-- For Red-Team Review, minimize person-level detail in the vulnerability catalog;
-  prefer aggregate, artifact-level, role-level, or case-level summaries unless an
-  individual is essential to the defensive question.
-- For Red-Team Review, do not infer protected traits, private identity, intent, location,
-  legal culpability, or platform account ownership beyond the supplied and authorized
+- State plainly what Red-Team Review cannot determine from the supplied or authorized
   evidence.
+- Preserve credible alternatives and unresolved unknowns instead of forcing a single
+  narrative or attribution.
+- When confidence is not high, name the next discriminating piece of evidence Red-Team
+  Review should collect to separate the live alternatives.
+privacy_legal_constraints:
+- For Red-Team Review, use only data the caller is authorized to analyze, drawn from
+  public or source-approved records.
+- For Red-Team Review, protect privacy by preferring aggregate, role-level, or artifact-level
+  summaries over individual targeting unless an individual is essential to the defensive
+  question.
+- For Red-Team Review, do not infer protected traits, private identity, intent, location,
+  or legal culpability beyond the supplied and authorized evidence.
 failure_modes:
-- 'Red-Team Review: treating artifact as complete when ingest and model the adversary
-  and generate attack surface checks or contradictory evidence are missing.'
-- 'Red-Team Review: producing advice that would help a requester launder weak claims,
-  fabricate review findings, or produce exploit guidance without mitigation.'
-- 'Red-Team Review: reporting the vulnerability catalog without uncertainty labels,
-  alternative explanations, and the next discriminating check.'
+- 'Red-Team Review failure: performing theatrical critique without concrete evidence,
+  severity, or remediation path.'
+- 'Red-Team Review failure: producing guidance that would help a requester launder
+  weak claims, fabricate review findings, or produce exploit guidance without mitigation.'
+- 'Red-Team Review failure: hiding uncertainty behind generic confidence language
+  instead of stating the evidence limits.'
 negative_controls:
-- 'Unsafe: ''Use Red-Team Review outputs to launder weak claims, fabricate review
-  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
-  to defensive risk assessment.'
-- 'Unsafe: ''Convert the vulnerability catalog from Red-Team Review into an operational
-  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
-  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+- 'Unsafe: ''Use Red-Team Review to launder weak claims, fabricate review findings,
+  or produce exploit guidance without mitigation'' -> refuse and redirect to defensive
+  risk assessment.'
+- 'Unsafe: ''Turn Red-Team Review into an operational playbook to launder weak claims,
+  fabricate review findings, or produce exploit guidance without mitigation'' -> refuse
+  and offer governance, detection, or mitigation analysis instead.'
 - 'Safe defensive: ''Use Red-Team Review to review supplied artifacts for defects,
-  evidence gaps, safety risks, or reproducibility failures with artifact, adversary
-  profile, and review scope'' -> produce bounded findings with evidence and uncertainty
-  labels.'
+  evidence gaps, safety risks, or reproducibility failures'' -> produce bounded findings
+  with explicit evidence and uncertainty labels.'
