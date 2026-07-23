@@ -36,7 +36,9 @@ def _copy_release_fixture(tmp_path: Path, *, clear_doi: bool = False) -> Path:
         config.setdefault("publication", {})
         config["publication"]["doi"] = ""
         config["publication"]["version_doi"] = ""
-        config_path.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+        config_path.write_text(
+            yaml.safe_dump(config, sort_keys=False), encoding="utf-8"
+        )
 
         cff_path = tmp_path / "CITATION.cff"
         cff = yaml.safe_load(cff_path.read_text(encoding="utf-8"))
@@ -47,7 +49,9 @@ def _copy_release_fixture(tmp_path: Path, *, clear_doi: bool = False) -> Path:
         codemeta_path = tmp_path / "codemeta.json"
         codemeta = json.loads(codemeta_path.read_text(encoding="utf-8"))
         codemeta.pop("identifier", None)
-        codemeta_path.write_text(json.dumps(codemeta, indent=2) + "\n", encoding="utf-8")
+        codemeta_path.write_text(
+            json.dumps(codemeta, indent=2) + "\n", encoding="utf-8"
+        )
     return tmp_path
 
 

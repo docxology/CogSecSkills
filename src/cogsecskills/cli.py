@@ -65,6 +65,20 @@ def _cmd_list(args: argparse.Namespace) -> int:
         rows = tuple(e for e in rows if e.group == args.group)
     if args.status:
         rows = tuple(e for e in rows if e.status == args.status)
+    if args.limit is not None:
+        rows = rows[: args.limit]
+    if args.format == "json":
+        payload = {
+            "count": len(rows),
+            "total": len(registry),
+            "status_counts": registry.status_counts(),
+            "skills": [
+                {"id": e.id, "name": e.name, "group": e.group, "status": e.status}
+                for e in rows
+            ],
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
     for entry in rows:
         print(f"{entry.status:11}  {entry.id:48}  {entry.name}")
     print(
@@ -101,8 +115,27 @@ def _cmd_validate(args: argparse.Namespace) -> int:
 def _cmd_route(args: argparse.Namespace) -> int:
     matches = route_query(args.query, root=args.root, limit=args.limit)
     if not matches:
+        if args.format == "json":
+            print(json.dumps({"query": args.query, "matches": [], "count": 0}))
+            return 0
         print(f"no skill matches: {args.query!r}")
         return 1
+    if args.format == "json":
+        payload = {
+            "query": args.query,
+            "count": len(matches),
+            "matches": [
+                {
+                    "skill_id": spec.id,
+                    "name": spec.name,
+                    "group": spec.group,
+                    "score": score,
+                }
+                for spec, score in matches
+            ],
+        }
+        print(json.dumps(payload, indent=2))
+        return 0
     print(f"skills matching {args.query!r}:")
     for spec, score in matches:
         print(f"  [{score:3}] {spec.id:48}  {spec.name}")
@@ -116,10 +149,20 @@ def _cmd_stats(args: argparse.Namespace) -> int:
 
 def _cmd_groups(args: argparse.Namespace) -> int:
     registry = load_registry(args.root)
-    for group_id in sorted({e.group for e in registry.entries}):
-        title = registry.groups.get(group_id, group_id)
-        n = len(registry.by_group(group_id))
-        print(f"{group_id:24}  {n:3}  {title}")
+    group_ids = sorted({e.group for e in registry.entries})
+    group_data = [
+        {
+            "id": gid,
+            "title": registry.groups.get(gid, gid),
+            "count": len(registry.by_group(gid)),
+        }
+        for gid in group_ids
+    ]
+    if args.format == "json":
+        print(json.dumps(group_data, indent=2))
+        return 0
+    for g in group_data:
+        print(f"{g['id']:24}  {g['count']:3}  {g['title']}")
     return 0
 
 
@@ -360,6 +403,18 @@ def build_parser() -> argparse.ArgumentParser:
     p_list = sub.add_parser("list", help="list catalogued skill areas")
     p_list.add_argument("--group")
     p_list.add_argument("--status")
+    p_list.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="cap the number of results (applies after filtering)",
+    )
+    p_list.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        help="output format (default: text)",
+    )
     p_list.set_defaults(func=_cmd_list)
 
     p_show = sub.add_parser("show", help="show one skill")
@@ -401,14 +456,25 @@ def build_parser() -> argparse.ArgumentParser:
     p_route = sub.add_parser("route", help="rank skills matching a free-text need")
     p_route.add_argument("query")
     p_route.add_argument("--limit", type=int, default=5)
+    p_route.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        help="output format (default: text)",
+    )
     p_route.set_defaults(func=_cmd_route)
 
     sub.add_parser("stats", help="library statistics (JSON)").set_defaults(
         func=_cmd_stats
     )
-    sub.add_parser("groups", help="list groups with counts").set_defaults(
-        func=_cmd_groups
+    p_groups = sub.add_parser("groups", help="list groups with counts")
+    p_groups.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        help="output format (default: text)",
     )
+    p_groups.set_defaults(func=_cmd_groups)
     p_catalogue = sub.add_parser("catalogue", help="print the full catalogue")
     p_catalogue.add_argument(
         "--markdown",

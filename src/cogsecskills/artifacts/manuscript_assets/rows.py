@@ -13,6 +13,7 @@ from typing import Iterable, TypedDict
 
 from cogsecskills.core.loader import discover_skills
 from cogsecskills.core.registry import load_registry
+from cogsecskills.core.text_utils import clean_cell
 
 from .paths import _project_root
 
@@ -59,20 +60,22 @@ class GroupSummary(TypedDict):
 
 
 def _slug(skill_id: str) -> str:
+    """Return the slug portion of a ``group.slug`` skill id."""
     return skill_id.split(".", 1)[-1]
 
 
-def _clean_cell(value: object) -> str:
-    text = " ".join(str(value).split())
-    return text.replace("|", r"\|")
+# Backward-compat alias for consumers that import `_clean_cell` from rows.
+_clean_cell = clean_cell
 
 
 def _join(values: Iterable[str], *, fallback: str = "none") -> str:
+    """Join non-empty values with commas, falling back if none survive."""
     cleaned = [v for v in values if v]
     return ", ".join(cleaned) if cleaned else fallback
 
 
 def _first(values: Iterable[str], *, fallback: str = "not declared") -> str:
+    """Return the first non-empty value, or *fallback* if none."""
     for value in values:
         if value:
             return value
@@ -82,6 +85,7 @@ def _first(values: Iterable[str], *, fallback: str = "not declared") -> str:
 def _first_containing(
     values: Iterable[str], needles: tuple[str, ...], *, fallback: str = "not declared"
 ) -> str:
+    """Return the first value containing all *needles* (case-insensitive)."""
     for value in values:
         lower = value.lower()
         if all(needle in lower for needle in needles):
@@ -92,6 +96,7 @@ def _first_containing(
 def _first_with_prefix(
     values: Iterable[str], prefix: str, *, fallback: str = "not declared"
 ) -> str:
+    """Return the first value starting with *prefix* (case-insensitive)."""
     lower_prefix = prefix.lower()
     for value in values:
         if value.lower().startswith(lower_prefix):
@@ -100,6 +105,7 @@ def _first_with_prefix(
 
 
 def _group_ids(rows: Iterable[SkillRow]) -> tuple[str, ...]:
+    """Return group ids in first-seen order from the skill rows."""
     seen: set[str] = set()
     ordered: list[str] = []
     for row in rows:
@@ -110,6 +116,7 @@ def _group_ids(rows: Iterable[SkillRow]) -> tuple[str, ...]:
 
 
 def _group_title(rows: Iterable[SkillRow], group_id: str) -> str:
+    """Return the human-readable title for *group_id* from the rows."""
     for row in rows:
         if row.group == group_id:
             return row.group_title

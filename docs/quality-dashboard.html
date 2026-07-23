@@ -225,9 +225,7 @@
 <li>Worked-example gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills examples --check` -&gt; `worked examples are current`.</li>
 <li>Dashboard gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills dashboard --check` -&gt; `quality dashboard is current`.</li>
 <li>Manuscript asset gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
-<li>Test gate: `PYTHONPATH=&quot;src:.&quot; python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -&gt; `622 passed`, `Total coverage: 90.94%`.</li>
-<li>Template markdown gate: `uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/` -&gt; `No issues found!`.</li>
-<li>Template render gate: `uv run python scripts/03_render_pdf.py --project working/CogSecSkills` -&gt; combined PDF and HTML generated, 13 manuscript sections, 8/8 figures found.</li>
+<li>Test gate: `PYTHONPATH=&quot;src:.&quot; python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -&gt; `722 passed`, `Total coverage: 93.88%`.</li>
         </ul>
       </section>
     </div>

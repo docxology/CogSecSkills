@@ -5,6 +5,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from cogsecskills.core.locate import project_root
+from cogsecskills.core.text_utils import as_text, clean_cell
 from typing import Any, Mapping, TypedDict
 
 import yaml
@@ -52,25 +53,19 @@ def _source_path(root: Path | None = None) -> Path:
     return _project_root(root) / EXAMPLES_SOURCE_PATH
 
 
-def _as_text(value: object, *, field: str, path: Path) -> str:
-    if not isinstance(value, str) or not value.strip():
-        raise ValueError(f"{path}: {field} must be a non-empty string")
-    return value.strip()
-
-
 def _section_from_obj(obj: object, *, path: Path, skill_id: str) -> ExampleSection:
     if not isinstance(obj, Mapping):
         raise ValueError(f"{path}: example {skill_id!r} section must be a mapping")
     return ExampleSection(
-        title=_as_text(obj.get("title"), field="section.title", path=path),
-        body=_as_text(obj.get("body"), field="section.body", path=path),
+        title=as_text(obj.get("title"), field="section.title", path=path),
+        body=as_text(obj.get("body"), field="section.body", path=path),
     )
 
 
 def _example_from_obj(obj: object, *, path: Path) -> WorkedExample:
     if not isinstance(obj, Mapping):
         raise ValueError(f"{path}: example entry must be a mapping")
-    skill_id = _as_text(obj.get("skill_id"), field="skill_id", path=path)
+    skill_id = as_text(obj.get("skill_id"), field="skill_id", path=path)
     sections_raw = obj.get("sections")
     if not isinstance(sections_raw, list) or not sections_raw:
         raise ValueError(
@@ -78,13 +73,13 @@ def _example_from_obj(obj: object, *, path: Path) -> WorkedExample:
         )
     return WorkedExample(
         skill_id=skill_id,
-        title=_as_text(obj.get("title"), field="title", path=path),
-        request=_as_text(obj.get("request"), field="request", path=path),
+        title=as_text(obj.get("title"), field="title", path=path),
+        request=as_text(obj.get("request"), field="request", path=path),
         sections=tuple(
             _section_from_obj(section, path=path, skill_id=skill_id)
             for section in sections_raw
         ),
-        provenance=_as_text(obj.get("provenance"), field="provenance", path=path),
+        provenance=as_text(obj.get("provenance"), field="provenance", path=path),
     )
 
 
@@ -99,10 +94,6 @@ def load_examples(root: Path | None = None) -> list[WorkedExample]:
     if not isinstance(raw_examples, list) or not raw_examples:
         raise ValueError(f"{path}: 'examples' must be a non-empty list")
     return [_example_from_obj(item, path=path) for item in raw_examples]
-
-
-def _clean_cell(value: object) -> str:
-    return " ".join(str(value).split()).replace("|", r"\|")
 
 
 def _example_text(example: WorkedExample) -> str:
@@ -175,9 +166,9 @@ def _render_markdown(payload: dict[str, Any]) -> str:
             lines.extend([f"### `{current_group}`", ""])
         lines.extend(
             [
-                f"#### `{example['skill_id']}` — {_clean_cell(example['title'])}",
+                f"#### `{example['skill_id']}` — {clean_cell(example['title'])}",
                 "",
-                f"**Request:** {_clean_cell(example['request'])}",
+                f"**Request:** {clean_cell(example['request'])}",
                 "",
                 "| Section | Expected body |",
                 "|---|---|",
@@ -185,12 +176,12 @@ def _render_markdown(payload: dict[str, Any]) -> str:
         )
         for section in example["sections"]:
             lines.append(
-                f"| {_clean_cell(section['title'])} | {_clean_cell(section['body'])} |"
+                f"| {clean_cell(section['title'])} | {clean_cell(section['body'])} |"
             )
         lines.extend(
             [
                 "",
-                f"**Provenance:** {_clean_cell(example['provenance'])}.",
+                f"**Provenance:** {clean_cell(example['provenance'])}.",
                 "",
             ]
         )

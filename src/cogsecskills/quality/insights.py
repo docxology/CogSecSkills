@@ -27,61 +27,18 @@ from cogsecskills.core.loader import (
     skill_dir,
     skills_root,
 )
+from cogsecskills.core.quality_constants import (
+    ALLOWED_SHARED_QUALITY_ITEMS,
+    GENERIC_NEGATIVE_CONTROL_PHRASES,
+    QUALITY_FIELD_NAMES,
+    QUALITY_SPECIFICITY_FIELDS,
+    REUSED_QUALITY_FIELDS,
+    SENSITIVE_GROUPS,
+    SENSITIVE_TERMS,
+    normalize_quality_item,
+)
 from cogsecskills.core.registry import load_registry
 from cogsecskills.core.spec import SkillSpec
-
-QUALITY_FIELD_NAMES = (
-    "defensive_boundary",
-    "misuse_redirect",
-    "evidence_requirements",
-    "confidence_rubric",
-    "uncertainty_handling",
-    "privacy_legal_constraints",
-    "failure_modes",
-    "negative_controls",
-)
-
-GENERIC_NEGATIVE_CONTROL_PHRASES = (
-    "help me manipulate this audience",
-    "optimize this influence operation",
-    "assess this material for manipulation indicators",
-)
-QUALITY_SPECIFICITY_FIELDS = (
-    "confidence_rubric",
-    "evidence_requirements",
-    "privacy_legal_constraints",
-    "failure_modes",
-)
-REUSED_QUALITY_FIELDS = (
-    "confidence_rubric",
-    "evidence_requirements",
-    "privacy_legal_constraints",
-)
-ALLOWED_SHARED_QUALITY_ITEMS: dict[str, set[str]] = {
-    "confidence_rubric": set(),
-    "evidence_requirements": set(),
-    "privacy_legal_constraints": set(),
-}
-
-SENSITIVE_GROUPS = {
-    "cognitive_security",
-    "counterintelligence",
-    "information_environment",
-    "osint_integrity",
-}
-
-SENSITIVE_TERMS = (
-    "audience",
-    "account",
-    "person",
-    "platform",
-    "influence",
-    "deception",
-    "attribution",
-    "insider",
-    "bot",
-    "sock",
-)
 
 _TOKEN = re.compile(r"[a-z0-9]+")
 
@@ -345,10 +302,6 @@ def _quality_findings(spec: SkillSpec, workflow_text: str) -> list[dict]:
     return findings
 
 
-def _normalize_quality_item(item: object) -> str:
-    return " ".join(str(item).lower().split())
-
-
 def _reused_quality_field_findings(specs: list[SkillSpec]) -> list[dict]:
     findings: list[dict] = []
     implemented = [spec for spec in specs if spec.status == "implemented"]
@@ -356,7 +309,7 @@ def _reused_quality_field_findings(specs: list[SkillSpec]) -> list[dict]:
         seen: dict[str, list[str]] = defaultdict(list)
         for spec in implemented:
             for item in getattr(spec, field):
-                normalized = _normalize_quality_item(item)
+                normalized = normalize_quality_item(item)
                 if normalized:
                     seen[normalized].append(spec.id)
         allowed = ALLOWED_SHARED_QUALITY_ITEMS.get(field, set())

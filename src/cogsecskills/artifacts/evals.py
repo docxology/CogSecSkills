@@ -5,6 +5,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 
 from cogsecskills.core.locate import project_root
+from cogsecskills.core.text_utils import as_text, clean_cell
 from typing import Any, Mapping, TypedDict
 
 import yaml
@@ -62,31 +63,21 @@ def _project_root(root: Path | None = None) -> Path:
     return Path(root) if root is not None else project_root()
 
 
-def _clean_cell(value: object) -> str:
-    return " ".join(str(value).split()).replace("|", r"\|")
-
-
-def _as_text(value: object, *, field: str, path: Path) -> str:
-    if not isinstance(value, str) or not value.strip():
-        raise ValueError(f"{path}: {field} must be a non-empty string")
-    return value.strip()
-
-
 def _section_from_obj(
     obj: object, *, path: Path, scenario_id: str
 ) -> EvaluationSection:
     if not isinstance(obj, Mapping):
         raise ValueError(f"{path}: {scenario_id}: section must be a mapping")
     return EvaluationSection(
-        title=_as_text(obj.get("title"), field="section.title", path=path),
-        body=_as_text(obj.get("body"), field="section.body", path=path),
+        title=as_text(obj.get("title"), field="section.title", path=path),
+        body=as_text(obj.get("body"), field="section.body", path=path),
     )
 
 
 def _review_from_obj(obj: object, *, path: Path) -> EvaluationReview:
     if not isinstance(obj, Mapping):
         raise ValueError(f"{path}: evaluation entry must be a mapping")
-    scenario_id = _as_text(obj.get("scenario_id"), field="scenario_id", path=path)
+    scenario_id = as_text(obj.get("scenario_id"), field="scenario_id", path=path)
     sections_raw = obj.get("sections")
     if not isinstance(sections_raw, list) or not sections_raw:
         raise ValueError(f"{path}: {scenario_id}: sections must be a non-empty list")
@@ -101,19 +92,19 @@ def _review_from_obj(obj: object, *, path: Path) -> EvaluationReview:
         scores[key] = value
     return EvaluationReview(
         scenario_id=scenario_id,
-        group=_as_text(obj.get("group"), field="group", path=path),
-        kind=_as_text(obj.get("kind"), field="kind", path=path),
-        selected_skill=_as_text(
+        group=as_text(obj.get("group"), field="group", path=path),
+        kind=as_text(obj.get("kind"), field="kind", path=path),
+        selected_skill=as_text(
             obj.get("selected_skill"), field="selected_skill", path=path
         ),
-        answer_kind=_as_text(obj.get("answer_kind"), field="answer_kind", path=path),
+        answer_kind=as_text(obj.get("answer_kind"), field="answer_kind", path=path),
         sections=tuple(
             _section_from_obj(section, path=path, scenario_id=scenario_id)
             for section in sections_raw
         ),
         rubric_scores=scores,
-        provenance=_as_text(obj.get("provenance"), field="provenance", path=path),
-        claim_boundary=_as_text(
+        provenance=as_text(obj.get("provenance"), field="provenance", path=path),
+        claim_boundary=as_text(
             obj.get("claim_boundary"), field="claim_boundary", path=path
         ),
     )
@@ -259,12 +250,12 @@ def _render_markdown(payload: dict[str, Any]) -> str:
             "| "
             + " | ".join(
                 [
-                    f"`{_clean_cell(row['scenario_id'])}`",
-                    _clean_cell(row["kind"]),
-                    f"`{_clean_cell(row['selected_skill'])}`",
-                    _clean_cell(row["answer_kind"]),
-                    _clean_cell(scores),
-                    _clean_cell(row["claim_boundary"]),
+                    f"`{clean_cell(row['scenario_id'])}`",
+                    clean_cell(row["kind"]),
+                    f"`{clean_cell(row['selected_skill'])}`",
+                    clean_cell(row["answer_kind"]),
+                    clean_cell(scores),
+                    clean_cell(row["claim_boundary"]),
                 ]
             )
             + " |"

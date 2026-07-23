@@ -23,9 +23,62 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
-## [Unreleased]
+## [1.1.0] - 2026-07-22
+
+Comprehensive code-quality, test-coverage, and CLI-improvement pass over the
+1.0.0 baseline. All 12 validation gates remain green; the test suite grew from
+622 to 742 tests and coverage from 91.18% to 93.94%.
 
 ### Added
+
+- **`--format json` for `list`, `groups`, and `route` CLI commands.** All three
+  now emit machine-readable JSON alongside the default text format, enabling
+  programmatic consumption and piping.
+  - `list --format json` returns `{count, total, status_counts, skills[]}`.
+  - `groups --format json` returns an array of `{id, title, count}`.
+  - `route --format json` returns `{query, count, matches[{skill_id, name, group, score}]}`;
+    in JSON mode, no matches returns exit `0` (not `1`).
+- **`--limit N` for the `list` CLI command.** Caps the number of results after
+  filtering, useful for quick previews or paginated consumption.
+- **`core/quality_constants.py`** — shared quality-policy constants and
+  normalization helpers extracted from the duplicated definitions in
+  `quality/insights.py` and `authoring/definitions.py`, preventing drift.
+- **Tests for `core/locate.py` and `core/quality_constants.py`** — covers
+  project-root discovery (including the RuntimeError path when outside a
+  project tree), quality-field-name completeness, sensitive-group contents,
+  and the normalization helper.
+
+### Changed
+
+- **DRY: quality constants centralized.** The quality-field names, generic
+  negative-control phrases, specificity/reuse field lists, allowed-shared
+  items, sensitive groups/terms, and normalization function were duplicated
+  verbatim between `quality/insights.py` and `authoring/definitions.py`. Both
+  modules now import from `core/quality_constants.py`. The old private
+  `_normalize_quality_item` / `_normalize_negative_control` helpers were
+  removed in favor of the shared `normalize_quality_item`.
+- **DRY: text utilities centralized.** The `_as_text()` and `_clean_cell()`
+  helpers were duplicated verbatim between `artifacts/evals.py`,
+  `artifacts/examples.py`, and `artifacts/manuscript_assets/rows.py`. All three
+  now import from `core/text_utils.py`. Backward-compat aliases preserved.
+- **Docstrings added** to 10 internal helper functions across `rows.py`
+  (`_slug`, `_join`, `_first`, `_first_containing`, `_first_with_prefix`,
+  `_group_ids`, `_group_title`).
+- **TODO.md cleaned** — removed completed sections (Evidence Ladder, Harness
+  Smoke Examples, Quickstart And Harness Cookbook, Quality Dashboard) per the
+  forward-only convention; verified-state line updated to the latest test
+  count and coverage.
+- **Comprehensive test coverage lift.** Added 80 new tests across 5 new test
+  files covering figures.py helpers (color mapping, text contrast, group
+  summaries, vertical positioning, PNG signature, DOI reading), evals.py
+  error paths (duplicate fixtures, wrong provenance/claim boundary, repeated
+  titles, missing/extra fixtures), examples.py error paths (duplicate, wrong
+  provenance, repeated titles, missing/extra skills), release_metadata.py
+  branches (missing LICENSE, stale files, release-candidate dirty worktree,
+  codemeta license mismatch, _has_doi edge cases), and scenarios.py
+  validation (load error paths, _as_text_list edge cases, duplicate ids,
+  missing required fields, invalid kind). Coverage rose from 91.21% to 93.88%;
+  figures.py alone went from 11.56% to 98.35%.
 
 - `CLAUDE.md` — Claude Code session guidance (defers to `AGENTS.md`; pins the
   generated-file boundary, gate sweep, and defensive contract).

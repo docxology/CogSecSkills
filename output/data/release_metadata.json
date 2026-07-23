@@ -71,8 +71,8 @@
     "pyproject": "https://github.com/docxology/CogSecSkills"
   },
   "version": {
-    "citation_cff": "1.0.0",
-    "codemeta": "1.0.0",
-    "pyproject": "1.0.0"
+    "citation_cff": "1.1.0",
+    "codemeta": "1.1.0",
+    "pyproject": "1.1.0"
   }
 }

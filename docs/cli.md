@@ -65,13 +65,16 @@ List the skill areas in the registry, optionally filtered by group or status,
 with a trailing summary line of status counts.
 
 ```
-cogsecskills list [--group G] [--status S]
+cogsecskills list [--group G] [--status S] [--limit N] [--format text|json]
 ```
 
 | Argument / flag | Meaning |
 | --- | --- |
 | `--group G` | Show only skills whose group is `G` (e.g. `sat`, `cognitive_security`). |
 | `--status S` | Show only skills whose status is `S` (`implemented`, `stub`, or `planned`). |
+| `--limit N` | Cap the number of results after filtering. |
+| `--format text` | (default) Human-readable rows. |
+| `--format json` | Machine-readable JSON payload with `count`, `total`, `status_counts`, and a `skills` array. |
 
 Each row is `status  id  name`. The summary shows how many rows passed the
 filter out of the registry total, plus the status counts across the **whole**
@@ -479,13 +482,15 @@ each skill's name, triggers, tags, summary, and group (name and triggers count
 most). Only skills with a positive score are returned.
 
 ```
-cogsecskills route <query> [--limit N]
+cogsecskills route <query> [--limit N] [--format text|json]
 ```
 
 | Argument / flag | Meaning |
 | --- | --- |
 | `query` | The free-text need (quote it if it contains spaces). |
 | `--limit N` | Maximum number of matches to return. Default `5`. |
+| `--format text` | (default) Human-readable `[score] id  name` rows. |
+| `--format json` | Machine-readable JSON payload with `query`, `count`, and `matches` array. In JSON mode, no matches returns `{"matches": [], "count": 0}` and exit `0` (not `1`). |
 
 Each match is printed as `[score] id  name`, highest score first. **If nothing
 matches, prints `no skill matches: <query>` and exits `1`.**
@@ -541,8 +546,13 @@ List every group with its skill count and human-readable title. Each row is
 `group_id  count  title`.
 
 ```
-cogsecskills groups
+cogsecskills groups [--format text|json]
 ```
+
+| Argument / flag | Meaning |
+| --- | --- |
+| `--format text` | (default) Human-readable rows. |
+| `--format json` | Machine-readable JSON array of `{id, title, count}` objects. |
 
 ```bash
 cogsecskills groups

@@ -13,6 +13,13 @@ import re
 from pathlib import Path
 
 from cogsecskills.core.locate import project_root
+from cogsecskills.core.quality_constants import (
+    ALLOWED_SHARED_QUALITY_ITEMS,
+    GENERIC_NEGATIVE_CONTROL_PHRASES,
+    QUALITY_SPECIFICITY_FIELDS,
+    REUSED_QUALITY_FIELDS,
+    normalize_quality_item,
+)
 from typing import TypedDict
 
 import yaml
@@ -52,27 +59,6 @@ ALLOWED_DEFINITION_FIELDS: tuple[str, ...] = (
     *REQUIRED_DEFINITION_FIELDS,
     *OPTIONAL_DEFINITION_FIELDS,
 )
-GENERIC_NEGATIVE_CONTROL_PHRASES = (
-    "help me manipulate this audience",
-    "optimize this influence operation",
-    "assess this material for manipulation indicators",
-)
-QUALITY_SPECIFICITY_FIELDS = (
-    "confidence_rubric",
-    "evidence_requirements",
-    "privacy_legal_constraints",
-    "failure_modes",
-)
-REUSED_QUALITY_FIELDS = (
-    "confidence_rubric",
-    "evidence_requirements",
-    "privacy_legal_constraints",
-)
-ALLOWED_SHARED_QUALITY_ITEMS: dict[str, set[str]] = {
-    "confidence_rubric": set(),
-    "evidence_requirements": set(),
-    "privacy_legal_constraints": set(),
-}
 
 
 class DefinitionWriteResult(TypedDict):
@@ -325,15 +311,11 @@ def _quality_item_is_specific(
     return any(token in lower for token in _specificity_tokens(skill_id, entry))
 
 
-def _normalize_negative_control(item: object) -> str:
-    return " ".join(str(item).lower().split())
-
-
 def _reused_negative_control_findings(definitions: dict[str, dict]) -> list[str]:
     seen: dict[str, list[str]] = defaultdict(list)
     for skill_id, definition in sorted(definitions.items()):
         for item in definition.get("negative_controls", []) or []:
-            normalized = _normalize_negative_control(item)
+            normalized = normalize_quality_item(item)
             if normalized:
                 seen[normalized].append(skill_id)
     findings: list[str] = []
@@ -348,17 +330,13 @@ def _reused_negative_control_findings(definitions: dict[str, dict]) -> list[str]
     return findings
 
 
-def _normalize_quality_item(item: object) -> str:
-    return " ".join(str(item).lower().split())
-
-
 def _reused_quality_field_findings(definitions: dict[str, dict]) -> list[str]:
     findings: list[str] = []
     for field in REUSED_QUALITY_FIELDS:
         seen: dict[str, list[str]] = defaultdict(list)
         for skill_id, definition in sorted(definitions.items()):
             for item in definition.get(field, []) or []:
-                normalized = _normalize_quality_item(item)
+                normalized = normalize_quality_item(item)
                 if normalized:
                     seen[normalized].append(skill_id)
         allowed = ALLOWED_SHARED_QUALITY_ITEMS.get(field, set())

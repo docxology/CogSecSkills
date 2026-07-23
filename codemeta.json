@@ -14,7 +14,7 @@
     }
   ],
   "codeRepository": "https://github.com/docxology/CogSecSkills",
-  "dateModified": "2026-06-22",
+  "dateModified": "2026-07-22",
   "identifier": "10.5281/zenodo.20804585",
   "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft, runnable identically under Claude Code, Codex, and Hermes.",
   "keywords": [
@@ -29,5 +29,5 @@
   "license": "https://spdx.org/licenses/Apache-2.0",
   "name": "CogSecSkills: Multiharness Agentic Skills for Cognitive Security",
   "programmingLanguage": "Python",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }

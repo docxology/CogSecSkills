@@ -135,6 +135,7 @@ PYTHONPATH="src:." python -m cogsecskills validate
 # List the catalogue (all 100 areas)
 python -m cogsecskills list
 python -m cogsecskills list --group sat --status implemented
+python -m cogsecskills list --limit 10 --format json
 
 # Inspect one skill
 python -m cogsecskills show sat.analysis_of_competing_hypotheses

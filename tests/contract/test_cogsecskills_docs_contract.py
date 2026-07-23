@@ -238,10 +238,8 @@ def test_group_examples_cover_all_skill_groups():
 def test_todo_forward_backlog_has_expected_next_lanes():
     todo = _read(PROJECT_ROOT / "TODO.md")
     for heading in (
-        "Evidence Ladder",
-        "Harness Smoke Examples",
-        "Quickstart And Harness Cookbook",
-        "Quality Dashboard",
+        "Verified State",
+        "Ongoing Guardrails",
         "Deferred: Empirical Evaluation",
         "Deferred: Live Connector Integrations",
         "Deferred: External Publication/DOI",

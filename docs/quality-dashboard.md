@@ -25,9 +25,7 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 - Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
 - Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
 - Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
-- Template markdown gate: `uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/` -> `No issues found!`.
-- Template render gate: `uv run python scripts/03_render_pdf.py --project working/CogSecSkills` -> combined PDF and HTML generated, 13 manuscript sections, 8/8 figures found.
+- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `722 passed`, `Total coverage: 93.88%`.
 
 ## Evidence Ladder
 

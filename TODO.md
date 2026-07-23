@@ -14,36 +14,7 @@ work.
 - Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
 - Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
 - Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
-- Template markdown gate: `uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/` -> `No issues found!`.
-- Template render gate: `uv run python scripts/03_render_pdf.py --project working/CogSecSkills` -> combined PDF and HTML generated, 13 manuscript sections, 8/8 figures found.
-
-## Completed: Evidence Ladder
-
-- `scenarios/defensive_readiness.yaml` now includes reviewed expected-answer bodies for all 28 scenarios.
-- `scenarios --check` validates required sections, declared outputs, evidence/inference/gap labels, confidence and uncertainty language, refusal/redirect language, and absence of operational misuse phrasing.
-- `examples/skill-worked-examples.yaml` now provides one source-owned deterministic worked example per skill.
-- `examples --check` validates exact 100-skill coverage, local fixture provenance, defensive answer shape, declared outputs, generated Markdown/JSON freshness, and absence of operational misuse phrasing.
-- The fixture set remains defensive and non-operational; it is not a live model or field-evaluation result.
-
-## Completed: Harness Smoke Examples
-
-- `examples/harness-smoke-transcripts.md` covers safe and unsafe fixtures for Codex, Claude, Hermes, and a custom harness.
-- Every fixture names the harness, scenario id, selected skill, loaded files, expected bounded output, unsafe boundary, and local fixture provenance.
-- Tests check default adapter paths exist and custom harness paths are documented as structural until reviewed for a real runtime.
-
-## Completed: Quickstart And Harness Cookbook
-
-- `QUICKSTART.md`, `docs/harness-installation.md`, and `docs/harness-cookbook.md` now cover validation, scenario checks, dashboard checks, and default/custom harness binding.
-- Copy-paste snippets point at repository files and validation commands rather than implied live execution.
-- Custom harness language remains structural until a real runtime adapter is reviewed.
-
-## Completed: Quality Dashboard
-
-- `python -m cogsecskills dashboard --write` generates `docs/quality-dashboard.md`, `docs/quality-dashboard.html`, and `output/data/quality_dashboard.json`.
-- `python -m cogsecskills release-metadata --write` keeps committed release metadata deterministic; exact git state is observed at runtime so `--check` remains stable after the release metadata commit.
-- `dashboard --check` detects missing or stale dashboard files, missing 100-skill coverage, missing scenario coverage, missing worked-example coverage, missing quality capsules, and missing verified-state rows.
-- The dashboard is a navigation and drift surface, not evidence of field effectiveness.
+- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `722 passed`, `Total coverage: 93.88%`.
 
 ## Ongoing Guardrails
 

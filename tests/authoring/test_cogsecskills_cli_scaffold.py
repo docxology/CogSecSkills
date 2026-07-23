@@ -164,3 +164,118 @@ def test_cli_version(capsys):
         main(["--version"])
     assert exc.value.code == 0
     assert "cogsecskills" in capsys.readouterr().out
+
+
+def test_cli_list_json_format(tmp_path, capsys):
+    """list --format json emits a JSON payload with skill arrays."""
+    _seed_registry(
+        tmp_path,
+        _ROW,
+        "  - {id: sat.two, name: Two, group: sat, status: implemented, summary: s}",
+    )
+    rc = main(["--root", str(tmp_path), "list", "--format", "json"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    import json
+
+    payload = json.loads(out)
+    assert payload["total"] == 2
+    assert payload["count"] == 2
+    assert len(payload["skills"]) == 2
+    ids = {s["id"] for s in payload["skills"]}
+    assert ids == {"sat.demo", "sat.two"}
+
+
+def test_cli_list_limit(tmp_path, capsys):
+    """list --limit N caps the number of results."""
+    _seed_registry(
+        tmp_path,
+        _ROW,
+        "  - {id: sat.two, name: Two, group: sat, status: implemented, summary: s}",
+        "  - {id: sat.three, name: Three, group: sat, status: implemented, summary: s}",
+    )
+    main(["--root", str(tmp_path), "list", "--limit", "2"])
+    out = capsys.readouterr().out
+    assert "2 of 3 skill areas" in out
+
+
+def test_cli_list_limit_json(tmp_path, capsys):
+    """list --limit N --format json caps the JSON array."""
+    _seed_registry(
+        tmp_path,
+        _ROW,
+        "  - {id: sat.two, name: Two, group: sat, status: implemented, summary: s}",
+        "  - {id: sat.three, name: Three, group: sat, status: implemented, summary: s}",
+    )
+    main(["--root", str(tmp_path), "list", "--limit", "1", "--format", "json"])
+    out = capsys.readouterr().out
+    import json
+
+    payload = json.loads(out)
+    assert payload["count"] == 1
+    assert payload["total"] == 3
+    assert len(payload["skills"]) == 1
+
+
+def test_cli_groups_json_format(tmp_path, capsys):
+    """groups --format json emits a JSON array of group summaries."""
+    _seed_registry(tmp_path, _ROW)
+    rc = main(["--root", str(tmp_path), "groups", "--format", "json"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    import json
+
+    groups = json.loads(out)
+    assert isinstance(groups, list)
+    assert len(groups) == 1
+    assert groups[0]["id"] == "sat"
+    assert groups[0]["count"] == 1
+
+
+def test_cli_groups_text_format(tmp_path, capsys):
+    """groups default text format still works."""
+    _seed_registry(tmp_path, _ROW)
+    rc = main(["--root", str(tmp_path), "groups"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "sat" in out
+    assert "SAT" in out
+
+
+def test_cli_route_json_format(tmp_path, capsys):
+    """route --format json emits a JSON payload with match details."""
+    _seed_registry(
+        tmp_path,
+        _ROW,
+        "  - {id: sat.two, name: Two, group: sat, status: implemented, summary: s}",
+    )
+    from cogsecskills.authoring.scaffold import scaffold_skill
+
+    scaffold_skill("sat.demo", root=tmp_path)
+    scaffold_skill("sat.two", root=tmp_path)
+    rc = main(["--root", str(tmp_path), "route", "demo", "--format", "json"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    import json
+
+    payload = json.loads(out)
+    assert payload["query"] == "demo"
+    assert payload["count"] >= 1
+    assert any(m["skill_id"] == "sat.demo" for m in payload["matches"])
+    assert all("score" in m for m in payload["matches"])
+
+
+def test_cli_route_json_no_matches(tmp_path, capsys):
+    """route --format json with no matches returns empty matches, exit 0."""
+    _seed_registry(tmp_path, _ROW)
+    from cogsecskills.authoring.scaffold import scaffold_skill
+
+    scaffold_skill("sat.demo", root=tmp_path)
+    rc = main(["--root", str(tmp_path), "route", "nonexistent", "--format", "json"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    import json
+
+    payload = json.loads(out)
+    assert payload["matches"] == []
+    assert payload["count"] == 0
