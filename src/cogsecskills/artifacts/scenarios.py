@@ -351,6 +351,7 @@ def check_scenarios(root: Path | None = None) -> list[str]:
 
 
 def _check_scenario_text(scenario: Scenario, findings: list[str]) -> None:
+    """Check scenario query text for operational misuse and kind keywords."""
     lower = scenario.query.lower()
     for phrase in OPERATIONAL_MISUSE_PHRASES:
         if phrase in lower:
@@ -375,6 +376,7 @@ def _check_scenario_text(scenario: Scenario, findings: list[str]) -> None:
 
 
 def _check_expected_response(scenario: Scenario, findings: list[str]) -> None:
+    """Validate the expected-response contract for a scenario."""
     contract = scenario.expected_response
     if len(contract.required_sections) < 3:
         findings.append(
@@ -425,6 +427,7 @@ def _check_expected_response(scenario: Scenario, findings: list[str]) -> None:
 
 
 def _check_expected_answer(scenario: Scenario, findings: list[str]) -> None:
+    """Validate the expected-answer fixture for a scenario."""
     answer = scenario.expected_answer
     if answer.selected_skill != scenario.expected_skill:
         findings.append(
@@ -483,6 +486,7 @@ def _check_expected_answer(scenario: Scenario, findings: list[str]) -> None:
 
 
 def _check_route(base: Path, scenario: Scenario, findings: list[str]) -> None:
+    """Check that the scenario's expected skill is in the router's top-10 matches."""
     matches = route_query(scenario.query, root=base, limit=10)
     routed_ids = [spec.id for spec, _score in matches]
     if scenario.expected_skill not in routed_ids:
@@ -495,6 +499,7 @@ def _check_route(base: Path, scenario: Scenario, findings: list[str]) -> None:
 def _check_spec_contract(
     base: Path, scenario: Scenario, spec: SkillSpec, findings: list[str]
 ) -> None:
+    """Check that the expected skill's spec satisfies scenario output and quality requirements."""
     if spec.status != "implemented":
         findings.append(f"{scenario.id}: expected skill {spec.id} is not implemented")
     directory = skills_root(base) / spec.group / spec.id.split(".", 1)[-1]

@@ -11,10 +11,10 @@ an archive DOI, public package publication, or empirical field validation.
 | Repository | `https://github.com/docxology/CogSecSkills` |
 | Citation metadata | `CITATION.cff` |
 | Code metadata | `codemeta.json` |
-| Package version | `1.1.0` |
+| Package version | `1.2.0` |
 | License | `Apache-2.0` |
 | Source revision | runtime-observed by `release-metadata --write`; not embedded in committed files |
-| Archive DOI | concept `10.5281/zenodo.20804585`; version `10.5281/zenodo.20804586` (v1.0.0); v1.1.0 version DOI unavailable in this snapshot |
+| Archive DOI | concept `10.5281/zenodo.20804585`; version `10.5281/zenodo.20804586` (v1.0.0); v1.2.0 version DOI unavailable in this snapshot |
 | Concept DOI | `10.5281/zenodo.20804585` |
 
 The revision descriptor and dirty-state are intentionally observed at runtime by
@@ -60,9 +60,9 @@ The revision descriptor and dirty-state are intentionally observed at runtime by
 | `report` | `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true` |
 | `doctor` | `validation: 0 error(s); quality: 0 finding(s)` |
 | `ruff check src/cogsecskills tests` | `All checks passed!` |
-| `ruff format --check src/cogsecskills tests` | `63 files already formatted` |
+| `ruff format --check src/cogsecskills tests` | `64 files already formatted` |
 | `mypy` | `Success: no issues found in 31 source files` |
-| `pytest --cov=src/cogsecskills` | `740 passed`; total coverage `94.35%` |
+| `pytest --cov=src/cogsecskills` | `763 passed`; total coverage `95.47%` |
 | Template markdown validation | `No issues found!` |
 | Template PDF render | 13 manuscript sections rendered; 8/8 figures found; combined PDF and HTML generated |
 | PDF content smoke | Required strings found: References, Supplemental 100-Skill Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill Worked Examples, Scenario Readiness, expected answers, Quality Dashboard, Release Manifest, and install cover text |

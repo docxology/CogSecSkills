@@ -16,7 +16,7 @@ authors:
 repository-code: https://github.com/docxology/CogSecSkills
 license: Apache-2.0
 doi: 10.5281/zenodo.20804585
-version: 1.1.0
+version: 1.2.0
 date-released: '2026-07-22'
 identifiers:
   - type: doi

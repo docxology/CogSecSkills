@@ -157,6 +157,7 @@ def load_evaluations(root: Path | None = None) -> list[EvaluationReview]:
 
 
 def _review_text(review: EvaluationReview) -> str:
+    """Return a lowercase text blob of all review fields for term-search checks."""
     return " ".join(
         [
             review.scenario_id,
@@ -272,6 +273,7 @@ def _expected_outputs(root: Path | None = None) -> dict[Path, str]:
 
 
 def _content_findings(base: Path, reviews: list[EvaluationReview]) -> list[str]:
+    """Validate evaluation reviews against scenario fixtures and rubric rules."""
     findings: list[str] = []
     scenarios = load_scenarios(base)
     scenario_by_id = {scenario.id: scenario for scenario in scenarios}

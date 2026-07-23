@@ -97,6 +97,7 @@ def load_examples(root: Path | None = None) -> list[WorkedExample]:
 
 
 def _example_text(example: WorkedExample) -> str:
+    """Return a lowercase text blob of all example fields for term-search checks."""
     return " ".join(
         [
             example.title,
@@ -197,6 +198,7 @@ def _expected_outputs(root: Path | None = None) -> dict[Path, str]:
 
 
 def _content_findings(base: Path, examples: list[WorkedExample]) -> list[str]:
+    """Validate worked examples against the registry and skill specs."""
     findings: list[str] = []
     registry = load_registry(base)
     registry_ids = set(registry.ids)

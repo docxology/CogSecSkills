@@ -23,6 +23,36 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.2.0] - 2026-07-22
+
+Coverage push, CI hardening, docstrings, and documentation polish over v1.1.0.
+All 12 validation gates remain green; the test suite grew from 740 to 763 tests
+and coverage from 94.35% to 95.47%.
+
+### Added
+
+- **23 new tests** covering CLI dashboard/examples/evals/release-metadata
+  `--check` failure paths, `list` with empty results and `--limit 0`,
+  `author-batch` with failures, scenarios.py validation functions
+  (`_expected_response_from_mapping`, `_answer_sections_from_obj`,
+  `_rubric_scores_from_obj`, `_expected_answer_from_mapping`), and rows.py
+  helper edge cases (`_first_containing`, `_first_with_prefix`, `_join`,
+  `_first`, `_group_ids`).
+- **Python 3.13** added to the CI matrix.
+- **`--cov-fail-under=94`** added to the CI pytest step so coverage regressions
+  fail the build.
+- **Docstrings** added to 10 internal functions across `scenarios.py`,
+  `evals.py`, and `examples.py`.
+- **`docs/architecture.md`** updated to document the new `core/locate.py`,
+  `core/quality_constants.py`, and `core/text_utils.py` modules.
+
+### Changed
+
+- `manuscript/S02_release_manifest.md` updated to v1.2.0 values (version,
+  test counts, coverage, Python version, file counts, DOI status).
+- `docs/cli.md` version example updated to 1.2.0.
+- `ISA.md` progress line updated to v1.2.0.
+
 ## [1.1.0] - 2026-07-22
 
 Comprehensive code-quality, test-coverage, and CLI-improvement pass over the
