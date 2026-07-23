@@ -23,6 +23,24 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.5.0] - 2026-07-22
+
+Final coverage push to 97.60%, doctor quality-finding tests, assets_io drift tests.
+
+### Added
+
+- **12 new tests** for validate.py (missing adapter verbs, unsupported verbs via
+  check_conformance, conformance_report with load failures), insights.py
+  (_quality_findings for chain-of-thought, missing evidence/inference labels,
+  missing unknown/alternative labels, sensitive-skill guardrail, doctor for
+  few workflow steps and missing references), assets_io.py (invalid figure,
+  stale cover mirror), and evals.py (stale generated file).
+
+### Changed
+
+- Coverage: 97.31% -> 97.60%, tests: 807 -> 819.
+- insights.py coverage: 94.68% -> 97.52%.
+
 ## [1.4.0] - 2026-07-22
 
 Coverage push to 97%+, resolve_root centralization, evals/examples branch tests.
