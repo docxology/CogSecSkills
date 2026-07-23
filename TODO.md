@@ -6,100 +6,94 @@ work.
 
 ## Verified State (v1.6.0)
 
-- Library gate: `PYTHONPATH="src:." python -m cogsecskills validate` -> `0 error(s), 0 warning(s)`.
-- Report gate: `PYTHONPATH="src:." python -m cogsecskills report` -> `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true`.
-- Quality gate: `PYTHONPATH="src:." python -m cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
-- Canonical definition gate: `PYTHONPATH="src:." python -m cogsecskills definitions --check` -> `canonical definitions are current`.
-- Scenario gate: `PYTHONPATH="src:." python -m cogsecskills scenarios --check` -> `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked`.
-- Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
-- Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
-- Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `847 passed`, `Total coverage: 98.21%`.
+- Library gate: `validate` -> `0 error(s), 0 warning(s)`.
+- Quality gate: `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
+- Definition gate: `definitions --check` -> `canonical definitions are current`.
+- Scenario gate: `scenarios --check` -> `28 scenarios across 7 groups; 28 expected answers checked`.
+- Example gate: `examples --check` -> `worked examples are current`.
+- Eval gate: `evals --check` -> `offline evaluation fixtures are current`.
+- Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
+- Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
+- Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
+- Test gate: `pytest tests/ --cov=src/cogsecskills` -> `847 passed`, `98.21% coverage`.
+- Lint gate: `ruff check` + `ruff format --check` -> clean (69 files).
+- Type gate: `mypy` -> `no issues found in 31 source files`.
 
 ## Ongoing Guardrails
 
-- Keep verification prose aligned with the exact latest gate run after any future source edits.
-- Rerun `manuscript-assets --write` and `manuscript-assets --check` after registry or skill metadata changes.
-- Rerun `definitions --write` and `definitions --check` after any canonical skill-definition change.
-- Rerun `scenarios --check` after scenario fixtures, routing language, output contracts, or quality fields change.
-- Rerun `examples --write` and `examples --check` after worked-example source changes.
+- Keep verification prose aligned with the exact latest gate run after any source edits.
+- Rerun `manuscript-assets --write` and `--check` after registry or skill metadata changes.
+- Rerun `definitions --write` and `--check` after canonical skill-definition changes.
+- Rerun `scenarios --check` after scenario fixture or quality-field changes.
+- Rerun `examples --write` and `--check` after worked-example source changes.
 - Preserve the defensive-only boundary; do not add offensive influence-operation playbooks.
 
-## Minor: Coverage Polish — definitions.py (88.27%)
+## Minor: Coverage — examples.py (95.73%, 7 lines uncovered)
 
-Uncovered lines: 92, 94, 144-152, 163, 239, 271, 284, 286, 296-299, 308-311, 319->317, 340->338, 408, 416, 465->472, 486-489.
+Lines 216-217, 239, 280-281, 285-286.
 
-- **`_field_or_default` (lines 144-152)**: The fallback path when a spec field is falsy, constructing a `RegistryEntry` and calling `default_quality_fields`. Test: create a spec with empty `evidence_requirements` and verify the default is returned.
-- **`definition_from_skill` empty workflow_steps (lines 92, 94)**: When `_workflow_steps` returns empty, the fallback step is used. Test: create a spec whose workflow.md has no `## Step N` headings.
-- **`definition_from_skill` empty anti_criteria (line 163)**: When `_anti_criteria` returns empty, a default is used. Test: spec whose workflow has no Anti-criteria heading.
-- **`_definitions_for_write` entry not in existing or specs (line 239)**: When a registry entry has no definition and no on-disk spec. Test: registry entry marked `planned` with no skill on disk.
-- **`_negative_controls_are_specific` fallback paths (lines 271, 284, 286)**: The paths that check `entry.group.lower() in negative_text` and the `any(token ...)` fallback. Test: definition with group-name in negative controls but not skill name/slug.
-- **`_negative_control_item_is_specific` fallback (lines 296-299, 308-311)**: Same logic but per-item. Test: individual negative-control item with group-level specificity.
-- **`_definition_quality_findings` generic controls check (line 408)**: When `GENERIC_NEGATIVE_CONTROL_PHRASES` is found in negative controls. Test: definition with a generic phrase.
-- **`_definition_quality_findings` specificity check (line 416)**: When quality fields lack skill-specific language. Test: definition with generic confidence_rubric.
-- **`check_definitions` render-failure path (lines 465->472, 486-489)**: When `rendered_definition_files` raises. Test: definition with an invalid tool verb.
+- **Line 216-217**: `_content_findings` path when `example.skill_id not in registry_ids` (continue branch) and `spec is None` (rendered-skill-missing continue branch). These are reached only when the example's skill_id is absent from the registry or has no on-disk spec — covered by `test_examples_not_in_registry` but the continue skips the rest of the loop body, leaving the downstream branches uncovered for that example. Fix: add a second example to the test fixture that is in the registry but has a missing spec, then assert the finding without needing the downstream branches.
+- **Line 239**: `len(titles) != len(set(titles))` — repeated section titles. Covered by `test_examples_repeated_section_titles` calling `_content_findings` directly, but the test uses the first example whose skill_id maps to a spec, so the branch is reached. Verify the test is hitting `_content_findings` and not `check_examples` (which short-circuits on stale generated files).
+- **Lines 280-281, 285-286**: `check_examples` generated-file missing/stale branches. Covered by `test_examples_check_missing_generated_json` and `test_examples_check_stale_generated_md`. Verify these tests are reaching the exact lines by ensuring `_expected_outputs` succeeds (needs a valid registry).
 
-## Minor: Coverage Polish — scenarios.py (94.23%)
+## Minor: Coverage — scenarios.py (96.63%, 7 lines uncovered)
 
-Uncovered lines: 369, 424, 440, 447, 451, 453, 493, 504, 508, 519, 558, 562.
+Lines 369, 493, 504, 508, 519, 558, 562.
 
-- **`_check_scenario_text` unsafe-redirect missing keyword (line 369)**: The `unsafe` / `misuse` not-in-lower path for unsafe scenarios. Test: unsafe scenario query that says "force a conclusion" without "unsafe" or "misuse".
-- **`_check_expected_response` output-term-missing path (line 424)**: When no expected output term is in the response text. Test: scenario with output terms that are absent from expected_response.
-- **`_check_expected_answer` answer-kind mismatch (line 440)**: When `answer.answer_kind != expected_kind`. Test: safe scenario with `refusal_redirect` answer kind.
-- **`_check_expected_answer` rubric-score-not-2 (line 447)**: When a rubric score is not 2. Test: scenario with `skill_fit: 1`.
-- **`_check_expected_answer` repeated titles (line 451)**: When section titles repeat. Test: answer with two sections titled "A".
-- **`_check_expected_answer` too-few sections (line 453)**: When fewer than 3 sections. Test: answer with 2 sections.
-- **`_check_route` no match (line 493)**: When expected skill is not in top-10. Test: scenario referencing a skill that doesn't match the query tokens.
-- **`_check_spec_contract` not-implemented (line 504)**: When `spec.status != "implemented"`. Test: scenario pointing to a `planned` skill.
-- **`_check_spec_contract` workflow missing (line 508)**: When workflow file doesn't exist. Test: skill directory with no workflow.md.
-- **`_check_spec_contract` too-few steps (line 519)**: When workflow has < 3 steps. Test: workflow with 2 `## Step` headings.
-- **`_check_spec_contract` adapter missing (line 558)**: When an adapter file is missing. Test: skill with a harness declared but no adapter file.
-- **`_check_spec_contract` no adapters declared (line 562)**: When `spec.harness` is empty. Test: spec with no harness map.
+- **Line 369**: `_check_scenario_text` — unsafe scenario missing "unsafe"/"misuse" keyword. The test `test_check_scenarios_unsafe_without_redirect_keyword` covers the redirect-keyword check but not the unsafe-keyword check (it includes "unsafe" in the query). Fix: add a test with an unsafe scenario whose query says "force a conclusion" without "unsafe" or "misuse".
+- **Line 493**: `_check_route` — expected skill not in top-10 route matches. The test `test_scenarios_route_no_match` covers this but the route may still match due to token overlap. Fix: use a query with zero token overlap to the skill's triggers.
+- **Line 504**: `_check_spec_contract` — `spec.status != "implemented"`. Fix: create a scenario pointing to a `planned` skill on disk.
+- **Line 508**: `_check_spec_contract` — workflow file missing. Fix: create a skill directory with no `workflow.md`.
+- **Line 519**: `_check_spec_contract` — workflow has < 3 `## Step` headings. Fix: create a workflow with only 2 steps.
+- **Line 558**: `_check_spec_contract` — adapter file missing. Fix: declare a harness adapter path but don't create the file.
+- **Line 562**: `_check_spec_contract` — `spec.harness` is empty. Fix: create a spec with no harness map.
 
-## Minor: Coverage Polish — evals.py (93.45%) and examples.py (91.94%)
+## Minor: Coverage — definitions.py (96.09%, 5 lines + 9 branches uncovered)
 
-- **evals.py lines 70, 79, 83, 86, 91**: `_section_from_obj` and `_review_from_obj` error paths (non-mapping section, missing title/body). Test: eval entry with a non-mapping section.
-- **evals.py line 290**: Duplicate evaluation fixture detection. Test: two reviews with the same scenario_id.
-- **evals.py line 308**: Wrong answer kind. Test: review with `defensive_output` for an unsafe scenario.
-- **evals.py lines 381-382, 386-387**: `check_evals` missing/stale generated file. Test: delete or corrupt the generated markdown.
-- **examples.py lines 58, 67, 71**: `_section_from_obj` and `_example_from_obj` error paths. Test: example with non-mapping section.
-- **examples.py lines 216-217, 224**: Duplicate and missing-from-registry detection. Test: two examples with same skill_id.
-- **examples.py line 239**: Repeated section titles. Test: example with duplicate section titles.
-- **examples.py lines 280-281, 285-286**: `check_examples` missing/stale generated file. Test: delete the generated JSON.
+Lines 239, 284, 286, 298, 310, 319->317, 340->338, 465->472.
 
-## Minor: Coverage Polish — insights.py (93.26%)
+- **Line 239**: `_definitions_for_write` — registry entry that is in neither `existing` nor `specs` (a planned entry with no on-disk skill). Fix: seed a registry with a `planned` entry and no skill on disk, call `_definitions_for_write`.
+- **Lines 284, 286**: `_negative_controls_are_specific` — `entry.group.lower() in negative_text` True path and `any(token ...)` fallback True path. Fix: call with a definition whose negative controls contain the group name but not the skill name/slug.
+- **Lines 298, 310**: `_negative_control_item_is_specific` and `_quality_item_is_specific` — slug-phrase match and token-match fallback paths. Fix: call these functions directly with items containing the slug or a specificity token.
+- **Line 465->472**: `check_definitions` — `rendered_definition_files` raises `AuthorError`/`SpecError`/`ValueError`. Fix: create a definition with an invalid tool verb that passes `load_definitions` but fails `rendered_definition_files`.
 
-Uncovered lines: 171, 201, 218, 226, 273, 282, 295, 339, 362.
+## Minor: Coverage — validate.py (96.26%, 7 lines uncovered)
 
-- **Line 171**: `doctor` finding for fewer-than-min workflow steps. Test: spec with 2-step workflow.
-- **Line 201**: Empty quality field detection. Test: spec with empty `defensive_boundary`.
-- **Lines 218, 226**: Chain-of-thought wording and missing unsafe/redirect coverage. Test: spec with "chain-of-thought" in negative controls.
-- **Lines 273, 282**: Evidence/inference and unknown/alternative label checks. Test: spec with evidence_requirements missing "inference".
-- **Line 295**: Sensitive-skill guardrail check. Test: spec in `cognitive_security` group missing "authorized" in quality text.
-- **Lines 339, 362**: `_negative_controls_are_specific` and `_text_is_skill_specific` fallback paths. Test: spec whose negative controls contain only group name, not skill name.
+Lines 156-158, 174-175, 294-295.
 
-## Minor: Coverage Polish — dashboard.py (98.64%) and remaining modules
+- **Lines 156-158**: `validate_skill` — `OSError` on `adapter_path.read_text()`. This path is reached only when `adapter_path.is_file()` returns True but `read_text()` raises. On macOS, `IsADirectoryError` is a subclass of `OSError`, but `is_file()` returns False for directories, so the "not found" branch fires first. Fix: use a mock or a file with permission bits set to 000 (chmod) so `is_file()` returns True but `read_text()` raises `PermissionError` (an `OSError` subclass).
+- **Lines 174-175**: `validate_skill` — `check_conformance` returns `unsupported_verbs`. Fix: pass a `support` map where a harness can't realise a verb the skill uses, then call `validate_skill` with that harness set. Alternatively, call `check_conformance` directly (already covered by `test_validate_skill_unsupported_verbs`).
+- **Lines 294-295**: `conformance_report` — `load_registry` raises `FileNotFoundError`/`SpecError`. Fix: create a tmp_path with a malformed `registry/skills.yaml` that raises on load, then call `conformance_report`.
 
-- **dashboard.py line 60->68, 752**: `_dashboard_payload` branch and `write_dashboard` return path.
-- **assets_io.py lines 66, 74**: `check_assets` stale cover mirror and stale figure.
-- **tables.py line 55**: `_latex_escape` edge case.
-- **validate.py lines 71, 156-158, 174-175, 294-295**: `_adapter_bound_verbs` OSError and `validate_library` registry-load-failure paths.
+## Minor: Coverage — author.py (96.86%, 3 lines + 5 branches uncovered)
+
+Lines 140, 172, 595, 626->621, 657->650.
+
+- **Line 140**: `load_definition_file` — `not isinstance(loaded, dict)` after YAML parse. Fix: create a YAML file containing a list, call `load_definition_file`.
+- **Line 172**: `_list_field` — `isinstance(source, (list, tuple))` branch with items. Fix: call `_list_field` with a list source.
+- **Line 595**: `rendered_definition_files` — `entry is None` (skill id not in registry). Fix: call `rendered_definition_files` with a definition whose `id` is not in the registry.
+- **Lines 626->621, 657->650**: `author_batch` — `delete_defs` True/False and `promote` True/False branches. Fix: call `author_batch` with `delete_defs=False` and `promote=False`.
+
+## Minor: Coverage — remaining low-gap modules
+
+- **dashboard.py (98.64%)**: Line 60->68 (TODO section absent branch), 752 (check_dashboard finding for missing quality capsule). Fix: test `_read_verified_state` with a TODO that lacks "## Verified State", and test `check_dashboard` with a payload where a skill lacks a quality capsule.
+- **figures.py (98.35%)**: Lines 348-352 (`_style_axes` with `grid_axis="other"` else branch), 687->686 (verb not in verb_index), 1444->1455 (cover DOI truthy branch). Fix: call `_style_axes` with `grid_axis="none"`, and test `_publication_doi` when a DOI is set in config.
+- **rows.py (98.29%)**: Line 123 (`_group_title` fallback when group_id not found). Fix: call `_group_title` with a group_id not present in the rows.
+- **tables.py (99.05%)**: Line 55 (`_latex_escape` with a backslash). Fix: call `_latex_escape` with a string containing `\\`.
+- **loader.py (97.50%)**: Line 34 (`_project_root` called). This is the module-level function that delegates to `locate.project_root`. Covered indirectly by any test that calls `discover_skills()` without a root argument.
+- **registry.py (99.10%)**: Line 26 (`_project_root` called). Same pattern as loader.
+- **evals.py (99.27%)**: Lines 386-387 (`check_evals` missing generated file). Fix: delete the generated JSON after `write_evals`.
 
 ## Minor: Documentation Polish
 
 - Update `docs/harness-installation.md` or `docs/harness-cookbook.md` with examples of `--format json` CLI usage for harness integration.
-- Update `src/cogsecskills/AGENTS.md` to reference the new shared modules (`core/quality_constants.py`, `core/text_utils.py`).
-- Update `docs/README.md` to reference the new test files.
-
-## Minor: Code Quality Polish
-
-- Centralize the `_project_root(root)` pattern (duplicated in 8+ modules as `Path(root) if root is not None else project_root()`) into a single `core/locate.resolve_root(root)` helper. Each consuming module would import and call `resolve_root(root)` instead of defining its own `_project_root`.
-- Add docstrings to remaining undocumented functions: `_expected_source_text` and `_payload` in `evals.py`, `_example_payload` and `_render_markdown` in `examples.py`, `_render_markdown` in `evals.py`.
+- Update `docs/README.md` to reference the new test files (10 test files added since v1.0.0).
+- Add remaining docstrings: `_expected_source_text` and `_payload` in `evals.py`; `_example_payload` and `_render_markdown` in `examples.py`.
 
 ## Minor: CI Hardening
 
 - Add Python 3.14 to the CI matrix once GitHub Actions supports it (currently 3.10-3.13).
-- Verify the `figures` extra installs cleanly on 3.14 (matplotlib/seaborn compat).
+- Bump `--cov-fail-under` from 94 to 97 to match the current coverage floor.
 
 ## Medium: Skill Definition Depth
 
@@ -109,7 +103,7 @@ Uncovered lines: 171, 201, 218, 226, 273, 282, 295, 339, 362.
 
 ## Medium: Manuscript Refresh
 
-- Re-render the manuscript PDF from the live library after v1.2.0 changes. The `output/pdf/` and `output/web/` trees still reflect v0.1.0-era test counts (622, 90.94%) and version (0.1.0).
+- Re-render the manuscript PDF from the live library after v1.6.0 changes. The `output/pdf/` and `output/web/` trees still reflect v0.1.0-era test counts (622, 90.94%) and version (0.1.0).
 - Re-run the template markdown validation and PDF render pipeline to bring `S02_release_manifest.md` into the combined PDF.
 - Update the `CogSecSkills.pdf` top-level artifact after re-render.
 
@@ -138,6 +132,6 @@ Uncovered lines: 171, 201, 218, 226, 273, 282, 295, 339, 362.
 
 ## Major: External Publication / DOI
 
-- The v1.0.0 Zenodo DOI exists (`10.5281/zenodo.20804586`). A v1.2.0 version DOI would require a new Zenodo deposit.
+- The v1.0.0 Zenodo DOI exists (`10.5281/zenodo.20804586`). A v1.6.0 version DOI would require a new Zenodo deposit.
 - Update `CITATION.cff` and `codemeta.json` with the new version DOI once deposited.
 - Add verified external citations only when a manuscript claim needs external literature rather than project-local evidence.

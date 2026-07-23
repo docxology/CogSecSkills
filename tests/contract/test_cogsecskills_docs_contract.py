@@ -240,7 +240,7 @@ def test_todo_forward_backlog_has_expected_next_lanes():
     for heading in (
         "Verified State",
         "Ongoing Guardrails",
-        "Minor: Coverage Polish",
+        "Minor: Coverage",
         "Minor: Documentation Polish",
         "Minor: CI Hardening",
         "Medium: Manuscript Refresh",

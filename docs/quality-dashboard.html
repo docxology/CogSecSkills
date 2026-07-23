@@ -217,15 +217,18 @@
       <section>
         <h2>Latest Gate Results</h2>
         <ul class="verified">
-<li>Library gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills validate` -&gt; `0 error(s), 0 warning(s)`.</li>
-<li>Report gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills report` -&gt; `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true`.</li>
-<li>Quality gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills doctor` -&gt; `validation: 0 error(s); quality: 0 finding(s)`.</li>
-<li>Canonical definition gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills definitions --check` -&gt; `canonical definitions are current`.</li>
-<li>Scenario gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills scenarios --check` -&gt; `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked`.</li>
-<li>Worked-example gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills examples --check` -&gt; `worked examples are current`.</li>
-<li>Dashboard gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills dashboard --check` -&gt; `quality dashboard is current`.</li>
-<li>Manuscript asset gate: `PYTHONPATH=&quot;src:.&quot; python -m cogsecskills manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
-<li>Test gate: `PYTHONPATH=&quot;src:.&quot; python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -&gt; `847 passed`, `Total coverage: 98.21%`.</li>
+<li>Library gate: `validate` -&gt; `0 error(s), 0 warning(s)`.</li>
+<li>Quality gate: `doctor` -&gt; `validation: 0 error(s); quality: 0 finding(s)`.</li>
+<li>Definition gate: `definitions --check` -&gt; `canonical definitions are current`.</li>
+<li>Scenario gate: `scenarios --check` -&gt; `28 scenarios across 7 groups; 28 expected answers checked`.</li>
+<li>Example gate: `examples --check` -&gt; `worked examples are current`.</li>
+<li>Eval gate: `evals --check` -&gt; `offline evaluation fixtures are current`.</li>
+<li>Dashboard gate: `dashboard --check` -&gt; `quality dashboard is current`.</li>
+<li>Release gate: `release-metadata --check` -&gt; `release metadata is current (local mode)`.</li>
+<li>Manuscript gate: `manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
+<li>Test gate: `pytest tests/ --cov=src/cogsecskills` -&gt; `847 passed`, `98.21% coverage`.</li>
+<li>Lint gate: `ruff check` + `ruff format --check` -&gt; clean (69 files).</li>
+<li>Type gate: `mypy` -&gt; `no issues found in 31 source files`.</li>
         </ul>
       </section>
     </div>

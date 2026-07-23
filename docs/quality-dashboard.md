@@ -17,15 +17,18 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 
 ## Latest Gate Results
 
-- Library gate: `PYTHONPATH="src:." python -m cogsecskills validate` -> `0 error(s), 0 warning(s)`.
-- Report gate: `PYTHONPATH="src:." python -m cogsecskills report` -> `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true`.
-- Quality gate: `PYTHONPATH="src:." python -m cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
-- Canonical definition gate: `PYTHONPATH="src:." python -m cogsecskills definitions --check` -> `canonical definitions are current`.
-- Scenario gate: `PYTHONPATH="src:." python -m cogsecskills scenarios --check` -> `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked`.
-- Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
-- Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
-- Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `847 passed`, `Total coverage: 98.21%`.
+- Library gate: `validate` -> `0 error(s), 0 warning(s)`.
+- Quality gate: `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
+- Definition gate: `definitions --check` -> `canonical definitions are current`.
+- Scenario gate: `scenarios --check` -> `28 scenarios across 7 groups; 28 expected answers checked`.
+- Example gate: `examples --check` -> `worked examples are current`.
+- Eval gate: `evals --check` -> `offline evaluation fixtures are current`.
+- Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
+- Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
+- Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
+- Test gate: `pytest tests/ --cov=src/cogsecskills` -> `847 passed`, `98.21% coverage`.
+- Lint gate: `ruff check` + `ruff format --check` -> clean (69 files).
+- Type gate: `mypy` -> `no issues found in 31 source files`.
 
 ## Evidence Ladder
 
