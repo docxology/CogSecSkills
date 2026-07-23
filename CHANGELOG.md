@@ -23,6 +23,31 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.3.0] - 2026-07-22
+
+Coverage push to 96.76%, definitions.py and insights.py branch coverage,
+resolve_root helper, AGENTS.md module map update.
+
+### Added
+
+- **27 new tests** covering definitions.py (`_field_or_default` fallback,
+  `definition_from_skill` with empty workflow/anti-criteria, generic control
+  detection, specificity checks, render-failure path), scenarios.py
+  (answer-kind mismatch, rubric not-2, repeated titles, too-few sections,
+  output-term-missing, quality-term-missing, output-term-missing-from-spec),
+  and insights.py (`_is_sensitive_skill`, `_negative_controls_are_specific`,
+  `_text_is_skill_specific`, `_tokens` edge cases).
+- **`core/locate.resolve_root(root)`** — shared helper replacing the
+  `Path(root) if root is not None else project_root()` pattern duplicated
+  across 8+ modules.
+- **`src/cogsecskills/AGENTS.md`** updated with full module-boundary map
+  including new shared modules.
+
+### Changed
+
+- Coverage: 95.86% -> 96.76%, tests: 763 -> 790.
+- `docs/architecture.md` already updated in v1.2.0; AGENTS.md now matches.
+
 ## [1.2.0] - 2026-07-22
 
 Coverage push, CI hardening, docstrings, and documentation polish over v1.1.0.

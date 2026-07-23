@@ -342,3 +342,103 @@ def test_check_scenarios_expected_response_repeated_sections(tmp_path):
     _write_scenarios(tmp_path, [sc])
     findings = check_scenarios(tmp_path)
     assert any("repeats section labels" in f for f in findings)
+
+
+# --- scenarios.py: _check_spec_contract and _check_expected_answer branches ---
+
+
+def test_check_scenarios_answer_kind_mismatch(tmp_path):
+    """Safe scenario with refusal_redirect answer kind should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["expected_answer"]["answer_kind"] = "refusal_redirect"
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("answer kind" in f and "must be" in f for f in findings)
+
+
+def test_check_scenarios_rubric_not_two(tmp_path):
+    """A rubric score that is not 2 should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["expected_answer"]["rubric_scores"]["skill_fit"] = 1
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("rubric" in f and "must be 2" in f for f in findings)
+
+
+def test_check_scenarios_repeated_answer_section_titles(tmp_path):
+    """Repeated section titles in expected_answer should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["expected_answer"]["sections"][1]["title"] = sc["expected_answer"]["sections"][
+        0
+    ]["title"]
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("repeats section titles" in f for f in findings)
+
+
+def test_check_scenarios_too_few_answer_sections(tmp_path):
+    """Fewer than 3 answer sections should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["expected_answer"]["sections"] = sc["expected_answer"]["sections"][:2]
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("at least 3 sections" in f for f in findings)
+
+
+def test_check_scenarios_output_term_missing_from_response(tmp_path):
+    """Expected response that doesn't name any output term should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["expected_output_terms"] = ["nonexistent_output_marker"]
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("does not name any expected output term" in f for f in findings)
+
+
+def test_check_scenarios_quality_term_missing_from_response(tmp_path):
+    """Expected response missing a required quality term should be flagged."""
+    _seed_minimal(tmp_path)
+    sc = _make_safe_scenario()
+    sc["required_quality_terms"] = ["nonexistent_quality_marker"]
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any("does not name quality term" in f for f in findings)
+
+
+def test_check_scenarios_output_term_missing_from_spec(tmp_path):
+    """When a spec doesn't declare an expected output term, it should be flagged."""
+    from cogsecskills.authoring.author import render_definition
+
+    _seed_minimal(tmp_path)
+    render_definition(
+        {
+            "id": "sat.x",
+            "description": "A skill.",
+            "tags": ["test"],
+            "triggers": ["defensive use"],
+            "tools": [{"verb": "read", "purpose": "p"}],
+            "inputs": [{"name": "ctx", "type": "text", "required": True}],
+            "outputs": [
+                {"name": "product", "type": "md", "description": "the product"}
+            ],
+            "references": [],
+            "workflow_steps": [
+                {"verbs": ["read"], "title": "Gather", "text": "Read."},
+                {"verbs": ["reason"], "title": "Assess", "text": "Assess."},
+                {"verbs": ["write"], "title": "Report", "text": "Write."},
+            ],
+            "anti_criteria": ["Do not."],
+        },
+        root=tmp_path,
+    )
+    sc = _make_safe_scenario()
+    sc["expected_output_terms"] = ["nonexistent_output_marker"]
+    _write_scenarios(tmp_path, [sc])
+    findings = check_scenarios(tmp_path)
+    assert any(
+        "missing from" in f and "nonexistent_output_marker" in f for f in findings
+    )

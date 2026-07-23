@@ -3,7 +3,7 @@ project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
 phase: complete
-progress: 100/100 skills fully implemented + multiharness-conforming; v1.2.0 release — 763 tests/95.47% coverage, all gates current, CI hardening + docstrings + coverage push
+progress: 100/100 skills fully implemented + multiharness-conforming; v1.3.0 release — 790 tests/96.76% coverage, all gates current, CI hardening + docstrings + coverage push
 mode: algorithm
 started: 2026-06-18
 updated: 2026-07-22

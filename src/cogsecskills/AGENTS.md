@@ -6,16 +6,22 @@ and generator layer over declarative project data.
 ## Module Boundaries
 
 - `cli.py` only parses arguments, calls module functions, and prints results.
-- `spec.py`, `registry.py`, `loader.py`, `validate.py`, and `harness.py` define
-  parsing, registry loading, discovery, structural validation, and harness
-  conformance.
-- `author.py`, `definitions.py`, and `scaffold.py` own skill rendering and
-  drift checks from canonical definitions.
-- `insights.py`, `scenarios.py`, `examples.py`, `evals.py`, `dashboard.py`,
-  `release_metadata.py`, and `manuscript_assets.py` own local navigation,
-  deterministic scenario checks, worked examples, offline output-review
-  fixtures, generated dashboard output, release claim metadata, manuscript
-  supplements, data exports, and figures.
+- `core/spec.py`, `core/registry.py`, `core/loader.py`, `quality/validate.py`,
+  and `core/harness.py` define parsing, registry loading, discovery, structural
+  validation, and harness conformance.
+- `core/locate.py` provides project-root discovery (`project_root`,
+  `resolve_root`) — the shared helper replacing per-module `_project_root`.
+- `core/quality_constants.py` holds shared quality-policy constants used by both
+  `quality/insights.py` and `authoring/definitions.py`.
+- `core/text_utils.py` holds shared `clean_cell` and `as_text` helpers used by
+  `artifacts/evals.py`, `artifacts/examples.py`, and `manuscript_assets/rows.py`.
+- `authoring/author.py`, `authoring/definitions.py`, and `authoring/scaffold.py`
+  own skill rendering and drift checks from canonical definitions.
+- `quality/insights.py`, `artifacts/scenarios.py`, `artifacts/examples.py`,
+  `artifacts/evals.py`, `artifacts/dashboard.py`, `artifacts/release_metadata.py`,
+  and `artifacts/manuscript_assets/` own local navigation, deterministic scenario
+  checks, worked examples, offline output-review fixtures, generated dashboard
+  output, release claim metadata, manuscript supplements, data exports, and figures.
 
 ## Editing Rules
 

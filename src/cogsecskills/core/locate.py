@@ -25,3 +25,14 @@ def project_root() -> Path:
         "could not locate the CogSecSkills project root (no registry/skills.yaml "
         f"or pyproject.toml above {here})"
     )
+
+
+def resolve_root(root: Path | None = None) -> Path:
+    """Return ``root`` as a Path, or fall back to :func:`project_root`.
+
+    This is the shared helper for modules that need to resolve an optional
+    ``root`` parameter to a concrete project root. It replaces the
+    ``Path(root) if root is not None else project_root()`` pattern duplicated
+    across 8+ modules.
+    """
+    return Path(root) if root is not None else project_root()

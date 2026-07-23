@@ -143,7 +143,8 @@ def _cmd_route(args: argparse.Namespace) -> int:
 
 
 def _cmd_stats(args: argparse.Namespace) -> int:
-    print(json.dumps(library_stats(args.root), indent=2))
+    stats = library_stats(args.root)
+    print(json.dumps(stats, indent=2))
     return 0
 
 
