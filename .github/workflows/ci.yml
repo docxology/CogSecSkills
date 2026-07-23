@@ -37,7 +37,7 @@ jobs:
         run: uv run mypy
 
       - name: Tests (pytest + coverage gate)
-        run: uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=94
+        run: uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
 
       - name: Validate skill library (0 errors)
         run: uv run cogsecskills validate

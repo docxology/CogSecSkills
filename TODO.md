@@ -4,7 +4,7 @@ Forward-only tracker for source-owned work. Keep history in completed changelog
 or commit messages; keep this file focused on the current state and next useful
 work.
 
-## Verified State (v1.6.0)
+## Verified State (v1.7.0)
 
 - Library gate: `validate` -> `0 error(s), 0 warning(s)`.
 - Quality gate: `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.

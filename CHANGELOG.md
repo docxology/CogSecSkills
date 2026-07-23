@@ -23,6 +23,30 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.7.0] - 2026-07-22
+
+Coverage push to 98.84%, CI coverage gate bumped to 97%, remaining docstrings.
+
+### Added
+
+- **26 new tests** covering scenarios.py (unsafe-keyword, not-implemented,
+  workflow-missing, too-few-steps, adapter-missing, no-adapters — 6 tests),
+  validate.py (PermissionError on adapter read, unsupported verbs,
+  conformance_report malformed registry — 3 tests), definitions.py
+  (planned-entry fallback, specificity by group/slug/token, render-failure — 6
+  tests), author.py (load_definition_file non-dict, _list_field list,
+  rendered_definition_files not-in-registry — 5 tests), and low-gap modules
+  (rows _group_title fallback, tables _latex_escape backslash, evals missing
+  JSON, dashboard _verified_state absent/present, figures DOI truthy — 6 tests).
+
+### Changed
+
+- CI `--cov-fail-under` bumped from 94 to 97.
+- Remaining docstrings added: `_expected_source_text`, `_payload` in evals.py;
+  `_example_payload` in examples.py.
+- Coverage: 98.21% -> 98.84%, tests: 847 -> 873.
+- validate.py: 96.26% -> 97.66%, definitions.py: 96.09% -> 96.86%+.
+
 ## [1.6.0] - 2026-07-22
 
 Coverage push to 98.21%, deep edge-case branch tests across all modules.

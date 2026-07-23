@@ -110,6 +110,7 @@ def _example_text(example: WorkedExample) -> str:
 
 
 def _example_payload(root: Path | None = None) -> dict[str, Any]:
+    """Build the full examples payload (summary + example rows) from the registry."""
     base = _project_root(root)
     registry = load_registry(base)
     examples = load_examples(base)

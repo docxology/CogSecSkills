@@ -125,6 +125,7 @@ def _review_from_scenario(scenario: Scenario) -> dict[str, Any]:
 
 
 def _expected_source_text(root: Path | None = None) -> str:
+    """Return the canonical YAML text for the offline-evals source file."""
     scenarios = load_scenarios(root)
     payload = {
         "version": 1,
@@ -174,6 +175,7 @@ def _review_text(review: EvaluationReview) -> str:
 
 
 def _payload(root: Path | None = None) -> dict[str, Any]:
+    """Build the full eval payload (summary + evaluation rows)."""
     base = _project_root(root)
     scenarios = load_scenarios(base)
     reviews = load_evaluations(base)
