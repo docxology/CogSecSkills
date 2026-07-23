@@ -23,6 +23,27 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.4.0] - 2026-07-22
+
+Coverage push to 97%+, resolve_root centralization, evals/examples branch tests.
+
+### Added
+
+- **17 new tests** for evals.py (`_section_from_obj` error paths, `_review_from_obj`
+  sections/rubric validation, `_content_findings` group/kind/scenario mismatch,
+  too-few sections) and examples.py (`_section_from_obj` and `_example_from_obj`
+  error paths, rendered-skill-missing, too-few sections, output-not-named).
+- **`core/locate.resolve_root(root)`** now used by all 8 consumer modules,
+  replacing the duplicated `Path(root) if root is not None else project_root()`
+  pattern in scenarios.py, evals.py, release_metadata.py, dashboard.py,
+  examples.py, paths.py, config.py, and definitions.py.
+
+### Changed
+
+- Unused `project_root` imports removed from 7 modules that now use `resolve_root`.
+- `src/cogsecskills/AGENTS.md` updated with `resolve_root` documentation.
+- Coverage: 96.76% -> 97%+, tests: 790 -> 807.
+
 ## [1.3.0] - 2026-07-22
 
 Coverage push to 96.76%, definitions.py and insights.py branch coverage,

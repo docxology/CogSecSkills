@@ -4,7 +4,7 @@ Forward-only tracker for source-owned work. Keep history in completed changelog
 or commit messages; keep this file focused on the current state and next useful
 work.
 
-## Verified State (v1.3.0)
+## Verified State (v1.4.0)
 
 - Library gate: `PYTHONPATH="src:." python -m cogsecskills validate` -> `0 error(s), 0 warning(s)`.
 - Report gate: `PYTHONPATH="src:." python -m cogsecskills report` -> `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true`.
@@ -14,7 +14,7 @@ work.
 - Worked-example gate: `PYTHONPATH="src:." python -m cogsecskills examples --check` -> `worked examples are current`.
 - Dashboard gate: `PYTHONPATH="src:." python -m cogsecskills dashboard --check` -> `quality dashboard is current`.
 - Manuscript asset gate: `PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `790 passed`, `Total coverage: 96.76%`.
+- Test gate: `PYTHONPATH="src:." python -m pytest tests/ --cov=src/cogsecskills --cov-report=term-missing` -> `807 passed`, `Total coverage: 97.31%`.
 
 ## Ongoing Guardrails
 

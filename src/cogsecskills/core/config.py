@@ -25,7 +25,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from cogsecskills.core.locate import project_root
+from cogsecskills.core.locate import resolve_root
 
 import yaml
 
@@ -49,7 +49,7 @@ class Config:
 
 
 def config_path(root: Path | None = None) -> Path:
-    base = Path(root) if root is not None else project_root()
+    base = resolve_root(root)
     return base / CONFIG_FILENAME
 
 

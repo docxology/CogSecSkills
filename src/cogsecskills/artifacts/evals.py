@@ -4,7 +4,7 @@ import json
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from cogsecskills.core.locate import project_root
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.text_utils import as_text, clean_cell
 from typing import Any, Mapping, TypedDict
 
@@ -60,7 +60,7 @@ class EvalWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else project_root()
+    return resolve_root(root)
 
 
 def _section_from_obj(

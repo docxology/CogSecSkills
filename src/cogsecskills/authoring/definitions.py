@@ -12,7 +12,7 @@ from collections import defaultdict
 import re
 from pathlib import Path
 
-from cogsecskills.core.locate import project_root
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.quality_constants import (
     ALLOWED_SHARED_QUALITY_ITEMS,
     GENERIC_NEGATIVE_CONTROL_PHRASES,
@@ -67,7 +67,7 @@ class DefinitionWriteResult(TypedDict):
 
 
 def _project_root(root: Path | None = None) -> Path:
-    return Path(root) if root is not None else project_root()
+    return resolve_root(root)
 
 
 def definitions_root(root: Path | None = None) -> Path:
