@@ -122,7 +122,7 @@ cogsecskills show sat.sorting
   "name": "Sorting",
   "group": "sat",
   "status": "implemented",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "summary": "Group large evidence sets by attributes to surface patterns and outliers.",
   "tags": ["cognitive-security", "sat", "pattern-recognition"],
   "triggers": ["sort this evidence", "organize these indicators", "..."],

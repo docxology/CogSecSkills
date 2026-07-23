@@ -11,24 +11,22 @@ an archive DOI, public package publication, or empirical field validation.
 | Repository | `https://github.com/docxology/CogSecSkills` |
 | Citation metadata | `CITATION.cff` |
 | Code metadata | `codemeta.json` |
-| Package version | `0.1.0` |
+| Package version | `1.1.0` |
 | License | `Apache-2.0` |
-| Source revision | `e85ecf2cc54eebee1700f60a6a354b83f093ff4b` |
-| Revision descriptor | `v0.1.0-2-ge85ecf2-dirty` |
-| Archive DOI | unavailable in this snapshot |
-| Concept DOI | unavailable in this snapshot |
+| Source revision | runtime-observed by `release-metadata --write`; not embedded in committed files |
+| Archive DOI | concept `10.5281/zenodo.20804585`; version `10.5281/zenodo.20804586` (v1.0.0); v1.1.0 version DOI unavailable in this snapshot |
+| Concept DOI | `10.5281/zenodo.20804585` |
 
-The revision descriptor is intentionally marked dirty because this manuscript
-hardening pass is performed in a working tree with source edits in progress. The
-manifest is therefore a local provenance record, not an immutable release
-certificate [@cogsecskills2026software].
+The revision descriptor and dirty-state are intentionally observed at runtime by
+`release-metadata --write` rather than embedded in committed files, so the
+`--check` gate remains stable after a release-metadata commit.
 
 ## Environment And Locking
 
 | Field | Value |
 |---|---|
-| Python | `Python 3.13.14` |
-| uv | `uv 0.11.6 (65950801c 2026-04-09 aarch64-apple-darwin)` |
+| Python | `Python 3.14.4` |
+| uv | `uv 0.11.6` |
 | Python requirement | `>=3.10` |
 | Runtime dependency | `pyyaml>=6.0` |
 | Development gates | `pytest`, `pytest-cov`, `mypy`, `ruff` |
@@ -54,15 +52,17 @@ certificate [@cogsecskills2026software].
 | `definitions --check` | `canonical definitions are current` |
 | `scenarios --check` | `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked` |
 | `examples --check` | `worked examples are current` |
+| `evals --check` | `offline evaluation fixtures are current` |
 | `dashboard --check` | `quality dashboard is current` |
+| `release-metadata --check` | `release metadata is current (local mode)` |
 | `manuscript-assets --check` | `manuscript assets are current` |
 | `validate` | `0 error(s), 0 warning(s)` |
 | `report` | `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true` |
 | `doctor` | `validation: 0 error(s); quality: 0 finding(s)` |
 | `ruff check src/cogsecskills tests` | `All checks passed!` |
-| `ruff format --check src/cogsecskills tests` | `38 files already formatted` |
-| `mypy` | `Success: no issues found in 19 source files` |
-| `pytest --cov=src/cogsecskills` | `622 passed`; total coverage `90.94%` |
+| `ruff format --check src/cogsecskills tests` | `63 files already formatted` |
+| `mypy` | `Success: no issues found in 31 source files` |
+| `pytest --cov=src/cogsecskills` | `740 passed`; total coverage `94.35%` |
 | Template markdown validation | `No issues found!` |
 | Template PDF render | 13 manuscript sections rendered; 8/8 figures found; combined PDF and HTML generated |
 | PDF content smoke | Required strings found: References, Supplemental 100-Skill Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill Worked Examples, Scenario Readiness, expected answers, Quality Dashboard, Release Manifest, and install cover text |

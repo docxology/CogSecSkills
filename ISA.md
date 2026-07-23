@@ -3,10 +3,10 @@ project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
 phase: complete
-progress: 100/100 skills fully implemented + multiharness-conforming; full verification audit 2026-06-22 green (622 tests/90.89%, all gates current, 72pp PDF 8/8 figures)
+progress: 100/100 skills fully implemented + multiharness-conforming; v1.1.0 release — 740 tests/94.35% coverage, all gates current, DRY centralization + CLI JSON output
 mode: algorithm
 started: 2026-06-18
-updated: 2026-06-22
+updated: 2026-07-22
 ---
 
 # CogSecSkills — Ideal State Artifact

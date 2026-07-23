@@ -252,7 +252,8 @@ def test_release_manifest_records_provenance_surfaces():
     assert "Apache-2.0" in text
     assert "Source revision" in text
     assert "Verification Gates" in text
-    assert "Archive DOI | unavailable" in text
+    assert "Archive DOI" in text
+    assert "unavailable" in text
 
 
 def test_manuscript_docs_include_release_manifest_and_full_figure_set():

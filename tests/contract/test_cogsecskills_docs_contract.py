@@ -240,9 +240,11 @@ def test_todo_forward_backlog_has_expected_next_lanes():
     for heading in (
         "Verified State",
         "Ongoing Guardrails",
-        "Deferred: Empirical Evaluation",
-        "Deferred: Live Connector Integrations",
-        "Deferred: External Publication/DOI",
+        "Minor: Coverage Polish",
+        "Minor: CI Hardening",
+        "Medium: Manuscript Refresh",
+        "Major: Empirical Evaluation",
+        "Major: Live Connector Integrations",
     ):
         assert heading in todo
     assert "expected answers checked" in todo
