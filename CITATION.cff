@@ -1,4 +1,4 @@
-cff-version: 1.5.0
+cff-version: 1.6.0
 message: If you use this software, please cite it using the metadata from this file.
 title: "CogSecSkills: Multiharness Agentic Skills for Cognitive Security"
 abstract: >-
@@ -16,7 +16,7 @@ authors:
 repository-code: https://github.com/docxology/CogSecSkills
 license: Apache-2.0
 doi: 10.5281/zenodo.20804585
-version: 1.5.0
+version: 1.6.0
 date-released: '2026-07-22'
 identifiers:
   - type: doi

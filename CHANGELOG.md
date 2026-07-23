@@ -23,6 +23,31 @@ First archived public release.
   citations or code spans) for clean archive and citation metadata.
 - Sharpened section titles across the manuscript.
 
+## [1.6.0] - 2026-07-22
+
+Coverage push to 98.21%, deep edge-case branch tests across all modules.
+
+### Added
+
+- **28 new tests** covering validate.py (`ValidationResult.warn`, `error`,
+  `_safe_declared_path` absolute/parent-escape rejection), release_metadata
+  (`_read_yaml`/`_read_json` non-mapping, license mismatch), examples
+  (not-in-registry, repeated-titles, operational-misuse, missing/stale
+  generated files), scenarios (route no-match), definitions
+  (`load_definitions` missing-id/duplicate, specificity fallbacks), author
+  (`_slug`, `_require`, `_list_field` fallback, `_quality_list`,
+  `render_definition`/`rendered_definition_files` non-mapping), insights
+  (doctor few-anti-criteria, empty-quality-field, missing-unsafe-redirect),
+  assets_io (missing cover mirror), evals (stale source only).
+
+### Changed
+
+- Coverage: 97.60% -> 98.21%, tests: 819 -> 847.
+- insights.py: 97.52% -> 99.65%.
+- examples.py: 95.73% -> 97.65%+.
+- scenarios.py: 96.63% -> 97%+.
+- validate.py: 95.79% -> 96.26%+.
+
 ## [1.5.0] - 2026-07-22
 
 Final coverage push to 97.60%, doctor quality-finding tests, assets_io drift tests.

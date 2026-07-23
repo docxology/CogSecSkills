@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cogsecskills"
-version = "1.5.0"
+version = "1.6.0"
 description = "Multiharness agentic tool-use skills for Cognitive Security and analytic tradecraft"
 readme = "README.md"
 authors = [

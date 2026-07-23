@@ -29,5 +29,5 @@
   "license": "https://spdx.org/licenses/Apache-2.0",
   "name": "CogSecSkills: Multiharness Agentic Skills for Cognitive Security",
   "programmingLanguage": "Python",
-  "version": "1.5.0"
+  "version": "1.6.0"
 }
