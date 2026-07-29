@@ -31,7 +31,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 def test_validation_result_warn():
     """ValidationResult.warn should append a warning-severity issue."""
-    from cogsecskills.quality.validate import ValidationResult, SEVERITY_WARNING
+    from cogsecskills.quality.validate import SEVERITY_WARNING, ValidationResult
 
     result = ValidationResult()
     result.warn("sat.demo", "test warning")
@@ -42,7 +42,7 @@ def test_validation_result_warn():
 
 def test_validation_result_error():
     """ValidationResult.error should append an error-severity issue."""
-    from cogsecskills.quality.validate import ValidationResult, SEVERITY_ERROR
+    from cogsecskills.quality.validate import SEVERITY_ERROR, ValidationResult
 
     result = ValidationResult()
     result.error("sat.demo", "test error")
@@ -53,7 +53,7 @@ def test_validation_result_error():
 
 def test_safe_declared_path_rejects_absolute():
     """_safe_declared_path should reject absolute paths."""
-    from cogsecskills.quality.validate import _safe_declared_path, ValidationResult
+    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
 
     result = ValidationResult()
     path = _safe_declared_path(Path("/tmp"), "/etc/passwd", result, "sat.demo", "test")
@@ -63,7 +63,7 @@ def test_safe_declared_path_rejects_absolute():
 
 def test_safe_declared_path_rejects_parent_escape():
     """_safe_declared_path should reject paths with .."""
-    from cogsecskills.quality.validate import _safe_declared_path, ValidationResult
+    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
 
     result = ValidationResult()
     path = _safe_declared_path(
@@ -75,7 +75,7 @@ def test_safe_declared_path_rejects_parent_escape():
 
 def test_safe_declared_path_accepts_valid():
     """_safe_declared_path should accept a valid relative path."""
-    from cogsecskills.quality.validate import _safe_declared_path, ValidationResult
+    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
 
     result = ValidationResult()
     path = _safe_declared_path(
@@ -132,11 +132,11 @@ def test_release_findings_pyproject_license_mismatch(tmp_path):
 def test_examples_not_in_registry(tmp_path):
     """Example for a skill not in the registry should be flagged."""
     from cogsecskills.artifacts.examples import (
+        EXAMPLES_SOURCE_PATH,
         _content_findings,
         load_examples,
         write_examples,
     )
-    from cogsecskills.artifacts.examples import EXAMPLES_SOURCE_PATH
 
     for d in ("registry", "skills", "examples"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
@@ -153,11 +153,11 @@ def test_examples_not_in_registry(tmp_path):
 def test_examples_repeated_section_titles(tmp_path):
     """Example with repeated section titles should be flagged."""
     from cogsecskills.artifacts.examples import (
+        EXAMPLES_SOURCE_PATH,
         _content_findings,
         load_examples,
         write_examples,
     )
-    from cogsecskills.artifacts.examples import EXAMPLES_SOURCE_PATH
 
     for d in ("registry", "skills", "examples"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
@@ -176,11 +176,11 @@ def test_examples_repeated_section_titles(tmp_path):
 def test_examples_operational_misuse_in_text(tmp_path):
     """Example with operational misuse phrase should be flagged."""
     from cogsecskills.artifacts.examples import (
+        EXAMPLES_SOURCE_PATH,
         _content_findings,
         load_examples,
         write_examples,
     )
-    from cogsecskills.artifacts.examples import EXAMPLES_SOURCE_PATH
 
     for d in ("registry", "skills", "examples"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
@@ -197,9 +197,9 @@ def test_examples_operational_misuse_in_text(tmp_path):
 def test_examples_check_missing_generated_json(tmp_path):
     """check_examples should flag missing generated JSON file."""
     from cogsecskills.artifacts.examples import (
-        write_examples,
-        check_examples,
         EXAMPLES_JSON_PATH,
+        check_examples,
+        write_examples,
     )
 
     for d in ("registry", "skills", "examples"):
@@ -213,9 +213,9 @@ def test_examples_check_missing_generated_json(tmp_path):
 def test_examples_check_stale_generated_md(tmp_path):
     """check_examples should flag stale generated markdown."""
     from cogsecskills.artifacts.examples import (
-        write_examples,
-        check_examples,
         EXAMPLES_MD_PATH,
+        check_examples,
+        write_examples,
     )
 
     for d in ("registry", "skills", "examples"):
@@ -408,8 +408,8 @@ def test_author_rendered_definition_files_non_mapping(tmp_path):
 
 def test_doctor_finds_few_anti_criteria(tmp_path):
     """doctor should warn on skills with fewer than min_anti_criteria."""
-    from cogsecskills.quality.insights import doctor
     from cogsecskills.core.config import Config
+    from cogsecskills.quality.insights import doctor
 
     skills_dir = tmp_path / "skills" / "sat" / "demo"
     skills_dir.mkdir(parents=True)
@@ -518,15 +518,15 @@ def test_doctor_finds_missing_unsafe_redirect():
 def test_check_assets_missing_cover_mirror(tmp_path):
     """check_assets should flag a missing cover mirror."""
     from cogsecskills.artifacts.manuscript_assets.assets_io import check_assets
+    from cogsecskills.artifacts.manuscript_assets.figures import (
+        _PNG_SIGNATURE,
+        FIGURE_NAMES,
+    )
     from cogsecskills.artifacts.manuscript_assets.paths import (
         CATALOGUE_PATH,
-        MATRIX_PATH,
-        DATA_JSON_PATH,
         DATA_CSV_PATH,
-    )
-    from cogsecskills.artifacts.manuscript_assets.figures import (
-        FIGURE_NAMES,
-        _PNG_SIGNATURE,
+        DATA_JSON_PATH,
+        MATRIX_PATH,
     )
 
     (tmp_path / "registry").mkdir(parents=True, exist_ok=True)
@@ -550,7 +550,7 @@ def test_check_assets_missing_cover_mirror(tmp_path):
 
 def test_check_evals_stale_source_only(tmp_path):
     """check_evals should flag a stale offline evaluation source."""
-    from cogsecskills.artifacts.evals import write_evals, check_evals, EVALS_SOURCE_PATH
+    from cogsecskills.artifacts.evals import EVALS_SOURCE_PATH, check_evals, write_evals
 
     for d in ("registry", "skills", "scenarios"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)

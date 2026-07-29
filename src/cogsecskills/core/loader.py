@@ -11,10 +11,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from cogsecskills.core.locate import project_root
-
 import yaml
 
+from cogsecskills.core.locate import project_root
 from cogsecskills.core.spec import SkillSpec, SpecError
 
 #: Filename that marks a directory as a skill.

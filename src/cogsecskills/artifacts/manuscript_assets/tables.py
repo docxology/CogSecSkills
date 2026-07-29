@@ -11,9 +11,9 @@ import csv
 import io
 import json
 from collections import Counter, defaultdict
+from collections.abc import Iterable
 from dataclasses import asdict
 from pathlib import Path
-from typing import Iterable
 
 from cogsecskills.core.spec import ToolVerb
 

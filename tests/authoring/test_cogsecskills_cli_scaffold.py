@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
+from cogsecskills.authoring.scaffold import scaffold_skill
 from cogsecskills.cli import main
 from cogsecskills.core.loader import load_skill
-from cogsecskills.authoring.scaffold import scaffold_skill
 from cogsecskills.core.spec import SpecError
 from cogsecskills.quality.validate import validate_skill
 

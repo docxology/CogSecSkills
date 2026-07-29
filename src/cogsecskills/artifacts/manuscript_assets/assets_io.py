@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .figures import FIGURE_NAMES, _PNG_SIGNATURE, write_figures
+from .figures import _PNG_SIGNATURE, FIGURE_NAMES, write_figures
 from .paths import (
     CATALOGUE_PATH,
     COVER_IMAGE_MIRROR_PATH,

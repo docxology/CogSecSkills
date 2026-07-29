@@ -2,15 +2,15 @@ from __future__ import annotations
 
 import json
 import subprocess
-import tomllib
+from collections.abc import Mapping
 from pathlib import Path
+from typing import Any, Literal, TypedDict
 
-from cogsecskills.core.locate import resolve_root
-from typing import Any, Literal, Mapping, TypedDict
-
+import tomllib
 import yaml
 
 from cogsecskills.artifacts.manuscript_assets import FIGURE_NAMES
+from cogsecskills.core.locate import resolve_root
 
 RELEASE_MD_PATH = Path("docs/release-claim-matrix.md")
 RELEASE_JSON_PATH = Path("output/data/release_metadata.json")

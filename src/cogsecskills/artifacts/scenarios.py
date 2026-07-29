@@ -9,18 +9,18 @@ metadata needed by an agent harness.
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
-
-from cogsecskills.core.locate import resolve_root
-from typing import Any, Iterable, Mapping, TypedDict
+from typing import Any, TypedDict
 
 import yaml
 
-from cogsecskills.quality.insights import route_query
 from cogsecskills.core.loader import discover_skills, skills_root
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.registry import load_registry
 from cogsecskills.core.spec import SkillSpec
+from cogsecskills.quality.insights import route_query
 
 SCENARIOS_DIRNAME = "scenarios"
 SCENARIO_FILENAME = "defensive_readiness.yaml"

@@ -14,9 +14,10 @@ message rather than producing a half-built object.
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Mapping, Sequence
+from typing import Any
 
 #: Lifecycle status of a skill within the library.
 SKILL_STATUSES: tuple[str, ...] = ("implemented", "stub", "planned")
@@ -46,7 +47,7 @@ class ToolVerb(str, Enum):
     ASK = "ask"
 
     @classmethod
-    def coerce(cls, value: object) -> "ToolVerb":
+    def coerce(cls, value: object) -> ToolVerb:
         """Return the :class:`ToolVerb` for ``value`` or raise :class:`SpecError`."""
         if isinstance(value, ToolVerb):
             return value
@@ -69,7 +70,7 @@ class SkillTool:
     purpose: str
 
     @classmethod
-    def from_obj(cls, obj: Any) -> "SkillTool":
+    def from_obj(cls, obj: Any) -> SkillTool:
         if not isinstance(obj, Mapping):
             raise SpecError(f"tool entry must be a mapping, got {type(obj).__name__}")
         if "verb" not in obj:
@@ -90,7 +91,7 @@ class SkillIO:
     description: str = ""
 
     @classmethod
-    def from_obj(cls, obj: Any) -> "SkillIO":
+    def from_obj(cls, obj: Any) -> SkillIO:
         if not isinstance(obj, Mapping):
             raise SpecError(f"io entry must be a mapping, got {type(obj).__name__}")
         name = str(obj.get("name", "")).strip()
@@ -171,7 +172,7 @@ class SkillSpec:
 
     # --- construction -----------------------------------------------------
     @classmethod
-    def from_mapping(cls, data: Any) -> "SkillSpec":
+    def from_mapping(cls, data: Any) -> SkillSpec:
         """Build a :class:`SkillSpec` from a parsed ``skill.yaml`` mapping."""
         if not isinstance(data, Mapping):
             raise SpecError(

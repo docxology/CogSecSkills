@@ -5,7 +5,6 @@ from __future__ import annotations
 import struct
 from pathlib import Path
 
-from cogsecskills.authoring.author import render_definition
 from cogsecskills.artifacts.manuscript_assets import (
     CATALOGUE_PATH,
     COVER_COMMAND_SIZE,
@@ -23,7 +22,7 @@ from cogsecskills.artifacts.manuscript_assets import (
     render_skill_catalogue,
     write_assets,
 )
-
+from cogsecskills.authoring.author import render_definition
 
 EXPECTED_FIGURES = (
     "cogsecskills_taxonomy_counts.png",

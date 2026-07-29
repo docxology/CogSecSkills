@@ -15,10 +15,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from cogsecskills.core.locate import project_root
-
 import yaml
 
+from cogsecskills.core.locate import project_root
 from cogsecskills.core.spec import SKILL_STATUSES, SpecError
 
 
@@ -48,7 +47,7 @@ class RegistryEntry:
     ageint_topic: str = ""
 
     @classmethod
-    def from_obj(cls, obj: object) -> "RegistryEntry":
+    def from_obj(cls, obj: object) -> RegistryEntry:
         if not isinstance(obj, dict):
             raise SpecError(
                 f"registry entry must be a mapping, got {type(obj).__name__}"

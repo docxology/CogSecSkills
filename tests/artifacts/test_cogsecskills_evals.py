@@ -8,7 +8,6 @@ import yaml
 
 from cogsecskills.artifacts.evals import check_evals, load_evaluations, write_evals
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 

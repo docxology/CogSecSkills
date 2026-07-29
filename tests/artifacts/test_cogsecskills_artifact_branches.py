@@ -17,11 +17,11 @@ import yaml
 
 from cogsecskills.artifacts.evals import (
     EVALS_SOURCE_PATH,
+    _review_from_obj,
     check_evals,
     write_evals,
 )
 from cogsecskills.artifacts.evals import _section_from_obj as _eval_section_from_obj
-from cogsecskills.artifacts.evals import _review_from_obj
 from cogsecskills.artifacts.examples import (
     EXAMPLES_SOURCE_PATH,
     _example_from_obj,

@@ -5,8 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 
 from cogsecskills.core.harness import (
-    HARNESSES,
     HARNESS_VERB_SUPPORT,
+    HARNESSES,
     check_conformance,
     is_multiharness,
 )

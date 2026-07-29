@@ -14,7 +14,6 @@ from cogsecskills.artifacts.examples import (
     write_examples,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 

@@ -7,12 +7,11 @@ from pathlib import Path
 
 import yaml
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MANUSCRIPT = PROJECT_ROOT / "manuscript"
 
 
-BIB_KEY_RE = re.compile(r"^@(?!comment\b)\w+\s*\{\s*([^,\s]+)\s*,", re.M)
+BIB_KEY_RE = re.compile(r"^@(?!comment\b)\w+\s*\{\s*([^,\s]+)\s*,", re.MULTILINE)
 CITATION_BLOCK_RE = re.compile(r"\[[^\]]*@[^]]+\]")
 CITATION_KEY_RE = re.compile(r"@([A-Za-z][A-Za-z0-9_:-]*)")
 
@@ -154,7 +153,7 @@ def test_manuscript_h1_inventory_is_informative_and_stable():
     seen: list[tuple[str, str, str]] = []
     for filename, _, _ in EXPECTED_MANUSCRIPT_H1S:
         text = _read(MANUSCRIPT / filename)
-        match = re.search(r"^#\s+(.+?)\s+\{#([^}]+)\}", text, re.M)
+        match = re.search(r"^#\s+(.+?)\s+\{#([^}]+)\}", text, re.MULTILINE)
         assert match, filename
         seen.append((filename, match.group(1), match.group(2)))
     assert tuple(seen) == EXPECTED_MANUSCRIPT_H1S
@@ -226,7 +225,7 @@ def test_formalism_uses_labeled_equations_without_inline_math_hazards():
         assert "\\texttt{" not in text
         assert not (set(text) & raw_math_symbols)
         for match in re.finditer(
-            r"\\begin\{equation\}(.*?)\\end\{equation\}", text, re.S
+            r"\\begin\{equation\}(.*?)\\end\{equation\}", text, re.DOTALL
         ):
             assert "\\label{" in match.group(1)
 

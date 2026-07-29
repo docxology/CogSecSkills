@@ -14,6 +14,7 @@ from pathlib import Path
 import pytest
 
 from cogsecskills.artifacts.manuscript_assets.figures import (
+    _PNG_SIGNATURE,
     COLOR_FAMILIES,
     FIGURE_DPI,
     FIGURE_NAMES,
@@ -23,7 +24,6 @@ from cogsecskills.artifacts.manuscript_assets.figures import (
     GROUP_EDGE_COLORS,
     GROUP_LIGHT_COLORS,
     TOKENS,
-    _PNG_SIGNATURE,
     _color_for,
     _edge_for,
     _group_short,
@@ -381,11 +381,11 @@ def test_write_figures_generates_all_pngs(tmp_path):
 
 def test_write_figures_cover_mirror_created(tmp_path):
     """write_figures should also mirror the cover image."""
-    from cogsecskills.artifacts.manuscript_assets.rows import collect_skill_rows
     from cogsecskills.artifacts.manuscript_assets.paths import (
         COVER_IMAGE_MIRROR_PATH,
         COVER_IMAGE_NAME,
     )
+    from cogsecskills.artifacts.manuscript_assets.rows import collect_skill_rows
 
     rows = collect_skill_rows(PROJECT_ROOT)
     write_figures(rows, tmp_path)

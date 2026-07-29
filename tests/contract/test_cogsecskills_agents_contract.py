@@ -3,9 +3,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from cogsecskills.cli import build_parser
 from cogsecskills.artifacts.manuscript_assets import GENERATED_HEADER
-
+from cogsecskills.cli import build_parser
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 

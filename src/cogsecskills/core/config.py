@@ -25,11 +25,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from cogsecskills.core.locate import resolve_root
-
 import yaml
 
 from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.locate import resolve_root
 
 CONFIG_FILENAME = "cogsecskills.yaml"
 
@@ -44,7 +43,7 @@ class Config:
     require_references: bool = False
 
     @classmethod
-    def defaults(cls) -> "Config":
+    def defaults(cls) -> Config:
         return cls()
 
 

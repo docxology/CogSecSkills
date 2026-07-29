@@ -8,18 +8,9 @@ and checks that the rendered skill files match those definitions.
 
 from __future__ import annotations
 
-from collections import defaultdict
 import re
+from collections import defaultdict
 from pathlib import Path
-
-from cogsecskills.core.locate import resolve_root
-from cogsecskills.core.quality_constants import (
-    ALLOWED_SHARED_QUALITY_ITEMS,
-    GENERIC_NEGATIVE_CONTROL_PHRASES,
-    QUALITY_SPECIFICITY_FIELDS,
-    REUSED_QUALITY_FIELDS,
-    normalize_quality_item,
-)
 from typing import TypedDict
 
 import yaml
@@ -33,6 +24,14 @@ from cogsecskills.authoring.author import (
     rendered_definition_files,
 )
 from cogsecskills.core.loader import discover_skills, skills_root
+from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.quality_constants import (
+    ALLOWED_SHARED_QUALITY_ITEMS,
+    GENERIC_NEGATIVE_CONTROL_PHRASES,
+    QUALITY_SPECIFICITY_FIELDS,
+    REUSED_QUALITY_FIELDS,
+    normalize_quality_item,
+)
 from cogsecskills.core.registry import RegistryEntry, load_registry
 from cogsecskills.core.spec import SkillSpec, SpecError, ToolVerb
 
@@ -99,7 +98,7 @@ def load_definitions(root: Path | None = None) -> dict[str, dict]:
 def _heading_body(text: str, heading: str) -> str:
     pattern = re.compile(
         rf"^##\s+{re.escape(heading)}\s*$\n(?P<body>.*?)(?=^##\s+|\Z)",
-        re.M | re.S,
+        re.MULTILINE | re.DOTALL,
     )
     match = pattern.search(text)
     return match.group("body").strip() if match else ""
@@ -114,7 +113,7 @@ def _workflow_steps(text: str) -> list[dict[str, object]]:
     pattern = re.compile(
         r"^## Step (?P<num>\d+) [—-] (?P<title>.*?) \((?P<verbs>[^)]*)\)\s*$\n"
         r"(?P<body>.*?)(?=^##\s+|\Z)",
-        re.M | re.S,
+        re.MULTILINE | re.DOTALL,
     )
     steps: list[dict[str, object]] = []
     for match in pattern.finditer(text):

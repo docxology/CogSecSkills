@@ -9,14 +9,13 @@ _definitions_for_write missing-entry path.
 
 from __future__ import annotations
 
-
 from cogsecskills.authoring.definitions import (
     _field_or_default,
-    definition_from_skill,
     check_definitions,
+    definition_from_skill,
 )
-from cogsecskills.core.spec import SkillSpec, ToolVerb
 from cogsecskills.core.registry import RegistryEntry
+from cogsecskills.core.spec import SkillSpec, ToolVerb
 
 
 def _make_spec(

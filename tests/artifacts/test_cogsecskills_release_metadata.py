@@ -12,7 +12,6 @@ from cogsecskills.artifacts.release_metadata import (
     write_release_metadata,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 

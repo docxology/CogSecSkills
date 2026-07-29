@@ -23,7 +23,6 @@ from cogsecskills.authoring.definitions import (
     load_definitions,
 )
 from cogsecskills.core.harness import HARNESSES, check_conformance
-from cogsecskills.quality.insights import GENERIC_NEGATIVE_CONTROL_PHRASES
 from cogsecskills.core.loader import (
     SPEC_FILENAME,
     discover_skills,
@@ -32,6 +31,7 @@ from cogsecskills.core.loader import (
     skills_root,
 )
 from cogsecskills.core.registry import load_registry
+from cogsecskills.quality.insights import GENERIC_NEGATIVE_CONTROL_PHRASES
 from cogsecskills.quality.validate import validate_library
 
 #: The real project root (this file lives at <root>/tests/).
@@ -234,7 +234,9 @@ def test_workflow_step_verbs_are_declared(spec):
     workflow = (directory / spec.workflow).read_text(encoding="utf-8")
     declared = {verb.value for verb in spec.verbs}
     used: set[str] = set()
-    for match in re.finditer(r"^## Step \d+ [—-] .*?\(([^)]*)\)", workflow, re.M):
+    for match in re.finditer(
+        r"^## Step \d+ [—-] .*?\(([^)]*)\)", workflow, re.MULTILINE
+    ):
         used.update(part.strip() for part in match.group(1).split(",") if part.strip())
     assert used, f"{spec.id}: no tagged workflow step verbs"
     assert used <= declared, (

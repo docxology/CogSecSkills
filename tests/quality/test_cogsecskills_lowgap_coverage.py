@@ -9,13 +9,12 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_rows_group_title_fallback():
     """rows.py line 123: _group_title with group_id not in rows."""
-    from cogsecskills.artifacts.manuscript_assets.rows import _group_title, SkillRow
+    from cogsecskills.artifacts.manuscript_assets.rows import SkillRow, _group_title
 
     rows = [
         SkillRow(
@@ -54,7 +53,7 @@ def test_tables_latex_escape_backslash():
 
 def test_evals_check_missing_generated_json(tmp_path):
     """evals.py lines 386-387: check_evals missing generated JSON file."""
-    from cogsecskills.artifacts.evals import write_evals, check_evals, EVALS_JSON_PATH
+    from cogsecskills.artifacts.evals import EVALS_JSON_PATH, check_evals, write_evals
 
     for d in ("registry", "skills", "scenarios"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)

@@ -187,9 +187,9 @@ def test_cli_author_batch_renders_and_reports(tmp_path, capsys):
 
 
 def test_cli_author_accepts_yaml_definition(tmp_path, capsys):
-    from cogsecskills.cli import main
-
     import yaml
+
+    from cogsecskills.cli import main
 
     _seed_registry(tmp_path)
     def_path = tmp_path / "def.yaml"

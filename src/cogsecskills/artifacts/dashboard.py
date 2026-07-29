@@ -10,19 +10,18 @@ from __future__ import annotations
 import json
 from html import escape
 from pathlib import Path
-
-from cogsecskills.core.locate import resolve_root
 from typing import TypedDict
 
 from cogsecskills.artifacts.evals import load_evaluations
 from cogsecskills.artifacts.examples import load_examples
 from cogsecskills.artifacts.manuscript_assets import SkillRow, collect_skill_rows
-from cogsecskills.core.registry import load_registry
 from cogsecskills.artifacts.scenarios import (
     SCENARIO_KINDS,
     load_scenarios,
     scenario_summary,
 )
+from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.registry import load_registry
 
 DASHBOARD_MD_PATH = Path("docs/quality-dashboard.md")
 DASHBOARD_HTML_PATH = Path("docs/quality-dashboard.html")

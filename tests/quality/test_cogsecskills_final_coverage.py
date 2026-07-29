@@ -12,7 +12,6 @@ import yaml
 
 from cogsecskills.core.spec import SkillSpec, SkillTool, ToolVerb
 
-
 # --- validate.py: _adapter_bound_verbs OSError, conformance_report ---
 
 
@@ -101,8 +100,8 @@ def test_validate_skill_unsupported_verbs(tmp_path):
 
 def test_doctor_finds_few_workflow_steps(tmp_path):
     """doctor should warn on skills with fewer than min_workflow_steps."""
-    from cogsecskills.quality.insights import doctor
     from cogsecskills.core.config import Config
+    from cogsecskills.quality.insights import doctor
 
     skills_dir = tmp_path / "skills" / "sat" / "demo"
     skills_dir.mkdir(parents=True)
@@ -152,8 +151,8 @@ def test_doctor_finds_few_workflow_steps(tmp_path):
 
 def test_doctor_finds_missing_references(tmp_path):
     """doctor should warn on implemented skills with no references when require_references is True."""
-    from cogsecskills.quality.insights import doctor
     from cogsecskills.core.config import Config
+    from cogsecskills.quality.insights import doctor
 
     skills_dir = tmp_path / "skills" / "sat" / "demo"
     skills_dir.mkdir(parents=True)
@@ -327,9 +326,9 @@ def test_check_assets_invalid_figure(tmp_path):
     from cogsecskills.artifacts.manuscript_assets.assets_io import check_assets
     from cogsecskills.artifacts.manuscript_assets.paths import (
         CATALOGUE_PATH,
-        MATRIX_PATH,
-        DATA_JSON_PATH,
         DATA_CSV_PATH,
+        DATA_JSON_PATH,
+        MATRIX_PATH,
     )
 
     (tmp_path / "registry").mkdir(parents=True, exist_ok=True)
@@ -344,9 +343,9 @@ def test_check_assets_invalid_figure(tmp_path):
     fig_dir = tmp_path / "output" / "figures"
     fig_dir.mkdir(parents=True)
     from cogsecskills.artifacts.manuscript_assets.figures import (
-        FIGURE_NAMES,
-        COVER_IMAGE_NAME,
         COVER_IMAGE_MIRROR_PATH,
+        COVER_IMAGE_NAME,
+        FIGURE_NAMES,
     )
 
     for name in FIGURE_NAMES:
@@ -370,10 +369,10 @@ def test_check_assets_stale_cover_mirror(tmp_path):
     from cogsecskills.artifacts.manuscript_assets.assets_io import check_assets
     from cogsecskills.artifacts.manuscript_assets.paths import (
         CATALOGUE_PATH,
-        MATRIX_PATH,
-        DATA_JSON_PATH,
-        DATA_CSV_PATH,
         COVER_IMAGE_MIRROR_PATH,
+        DATA_CSV_PATH,
+        DATA_JSON_PATH,
+        MATRIX_PATH,
     )
 
     (tmp_path / "registry").mkdir(parents=True, exist_ok=True)
@@ -388,8 +387,8 @@ def test_check_assets_stale_cover_mirror(tmp_path):
     fig_dir = tmp_path / "output" / "figures"
     fig_dir.mkdir(parents=True)
     from cogsecskills.artifacts.manuscript_assets.figures import (
-        FIGURE_NAMES,
         _PNG_SIGNATURE,
+        FIGURE_NAMES,
     )
 
     for name in FIGURE_NAMES:
@@ -415,9 +414,9 @@ def test_check_evals_stale_source_and_generated(tmp_path):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
 
     from cogsecskills.artifacts.evals import (
-        write_evals,
-        check_evals,
         EVALS_MD_PATH,
+        check_evals,
+        write_evals,
     )
 
     write_evals(tmp_path)

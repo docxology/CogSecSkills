@@ -7,9 +7,12 @@ import shutil
 from copy import deepcopy
 from pathlib import Path
 
-from cogsecskills.artifacts.dashboard import _dashboard_payload, _payload_findings
-from cogsecskills.artifacts.dashboard import check_dashboard, write_dashboard
-
+from cogsecskills.artifacts.dashboard import (
+    _dashboard_payload,
+    _payload_findings,
+    check_dashboard,
+    write_dashboard,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 

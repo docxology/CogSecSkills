@@ -7,9 +7,10 @@ the table and figure renderers.
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, TypedDict
+from typing import TypedDict
 
 from cogsecskills.core.loader import discover_skills
 from cogsecskills.core.registry import load_registry

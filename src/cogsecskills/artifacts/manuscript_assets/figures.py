@@ -504,8 +504,8 @@ def _write_taxonomy_counts(rows: list[SkillRow], figures_dir: Path) -> Path:
 
 
 def _write_skill_grid(rows: list[SkillRow], figures_dir: Path) -> Path:
-    import matplotlib.patches as patches
     import matplotlib.pyplot as plt
+    from matplotlib import patches
 
     fig, ax = plt.subplots(figsize=FIGURE_SIZES["skill_grid"])
     for index, row in enumerate(rows):
@@ -755,9 +755,9 @@ def _write_verb_heatmap(rows: list[SkillRow], figures_dir: Path) -> Path:
 
 
 def _write_ageint_network(rows: list[SkillRow], figures_dir: Path) -> Path:
-    import matplotlib.patches as patches
-    from matplotlib.path import Path as MplPath
     import matplotlib.pyplot as plt
+    from matplotlib import patches
+    from matplotlib.path import Path as MplPath
 
     edge_counts = Counter((row.group, row.ageint_topic) for row in rows)
     groups = _group_ids(rows)
@@ -920,8 +920,8 @@ def _write_ageint_network(rows: list[SkillRow], figures_dir: Path) -> Path:
 
 
 def _write_plan_build_teach_flow(figures_dir: Path) -> Path:
-    import matplotlib.patches as patches
     import matplotlib.pyplot as plt
+    from matplotlib import patches
 
     fig, ax = plt.subplots(figsize=FIGURE_SIZES["plan_build_teach_flow"])
     columns = [
@@ -1132,8 +1132,8 @@ def _write_reference_density(rows: list[SkillRow], figures_dir: Path) -> Path:
 
 
 def _write_harness_contract(rows: list[SkillRow], figures_dir: Path) -> Path:
-    import matplotlib.patches as patches
     import matplotlib.pyplot as plt
+    from matplotlib import patches
 
     groups = _group_ids(rows)
     harnesses = tuple(
@@ -1271,8 +1271,8 @@ def _write_harness_contract(rows: list[SkillRow], figures_dir: Path) -> Path:
 def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     import textwrap
 
-    import matplotlib.patches as patches
     import matplotlib.pyplot as plt
+    from matplotlib import patches
 
     fig, ax = plt.subplots(figsize=FIGURE_SIZES["cover_installation"])
     fig.subplots_adjust(left=0.006, right=0.994, top=0.992, bottom=0.015)

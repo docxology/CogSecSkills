@@ -6,14 +6,14 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.authoring.author import render_definition
-from cogsecskills.core.registry import load_registry
 from cogsecskills.artifacts.scenarios import (
     SCENARIO_KINDS,
     check_scenarios,
     load_scenarios,
     scenario_summary,
 )
+from cogsecskills.authoring.author import render_definition
+from cogsecskills.core.registry import load_registry
 
 
 def _seed(root: Path) -> None:
