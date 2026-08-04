@@ -36,7 +36,7 @@ If a request asks Evidence Grading to cherry-pick sources, fabricate citations, 
 
 ## Confidence and uncertainty
 
-- High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the composite weights are computed multiplicatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.
+- High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the two axes are combined conservatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.
 - Medium for Evidence Grading: the graded evidence table is plausible, but one important analytic question source, comparison case, or alternative explanation remains incomplete.
 - Low for Evidence Grading: the graded evidence table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Evidence Grading cannot determine from the supplied or authorized evidence.
@@ -65,6 +65,6 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 ## Key discipline
 
 - quality and relevance are independent axes — grade them separately before combining
-- high relevance cannot compensate for low quality; they multiply, not add
+- high relevance cannot compensate for low quality — combine the two axes conservatively so that a low quality grade constrains the composite regardless of relevance, rather than treating relevance as offsetting quality
 - document the reasoning for each grade so a second analyst can reproduce or challenge it
 - gaps and absences in evidence are themselves data points that belong in the graded table

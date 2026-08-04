@@ -95,8 +95,7 @@ confidence_rubric:
   for the number — and no unresolved contradiction would change the combined grade
   or the bound it places on downstream use.'
 - 'Medium for Source Credibility Evaluation: the reliability grade is plausible, but
-  one important source source, comparison case, or alternative explanation remains
-  incomplete.'
+  one important source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source,
   contested, or mostly inferential evidence; keep the result provisional and list
   the next check.'

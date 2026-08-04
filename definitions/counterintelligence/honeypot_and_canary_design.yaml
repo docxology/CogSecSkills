@@ -123,6 +123,12 @@ anti_criteria:
   environments without policy and legal clearance can create liability
 - Do not treat a triggered canary as conclusive attribution without corroborating
   evidence — a beacon callback confirms access, not necessarily identity
+- Do not design decoy credentials that could authenticate against any real system,
+  tenant, or service — decoy credentials must be inert and sandboxed with no backend
+  access
+- Do not design decoy accounts whose purpose is to solicit or induce disclosure from
+  real individuals; decoys are for detecting probing of your own assets, not for entrapping
+  people
 defensive_boundary: 'Use Honeypot & Canary Design only for counterintelligence and
   analytic-process defense: recognize, assess, document, or defend analytic teams,
   collection processes, and institutional trust boundaries. Do not use this skill

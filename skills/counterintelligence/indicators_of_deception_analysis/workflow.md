@@ -8,13 +8,13 @@ Read the evidence corpus and source profile in full. Articulate the baseline exp
 ## Step 2 — Apply MOM — Motive, Opportunity, Means (reason)
 Assess whether an adversary plausibly has the motive to deceive on this topic (what would they gain?), the opportunity (do they have access to the collection channels being used?), and the means (resources, agents-in-place, or technical capabilities to inject false or manipulated information). Record conclusions per element with supporting evidence.
 
-## Step 3 — Apply POP — Potential indicators of deception (reason)
-Survey the evidence for anomalies against baseline: reporting that is suspiciously timely, unusually confirming of key judgments, internally consistent in ways that real intelligence rarely is, lacking supporting details that would naturally accompany genuine access, or delivered through channels the adversary could influence.
+## Step 3 — Apply POP — Past Opposition Practices (reason)
+Review what is known about the opponent's track record: have they practiced deception against this type of target or through these channels before? Draw on historical precedent and past cases where the opponent is documented to have denied, concealed, or fabricated to shape analytic conclusions.
 
-## Step 4 — Apply MOSES — Manipulation, Omission, Selective emphasis, Exaggeration (reason)
-Examine the reporting for evidence that information has been deliberately manipulated (altered facts), selectively omitted (what is conspicuously absent?), selectively emphasized (what receives disproportionate weight?), or exaggerated (claims exceed what the source's access could plausibly support).
+## Step 4 — Apply MOSES — Manipulability of Sources (reason)
+Assess how much control the adversary could exert over each source and channel that produced the evidence: is a source an agent-in-place, a penetrated reporting channel, or a relay for adversary-fed information? A source the adversary can access or influence is more manipulable, raising the deception risk it carries.
 
-## Step 5 — Apply EVE — Evidence, Validation, Evaluation (reason)
+## Step 5 — Apply EVE — Evaluation of Evidence (reason)
 Evaluate the evidence that exists for or against a deception hypothesis. What corroborating or contradicting information is available from independent channels? What validation checks are possible (technical, liaison, physical)? Assign an overall deception-likelihood rating: Low / Moderate / High / Inconclusive.
 
 ## Step 6 — Produce deception assessment report (write)

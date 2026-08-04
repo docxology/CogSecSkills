@@ -6,7 +6,7 @@ Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see
 Record the precise claim the media is being used to support: what event, where, and when. Extract any available metadata (EXIF, platform-assigned creation date). Note the publishing account and platform. These baseline facts anchor the triage so each check has a specific claim to test against.
 
 ## Step 2 — Run reverse-image and archive search (web)
-Submit the image or keyframes to reverse-image search engines (Google Images, TinEye, Yandex Images) and media-specific databases (InVID/WeVerify, PimEyes if person-centric). Record all earlier appearances. If the image predates the claimed event or appears in a clearly different context, flag as likely reuse or context collapse.
+Submit the image or keyframes to reverse-image search engines (Google Images, TinEye, Yandex Images) and media-verification databases (InVID/WeVerify). Do not run person-identification or facial-recognition lookups against an individual — that crosses the anti-doxxing boundary in this skill's defensive constraints. Record all earlier appearances. If the image predates the claimed event or appears in a clearly different context, flag as likely reuse or context collapse.
 
 ## Step 3 — Apply editing and context triage (reason)
 Assess editing artifacts: examine compression consistency across image regions (ELA heuristic), look for cloning, inconsistent shadow direction or lighting, mismatched depth of field, or inconsistent noise grain. For video, check for frame-rate anomalies or audio sync errors. Separately assess plausibility: does the vegetation, weather, building style, or crowd clothing match the claimed time and place? Flag any inconsistency as a red flag.

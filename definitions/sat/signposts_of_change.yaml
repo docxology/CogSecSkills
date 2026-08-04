@@ -62,8 +62,8 @@ outputs:
   description: rules for revising scenario probabilities when signposts fire or remain
     absent; includes absence-of-evidence handling and re-evaluation triggers
 references:
-- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter on Signposts of Change.
+- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter on Signposts of Change.
 - Heuer, R. J. & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis (2nd ed.). CQ Press.
 - 'Grabo, C. M. (2004). Anticipating Surprise: Analysis for Strategic Warning. Joint

@@ -59,14 +59,20 @@ references:
 when_to_use:
 - Someone asks "how reliable is this source?" or "can I trust this report?"
 - A claim needs a defensible, auditable credibility rating before it is acted on.
-- You need to distinguish a trustworthy outlet carrying an uncorroborated rumor
+- You need to distinguish a trustworthy outlet carrying an uncorroborated rumor from
+  an unreliable outlet reporting a corroborated fact.
 what_it_produces:
-- A **source-reliability letter (A–F)** with justification grounded in
-- An **information-credibility number (1–6)** with justification grounded in
-- A combined grade (e.g. `B2`) and an explicit statement of how that grade
+- A **source-reliability letter (A–F)** with justification grounded in proximity,
+  track record, motive, and independence.
+- An **information-credibility number (1–6)** with justification grounded in independent
+  confirmation, plausibility, and consistency with known facts.
+- A combined grade (e.g. `B2`) and an explicit statement of how that grade constrains
+  downstream use.
 key_discipline:
-- The **letter** judges the *source* — its history, position, and incentives —
-- The **number** judges *this specific claim* — whether independent evidence
+- The **letter** judges the *source* — its history, position, access, and incentives
+  — independent of this specific claim.
+- The **number** judges *this specific claim* — whether independent evidence confirms,
+  contradicts, or is absent for it.
 workflow_steps:
 - verbs:
   - read
@@ -111,10 +117,14 @@ workflow_steps:
   text: Translate the combined grade into practical constraints, including whether
     the claim can be used, requires more corroboration, or should be withheld.
 anti_criteria:
-- Do **not** conflate source reliability with claim credibility — never collapse
-- Do **not** let prestige, fame, or authority substitute for corroboration of
-- Do **not** assign **A1** without genuine independent confirmation — A1
-- Do **not** treat repetition or re-syndication of the same originating claim as
+- Do **not** conflate source reliability with claim credibility — never collapse the
+  letter into the number or vice versa.
+- Do **not** let prestige, fame, or authority substitute for corroboration of the
+  specific claim.
+- Do **not** assign **A1** without genuine independent confirmation — A1 requires
+  confirmation by other sources and cannot rest on a single report or repetition.
+- Do **not** treat repetition or re-syndication of the same originating claim as independent
+  confirmation.
 defensive_boundary: 'Use Source Credibility Evaluation only for cognitive-security
   defense: recognize, assess, document, or defend audiences, decision-makers, and
   public discourse. Do not use this skill to increase persuasive impact, exploit audience
@@ -142,8 +152,7 @@ confidence_rubric:
   for the number — and no unresolved contradiction would change the combined grade
   or the bound it places on downstream use.'
 - 'Medium for Source Credibility Evaluation: the reliability grade is plausible, but
-  one important source source, comparison case, or alternative explanation remains
-  incomplete.'
+  one important source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source,
   contested, or mostly inferential evidence; keep the result provisional and list
   the next check.'

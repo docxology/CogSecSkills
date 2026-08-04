@@ -66,8 +66,8 @@ references:
   European Journalism Centre.
 - First Draft News (2019). Visual Verification Guide. firstdraftnews.org.
 - Farid, H. (2022). Photo Forensics. MIT Press.
-- Kee, E. & Farid, H. (2010). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
-  on Information Forensics and Security, 6(4).
+- Farid, H. (2009). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
+  on Information Forensics and Security, 4(1), 154-160.
 defensive_boundary: 'Use Image & Media Forensics Triage only for OSINT integrity and
   source-verification defense: recognize, assess, document, or defend source provenance,
   privacy, chain of custody, and public-source accountability. Do not use this skill

@@ -39,8 +39,8 @@ If a request asks Bot & Automation Detection to amplify coordinated behavior, tu
 ## Confidence and uncertainty
 
 - High for Bot & Automation Detection: the per-account classifications and the aggregate inauthentic-amplification estimate each rest on converging behavioral, temporal, network, and linguistic signals corroborated by independent platform observations and reputation lookups, the classifications stay stable when any single signal is removed, and no unresolved contradiction would change the authenticity conclusion.
-- Medium for Bot & Automation Detection: the account classifications is plausible, but one important account data source, comparison case, or alternative explanation remains incomplete.
-- Low for Bot & Automation Detection: the account classifications rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- Medium for Bot & Automation Detection: the account classifications are plausible, but one important account data source, comparison case, or alternative explanation remains incomplete.
+- Low for Bot & Automation Detection: the account classifications rest on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Bot & Automation Detection cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
 - Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.

@@ -20,7 +20,7 @@ Combine quality and relevance grades into a composite weight for each item. Aggr
 - Before recommending any Evidence Grading action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the composite weights are computed multiplicatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.
+- High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the two axes are combined conservatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.
 - Medium for Evidence Grading: the graded evidence table is plausible, but one important analytic question source, comparison case, or alternative explanation remains incomplete.
 - Low for Evidence Grading: the graded evidence table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Evidence Grading cannot determine from the supplied or authorized evidence.

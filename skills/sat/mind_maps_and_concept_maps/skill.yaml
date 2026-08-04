@@ -42,9 +42,10 @@ inputs:
     concepts and relationships are to be mapped
 - name: central_topic
   type: text
-  required: true
-  description: The focal concept or question that anchors the map (e.g., 'influence
-    operation targeting election narrative')
+  required: false
+  description: The focal concept or question that anchors the map in mind-map mode
+    (e.g., 'influence operation targeting election narrative'); a concept map need
+    not have a single central node
 - name: map_type
   type: text
   required: false

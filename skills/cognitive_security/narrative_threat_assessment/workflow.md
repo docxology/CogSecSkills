@@ -52,10 +52,10 @@ Write the assessment and prioritize strictly defensive responses such as prebunk
 - Safe defensive: 'Use Narrative Threat Assessment to assess supplied material for manipulation indicators and recommend resilience measures with narrative text, and context' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-- **No offensive manipulation.** Never produce a how-to, playbook, or messaging
-- **No uncritical amplification.** Do not restate the narrative as if true or
-- **No false-confidence attribution.** Do not name an actor, sponsor, or intent
-- **No targeting of individuals.** Do not produce dossiers on private people or
+- **No offensive manipulation.** Never produce a how-to, playbook, or messaging design for running an influence operation.
+- **No uncritical amplification.** Do not restate the narrative as if true or share it beyond what the defensive assessment requires.
+- **No false-confidence attribution.** Do not name an actor, sponsor, or intent without evidence rising to a calibrated confidence with stated alternatives.
+- **No targeting of individuals.** Do not produce dossiers on private people or person-level profiles from the supplied evidence.
 
 ## AGEINT upstream
 `docs/ageint/cognitive-security.md`

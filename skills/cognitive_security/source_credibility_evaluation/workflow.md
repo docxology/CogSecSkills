@@ -30,7 +30,7 @@ Translate the combined grade into practical constraints, including whether the c
 
 ## Confidence and uncertainty
 - High for Source Credibility Evaluation: the source-reliability letter and the information-credibility number are each justified by distinct evidence — proximity, track record, motive, and independence for the letter; independent confirmation, plausibility, and consistency for the number — and no unresolved contradiction would change the combined grade or the bound it places on downstream use.
-- Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source source, comparison case, or alternative explanation remains incomplete.
+- Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source, comparison case, or alternative explanation remains incomplete.
 - Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Credibility Evaluation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
@@ -52,10 +52,10 @@ Translate the combined grade into practical constraints, including whether the c
 - Safe defensive: 'Use Source Credibility Evaluation to assess supplied material for manipulation indicators and recommend resilience measures with source, claim, and corroboration' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-- Do **not** conflate source reliability with claim credibility — never collapse
-- Do **not** let prestige, fame, or authority substitute for corroboration of
-- Do **not** assign **A1** without genuine independent confirmation — A1
-- Do **not** treat repetition or re-syndication of the same originating claim as
+- Do **not** conflate source reliability with claim credibility — never collapse the letter into the number or vice versa.
+- Do **not** let prestige, fame, or authority substitute for corroboration of the specific claim.
+- Do **not** assign **A1** without genuine independent confirmation — A1 requires confirmation by other sources and cannot rest on a single report or repetition.
+- Do **not** treat repetition or re-syndication of the same originating claim as independent confirmation.
 
 ## AGEINT upstream
 `docs/ageint/cognitive-security.md`

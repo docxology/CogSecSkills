@@ -144,8 +144,7 @@ confidence_rubric:
   as its own row with collector and timestamp, and no unresolved gap or contradiction
   would change the conclusion that the chain is unbroken.'
 - 'Medium for Chain-of-Custody Documentation: the custody log is plausible, but one
-  important evidence items source, comparison case, or alternative explanation remains
-  incomplete.'
+  important evidence source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Chain-of-Custody Documentation: the custody log rests on sparse, single-source,
   contested, or mostly inferential evidence; keep the result provisional and list
   the next check.'

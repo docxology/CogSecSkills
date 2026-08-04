@@ -37,7 +37,7 @@ If a request asks Chain-of-Custody Documentation to dox, deanonymize, harass, by
 ## Confidence and uncertainty
 
 - High for Chain-of-Custody Documentation: every artifact carries an original-capture SHA-256 hash a third party can independently re-verify, each handling event is logged as its own row with collector and timestamp, and no unresolved gap or contradiction would change the conclusion that the chain is unbroken.
-- Medium for Chain-of-Custody Documentation: the custody log is plausible, but one important evidence items source, comparison case, or alternative explanation remains incomplete.
+- Medium for Chain-of-Custody Documentation: the custody log is plausible, but one important evidence source, comparison case, or alternative explanation remains incomplete.
 - Low for Chain-of-Custody Documentation: the custody log rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Chain-of-Custody Documentation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.

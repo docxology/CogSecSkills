@@ -66,7 +66,7 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- Betweenness centrality identifies the accounts most critical to cross-community information flow — targeting or countering them has disproportionate effect
+- Betweenness centrality flags the nodes structurally most central to cross-community flow — treat them as high-value hypotheses for closer scrutiny, not as confirmed levers whose removal or countering will necessarily blunt spread
 - Velocity curves reveal injection events: sudden acceleration often marks amplification by a high-follower account or coordinated boost
-- Cross-community bridges are the most dangerous propagation points — content that crosses ideological clusters becomes harder to contain
+- Cross-community bridges are potentially high-impact propagation points — content that crosses ideological clusters can be harder to contain, though structural centrality alone is not proof of causal influence on spread
 - Network topology changes over time; snapshot analyses miss dynamic rewiring that happens during active operations

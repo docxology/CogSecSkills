@@ -5,7 +5,7 @@ description: Profile an adversary's methods, patterns, and signatures to anticip
 
 # Adversary Tradecraft Profiling
 
-Adversary tradecraft profiling systematically characterizes the methods, patterns, tools, and operational signatures an adversary habitually employs across known operations. Drawn from counterintelligence practice, it converts scattered incident data into a durable behavioral model that enables anticipation of future moves, attribution of ambiguous incidents, and identification of gaps the adversary exploits. The technique applies structured elicitation across the TTPS (Tactics, Techniques, Procedures, and Signatures) framework to distinguish stable behavioral fingerprints from adaptive camouflage.
+Adversary tradecraft profiling systematically characterizes the methods, patterns, tools, and operational signatures an adversary habitually employs across known operations. Drawn from counterintelligence practice, it converts scattered incident data into a durable behavioral model that enables anticipation of future moves, attribution of ambiguous incidents, and identification of gaps the adversary exploits. The technique applies structured elicitation across the TTPS (Tactics, Techniques, and Procedures, extended with observable signatures) framework to distinguish stable behavioral fingerprints from adaptive camouflage.
 
 ## When to use
 

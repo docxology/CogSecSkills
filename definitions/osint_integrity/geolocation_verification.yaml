@@ -73,8 +73,10 @@ key_discipline:
   constrains the search space before general landscape features
 - never anchor to the claimed location first; start landmark-agnostic and let features
   converge
-- shadow angle and vegetation season are independent physical constraints — a mismatched
-  shadow falsifies the claimed date as strongly as it falsifies the location
+- shadow angle and vegetation season are independent physical constraints — a shadow
+  inconsistent with the claimed date/time or location is a strong disconfirming signal
+  that must be reconciled (possible tampering, wrong time, or wrong place), but it
+  is not by itself a standalone falsifier of either the date or the location
 - document every reference source and feature match so the conclusion is reproducible
 workflow_steps:
 - verbs:

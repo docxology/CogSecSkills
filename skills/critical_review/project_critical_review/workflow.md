@@ -117,7 +117,7 @@ Lead with the bottom line. Emit, in order:
 - Letting the constructive pass soften, merge away, or bury a critical finding.
 - Trusting a self-reported "all passing" without running the gate yourself.
 - Reporting a gate as a safeguard without checking it fails on an injected defect.
-- Conflating severity with confidence (e.g. downgrading a critical risk just
+- Conflating severity with confidence (e.g. downgrading a critical risk just because it is low-confidence).
 
 ## AGEINT upstream
 `docs/ageint/adversarial-assurance.md`

@@ -64,10 +64,10 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter: Outside-In Thinking.'
-- Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
-  CQ Press.
+- 'Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter: Outside-In Thinking.'
+- Pherson, K. H., & Pherson, R. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). SAGE/CQ Press.
 - Fahey, L., & Narayanan, V. K. (1986). Macroenvironmental Analysis for Strategic
   Management. West Publishing.
 defensive_boundary: 'Use Outside-In Thinking only for structured analytic technique

@@ -39,8 +39,8 @@ If a request asks Coordinated Inauthentic Behavior Detection to amplify coordina
 ## Confidence and uncertainty
 
 - High for Coordinated Inauthentic Behavior Detection: each coordination cluster is grounded in convergence across at least two independent dimensions of timing, content reuse, and network topology, cross-referenced against prior takedown reporting, the cluster boundaries hold when the co-activity window is varied, and no unresolved contradiction would change the manufactured-versus-organic-consensus conclusion.
-- Medium for Coordinated Inauthentic Behavior Detection: the coordination clusters is plausible, but one important account activity dataset source, comparison case, or alternative explanation remains incomplete.
-- Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
+- Medium for Coordinated Inauthentic Behavior Detection: the coordination clusters are plausible, but one important account activity dataset source, comparison case, or alternative explanation remains incomplete.
+- Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rest on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Coordinated Inauthentic Behavior Detection cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
 - Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.

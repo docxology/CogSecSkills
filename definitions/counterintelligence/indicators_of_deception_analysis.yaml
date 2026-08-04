@@ -2,11 +2,12 @@ id: counterintelligence.indicators_of_deception_analysis
 description: Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE
   analytical framework to a body of evidence to assess whether an adversary may be
   conducting an active denial-and-deception (D&D) operation. MOM evaluates Motive,
-  Opportunity, and Means; POP identifies Potential indicators of deception based on
-  evidence anomalies; MOSES checks Manipulation, Omission, Selective emphasis, and
-  Exaggeration patterns; and EVE applies Evidence, Validation, and Evaluation criteria.
-  The combined framework converts an otherwise intuitive 'something seems off' judgment
-  into a structured, documentable deception-hypothesis test.
+  Opportunity, and Means; POP checks the opponent's Past Opposition Practices (their
+  historical track record of deception against this type of target); MOSES assesses
+  the Manipulability of Sources feeding the analysis; and EVE applies an overall Evaluation
+  of Evidence given the deception risk surfaced by the prior components. The combined
+  framework converts an otherwise intuitive 'something seems off' judgment into a
+  structured, documentable deception-hypothesis test.
 tags:
 - cognitive-security
 - counterintelligence
@@ -73,11 +74,11 @@ when_to_use:
 what_it_produces:
 - 'A MOM checklist result: whether the adversary has motive, opportunity, and means
   to conduct deception targeting this intelligence'
-- 'A POP result: specific evidence anomalies that deviate from baseline expectations
-  and could indicate manipulation'
-- 'A MOSES result: identification of patterns suggesting deliberate manipulation,
-  omission, selective emphasis, or exaggeration'
-- 'An EVE result: assessment of whether available evidence supports or contradicts
+- 'A POP result: assessment of whether the opponent has a history of deception against
+  this type of target or via these channels'
+- 'A MOSES result: assessment of how manipulable the sources and channels feeding
+  the analysis are — how much control the adversary could exert over them'
+- 'An EVE result: holistic evaluation of whether available evidence supports or contradicts
   a deception hypothesis, with a confidence rating'
 - Recommended collection and analytic responses to test the deception hypothesis
 key_discipline:
@@ -106,21 +107,21 @@ workflow_steps:
     element with supporting evidence.
 - verbs:
   - reason
-  title: Apply POP — Potential indicators of deception
-  text: 'Survey the evidence for anomalies against baseline: reporting that is suspiciously
-    timely, unusually confirming of key judgments, internally consistent in ways that
-    real intelligence rarely is, lacking supporting details that would naturally accompany
-    genuine access, or delivered through channels the adversary could influence.'
+  title: Apply POP — Past Opposition Practices
+  text: 'Review what is known about the opponent''s track record: have they practiced
+    deception against this type of target or through these channels before? Draw on
+    historical precedent and past cases where the opponent is documented to have denied,
+    concealed, or fabricated to shape analytic conclusions.'
 - verbs:
   - reason
-  title: Apply MOSES — Manipulation, Omission, Selective emphasis, Exaggeration
-  text: Examine the reporting for evidence that information has been deliberately
-    manipulated (altered facts), selectively omitted (what is conspicuously absent?),
-    selectively emphasized (what receives disproportionate weight?), or exaggerated
-    (claims exceed what the source's access could plausibly support).
+  title: Apply MOSES — Manipulability of Sources
+  text: 'Assess how much control the adversary could exert over each source and channel
+    that produced the evidence: is a source an agent-in-place, a penetrated reporting
+    channel, or a relay for adversary-fed information? A source the adversary can
+    access or influence is more manipulable, raising the deception risk it carries.'
 - verbs:
   - reason
-  title: Apply EVE — Evidence, Validation, Evaluation
+  title: Apply EVE — Evaluation of Evidence
   text: 'Evaluate the evidence that exists for or against a deception hypothesis.
     What corroborating or contradicting information is available from independent
     channels? What validation checks are possible (technical, liaison, physical)?

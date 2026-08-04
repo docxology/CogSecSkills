@@ -51,11 +51,11 @@ outputs:
   description: Assessment of where the current draft or outline fails to align with
     one or more AIMS parameters, with specific revision recommendations
 references:
-- Pherson, R. H., & Heuer, R. J. (2021). Critical Thinking for Strategic Intelligence,
+- Pherson, R. H., & Heuer, R. J. (2020). Critical Thinking for Strategic Intelligence,
   3rd ed. CQ Press.
 - 'Pherson, K. H., & Pherson, R. H. (2012). Critical Thinking for Strategic Intelligence.
   CQ Press. (Chapter: AIMS Checklist)'
-- 'Office of the Director of National Intelligence. (2015). A Tradecraft Primer: Structured
+- 'Office of the Director of National Intelligence. (2009). A Tradecraft Primer: Structured
   Analytic Techniques for Improving Intelligence Analysis. ODNI.'
 when_to_use:
 - before drafting any intelligence product to ensure it is scoped to the decision-maker's

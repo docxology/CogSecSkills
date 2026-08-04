@@ -49,10 +49,10 @@ State whether the consensus survived intact, survived with caveats, or failed, t
 - Safe defensive: 'Use Devil's Advocacy to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with consensus judgment, and evidence base' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-- **No straw man.** The counter-case must be the strongest real case against the
-- **No contrarianism for its own sake.** The exercise tests robustness; it is
-- **No suppression of the result.** If the consensus fails the challenge, report
-- **No collapsing of evidence categories.** Do not treat merely-assumed or
+- **No straw man.** The counter-case must be the strongest real case against the consensus, not a weakened caricature.
+- **No contrarianism for its own sake.** The exercise tests robustness; it is not a performance of disagreement.
+- **No suppression of the result.** If the consensus fails the challenge, report that honestly — suppressing the verdict defeats the exercise.
+- **No collapsing of evidence categories.** Do not treat merely-assumed or single-sourced items as confirmed evidence.
 
 ## AGEINT upstream
 `docs/ageint/structured-analytic-techniques.md`

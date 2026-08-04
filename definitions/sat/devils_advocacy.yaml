@@ -52,16 +52,28 @@ outputs:
 references:
 - Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis.
 when_to_use:
-- A consensus or lead judgment has formed quickly, with little dissent, and you
-- A high-stakes judgment rests on a small number of key assumptions that have
-- Group dynamics, hierarchy, or momentum may be suppressing legitimate
-- You need to surface what new collection or evidence would actually resolve a
+- A consensus or lead judgment has formed quickly, with little dissent, and you need
+  to test whether it is robust or merely comfortable.
+- A high-stakes judgment rests on a small number of key assumptions that have not
+  been seriously challenged.
+- Group dynamics, hierarchy, or momentum may be suppressing legitimate dissent or
+  alternative interpretations.
+- You need to surface what new collection or evidence would actually resolve a genuine
+  analytic dispute.
 what_it_produces:
-- A restatement of the consensus and the explicit assumptions and evidence it
-- The strongest good-faith counter-case a capable adversary-analyst would mount,
-- 'A robustness verdict: did the consensus survive the challenge, partially'
+- A restatement of the consensus and the explicit assumptions and evidence it rests
+  on.
+- The strongest good-faith counter-case a capable adversary-analyst would mount, with
+  its supporting evidence and reasoning.
+- A robustness verdict: did the consensus survive the challenge whole, with caveats,
+    or not at all, plus the new collection that would resolve the dispute.
 key_discipline:
-- bind every finding to evidence and defensive use
+- Mount the strongest real principled counter-case, not a straw man — the test only
+  works if the challenge is credible.
+- Challenge for robustness, not contrarianism — the goal is to test whether the consensus
+  holds, not to win.
+- Report the verdict honestly — if the consensus fails the challenge, say so and name
+  the collection that would resolve the dispute.
 workflow_steps:
 - verbs:
   - read
@@ -98,10 +110,14 @@ workflow_steps:
   text: State whether the consensus survived intact, survived with caveats, or failed,
     then name the evidence that would resolve the dispute.
 anti_criteria:
-- '**No straw man.** The counter-case must be the strongest real case against the'
-- '**No contrarianism for its own sake.** The exercise tests robustness; it is'
-- '**No suppression of the result.** If the consensus fails the challenge, report'
-- '**No collapsing of evidence categories.** Do not treat merely-assumed or'
+- '**No straw man.** The counter-case must be the strongest real case against the
+  consensus, not a weakened caricature.'
+- '**No contrarianism for its own sake.** The exercise tests robustness; it is not
+  a performance of disagreement.'
+- '**No suppression of the result.** If the consensus fails the challenge, report
+  that honestly — suppressing the verdict defeats the exercise.'
+- '**No collapsing of evidence categories.** Do not treat merely-assumed or single-sourced
+  items as confirmed evidence.'
 defensive_boundary: 'Use Devil''s Advocacy only for structured analytic technique
   support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
   and calibrated judgment. Do not use this skill to force a preferred conclusion,

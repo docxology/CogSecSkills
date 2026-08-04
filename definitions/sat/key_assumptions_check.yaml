@@ -54,9 +54,11 @@ references:
 - Heuer & Pherson (2014). Structured Analytic Techniques for Intelligence Analysis.
 when_to_use:
 - Before finalizing a high-stakes estimate, attribution, or recommendation.
-- When a conclusion feels obvious or comfortable — comfort is where unstated
+- When a conclusion feels obvious or comfortable — comfort is where unstated assumptions
+  hide.
 - When the situation has changed and old assumptions may no longer hold.
-- As a precondition to other techniques (it pairs naturally with ACH and
+- As a precondition to other techniques (it pairs naturally with ACH and Key Assumptions
+  Check).
 what_it_produces:
 - every stated and unstated assumption with rationale, contrary conditions, and confidence
   class
@@ -64,10 +66,14 @@ what_it_produces:
 - the conclusion rewritten to expose its dependence on key assumptions, plus collection
   that would test them
 key_discipline:
-- '**Hunt the unstated.** The assumptions that matter most are usually the ones'
-- '**No free passes for comfort.** An assumption is not "solid" because it is'
-- '**Load-bearing × uncertain = key.** A shaky assumption that nothing depends on'
-- '**Expose the dependence.** A judgment that hides its assumptions overstates its'
+- '**Hunt the unstated.** The assumptions that matter most are usually the ones no
+  one wrote down.'
+- '**No free passes for comfort.** An assumption is not "solid" because it is familiar
+  or comfortable; solidity must be earned with evidence.'
+- '**Load-bearing × uncertain = key.** A shaky assumption that nothing depends on
+  is annoying, not dangerous; flag only the intersection.'
+- '**Expose the dependence.** A judgment that hides its assumptions overstates its
+  certainty — rewrite it so the dependence is visible.'
 workflow_steps:
 - verbs:
   - read
@@ -146,7 +152,8 @@ workflow_steps:
 anti_criteria:
 - Letting an unstated assumption pass unexamined because no one named it.
 - Marking a comfortable or convenient assumption "solid" without evidence.
-- Flagging every assumption as "key" — the value is in discriminating the few
+- Flagging every assumption as "key" — the value is in discriminating the few that
+  are load-bearing and uncertain.
 - Reporting the original judgment unchanged, hiding its dependence on assumptions.
 defensive_boundary: 'Use Key Assumptions Check only for structured analytic technique
   support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,

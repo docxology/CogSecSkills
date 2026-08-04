@@ -11,15 +11,15 @@ Takes a public claim and traces it upstream through the chain of republication t
 
 - Someone asks "is this true?" about a circulating statistic, quote, or report.
 - A claim is widely repeated but you cannot tell where it actually came from.
-- You suspect circular reporting — many outlets that all trace back to one
+- You suspect circular reporting — many outlets that all trace back to one unverified origin.
 - A claim seems to have drifted in scope from what a study or document said.
 
 ## What it produces
 
-- A **provenance chain**: an ordered list of sources from the point of
-- A **circular-reporting assessment**: whether the chain converges on a single
-- A **primary-source assessment**: whether the origin actually states the claim,
-- A **verdict**: verified / partially verified / unverified / false /
+- A **provenance chain**: an ordered list of sources from the point of encounter back to the origin, with links and timestamps.
+- A **circular-reporting assessment**: whether the chain converges on a single unverified origin.
+- A **primary-source assessment**: whether the origin actually states the claim, and with what scope.
+- A **verdict**: verified / partially verified / unverified / false / unverifiable, with confidence and the single weakest link.
 
 ## Defensive boundary
 
@@ -65,6 +65,6 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- **Circular reporting is not corroboration.** Ten outlets that all cite the
-- **Independence is the test.** Corroboration only counts when it comes from a
-- **Scope drift must be flagged.** Claims mutate as they are retold: a finding
+- **Circular reporting is not corroboration.** Ten outlets that all cite one another back to a single unverified origin still constitute a single source, not independent confirmation.
+- **Independence is the test.** Corroboration only counts when it comes from a genuinely distinct origin, not from the same reporting chain or wire copy.
+- **Scope drift must be flagged.** Claims mutate as they are retold: a finding about a specific population, time, or margin is frequently restated as a universal, unconditional fact.

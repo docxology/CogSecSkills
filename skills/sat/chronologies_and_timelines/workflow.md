@@ -24,7 +24,7 @@ Emit the final chronology table with confidence ratings, the gap-and-anomaly rep
 
 ## Confidence and uncertainty
 - High for Chronologies & Timelines: each event carries an explicit date, actor, source, and confidence level, sourced facts are kept strictly separate from inferences, identified gaps and clustering are corroborated across independent streams, and no unresolved contradiction would change the timeline's bearing on the focal question.
-- Medium for Chronologies & Timelines: the chronology is plausible, but one important event sources source, comparison case, or alternative explanation remains incomplete.
+- Medium for Chronologies & Timelines: the chronology is plausible, but one important event source, comparison case, or alternative explanation remains incomplete.
 - Low for Chronologies & Timelines: the chronology rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Chronologies & Timelines cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.

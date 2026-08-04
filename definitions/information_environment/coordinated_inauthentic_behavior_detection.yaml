@@ -162,9 +162,9 @@ confidence_rubric:
   the cluster boundaries hold when the co-activity window is varied, and no unresolved
   contradiction would change the manufactured-versus-organic-consensus conclusion.'
 - 'Medium for Coordinated Inauthentic Behavior Detection: the coordination clusters
-  is plausible, but one important account activity dataset source, comparison case,
+  are plausible, but one important account activity dataset source, comparison case,
   or alternative explanation remains incomplete.'
-- 'Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rests
+- 'Low for Coordinated Inauthentic Behavior Detection: the coordination clusters rest
   on sparse, single-source, contested, or mostly inferential evidence; keep the result
   provisional and list the next check.'
 uncertainty_handling:

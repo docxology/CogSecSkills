@@ -139,10 +139,10 @@ confidence_rubric:
   network, and linguistic signals corroborated by independent platform observations
   and reputation lookups, the classifications stay stable when any single signal is
   removed, and no unresolved contradiction would change the authenticity conclusion.'
-- 'Medium for Bot & Automation Detection: the account classifications is plausible,
+- 'Medium for Bot & Automation Detection: the account classifications are plausible,
   but one important account data source, comparison case, or alternative explanation
   remains incomplete.'
-- 'Low for Bot & Automation Detection: the account classifications rests on sparse,
+- 'Low for Bot & Automation Detection: the account classifications rest on sparse,
   single-source, contested, or mostly inferential evidence; keep the result provisional
   and list the next check.'
 uncertainty_handling:

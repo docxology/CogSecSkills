@@ -38,7 +38,7 @@ If a request asks Argument Mapping to force a preferred conclusion, hide uncerta
 ## Confidence and uncertainty
 
 - High for Argument Mapping: every claim in the map traces to an evidence leaf or an explicitly marked assumption, the descriptive mapping faithfully represents the source argument, the ranked load-bearing assumptions are corroborated independently, and no unresolved contradiction would change which nodes are judged most brittle.
-- Medium for Argument Mapping: the argument map is plausible, but one important argument source source, comparison case, or alternative explanation remains incomplete.
+- Medium for Argument Mapping: the argument map is plausible, but one important argument source, comparison case, or alternative explanation remains incomplete.
 - Low for Argument Mapping: the argument map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Argument Mapping cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.

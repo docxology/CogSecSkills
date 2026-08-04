@@ -55,10 +55,8 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter 3.
-- Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (4th ed.). SAGE/CQ Press.
+- Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter 5 (Sorting).
 defensive_boundary: 'Use Sorting only for structured analytic technique support: recognize,
   assess, document, or defend analytic rigor, alternative hypotheses, and calibrated
   judgment. Do not use this skill to force a preferred conclusion, hide uncertainty,

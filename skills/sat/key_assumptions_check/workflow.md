@@ -82,7 +82,7 @@ Emit:
 ## Anti-criteria (must NOT happen)
 - Letting an unstated assumption pass unexamined because no one named it.
 - Marking a comfortable or convenient assumption "solid" without evidence.
-- Flagging every assumption as "key" — the value is in discriminating the few
+- Flagging every assumption as "key" — the value is in discriminating the few that are load-bearing and uncertain.
 - Reporting the original judgment unchanged, hiding its dependence on assumptions.
 
 ## AGEINT upstream

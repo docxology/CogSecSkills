@@ -60,8 +60,8 @@ outputs:
   description: identification of items whose rank would change most if key weights
     shifted; highlights where the ranking is fragile
 references:
-- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter on Ranking, Scoring, and Prioritizing.
+- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter on Ranking, Scoring, and Prioritizing.
 - Saaty, T. L. (1980). The Analytic Hierarchy Process. McGraw-Hill. (foundational
   pairwise-comparison method)
 when_to_use:

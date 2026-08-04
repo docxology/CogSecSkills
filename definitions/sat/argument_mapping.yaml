@@ -59,10 +59,10 @@ references:
 - Toulmin, S. (1958). The Uses of Argument. Cambridge University Press.
 - van Eemeren, F. H., & Grootendorst, R. (2004). A Systematic Theory of Argumentation.
   Cambridge University Press.
-- Pherson, R. H., & Pherson, K. H. (2021). Critical Thinking for Strategic Intelligence
-  (3rd ed.). CQ Press.
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press.
+- Pherson, K. H., & Pherson, R. H. (2020). Critical Thinking for Strategic Intelligence
+  (3rd ed.). SAGE/CQ Press.
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
+  Analysis (2nd ed.). CQ Press.
 - Ratcliffe, J. (2008). Intelligence-Led Policing. Willan Publishing. (Chapter on
   analytical reasoning structure)
 when_to_use:
@@ -171,7 +171,7 @@ confidence_rubric:
   source argument, the ranked load-bearing assumptions are corroborated independently,
   and no unresolved contradiction would change which nodes are judged most brittle.'
 - 'Medium for Argument Mapping: the argument map is plausible, but one important argument
-  source source, comparison case, or alternative explanation remains incomplete.'
+  source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Argument Mapping: the argument map rests on sparse, single-source, contested,
   or mostly inferential evidence; keep the result provisional and list the next check.'
 uncertainty_handling:

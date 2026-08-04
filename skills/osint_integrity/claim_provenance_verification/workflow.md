@@ -55,10 +55,10 @@ Grade the claim, state confidence, and name the single weakest link most respons
 - Safe defensive: 'Use Claim Provenance Verification to verify supplied claims, media, sources, or datasets with documented public-source methods with claim, and starting sources' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Anti-criteria (must NOT happen)
-- **Do not treat volume of repetition as corroboration.** N outlets citing one
-- **Do not stop at a secondary source that merely cites another secondary.**
-- **Do not collapse scope silently.** If the claim drifted from the primary
-- **Do not count derivative sources as independent.** Shared wire copy, shared
+- **Do not treat volume of repetition as corroboration.** N outlets citing one unverified origin still constitute a single source.
+- **Do not stop at a secondary source that merely cites another secondary.** Trace to the origin or a documented dead end.
+- **Do not collapse scope silently.** If the claim drifted from the primary source, flag the drift explicitly.
+- **Do not count derivative sources as independent.** Shared wire copy, shared press releases, or re-syndications are one source, not several.
 - **Do not issue a verdict without naming the single weakest link.**
 
 ## AGEINT upstream

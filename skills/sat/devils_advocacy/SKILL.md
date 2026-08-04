@@ -9,16 +9,16 @@ Devil's Advocacy is a Heuer & Pherson challenge-analysis technique in which an a
 
 ## When to use
 
-- A consensus or lead judgment has formed quickly, with little dissent, and you
-- A high-stakes judgment rests on a small number of key assumptions that have
-- Group dynamics, hierarchy, or momentum may be suppressing legitimate
-- You need to surface what new collection or evidence would actually resolve a
+- A consensus or lead judgment has formed quickly, with little dissent, and you need to test whether it is robust or merely comfortable.
+- A high-stakes judgment rests on a small number of key assumptions that have not been seriously challenged.
+- Group dynamics, hierarchy, or momentum may be suppressing legitimate dissent or alternative interpretations.
+- You need to surface what new collection or evidence would actually resolve a genuine analytic dispute.
 
 ## What it produces
 
-- A restatement of the consensus and the explicit assumptions and evidence it
-- The strongest good-faith counter-case a capable adversary-analyst would mount,
-- A robustness verdict: did the consensus survive the challenge, partially
+- A restatement of the consensus and the explicit assumptions and evidence it rests on.
+- The strongest good-faith counter-case a capable adversary-analyst would mount, with its supporting evidence and reasoning.
+- {'A robustness verdict': 'did the consensus survive the challenge whole, with caveats, or not at all, plus the new collection that would resolve the dispute.'}
 
 ## Defensive boundary
 
@@ -64,4 +64,6 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- bind every finding to evidence and defensive use
+- Mount the strongest real principled counter-case, not a straw man — the test only works if the challenge is credible.
+- Challenge for robustness, not contrarianism — the goal is to test whether the consensus holds, not to win.
+- Report the verdict honestly — if the consensus fails the challenge, say so and name the collection that would resolve the dispute.

@@ -11,13 +11,13 @@ Evaluate an information source and a specific claim along two independent axes u
 
 - Someone asks "how reliable is this source?" or "can I trust this report?"
 - A claim needs a defensible, auditable credibility rating before it is acted on.
-- You need to distinguish a trustworthy outlet carrying an uncorroborated rumor
+- You need to distinguish a trustworthy outlet carrying an uncorroborated rumor from an unreliable outlet reporting a corroborated fact.
 
 ## What it produces
 
-- A **source-reliability letter (A–F)** with justification grounded in
-- An **information-credibility number (1–6)** with justification grounded in
-- A combined grade (e.g. `B2`) and an explicit statement of how that grade
+- A **source-reliability letter (A–F)** with justification grounded in proximity, track record, motive, and independence.
+- An **information-credibility number (1–6)** with justification grounded in independent confirmation, plausibility, and consistency with known facts.
+- A combined grade (e.g. `B2`) and an explicit statement of how that grade constrains downstream use.
 
 ## Defensive boundary
 
@@ -36,7 +36,7 @@ If a request asks Source Credibility Evaluation to increase persuasive impact, e
 ## Confidence and uncertainty
 
 - High for Source Credibility Evaluation: the source-reliability letter and the information-credibility number are each justified by distinct evidence — proximity, track record, motive, and independence for the letter; independent confirmation, plausibility, and consistency for the number — and no unresolved contradiction would change the combined grade or the bound it places on downstream use.
-- Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source source, comparison case, or alternative explanation remains incomplete.
+- Medium for Source Credibility Evaluation: the reliability grade is plausible, but one important source, comparison case, or alternative explanation remains incomplete.
 - Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Credibility Evaluation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
@@ -63,5 +63,5 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- The **letter** judges the *source* — its history, position, and incentives —
-- The **number** judges *this specific claim* — whether independent evidence
+- The **letter** judges the *source* — its history, position, access, and incentives — independent of this specific claim.
+- The **number** judges *this specific claim* — whether independent evidence confirms, contradicts, or is absent for it.

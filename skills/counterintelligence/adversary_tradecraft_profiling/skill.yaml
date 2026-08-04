@@ -11,8 +11,8 @@ description: Adversary tradecraft profiling systematically characterizes the met
   incident data into a durable behavioral model that enables anticipation of future
   moves, attribution of ambiguous incidents, and identification of gaps the adversary
   exploits. The technique applies structured elicitation across the TTPS (Tactics,
-  Techniques, Procedures, and Signatures) framework to distinguish stable behavioral
-  fingerprints from adaptive camouflage.
+  Techniques, and Procedures, extended with observable signatures) framework to distinguish
+  stable behavioral fingerprints from adaptive camouflage.
 ageint_topic: counterintelligence
 tags:
 - cognitive-security

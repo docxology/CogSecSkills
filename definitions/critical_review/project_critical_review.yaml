@@ -63,19 +63,27 @@ references:
 - Google SRE (2017). Site Reliability Engineering — testing reliability & 'is the
   test actually testing?'.
 when_to_use:
-- A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong
-- A project reports "all tests passing / everything works" and you need to know
-- You inherited a codebase, manuscript, or initiative and must form an honest
+- A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong call
+  would be costly.
+- A project reports "all tests passing / everything works" and you need to know whether
+  that claim is trustworthy.
+- You inherited a codebase, manuscript, or initiative and must form an honest assessment
+  of its readiness and risks.
 what_it_produces:
 - BLUF report with map, findings, strengths, and recommendation
 - each finding with severity, confidence, and evidence (file:line)
 - calibrated go/no-go plus the top three things to fix first
 key_discipline:
-- '**Bind every finding to evidence.** A claimed defect with no file:line or no'
-- '**Verify-the-verifier.** A green test suite that stays green when you inject a'
-- '**Calibrate severity and confidence separately.** Severity is "how bad if'
-- '**The constructive pass does not launder the critical pass.** Strengths are'
-- '**Distrust self-report.** "All passing" is a claim about a process; reproduce'
+- '**Bind every finding to evidence.** A claimed defect with no file:line or reproduced
+  output is not a finding.'
+- '**Verify-the-verifier.** A green test suite that stays green when you inject a
+  real defect is a vacuous gate — and that is a critical finding.'
+- '**Calibrate severity and confidence separately.** Severity is "how bad if true";
+  confidence is "how sure are we" — keep them independent.'
+- '**The constructive pass does not launder the critical pass.** Strengths are reported
+  in addition to, never instead of, the defects.'
+- '**Distrust self-report.** "All passing" is a claim about a process; reproduce the
+  run yourself before crediting it.'
 workflow_steps:
 - verbs:
   - read
@@ -166,7 +174,8 @@ anti_criteria:
 - Letting the constructive pass soften, merge away, or bury a critical finding.
 - Trusting a self-reported "all passing" without running the gate yourself.
 - Reporting a gate as a safeguard without checking it fails on an injected defect.
-- Conflating severity with confidence (e.g. downgrading a critical risk just
+- Conflating severity with confidence (e.g. downgrading a critical risk just because
+  it is low-confidence).
 defensive_boundary: 'Use Project Critical Review only for critical review and assurance:
   recognize, assess, document, or defend evidence quality, implementation integrity,
   and decision accountability. Do not use this skill to launder weak claims, fabricate

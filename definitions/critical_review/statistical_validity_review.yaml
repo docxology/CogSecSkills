@@ -103,12 +103,14 @@ workflow_steps:
 - verbs:
   - reason
   title: Audit power and multiple comparisons
-  text: 'Estimate whether the sample size was adequate for the effect size claimed
-    (use Cohen''s conventions or the study''s own domain norms). Count the number
-    of statistical tests performed (explicit and implicit through reported subgroup
-    comparisons) and assess whether the Type I error rate was controlled (Bonferroni,
-    FDR, or pre-registration). Flag any garden-of-forking-paths indicators: selective
-    reporting, undisclosed exclusions, outcome switching.'
+  text: 'Estimate whether the design was adequately powered a priori — what minimum
+    effect of interest could the sample detect at the stated alpha and target power,
+    and was that minimum pre-specified? Do not infer adequacy post hoc from the observed
+    or claimed effect size, which is circular. Count the number of statistical tests
+    performed (explicit and implicit through reported subgroup comparisons) and assess
+    whether the Type I error rate was controlled (Bonferroni, FDR, or pre-registration).
+    Flag any garden-of-forking-paths indicators: selective reporting, undisclosed
+    exclusions, outcome switching.'
 - verbs:
   - reason
   title: Check test appropriateness and assumption violations

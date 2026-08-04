@@ -62,7 +62,7 @@ references:
 - ExifTool Documentation. Harvey, P. (2003–present). exiftool.org.
 - Sammons, J. (2012). The Basics of Digital Forensics. Syngress.
 - First Draft News (2019). Visual Verification Guide, Chapter on Metadata. firstdraftnews.org.
-- Berghel, H. (2000). Hiding Data, Forensics, and Anti-Forensics. Communications of
+- Berghel, H. (2007). Hiding Data, Forensics, and Anti-Forensics. Communications of
   the ACM, 50(4).
 defensive_boundary: 'Use Metadata Integrity Check only for OSINT integrity and source-verification
   defense: recognize, assess, document, or defend source provenance, privacy, chain

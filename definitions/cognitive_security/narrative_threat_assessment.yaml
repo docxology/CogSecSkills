@@ -57,16 +57,28 @@ references:
   Behavior, Content, Degree, Effect), Carnegie Endowment / Partnership for Countering
   Influence Operations.
 - DISARM Foundation. DISARM Framework — Disinformation Analysis and Risk Management
-  (Red/Blue TTP matrices), https://disarmframework.herokuapp.com/
+  (Red/Blue TTP matrices). https://www.disarm.foundation/
 when_to_use:
-- A narrative is spreading and you need to know whether it is a cognitive threat,
-- You must brief a community, platform, or newsroom on a suspected influence
-- You want an accountable, evidence-bound read on provenance and likely intent
+- A narrative is spreading and you need to determine whether it is a cognitive threat.
+- You must brief a community, platform, or newsroom on a suspected influence operation.
+- You want an accountable, evidence-bound read on provenance and likely intent.
+- A defender needs to prioritize which narratives warrant prebunking or counter-framing.
 what_it_produces:
-- 'A **threat assessment** document covering: captured claims and framing; target'
-- A prioritized list of **defensive recommendations** — prebunking, lateral
+- A **threat assessment** document covering captured claims and framing, target audience
+  and levers, classified manipulation techniques, provenance and likely intent, reach,
+  harm rating, and urgency.
+- A prioritized list of **defensive recommendations** — prebunking, lateral-reading
+  prompts, and protective counter-framing.
 key_discipline:
-- bind every finding to evidence and defensive use
+- Bind every captured claim, identified lever, classified technique, and harm rating
+  to concrete evidence — a quoted passage, an observed source, a circulation timestamp,
+  or a prior debunk.
+- 'Keep the narrative as object of study, never restated as if true: label quotations
+  as material under assessment, not endorsement.'
+- Hold provenance and intent to calibrated confidence with explicit alternatives;
+  never name an actor, sponsor, or intent the evidence underdetermines.
+- 'Keep the assessment population-level and defensive: never target, profile, or produce
+  dossiers on individuals.'
 workflow_steps:
 - verbs:
   - read
@@ -108,10 +120,14 @@ workflow_steps:
   text: Write the assessment and prioritize strictly defensive responses such as prebunking,
     lateral-reading prompts, and protective counter-framing.
 anti_criteria:
-- '**No offensive manipulation.** Never produce a how-to, playbook, or messaging'
-- '**No uncritical amplification.** Do not restate the narrative as if true or'
-- '**No false-confidence attribution.** Do not name an actor, sponsor, or intent'
-- '**No targeting of individuals.** Do not produce dossiers on private people or'
+- '**No offensive manipulation.** Never produce a how-to, playbook, or messaging design
+  for running an influence operation.'
+- '**No uncritical amplification.** Do not restate the narrative as if true or share
+  it beyond what the defensive assessment requires.'
+- '**No false-confidence attribution.** Do not name an actor, sponsor, or intent without
+  evidence rising to a calibrated confidence with stated alternatives.'
+- '**No targeting of individuals.** Do not produce dossiers on private people or person-level
+  profiles from the supplied evidence.'
 defensive_boundary: 'Use Narrative Threat Assessment only for cognitive-security defense:
   recognize, assess, document, or defend audiences, decision-makers, and public discourse.
   Do not use this skill to increase persuasive impact, exploit audience vulnerabilities,

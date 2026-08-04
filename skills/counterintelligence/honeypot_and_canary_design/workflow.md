@@ -47,6 +47,8 @@ Write the full canary/honeypot design specification covering: decoy inventory wi
 - Do not design decoys whose triggering event could be caused by routine legitimate activity — false positives degrade trust in the alert system
 - Do not omit the legal review checklist — deploying honeypots in employee-accessible environments without policy and legal clearance can create liability
 - Do not treat a triggered canary as conclusive attribution without corroborating evidence — a beacon callback confirms access, not necessarily identity
+- Do not design decoy credentials that could authenticate against any real system, tenant, or service — decoy credentials must be inert and sandboxed with no backend access
+- Do not design decoy accounts whose purpose is to solicit or induce disclosure from real individuals; decoys are for detecting probing of your own assets, not for entrapping people
 
 ## AGEINT upstream
 `docs/ageint/counterintelligence.md`

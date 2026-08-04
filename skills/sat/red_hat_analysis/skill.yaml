@@ -72,10 +72,10 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter on Red Hat Analysis.
+- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter on Red Hat Analysis.
 - Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
-  Intelligence, CIA. Chapter 8 (mirror imaging).
+  Intelligence, CIA. Chapter 2 (Perception; mirror imaging).
 - Jervis, R. (1976). Perception and Misperception in International Politics. Princeton
   University Press.
 defensive_boundary: 'Use Red Hat Analysis only for structured analytic technique support:

@@ -7,11 +7,12 @@ summary: Apply the MOM/POP/MOSES/EVE deception-detection checklists to a body of
 description: Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE
   analytical framework to a body of evidence to assess whether an adversary may be
   conducting an active denial-and-deception (D&D) operation. MOM evaluates Motive,
-  Opportunity, and Means; POP identifies Potential indicators of deception based on
-  evidence anomalies; MOSES checks Manipulation, Omission, Selective emphasis, and
-  Exaggeration patterns; and EVE applies Evidence, Validation, and Evaluation criteria.
-  The combined framework converts an otherwise intuitive 'something seems off' judgment
-  into a structured, documentable deception-hypothesis test.
+  Opportunity, and Means; POP checks the opponent's Past Opposition Practices (their
+  historical track record of deception against this type of target); MOSES assesses
+  the Manipulability of Sources feeding the analysis; and EVE applies an overall Evaluation
+  of Evidence given the deception risk surfaced by the prior components. The combined
+  framework converts an otherwise intuitive 'something seems off' judgment into a
+  structured, documentable deception-hypothesis test.
 ageint_topic: counterintelligence
 tags:
 - cognitive-security

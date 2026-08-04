@@ -9,17 +9,15 @@ Turn a body of sources into a structured, evidence-graded, gap-aware briefing. T
 
 ## When to use
 
-- literature synthesis
-- synthesize these sources
-- what does the research say
-- grade the evidence
-- where are the gaps in the literature
-- structured review of sources
+- A decision or judgment needs to weigh a body of evidence, and a coherent, fully cited synthesis is required.
+- A team must reconcile apparently conflicting findings across many sources before acting.
+- A research question requires knowing what the literature supports, contradicts, or leaves unanswered.
+- A briefing or report must summarize a body of research with traceable claims and graded confidence.
 
 ## What it produces
 
-- A **BLUF synthesis briefing**: bottom line up front, then themes with graded
-- An **evidence table**: every extracted claim mapped to its source citation and
+- A **BLUF synthesis briefing**: bottom line up front, then themes with graded evidence, conflicts, gaps, and full citations.
+- An **evidence table**: every extracted claim mapped to its source citation and quality grade.
 - An explicit **gap inventory**: questions no source in the corpus answers.
 
 ## Defensive boundary
@@ -67,5 +65,5 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 ## Key discipline
 
 - **Traceability.** Every synthesized statement maps back to specific sources.
-- **Honest conflict.** When sources disagree, the disagreement is reported as a
-- **Evidence grading.** Each theme carries an explicit strength grade
+- **Honest conflict.** When sources disagree, the disagreement is reported as a first-class finding rather than smoothed over.
+- **Evidence grading.** Each theme carries an explicit strength grade so readers can weigh how certain the synthesis is.

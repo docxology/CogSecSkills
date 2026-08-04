@@ -54,8 +54,8 @@ references:
   European Journalism Centre.
 - First Draft News (2019). Visual Verification Guide. firstdraftnews.org.
 - Farid, H. (2022). Photo Forensics. MIT Press.
-- Kee, E. & Farid, H. (2010). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
-  on Information Forensics and Security, 6(4).
+- Farid, H. (2009). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
+  on Information Forensics and Security, 4(1), 154-160.
 when_to_use:
 - a piece of media is being considered as evidence before publishing, citing, or acting
   on a claim
@@ -95,10 +95,11 @@ workflow_steps:
   - web
   title: Run reverse-image and archive search
   text: Submit the image or keyframes to reverse-image search engines (Google Images,
-    TinEye, Yandex Images) and media-specific databases (InVID/WeVerify, PimEyes if
-    person-centric). Record all earlier appearances. If the image predates the claimed
-    event or appears in a clearly different context, flag as likely reuse or context
-    collapse.
+    TinEye, Yandex Images) and media-verification databases (InVID/WeVerify). Do not
+    run person-identification or facial-recognition lookups against an individual
+    — that crosses the anti-doxxing boundary in this skill's defensive constraints.
+    Record all earlier appearances. If the image predates the claimed event or appears
+    in a clearly different context, flag as likely reuse or context collapse.
 - verbs:
   - reason
   title: Apply editing and context triage

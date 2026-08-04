@@ -94,13 +94,13 @@ workflow_steps:
 - verbs:
   - reason
   title: Generate restatements using reframing levers
-  text: 'Apply at least six reframing levers in sequence, generating one or more restatements
-    per lever: (1) Broaden — expand the scope or population. (2) Narrow — restrict
-    the scope. (3) Invert — reframe as the opposite question. (4) Shift actor — change
-    who the question is about. (5) Shift time horizon — ask it earlier or later. (6)
-    Change unit of analysis — restate at a different level (individual / group / system).
-    (7) Change success criterion — alter what a good answer would look like. Record
-    all outputs without evaluating yet.'
+  text: 'Apply at least five reframing levers in sequence, generating one or more
+    restatements per lever: (1) Broaden — expand the scope or population. (2) Narrow
+    — restrict the scope. (3) Invert — reframe as the opposite question. (4) Shift
+    actor — change who the question is about. (5) Shift time horizon — ask it earlier
+    or later. (6) Change unit of analysis — restate at a different level (individual
+    / group / system). (7) Change success criterion — alter what a good answer would
+    look like. Record all outputs without evaluating yet.'
 - verbs:
   - reason
   title: Annotate assumptions and solution spaces

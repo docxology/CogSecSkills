@@ -5,7 +5,7 @@ description: Apply the MOM/POP/MOSES/EVE deception-detection checklists to a bod
 
 # Indicators of Deception Analysis
 
-Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE analytical framework to a body of evidence to assess whether an adversary may be conducting an active denial-and-deception (D&D) operation. MOM evaluates Motive, Opportunity, and Means; POP identifies Potential indicators of deception based on evidence anomalies; MOSES checks Manipulation, Omission, Selective emphasis, and Exaggeration patterns; and EVE applies Evidence, Validation, and Evaluation criteria. The combined framework converts an otherwise intuitive 'something seems off' judgment into a structured, documentable deception-hypothesis test.
+Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE analytical framework to a body of evidence to assess whether an adversary may be conducting an active denial-and-deception (D&D) operation. MOM evaluates Motive, Opportunity, and Means; POP checks the opponent's Past Opposition Practices (their historical track record of deception against this type of target); MOSES assesses the Manipulability of Sources feeding the analysis; and EVE applies an overall Evaluation of Evidence given the deception risk surfaced by the prior components. The combined framework converts an otherwise intuitive 'something seems off' judgment into a structured, documentable deception-hypothesis test.
 
 ## When to use
 
@@ -18,9 +18,9 @@ Indicators of Deception Analysis applies the structured MOM/POP/MOSES/EVE analyt
 ## What it produces
 
 - A MOM checklist result: whether the adversary has motive, opportunity, and means to conduct deception targeting this intelligence
-- A POP result: specific evidence anomalies that deviate from baseline expectations and could indicate manipulation
-- A MOSES result: identification of patterns suggesting deliberate manipulation, omission, selective emphasis, or exaggeration
-- An EVE result: assessment of whether available evidence supports or contradicts a deception hypothesis, with a confidence rating
+- A POP result: assessment of whether the opponent has a history of deception against this type of target or via these channels
+- A MOSES result: assessment of how manipulable the sources and channels feeding the analysis are — how much control the adversary could exert over them
+- An EVE result: holistic evaluation of whether available evidence supports or contradicts a deception hypothesis, with a confidence rating
 - Recommended collection and analytic responses to test the deception hypothesis
 
 ## Defensive boundary

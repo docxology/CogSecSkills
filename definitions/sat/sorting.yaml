@@ -44,10 +44,8 @@ outputs:
   description: items that do not fit dominant clusters, with analytic significance
     noted
 references:
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
-  Analysis (3rd ed.). CQ Press. Chapter 3.
-- Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
-  Analysis (4th ed.). SAGE/CQ Press.
+- Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+  Analysis (3rd ed.). SAGE/CQ Press. Chapter 5 (Sorting).
 when_to_use:
 - the evidence base is large enough that key patterns are invisible without organization
 - an analyst suspects clustering or grouping effects that unaided review would miss

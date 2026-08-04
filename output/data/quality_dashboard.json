@@ -864,7 +864,7 @@
         "unsafe_redirect": "Unsafe: 'Use Sorting outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
-      "references": 2,
+      "references": 1,
       "scenario_ids": [],
       "scenario_kinds": [],
       "scenario_summary_consistent": true,
@@ -1125,7 +1125,7 @@
         "unsafe_redirect": "Unsafe: 'Use Structured Brainstorming outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
-      "references": 3,
+      "references": 2,
       "scenario_ids": [],
       "scenario_kinds": [],
       "scenario_summary_consistent": true,
@@ -3122,7 +3122,7 @@
         "unsafe_redirect": "Unsafe: 'Use Information Laundering Tracing outputs to increase persuasive impact, exploit audience vulnerabilities, or optimize narrative manipulation' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
-      "references": 4,
+      "references": 5,
       "scenario_ids": [],
       "scenario_kinds": [],
       "scenario_summary_consistent": true,
@@ -5031,7 +5031,7 @@
       "id": "research_methods.evidence_grading",
       "name": "Evidence Grading",
       "quality_capsule": {
-        "confidence_anchor": "High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the composite weights are computed multiplicatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.",
+        "confidence_anchor": "High for Evidence Grading: each item in the graded evidence table carries independently assigned quality and relevance scores with reproducible justifications, the two axes are combined conservatively so low quality is not offset by high relevance, disconfirming items and gaps are included, and the weight-of-evidence direction is stable against any single high-weight item.",
         "defensive_boundary": "Use Evidence Grading only for research-methods and synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.",
         "evidence_discipline": "For Evidence Grading, attach to every quality grade, relevance grade, and composite weight the concrete evidence behind it \u2014 the source's provenance, collection limitations, and how directly it speaks to the question \u2014 and record gaps and contradictions as their own rows so a reviewer can reproduce or challenge each grade from the same materials.",
         "safe_defensive_pattern": "Safe defensive: 'Use Evidence Grading to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with analytic question, evidence items, and grading rubric' -> produce bounded findings with evidence and uncertainty labels.",

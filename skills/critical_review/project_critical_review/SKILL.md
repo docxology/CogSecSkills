@@ -9,9 +9,9 @@ The flagship critical-review skill. It reviews a project — codebase, research 
 
 ## When to use
 
-- A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong
-- A project reports "all tests passing / everything works" and you need to know
-- You inherited a codebase, manuscript, or initiative and must form an honest
+- A decision is imminent — ship, merge, fund, publish, deprecate — and a wrong call would be costly.
+- A project reports "all tests passing / everything works" and you need to know whether that claim is trustworthy.
+- You inherited a codebase, manuscript, or initiative and must form an honest assessment of its readiness and risks.
 
 ## What it produces
 
@@ -63,8 +63,8 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- **Bind every finding to evidence.** A claimed defect with no file:line or no
-- **Verify-the-verifier.** A green test suite that stays green when you inject a
-- **Calibrate severity and confidence separately.** Severity is "how bad if
-- **The constructive pass does not launder the critical pass.** Strengths are
-- **Distrust self-report.** "All passing" is a claim about a process; reproduce
+- **Bind every finding to evidence.** A claimed defect with no file:line or reproduced output is not a finding.
+- **Verify-the-verifier.** A green test suite that stays green when you inject a real defect is a vacuous gate — and that is a critical finding.
+- **Calibrate severity and confidence separately.** Severity is "how bad if true"; confidence is "how sure are we" — keep them independent.
+- **The constructive pass does not launder the critical pass.** Strengths are reported in addition to, never instead of, the defects.
+- **Distrust self-report.** "All passing" is a claim about a process; reproduce the run yourself before crediting it.

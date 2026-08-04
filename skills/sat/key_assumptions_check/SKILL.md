@@ -10,9 +10,9 @@ The Key Assumptions Check (Heuer & Pherson) makes explicit the stated and UNSTAT
 ## When to use
 
 - Before finalizing a high-stakes estimate, attribution, or recommendation.
-- When a conclusion feels obvious or comfortable — comfort is where unstated
+- When a conclusion feels obvious or comfortable — comfort is where unstated assumptions hide.
 - When the situation has changed and old assumptions may no longer hold.
-- As a precondition to other techniques (it pairs naturally with ACH and
+- As a precondition to other techniques (it pairs naturally with ACH and Key Assumptions Check).
 
 ## What it produces
 
@@ -64,7 +64,7 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- **Hunt the unstated.** The assumptions that matter most are usually the ones
-- **No free passes for comfort.** An assumption is not "solid" because it is
-- **Load-bearing × uncertain = key.** A shaky assumption that nothing depends on
-- **Expose the dependence.** A judgment that hides its assumptions overstates its
+- **Hunt the unstated.** The assumptions that matter most are usually the ones no one wrote down.
+- **No free passes for comfort.** An assumption is not "solid" because it is familiar or comfortable; solidity must be earned with evidence.
+- **Load-bearing × uncertain = key.** A shaky assumption that nothing depends on is annoying, not dangerous; flag only the intersection.
+- **Expose the dependence.** A judgment that hides its assumptions overstates its certainty — rewrite it so the dependence is visible.

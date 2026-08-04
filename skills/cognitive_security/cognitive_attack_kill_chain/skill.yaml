@@ -8,11 +8,14 @@ summary: Stage a cognitive attack (recon→delivery→exploitation→persistence
 description: The Cognitive Attack Kill Chain adapts the cyber-security kill-chain
   model to influence operations, decomposing a cognitive attack into stages — reconnaissance,
   weaponization, delivery, exploitation, installation, command-and-control, and persistence
-  — so that defenders can identify intervention points at each stage before the attack
-  achieves its goal. By mapping observed or anticipated adversary activities to kill-chain
-  stages, defenders can assess which stages have already been traversed, which are
-  in progress, and which can still be disrupted. This is a defensive red-teaming and
-  threat-modeling technique, not an operational planning framework.
+  — an explicit adaptation of the Lockheed Martin intrusion kill chain, whose terminal
+  "Actions on Objectives" stage is recast here as "Persistence" to capture durable
+  belief change — so that defenders can identify intervention points at each stage
+  before the attack achieves its goal. By mapping observed or anticipated adversary
+  activities to kill-chain stages, defenders can assess which stages have already
+  been traversed, which are in progress, and which can still be disrupted. This is
+  a defensive red-teaming and threat-modeling technique, not an operational planning
+  framework.
 ageint_topic: cognitive-security
 tags:
 - cognitive-security

@@ -50,8 +50,7 @@ inputs:
   type: text
   required: false
   description: optional custom rubric; if omitted the technique uses the standard
-    ODNI/Heuer-Pherson quality tiers (A-F for source reliability, 1-6 for information
-    credibility)
+    NATO/Admiralty credibility code (A-F source reliability, 1-6 information credibility)
 outputs:
 - name: graded_evidence_table
   type: table
@@ -97,8 +96,8 @@ evidence_requirements:
   the alternative most likely to overturn it, and the next discriminating check.
 confidence_rubric:
 - 'High for Evidence Grading: each item in the graded evidence table carries independently
-  assigned quality and relevance scores with reproducible justifications, the composite
-  weights are computed multiplicatively so low quality is not offset by high relevance,
+  assigned quality and relevance scores with reproducible justifications, the two
+  axes are combined conservatively so low quality is not offset by high relevance,
   disconfirming items and gaps are included, and the weight-of-evidence direction
   is stable against any single high-weight item.'
 - 'Medium for Evidence Grading: the graded evidence table is plausible, but one important

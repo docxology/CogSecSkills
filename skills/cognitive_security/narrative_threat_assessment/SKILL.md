@@ -9,14 +9,15 @@ A defensive cognitive-security procedure that examines a circulating narrative t
 
 ## When to use
 
-- A narrative is spreading and you need to know whether it is a cognitive threat,
-- You must brief a community, platform, or newsroom on a suspected influence
-- You want an accountable, evidence-bound read on provenance and likely intent
+- A narrative is spreading and you need to determine whether it is a cognitive threat.
+- You must brief a community, platform, or newsroom on a suspected influence operation.
+- You want an accountable, evidence-bound read on provenance and likely intent.
+- A defender needs to prioritize which narratives warrant prebunking or counter-framing.
 
 ## What it produces
 
-- A **threat assessment** document covering: captured claims and framing; target
-- A prioritized list of **defensive recommendations** — prebunking, lateral
+- A **threat assessment** document covering captured claims and framing, target audience and levers, classified manipulation techniques, provenance and likely intent, reach, harm rating, and urgency.
+- A prioritized list of **defensive recommendations** — prebunking, lateral-reading prompts, and protective counter-framing.
 
 ## Defensive boundary
 
@@ -62,4 +63,7 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- bind every finding to evidence and defensive use
+- Bind every captured claim, identified lever, classified technique, and harm rating to concrete evidence — a quoted passage, an observed source, a circulation timestamp, or a prior debunk.
+- Keep the narrative as object of study, never restated as if true: label quotations as material under assessment, not endorsement.
+- Hold provenance and intent to calibrated confidence with explicit alternatives; never name an actor, sponsor, or intent the evidence underdetermines.
+- Keep the assessment population-level and defensive: never target, profile, or produce dossiers on individuals.
