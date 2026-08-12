@@ -15,9 +15,9 @@ work.
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `pytest tests/ --cov=src/cogsecskills` -> `847 passed`, `98.21% coverage`.
-- Lint gate: `ruff check` + `ruff format --check` -> clean (69 files).
-- Type gate: `mypy` -> `no issues found in 31 source files`.
+- Test gate: `pytest --cov=cogsecskills` -> `888 passed`, `98.85% coverage`.
+- Lint gate: `ruff check` + `ruff format --check` -> clean (75 files).
+- Type gate: `mypy` -> `no issues found in 32 source files`.
 
 ## Ongoing Guardrails
 
@@ -93,7 +93,9 @@ Lines 140, 172, 595, 626->621, 657->650.
 ## Minor: CI Hardening
 
 - Add Python 3.14 to the CI matrix once GitHub Actions supports it (currently 3.10-3.13).
-- Bump `--cov-fail-under` from 94 to 97 to match the current coverage floor.
+- Consider raising `--cov-fail-under` from 97 toward the measured 98.85% once the
+  remaining per-line gaps below are closed. (The earlier 94 -> 97 bump is done and
+  live in `.github/workflows/ci.yml`.)
 
 ## Medium: Skill Definition Depth
 

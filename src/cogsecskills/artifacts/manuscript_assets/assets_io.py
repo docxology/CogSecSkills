@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .figures import _PNG_SIGNATURE, FIGURE_NAMES, write_figures
+from .figures import FIGURE_NAMES, write_figures
 from .paths import (
     CATALOGUE_PATH,
     COVER_IMAGE_MIRROR_PATH,
@@ -18,6 +18,11 @@ from .paths import (
     DATA_JSON_PATH,
     MATRIX_PATH,
     _project_root,
+)
+from .png_probe import (
+    duplicate_figure_findings,
+    figure_findings,
+    read_figure_bytes,
 )
 from .rows import AssetWriteResult, collect_skill_rows
 from .tables import _expected_texts
@@ -56,14 +61,16 @@ def check_assets(root: Path | None = None) -> list[str]:
             findings.append(f"stale generated file: {rel_path}")
 
     figures_dir = base / "output" / "figures"
+    figure_bytes: dict[str, bytes] = {}
     for name in FIGURE_NAMES:
-        path = figures_dir / name
-        if not path.is_file():
-            findings.append(f"missing generated figure: output/figures/{name}")
+        figure_rel = f"output/figures/{name}"
+        data = read_figure_bytes(figures_dir / name)
+        if data is None:
+            findings.append(f"missing generated figure: {figure_rel}")
             continue
-        data = path.read_bytes()
-        if not data.startswith(_PNG_SIGNATURE) or len(data) < 1000:
-            findings.append(f"invalid generated figure: output/figures/{name}")
+        figure_bytes[figure_rel] = data
+        findings.extend(figure_findings(figure_rel, data))
+    findings.extend(duplicate_figure_findings(figure_bytes))
     cover_path = figures_dir / COVER_IMAGE_NAME
     mirror_path = base / COVER_IMAGE_MIRROR_PATH
     if not mirror_path.is_file():

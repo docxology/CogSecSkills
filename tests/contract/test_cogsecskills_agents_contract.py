@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 from cogsecskills.artifacts.manuscript_assets import GENERATED_HEADER
@@ -144,3 +145,82 @@ def test_cli_surface_keeps_documented_gate_commands():
         "route",
         "catalogue",
     } <= _subcommands()
+
+
+# --- Documented-path resolution -------------------------------------------------
+#
+# The phrase assertions above catch guidance that goes *missing*, but they cannot
+# catch guidance that goes *stale*: a path that still reads plausibly while the
+# file it names has moved. Two such references survived a package reorganisation
+# (`tests/test_skill_library_conformance.py` after tests moved into per-concern
+# packages, and `manuscript_assets/rows.py` after it moved under `artifacts/`),
+# and an agent following either one lands on nothing. This test closes that class
+# by resolving every path-like token in every AGENTS.md against the real tree.
+
+_PATH_EXTENSIONS = {
+    ".bib",
+    ".cff",
+    ".html",
+    ".json",
+    ".md",
+    ".py",
+    ".toml",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
+
+# Tokens that are deliberately not repository paths.
+_NON_PATH_TOKENS = {
+    # Optional user config; only `cogsecskills.yaml.example` is committed.
+    "cogsecskills.yaml",
+    # A filename *suffix* describing the author-batch compatibility input.
+    "_def.json",
+}
+
+
+def _documented_path_tokens(text: str):
+    """Yield backtick-quoted tokens from ``text`` that look like repo paths."""
+    for raw in re.findall(r"`([^`\n]+)`", text):
+        token = raw.strip()
+        if not token or " " in token or "<" in token or ">" in token:
+            continue  # prose, shell snippets, or `<group>/<slug>` placeholders
+        if token.startswith(("-", "$", "http")):
+            continue  # CLI flags, shell vars, URLs
+        if "/" not in token and Path(token).suffix not in _PATH_EXTENSIONS:
+            continue  # bare identifiers such as `implemented` or `read`
+        yield token
+
+
+def _token_resolves(token: str, doc_dir: Path) -> bool:
+    """True when ``token`` names something real, read from ``doc_dir`` or the root."""
+    if token in _NON_PATH_TOKENS:
+        return True
+    bases = (doc_dir, PROJECT_ROOT)
+    if "*" in token:
+        # Glob patterns such as `harness/*.md` describe every skill directory,
+        # so a match anywhere under the tree satisfies them.
+        if any(list(base.glob(token)) for base in bases):
+            return True
+        return bool(list(PROJECT_ROOT.glob(f"**/{token}")))
+    if any((base / token).exists() for base in bases):
+        return True
+    bare = token.rstrip("/")
+    if "/" not in bare:
+        # A bare filename (`skill.yaml`, `SKILL.md`) is a per-skill pattern name.
+        return bool(list(PROJECT_ROOT.glob(f"**/{bare}")))
+    # A token carrying a directory component must resolve at that exact path —
+    # finding the basename elsewhere is precisely the drift being guarded against.
+    return False
+
+
+def test_agents_documented_paths_resolve():
+    unresolved: list[str] = []
+    for rel_path in EXPECTED_AGENTS:
+        doc = PROJECT_ROOT / rel_path
+        for token in _documented_path_tokens(doc.read_text(encoding="utf-8")):
+            if not _token_resolves(token, doc.parent):
+                unresolved.append(f"{rel_path}: `{token}`")
+    assert not unresolved, "AGENTS.md references paths that do not exist: " + "; ".join(
+        unresolved
+    )

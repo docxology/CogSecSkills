@@ -74,7 +74,7 @@ Use the nearest `AGENTS.md` when it exists:
 1. Add a row to `registry/skills.yaml` (status `planned`), group must exist in
    `registry/groups.yaml`. If the catalogue size changes, update the README
    group-count table and `test_registry_enumerates_one_hundred_areas` in
-   `tests/test_skill_library_conformance.py`.
+   `tests/conformance/test_skill_library_conformance.py`.
 2. Author it deterministically: create or update
    `definitions/<group>/<slug>.yaml`, then run
    `python -m cogsecskills definitions --write`. The renderer writes all
@@ -88,7 +88,7 @@ Use the nearest `AGENTS.md` when it exists:
 All 100 catalogued areas are currently `implemented` and owned by canonical YAML
 definitions rendered into the skill tree.
 
-## Skill contract (enforced by `src/cogsecskills/validate.py`)
+## Skill contract (enforced by `src/cogsecskills/quality/validate.py`)
 
 - Every skill dir has `skill.yaml`, `SKILL.md`, `workflow.md`, and one
   `harness/<h>.md` per configured harness, all declared in the spec's
@@ -107,7 +107,8 @@ definitions rendered into the skill tree.
 - All logic lives in `src/cogsecskills/`; definitions and skills are declarative
   data; the CLI remains a thin orchestrator over module functions.
 - No mocks in tests — real `tmp_path` dirs and real YAML.
-- Coverage gate >=90% on `src/`; verify the current value with the test command
+- Coverage floors: `pyproject.toml` sets `fail_under = 90`; CI enforces the
+  stricter `--cov-fail-under=97`. Verify the current value with the test command
   below rather than copying stale numbers into prose.
 - Optional harness profiles are documentation metadata until their ids are added
   to `cogsecskills.yaml`, adapters are regenerated, and validation passes.
@@ -117,8 +118,12 @@ definitions rendered into the skill tree.
 
 ## Tests
 
+Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
+`artifacts/`, `quality/`, `contract/`, `conformance/`). Run the whole suite —
+the same command CI runs — rather than a hand-written top-level glob:
+
 ```bash
-PYTHONPATH="src:." python -m pytest \
-  tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py \
-  --cov=src/cogsecskills --cov-report=term-missing
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
 ```
+
+While iterating, name a single package (e.g. `uv run pytest tests/contract`).

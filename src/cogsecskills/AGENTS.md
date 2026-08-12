@@ -14,7 +14,8 @@ and generator layer over declarative project data.
 - `core/quality_constants.py` holds shared quality-policy constants used by both
   `quality/insights.py` and `authoring/definitions.py`.
 - `core/text_utils.py` holds shared `clean_cell` and `as_text` helpers used by
-  `artifacts/evals.py`, `artifacts/examples.py`, and `manuscript_assets/rows.py`.
+  `artifacts/evals.py`, `artifacts/examples.py`, and
+  `artifacts/manuscript_assets/rows.py`.
 - `authoring/author.py`, `authoring/definitions.py`, and `authoring/scaffold.py`
   own skill rendering and drift checks from canonical definitions.
 - `quality/insights.py`, `artifacts/scenarios.py`, `artifacts/examples.py`,
@@ -22,6 +23,24 @@ and generator layer over declarative project data.
   and `artifacts/manuscript_assets/` own local navigation, deterministic scenario
   checks, worked examples, offline output-review fixtures, generated dashboard
   output, release claim metadata, manuscript supplements, data exports, and figures.
+
+### `artifacts/manuscript_assets/` layout
+
+Figure code is split by concern rather than living in one module:
+
+| Module | Owns |
+| --- | --- |
+| `figure_specs.py` | `FigureMetadata`, `FIGURES`, `FIGURE_NAMES` — the registry of which figures exist |
+| `figure_theme.py` | Design tokens: DPI, sizes, `TOKENS`, `COLOR_FAMILIES`, per-group palettes |
+| `figure_helpers.py` | Shared drawing/theming helpers every panel draws through |
+| `figure_panels.py` | One `_write_*` function per figure; panels are mutually independent |
+| `figures.py` | The `write_figures` orchestrator, re-exporting the names above |
+| `png_probe.py` | Dependency-free PNG checks used by the generated-figure drift gate |
+| `paths.py`, `rows.py`, `tables.py`, `assets_io.py` | Output paths, row collection, table rendering, write/check orchestration |
+
+Add a new figure by appending to `FIGURES` in `figure_specs.py` and adding its
+`_write_*` panel, then wiring it into `write_figures`. Import shared constants
+from `figure_theme`, never by re-declaring them in a panel.
 
 ## Editing Rules
 
