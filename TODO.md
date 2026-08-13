@@ -101,7 +101,7 @@ Lines 140, 172, 595, 626->621, 657->650.
 
 - Audit all 100 canonical definitions for template-based boilerplate in `evidence_requirements`, `confidence_rubric`, `uncertainty_handling`, `privacy_legal_constraints`, and `failure_modes`. The `author.default_quality_fields` fallback uses a group-profile template — definitions that rely on it rather than providing skill-specific text should be deepened.
 - Sample 10 definitions with the fewest references and assess whether more scholarly anchors should be added.
-- Add a `doctor` check for definitions whose quality fields are identical to the `default_quality_fields` output (would flag template-only definitions).
+- ~~Add a `doctor` check for definitions whose quality fields are identical to the `default_quality_fields` output (would flag template-only definitions).~~ **Done, and stronger than described.** `_reused_quality_field_findings` (`authoring/definitions.py:332`) flags *any* quality-field entry shared by more than one definition — not just exact matches against the template — with an `ALLOWED_SHARED_QUALITY_ITEMS` allowlist for entries that are legitimately common. `_reused_negative_control_findings` does the same for negative controls. Both are wired into `check_definitions` (`definitions.py:459-460`) and the `doctor` surface (`quality/insights.py:188`), and currently report 0 findings.
 
 ## Medium: Manuscript Refresh
 
