@@ -18,9 +18,12 @@ keywords = [
     "intelligence-analysis", "osint", "skills", "multiharness",
 ]
 requires-python = ">=3.10"
-# The runner is deliberately lightweight — PyYAML is the only runtime dependency.
+# The runner is deliberately lightweight: PyYAML is the only unconditional
+# runtime dependency. `tomli` is the stdlib `tomllib` backport and installs only
+# on Python 3.10, which predates `tomllib`; on >=3.11 nothing extra is pulled in.
 dependencies = [
     "pyyaml>=6.0",
+    "tomli>=2.0; python_version < '3.11'",
 ]
 
 [project.optional-dependencies]

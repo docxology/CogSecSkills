@@ -2,11 +2,20 @@ from __future__ import annotations
 
 import json
 import subprocess
+import sys
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, Literal, TypedDict
 
-import tomllib
+# `tomllib` is stdlib from Python 3.11. This project supports >=3.10 (see
+# `requires-python`, the ruff/mypy target, and the CI matrix), where the
+# backport `tomli` provides the same read API. Importing it unconditionally
+# broke collection on the 3.10 leg with ModuleNotFoundError.
+if sys.version_info >= (3, 11):
+    import tomllib
+else:  # pragma: no cover - exercised only on the Python 3.10 CI leg
+    import tomli as tomllib
+
 import yaml
 
 from cogsecskills.artifacts.manuscript_assets import FIGURE_NAMES
