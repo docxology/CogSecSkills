@@ -33,14 +33,22 @@ Figure code is split by concern rather than living in one module:
 | `figure_specs.py` | `FigureMetadata`, `FIGURES`, `FIGURE_NAMES` — the registry of which figures exist |
 | `figure_theme.py` | Design tokens: DPI, sizes, `TOKENS`, `COLOR_FAMILIES`, per-group palettes |
 | `figure_helpers.py` | Shared drawing/theming helpers every panel draws through |
-| `figure_panels.py` | One `_write_*` function per figure; panels are mutually independent |
+| `figure_charts.py` | Plotted-series panels: group counts, verb heatmap, reference density |
+| `figure_diagrams.py` | Hand-laid panels: skill atlas, AGEINT network, plan/build/teach flow, harness matrix |
+| `figure_cover.py` | The title-page installation cover (owns the `COVER_*` type scale) |
 | `figures.py` | The `write_figures` orchestrator, re-exporting the names above |
 | `png_probe.py` | Dependency-free PNG checks used by the generated-figure drift gate |
 | `paths.py`, `rows.py`, `tables.py`, `assets_io.py` | Output paths, row collection, table rendering, write/check orchestration |
 
 Add a new figure by appending to `FIGURES` in `figure_specs.py` and adding its
-`_write_*` panel, then wiring it into `write_figures`. Import shared constants
-from `figure_theme`, never by re-declaring them in a panel.
+`_write_*` panel to whichever of `figure_charts` / `figure_diagrams` /
+`figure_cover` matches its kind, then wiring it into `write_figures`. Import
+shared constants from `figure_theme`, never by re-declaring them in a panel.
+
+Panels are mutually independent: they share the theme tokens and the helpers and
+never call each other, which is what lets them live in separate modules. A
+refactor here is verifiable — regenerate and confirm every figure is
+byte-identical, and check the write return code before trusting that comparison.
 
 ## Editing Rules
 

@@ -2,7 +2,8 @@
 
 The figure code is split by concern — :mod:`figure_specs` (the registry),
 :mod:`figure_theme` (design tokens), :mod:`figure_helpers` (shared drawing), and
-:mod:`figure_panels` (one function per figure). This module keeps the
+:mod:`figure_charts`, :mod:`figure_diagrams`, and :mod:`figure_cover`
+(one function per figure). This module keeps the
 ``write_figures`` orchestrator and re-exports the names those modules previously
 exposed from here, so importers and tests are unaffected by the split.
 """
@@ -25,15 +26,17 @@ from .figure_helpers import (
     _use_chart_theme,
     _vertical_positions,
 )
-from .figure_panels import (
-    _write_ageint_network,
-    _write_cover_installation,
-    _write_harness_contract,
-    _write_plan_build_teach_flow,
+from .figure_charts import (
     _write_reference_density,
-    _write_skill_grid,
     _write_taxonomy_counts,
     _write_verb_heatmap,
+)
+from .figure_cover import _write_cover_installation
+from .figure_diagrams import (
+    _write_ageint_network,
+    _write_harness_contract,
+    _write_plan_build_teach_flow,
+    _write_skill_grid,
 )
 from .figure_specs import FIGURES, FIGURE_NAMES, FigureMetadata
 from .figure_theme import (
