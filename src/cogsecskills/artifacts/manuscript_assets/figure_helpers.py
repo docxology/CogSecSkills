@@ -28,7 +28,24 @@ from .rows import GroupSummary, SkillRow, _group_ids, _group_title
 
 def _save(fig, path: Path) -> Path:
     fig.savefig(
-        path, dpi=FIGURE_DPI, bbox_inches="tight", facecolor=fig.get_facecolor()
+        path,
+        dpi=FIGURE_DPI,
+        bbox_inches="tight",
+        facecolor=fig.get_facecolor(),
+        # By default matplotlib stamps its own version into the PNG `Software`
+        # text chunk, so a matplotlib bump alone rewrites every figure's bytes
+        # even when the rendered content is unchanged. Suppressing the key
+        # removes that one avoidable source of churn.
+        #
+        # It does not make figures reproducible across machines: measured
+        # 2026-08-13, regenerating on macOS under the same matplotlib 3.11.1 that
+        # produced the committed PNGs still yields different compressed image
+        # data for all eight, because font rasterisation differs by host
+        # freetype. Treat figure bytes as host-dependent — that is why
+        # `check_assets` verifies headers, floors, and mutual distinctness rather
+        # than comparing bytes, and why a byte-comparison gate would need a
+        # pinned container to be meaningful.
+        metadata={"Software": None},
     )
     import matplotlib.pyplot as plt
 
