@@ -111,3 +111,49 @@ def test_check_examples_extra_skill_not_in_registry(tmp_path):
     source.write_text(yaml.safe_dump(raw, sort_keys=False), encoding="utf-8")
     findings = check_examples(root)
     assert any("not present in registry" in f for f in findings)
+
+
+def test_check_examples_rendered_skill_missing(tmp_path):
+    root = _copy_fixture(tmp_path)
+    write_examples(root)
+    # Remove one on-disk skill directory
+    shutil.rmtree(root / "skills" / "sat" / "sorting")
+    findings = check_examples(root)
+    assert any("rendered skill is missing" in f for f in findings)
+
+
+def test_check_examples_missing_term(tmp_path):
+    root = _copy_fixture(tmp_path)
+    write_examples(root)
+    source = root / EXAMPLES_SOURCE_PATH
+    raw = yaml.safe_load(source.read_text(encoding="utf-8"))
+    # Replace content of an example so it lacks required terms
+    raw["examples"][0]["sections"] = [
+        {"title": "Section A", "body": "Short text."},
+        {"title": "Section B", "body": "Another text."},
+        {"title": "Section C", "body": "More text."},
+    ]
+    source.write_text(yaml.safe_dump(raw, sort_keys=False), encoding="utf-8")
+    findings = check_examples(root)
+    assert any("example term" in f and "is missing" in f for f in findings)
+
+
+def test_check_examples_load_examples_error(tmp_path):
+    root = _copy_fixture_no_examples(tmp_path)
+    findings = check_examples(root)
+    assert any("missing worked examples source" in f for f in findings)
+
+
+def test_check_examples_expected_outputs_error(tmp_path, monkeypatch):
+    root = _copy_fixture(tmp_path)
+    write_examples(root)
+
+    def _raise(*args, **kwargs):
+        raise ValueError("synthetic error in _expected_outputs")
+
+    monkeypatch.setattr(
+        "cogsecskills.artifacts.examples._expected_outputs",
+        _raise,
+    )
+    findings = check_examples(root)
+    assert any("synthetic error in _expected_outputs" in f for f in findings)

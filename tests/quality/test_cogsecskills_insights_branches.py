@@ -8,7 +8,7 @@ sensitive-skill guardrail check, and specificity fallback paths.
 
 from __future__ import annotations
 
-from cogsecskills.core.spec import SkillSpec, ToolVerb
+from cogsecskills.core.spec import SkillSpec, SkillTool, ToolVerb
 from cogsecskills.quality.insights import (
     _is_sensitive_skill,
     _negative_controls_are_specific,
@@ -42,7 +42,7 @@ def _make_spec(
         group=group,
         summary="A demo skill.",
         status="implemented",
-        tools=(ToolVerb.READ,),
+        tools=(SkillTool(verb=ToolVerb.READ, purpose="read"),),
         defensive_boundary=defensive_boundary,
         misuse_redirect=misuse_redirect,
         negative_controls=negative_controls,

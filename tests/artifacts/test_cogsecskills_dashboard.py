@@ -169,6 +169,14 @@ def test_dashboard_payload_findings_report_each_quality_gate(tmp_path):
         _payload_findings(duplicated)
     )
 
+    group_mismatch = deepcopy(payload)
+    for row in group_mismatch["skills"]:
+        if row["group"] == "sat":
+            row["group"] = "cognitive_security"
+    assert "skill rows do not cover all seven groups" in "\n".join(
+        _payload_findings(group_mismatch)
+    )
+
 
 def test_cli_dashboard_write_and_check(tmp_path, capsys):
     from cogsecskills.cli import main

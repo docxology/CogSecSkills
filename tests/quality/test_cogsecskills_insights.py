@@ -187,6 +187,14 @@ def test_doctor_flags_missing_safe_defensive_negative_control(tmp_path):
 
 def test_doctor_flags_reused_quality_entries(tmp_path):
     _library(tmp_path)
+    # Also add an empty quality item to test normalized being empty
+    spec_path_ach = tmp_path / "skills" / "sat" / "ach" / "skill.yaml"
+    data_ach = yaml.safe_load(spec_path_ach.read_text(encoding="utf-8"))
+    data_ach["confidence_rubric"].append("   ")  # empty when normalized
+    spec_path_ach.write_text(
+        yaml.safe_dump(data_ach, sort_keys=False), encoding="utf-8"
+    )
+
     repeated = "Medium: evidence is plausible but incomplete, indirect, or partly assumption-dependent."
     for rel in (
         "skills/sat/ach/skill.yaml",

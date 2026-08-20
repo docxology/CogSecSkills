@@ -132,7 +132,7 @@ def test_render_requires_anti_criteria(tmp_path):
 
 def test_promote_to_implemented(tmp_path):
     _seed_registry(tmp_path, status="stub")
-    changed = promote_to_implemented(["sat.demo"], root=tmp_path)
+    changed = promote_to_implemented(["sat.demo", "sat.nonexistent"], root=tmp_path)
     assert changed == 1
     text = (tmp_path / "registry" / "skills.yaml").read_text(encoding="utf-8")
     assert "status: implemented" in text
@@ -160,6 +160,18 @@ def test_author_batch_reports_malformed(tmp_path):
     result = author_batch(root=tmp_path)
     assert result["rendered"] == []
     assert "sat.demo" in result["failed"]
+
+
+def test_author_batch_no_delete_no_promote(tmp_path):
+    _seed_registry(tmp_path, status="stub")
+    directory = tmp_path / "skills" / "sat" / "demo"
+    directory.mkdir(parents=True)
+    (directory / "_def.json").write_text(json.dumps(_good_def()), encoding="utf-8")
+    result = author_batch(root=tmp_path, delete_defs=False, promote=False)
+    assert result["rendered"] == ["sat.demo"]
+    assert (directory / "_def.json").exists()  # preserved
+    reg = (tmp_path / "registry" / "skills.yaml").read_text(encoding="utf-8")
+    assert "status: stub" in reg  # not promoted
 
 
 def test_cli_author_renders(tmp_path, capsys):

@@ -58,6 +58,16 @@ def test_negative_controls_specific_by_group(tmp_path):
     assert _negative_controls_are_specific(
         "cognitive_security.threat_assessment", entry, "threat assessment defense"
     )
+    # None entry fallback
+    assert _negative_controls_are_specific(
+        "cognitive_security.threat_assessment", None, "threat assessment defense"
+    )
+    assert _negative_control_item_is_specific(
+        "cognitive_security.threat_assessment", None, "threat assessment defense"
+    )
+    assert _quality_item_is_specific(
+        "cognitive_security.threat_assessment", None, "threat assessment defense"
+    )
 
 
 def test_negative_control_item_specific_by_slug(tmp_path):
@@ -168,9 +178,12 @@ def test_load_definition_file_json_non_dict(tmp_path):
 
 
 def test_list_field_with_list_source():
-    """Line 172: _list_field with a list source."""
+    """Line 172: _list_field with a list source and non-list source."""
     result = _list_field({"key": ["a", "b", ""]}, "key", ["default"])
     assert result == ["a", "b"]
+    # Non-list source
+    result_str = _list_field({"key": "single item"}, "key", ["default"])
+    assert result_str == ["single item"]
 
 
 def test_quality_list_with_list():

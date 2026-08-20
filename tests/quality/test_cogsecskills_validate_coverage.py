@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
 import yaml
 
 from cogsecskills.core.spec import SkillSpec, ToolVerb
@@ -86,3 +87,14 @@ def test_conformance_report_malformed_registry(tmp_path):
     # This should not crash — conformance_report catches the error
     report = conformance_report(tmp_path)
     assert report["errors"] >= 1
+
+    # Also test discover_skills raising FileNotFoundError or SpecError inside conformance_report
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(
+            "cogsecskills.quality.validate.discover_skills",
+            lambda *args, **kwargs: (_ for _ in ()).throw(
+                FileNotFoundError("skills missing")
+            ),
+        )
+        report_fail = conformance_report(tmp_path)
+        assert report_fail["on_disk_skills"] == 0

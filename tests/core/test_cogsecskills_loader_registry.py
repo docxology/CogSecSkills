@@ -71,6 +71,10 @@ def _write_registry(root: Path, entries: list[dict]) -> None:
 def test_discover_empty_tree_returns_empty(tmp_path):
     assert discover_skills(tmp_path) == []
     assert skills_root(tmp_path) == tmp_path / "skills"
+    # Call without root argument
+    from cogsecskills.core.loader import _project_root
+
+    assert _project_root().is_dir()
 
 
 def test_discover_and_sort(tmp_path):
@@ -150,6 +154,10 @@ def test_load_registry_missing_file(tmp_path):
     with pytest.raises(FileNotFoundError):
         load_registry(tmp_path)
     assert registry_path(tmp_path) == tmp_path / "registry" / "skills.yaml"
+    # Call registry _project_root
+    from cogsecskills.core.registry import _project_root as _reg_project_root
+
+    assert _reg_project_root().is_dir()
 
 
 def test_load_registry_duplicate_id(tmp_path):

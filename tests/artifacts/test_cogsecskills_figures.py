@@ -365,11 +365,37 @@ def test_publication_doi_malformed_config(tmp_path):
 # ---------------------------------------------------------------------------
 
 
+def test_style_axes_all_grid_modes():
+    """_style_axes should support x, y, and none grid modes."""
+    import matplotlib.pyplot as plt
+    from cogsecskills.artifacts.manuscript_assets.figure_helpers import _style_axes
+
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3)
+    try:
+        _style_axes(ax1, grid_axis="x")
+        _style_axes(ax2, grid_axis="y")
+        _style_axes(ax3, grid_axis="none")
+    finally:
+        plt.close(fig)
+
+
 def test_write_figures_generates_all_pngs(tmp_path):
     """write_figures should produce all 8 PNG files with valid headers."""
     from cogsecskills.artifacts.manuscript_assets.rows import collect_skill_rows
+    from cogsecskills.artifacts.manuscript_assets.figure_charts import (
+        _write_verb_heatmap,
+    )
 
     rows = collect_skill_rows(PROJECT_ROOT)
+    # Also test _write_verb_heatmap with a row containing an unexpected verb to test branch 120->119
+    custom_rows = list(rows)
+    custom_row = _make_row(id="sat.custom_verb")
+    object.__setattr__(custom_row, "verbs", ("read", "unsupported_verb"))
+    custom_rows.append(custom_row)
+    fig_dir = tmp_path / "extra_figs"
+    fig_dir.mkdir()
+    _write_verb_heatmap(custom_rows, fig_dir)
+
     paths = write_figures(rows, tmp_path)
     assert len(paths) == len(FIGURE_NAMES)
     for path in paths:

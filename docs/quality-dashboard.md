@@ -26,9 +26,9 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `pytest --cov=cogsecskills` -> `888 passed`, `98.85% coverage`.
-- Lint gate: `ruff check` + `ruff format --check` -> clean (75 files).
-- Type gate: `mypy` -> `no issues found in 32 source files`.
+- Test gate: `pytest --cov=cogsecskills` -> `896 passed`, `99.91% coverage`.
+- Lint gate: `ruff check` + `ruff format --check` -> clean (647 files).
+- Type gate: `mypy` -> `no issues found in 82 source files`.
 
 ## Evidence Ladder
 

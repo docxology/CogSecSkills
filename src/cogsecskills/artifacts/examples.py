@@ -142,6 +142,7 @@ def _example_payload(root: Path | None = None) -> dict[str, Any]:
 
 
 def _render_markdown(payload: dict[str, Any]) -> str:
+    """Render the human-readable Markdown summary of worked examples."""
     lines = [
         GENERATED_HEADER,
         "",
@@ -191,6 +192,7 @@ def _render_markdown(payload: dict[str, Any]) -> str:
 
 
 def _expected_outputs(root: Path | None = None) -> dict[Path, str]:
+    """Generate expected paths and serialized contents for worked-example artifacts."""
     payload = _example_payload(root)
     return {
         EXAMPLES_MD_PATH: _render_markdown(payload),

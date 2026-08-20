@@ -9,6 +9,8 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
+import pytest
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
@@ -45,10 +47,16 @@ def test_rows_group_title_fallback():
 
 def test_tables_latex_escape_backslash():
     """tables.py line 55: _latex_escape with backslash."""
-    from cogsecskills.artifacts.manuscript_assets.tables import _latex_escape
+    from cogsecskills.artifacts.manuscript_assets.tables import (
+        _latex_escape,
+        _latex_lines,
+    )
 
     result = _latex_escape("path\\to\\file")
     assert "textbackslash" in result
+    lines_result = _latex_lines(["first line", "second line", ""])
+    assert r"\newline " in lines_result
+    assert "second line" in lines_result
 
 
 def test_evals_check_missing_generated_json(tmp_path):
@@ -62,6 +70,17 @@ def test_evals_check_missing_generated_json(tmp_path):
     findings = check_evals(tmp_path)
     assert any("missing generated evaluation file" in f for f in findings)
 
+    # Also test ValueError raised in _expected_outputs during check_evals
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(
+            "cogsecskills.artifacts.evals._expected_outputs",
+            lambda *args, **kwargs: (_ for _ in ()).throw(
+                ValueError("synthetic error in _expected_outputs")
+            ),
+        )
+        findings_err = check_evals(tmp_path)
+        assert any("synthetic error in _expected_outputs" in f for f in findings_err)
+
 
 def test_dashboard_verified_state_absent(tmp_path):
     """dashboard.py line 60->68: _verified_state with no TODO file."""
@@ -72,11 +91,12 @@ def test_dashboard_verified_state_absent(tmp_path):
 
 
 def test_dashboard_verified_state_present(tmp_path):
-    """dashboard.py: _verified_state with a present Verified State section."""
+    """dashboard.py: _verified_state with a present Verified State section and non-bullet lines."""
     from cogsecskills.artifacts.dashboard import _verified_state
 
     (tmp_path / "TODO.md").write_text(
         "# TODO\n\n## Verified State (v1.6.0)\n\n"
+        "Some non-bullet introductory text.\n"
         "- Gate 1: ok\n- Gate 2: ok\n\n## Next\n\n- Work\n",
         encoding="utf-8",
     )
@@ -88,6 +108,10 @@ def test_dashboard_verified_state_present(tmp_path):
 def test_figures_publication_doi_present(tmp_path):
     """figures.py line 1444->1455: cover DOI truthy branch."""
     from cogsecskills.artifacts.manuscript_assets.figures import _publication_doi
+    from cogsecskills.artifacts.manuscript_assets.figure_cover import (
+        _write_cover_installation,
+    )
+    from cogsecskills.artifacts.manuscript_assets.rows import collect_skill_rows
 
     config_dir = tmp_path / "manuscript"
     config_dir.mkdir()
@@ -96,3 +120,14 @@ def test_figures_publication_doi_present(tmp_path):
     )
     result = _publication_doi(tmp_path)
     assert result == "10.5281/zenodo.20804585"
+
+    # Also test _write_cover_installation with DOI present to cover line 209->220
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(
+            "cogsecskills.artifacts.manuscript_assets.figure_cover._publication_doi",
+            lambda *a, **kw: "10.5281/zenodo.20804585",
+        )
+        rows = collect_skill_rows(PROJECT_ROOT)
+        fig_dir = tmp_path / "cover_figs"
+        fig_dir.mkdir()
+        _write_cover_installation(rows, fig_dir)

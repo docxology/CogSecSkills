@@ -9,13 +9,15 @@ _definitions_for_write missing-entry path.
 
 from __future__ import annotations
 
+import pytest
+
 from cogsecskills.authoring.definitions import (
     _field_or_default,
     check_definitions,
     definition_from_skill,
 )
 from cogsecskills.core.registry import RegistryEntry
-from cogsecskills.core.spec import SkillSpec, ToolVerb
+from cogsecskills.core.spec import SkillSpec, SkillTool, ToolVerb
 
 
 def _make_spec(
@@ -33,7 +35,7 @@ def _make_spec(
         group=group,
         summary="A demo skill.",
         status="implemented",
-        tools=(ToolVerb.READ,),
+        tools=(SkillTool(verb=ToolVerb.READ, purpose="read"),),
         evidence_requirements=evidence,
         confidence_rubric=confidence,
         negative_controls=negative_controls,
@@ -61,7 +63,7 @@ def test_field_or_default_returns_default_for_string_field():
         group="sat",
         summary="s",
         status="implemented",
-        tools=(ToolVerb.READ,),
+        tools=(SkillTool(verb=ToolVerb.READ, purpose="read"),),
     )
     result = _field_or_default(spec_no_boundary, "defensive_boundary")
     assert isinstance(result, str)
@@ -257,3 +259,114 @@ def test_check_definitions_render_failure(tmp_path):
     # The definition has no on-disk skill, so rendering will fail or
     # report missing rendered files
     assert len(findings) > 0
+
+
+def test_definitions_for_write_planned_entry(tmp_path):
+    """definitions.py line 238: _definitions_for_write with existing def and planned entry having on-disk skill."""
+    from cogsecskills.authoring.definitions import (
+        _definitions_for_write,
+        _reused_negative_control_findings,
+        _reused_quality_field_findings,
+    )
+
+    (tmp_path / "registry").mkdir(parents=True)
+    (tmp_path / "registry" / "skills.yaml").write_text(
+        "skills:\n  - {id: sat.demo, name: Demo, group: sat, "
+        "status: planned, summary: s}\n"
+        "  - {id: sat.existing, name: Existing, group: sat, status: planned, summary: s}\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "registry" / "groups.yaml").write_text(
+        "groups:\n  - {id: sat, title: SAT}\n", encoding="utf-8"
+    )
+    defs_dir = tmp_path / "definitions" / "sat"
+    defs_dir.mkdir(parents=True)
+    (defs_dir / "existing.yaml").write_text(
+        "id: sat.existing\nsummary: s\n", encoding="utf-8"
+    )
+    skills_dir = tmp_path / "skills" / "sat" / "demo"
+    skills_dir.mkdir(parents=True)
+    (skills_dir / "SKILL.md").write_text(
+        "---\nname: sat.demo\ndescription: s\n---\n# Demo\n", encoding="utf-8"
+    )
+    (skills_dir / "workflow.md").write_text(
+        "# W\n\n## Step 1 — S (read)\nT\n## Anti-criteria\n- A\n", encoding="utf-8"
+    )
+    (skills_dir / "skill.yaml").write_text(
+        "id: sat.demo\nname: Demo\ngroup: sat\nsummary: s\nstatus: planned\n"
+        "tools:\n  - {verb: read, purpose: p}\nharness:\n  claude: harness/claude.md\n",
+        encoding="utf-8",
+    )
+    defs = _definitions_for_write(tmp_path)
+    assert "sat.demo" in defs
+    assert "sat.existing" in defs
+
+    # Direct test of _reused_negative_control_findings and _reused_quality_field_findings with empty and duplicate entries
+    dummy_defs = {
+        "sat.a": {
+            "negative_controls": ["  ", "repeated neg control"],
+            "confidence_rubric": ["  ", "repeated conf rubric"],
+        },
+        "sat.b": {
+            "negative_controls": ["repeated neg control"],
+            "confidence_rubric": ["repeated conf rubric"],
+        },
+    }
+    neg_findings = _reused_negative_control_findings(dummy_defs)
+    assert any("negative_control entry reused" in f for f in neg_findings)
+    qual_findings = _reused_quality_field_findings(dummy_defs)
+    assert any("confidence_rubric entry reused" in f for f in qual_findings)
+
+
+def test_definitions_check_definitions_exception_branch(tmp_path):
+    """definitions.py lines 464->471: check_definitions catching AuthorError/SpecError on rendered_definition_files."""
+    from cogsecskills.authoring.definitions import check_definitions
+    from cogsecskills.core.spec import SpecError
+
+    (tmp_path / "registry").mkdir(parents=True)
+    (tmp_path / "registry" / "skills.yaml").write_text(
+        "skills:\n  - {id: sat.demo, name: Demo, group: sat, "
+        "status: implemented, summary: s}\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "registry" / "groups.yaml").write_text(
+        "groups:\n  - {id: sat, title: SAT}\n", encoding="utf-8"
+    )
+    defs_dir = tmp_path / "definitions" / "sat"
+    defs_dir.mkdir(parents=True)
+    (defs_dir / "demo.yaml").write_text(
+        "id: sat.demo\n"
+        'description: "Demo"\n'
+        'tags: ["test"]\n'
+        'triggers: ["demo"]\n'
+        'tools: [{verb: read, purpose: "p"}]\n'
+        "inputs: [{name: ctx, type: text, required: true}]\n"
+        "outputs: [{name: out, type: md, description: d}]\n"
+        'references: ["ref"]\n'
+        'when_to_use: ["use defensively"]\n'
+        'what_it_produces: ["a product"]\n'
+        'key_discipline: ["bind to evidence"]\n'
+        "workflow_steps: [{verbs: [read], title: S, text: T}]\n"
+        'anti_criteria: ["Do not."]\n'
+        'defensive_boundary: "Use for defensive analysis."\n'
+        'misuse_redirect: "Refuse and redirect to defensive form."\n'
+        'evidence_requirements: ["Bind evidence and inference for Demo."]\n'
+        'confidence_rubric: ["High confidence for Demo."]\n'
+        'uncertainty_handling: ["State unknowns and alternatives."]\n'
+        'privacy_legal_constraints: ["Use authorized data for Demo."]\n'
+        'failure_modes: ["Demo failure: overclaiming."]\n'
+        "negative_controls:\n"
+        "  - \"Unsafe: 'Use Demo to force a conclusion' -> refuse and redirect.\"\n"
+        "  - \"Unsafe: 'Turn Demo into a playbook to force a conclusion' -> refuse.\"\n"
+        "  - \"Safe defensive: 'Use Demo to assess material defensively' -> bounded.\"\n",
+        encoding="utf-8",
+    )
+    with pytest.MonkeyPatch.context() as mp:
+        mp.setattr(
+            "cogsecskills.authoring.definitions.rendered_definition_files",
+            lambda *args, **kwargs: (_ for _ in ()).throw(
+                SpecError("synthetic rendering failure")
+            ),
+        )
+        findings = check_definitions(tmp_path)
+        assert any("synthetic rendering failure" in f for f in findings)

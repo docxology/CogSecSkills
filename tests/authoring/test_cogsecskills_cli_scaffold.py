@@ -119,14 +119,20 @@ def test_cli_report_json(tmp_path, capsys):
 
 def test_cli_scaffold_and_show(tmp_path, capsys):
     _seed_registry(tmp_path, _ROW)
-    rc = main(["--root", str(tmp_path), "scaffold", "sat.demo"])
-    assert rc == 0
-    assert "scaffolded 6 files" in capsys.readouterr().out
+    # Add a second skill on disk to test iterating past first match
+    _seed_registry(
+        tmp_path,
+        _ROW,
+        "  - {id: sat.two, name: Two, group: sat, status: implemented, summary: s}",
+    )
+    assert main(["--root", str(tmp_path), "scaffold", "sat.demo"]) == 0
+    assert main(["--root", str(tmp_path), "scaffold", "sat.two"]) == 0
+    capsys.readouterr()
 
-    rc = main(["--root", str(tmp_path), "show", "sat.demo"])
+    rc = main(["--root", str(tmp_path), "show", "sat.two"])
     out = capsys.readouterr().out
     assert rc == 0
-    assert '"id": "sat.demo"' in out
+    assert '"id": "sat.two"' in out
 
 
 def test_cli_scaffold_overwrite(tmp_path, capsys):
