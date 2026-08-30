@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 from pathlib import Path
 
 import pytest
@@ -97,6 +99,43 @@ def test_cli_list_filtered(tmp_path, capsys):
     assert "sat.two" in out and "sat.demo" not in out
 
 
+def test_cli_validate_json_ok(tmp_path, capsys):
+    _seed_registry(tmp_path, _ROW)
+    rc = main(["--root", str(tmp_path), "validate", "--format", "json"])
+    out = capsys.readouterr().out
+    payload = json.loads(out)
+    assert rc == 0
+    assert payload["ok"] is True
+    assert payload["errors"] == 0 and payload["warnings"] == 0
+    assert payload["issues"] == []
+
+
+def test_cli_validate_json_reports_errors(tmp_path, capsys):
+    # implemented registry row with no on-disk skill => error => exit 1
+    _seed_registry(
+        tmp_path,
+        "  - {id: sat.ghost, name: Ghost, group: sat, status: implemented, summary: s}",
+    )
+    rc = main(["--root", str(tmp_path), "validate", "--format", "json"])
+    out = capsys.readouterr().out
+    payload = json.loads(out)
+    assert rc == 1
+    assert payload["ok"] is False
+    assert payload["errors"] >= 1
+    assert any(i["skill_id"] == "sat.ghost" for i in payload["issues"])
+
+
+def test_cli_doctor_json_ok(tmp_path, capsys):
+    _seed_registry(tmp_path, _ROW)
+    rc = main(["--root", str(tmp_path), "doctor", "--format", "json"])
+    out = capsys.readouterr().out
+    payload = json.loads(out)
+    assert rc == 0
+    assert payload["ok"] is True
+    assert payload["validation"]["errors"] == 0
+    assert payload["quality"]["findings"] == 0
+
+
 def test_cli_validate_reports_errors(tmp_path, capsys):
     # implemented registry row with no on-disk skill => error => exit 1
     _seed_registry(
@@ -182,7 +221,6 @@ def test_cli_list_json_format(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "list", "--format", "json"])
     out = capsys.readouterr().out
     assert rc == 0
-    import json
 
     payload = json.loads(out)
     assert payload["total"] == 2
@@ -262,7 +300,6 @@ def test_cli_route_json_format(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "route", "demo", "--format", "json"])
     out = capsys.readouterr().out
     assert rc == 0
-    import json
 
     payload = json.loads(out)
     assert payload["query"] == "demo"
@@ -280,7 +317,6 @@ def test_cli_route_json_no_matches(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "route", "nonexistent", "--format", "json"])
     out = capsys.readouterr().out
     assert rc == 0
-    import json
 
     payload = json.loads(out)
     assert payload["matches"] == []

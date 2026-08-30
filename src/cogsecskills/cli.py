@@ -107,6 +107,26 @@ def _cmd_show(args: argparse.Namespace) -> int:
 def _cmd_validate(args: argparse.Namespace) -> int:
     config = load_config(args.root)
     result = validate_library(args.root, harnesses=config.harnesses)
+    if getattr(args, "format", "text") == "json":
+        print(
+            json.dumps(
+                {
+                    "ok": result.ok,
+                    "errors": len(result.errors),
+                    "warnings": len(result.warnings),
+                    "issues": [
+                        {
+                            "severity": issue.severity,
+                            "skill_id": issue.skill_id,
+                            "message": issue.message,
+                        }
+                        for issue in result.issues
+                    ],
+                },
+                indent=2,
+            )
+        )
+        return 0 if result.ok else 1
     for issue in result.issues:
         print(f"{issue.severity.upper():7}  {issue.skill_id:40}  {issue.message}")
     print(f"\n{len(result.errors)} error(s), {len(result.warnings)} warning(s)")
@@ -182,6 +202,39 @@ def _cmd_doctor(args: argparse.Namespace) -> int:
     config = load_config(args.root)
     result = validate_library(args.root, harnesses=config.harnesses)
     findings = doctor(args.root, config)
+    if getattr(args, "format", "text") == "json":
+        print(
+            json.dumps(
+                {
+                    "ok": bool(result.ok and not findings),
+                    "validation": {
+                        "errors": len(result.errors),
+                        "warnings": len(result.warnings),
+                        "issues": [
+                            {
+                                "severity": issue.severity,
+                                "skill_id": issue.skill_id,
+                                "message": issue.message,
+                            }
+                            for issue in result.issues
+                        ],
+                    },
+                    "quality": {
+                        "findings": len(findings),
+                        "issues": [
+                            {
+                                "level": f["level"],
+                                "skill_id": f["skill_id"],
+                                "message": f["message"],
+                            }
+                            for f in findings
+                        ],
+                    },
+                },
+                indent=2,
+            )
+        )
+        return 0 if result.ok and not findings else 1
     for issue in result.issues:
         print(f"{issue.severity.upper():7}  {issue.skill_id:40}  {issue.message}")
     for f in findings:
@@ -423,9 +476,14 @@ def build_parser() -> argparse.ArgumentParser:
     p_show.add_argument("skill_id")
     p_show.set_defaults(func=_cmd_show)
 
-    sub.add_parser("validate", help="validate the library").set_defaults(
-        func=_cmd_validate
+    p_validate = sub.add_parser("validate", help="validate the library")
+    p_validate.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        help="output format (default: text)",
     )
+    p_validate.set_defaults(func=_cmd_validate)
     sub.add_parser("report", help="print a JSON conformance report").set_defaults(
         func=_cmd_report
     )
@@ -489,9 +547,14 @@ def build_parser() -> argparse.ArgumentParser:
         help="write the generated catalogue to a file instead of stdout",
     )
     p_catalogue.set_defaults(func=_cmd_catalogue)
-    sub.add_parser("doctor", help="validate + quality-lint the library").set_defaults(
-        func=_cmd_doctor
+    p_doctor = sub.add_parser("doctor", help="validate + quality-lint the library")
+    p_doctor.add_argument(
+        "--format",
+        choices=("text", "json"),
+        default="text",
+        help="output format (default: text)",
     )
+    p_doctor.set_defaults(func=_cmd_doctor)
     p_defs = sub.add_parser(
         "definitions",
         help="generate or check canonical skill definitions and rendered skills",

@@ -15,11 +15,21 @@ work.
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `pytest --cov=cogsecskills` -> `896 passed`, `99.91% coverage`.
-- Lint gate: `ruff check` + `ruff format --check` -> clean (647 files).
-- Type gate: `mypy` -> `no issues found in 82 source files`.
+- Test gate: `pytest --cov=cogsecskills --cov-fail-under=97` -> `899 passed`, `99.91% coverage`.
+- Lint gate: `ruff check` + `ruff format --check` -> clean (82 files).
+- Type gate: `mypy` -> `no issues found in 38 source files` (requires the `dev`
+  extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11
+  `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
+
+## Resolved (2026-08-30 review pass)
+
+- `ruff format` drift fixed in
+  `src/cogsecskills/artifacts/manuscript_assets/figure_cover.py` (one stray
+  blank line); `ruff format --check` now fully clean.
+- All "Verified State" numbers re-measured live on this checkout.
 
 ## Ongoing Guardrails
+
 
 - Keep verification prose aligned with the exact latest gate run after any source edits.
 - Rerun `manuscript-assets --write` and `--check` after registry or skill metadata changes.
@@ -55,13 +65,17 @@ work.
 
 ## Medium: CLI Enhancements
 
-- Add `--format json` to `stats` and `export` commands for complete programmatic consumption consistency.
-- Add `--format json` to `validate` and `doctor` commands for machine-readable CI diagnostics.
+- `--format json` added to `validate` and `doctor` (2026-08-30): machine-readable
+  CI diagnostics with failure-path payload tests; documented in `docs/cli.md`.
+- `stats` and `export` are already JSON-native (no `--format` flag needed);
+  `list`, `route`, and `groups` already accept `--format json`.
 
 ## Medium: AGEINT Docs
 
-- Audit `docs/ageint/` primers for alignment with the full 100-skill taxonomy; maintain active cross-references.
-- Ensure each AGEINT primer names at least 3 concrete skills from its corresponding group.
+- Verified 2026-08-30: each group primer in `docs/ageint/` names many concrete
+  skills from its group inline (e.g. `cognitive-security.md` names 20+ of 24);
+  cross-references are active. Periodically re-audit against the 100-skill
+  taxonomy as definitions deepen.
 
 ## Major: Empirical Evaluation
 

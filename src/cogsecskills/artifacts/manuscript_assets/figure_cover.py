@@ -35,7 +35,6 @@ from .rows import SkillRow, _group_ids
 
 
 def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
-
     import matplotlib.pyplot as plt
     from matplotlib import patches
 

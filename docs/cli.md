@@ -167,6 +167,25 @@ cogsecskills validate
 0 error(s), 0 warning(s)
 ```
 
+For machine-readable CI diagnostics, add `--format json`:
+
+```bash
+cogsecskills validate --format json
+```
+
+```json
+{
+  "ok": true,
+  "errors": 0,
+  "warnings": 0,
+  "issues": []
+}
+```
+
+The payload carries the boolean `ok` gate, the error/warning tallies, and one
+entry per issue (`severity`, `skill_id`, `message`). The exit code is unchanged:
+`1` when there are errors.
+
 ---
 
 ### `report` — JSON conformance report
@@ -672,6 +691,24 @@ cogsecskills doctor
 ```
 validation: 0 error(s); quality: 0 finding(s)
 ```
+
+`doctor` also accepts `--format json` for machine-readable CI diagnostics:
+
+```bash
+cogsecskills doctor --format json
+```
+
+```json
+{
+  "ok": true,
+  "validation": { "errors": 0, "warnings": 0, "issues": [] },
+  "quality": { "findings": 0, "issues": [] }
+}
+```
+
+The payload separates the validation and quality halves, each with its tally and
+issue list; the top-level `ok` mirrors the exit code (`1` on validation errors
+or quality findings).
 
 ---
 
