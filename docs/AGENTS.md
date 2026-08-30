@@ -32,5 +32,5 @@ This directory is public reader documentation for the skill system.
 ```bash
 PYTHONPATH="src:." python -m cogsecskills dashboard --check
 PYTHONPATH="src:." python -m cogsecskills examples --check
-PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_docs_contract.py
+uv run pytest tests/contract/test_cogsecskills_docs_contract.py
 ```

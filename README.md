@@ -216,15 +216,17 @@ live in [`DESIGN.md`](DESIGN.md).
 
 ## Testing
 
+Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
+`artifacts/`, `quality/`, `contract/`, `conformance/`). Run the whole suite —
+the same command CI runs:
+
 ```bash
-PYTHONPATH="src:." python -m pytest \
-  tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py \
-  --cov=src/cogsecskills --cov-report=term-missing
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
 ```
 
-The live conformance test (`tests/test_skill_library_conformance.py`) runs against
-the real `skills/` tree: adding a malformed skill, or an `implemented` registry
-entry with no build, fails the suite.
+The live conformance test (`tests/conformance/test_skill_library_conformance.py`)
+runs against the real `skills/` tree: adding a malformed skill, or an
+`implemented` registry entry with no build, fails the suite.
 
 ## Provenance
 

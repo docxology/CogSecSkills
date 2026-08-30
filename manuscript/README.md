@@ -75,8 +75,9 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 - `output/figures/cogsecskills_cover_installation.png` - canonical generated cover image
 - `figures/cogsecskills_cover_installation.png` - synchronized title-page cover mirror configured in `config.yaml`
 
-If generated Markdown or data is wrong, fix `src/cogsecskills/artifacts/manuscript_assets/__init__.py`
-or the source registry/skill metadata, then regenerate.
+If generated Markdown or data is wrong, fix the generator under
+`src/cogsecskills/artifacts/manuscript_assets/` or the source registry/skill
+metadata, then regenerate.
 
 ## Citations And Provenance
 
@@ -109,7 +110,7 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 PYTHONPATH="src:." python -m cogsecskills validate
 PYTHONPATH="src:." python -m cogsecskills report
 PYTHONPATH="src:." python -m cogsecskills doctor
-PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
 ```
 
 From the sibling template checkout:

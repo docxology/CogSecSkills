@@ -64,7 +64,7 @@ byte-identical, and check the write return code before trusting that comparison.
 ## Verification
 
 ```bash
-PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
 uv run ruff check src/cogsecskills tests
 uv run ruff format --check src/cogsecskills tests
 uv run mypy
