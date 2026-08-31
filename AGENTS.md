@@ -25,10 +25,10 @@ and figures that document those source surfaces.
    linked to deterministic scenarios.
 8. **`docs/quality-dashboard.md`**, **`docs/quality-dashboard.html`**,
    **`docs/evaluation-readiness.md`**,
-   **`docs/release-claim-matrix.md`**, and **`manuscript/S10*`/`S11*`** —
+   **`docs/release-claim-matrix.md`**, and **`docs/manuscript/S10*`/`S11*`** —
    generated documentation mirrors, not hand-authored sources.
 
-The manuscript under `manuscript/` is a documentation surface for the skills
+The manuscript under `docs/manuscript/` is a documentation surface for the skills
 system. Keep it evidence-bound: it may describe the registry, skills, runner,
 tests, generated supplements, figures, and validation results, but it must not
 invent publication claims, citations, or benchmarks.
@@ -66,7 +66,7 @@ Use the nearest `AGENTS.md` when it exists:
 - `registry/AGENTS.md` — registry, group vocabulary, and optional harness profile metadata.
 - `scenarios/AGENTS.md` — deterministic defensive scenario fixtures and expected answers.
 - `docs/AGENTS.md` — public docs, generated dashboard, and claim-boundary wording.
-- `manuscript/AGENTS.md` — manuscript source, generated supplements, figures, citations, and render gates.
+- `docs/manuscript/AGENTS.md` — manuscript source, generated supplements, figures, citations, and render gates.
 - `tests/AGENTS.md` — test style, no-mock rule, and contract-test ownership.
 
 ## How to add a skill

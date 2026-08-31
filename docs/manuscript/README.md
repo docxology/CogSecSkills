@@ -31,7 +31,7 @@ A defensive, educational, harness-neutral library of Cognitive Security and anal
 
 Generated figures are written under `../output/figures/` and referenced by the
 main manuscript. The title-page cover is also mirrored to `../figures/` because
-the shared PDF renderer resolves configured cover images from `manuscript/` but
+the shared PDF renderer resolves configured cover images from `docs/manuscript/` but
 XeLaTeX compiles from `output/pdf`. Generated catalogue, worked-example, and
 quality-dashboard data are written under `../output/data/`.
 
@@ -61,8 +61,8 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 
 `--write` updates:
 
-- `manuscript/S10_skill_catalogue.md`
-- `manuscript/S11_skill_metadata_matrix.md`
+- `docs/manuscript/S10_skill_catalogue.md`
+- `docs/manuscript/S11_skill_metadata_matrix.md`
 - `output/data/skill_catalogue.json`
 - `output/data/skill_catalogue.csv`
 - `output/figures/cogsecskills_taxonomy_counts.png`

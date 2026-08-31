@@ -48,12 +48,12 @@ benign informational lines such as `pdfdraftmode not found`.
 ## Traceability and Render Contract
 
 - Do not cite results that cannot be regenerated or directly traced.
-- Keep generated outputs under `output/` and manuscript source under `manuscript/`.
+- Keep generated outputs under `output/` and manuscript source under `docs/manuscript/`.
 - Keep private data, credentials, and unpublished sensitive details out of the manuscript.
 - Treat `scenarios/defensive_readiness.yaml` as a curated local fixture set for route, quality-contract, and expected-answer readiness, not as empirical validation.
 - Treat `examples/skill-worked-examples.yaml`, `docs/skill-worked-examples.md`, and `output/data/skill_worked_examples.json` as deterministic local worked-example fixtures, not live model transcripts.
 - Treat `docs/quality-dashboard.md` and `output/data/quality_dashboard.json` as generated navigation and drift surfaces, not as field-effectiveness evidence.
-- Treat `manuscript/S10_skill_catalogue.md`, `manuscript/S11_skill_metadata_matrix.md`, `output/data/skill_catalogue.*`, and the eight `output/figures/*.png` manuscript figures as generated from source-owned inputs.
+- Treat `docs/manuscript/S10_skill_catalogue.md`, `docs/manuscript/S11_skill_metadata_matrix.md`, `output/data/skill_catalogue.*`, and the eight `output/figures/*.png` manuscript figures as generated from source-owned inputs.
 - Record exact verification command results before making release or publication claims.
 - Keep repository URL, version, license, source revision, environment versions,
   lockfile presence, figure inventory, and gate results current in

@@ -161,7 +161,7 @@ and coverage from 94.35% to 95.47%.
 
 ### Changed
 
-- `manuscript/S02_release_manifest.md` updated to v1.2.0 values (version,
+- `docs/manuscript/S02_release_manifest.md` updated to v1.2.0 values (version,
   test counts, coverage, Python version, file counts, DOI status).
 - `docs/cli.md` version example updated to 1.2.0.
 - `ISA.md` progress line updated to v1.2.0.
@@ -233,13 +233,13 @@ Comprehensive code-quality, test-coverage, and CLI-improvement pass over the
   `.[dev,figures]` so the figure-asset tests run for real (no skips), and mypy
   gains a `follow_imports = skip` override for these third-party stubs so
   newer-Python stub syntax does not break the 3.10 type target.
-- `manuscript/07_ethics_and_responsible_use.md` — standalone Ethics, Dual-Use,
+- `docs/manuscript/07_ethics_and_responsible_use.md` — standalone Ethics, Dual-Use,
   and Responsible-Use section (dual-use stance, defensive-by-contract-and-review,
   human-subjects scope, adopter responsibilities, and explicit non-claims).
-- `manuscript/01_introduction.md` — a "Related Work and Positioning" subsection
+- `docs/manuscript/01_introduction.md` — a "Related Work and Positioning" subsection
   situating the library against the four cited literatures, grounded only in
   already-verified `references.bib` keys.
-- Expanded `manuscript/98_symbols_glossary.md` from 4 to 11 terms (defensive
+- Expanded `docs/manuscript/98_symbols_glossary.md` from 4 to 11 terms (defensive
   boundary, misuse redirect, negative control, scenario fixture, worked example,
   reference density) and documented the `ageint_topic` crosswalk field.
 

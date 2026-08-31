@@ -31,8 +31,8 @@ or verification statements.
 | `codemeta.json` | Machine-readable software metadata. |
 | `pyproject.toml` | Package metadata, dependency declaration, and test/coverage configuration. |
 | `uv.lock` | Dependency lockfile for local reproducibility. |
-| `manuscript/references.bib` | Verified manuscript-level bibliography. |
-| `manuscript/S02_release_manifest.md` | Release provenance and gate-result surface. |
+| `docs/manuscript/references.bib` | Verified manuscript-level bibliography. |
+| `docs/manuscript/S02_release_manifest.md` | Release provenance and gate-result surface. |
 | `output/data/` | Generated machine-readable catalogue exports. |
 | `output/figures/` | Generated visualizations referenced by the manuscript. |
 
@@ -42,7 +42,7 @@ or verification statements.
 - Confirm which commands reproduce the current outputs.
 - Confirm whether a value belongs in prose, a generated supplement, or a data export.
 - Confirm which external references need verified BibTeX entries.
-- Confirm all manuscript citation keys resolve in `manuscript/references.bib`.
+- Confirm all manuscript citation keys resolve in `docs/manuscript/references.bib`.
 - Confirm reproducibility instructions use `${PROJECT_ROOT}` and
   `${TEMPLATE_ROOT}` rather than author-local absolute paths.
 - Confirm whether any private material must be summarized rather than quoted or copied.

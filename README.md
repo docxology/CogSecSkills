@@ -231,7 +231,7 @@ runs against the real `skills/` tree: adding a malformed skill, or an
 ## Provenance
 
 - Canonical public repository: <https://github.com/docxology/CogSecSkills>.
-  Local manuscript/render validation may use the sibling docxology template, but
+  Local docs/manuscript/render validation may use the sibling docxology template, but
   the **deliverable is the skills system**: registry, skills, AGEINT docs,
   runner, tests, generated manuscript supplements, and figures that describe
   those source surfaces.

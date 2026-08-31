@@ -18,7 +18,7 @@ Without `uv`:
 python -m pip install -e .
 ```
 
-Regenerating the manuscript/release **figures** (`manuscript-assets --write`)
+Regenerating the docs/manuscript/release **figures** (`manuscript-assets --write`)
 additionally needs the optional `figures` extra:
 
 ```bash
