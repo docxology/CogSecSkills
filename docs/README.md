@@ -51,7 +51,7 @@ CogSecSkills/
 ├── examples/            EXAMPLES — source worked examples, harness transcripts, group examples
 ├── docs/                TEACH — this folder + ageint/ upstream
 │   └── harness-installation.md · install and bind the library into an agent harness
-├── manuscript/             manuscript source, including generated S10/S11 supplements
+├── docs/manuscript/             manuscript source, including generated S10/S11 supplements
 ├── output/                 rebuild outputs: data exports, figures, PDF/HTML/slides
 ├── src/cogsecskills/        the runner, organized into cohesive subpackages:
 │   ├── core/                · spec, registry, loader, config, harness (the data model)

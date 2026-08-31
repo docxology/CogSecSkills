@@ -25,7 +25,7 @@ This directory is public reader documentation for the skill system.
   effectiveness, public release status, peer review, vendor endorsement, or DOI
   archival.
 - Keep per-skill `refs` metadata distinct from scholarly citations in
-  `manuscript/references.bib`.
+  `docs/manuscript/references.bib`.
 
 ## Verification
 

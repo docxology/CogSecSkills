@@ -226,9 +226,9 @@
 <li>Dashboard gate: `dashboard --check` -&gt; `quality dashboard is current`.</li>
 <li>Release gate: `release-metadata --check` -&gt; `release metadata is current (local mode)`.</li>
 <li>Manuscript gate: `manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
-<li>Test gate: `pytest --cov=cogsecskills` -&gt; `896 passed`, `99.91% coverage`.</li>
-<li>Lint gate: `ruff check` + `ruff format --check` -&gt; clean (647 files).</li>
-<li>Type gate: `mypy` -&gt; `no issues found in 82 source files`.</li>
+<li>Test gate: `pytest --cov=cogsecskills --cov-fail-under=97` -&gt; `899 passed`, `99.91% coverage`.</li>
+<li>Lint gate: `ruff check` + `ruff format --check` -&gt; clean (82 files).</li>
+<li>Type gate: `mypy` -&gt; `no issues found in 38 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).</li>
         </ul>
       </section>
     </div>

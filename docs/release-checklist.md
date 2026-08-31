@@ -49,7 +49,7 @@ rg -n "Citation .*undefined|undefined references|LaTeX Warning: Reference.*undef
 ## Human Review
 
 - Confirm `TODO.md` reflects only forward-looking work.
-- Confirm `manuscript/references.bib` contains verified entries only.
+- Confirm `docs/manuscript/references.bib` contains verified entries only.
 - Confirm generated files carry generated headers where expected.
 - Confirm claim wording stays local: structural conformance and deterministic
   readiness, not field effectiveness.

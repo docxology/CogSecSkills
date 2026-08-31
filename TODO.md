@@ -17,9 +17,7 @@ work.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
 - Test gate: `pytest --cov=cogsecskills --cov-fail-under=97` -> `899 passed`, `99.91% coverage`.
 - Lint gate: `ruff check` + `ruff format --check` -> clean (82 files).
-- Type gate: `mypy` -> `no issues found in 38 source files` (requires the `dev`
-  extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11
-  `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
+- Type gate: `mypy` -> `no issues found in 38 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
 
 ## Resolved (2026-08-30 review pass)
 

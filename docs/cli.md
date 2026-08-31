@@ -637,8 +637,8 @@ cogsecskills manuscript-assets (--write | --check)
 
 `--write` updates:
 
-- `manuscript/S10_skill_catalogue.md`
-- `manuscript/S11_skill_metadata_matrix.md`
+- `docs/manuscript/S10_skill_catalogue.md`
+- `docs/manuscript/S11_skill_metadata_matrix.md`
 - `output/data/skill_catalogue.json`
 - `output/data/skill_catalogue.csv`
 - `output/figures/cogsecskills_taxonomy_counts.png`
@@ -662,7 +662,7 @@ manuscript assets are current
 ```
 
 The `output/` files are rebuild artifacts; the generated supplemental Markdown
-under `manuscript/` is committed source input for the renderer and carries a
+under `docs/manuscript/` is committed source input for the renderer and carries a
 "do not edit by hand" header.
 
 ---
