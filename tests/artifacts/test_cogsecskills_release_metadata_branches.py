@@ -26,11 +26,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 def _copy_fixture(tmp_path: Path, *, clear_doi: bool = True) -> Path:
     for filename in ("pyproject.toml", "CITATION.cff", "codemeta.json", "LICENSE"):
         shutil.copy2(PROJECT_ROOT / filename, tmp_path / filename)
-    for dirname in ("docs", "manuscript", "output", "figures"):
+    for dirname in ("docs", "output", "figures"):
         if (PROJECT_ROOT / dirname).exists():
             shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
     if clear_doi:
-        config_path = tmp_path / "manuscript" / "config.yaml"
+        config_path = tmp_path / "docs" / "manuscript" / "config.yaml"
         config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
         config.setdefault("publication", {})
         config["publication"]["doi"] = ""
