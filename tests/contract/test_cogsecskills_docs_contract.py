@@ -178,7 +178,10 @@ def test_optional_harness_profiles_are_documented_without_runtime_claims():
     )
     manuscript_text = "\n".join(
         _read(PROJECT_ROOT / path)
-        for path in ("manuscript/02_system_context.md", "manuscript/03_methods.md")
+        for path in (
+            "docs/manuscript/02_system_context.md",
+            "docs/manuscript/03_methods.md",
+        )
     )
 
     for text in (docs_text, manuscript_text):
