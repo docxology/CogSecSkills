@@ -22,7 +22,7 @@ def _git(root: Path, *args: str) -> None:
 def _copy_release_fixture(tmp_path: Path, *, clear_doi: bool = False) -> Path:
     for filename in ("pyproject.toml", "CITATION.cff", "codemeta.json", "LICENSE"):
         shutil.copy2(PROJECT_ROOT / filename, tmp_path / filename)
-    for dirname in ("docs", "manuscript", "output", "figures"):
+    for dirname in ("docs", "output", "figures"):
         if (PROJECT_ROOT / dirname).exists():
             shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
     if clear_doi:
@@ -30,7 +30,7 @@ def _copy_release_fixture(tmp_path: Path, *, clear_doi: bool = False) -> Path:
         # project has since been published with a real Zenodo DOI. Archive
         # availability is derived from CITATION.cff + codemeta.json (see
         # release_metadata._has_doi), so strip the DOI from those too.
-        config_path = tmp_path / "manuscript" / "config.yaml"
+        config_path = tmp_path / "docs" / "manuscript" / "config.yaml"
         config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
         config.setdefault("publication", {})
         config["publication"]["doi"] = ""

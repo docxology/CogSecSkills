@@ -136,8 +136,8 @@ def _metadata_payload(root: Path | None = None, *, mode: ReleaseMode = "local") 
         "docs/skill-worked-examples.md",
         "docs/evaluation-readiness.md",
         "docs/release-claim-matrix.md",
-        "manuscript/S10_skill_catalogue.md",
-        "manuscript/S11_skill_metadata_matrix.md",
+        "docs/manuscript/S10_skill_catalogue.md",
+        "docs/manuscript/S11_skill_metadata_matrix.md",
         *figure_paths,
     ]
     return {

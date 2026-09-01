@@ -26,7 +26,7 @@ This directory follows the docxology/template manuscript contract:
 - Keep scenario claims aligned with `python -m cogsecskills scenarios --check`.
 - Keep project-specific computation in source modules and scripts; keep manuscript files as prose and evidence maps.
 - Prefer explicit paths to source surfaces when describing evidence.
-- Figures referenced by the main manuscript must exist under `../output/figures/`
+- Figures referenced by the main manuscript must exist under `../../output/figures/`
   and be produced by `python -m cogsecskills manuscript-assets --write` unless
   a future source-owned producer is documented.
 - If generated supplements drift, update the generator or source metadata, then

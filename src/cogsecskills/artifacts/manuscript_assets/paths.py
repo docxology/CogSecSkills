@@ -15,8 +15,8 @@ GENERATED_HEADER = (
     "do not edit by hand. -->"
 )
 
-CATALOGUE_PATH = Path("manuscript/S10_skill_catalogue.md")
-MATRIX_PATH = Path("manuscript/S11_skill_metadata_matrix.md")
+CATALOGUE_PATH = Path("docs/manuscript/S10_skill_catalogue.md")
+MATRIX_PATH = Path("docs/manuscript/S11_skill_metadata_matrix.md")
 DATA_JSON_PATH = Path("output/data/skill_catalogue.json")
 DATA_CSV_PATH = Path("output/data/skill_catalogue.csv")
 

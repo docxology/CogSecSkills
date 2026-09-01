@@ -22,7 +22,7 @@ EXPECTED_AGENTS = (
     "registry/AGENTS.md",
     "scenarios/AGENTS.md",
     "docs/AGENTS.md",
-    "manuscript/AGENTS.md",
+    "docs/manuscript/AGENTS.md",
     "tests/AGENTS.md",
 )
 
@@ -82,7 +82,7 @@ def test_agents_hierarchy_exists_and_names_local_boundaries():
             "configured structural adapters",
             "documented external profiles",
         ),
-        "manuscript/AGENTS.md": (
+        "docs/manuscript/AGENTS.md": (
             "S10_skill_catalogue.md",
             "do not edit them directly",
         ),
@@ -105,8 +105,8 @@ def test_boundary_guidance_avoids_external_certification_claims():
         "docs/harness-cookbook.md",
         "docs/configuration.md",
         "docs/skill-contract.md",
-        "manuscript/02_system_context.md",
-        "manuscript/03_methods.md",
+        "docs/manuscript/02_system_context.md",
+        "docs/manuscript/03_methods.md",
     )
     forbidden = (
         "runtime certified",
@@ -123,8 +123,8 @@ def test_boundary_guidance_avoids_external_certification_claims():
 
 def test_generated_manuscript_supplements_keep_source_header():
     for rel_path in (
-        "manuscript/S10_skill_catalogue.md",
-        "manuscript/S11_skill_metadata_matrix.md",
+        "docs/manuscript/S10_skill_catalogue.md",
+        "docs/manuscript/S11_skill_metadata_matrix.md",
     ):
         assert _read(rel_path).startswith(GENERATED_HEADER), rel_path
 

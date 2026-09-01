@@ -34,8 +34,8 @@ This generated matrix is a local release-readiness surface. It records metadata 
 | `docs/skill-worked-examples.md` | yes |
 | `docs/evaluation-readiness.md` | yes |
 | `docs/release-claim-matrix.md` | yes |
-| `manuscript/S10_skill_catalogue.md` | yes |
-| `manuscript/S11_skill_metadata_matrix.md` | yes |
+| `docs/manuscript/S10_skill_catalogue.md` | yes |
+| `docs/manuscript/S11_skill_metadata_matrix.md` | yes |
 | `output/figures/cogsecskills_taxonomy_counts.png` | yes |
 | `output/figures/cogsecskills_skill_grid.png` | yes |
 | `output/figures/cogsecskills_verb_heatmap.png` | yes |
