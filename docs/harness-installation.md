@@ -128,3 +128,45 @@ PYTHONPATH="src:." python -m cogsecskills show osint_integrity.claim_provenance_
 
 The route command helps an operator or harness choose the appropriate skill.
 The show command prints the corresponding structured contract.
+
+## Machine-Readable Output For Harness Integration
+
+`validate` and `doctor` accept `--format json`, emitting a single JSON object on
+stdout that harness integration and CI wrappers can parse instead of scraping
+human text. Exit codes are unchanged: `0` on success, `1` on errors/findings.
+
+```bash
+PYTHONPATH="src:." python -m cogsecskills validate --format json
+```
+
+```json
+{
+  "ok": true,
+  "errors": 0,
+  "warnings": 0,
+  "issues": []
+}
+```
+
+```bash
+PYTHONPATH="src:." python -m cogsecskills doctor --format json
+```
+
+```json
+{
+  "ok": true,
+  "validation": {
+    "errors": 0,
+    "warnings": 0,
+    "issues": []
+  },
+  "quality": {
+    "findings": 0,
+    "issues": []
+  }
+}
+```
+
+When issues exist, they appear in the `issues` arrays with structured detail, so
+a harness can report, deduplicate, or gate on them programmatically. See
+[`cli.md`](cli.md) for the full flag reference.

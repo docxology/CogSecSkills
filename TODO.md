@@ -43,8 +43,9 @@ work.
 
 ## Minor: Documentation Polish
 
-- Update `docs/harness-installation.md` or `docs/harness-cookbook.md` with examples of `--format json` CLI usage for harness integration.
-- Update `docs/README.md` to reference new test packages and coverage thresholds.
+- Resolved 2026-08-31: `docs/harness-installation.md` now documents `--format
+  json` for `validate`/`doctor` with verified output payloads; `tests/README.md`
+  now describes the per-concern test packages, conventions, and coverage gates.
 
 ## Minor: CI Hardening
 
