@@ -8,7 +8,7 @@ from pathlib import Path
 import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-MANUSCRIPT = PROJECT_ROOT / "manuscript"
+MANUSCRIPT = PROJECT_ROOT / "docs" / "manuscript"
 
 
 BIB_KEY_RE = re.compile(r"^@(?!comment\b)\w+\s*\{\s*([^,\s]+)\s*,", re.MULTILINE)
