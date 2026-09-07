@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -23,10 +27,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install (into the uv-managed venv from setup-uv)
-        # figures extra pulls matplotlib/seaborn/numpy so the figure-asset
-        # tests run for real (no skips) rather than failing on a missing import.
-        run: uv pip install -e ".[dev,figures]"
+      - name: Install (uv sync from uv.lock; editable project install)
+        # --locked pins CI to the shipped lockfile (a stale lock fails loudly)
+        # instead of resolving fresh from PyPI. figures extra pulls
+        # matplotlib/seaborn/numpy so the figure-asset tests run for real
+        # (no skips) rather than failing on a missing import.
+        run: uv sync --locked --extra dev --extra figures
 
       - name: Lint (ruff)
         run: |
@@ -53,4 +59,5 @@ jobs:
           uv run cogsecskills evals --check
           uv run cogsecskills dashboard --check
           uv run cogsecskills release-metadata --check
+          uv run cogsecskills catalogue --check
           uv run cogsecskills manuscript-assets --check

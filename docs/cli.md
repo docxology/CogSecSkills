@@ -594,16 +594,18 @@ sat                        34  Structured Analytic Techniques
 Render the entire catalogue as a grouped, navigable Markdown index, generated
 from the registry. This is how [catalogue.md](catalogue.md) is produced. By
 default the Markdown is printed to stdout; `--output` writes it to a file
-instead (with a trailing newline) and prints `wrote <path>`.
+instead (with a trailing newline) and prints `wrote <path>`. `--check` fails
+when the generated doc is missing or drifted from the live registry.
 
 ```
-cogsecskills catalogue [--markdown] [--output PATH]
+cogsecskills catalogue [--markdown] [--output PATH] [--check]
 ```
 
 | Flag | Meaning |
 | --- | --- |
 | `--markdown` | Emit Markdown (the only currently supported catalogue format). |
 | `--output PATH` | Write the generated catalogue to `PATH` instead of stdout. |
+| `--check` | Compare the generated catalogue against `docs/catalogue.md` (or the `--output` path) without writing; exit `1` when the file is missing or stale. |
 
 ```bash
 # Regenerate the catalogue doc
@@ -612,6 +614,15 @@ cogsecskills catalogue --markdown --output docs/catalogue.md
 
 ```
 wrote docs/catalogue.md
+```
+
+```bash
+# Drift gate (CI runs this)
+cogsecskills catalogue --check
+```
+
+```
+catalogue doc is current: docs/catalogue.md
 ```
 
 The generated document is grouped by area, with a status-count header and one

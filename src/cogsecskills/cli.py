@@ -46,6 +46,7 @@ from cogsecskills.authoring.definitions import check_definitions, write_definiti
 from cogsecskills.authoring.scaffold import scaffold_skill
 from cogsecskills.core.config import load_config
 from cogsecskills.core.loader import discover_skills
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.registry import load_registry
 from cogsecskills.core.spec import SkillSpec
 from cogsecskills.quality.insights import (
@@ -190,6 +191,28 @@ def _cmd_groups(args: argparse.Namespace) -> int:
 
 def _cmd_catalogue(args: argparse.Namespace) -> int:
     markdown = render_catalogue_markdown(args.root)
+    if getattr(args, "check", False):
+        target = (
+            args.output
+            if args.output
+            else resolve_root(args.root) / "docs" / "catalogue.md"
+        )
+        if not target.is_file():
+            print(f"catalogue doc is missing: {target}")
+            print(
+                "regenerate with: python -m cogsecskills catalogue "
+                "--markdown --output docs/catalogue.md"
+            )
+            return 1
+        if target.read_text(encoding="utf-8") != markdown + "\n":
+            print(f"catalogue doc is stale: {target}")
+            print(
+                "regenerate with: python -m cogsecskills catalogue "
+                "--markdown --output docs/catalogue.md"
+            )
+            return 1
+        print(f"catalogue doc is current: {target}")
+        return 0
     if args.output:
         args.output.write_text(markdown + "\n", encoding="utf-8")
         print(f"wrote {args.output}")
@@ -545,6 +568,14 @@ def build_parser() -> argparse.ArgumentParser:
         "--output",
         type=Path,
         help="write the generated catalogue to a file instead of stdout",
+    )
+    p_catalogue.add_argument(
+        "--check",
+        action="store_true",
+        help=(
+            "fail if the generated catalogue doc is missing or stale "
+            "(default target docs/catalogue.md; --output picks the file)"
+        ),
     )
     p_catalogue.set_defaults(func=_cmd_catalogue)
     p_doctor = sub.add_parser("doctor", help="validate + quality-lint the library")

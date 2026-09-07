@@ -51,6 +51,8 @@ PYTHONPATH="src:." python -m cogsecskills release-metadata --write
 PYTHONPATH="src:." python -m cogsecskills release-metadata --check
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --write
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
+PYTHONPATH="src:." python -m cogsecskills catalogue --markdown --output docs/catalogue.md
+PYTHONPATH="src:." python -m cogsecskills catalogue --check
 ```
 
 Use [`DESIGN.md`](DESIGN.md) as the visual contract for generated figures, the

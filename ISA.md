@@ -3,10 +3,10 @@ project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
 phase: complete
-progress: 100/100 skills fully implemented + multiharness-conforming; v1.7.0 release — 873 tests/98.84% coverage, all gates current, CI hardening + docstrings + coverage push
+progress: 100/100 skills fully implemented + multiharness-conforming; v1.7.0 — 899 tests/99.93% branch coverage, 99% gates, CI matrix 3.10-3.14, all gates current (2026-09-07)
 mode: algorithm
 started: 2026-06-18
-updated: 2026-07-22
+updated: 2026-09-07
 ---
 
 # CogSecSkills — Ideal State Artifact
@@ -221,7 +221,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
+- ISC-6/7/17: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `899 passed`, `Total coverage: 99.93%` (all five CI matrix interpreters verified locally: 99.91% on 3.10, 99.93% on 3.11-3.14).
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
@@ -233,3 +233,11 @@ synchronized manuscript supplements and figures from the live library metadata.
 - Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.
 - 2026-06-22 re-verification (post-refactor, clean tree): `pytest tests/ --cov=src/cogsecskills` -> `622 passed in 175.57s`, `Total coverage: 90.89%` (≥90 gate met); `validate` -> `0 error(s), 0 warning(s)`; `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; `definitions/manuscript-assets/scenarios/examples/dashboard/evals/release-metadata --check` all report "current"; fresh `03_render_pdf` -> 72pp PDF, `Found: 8/8 figures`, `Valid PDFs: 1/1`, markdown `No issues found!`; figure data tallies match live registry exactly (sat 34, cog 24, rev 12, osint 10, ci 8, info 7, method 5 = 100); 100 `workflow.md` present and conforming. Corrected `fig:harness-contract` caption verified present in rendered PDF (`pdftotext | grep "enforced separately by"` -> 1) with no broken `Figure ??` crossrefs.
 - 2026-07-22 comprehensive review pass: centralized duplicated quality constants from `insights.py` + `definitions.py` into `core/quality_constants.py` (DRY); added `--format json` + `--limit N` to the CLI `list`/`groups`/`route` commands; added 80 new tests covering figures.py helpers, evals/examples/scenarios/release_metadata error paths, and CLI JSON output; cleaned `TODO.md` to forward-only; updated `CHANGELOG.md`, `README.md`, and `docs/cli.md`. `pytest` -> `722 passed`, coverage `93.9%`, validate+doctor 0/0, all generator `--check` gates current.
+- 2026-09-07 comprehensive pass: CI matrix extended to Python 3.14 and coverage
+  gates ratcheted to 99% (`pyproject.toml` `fail_under` and CI `--cov-fail-under`
+  agree); catalogue drift gate added (`catalogue --check`, 8 coherence gates);
+  `validate_skill` gained the same `support` seam as `check_conformance` so the
+  verb-support axis stays testable without mocks; docs floor references aligned
+  across README/AGENTS/CLAUDE/tests/CONTRIBUTING/ISA; `pytest` -> `899 passed`,
+  coverage `99.93%`, validate+doctor 0/0, all generator `--check` gates current
+  including `catalogue --check`.

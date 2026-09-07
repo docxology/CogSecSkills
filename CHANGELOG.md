@@ -17,6 +17,18 @@ follow semantic versioning.
 - **Coverage ratchet to 99%** (2026-09-07): CI `--cov-fail-under` 97 → 99 and
   `pyproject.toml` `fail_under` 90 → 99 (the two floors now agree); branch
   coverage measured at 99.93% over 899 tests.
+- **`catalogue --check` drift gate** (2026-09-07): the catalogue was the only
+  generated output without a drift check; `--check` compares the rendered
+  catalogue against `docs/catalogue.md` (or the `--output` path) and exits `1`
+  when missing or stale, with contract tests and a CI coherence-gate step.
+- **`validate_skill(..., support=...)` seam** (2026-09-07): the same
+  narrower-harness support override `check_conformance` exposes, so the
+  "cannot realise verbs" branch is testable with real inputs (its test no
+  longer monkeypatches the internal call).
+- **Lockfile-pinned CI + concurrency guard** (2026-09-07): CI installs via
+  `uv sync --locked --extra dev --extra figures` (honoring `uv.lock`; a stale
+  lock fails loudly) and cancels superseded runs via a workflow
+  `concurrency` group.
 
 ### Changed
 
@@ -48,6 +60,12 @@ follow semantic versioning.
 - `CONTRIBUTING.md` setup block: plain `uv sync` → `uv sync --extra dev` —
   the documented `pytest --cov` step requires the `dev` extra, which a plain
   sync does not install (2026-09-07).
+- Adversarial review pass (2026-09-07): stale gate numbers fixed in
+  `CLAUDE.md`, `tests/AGENTS.md`, and `src/cogsecskills/AGENTS.md`;
+  `ISA.md` frontmatter and ISC evidence updated to the measured state;
+  `.zenodo.json` version aligned to 1.7.0; a nonexistent resolver citation
+  removed from `docs/manuscript/MANUSCRIPT_STATUS.md`; three coverage-gap
+  tests tightened from bare `len(findings) > 0` to exact finding strings.
 
 ### Removed
 

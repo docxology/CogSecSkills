@@ -8,7 +8,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
 import yaml
 
 from cogsecskills.core.spec import SkillSpec, SkillTool, ToolVerb
@@ -95,21 +94,10 @@ def test_validate_skill_unsupported_verbs(tmp_path):
     conf = check_conformance(spec, support=narrow, harnesses=("claude",))
     assert conf["claude"].unsupported_verbs == (ToolVerb.READ,)
 
-    # Also test validate_skill with a custom harness that has unsupported verbs
-    from cogsecskills.core.harness import HarnessConformance
-
-    mock_conf = {
-        "claude": HarnessConformance(
-            harness="claude", has_adapter=True, unsupported_verbs=(ToolVerb.READ,)
-        )
-    }
-    with pytest.MonkeyPatch.context() as mp:
-        mp.setattr(
-            "cogsecskills.quality.validate.check_conformance",
-            lambda *args, **kwargs: mock_conf,
-        )
-        res = validate_skill(spec, skills_dir)
-        assert any("cannot realise verbs" in str(issue.message) for issue in res.errors)
+    # validate_skill exposes the same support seam as check_conformance: a
+    # narrower harness support map must fail conformance loudly.
+    res = validate_skill(spec, skills_dir, support={"claude": frozenset()})
+    assert any("cannot realise verbs" in str(issue.message) for issue in res.errors)
 
 
 # --- insights.py: doctor findings for workflow steps, anti-criteria, references ---

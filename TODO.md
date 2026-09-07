@@ -68,6 +68,39 @@ work.
   (pytest/mypy/ruff); the block now uses `uv sync --extra dev`. The other
   `uv sync` install blocks (README, QUICKSTART, docs/harness-installation)
   only run core-CLI gates afterward and are correct as-is.
+- MEDIUM — cleared: `catalogue` was the only generated output without a
+  `--check` drift gate (CLAUDE.md listed `docs/catalogue.md` as generated, CI
+  gated the other eight surfaces); added `catalogue --check` (default target
+  `docs/catalogue.md`, `--output` overrides) with contract tests and a CI
+  coherence-gate step.
+- MEDIUM — cleared: CI installed with `uv pip install -e ".[dev,figures]"`,
+  resolving fresh from PyPI and ignoring `uv.lock` (a new ruff/pytest release
+  could break CI with no repo change); CI now runs
+  `uv sync --locked --extra dev --extra figures`, plus a workflow
+  `concurrency` group so superseded runs cancel.
+- MINOR — cleared: `validate_skill` had no way to drive its
+  "cannot realise verbs" branch with real inputs (all default harnesses
+  support the full verb set), so its test monkeypatched the internal
+  `check_conformance` call against the no-mocks rule; `validate_skill` now
+  exposes the same `support` seam as `check_conformance` and the test uses it.
+- MINOR — cleared: three tests asserted only `len(findings) > 0` on
+  deterministic error paths (unknown example skill id, definitions with no
+  on-disk skill ×2); tightened to pin the exact finding strings.
+- MINOR — cleared: stale gate numbers survived in `CLAUDE.md` (">=90%"
+  coverage comment), `tests/AGENTS.md` and `src/cogsecskills/AGENTS.md`
+  (`--cov-fail-under=97`); all aligned to 99.
+- MINOR — cleared: `ISA.md` frontmatter `progress:` and the timeless ISC-6/7/17
+  evidence line still carried v1.7.0-release-era numbers (873 tests/98.84%);
+  frontmatter and evidence updated to the measured 2026-09-07 state, dated
+  verification entry appended.
+- MINOR — cleared: `.zenodo.json` still said version `1.0.0` while
+  CITATION.cff/codemeta.json/pyproject say 1.7.0; aligned.
+- MINOR — cleared: `docs/manuscript/MANUSCRIPT_STATUS.md` cited
+  `infrastructure.core.project_paths.resolve_manuscript_dir`, a symbol that
+  exists nowhere (the template's real resolver is
+  `infrastructure.publishing.export_bundle.resolve_source_manuscript_dir`);
+  dropped the brittle cross-repo citation in favor of the semantic fallback
+  note.
 
 ## Minor: Coverage
 
