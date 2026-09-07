@@ -29,7 +29,7 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 - Test gate: `pytest --cov=cogsecskills --cov-fail-under=99` -> `899 passed`, `99.93% branch coverage`.
 - Lint gate: `ruff check` + `ruff format --check` -> clean (81 files: 38 `src/` + 43 `tests/`).
 - Type gate: `mypy` -> `no issues found in 38 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
-- Python 3.14 leg: full suite green under CPython 3.14.4 (`899 passed`); the local default venv is 3.14.
+- Python legs: all five CI matrix interpreters (3.10–3.14) verified locally — `899 passed` each; branch coverage 99.91% (3.10, `tomli` fallback branch taken) / 99.93% (3.11–3.14).
 
 ## Evidence Ladder
 

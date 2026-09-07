@@ -229,7 +229,7 @@
 <li>Test gate: `pytest --cov=cogsecskills --cov-fail-under=99` -&gt; `899 passed`, `99.93% branch coverage`.</li>
 <li>Lint gate: `ruff check` + `ruff format --check` -&gt; clean (81 files: 38 `src/` + 43 `tests/`).</li>
 <li>Type gate: `mypy` -&gt; `no issues found in 38 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).</li>
-<li>Python 3.14 leg: full suite green under CPython 3.14.4 (`899 passed`); the local default venv is 3.14.</li>
+<li>Python legs: all five CI matrix interpreters (3.10–3.14) verified locally — `899 passed` each; branch coverage 99.91% (3.10, `tomli` fallback branch taken) / 99.93% (3.11–3.14).</li>
         </ul>
       </section>
     </div>

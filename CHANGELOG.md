@@ -11,8 +11,9 @@ follow semantic versioning.
 - **`--format json` for `validate` and `doctor`** (2026-08-30): machine-readable
   CI diagnostics with failure-path payload tests; documented in `docs/cli.md`
   and the harness docs.
-- **Python 3.14 CI leg** (2026-09-07): the matrix now covers 3.10–3.14; the full
-  suite verified green under CPython 3.14.4.
+- **Python 3.14 CI leg** (2026-09-07): the matrix now covers 3.10–3.14; every
+  matrix interpreter verified locally (899 passed each; branch coverage
+  99.91% on 3.10, 99.93% on 3.11–3.14).
 - **Coverage ratchet to 99%** (2026-09-07): CI `--cov-fail-under` 97 → 99 and
   `pyproject.toml` `fail_under` 90 → 99 (the two floors now agree); branch
   coverage measured at 99.93% over 899 tests.
