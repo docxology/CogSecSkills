@@ -1,6 +1,6 @@
 ---
 name: critical_review.project_critical_review
-description: Adversarial-then-constructive review of a project: claims, evidence, risks, gaps, and go/no-go.
+description: 'Adversarial-then-constructive review of a project: claims, evidence, risks, gaps, and go/no-go.'
 ---
 
 # Project Critical Review

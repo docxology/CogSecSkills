@@ -17,6 +17,7 @@ from cogsecskills.authoring.author import (
 from cogsecskills.core.harness import HARNESSES
 from cogsecskills.core.loader import load_skill
 from cogsecskills.core.spec import SpecError
+from cogsecskills.core.text_utils import yaml_scalar
 from cogsecskills.quality.validate import validate_skill
 
 
@@ -78,6 +79,38 @@ def test_render_definition_is_conforming(tmp_path):
     assert {v.value for v in spec.verbs} == {"read", "reason", "write"}
     result = validate_skill(spec, directory)
     assert result.ok, [i.message for i in result.errors]
+
+
+def test_rendered_frontmatter_is_strict_yaml(tmp_path):
+    """Frontmatter descriptions must parse under strict YAML even with ': '.
+
+    Strict consumers (the omp skill loader, hum-skills validation) reject an
+    unquoted colon-space value that lenient parsers accept, which silently
+    drops the skill from those harnesses.
+    """
+    (tmp_path / "registry").mkdir(parents=True)
+    (tmp_path / "registry" / "skills.yaml").write_text(
+        "skills:\n"
+        "  - {id: sat.demo, name: Demo Technique, group: sat, status: stub, "
+        "ageint_topic: structured-analytic-techniques, "
+        "summary: 'Framing: question first.'}\n",
+        encoding="utf-8",
+    )
+    (tmp_path / "registry" / "groups.yaml").write_text(
+        "groups:\n  - {id: sat, title: SAT}\n", encoding="utf-8"
+    )
+
+    render_definition(_good_def(), root=tmp_path)
+
+    skill_md = tmp_path / "skills" / "sat" / "demo" / "SKILL.md"
+    frontmatter = skill_md.read_text(encoding="utf-8").split("---\n")[1]
+    parsed = yaml.safe_load(frontmatter)
+    assert parsed["description"] == "Framing: question first."
+
+
+def test_yaml_scalar_leaves_plain_text_unquoted():
+    """Plain summaries must not churn: no quoting when none is required."""
+    assert yaml_scalar("A demo technique.") == "A demo technique."
 
 
 def test_render_adapters_bind_every_verb(tmp_path):

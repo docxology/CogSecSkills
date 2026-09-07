@@ -1,6 +1,6 @@
 ---
 name: sat.getting_started_checklist
-description: Frame an analytic task: question, drivers, assumptions, and prior judgments before diving in.
+description: 'Frame an analytic task: question, drivers, assumptions, and prior judgments before diving in.'
 ---
 
 # Getting Started Checklist
