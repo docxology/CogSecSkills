@@ -24,6 +24,7 @@ makes the conformance model trustworthy.
 - [What the config controls](#what-the-config-controls) — the `Config` fields and their defaults
 - [`harnesses`](#harnesses--the-agent-harnesses-the-library-targets) — the harness set, claim-status labels, and external profiles
 - [`quality:`](#quality--thresholds-enforced-by-doctor) — depth thresholds enforced by `doctor`
+- [`runtime_eval:`](#runtime_eval--optional-live-eval-command-templates) — optional live-eval command templates for `eval-live`
 - [Complete example](#complete-example) — a full annotated `cogsecskills.yaml`
 - [Malformed config is rejected loudly](#malformed-config-is-rejected-loudly) — the loader's fail-fast contract
 
@@ -43,13 +44,15 @@ The config resolves to a small `Config` with these fields and defaults:
 | `quality.min_workflow_steps` | `3` | `doctor` |
 | `quality.min_anti_criteria` | `2` | `doctor` |
 | `quality.require_references` | `false` | `doctor` |
+| `runtime_eval.harness_commands` | built-in defaults for `claude`, `codex`, `hermes` | `eval-live` only (opt-in; never used by the gate suite). |
 
-There are exactly two knobs: **which harnesses** the library targets, and **how
-deep** a skill must be to be called healthy. The first is structural — it
-decides which adapter files exist and are required. The second is qualitative —
-it decides whether the prose in those files clears a depth bar. They are checked
-by different commands (`validate` and `doctor`) and fail for different reasons,
-so they are documented as two separate sections below.
+There are three knobs: **which harnesses** the library targets, **how deep** a
+skill must be to be called healthy, and — opt-in only — **how `eval-live`
+invokes a live harness**. The first is structural: it decides which adapter
+files exist and are required. The second is qualitative: it decides whether the
+prose in those files clears a depth bar. They are checked by different commands
+(`validate` and `doctor`) and fail for different reasons. The third never runs
+in gates or CI; it is documented separately below.
 
 ---
 
@@ -214,6 +217,23 @@ the `doctor` implementation.
 
 ---
 
+## `runtime_eval:` — optional live-eval command templates
+
+Used **only** by the opt-in `eval-live` command (see
+[`live-eval.md`](live-eval.md)); the gate suite never invokes a model runtime.
+Each harness maps to an argv template containing exactly one `{prompt}`
+placeholder; `{skill_dir}` is optional and expands to the expected skill's
+directory in `pinned` mode.
+
+```yaml
+runtime_eval:
+  harness_commands:
+    claude: [claude, -p, "{prompt}"]
+    my-agent: [/usr/local/bin/my-agent, --skill, "{skill_dir}", --task, "{prompt}"]
+```
+
+---
+
 ## Complete example
 
 ```yaml
@@ -229,6 +249,11 @@ quality:
   min_workflow_steps: 4
   min_anti_criteria: 2
   require_references: true
+
+# Optional live-eval argv templates (eval-live only; one {prompt} required).
+runtime_eval:
+  harness_commands:
+    claude: [claude, -p, "{prompt}"]
 ```
 
 ---
@@ -249,7 +274,12 @@ config. The loader rejects, among others:
 - a `quality` block that is not a mapping →
   `'quality' must be a mapping`;
 - a non-integer (or boolean) `min_workflow_steps` / `min_anti_criteria` →
-  `quality.<key> must be an integer`.
+  `quality.<key> must be an integer`;
+- a `runtime_eval` block that is not a mapping →
+  `'runtime_eval' must be a mapping`;
+- a `runtime_eval.harness_commands` entry that is not a non-empty list of
+  non-empty strings, or a non-string harness key →
+  `runtime_eval.harness_commands.<key> must be a non-empty list...`.
 
 Fix the message and re-run the command. When the file is absent, the defaults
 apply with no error.

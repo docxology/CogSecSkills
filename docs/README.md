@@ -26,6 +26,8 @@ The complete documentation map. Start with whichever row matches what you need.
 | **Prepare future output reviews** | [`analyst-output-review.md`](analyst-output-review.md) — lightweight rubric for scenario-output review |
 | **Understand connector limits** | [`connector-boundaries.md`](connector-boundaries.md) — optional OSINT/web connector boundaries |
 | **Plan future validation carefully** | [`future-validation-protocols.md`](future-validation-protocols.md) — baseline, usability, connector, and DOI protocols marked as future work |
+| **Run scenarios through a live harness** | [`live-eval.md`](live-eval.md) — opt-in `eval-live` runtime screening with claim boundaries and harness command templates |
+| **Scope work that lives in sibling repos** | [`cross-repo-scoping.md`](cross-repo-scoping.md) — PDF render via the docxology template, connector prerequisites, Zenodo deposit checklist |
 | **Prepare a release candidate** | [`release-checklist.md`](release-checklist.md) — source, style, type, manuscript, and human review gates |
 | **Browse all 100 skills** | [`catalogue.md`](catalogue.md) — generated index, grouped (regenerate: `cogsecskills catalogue`) |
 | **Regenerate manuscript supplements and figures** | [`cli.md#manuscript-assets--generate-or-check-manuscript-supplements-and-figures`](cli.md#manuscript-assets--generate-or-check-manuscript-supplements-and-figures) — `manuscript-assets --write|--check` |

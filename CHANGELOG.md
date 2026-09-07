@@ -17,6 +17,17 @@ follow semantic versioning.
 - **Coverage ratchet to 99%** (2026-09-07): CI `--cov-fail-under` 97 → 99 and
   `pyproject.toml` `fail_under` 90 → 99 (the two floors now agree); branch
   coverage measured at 99.93% over 899 tests.
+- **Live-runtime eval harness** (2026-09-07): `eval-live` invokes a real agent
+  harness (Claude Code, Codex, Hermes, or any configured CLI) against the
+  curated defensive scenarios and mechanically screens transcripts against
+  their expected-answer contracts — claim-bounded as exploratory mechanical
+  screening, never run by the gate suite. Includes harness command templates
+  in `cogsecskills.yaml` (`runtime_eval.harness_commands`), transcripts under
+  gitignored `.live-evals/`, and `docs/live-eval.md`.
+- **Cross-repo scoping doc** (2026-09-07): `docs/cross-repo-scoping.md` scopes
+  the manuscript PDF re-render (docxology template), live-connector
+  prerequisites (hum-search seam, privacy/legal gates), and the Zenodo
+  version-DOI checklist.
 - **`catalogue --check` drift gate** (2026-09-07): the catalogue was the only
   generated output without a drift check; `--check` compares the rendered
   catalogue against `docs/catalogue.md` (or the `--output` path) and exits `1`

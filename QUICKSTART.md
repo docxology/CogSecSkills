@@ -36,6 +36,9 @@ PYTHONPATH="src:." python -m cogsecskills evals --check
 PYTHONPATH="src:." python -m cogsecskills dashboard --check
 PYTHONPATH="src:." python -m cogsecskills release-metadata --check
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check  # needs the figures extra
+
+# Opt-in, never a gate: run scenarios through a live harness (exploratory screening).
+# See docs/live-eval.md — PYTHONPATH="src:." python -m cogsecskills eval-live --harness claude
 ```
 
 The `--check` gates compare committed sources against regeneratable outputs

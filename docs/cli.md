@@ -431,6 +431,44 @@ offline evaluation fixtures are current
 
 ---
 
+### `eval-live` — run scenarios through a live harness (opt-in)
+
+Invoke a real agent harness against the curated defensive scenarios and
+mechanically screen each transcript against the scenario's expected-answer
+contract. This is the live counterpart of `evals`; it is **never** run by the
+gate suite, never contacts a model API itself (it spawns the harness CLI you
+configure), and its reports are claim-bounded as exploratory mechanical
+screening — see [live-eval.md](live-eval.md) for the full boundary statement
+and harness command templates.
+
+```
+cogsecskills eval-live --harness HARNESS [--scenario ID] [--mode {pinned,routed}]
+                       [--timeout N] [--output-dir PATH] [--json]
+```
+
+| Flag | Meaning |
+| --- | --- |
+| `--harness HARNESS` | Required. Harness id resolved from `runtime_eval.harness_commands` in `cogsecskills.yaml` or the built-in defaults. |
+| `--scenario ID` | Run one scenario (repeatable). Default: all 28. |
+| `--mode` | `pinned` names the expected skill's directory; `routed` asks the harness to route first. |
+| `--timeout N` | Per-scenario harness timeout in seconds (default 300). |
+| `--output-dir PATH` | Transcript/report directory (default `.live-evals/<timestamp>`, gitignored). |
+| `--json` | Print the full JSON report. |
+
+Exit `0` when every scenario passes mechanical screening, `1` when any fails,
+`2` on configuration errors (unknown scenario, no command template, harness
+executable missing). Each result reports deterministic checks (skill named,
+quality terms, output terms, required sections, must-include terms, no
+forbidden terms, harness exit code) plus mechanical rubric screening over the
+five `analyst-output-review.md` dimensions — heuristic scores, not certified
+grades.
+
+```bash
+uv run cogsecskills eval-live --harness claude --scenario sat-ach-safe
+```
+
+---
+
 ### `dashboard` — generate or check the quality dashboard
 
 Generate a Markdown and JSON dashboard from the live registry, rendered skill
