@@ -3,10 +3,10 @@ project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
 phase: complete
-progress: 100/100 skills fully implemented + multiharness-conforming; v1.7.0 release — 873 tests/98.84% coverage, all gates current, CI hardening + docstrings + coverage push
+progress: 100/100 skills fully implemented + multiharness-conforming; v1.7.0 — 899 tests/99.93% branch coverage, 99% gates, CI matrix 3.10-3.14, all gates current (2026-09-07)
 mode: algorithm
 started: 2026-06-18
-updated: 2026-07-22
+updated: 2026-09-07
 ---
 
 # CogSecSkills — Ideal State Artifact
@@ -61,10 +61,12 @@ moment a definition, rendered skill, or adapter drifts."
 ## Constraints
 
 - Python ≥3.10, `uv`, pytest, no mocks (real temp dirs + real YAML).
-- Coverage gate ≥90% on `src/`; current measurements belong in
+- Coverage gate ≥99% on `src/`; current measurements belong in
   [Verification](#verification), not copied into long-lived prose.
-- Lives at the private sidecar `projects/working/CogSecSkills`, symlinked into the
-  template repo's `projects/working/` — never committed to the public template repo.
+- Canonical home is the public repository `docxology/CogSecSkills` (GitHub
+  Actions CI, Zenodo-archived releases); the sibling docxology template working
+  copy is used only for manuscript markdown validation and PDF rendering, never
+  committed into the template repo.
 - Closed tool-verb vocabulary: read, search, write, exec, reason, web, delegate, ask.
 
 ## Goal
@@ -86,7 +88,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 - [x] ISC-4: Each implemented skill has `skill.yaml`, `SKILL.md`, `workflow.md`, and `harness/{claude,codex,hermes}.md`.
 - [x] ISC-5: `python -m cogsecskills validate` reports 0 errors over the real library.
 - [x] ISC-6: Each on-disk skill conforms to all 3 harnesses (adapter declared + every declared verb explicitly bound).
-- [x] ISC-7: Runner package coverage ≥90%.
+- [x] ISC-7: Runner package coverage ≥99%.
 - [x] ISC-8: A `scaffold` command generates a conforming skill folder from any registry entry.
 - [x] ISC-9: `docs/ageint/` holds an index + 7 topic primers matching the `ageint_topic` slugs.
 - [x] ISC-10: The user-named "project critical review" skill is implemented and multiharness-conforming.
@@ -105,7 +107,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 | ISC-1 | unit | registry length == 100 | exact | pytest |
 | ISC-5 | integration | `validate_library(ROOT).ok` | 0 errors | pytest + CLI |
 | ISC-6 | parametrized | `check_conformance` per skill | all harnesses ok | pytest |
-| ISC-7 | coverage | `--cov=src/cogsecskills` | ≥90% | pytest-cov |
+| ISC-7 | coverage | `--cov=src/cogsecskills` | ≥99% | pytest-cov |
 | ISC-8 | unit | scaffolded skill validates | ok | pytest |
 | ISC-17 | integration | generated manuscript assets match live library | no drift | CLI + pytest |
 
@@ -219,7 +221,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17: `PYTHONPATH="src:." python -m pytest tests/test_cogsecskills_*.py tests/test_skill_library_conformance.py --cov=src/cogsecskills --cov-report=term-missing` -> `622 passed`, `Total coverage: 90.94%`.
+- ISC-6/7/17: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `899 passed`, `Total coverage: 99.93%` (all five CI matrix interpreters verified locally: 99.91% on 3.10, 99.93% on 3.11-3.14).
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
@@ -231,3 +233,11 @@ synchronized manuscript supplements and figures from the live library metadata.
 - Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.
 - 2026-06-22 re-verification (post-refactor, clean tree): `pytest tests/ --cov=src/cogsecskills` -> `622 passed in 175.57s`, `Total coverage: 90.89%` (≥90 gate met); `validate` -> `0 error(s), 0 warning(s)`; `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; `definitions/manuscript-assets/scenarios/examples/dashboard/evals/release-metadata --check` all report "current"; fresh `03_render_pdf` -> 72pp PDF, `Found: 8/8 figures`, `Valid PDFs: 1/1`, markdown `No issues found!`; figure data tallies match live registry exactly (sat 34, cog 24, rev 12, osint 10, ci 8, info 7, method 5 = 100); 100 `workflow.md` present and conforming. Corrected `fig:harness-contract` caption verified present in rendered PDF (`pdftotext | grep "enforced separately by"` -> 1) with no broken `Figure ??` crossrefs.
 - 2026-07-22 comprehensive review pass: centralized duplicated quality constants from `insights.py` + `definitions.py` into `core/quality_constants.py` (DRY); added `--format json` + `--limit N` to the CLI `list`/`groups`/`route` commands; added 80 new tests covering figures.py helpers, evals/examples/scenarios/release_metadata error paths, and CLI JSON output; cleaned `TODO.md` to forward-only; updated `CHANGELOG.md`, `README.md`, and `docs/cli.md`. `pytest` -> `722 passed`, coverage `93.9%`, validate+doctor 0/0, all generator `--check` gates current.
+- 2026-09-07 comprehensive pass: CI matrix extended to Python 3.14 and coverage
+  gates ratcheted to 99% (`pyproject.toml` `fail_under` and CI `--cov-fail-under`
+  agree); catalogue drift gate added (`catalogue --check`, 8 coherence gates);
+  `validate_skill` gained the same `support` seam as `check_conformance` so the
+  verb-support axis stays testable without mocks; docs floor references aligned
+  across README/AGENTS/CLAUDE/tests/CONTRIBUTING/ISA; `pytest` -> `899 passed`,
+  coverage `99.93%`, validate+doctor 0/0, all generator `--check` gates current
+  including `catalogue --check`.

@@ -243,7 +243,6 @@ def test_todo_forward_backlog_has_expected_next_lanes():
         "Verified State",
         "Ongoing Guardrails",
         "Minor: Coverage",
-        "Minor: Documentation Polish",
         "Minor: CI Hardening",
         "Medium: Manuscript Refresh",
         "Major: Empirical Evaluation",

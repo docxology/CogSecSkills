@@ -51,6 +51,8 @@ PYTHONPATH="src:." python -m cogsecskills release-metadata --write
 PYTHONPATH="src:." python -m cogsecskills release-metadata --check
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --write
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
+PYTHONPATH="src:." python -m cogsecskills catalogue --markdown --output docs/catalogue.md
+PYTHONPATH="src:." python -m cogsecskills catalogue --check
 ```
 
 Use [`DESIGN.md`](DESIGN.md) as the visual contract for generated figures, the
@@ -107,8 +109,8 @@ definitions rendered into the skill tree.
 - All logic lives in `src/cogsecskills/`; definitions and skills are declarative
   data; the CLI remains a thin orchestrator over module functions.
 - No mocks in tests — real `tmp_path` dirs and real YAML.
-- Coverage floors: `pyproject.toml` sets `fail_under = 90`; CI enforces the
-  stricter `--cov-fail-under=97`. Verify the current value with the test command
+- Coverage floors: `pyproject.toml` sets `fail_under = 99`; CI enforces the same
+  `--cov-fail-under=99`. Verify the current value with the test command
   below rather than copying stale numbers into prose.
 - Optional harness profiles are documentation metadata until their ids are added
   to `cogsecskills.yaml`, adapters are regenerated, and validation passes.
@@ -123,7 +125,7 @@ Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
 the same command CI runs — rather than a hand-written top-level glob:
 
 ```bash
-uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
 While iterating, name a single package (e.g. `uv run pytest tests/contract`).

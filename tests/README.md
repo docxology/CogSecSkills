@@ -4,7 +4,7 @@ Test suite for the CogSecSkills runner and skill library. CI runs the whole tree
 with a coverage gate:
 
 ```bash
-uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
 While iterating, name a single package (e.g. `uv run pytest tests/contract`).
@@ -24,6 +24,6 @@ While iterating, name a single package (e.g. `uv run pytest tests/contract`).
 
 - **No mocks.** Tests use real `tmp_path` directories and real YAML files; see
   `../AGENTS.md` for the no-mock rule.
-- Coverage floor: 90 in `pyproject.toml`, enforced at `97` locally and in CI.
+- Coverage floor: `99` — `pyproject.toml` `fail_under` and CI `--cov-fail-under` agree.
 - Deterministic: no network access; figure tests use the `figures` extra
   (installed in CI via `.[dev,figures]`).

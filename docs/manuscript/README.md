@@ -110,7 +110,7 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 PYTHONPATH="src:." python -m cogsecskills validate
 PYTHONPATH="src:." python -m cogsecskills report
 PYTHONPATH="src:." python -m cogsecskills doctor
-uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
 From the sibling template checkout:

@@ -4,6 +4,76 @@ All notable changes to CogSecSkills are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and the project aims to
 follow semantic versioning.
 
+## [Unreleased]
+
+### Added
+
+- **`--format json` for `validate` and `doctor`** (2026-08-30): machine-readable
+  CI diagnostics with failure-path payload tests; documented in `docs/cli.md`
+  and the harness docs.
+- **Python 3.14 CI leg** (2026-09-07): the matrix now covers 3.10–3.14; every
+  matrix interpreter verified locally (899 passed each; branch coverage
+  99.91% on 3.10, 99.93% on 3.11–3.14).
+- **Coverage ratchet to 99%** (2026-09-07): CI `--cov-fail-under` 97 → 99 and
+  `pyproject.toml` `fail_under` 90 → 99 (the two floors now agree); branch
+  coverage measured at 99.93% over 899 tests.
+- **`catalogue --check` drift gate** (2026-09-07): the catalogue was the only
+  generated output without a drift check; `--check` compares the rendered
+  catalogue against `docs/catalogue.md` (or the `--output` path) and exits `1`
+  when missing or stale, with contract tests and a CI coherence-gate step.
+- **`validate_skill(..., support=...)` seam** (2026-09-07): the same
+  narrower-harness support override `check_conformance` exposes, so the
+  "cannot realise verbs" branch is testable with real inputs (its test no
+  longer monkeypatches the internal call).
+- **Lockfile-pinned CI + concurrency guard** (2026-09-07): CI installs via
+  `uv sync --locked --extra dev --extra figures` (honoring `uv.lock`; a stale
+  lock fails loudly) and cancels superseded runs via a workflow
+  `concurrency` group.
+
+### Changed
+
+- Post-v1.7.0 coverage push (2026-08-20): uncovered branches fixed across the
+  runner modules; branch coverage 98.84% → 99.93% (tests 873 → 899).
+- Figure PNGs no longer stamp the running matplotlib version into their
+  metadata (2026-08-13), keeping figure regeneration reproducible.
+- Ruff lint ruleset pinned and imports sorted for ruff 0.16 compatibility
+  (2026-07-29).
+
+### Fixed
+
+- Restored Python 3.10 support: an unconditional `tomllib` import (3.11+
+  stdlib) broke the 3.10 CI leg (2026-08-12).
+- Quality content repairs: corrected citations, restored truncated content,
+  and tightened the defensive boundary (2026-08-03).
+- Repaired stale documented paths, hardened the figure gate, and split
+  `figures.py` into per-kind panel modules (2026-08-12/13).
+- Completed the `manuscript/` → `docs/manuscript/` migration in code, tests,
+  and generated metadata (2026-08-31), and restored the legacy-location
+  wording in `docs/manuscript/MANUSCRIPT_STATUS.md` that the migration had
+  garbled (2026-09-07).
+- Docs accuracy sweep (2026-09-07): `CONTRIBUTING.md` coverage-gate values
+  aligned to the 99% floor with the canonical catalogue command;
+  `docs/cli.md`'s `show` example now matches the real skill version
+  (`sat.sorting` is 0.1.0); the `cli.py` usage example aligned to
+  `docs/catalogue.md`; the ISA location constraint updated to the canonical
+  public-repository reality.
+- `CONTRIBUTING.md` setup block: plain `uv sync` → `uv sync --extra dev` —
+  the documented `pytest --cov` step requires the `dev` extra, which a plain
+  sync does not install (2026-09-07).
+- Adversarial review pass (2026-09-07): stale gate numbers fixed in
+  `CLAUDE.md`, `tests/AGENTS.md`, and `src/cogsecskills/AGENTS.md`;
+  `ISA.md` frontmatter and ISC evidence updated to the measured state;
+  `.zenodo.json` version aligned to 1.7.0; a nonexistent resolver citation
+  removed from `docs/manuscript/MANUSCRIPT_STATUS.md`; three coverage-gap
+  tests tightened from bare `len(findings) > 0` to exact finding strings.
+
+### Removed
+
+- Dated session review/audit scratch reports (2026-09-01, `aad6477`).
+- Stale top-level `manuscript/S10|S11` duplicates the migration left behind,
+  and the tracked `output/.DS_Store`; `.DS_Store` is now gitignored
+  (2026-09-07).
+
 ## [1.7.0] - 2026-07-22
 
 Coverage push to 98.84%, CI coverage gate bumped to 97%, remaining docstrings.

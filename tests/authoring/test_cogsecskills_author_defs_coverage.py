@@ -154,8 +154,7 @@ def test_check_definitions_render_failure(tmp_path):
         encoding="utf-8",
     )
     findings = check_definitions(tmp_path)
-    # Should report missing rendered files or render failure
-    assert len(findings) > 0
+    assert any("sat.bad: missing rendered file" in f for f in findings)
 
 
 # --- author.py ---

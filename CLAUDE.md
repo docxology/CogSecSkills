@@ -53,6 +53,7 @@ uv run python -m cogsecskills examples --check
 uv run python -m cogsecskills evals --check
 uv run python -m cogsecskills dashboard --check
 uv run python -m cogsecskills release-metadata --check
+uv run python -m cogsecskills catalogue --check
 uv run python -m cogsecskills manuscript-assets --check   # needs the figures extra
 ```
 
@@ -63,7 +64,7 @@ then `--check`. CI (`.github/workflows/ci.yml`) additionally enforces:
 uv run ruff check src/cogsecskills tests
 uv run ruff format --check src/cogsecskills tests
 uv run mypy
-uv run pytest --cov=cogsecskills --cov-report=term-missing   # coverage gate >=90%
+uv run pytest --cov=cogsecskills --cov-report=term-missing   # coverage gate >=99%
 ```
 
 ## Conventions

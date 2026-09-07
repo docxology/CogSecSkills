@@ -221,7 +221,7 @@ Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
 the same command CI runs:
 
 ```bash
-uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=97
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
 The live conformance test (`tests/conformance/test_skill_library_conformance.py`)

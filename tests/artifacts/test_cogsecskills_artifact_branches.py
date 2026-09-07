@@ -211,18 +211,15 @@ def test_examples_example_from_obj_sections_not_list(tmp_path):
 # --- examples.py: _content_findings mismatch paths ---
 
 
-def test_examples_rendered_skill_missing(tmp_path):
-    """Example for a skill that exists in registry but not on disk."""
+def test_examples_unknown_skill_id(tmp_path):
+    """Example referencing a skill absent from the registry is flagged."""
     root = _copy_fixture(tmp_path, "registry", "skills", "examples")
     source = root / EXAMPLES_SOURCE_PATH
     raw = yaml.safe_load(source.read_text(encoding="utf-8"))
-    # Change skill_id to a registry entry that has no on-disk skill
     raw["examples"][0]["skill_id"] = "sat.nonexistent"
     source.write_text(yaml.safe_dump(raw, sort_keys=False), encoding="utf-8")
     findings = check_examples(root)
-    # This will flag both "not present in registry" or "rendered skill is missing"
-    # depending on whether sat.nonexistent is in the registry
-    assert len(findings) > 0
+    assert any("sat.nonexistent: not present in registry" in f for f in findings)
 
 
 def test_examples_too_few_sections(tmp_path):

@@ -256,9 +256,9 @@ def test_check_definitions_render_failure(tmp_path):
         encoding="utf-8",
     )
     findings = check_definitions(tmp_path)
-    # The definition has no on-disk skill, so rendering will fail or
-    # report missing rendered files
-    assert len(findings) > 0
+    # sat.bad is registered but has no on-disk skill, so every rendered file
+    # check is a miss.
+    assert any("sat.bad: missing rendered file" in f for f in findings)
 
 
 def test_definitions_for_write_planned_entry(tmp_path):

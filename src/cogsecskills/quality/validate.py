@@ -110,12 +110,18 @@ def _adapter_bound_verbs(text: str) -> frozenset[ToolVerb]:
 
 
 def validate_skill(
-    spec: SkillSpec, directory: Path, harnesses: tuple[str, ...] | None = None
+    spec: SkillSpec,
+    directory: Path,
+    harnesses: tuple[str, ...] | None = None,
+    support: dict[str, frozenset[ToolVerb]] | None = None,
 ) -> ValidationResult:
     """Validate one skill's structural completeness and harness conformance.
 
     ``harnesses`` overrides the default harness set (e.g. resolved from
     ``cogsecskills.yaml``); defaults to :data:`cogsecskills.harness.HARNESSES`.
+    ``support`` overrides :data:`cogsecskills.harness.HARNESS_VERB_SUPPORT` —
+    the same seam :func:`~cogsecskills.core.harness.check_conformance` exposes
+    so a future narrower harness fails conformance loudly instead of silently.
     """
     result = ValidationResult()
     directory = Path(directory)
@@ -169,7 +175,9 @@ def validate_skill(
             )
 
     # 4. Multiharness conformance (verb support + adapter declared).
-    for harness, conf in check_conformance(spec, harnesses=targets).items():
+    for harness, conf in check_conformance(
+        spec, support=support, harnesses=targets
+    ).items():
         if conf.unsupported_verbs:
             verbs = ", ".join(v.value for v in conf.unsupported_verbs)
             result.error(spec.id, f"harness {harness!r} cannot realise verbs: {verbs}")

@@ -19,12 +19,12 @@ Thanks for helping build a dependable, defensive Cognitive-Security skill librar
 ## Setup
 
 ```bash
-uv sync                      # or: pip install -e ".[dev]"
+uv sync --extra dev          # or: pip install -e ".[dev]"
 python -m cogsecskills validate
 python -m pytest --cov=cogsecskills --cov-report=term-missing
 ```
 
-The coverage gate is **90%** on the `cogsecskills` package; the suite uses no mocks.
+The coverage gate is **99%** on the `cogsecskills` package; the suite uses no mocks.
 
 ## Adding or deepening a skill
 
@@ -47,11 +47,11 @@ web, delegate, ask`.
 
 1. `python -m cogsecskills validate` → 0 errors.
 2. `python -m cogsecskills doctor` → no quality findings (or justify them).
-3. `python -m pytest` → green, coverage ≥ 90%.
+3. `python -m pytest` → green, coverage ≥ 99%.
 4. `ruff check src/cogsecskills tests/` and `ruff format` → clean.
 5. If you changed the catalogue size, regenerate `docs/catalogue.md`
-   (`python -m cogsecskills catalogue > docs/catalogue.md`) and update the README
-   group-count table and the conformance test's expected total.
+   (`python -m cogsecskills catalogue --markdown --output docs/catalogue.md`) and
+   update the README group-count table and the conformance test's expected total.
 
 ## Project layout
 
