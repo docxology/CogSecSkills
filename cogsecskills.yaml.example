@@ -17,3 +17,13 @@ quality:
   min_workflow_steps: 3      # implemented skills should have >= this many steps
   min_anti_criteria: 2       # ... and >= this many anti-criteria
   require_references: false  # set true to require >=1 reference per implemented skill
+
+# Optional live-eval argv templates — used ONLY by the opt-in `eval-live`
+# command (see docs/live-eval.md); the gate suite never invokes a model
+# runtime. Each template needs exactly one {prompt} placeholder; {skill_dir}
+# is optional and expands to the expected skill's directory in pinned mode.
+# Built-in defaults exist for claude, codex, and hermes — uncomment to override
+# or to declare a custom harness.
+# runtime_eval:
+#   harness_commands:
+#     claude: [claude, -p, "{prompt}"]
