@@ -23,6 +23,9 @@ and generator layer over declarative project data.
   and `artifacts/manuscript_assets/` own local navigation, deterministic scenario
   checks, worked examples, offline output-review fixtures, generated dashboard
   output, release claim metadata, manuscript supplements, data exports, and figures.
+- `runtime_eval.py` owns the opt-in live-runtime eval harness (`eval-live`):
+  real harness subprocesses, mechanical transcript screening, and claim-boundary
+  reporting. Never imported by the gate suite; no network calls of its own.
 
 ### `artifacts/manuscript_assets/` layout
 

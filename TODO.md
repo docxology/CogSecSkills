@@ -138,17 +138,28 @@ work.
 
 ## Major: Empirical Evaluation
 
-- Design a live-runtime eval harness capable of invoking Claude/Codex/Hermes with scenario fixtures and scoring outputs against expected-answer rubrics.
-- Use `docs/analyst-output-review.md` as the initial rubric for offline and online review.
-- Label any comparison against unstructured prompting as exploratory unless externally reviewed.
+- Implemented 2026-09-07 (not fully cleared): the live-runtime eval harness
+  ships (`eval-live`, `runtime_eval.py`, `docs/live-eval.md`) — real harness
+  subprocesses, deterministic transcript screening against scenario contracts,
+  mechanical rubric screening, claim-bounded reports, and a config seam for
+  any harness CLI. Run against a real Claude Code invocation
+  (sat-ach-safe: 6/7 checks; missing section headers flagged) plus 12
+  no-mock tests.
+- Remaining: human-rubric review of live transcripts
+  (`docs/analyst-output-review.md`) and any comparison against unstructured
+  prompting stays exploratory until externally reviewed; per-run cost means
+  no scheduled live runs in CI.
 
 ## Major: Live Connector Integrations
 
 - Add connector-specific OSINT/web harness notes only when live connectors are intentionally wired.
 - Require privacy/legal checks, source custody, rate-limit handling, and connector-specific tests before describing a connector as supported.
 - Document the connector boundary in `docs/connector-boundaries.md` when a live connector is wired.
+- Scoped 2026-09-07: see `docs/cross-repo-scoping.md` §2 — preferred seam is
+  wrapping the platform `hum-search` process contract, declared via
+  `runtime_eval.harness_commands`-style config rather than direct provider SDKs.
 
 ## Major: External Publication / DOI
 
-- Update `CITATION.cff` and `codemeta.json` with new version DOI once deposited on Zenodo.
+- Update `CITATION.cff` and `codemeta.json` with the new version DOI once deposited on Zenodo (owner action; checklist in `docs/cross-repo-scoping.md` §3 — `.zenodo.json` already says 1.7.0 for the next deposit).
 - Add verified external citations only when a manuscript claim needs external literature rather than project-local evidence.

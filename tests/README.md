@@ -19,6 +19,7 @@ While iterating, name a single package (e.g. `uv run pytest tests/contract`).
 | `tests/artifacts/` | Generated views: scenarios, examples, evals, dashboard, release metadata, manuscript assets, figures | 14 |
 | `tests/contract/` | CLI contract tests: exit codes, `--format json` payloads, argument handling | 3 |
 | `tests/conformance/` | Whole-library invariants (e.g. 100 catalogued areas, coverage floors) | 1 |
+| `tests/runtime/` | Live-eval runner: prompt building, transcript screening, real-subprocess harness fixtures (no network, no mocks) | 1 |
 
 ## Conventions
 

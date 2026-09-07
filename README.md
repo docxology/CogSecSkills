@@ -162,6 +162,12 @@ python -m cogsecskills dashboard --write
 python -m cogsecskills dashboard --check
 python -m cogsecskills release-metadata --write
 python -m cogsecskills release-metadata --check
+python -m cogsecskills catalogue --markdown --output docs/catalogue.md
+python -m cogsecskills catalogue --check
+
+# Run scenario fixtures through a live harness (opt-in; exploratory screening)
+python -m cogsecskills eval-live --harness claude --scenario sat-ach-safe
+python -m cogsecskills eval-live --harness claude --mode routed --json
 
 # Regenerate manuscript supplements and figures from the live library
 python -m cogsecskills manuscript-assets --write
