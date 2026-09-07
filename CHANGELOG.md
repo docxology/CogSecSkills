@@ -4,6 +4,48 @@ All notable changes to CogSecSkills are documented here. The format is loosely
 based on [Keep a Changelog](https://keepachangelog.com/), and the project aims to
 follow semantic versioning.
 
+## [Unreleased]
+
+### Added
+
+- **`--format json` for `validate` and `doctor`** (2026-08-30): machine-readable
+  CI diagnostics with failure-path payload tests; documented in `docs/cli.md`
+  and the harness docs.
+- **Python 3.14 CI leg** (2026-09-07): the matrix now covers 3.10–3.14; the full
+  suite verified green under CPython 3.14.4.
+- **Coverage ratchet to 99%** (2026-09-07): CI `--cov-fail-under` 97 → 99 and
+  `pyproject.toml` `fail_under` 90 → 99 (the two floors now agree); branch
+  coverage measured at 99.93% over 899 tests.
+
+### Changed
+
+- Post-v1.7.0 coverage push (2026-08-20): uncovered branches fixed across the
+  runner modules; branch coverage 98.84% → 99.93% (tests 873 → 899).
+- Figure PNGs no longer stamp the running matplotlib version into their
+  metadata (2026-08-13), keeping figure regeneration reproducible.
+- Ruff lint ruleset pinned and imports sorted for ruff 0.16 compatibility
+  (2026-07-29).
+
+### Fixed
+
+- Restored Python 3.10 support: an unconditional `tomllib` import (3.11+
+  stdlib) broke the 3.10 CI leg (2026-08-12).
+- Quality content repairs: corrected citations, restored truncated content,
+  and tightened the defensive boundary (2026-08-03).
+- Repaired stale documented paths, hardened the figure gate, and split
+  `figures.py` into per-kind panel modules (2026-08-12/13).
+- Completed the `manuscript/` → `docs/manuscript/` migration in code, tests,
+  and generated metadata (2026-08-31), and restored the legacy-location
+  wording in `docs/manuscript/MANUSCRIPT_STATUS.md` that the migration had
+  garbled (2026-09-07).
+
+### Removed
+
+- Dated session review/audit scratch reports (2026-09-01, `aad6477`).
+- Stale top-level `manuscript/S10|S11` duplicates the migration left behind,
+  and the tracked `output/.DS_Store`; `.DS_Store` is now gitignored
+  (2026-09-07).
+
 ## [1.7.0] - 2026-07-22
 
 Coverage push to 98.84%, CI coverage gate bumped to 97%, remaining docstrings.
