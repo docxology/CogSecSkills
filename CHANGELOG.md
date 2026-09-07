@@ -38,6 +38,12 @@ follow semantic versioning.
   and generated metadata (2026-08-31), and restored the legacy-location
   wording in `docs/manuscript/MANUSCRIPT_STATUS.md` that the migration had
   garbled (2026-09-07).
+- Docs accuracy sweep (2026-09-07): `CONTRIBUTING.md` coverage-gate values
+  aligned to the 99% floor with the canonical catalogue command;
+  `docs/cli.md`'s `show` example now matches the real skill version
+  (`sat.sorting` is 0.1.0); the `cli.py` usage example aligned to
+  `docs/catalogue.md`; the ISA location constraint updated to the canonical
+  public-repository reality.
 
 ### Removed
 

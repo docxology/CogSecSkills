@@ -51,6 +51,18 @@ work.
 - CI matrix 3.10–3.13 was missing Python 3.14 (GA and supported by
   `setup-uv`/`uv`); the matrix now includes 3.14 with a local full-suite
   verification (see `Minor: CI Hardening`).
+- MINOR — cleared: `CONTRIBUTING.md` still quoted the 90% coverage gate (two
+  spots) and a stdout-redirect catalogue command; aligned to the 99% gate and
+  the canonical `catalogue --markdown --output docs/catalogue.md`.
+- MINOR — cleared: `docs/cli.md`'s `show` example carried a stale skill
+  version (`1.1.0`); the real `sat.sorting` version is `0.1.0`.
+- MINOR — cleared: the `cli.py` module usage example pointed at
+  `docs/skill_catalogue.md`; the canonical generated path is
+  `docs/catalogue.md` (per `docs/cli.md` and `CLAUDE.md`).
+- MINOR — cleared: `ISA.md` still described the project as living at the
+  private template sidecar (`projects/working/CogSecSkills`); updated to the
+  canonical public-repository reality (`docxology/CogSecSkills`, CI + Zenodo,
+  template used only for render).
 
 ## Minor: Coverage
 

@@ -10,7 +10,7 @@ Usage::
     python -m cogsecskills validate
     python -m cogsecskills report
     python -m cogsecskills route "free text need" [--limit N]
-    python -m cogsecskills catalogue --markdown [--output docs/skill_catalogue.md]
+    python -m cogsecskills catalogue --markdown [--output docs/catalogue.md]
     python -m cogsecskills doctor
     python -m cogsecskills definitions --write|--check
     python -m cogsecskills scenarios --check

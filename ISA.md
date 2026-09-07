@@ -63,8 +63,10 @@ moment a definition, rendered skill, or adapter drifts."
 - Python ≥3.10, `uv`, pytest, no mocks (real temp dirs + real YAML).
 - Coverage gate ≥99% on `src/`; current measurements belong in
   [Verification](#verification), not copied into long-lived prose.
-- Lives at the private sidecar `projects/working/CogSecSkills`, symlinked into the
-  template repo's `projects/working/` — never committed to the public template repo.
+- Canonical home is the public repository `docxology/CogSecSkills` (GitHub
+  Actions CI, Zenodo-archived releases); the sibling docxology template working
+  copy is used only for manuscript markdown validation and PDF rendering, never
+  committed into the template repo.
 - Closed tool-verb vocabulary: read, search, write, exec, reason, web, delegate, ask.
 
 ## Goal
