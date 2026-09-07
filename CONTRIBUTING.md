@@ -19,7 +19,7 @@ Thanks for helping build a dependable, defensive Cognitive-Security skill librar
 ## Setup
 
 ```bash
-uv sync                      # or: pip install -e ".[dev]"
+uv sync --extra dev          # or: pip install -e ".[dev]"
 python -m cogsecskills validate
 python -m pytest --cov=cogsecskills --cov-report=term-missing
 ```

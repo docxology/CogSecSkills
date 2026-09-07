@@ -45,6 +45,9 @@ follow semantic versioning.
   (`sat.sorting` is 0.1.0); the `cli.py` usage example aligned to
   `docs/catalogue.md`; the ISA location constraint updated to the canonical
   public-repository reality.
+- `CONTRIBUTING.md` setup block: plain `uv sync` → `uv sync --extra dev` —
+  the documented `pytest --cov` step requires the `dev` extra, which a plain
+  sync does not install (2026-09-07).
 
 ### Removed
 

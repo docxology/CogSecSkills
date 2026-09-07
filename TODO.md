@@ -63,6 +63,11 @@ work.
   private template sidecar (`projects/working/CogSecSkills`); updated to the
   canonical public-repository reality (`docxology/CogSecSkills`, CI + Zenodo,
   template used only for render).
+- MINOR — cleared: `CONTRIBUTING.md`'s setup block ran `pytest --cov` right
+  after a plain `uv sync`, which does not install the `dev` extra
+  (pytest/mypy/ruff); the block now uses `uv sync --extra dev`. The other
+  `uv sync` install blocks (README, QUICKSTART, docs/harness-installation)
+  only run core-CLI gates afterward and are correct as-is.
 
 ## Minor: Coverage
 
