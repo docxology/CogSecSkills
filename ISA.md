@@ -61,7 +61,7 @@ moment a definition, rendered skill, or adapter drifts."
 ## Constraints
 
 - Python ≥3.10, `uv`, pytest, no mocks (real temp dirs + real YAML).
-- Coverage gate ≥90% on `src/`; current measurements belong in
+- Coverage gate ≥99% on `src/`; current measurements belong in
   [Verification](#verification), not copied into long-lived prose.
 - Lives at the private sidecar `projects/working/CogSecSkills`, symlinked into the
   template repo's `projects/working/` — never committed to the public template repo.
@@ -86,7 +86,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 - [x] ISC-4: Each implemented skill has `skill.yaml`, `SKILL.md`, `workflow.md`, and `harness/{claude,codex,hermes}.md`.
 - [x] ISC-5: `python -m cogsecskills validate` reports 0 errors over the real library.
 - [x] ISC-6: Each on-disk skill conforms to all 3 harnesses (adapter declared + every declared verb explicitly bound).
-- [x] ISC-7: Runner package coverage ≥90%.
+- [x] ISC-7: Runner package coverage ≥99%.
 - [x] ISC-8: A `scaffold` command generates a conforming skill folder from any registry entry.
 - [x] ISC-9: `docs/ageint/` holds an index + 7 topic primers matching the `ageint_topic` slugs.
 - [x] ISC-10: The user-named "project critical review" skill is implemented and multiharness-conforming.
@@ -105,7 +105,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 | ISC-1 | unit | registry length == 100 | exact | pytest |
 | ISC-5 | integration | `validate_library(ROOT).ok` | 0 errors | pytest + CLI |
 | ISC-6 | parametrized | `check_conformance` per skill | all harnesses ok | pytest |
-| ISC-7 | coverage | `--cov=src/cogsecskills` | ≥90% | pytest-cov |
+| ISC-7 | coverage | `--cov=src/cogsecskills` | ≥99% | pytest-cov |
 | ISC-8 | unit | scaffolded skill validates | ok | pytest |
 | ISC-17 | integration | generated manuscript assets match live library | no drift | CLI + pytest |
 
