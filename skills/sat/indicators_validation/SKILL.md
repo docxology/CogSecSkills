@@ -1,6 +1,6 @@
 ---
 name: sat.indicators_validation
-description: Test indicators for diagnosticity: do they actually discriminate between outcomes?
+description: 'Test indicators for diagnosticity: do they actually discriminate between outcomes?'
 ---
 
 # Indicators Validation

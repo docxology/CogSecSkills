@@ -17,6 +17,7 @@ import yaml
 from cogsecskills.core.harness import HARNESSES
 from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
 from cogsecskills.core.spec import SpecError
+from cogsecskills.core.text_utils import yaml_scalar
 
 #: Default tool plan for a freshly scaffolded skill (authors refine it).
 _DEFAULT_TOOLS = [
@@ -168,7 +169,7 @@ def _skill_md(entry: RegistryEntry) -> str:
     return (
         f"---\n"
         f"name: {entry.id}\n"
-        f"description: {entry.summary}\n"
+        f"description: {yaml_scalar(entry.summary)}\n"
         f"---\n\n"
         f"# {entry.name}\n\n"
         f"> Status: **stub** — scaffolded from the registry. Deepen the workflow,\n"

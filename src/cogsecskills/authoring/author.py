@@ -42,6 +42,7 @@ from pathlib import Path
 from typing import TypeAlias
 
 import yaml
+from cogsecskills.core.text_utils import yaml_scalar
 
 from cogsecskills.core.harness import HARNESSES
 from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
@@ -402,7 +403,7 @@ def _skill_md(entry: RegistryEntry, definition: dict) -> str:
     return (
         f"---\n"
         f"name: {entry.id}\n"
-        f"description: {entry.summary}\n"
+        f"description: {yaml_scalar(entry.summary)}\n"
         f"---\n\n"
         f"# {entry.name}\n\n"
         f"{description}\n\n"
