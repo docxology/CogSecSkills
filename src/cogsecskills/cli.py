@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 from cogsecskills.artifacts.dashboard import check_dashboard, write_dashboard
@@ -54,6 +55,11 @@ from cogsecskills.quality.insights import (
     library_stats,
     render_catalogue_markdown,
     route_query,
+)
+from cogsecskills.runtime_eval import (
+    MODES,
+    format_report,
+    run_live_eval,
 )
 from cogsecskills.quality.validate import conformance_report, validate_library
 
@@ -409,6 +415,27 @@ def _cmd_release_metadata(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_eval_live(args: argparse.Namespace) -> int:
+    try:
+        report = run_live_eval(
+            args.root,
+            harness=args.harness,
+            scenario_ids=tuple(args.scenarios) if args.scenarios else None,
+            mode=args.mode,
+            timeout_seconds=args.timeout,
+            output_dir=args.output_dir,
+        )
+    except (RuntimeError, ValueError) as exc:
+        print(f"eval-live: {exc}", file=sys.stderr)
+        return 2
+    if args.json:
+        print(json.dumps(report.to_dict(), indent=2))
+    else:
+        print(format_report(report))
+        print(f"report: {Path(report.output_dir) / f'report_{args.harness}.yaml'}")
+    return 0 if report.ok else 1
+
+
 def _cmd_export(args: argparse.Namespace) -> int:
     skills = [_spec_dict(spec) for spec in discover_skills(args.root)]
     print(json.dumps({"skills": skills, "count": len(skills)}, indent=2))
@@ -699,6 +726,45 @@ def build_parser() -> argparse.ArgumentParser:
         help="strictness level for git/archive metadata checks",
     )
     p_release.set_defaults(func=_cmd_release_metadata)
+    p_live = sub.add_parser(
+        "eval-live",
+        help="run scenario fixtures through a live harness and screen outputs",
+    )
+    p_live.add_argument(
+        "--harness",
+        required=True,
+        help="harness id whose command template drives the invocation",
+    )
+    p_live.add_argument(
+        "--scenario",
+        action="append",
+        dest="scenarios",
+        help="scenario id to run (repeatable; default: all scenarios)",
+    )
+    p_live.add_argument(
+        "--mode",
+        choices=MODES,
+        default="pinned",
+        help="pinned names the expected skill; routed asks the harness to route",
+    )
+    p_live.add_argument(
+        "--timeout",
+        type=int,
+        default=300,
+        help="per-scenario harness timeout in seconds (default: 300)",
+    )
+    p_live.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="transcript/report directory (default: .live-evals/<timestamp>)",
+    )
+    p_live.add_argument(
+        "--json",
+        action="store_true",
+        help="print the full JSON report instead of the text summary",
+    )
+    p_live.set_defaults(func=_cmd_eval_live)
     sub.add_parser("export", help="dump all on-disk skills as JSON").set_defaults(
         func=_cmd_export
     )

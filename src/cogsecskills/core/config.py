@@ -15,6 +15,12 @@ Example ``cogsecskills.yaml``::
       min_anti_criteria: 2
       require_references: false
 
+    # Optional: live-eval argv templates (exactly one {prompt} placeholder).
+    # Only used by `eval-live`; the gate suite never invokes a model runtime.
+    runtime_eval:
+      harness_commands:
+        claude: [claude, -p, "{prompt}"]
+
 Adding a harness here makes ``scaffold``/``author`` generate an adapter for it and
 ``validate`` require one — no code change needed. An unknown harness is assumed to
 support the full closed verb vocabulary (see :mod:`cogsecskills.harness`).
@@ -22,7 +28,7 @@ support the full closed verb vocabulary (see :mod:`cogsecskills.harness`).
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
@@ -41,6 +47,11 @@ class Config:
     min_workflow_steps: int = 3
     min_anti_criteria: int = 2
     require_references: bool = False
+    #: Per-harness argv templates for the live-eval runner. Each template must
+    #: contain exactly one ``{prompt}`` placeholder; ``{skill_dir}`` is
+    #: optional. Absent entries fall back to the built-in defaults in
+    #: :mod:`cogsecskills.runtime_eval`.
+    runtime_eval_commands: dict[str, tuple[str, ...]] = field(default_factory=dict)
 
     @classmethod
     def defaults(cls) -> Config:
@@ -88,4 +99,32 @@ def load_config(root: Path | None = None) -> Config:
         min_workflow_steps=_int("min_workflow_steps", 3),
         min_anti_criteria=_int("min_anti_criteria", 2),
         require_references=bool(quality.get("require_references", False)),
+        runtime_eval_commands=_runtime_eval_commands(path, raw),
     )
+
+
+def _runtime_eval_commands(path: Path, raw: dict) -> dict[str, tuple[str, ...]]:
+    """Parse the optional ``runtime_eval.harness_commands`` mapping."""
+    section = raw.get("runtime_eval", {}) or {}
+    if not isinstance(section, dict):
+        raise ValueError(f"{path}: 'runtime_eval' must be a mapping")
+    commands = section.get("harness_commands", {}) or {}
+    if not isinstance(commands, dict):
+        raise ValueError(f"{path}: 'runtime_eval.harness_commands' must be a mapping")
+    parsed: dict[str, tuple[str, ...]] = {}
+    for harness, template in commands.items():
+        if not isinstance(harness, str) or not harness.strip():
+            raise ValueError(
+                f"{path}: runtime_eval.harness_commands keys must be non-empty strings"
+            )
+        if (
+            not isinstance(template, list)
+            or not template
+            or not all(isinstance(part, str) and part for part in template)
+        ):
+            raise ValueError(
+                f"{path}: runtime_eval.harness_commands.{harness} must be a "
+                "non-empty list of non-empty strings"
+            )
+        parsed[harness] = tuple(template)
+    return parsed

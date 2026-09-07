@@ -15,6 +15,7 @@
 __pycache__/
 *.pyc
 .DS_Store
+.live-evals/
 .benchmarks/
 
 # Egg-info from local installs (any location — guards against renamed-fork drift).
