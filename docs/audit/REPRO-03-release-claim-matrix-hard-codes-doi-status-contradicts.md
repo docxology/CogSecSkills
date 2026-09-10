@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/40) |
 
 ## Summary
 The claim matrix built by `release_metadata.py` hard-codes the row `{"claim": "Public archive DOI", "status": "unavailable until a real archive exists", "evidence": "CITATION.cff and CodeMeta contain no DOI"}` as a static string, even though the same file's `_has_doi()` correctly detects two DOI identifiers in CITATION.cff/codemeta.json and flips `archive.status` to `available`. The generated honesty surface `docs/release-claim-matrix.md` therefore ships a permanently false claim ("contains no DOI") baked into the payload, and the check passes because both the text and the contradiction are regenerated identically. Severity stays medium: the machine-readable `archive.status` field is correct, so the defect is cosmetic-to-misleading rather than a broken execution contract.

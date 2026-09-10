@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/28)|
 
 ## Summary
 The rubric in `docs/analyst-output-review.md` defines a genuine 0/1/2 scale with distinct semantics per level, but both gates hard-require every rubric dimension to equal exactly 2 — so a 0/1 score is unreachable in any passing fixture and the 'Passing score per dimension: 2' summary row carries zero information. Red team adjusted severity from critical to medium because the 'misleading results shipped' claim is substantially mitigated: these scores are authored deterministic fixture data, and every surface says so explicitly (`docs/evaluation-readiness.md`, per-fixture claim_boundary text, `docs/cli.md`, `TODO.md`). The defect is a real contract inconsistency with limited blast radius, not a published false evaluation result.

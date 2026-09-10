@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/22) |
 
 ## Summary
 CLAUDE.md presents `uv run pytest --cov=cogsecskills --cov-report=term-missing   # coverage gate >=90%` inside its CI commands block, but .github/workflows/ci.yml actually enforces `--cov-fail-under=97`. A contributor trusting CLAUDE.md's 90% bar would be surprised when CI fails a 93%-coverage branch. Both README.md and AGENTS.md correctly state 97, making CLAUDE.md the sole stale doc.

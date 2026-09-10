@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/54) |
 
 ## Summary
 Contract tests pin exact manuscript H1 title+anchor tuples for 13 files, 24 bib keys, ~25 literal phrases across QUICKSTART/README/DESIGN, exact phrases across 8 AGENTS.md files, and a hard-coded `len(file_lines) == 24` count of transcript bullets. These are deliberately drift-guarding tests (the agents_contract even documents why), so they are partially defensible — but exact-title pinning of every manuscript heading means routine copyedits break the suite, training maintainers to loosen tests even though tests/AGENTS.md:9 explicitly forbids that ("Do not weaken or delete failing tests to make gates pass"). Red team verdict ADJUSTED: the mechanisms are confirmed but the original line numbers and counts were wrong (REQUIRED_BIB_KEYS is at :19-45, EXPECTED_MANUSCRIPT_H1S at :63-125, docs_contract phrase pins ~25 not ~50); severity stays low since a copyedit breaks the suite loudly rather than shipping wrong results.

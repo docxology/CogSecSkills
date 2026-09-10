@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/38) |
 
 ## Summary
 `.zenodo.json` pins `"version": "1.0.0"` while pyproject.toml, CITATION.cff, codemeta.json, `src/cogsecskills/__init__.py`, and CHANGELOG.md all declare 1.7.0. The repo's own coherence gate (`cogsecskills release-metadata --check`, run in CI as "Coherence gates (no generated-file drift)") cannot see this drift because its code path never loads `.zenodo.json`. Red team adjusted severity from high to medium because the 1.0.0 value matches the actually-published Zenodo deposit (v1.0.0 version DOI) and no wrong results ship through the repo's own gates; the residual blast radius is a future Zenodo re-upload silently stamping 1.0.0 metadata on a 1.7.0 deposit.

@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/11)|
 
 ## Summary
 In `SkillSpec` parsing, `_as_str_list` strips whitespace from list-form items but returns the bare-scalar form as-is, so `triggers: "  foo  "` is stored as `('  foo  ',)` while `triggers: ["  foo  "]` is stored as `('foo',)`. Identical logical data produces different specs depending on YAML spelling, and padded values flow inconsistently into consumers such as routing and canonical-definition text.

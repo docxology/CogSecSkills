@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/16)|
 
 ## Summary
 `--limit` uses bare `argparse` `type=int` with no bounds check, and the row slice `rows[: args.limit]` inverts the documented "cap the number of results" contract for negatives: `--limit -3` returns everything except the last three rows, with the JSON payload's `count` reporting the truncated length as if intended. The same pattern exists in `route` via `route_query`.

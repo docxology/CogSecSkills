@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/29)|
 
 ## Summary
 The only content-quality check on reviewed outputs is lowercase substring membership of fixed and scenario terms against a blob of the fixture's own text, plus structural checks — so rubric dimensions like `uncertainty` and `defensive_boundary` with 0/1/2 anchors in `docs/analyst-output-review.md` are not machine-measurable; mentioning 'uncertainty' once passes. Because fixture authors knew the term list (it lives in the same YAML), inclusion is by construction, not by merit. Red team adjusted severity from high to medium because the repo already extensively disclaims the epistemic status of these fixtures (`docs/evaluation-readiness.md`, `docs/claim-boundaries.md`, `QUICKSTART.md`, `docs/cli.md`), so no wrong live-model claim ships; the genuine residual gap is that `docs/evaluation-readiness.md` presents 'Passing score per dimension | 2' as if rubric conformance were validated when it is only asserted, and no doc states the term checks are vocabulary-presence-only.

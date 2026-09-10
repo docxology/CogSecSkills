@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/52) |
 
 ## Summary
 Test files are named after coverage targets and their docstrings cite coverage percentages and line numbers, and they contain threshold-of-constant assertions (`FIGURE_DPI >= 200`, `COVER_COMMAND_SIZE >= 12`) that have no failing behavior — any plausible regression passes them. This is the classic "tests written so the change has coverage" anti-pattern, inflating the coverage gate with weightless checks. Red team confirmed the mechanism but adjusted the details: the gate is `fail_under = 90` (pyproject.toml:122), not 97% as originally claimed, and not all coverage-file content is weightless — lowgap_coverage's `_latex_escape`/`_group_title` checks and final_coverage's adapter-verb validation are real behavioral assertions, so only the constant-pin subset is truly weightless.

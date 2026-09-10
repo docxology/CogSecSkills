@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/53) |
 
 ## Summary
 Coverage-variant test files duplicate topical tests verbatim: tests/quality/test_cogsecskills_edge_cases.py:141-171 copies the copytree-fixture + yaml-mutation + `_content_findings` sequence of tests/artifacts/test_cogsecskills_examples_branches.py:52-77; two identically-named `test_check_definitions_render_failure` twins carry the same 25-line YAML fixture; and `test_validate_skill_unsupported_verbs` re-tests what `test_unsupported_verbs_in_validate_skill` already covers. Copied fixtures mean a fixture bug or message-format change must be fixed in several places, and the clones already drift by accretion (the final_coverage twin adds a monkeypatched leg its sibling lacks). Nothing mitigates the duplication — no shared fixture, no conftest dedupe — so the copies add maintenance cost with zero added defect detection.

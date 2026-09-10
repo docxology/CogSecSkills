@@ -11,7 +11,7 @@ file's **Tracking** row, and every issue links back here.
 | Scope | `src/` runner + quality/eval methodology, `tests/`, `docs/`, `registry/`+`definitions/`, CI/metadata/artifacts |
 | Method | 6 independent discovery lenses -> 53 findings -> adversarial red-team re-verification of every finding |
 | Result | **51 validated findings** (1 high, 20 medium, 30 low); 2 refuted and dropped; 1 advisory folded into the index |
-| PR | PENDING-PR-LINK |
+| PR | [docxology/CogSecSkills#5](https://github.com/docxology/CogSecSkills/pull/5) |
 | Date | 2026-09-10 |
 
 Severity reflects the red-team-adjusted value. The two critical-severity

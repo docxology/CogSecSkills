@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/13)|
 
 ## Summary
 A registry file containing `skills:` with no items parses to `{'skills': None}`, which passes the existing `'skills' in raw` guard and then crashes with `TypeError: 'NoneType' object is not iterable` during the tuple build. The unhandled exception carries no file context, defeating the module's precise-`SpecError` design — the very thing the guard one line above exists to provide.

@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/39) |
 
 ## Summary
 `CITATION.cff` declares `cff-version: 1.7.0` — the project version was pasted into the CFF schema-version field, whose valid values are the 1.2.x line — so any CFF validator (cffconvert, GitHub's CFF check) rejects the file. The same file cites `version: 1.7.0` while its identifiers block labels 10.5281/zenodo.20804586 as "Version DOI (v1.0.0)", creating miscitation risk. No CI step or repo tool validates CITATION.cff syntax. Severity stays medium: a metadata-level defect causing validation failure and citation confusion, with no runtime/code impact.

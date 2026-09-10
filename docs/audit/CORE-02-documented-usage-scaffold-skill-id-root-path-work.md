@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/7)|
 
 ## Summary
 The CLI module docstring advertises `cogsecskills scaffold <skill-id> [--root PATH]`, but `--root` is registered only on the top-level parser, and argparse only recognizes parent-parser options before the subcommand token — so the documented suffix placement exits 2 with `unrecognized arguments: --root /path`. The red team adjusted severity from medium to low because `docs/cli.md` explicitly documents the prefix-placement constraint and all tests exercise the working form; the defect is a misleading docstring usage block rather than broken runtime behavior.

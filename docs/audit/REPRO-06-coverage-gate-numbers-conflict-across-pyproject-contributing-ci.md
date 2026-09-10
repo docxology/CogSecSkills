@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/43) |
 
 ## Summary
 pyproject.toml sets `fail_under = 90`, CONTRIBUTING.md tells contributors "The coverage gate is **90%**" and its PR checklist says 'coverage ≥ 90% → green', while CI actually enforces `--cov-fail-under=97`; CLAUDE.md also misstates the CI gate as >=90% directly under its CI context. A contributor passing at 90-96% locally will fail CI, contradicting the PR checklist's instruction. Verdict was adjusted (severity confirmed low) after verification: AGENTS.md:110-112 already acknowledges the two-floor split and warns against copying stale numbers, and README.md:224, TODO.md:18, dashboard artifacts, and tests/README.md all correctly say 97 — the conflict is limited to CONTRIBUTING + CLAUDE.md plus pyproject's stale floor, a docs footgun rather than broken code.

@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/42) |
 
 ## Summary
 CI's "Coherence gates (no generated-file drift)" step runs seven `--check` commands (definitions, scenarios, examples, evals, dashboard, release-metadata, manuscript-assets), but CONTRIBUTING.md's "Before opening a PR" checklist mentions none of them — a contributor following the documented checklist will be surprised by CI failures on the drift gates. Conversely, the docs/catalogue.md regeneration instruction has no CI gate anywhere, so `docs/catalogue.md` can go stale forever. Verdict was adjusted after verification found one mitigating test: the conformance test `test_registry_enumerates_one_hundred_areas` pins the catalogue total when registry size changes, catching registry-size drift even though prose drift is not caught; severity confirmed low (doc-hygiene/contributor-surprise issue, no incorrect shipped artifact).

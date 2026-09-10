@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/32)|
 
 ## Summary
 The `!= 28` fixture-count check hardcodes the literal 28 while `load_scenarios(base)` is already in scope, and the number flows into generated docs (`docs/evaluation-readiness.md` 'Evaluation fixtures | 28', `docs/cli.md`) that read like empirical counts. The check is actually fully redundant — the missing/extra check against `expected_ids` already catches drift — so a scenario-set change yields a confusing 'expected 28 evaluation fixtures' failure rather than a wrong pass. Verdict VALID, severity confirmed low: currently consistent (28 == `len(load_scenarios())`), redundant check, cosmetic/misleading-on-drift only.

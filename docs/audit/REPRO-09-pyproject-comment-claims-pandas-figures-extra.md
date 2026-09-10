@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/46) |
 
 ## Summary
 A comment in pyproject.toml's `mypy-overrides` block says the optional `figures` extra is "(matplotlib/numpy/seaborn/pandas)", but the actual `[project.optional-dependencies].figures` list contains only matplotlib, numpy, and seaborn — no pandas. The comment implies a dependency that never installs from that extra; harmless but misleading for anyone debugging figure-rendering environments. One verification nuance: seaborn hard-depends on pandas, so pandas does arrive transitively — the comment is still wrong as written, and 'add the dep' is unnecessary. Severity stays low: stale doc comment, no functional impact.

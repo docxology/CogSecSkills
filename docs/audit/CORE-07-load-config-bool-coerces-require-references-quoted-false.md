@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/12)|
 
 ## Summary
 `load_config` coerces the quality flag with `bool(...)`, so a user writing `require_references: "false"` (quoted) in `cogsecskills.yaml` gets `True` — the exact inversion the codebase's own `SkillIO` check documents and forbids elsewhere for the sibling `required` field. The failure direction is fail-closed (the doctor gate becomes stricter than intended), which is why severity stays low, but the inversion is silent.

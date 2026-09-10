@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/21) |
 
 ## Summary
 The worked Hermes bind-and-run example in docs/harness-cookbook.md invokes `python -m cogsecskills show counterintelligence.elicitation_resistance`, but that skill id does not exist anywhere in the registry, definitions, or skills tree. The real id is `counterintelligence.elicitation_attempt_recognition`, so a reader copying the example gets an "unknown skill id" error (cli.py `_cmd_show` exits 1 for unknown ids) instead of the documented behavior. Red team adjusted severity from high to medium because it is a broken doc example command — one line in one doc with a trivially substitutable fix — not a broken contract or shipped wrong result.

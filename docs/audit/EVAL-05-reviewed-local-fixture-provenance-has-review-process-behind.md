@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/31)|
 
 ## Summary
 No reviewer identity, review date, rubric-scoring session, or inter-rater process exists anywhere in the repo for the 28 fixtures in `evals/local_output_review.yaml` — they are 'reviewed' only in the sense that the generator stamped the `provenance` constant, and the repo's own rubric doc (`docs/analyst-output-review.md:3-4`) says the review protocol 'is for future scenario-output review', yet the fixtures stamp past-tense 'reviewed local fixture' and a gate actively enforces the mislabel. The fixture set is perfectly survivorship-biased: exactly the authored answers that satisfy the authors' own term/shape contracts, one per scenario, with zero failed/ambiguous samples, so the 28/28 matrix cannot evidence output quality even at fixture level. Verdict ADJUSTED, severity confirmed medium: the misleading provenance wording is real, but its blast radius is bounded because empirical-claim boundaries are consistently disclaimed elsewhere and no benchmark or quality claim is staked on the matrix.

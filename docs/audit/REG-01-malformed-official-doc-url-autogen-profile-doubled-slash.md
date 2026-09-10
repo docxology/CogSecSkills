@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/35) |
 
 ## Summary
 The `autogen` harness profile in the registry contains a malformed documentation URL with a doubled slash (`stable//index.html`), unlike the clean single-slash URLs used by every other profile row. Public reference metadata should be uniform and clickable. The red team confirmed the verdict at low severity: the URL still resolves on most servers (path `//` is typically tolerated), so this is cosmetic/hygiene rather than broken functionality.

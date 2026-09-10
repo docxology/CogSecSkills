@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/33)|
 
 ## Summary
 `_check_expected_response` validates the contract's self-declared term counts and `_check_expected_answer` validates the answer against its own term/rubric lists, but nothing cross-checks that the authored expected answer satisfies the scenario's own `required_sections`/term lists — the 'expected response-shape contract' is two independently authored YAML blobs with no join. The mismatch is not an isolated case: every scenario pairs a bespoke 4-section contract with a generic 3-section answer (e.g. `sat-ach-safe` requires an 'Analyst next checks' section its own expected answer never contains). Verdict ADJUSTED with corrected line citations; severity low is correct because the blast radius is authored-fixture integrity only — nothing downstream consumes `required_sections` against real answers.

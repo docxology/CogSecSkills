@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/8)|
 
 ## Summary
 `author_batch` catches only `(AuthorError, SpecError, ValueError, KeyError)` per item, but a `_def.json` containing a JSON array or scalar crashes earlier — at `definition.setdefault("id", skill_id)`, which runs before `render_definition`'s own dict guard — raising an uncaught `AttributeError` (or `TypeError`, or `OSError` from an unreadable file). One malformed file then aborts the whole batch with a raw traceback, and the remaining `_def.json` files are never rendered, breaking the documented `{"rendered": [...], "failed": {id: error}}` contract.

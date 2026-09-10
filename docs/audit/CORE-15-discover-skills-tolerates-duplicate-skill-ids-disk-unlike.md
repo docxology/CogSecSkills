@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/20)|
 
 ## Summary
 `discover_skills` returns one `SkillSpec` per `skill.yaml` on disk with no seen-id tracking, unlike `load_registry`, which raises on duplicate ids. If the same id exists in two directories (e.g. a stray copy in the wrong group), every dict-comprehension consumer keeps the path-sorted-last one silently — so validation and definition-drift checks run against an arbitrary copy while the other is ignored, the exact silent drift the registry layer exists to prevent.

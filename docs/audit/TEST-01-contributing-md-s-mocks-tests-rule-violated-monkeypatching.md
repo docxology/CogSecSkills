@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/47) |
 
 ## Summary
 CONTRIBUTING.md declares the ground rule "**No mocks in tests.** Real `tmp_path` directories and real YAML.", yet six test files monkeypatch the very validation and exception surfaces they claim to cover (e.g. `check_conformance`, `discover_skills`, `_expected_outputs`, `rendered_definition_files`, `_publication_doi`). These stubs prove the code catches a synthetic error, not that the real pipeline produces one, so the self-declared rule is not honored by its own suite. Red team adjusted severity from high to medium because the blast radius is limited to test-suite honesty and coverage inflation — nothing wrong or misleading ships to users — and tests/AGENTS.md actually narrows the rule to project data ("No mocks for project data"), with CONTRIBUTING.md's blanket prohibition still contradicted in spirit.

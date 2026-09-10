@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/23) |
 
 ## Summary
 Two doc inaccuracies compound: docs/cli.md describes the implementation modules as "sibling modules" when they actually live in the core/, quality/, authoring/, and artifacts/ subpackages, and docs/architecture.md's cli.py row lists only 16 of the 20 subcommands cli.py registers, omitting `dashboard`, `examples`, `evals`, and `release-metadata`. The inaccuracy originates in cli.py's own docstring, which mirrors the same "sibling modules" wording.

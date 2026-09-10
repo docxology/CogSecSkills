@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/51) |
 
 ## Summary
 tests/quality/test_cogsecskills_validate_coverage.py:46-53 exercises the OSError path of `validate_skill` by chmod-000ing `claude.md`, then asserting an "unreadable" error appears. As root — common in container CI — chmod 000 does not block reads, so `read_text` succeeds, no OSError fires, and the assertion fails loudly: a false failure, not silent wrong results. The verifier confirmed the mechanism (src/cogsecskills/quality/validate.py:156-157 catches OSError and emits the "unreadable" error) and that no root-conditional skip or pytest marker exists anywhere in the repo, so the test runs unguarded as root.

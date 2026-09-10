@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/56) |
 
 ## Summary
 The conformance suite's quality-control test asserts only substring presence (`"unsafe" in negative`, `"inference" in evidence`), and `ALLOWED_SHARED_QUALITY_ITEMS` — the whitelist deciding which shared quality items may repeat across skills — has zero behavioral test: only set-key equality and a subset check exist, with whitelist semantics exercised only via real-corpus fixtures. There is also no dedicated test for `--root` pointing at a nonexistent directory. Red team verdict ADJUSTED: the original "unsafe unsafe unsafe passes" example is refuted (the suite additionally rejects `GENERIC_NEGATIVE_CONTROL_PHRASES` and requires skill-name/slug/specificity tokens), and the whitelist is currently a latent mechanism (all three values are empty sets at quality_constants.py:52-55), so blast radius is minimal; the narrower claims — weak keyword assertions, untested whitelist semantics, missing `--root` error path — survive, and severity stays low.

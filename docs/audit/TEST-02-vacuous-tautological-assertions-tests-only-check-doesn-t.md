@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/48) |
 
 ## Summary
 Four tests assert only `isinstance(findings, list)` or `len(findings) > 0`, and their own comments admit the expected outcome is unknown ("the important thing is it doesn't crash"). A regression that changes the failure reason — or reports the wrong skill/path — still passes, because these tests were written to hit coverage lines rather than pin behavior. Red team adjusted severity from high to medium because precise message pins exist elsewhere for the "not present in registry" branch and these are coverage-chasing near-duplicates rather than shipped-behavior gates; however, the route-no-match case has no other precise pin anywhere, so real coverage gaps remain.

@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/34)|
 
 ## Summary
 Version-labeled statistics contradict each other across docs: the stale 90.94% coverage figure in `docs/architecture.md` conflicts with CHANGELOG's 98.84% and TODO/dashboard's 99.91%, and the same v1.7.0 tag carries two different test counts (873 in `ISA.md` vs 899 in `TODO.md` and `docs/quality-dashboard.md`). Additionally, coverage percentages and 100/100 counts are quoted in prose adjacent to `docs/evaluation-readiness.md`'s 28 perfect-score rows with no per-row honesty marker beyond one header sentence, inviting readers to skim scores and counts as evaluation evidence. Verdict VALID, severity confirmed low: this is a presentation-consistency/doc-hygiene defect — no wrong shipped results, the claims are internally gated but contradictory across docs for the same release tag.

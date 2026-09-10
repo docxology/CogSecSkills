@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/19)|
 
 ## Summary
 Every YAML load path in the codebase uses plain `yaml.safe_load`, which silently keeps the last occurrence of a duplicated mapping key with no diagnostic — so a `skill.yaml` or `cogsecskills.yaml` with `status:` twice takes whichever appears later. This contradicts the library's "malformed input raises with a precise message" doctrine. The red team adjusted the verdict to ADJUSTED because all cited line numbers in the original finding were stale, though the mechanism itself was confirmed — and the blast radius is larger than stated, since `artifacts/` load sites are also affected.

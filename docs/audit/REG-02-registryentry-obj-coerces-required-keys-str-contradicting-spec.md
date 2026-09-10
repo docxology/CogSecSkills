@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/36) |
 
 ## Summary
 `RegistryEntry.from_obj` stringifies every required key with `str()`, exactly the coercion pattern the spec layer deliberately refuses and documents as a hazard. The result is an internal inconsistency: `id: 0` in the registry silently becomes the string `"0"` and passes validation, while the same shape in `skill.yaml` raises a `SpecError`. Red team confirmed the verdict at low severity because registry/skills.yaml is repo-controlled source data — the defect fails silently rather than producing wrong shipped output.

@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/14)|
 
 ## Summary
 Registry validation only requires a non-empty id, so a dot-less id like `satx` passes loading — and then explodes `definition_path`/`definition_from_skill` with `ValueError: not enough values to unpack (expected 2, got 1)` instead of a precise `SpecError` naming the bad id. Elsewhere in the codebase the same input is handled gracefully via `[-1]`, making the behavior inconsistent.

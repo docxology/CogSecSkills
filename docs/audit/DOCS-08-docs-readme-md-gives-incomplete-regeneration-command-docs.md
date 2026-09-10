@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/24) |
 
 ## Summary
 The catalogue row in docs/README.md tells readers to regenerate the generated index with bare `cogsecskills catalogue`, but that form only prints the markdown to stdout (cli.py `_cmd_catalogue` writes a file only when `--output` is passed) — so following the hint leaves docs/catalogue.md unregenerated while exiting 0, and the stdout output can be mistaken for success. The correct full command (`catalogue --markdown --output docs/catalogue.md`) is documented in four other authoritative places.

@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/10)|
 
 ## Summary
 `SkillSpec.from_mapping` stringifies harness mapping values (`str(v)`), so a null or numeric adapter path becomes the truthy strings `'None'`/`'123'` and passes `has_adapter` in the conformance check — reporting a declared adapter for a file that cannot exist. This directly contradicts the same file's `_require_text` doctrine, which forbids exactly this coercion class for `id`, and the same str()-coercion applies to `version`, `description`, and `ageint_topic`.

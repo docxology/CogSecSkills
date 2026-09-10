@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/18)|
 
 ## Summary
 `promote_to_implemented` rewrites the registry status via a line-anchored regex that only matches single-line flow mappings with an unquoted id immediately after `{id:`. If an entry is ever reformatted to block style or the id gets quoted, `subn` matches zero times and the function returns without any error — `author-batch` reports success while the rendered-on-disk/registry-status pair silently drifts out of sync.

@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/41) |
 
 ## Summary
 The committed PNG drift gate checks only structural properties (header validity, byte floor, pixel floor, mutual distinctness) and deliberately avoids byte-exact comparison, so rendered figures can silently diverge from the live registry. The count '100' is hard-coded in the figure title, reader question, keywords, and the supplemental catalogue heading, and is never cross-checked against the actual registry length at generation time — if the catalogue ever grows past 100, the figure text stays frozen at "all 100 implemented skills" with no gate failing. Verdict was adjusted (not outright VALID) because the conformance test `assert len(registry) == 100` and multiple other independent gates pin the registry count, limiting the residual defect to figure/catalogue text semantics; severity confirmed medium.

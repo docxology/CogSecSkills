@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/37) |
 
 ## Summary
 `load_registry` tolerates a missing `registry/groups.yaml`, and `validate.py` only checks entry groups against the vocabulary when the loaded set is non-empty. Deleting or renaming `groups.yaml` therefore silently disables the registry↔groups coherence check (and the documented `# id format: <group>.<slug>` header contract in skills.yaml becomes unenforced) while validation still passes, instead of failing loudly. Red team confirmed low severity: one coherence gate degrades on an abnormal deletion scenario with limited blast radius, and the id-prefix shape check still partially constrains.

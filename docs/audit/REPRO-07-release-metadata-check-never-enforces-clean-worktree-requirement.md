@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/44) |
 
 ## Summary
 `release_metadata.py`'s `_findings()` appends "{mode} mode requires a clean git worktree" when mode is `release-candidate`/`public-archive` and the worktree is dirty — but CI runs `release-metadata --check` with the CLI's default `--mode local`, so the dirty-worktree and git-availability findings are unreachable from CI. The payload's `release_candidate_requires_clean_worktree: True` claim is policy text only; no automated path ever enforces it. Verdict was adjusted (severity confirmed low) because this is a missing policy-enforcement hook rather than a wrong output: metadata content is still generated and drift-checked, and the enforcement gap only matters at release time.

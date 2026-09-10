@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/25) |
 
 ## Summary
 ISA.md contradicts itself: the Decisions section records the 2026-06-18 move to a clean standalone published repo (`github.com/docxology/CogSecSkills`, no monorepo dependency), while the Constraints section still states the suite lives at the private sidecar `projects/working/CogSecSkills` symlinked into the template repo. The Constraints bullet describes a layout that no longer exists and misleads anyone reading it as current truth.

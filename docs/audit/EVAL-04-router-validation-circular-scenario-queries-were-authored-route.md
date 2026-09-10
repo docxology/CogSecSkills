@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/30)|
 
 ## Summary
 The scenario route gate feeds each fixture query into `route_query` and only checks that the expected skill lands in the top-10 of a weighted token-overlap router — but all 20 queries in `scenarios/defensive_readiness.yaml` contain the expected skill's own display name verbatim (name tokens weight 4, triggers 3), so the check is self-fulfilling: it validates fixture authoring, not routing effectiveness, and no paraphrased/adversarial query corpus exists. Red team adjusted severity from high to medium because `docs/claim-boundaries.md:19-21` explicitly lists 'A live model will select the same skill' under Not Proved and `manuscript/04_artifacts_and_evidence.md:62` says the gates 'do not show that a live runtime will select the same skill'; the claim wording 'fixtures route to expected skills' is literally accurate about the fixtures, though it does not disclose the query-echo construction.

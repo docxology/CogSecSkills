@@ -7,7 +7,7 @@
 |Severity|`high`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/27)|
 
 ## Summary
 The 'reviewed local output fixtures' in `evals/local_output_review.yaml` are not independently reviewed outputs: `write_evals` regenerates the entire file from `scenarios/defensive_readiness.yaml`'s `expected_answer` blocks, and `check_evals` fails on any drift, so the graded artifact and the grading key are the same authored text produced by one process. The rubric scores embedded in the eval fixture are literally copies of the scenario's self-declared `rubric_scores`, and scores are gated to stay at 2. Red team adjusted severity from critical to high because the circularity does not ship wrong or misleading results — the repo explicitly disclaims the epistemic status of these fixtures everywhere (`evals.py` CLAIM_BOUNDARY, `docs/evaluation-readiness.md`, `docs/release-claim-matrix.md`, `docs/quality-dashboard.md`, `TODO.md`) — but a residual real defect remains: the provenance string 'reviewed local fixture' asserts a review event that never occurred, a misleading claim on a public artifact surface.

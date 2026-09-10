@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/15)|
 
 ## Summary
 The `catalogue` command's `--output` writer calls `write_text` directly without creating the parent directory, unlike every other file-writing path in the codebase. `--output docs/generated/catalogue.md` with a missing `docs/generated/` raises a raw `FileNotFoundError` — after all generation work has already been done.

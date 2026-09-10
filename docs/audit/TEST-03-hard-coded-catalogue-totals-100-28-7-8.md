@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/49) |
 
 ## Summary
 Five test files pin literal catalogue totals (`len(registry) == 100`, `result["scenarios"] == 28`, `html.count("data-skill-id=") == 100`, per-figure pixel minimums) instead of deriving them from the registry. Every catalogue addition requires hand-updating counts in at least 5 test files plus docs, and CONTRIBUTING.md:54 openly documents this update duty. A missed update fails the build spuriously, or worse, tests pass while docs/dashboard drift. The verifier confirmed no centralized `EXPECTED_TOTAL` constant or cross-file consistency assertion exists anywhere in tests/, while the proposed structural-derivation pattern already exists in-repo (test_cogsecskills_scenarios.py:438).

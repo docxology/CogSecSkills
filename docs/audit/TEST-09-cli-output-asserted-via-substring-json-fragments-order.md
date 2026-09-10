@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/55) |
 
 ## Summary
 Several CLI JSON tests assert substrings like `'"registry_total": 1' in out` against the serialized output, coupling the tests to exact JSON key-splice formatting (key order, spacing, indent) while verifying nothing that a JSON parse would not. The same files already parse JSON properly elsewhere (scaffold.py:225 `test_cli_list_json_format` uses `json.loads`), so the substring variant is a strictly weaker second convention in the same codebase. Red team verdict ADJUSTED: the four substring asserts are confirmed, but the finding's citation of scaffold.py:259-260 was a misread — those lines parse via `json.loads` and assert payload semantics (count vs total), not formatting — so the formatting-coupling charge applies only to the substring asserts. Severity stays low.

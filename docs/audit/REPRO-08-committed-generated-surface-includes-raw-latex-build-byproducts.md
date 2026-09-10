@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/45) |
 
 ## Summary
 `.gitignore` deliberately re-includes the entire `output/` tree ("Generated outputs ... ARE committed"), which sweeps in raw LaTeX build byproducts (`.aux`, `.bbl`, `.blg`, `.log`, `.toc`, `_xelatex_stdout.log`) that are environment-dependent compiler scratch rather than deliverables. The repo also tracks two diverging copies of the combined manuscript (`output/pdf/_combined_manuscript.md` vs `output/web/_combined_manuscript.md`), and none of the drift gates cover `output/pdf` or `output/web` at all, and no SHA256 provenance manifest exists. Verdict VALID; severity adjusted from the original medium to low — a hygiene/drift risk where the deliverable content itself is not wrong.

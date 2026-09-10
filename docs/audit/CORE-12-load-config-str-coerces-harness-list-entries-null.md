@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/17)|
 
 ## Summary
 `load_config` stringifies every element of the `harnesses` list, so `harnesses: [claude, null, 3]` silently yields `('claude', 'None', '3')`. Scaffold/author then generate `harness/None.md`, and validation demands adapters for the bogus harness `'3'` — which conformance accepts through the full-vocabulary fallback for unknown harness names. Non-string entries should be rejected, not stringified.

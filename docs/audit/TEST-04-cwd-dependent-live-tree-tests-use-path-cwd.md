@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/50) |
 
 ## Summary
 Two live-tree tests anchor the repository root via `Path.cwd()` instead of the `PROJECT_ROOT = Path(__file__).resolve().parents[2]` convention used by 15+ sibling test files, so they silently depend on pytest being invoked from the project root. Running from a subdirectory, an IDE with a different working dir, or a per-file invocation makes them fail or — worse — pass vacuously on an empty row set. The verifier confirmed the mechanism precisely: src/cogsecskills/core/registry.py:28-30 uses the passed root verbatim when non-None, so `Path.cwd()` bypasses the `_project_root()` sentinel walk-up that would otherwise find the real root.

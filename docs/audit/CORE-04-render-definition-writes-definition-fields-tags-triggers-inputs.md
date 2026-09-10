@@ -7,7 +7,7 @@
 |Severity|`medium`|
 |Red-team verdict|`VALID`|
 |Status|Open (validated 2026-09-10)|
-|Tracking|PENDING-ISSUE-LINK|
+|Tracking|[GitHub issue](https://github.com/docxology/CogSecSkills/issues/9)|
 
 ## Summary
 `render_definition` coerces/validates only the tool verbs; `tags`, `triggers`, `inputs`, and `outputs` from the definition JSON are written into the generated `skill.yaml` with no type or shape checks. A definition with e.g. `tags: [1]`, `inputs: [{name: x, required: "yes"}]`, or an io missing `name` therefore produces a tree that `SkillSpec.from_mapping` rejects — while `cogsecskills author` prints "authored N files" and exits 0, contradicting the module docstring's "every authored skill passes the validator by construction" guarantee.

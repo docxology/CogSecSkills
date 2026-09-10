@@ -7,7 +7,7 @@
 |Severity|`low`|
 |Red-team verdict|`ADJUSTED`|
 |Status|Open (validated 2026-09-10)|
-| Tracking | PENDING-ISSUE-LINK |
+| Tracking | [GitHub issue](https://github.com/docxology/CogSecSkills/issues/26) |
 
 ## Summary
 In README.md's bounded-examples pointer, two consecutive Markdown links are adjacent with no separator between them, while the third link gets an explicit ", and" — an inconsistent list formatting. Red team narrowed the original claim: under CommonMark the single newlines inside the paragraph render as spaces, so the link texts do not run together as `…mdexamples/…`; the real defect is the cosmetic punctuation inconsistency, not a run-together render.
