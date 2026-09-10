@@ -117,4 +117,11 @@ Cross-lens duplicates were merged before filing (DOCS-02→REPRO-02, DOCS-03→R
 - Discovery: six read-only lens agents deep-read their surfaces and returned evidence-backed findings (`file:line` + verbatim quotes).
 - Red team: every finding was independently re-verified by a fresh adversarial agent instructed to refute it; verdicts: 29 VALID, 22 ADJUSTED (severity/line corrections applied), 2 INVALID (dropped).
 - Every finding's file carries the full verifier notes in its *Audit trail* section.
+- **Scope (null result recorded):** CogSecSkills contains no ML training pipeline — a repo-wide sweep for
+  classical ML idioms (`train_test_split`, `cross_val`, `StandardScaler`, `.fit(`, sklearn/torch/keras/dataframe)
+  returns zero matches, so there are no train/test splits to leak across. The "data-leakage" lens was therefore
+  aimed at the methodological analogue for a rubric-scored fixture harness: provenance/contamination of the
+  attested eval fixtures — grader independence from the author (EVAL-01), rubric scores asserted in YAML vs
+  measured (EVAL-02, EVAL-05), and tuning-on-eval / self-fulfilling validation (EVAL-04). Findings about
+  fixture integrity and scoring validity were verified as such; none were rejected on package-shape grounds.
 
