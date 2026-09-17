@@ -64,7 +64,7 @@ CogSecSkills/
 └── cogsecskills.yaml        optional config (see configuration.md)
 ```
 
-## Three commands to remember
+## The gate commands
 
 ```bash
 python -m cogsecskills route "what should I use to rule out explanations?"  # find a skill

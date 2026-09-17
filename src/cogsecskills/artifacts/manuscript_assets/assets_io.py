@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from cogsecskills.core.locate import resolve_root
+
 from .figures import FIGURE_NAMES, write_figures
 from .paths import (
     CATALOGUE_PATH,
@@ -17,7 +19,6 @@ from .paths import (
     DATA_CSV_PATH,
     DATA_JSON_PATH,
     MATRIX_PATH,
-    _project_root,
 )
 from .png_probe import (
     duplicate_figure_findings,
@@ -30,7 +31,7 @@ from .tables import _expected_texts
 
 def write_assets(root: Path | None = None) -> AssetWriteResult:
     """Write generated manuscript supplements, data exports, and figures."""
-    base = _project_root(root)
+    base = resolve_root(root)
     rows = collect_skill_rows(base)
     text_outputs = _expected_texts(base)
     for rel_path, text in text_outputs.items():
@@ -49,7 +50,7 @@ def write_assets(root: Path | None = None) -> AssetWriteResult:
 
 def check_assets(root: Path | None = None) -> list[str]:
     """Return drift findings for generated manuscript assets."""
-    base = _project_root(root)
+    base = resolve_root(root)
     findings: list[str] = []
     for rel_path, expected in _expected_texts(base).items():
         path = base / rel_path

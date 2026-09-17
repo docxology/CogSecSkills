@@ -61,7 +61,7 @@ references:
 - 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
   of Intelligence. Chapter 11: Biases in Perception of Cause and Effect.'
 - Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.
-- 'Pherson, R. H., & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+- 'Heuer, R. J., & Pherson, R. H. (2021). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). CQ Press. Chapter 7: Challenge Analysis.'
 - Larrick, R. P. (2004). Debiasing. In D. J. Koehler & N. Harvey (Eds.), Blackwell
   Handbook of Judgment and Decision Making. Blackwell.
@@ -186,11 +186,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cognitive
+  Bias Audit should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Cognitive Bias Audit, use only authorized analysis or decision, domain context,
-  and known pressures, public or source-approved records, and caller-provided context
+  known pressures, public or source-approved records, and caller-provided context
   needed for the defensive task.
 - For Cognitive Bias Audit, minimize person-level detail in the bias audit report;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an

@@ -1,6 +1,6 @@
 """Multiharness conformance.
 
-A CogSecSkill is "multiharness" when its single :class:`~cogsecskills.spec.SkillSpec`
+A CogSecSkill is "multiharness" when its single :class:`~cogsecskills.core.spec.SkillSpec`
 loads and is fully expressible under *every* supported agent harness. This module
 defines the supported harnesses and the conformance check that proves a spec maps
 onto each one — the machine-checkable meaning of "equally validated for Claude

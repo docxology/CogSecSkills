@@ -25,10 +25,10 @@ Write the structured indicator review report with: per-category findings with ev
 - Low for Insider Threat Indicator Review: the insider threat indicator review report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Insider Threat Indicator Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Insider Threat Indicator Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Insider Threat Indicator Review, use only authorized behavioral observations, access and technical indicators, and contextual background, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Insider Threat Indicator Review, use only authorized behavioral observations, access and technical indicators, contextual background, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Insider Threat Indicator Review, minimize person-level detail in the insider threat indicator review report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Insider Threat Indicator Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

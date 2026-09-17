@@ -17,21 +17,17 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.core.locate import project_root
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.spec import SKILL_STATUSES, SpecError
 
 
-def _project_root() -> Path:
-    return project_root()
-
-
 def registry_path(root: Path | None = None) -> Path:
-    base = Path(root) if root is not None else _project_root()
+    base = resolve_root(root)
     return base / "registry" / "skills.yaml"
 
 
 def groups_path(root: Path | None = None) -> Path:
-    base = Path(root) if root is not None else _project_root()
+    base = resolve_root(root)
     return base / "registry" / "groups.yaml"
 
 
@@ -53,7 +49,10 @@ class RegistryEntry:
                 f"registry entry must be a mapping, got {type(obj).__name__}"
             )
         for key in ("id", "name", "group", "summary"):
-            if not str(obj.get(key, "")).strip():
+            # Require a real string: str(...) coercion would accept numeric or
+            # null ids (``id: 0`` / ``id: null``) as "0" / "None".
+            value = obj.get(key, None)
+            if not isinstance(value, str) or not value.strip():
                 raise SpecError(f"registry entry missing required key {key!r}: {obj!r}")
         status = str(obj.get("status", "planned")).strip().lower()
         if status not in SKILL_STATUSES:
@@ -108,7 +107,10 @@ def load_registry(root: Path | None = None) -> SkillRegistry:
     skills_file = registry_path(root)
     if not skills_file.is_file():
         raise FileNotFoundError(f"no registry at {skills_file}")
-    raw = yaml.safe_load(skills_file.read_text(encoding="utf-8")) or {}
+    try:
+        raw = yaml.safe_load(skills_file.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError as exc:
+        raise SpecError(f"{skills_file}: invalid YAML: {exc}") from exc
     if not isinstance(raw, dict) or "skills" not in raw:
         raise SpecError(f"{skills_file}: expected top-level mapping with 'skills' key")
     entries = tuple(RegistryEntry.from_obj(item) for item in raw["skills"])
@@ -122,7 +124,10 @@ def load_registry(root: Path | None = None) -> SkillRegistry:
     groups: dict[str, str] = {}
     groups_file = groups_path(root)
     if groups_file.is_file():
-        graw = yaml.safe_load(groups_file.read_text(encoding="utf-8")) or {}
+        try:
+            graw = yaml.safe_load(groups_file.read_text(encoding="utf-8")) or {}
+        except yaml.YAMLError as exc:
+            raise SpecError(f"{groups_file}: invalid YAML: {exc}") from exc
         if not isinstance(graw, dict):
             raise SpecError(f"{groups_file}: expected a top-level mapping")
         for item in graw.get("groups", []):
@@ -131,6 +136,8 @@ def load_registry(root: Path | None = None) -> SkillRegistry:
                     f"{groups_file}: each group must be a mapping with a non-empty 'id'"
                 )
             gid = str(item["id"]).strip()
+            if gid in groups:
+                raise SpecError(f"{groups_file}: duplicate group id {gid!r}")
             groups[gid] = str(item.get("title", gid)).strip() or gid
 
     return SkillRegistry(entries=entries, groups=groups)

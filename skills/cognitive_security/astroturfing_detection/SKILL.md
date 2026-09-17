@@ -43,11 +43,11 @@ If a request asks Astroturfing Detection to increase persuasive impact, exploit 
 - Low for Astroturfing Detection: the detection report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Astroturfing Detection cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Astroturfing Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Astroturfing Detection, use only authorized campaign sample, and baseline context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Astroturfing Detection, use only authorized campaign sample, baseline context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Astroturfing Detection, minimize person-level detail in the detection report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Astroturfing Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

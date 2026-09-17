@@ -183,10 +183,10 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Reproducibility
+  Assessment should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Reproducibility Assessment, use only authorized artifact, key claims, and environment
+- For Reproducibility Assessment, use only authorized artifact, key claims, environment
   spec, public or source-approved records, and caller-provided context needed for
   the defensive task.
 - For Reproducibility Assessment, minimize person-level detail in the reproducibility

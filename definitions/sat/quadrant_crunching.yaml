@@ -56,7 +56,7 @@ outputs:
   description: explicit identification of matrix cells the dominant assessment ignores
     or rates as impossible, with reasoning
 references:
-- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter on Quadrant Crunching.
 - Pherson, K. H. & Pherson, R. H. (2020). Critical Thinking for Strategic Intelligence
   (3rd ed.). SAGE/CQ Press.
@@ -153,12 +153,12 @@ uncertainty_handling:
 - State what Quadrant Crunching cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Quadrant
+  Crunching should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Quadrant Crunching, use only authorized problem statement, dominant assessment,
-  and candidate assumptions, public or source-approved records, and caller-provided
-  context needed for the defensive task.
+  candidate assumptions, public or source-approved records, and caller-provided context
+  needed for the defensive task.
 - For Quadrant Crunching, minimize person-level detail in the scenario matrix; prefer
   aggregate, artifact-level, role-level, or case-level summaries unless an individual
   is essential to the defensive question.

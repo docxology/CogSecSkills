@@ -28,10 +28,10 @@ Identify structural vulnerabilities: narrative vacuums, over-reliance on a small
 - Low for Narrative Ecosystem Mapping: the narrative inventory rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Narrative Ecosystem Mapping cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Narrative Ecosystem Mapping should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Narrative Ecosystem Mapping, use only authorized information space definition, content sample, and known actors, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Narrative Ecosystem Mapping, use only authorized information space definition, content sample, known actors, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Narrative Ecosystem Mapping, minimize person-level detail in the narrative inventory; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Narrative Ecosystem Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -50,8 +50,8 @@ outputs:
     indicators, confidence level, and recommended follow-on action (accept / escalate
     to deep forensics / reject)'
 references:
-- Hicks, M. et al. (2020). Verification Handbook for Disinformation and Media Manipulation.
-  European Journalism Centre.
+- Silverman, C. (Ed.). (2019). Verification Handbook for Disinformation and Media
+  Manipulation. European Journalism Centre.
 - First Draft News (2019). Visual Verification Guide. firstdraftnews.org.
 - Farid, H. (2022). Photo Forensics. MIT Press.
 - Farid, H. (2009). Exposing Digital Forgeries from JPEG Ghosts. IEEE Transactions
@@ -168,12 +168,12 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Image
+  & Media Forensics Triage should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Image & Media Forensics Triage, use only authorized media item, accompanying
-  claim, and source account, public or source-approved records, and caller-provided
-  context needed for the defensive task.
+  claim, source account, public or source-approved records, and caller-provided context
+  needed for the defensive task.
 - For Image & Media Forensics Triage, minimize person-level detail in the triage report;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
   individual is essential to the defensive question.

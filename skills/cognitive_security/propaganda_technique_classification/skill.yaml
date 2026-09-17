@@ -7,7 +7,7 @@ summary: Classify content against the canonical propaganda techniques (IPA and s
 description: Propaganda Technique Classification systematically identifies and labels
   the specific rhetorical devices in content against the canonical taxonomy established
   by the Institute for Propaganda Analysis (IPA, 1937) and extended by Jowett & O'Donnell,
-  Bernays, and contemporary computational SEMEVAL frameworks. The skill maps content
+  Bernays, and contemporary computational propaganda taxonomies. The skill maps content
   to techniques including transfer, glittering generalities, plain folks, card stacking,
   bandwagon, name-calling, and testimonial, then assesses persuasive intent and likely
   audience impact. It is a defensive, recognition-oriented skill that enables analysts
@@ -50,8 +50,8 @@ inputs:
   type: text
   required: false
   description: 'Optional: restrict analysis to a specific taxonomy or technique family
-    (IPA seven, SEMEVAL 2020 18-class, Bernays/Ellul framing, contemporary DISARM
-    techniques)'
+    (IPA seven, Da San Martino et al. 2019 18-technique set, Bernays/Ellul framing,
+    contemporary DISARM techniques)'
 outputs:
 - name: technique_classification_table
   type: table
@@ -73,9 +73,13 @@ references:
   1(2), 1–4.
 - Jowett, G. S., & O'Donnell, V. (2019). Propaganda and Persuasion (7th ed.). SAGE
   Publications.
-- 'Da San Martino, G., et al. (2020). SemEval-2020 Task 11: Detection of Propaganda
-  Techniques in News Articles. Proceedings of the 14th International Workshop on Semantic
-  Evaluation (SemEval-2020).'
+- Da San Martino, G., Yu, S., Barrón-Cedeño, A., Petrov, R., & Nakov, P. (2019). Fine-Grained
+  Analysis of Propaganda in News Articles. Proceedings of the 2019 Conference on Empirical
+  Methods in Natural Language Processing and the 9th International Joint Conference
+  on Natural Language Processing (EMNLP-IJCNLP).
+- 'Da San Martino, G., Barrón-Cedeño, A., Wachsmuth, H., Petrov, R., & Nakov, P. (2020).
+  SemEval-2020 Task 11: Detection of Propaganda Techniques in News Articles. Proceedings
+  of the 14th International Workshop on Semantic Evaluation (SemEval-2020).'
 - Bernays, E. L. (1928). Propaganda. Horace Liveright.
 - 'Ellul, J. (1965). Propaganda: The Formation of Men''s Attitudes. Knopf.'
 - Haskins, E. V. (2007). Logos and Power in Isocrates and Aristotle. University of
@@ -101,10 +105,10 @@ evidence_requirements:
   discriminating check.
 confidence_rubric:
 - 'High for Propaganda Technique Classification: each labelled technique is anchored
-  to a verbatim content excerpt and a consistently applied IPA or SemEval category,
-  the identified technique mix is corroborated across passes and the context metadata,
-  and no unresolved contradiction would change the analytical interpretation of strategic
-  intent.'
+  to a verbatim content excerpt and a consistently applied IPA or extended-taxonomy
+  category, the identified technique mix is corroborated across passes and the context
+  metadata, and no unresolved contradiction would change the analytical interpretation
+  of strategic intent.'
 - 'Medium for Propaganda Technique Classification: the technique classification table
   is plausible, but one important content source, comparison case, or alternative
   explanation remains incomplete.'
@@ -116,12 +120,12 @@ uncertainty_handling:
   or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Propaganda
+  Technique Classification should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Propaganda Technique Classification, use only authorized content, context metadata,
-  and taxonomy scope, public or source-approved records, and caller-provided context
-  needed for the defensive task.
+  taxonomy scope, public or source-approved records, and caller-provided context needed
+  for the defensive task.
 - For Propaganda Technique Classification, minimize person-level detail in the technique
   classification table; prefer aggregate, artifact-level, role-level, or case-level
   summaries unless an individual is essential to the defensive question.

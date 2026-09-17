@@ -44,11 +44,11 @@ If a request asks Cognitive Bias Audit to increase persuasive impact, exploit au
 - Low for Cognitive Bias Audit: the bias audit report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cognitive Bias Audit cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cognitive Bias Audit should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Cognitive Bias Audit, use only authorized analysis or decision, domain context, and known pressures, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cognitive Bias Audit, use only authorized analysis or decision, domain context, known pressures, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Cognitive Bias Audit, minimize person-level detail in the bias audit report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Cognitive Bias Audit, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

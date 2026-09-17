@@ -25,10 +25,10 @@ Aggregate the per-account classifications to estimate inauthentic amplification 
 - Low for Bot & Automation Detection: the account classifications rest on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Bot & Automation Detection cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Bot & Automation Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Bot & Automation Detection, use only authorized account data, and context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Bot & Automation Detection, use only authorized account data, context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Bot & Automation Detection, minimize person-level detail in the account classifications; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Bot & Automation Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -28,10 +28,10 @@ Populate the signal log table with all detected signals and their assessments. W
 - Low for Trend & Emergence Monitoring: the signal log rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Trend & Emergence Monitoring cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Trend & Emergence Monitoring should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Trend & Emergence Monitoring, use only authorized monitoring scope, watchlist, and baseline report, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Trend & Emergence Monitoring, use only authorized monitoring scope, watchlist, baseline report, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Trend & Emergence Monitoring, minimize person-level detail in the signal log; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Trend & Emergence Monitoring, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

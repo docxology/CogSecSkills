@@ -67,7 +67,6 @@ from .paths import (
     DATA_JSON_PATH,
     GENERATED_HEADER,
     MATRIX_PATH,
-    _project_root,
 )
 from .rows import (
     AssetWriteResult,
@@ -149,7 +148,6 @@ __all__ = [
     "_latex_labeled",
     "_latex_lines",
     "_light_for",
-    "_project_root",
     "_readable_text_color",
     "_rows_as_csv",
     "_rows_as_json",

@@ -70,9 +70,9 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Heuer, R.J., & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis. 2nd ed. CQ Press. Chapter 9 (Team A/Team B Analysis).
-- Pherson, R.H., & Pherson, K.H. (2020). Critical Thinking for Strategic Intelligence
+- Pherson, R. H., & Pherson, K. H. (2020). Critical Thinking for Strategic Intelligence
   (3rd ed.). SAGE/CQ Press.
 - Rieber, S. (2004). Intelligence Analysis and Judgmental Calibration. International
   Journal of Intelligence and CounterIntelligence, 17(1), 97-112.
@@ -107,10 +107,10 @@ uncertainty_handling:
 - State what Team A / Team B cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Team
+  A / Team B should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Team A / Team B, use only authorized shared evidence, hypothesis a, and hypothesis
+- For Team A / Team B, use only authorized shared evidence, hypothesis a, hypothesis
   b, public or source-approved records, and caller-provided context needed for the
   defensive task.
 - For Team A / Team B, minimize person-level detail in the team debate summary; prefer

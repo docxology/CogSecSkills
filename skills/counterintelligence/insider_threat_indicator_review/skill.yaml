@@ -112,11 +112,11 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Insider
+  Threat Indicator Review should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Insider Threat Indicator Review, use only authorized behavioral observations,
-  access and technical indicators, and contextual background, public or source-approved
+  access and technical indicators, contextual background, public or source-approved
   records, and caller-provided context needed for the defensive task.
 - For Insider Threat Indicator Review, minimize person-level detail in the insider
   threat indicator review report; prefer aggregate, artifact-level, role-level, or

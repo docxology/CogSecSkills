@@ -142,8 +142,9 @@ def doctor(root: Path | None = None, config: Config | None = None) -> list[dict]
     """Quality lint: flag skills that fall below the configured quality bar.
 
     Returns a list of ``{skill_id, level, message}`` findings. Structural
-    validity is covered by :func:`cogsecskills.validate.validate_library`; this
-    is about *depth*, not conformance.
+    validity is covered by
+    :func:`cogsecskills.quality.validate.validate_library`; this is about
+    *depth*, not conformance.
     """
     cfg = config or Config.defaults()
     findings: list[dict] = []

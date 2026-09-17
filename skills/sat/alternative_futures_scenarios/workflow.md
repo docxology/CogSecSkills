@@ -28,10 +28,10 @@ Evaluate the current strategy or plan against each scenario: Where does it succe
 - Low for Alternative Futures (Scenarios): the scenario matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Alternative Futures (Scenarios) cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Alternative Futures (Scenarios) should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Alternative Futures (Scenarios), use only authorized problem statement, known drivers, and current assessment, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Alternative Futures (Scenarios), use only authorized problem statement, known drivers, current assessment, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Alternative Futures (Scenarios), minimize person-level detail in the scenario matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Alternative Futures (Scenarios), do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

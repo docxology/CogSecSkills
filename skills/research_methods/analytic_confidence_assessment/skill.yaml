@@ -104,11 +104,11 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating research_methods evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analytic
+  Confidence Assessment should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Analytic Confidence Assessment, use only authorized judgment, evidence set,
-  and key assumptions, public or source-approved records, and caller-provided context
+  key assumptions, public or source-approved records, and caller-provided context
   needed for the defensive task.
 - For Analytic Confidence Assessment, minimize person-level detail in the confidence
   assessment; prefer aggregate, artifact-level, role-level, or case-level summaries

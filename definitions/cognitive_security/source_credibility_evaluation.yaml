@@ -161,10 +161,10 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Source
+  Credibility Evaluation should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Source Credibility Evaluation, use only authorized source, claim, and corroboration,
+- For Source Credibility Evaluation, use only authorized source, claim, corroboration,
   public or source-approved records, and caller-provided context needed for the defensive
   task.
 - For Source Credibility Evaluation, minimize person-level detail in the reliability

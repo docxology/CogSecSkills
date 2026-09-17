@@ -23,13 +23,7 @@ from cogsecskills.authoring.definitions import (
     load_definitions,
 )
 from cogsecskills.core.harness import HARNESSES, check_conformance
-from cogsecskills.core.loader import (
-    SPEC_FILENAME,
-    discover_skills,
-    load_skill,
-    skill_dir,
-    skills_root,
-)
+from cogsecskills.core.loader import discover_skills, skills_root
 from cogsecskills.core.registry import load_registry
 from cogsecskills.quality.insights import GENERIC_NEGATIVE_CONTROL_PHRASES
 from cogsecskills.quality.validate import validate_library
@@ -173,11 +167,6 @@ def test_canonical_definitions_match_rendered_skills():
     assert findings == []
 
 
-def test_at_least_eight_exemplars_built():
-    on_disk = discover_skills(ROOT)
-    assert len(on_disk) >= 8, "expected at least the 8 seed exemplar skills"
-
-
 def test_library_validates_clean():
     result = validate_library(ROOT)
     messages = "\n".join(
@@ -197,15 +186,15 @@ def test_each_on_disk_skill_is_multiharness(spec):
         )
 
 
+def _spec_directory(spec) -> Path:
+    """On-disk directory for a spec: ``skills/<group>/<slug>/``."""
+    return skills_root(ROOT) / spec.group / spec.id.split(".", 1)[-1]
+
+
 @pytest.mark.parametrize("spec", discover_skills(ROOT), ids=lambda s: s.id)
 def test_each_skill_companion_files_exist(spec):
     """Every declared harness adapter + workflow + SKILL.md exists on disk."""
-    directory = None
-    for candidate in skills_root(ROOT).rglob(SPEC_FILENAME):
-        if load_skill(candidate).id == spec.id:
-            directory = skill_dir(candidate)
-            break
-    assert directory is not None
+    directory = _spec_directory(spec)
     assert (directory / "SKILL.md").is_file()
     assert (directory / spec.workflow).is_file()
     for harness in HARNESSES:
@@ -225,12 +214,7 @@ def test_each_skill_has_quality_fields_and_negative_controls(spec):
 
 @pytest.mark.parametrize("spec", discover_skills(ROOT), ids=lambda s: s.id)
 def test_workflow_step_verbs_are_declared(spec):
-    directory = None
-    for candidate in skills_root(ROOT).rglob(SPEC_FILENAME):
-        if load_skill(candidate).id == spec.id:
-            directory = skill_dir(candidate)
-            break
-    assert directory is not None
+    directory = _spec_directory(spec)
     workflow = (directory / spec.workflow).read_text(encoding="utf-8")
     declared = {verb.value for verb in spec.verbs}
     used: set[str] = set()

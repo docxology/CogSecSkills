@@ -25,10 +25,10 @@ Output each hypothesis with a label (H1–Hn), a description of its key distingu
 - Low for Multiple Hypothesis Generation: the hypothesis set rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Multiple Hypothesis Generation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Multiple Hypothesis Generation should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Multiple Hypothesis Generation, use only authorized evidence set, initial hypotheses, and domain context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Multiple Hypothesis Generation, use only authorized evidence set, initial hypotheses, domain context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Multiple Hypothesis Generation, minimize person-level detail in the hypothesis set; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Multiple Hypothesis Generation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

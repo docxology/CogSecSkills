@@ -42,11 +42,11 @@ If a request asks Platform Affordance Risk Assessment to amplify coordinated beh
 - Low for Platform Affordance Risk Assessment: the affordance risk matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Platform Affordance Risk Assessment cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Platform Affordance Risk Assessment should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Platform Affordance Risk Assessment, use only authorized platform name, threat actor profile, and prior incident reports, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Platform Affordance Risk Assessment, use only authorized platform name, threat actor profile, prior incident reports, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Platform Affordance Risk Assessment, minimize person-level detail in the affordance risk matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Platform Affordance Risk Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

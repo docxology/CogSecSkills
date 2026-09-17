@@ -28,10 +28,10 @@ Identify the intervention windows where counter-messaging or prebunking is most 
 - Low for Rumor & Virality Assessment: the virality assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Rumor & Virality Assessment cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Rumor & Virality Assessment should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Rumor & Virality Assessment, use only authorized claim, originating context, and audience profile, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Rumor & Virality Assessment, use only authorized claim, originating context, audience profile, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Rumor & Virality Assessment, minimize person-level detail in the virality assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Rumor & Virality Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

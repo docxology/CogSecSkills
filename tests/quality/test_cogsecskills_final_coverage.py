@@ -1,7 +1,10 @@
-"""Tests for remaining uncovered branches across validate.py, insights.py,
-examples.py, evals.py, scenarios.py, assets_io.py, definitions.py, author.py.
+"""Behavioral edge cases across validate, insights, examples, evals,
+scenarios, assets_io, definitions, and author.
 
-These are the final coverage gaps identified by the v1.4.0 coverage report.
+Covers: adapter verb-binding failures, conformance-report resilience to load
+errors, doctor quality findings (workflow steps, references, chain-of-thought
+wording, evidence/uncertainty labels, sensitive-skill guardrails), stale
+generated assets and cover mirrors, and evals drift findings.
 """
 
 from __future__ import annotations

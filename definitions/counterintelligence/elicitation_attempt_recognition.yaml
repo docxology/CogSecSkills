@@ -149,12 +149,12 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Elicitation
+  Attempt Recognition should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Elicitation Attempt Recognition, use only authorized conversation or description,
-  and context, public or source-approved records, and caller-provided context needed
-  for the defensive task.
+  context, public or source-approved records, and caller-provided context needed for
+  the defensive task.
 - For Elicitation Attempt Recognition, minimize person-level detail in the elicitation
   recognition report; prefer aggregate, artifact-level, role-level, or case-level
   summaries unless an individual is essential to the defensive question.

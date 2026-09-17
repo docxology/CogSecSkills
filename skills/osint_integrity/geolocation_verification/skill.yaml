@@ -62,8 +62,8 @@ harness:
 references:
 - Bellingcat Geolocation Investigation Handbook (2021). bellingcat.com.
 - 'Toler, A. (2023). How to Geolocate Images: A Bellingcat Guide. Bellingcat.'
-- 'Hicks, M. (2020). Verification Handbook: For Disinformation and Media Manipulation.
-  European Journalism Centre.'
+- Silverman, C. (Ed.). (2019). Verification Handbook for Disinformation and Media
+  Manipulation. European Journalism Centre.
 defensive_boundary: 'Use Geolocation Verification only for OSINT integrity and source-verification
   defense: recognize, assess, document, or defend source provenance, privacy, chain
   of custody, and public-source accountability. Do not use this skill to dox, deanonymize,
@@ -100,11 +100,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Geolocation
+  Verification should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Geolocation Verification, use only authorized image or video, claimed location,
-  and claimed date time, public or source-approved records, and caller-provided context
+  claimed date time, public or source-approved records, and caller-provided context
   needed for the defensive task.
 - For Geolocation Verification, minimize person-level detail in the geolocation assessment;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an

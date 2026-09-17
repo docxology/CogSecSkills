@@ -42,11 +42,11 @@ If a request asks Calibrated Estimation to cherry-pick sources, fabricate citati
 - Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Calibrated Estimation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating research_methods evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Calibrated Estimation should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Calibrated Estimation, use only authorized question, evidence, and prior estimate, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Calibrated Estimation, use only authorized question, evidence, prior estimate, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Calibrated Estimation, minimize person-level detail in the calibrated estimate; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Calibrated Estimation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

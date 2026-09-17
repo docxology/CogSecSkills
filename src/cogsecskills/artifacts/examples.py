@@ -45,12 +45,8 @@ class ExampleWriteResult(TypedDict):
     examples: int
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def _source_path(root: Path | None = None) -> Path:
-    return _project_root(root) / EXAMPLES_SOURCE_PATH
+    return resolve_root(root) / EXAMPLES_SOURCE_PATH
 
 
 def _section_from_obj(obj: object, *, path: Path, skill_id: str) -> ExampleSection:
@@ -111,7 +107,7 @@ def _example_text(example: WorkedExample) -> str:
 
 def _example_payload(root: Path | None = None) -> dict[str, Any]:
     """Build the full examples payload (summary + example rows) from the registry."""
-    base = _project_root(root)
+    base = resolve_root(root)
     registry = load_registry(base)
     examples = load_examples(base)
     by_id = {example.skill_id: example for example in examples}
@@ -263,7 +259,7 @@ def _content_findings(base: Path, examples: list[WorkedExample]) -> list[str]:
 
 
 def write_examples(root: Path | None = None) -> ExampleWriteResult:
-    base = _project_root(root)
+    base = resolve_root(root)
     outputs = _expected_outputs(base)
     for rel_path, text in outputs.items():
         path = base / rel_path
@@ -277,7 +273,7 @@ def write_examples(root: Path | None = None) -> ExampleWriteResult:
 
 
 def check_examples(root: Path | None = None) -> list[str]:
-    base = _project_root(root)
+    base = resolve_root(root)
     try:
         examples = load_examples(base)
     except ValueError as exc:

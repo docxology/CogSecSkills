@@ -49,7 +49,7 @@ A subcommand is required; running `cogsecskills` with no command is an error.
 ### Config awareness
 
 `validate`, `doctor`, `scaffold`, `author`, `author-batch`, and `definitions`
-load `cogsecskills.yaml` (via `cogsecskills.config.load_config`) and honour its
+load `cogsecskills.yaml` (via `cogsecskills.core.config.load_config`) and honour its
 `harnesses` list and `quality` thresholds. With no config file the defaults are
 used: harnesses `claude, codex, hermes`, `min_workflow_steps: 3`,
 `min_anti_criteria: 2`, `require_references: false`. See

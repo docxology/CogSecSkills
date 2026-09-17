@@ -25,10 +25,10 @@ Emit the full question table organized by interrogative with priority ratings. W
 - Low for Starbursting: the question map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Starbursting cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Starbursting should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Starbursting, use only authorized topic or artifact, and context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Starbursting, use only authorized topic or artifact, context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Starbursting, minimize person-level detail in the question map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Starbursting, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

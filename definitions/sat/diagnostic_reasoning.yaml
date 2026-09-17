@@ -61,7 +61,7 @@ outputs:
 references:
 - 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
   of Intelligence. (Chapter 8: Analysis of Competing Hypotheses)'
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis, 3rd ed. CQ Press.
 - Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. (on base-rate
   neglect and likelihood confusion)
@@ -169,12 +169,12 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Diagnostic
+  Reasoning should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Diagnostic Reasoning, use only authorized new datum, competing hypotheses, and
-  prior assessments, public or source-approved records, and caller-provided context
-  needed for the defensive task.
+- For Diagnostic Reasoning, use only authorized new datum, competing hypotheses, prior
+  assessments, public or source-approved records, and caller-provided context needed
+  for the defensive task.
 - For Diagnostic Reasoning, minimize person-level detail in the diagnostic table;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
   individual is essential to the defensive question.

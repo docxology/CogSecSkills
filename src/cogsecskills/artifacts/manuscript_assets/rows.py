@@ -12,11 +12,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import TypedDict
 
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.loader import discover_skills
 from cogsecskills.core.registry import load_registry
 from cogsecskills.core.text_utils import clean_cell
-
-from .paths import _project_root
 
 
 @dataclass(frozen=True)
@@ -126,7 +125,7 @@ def _group_title(rows: Iterable[SkillRow], group_id: str) -> str:
 
 def collect_skill_rows(root: Path | None = None) -> list[SkillRow]:
     """Return manuscript-ready rows, ordered exactly like the registry."""
-    base = _project_root(root)
+    base = resolve_root(root)
     registry = load_registry(base)
     specs = {spec.id: spec for spec in discover_skills(base)}
     rows: list[SkillRow] = []

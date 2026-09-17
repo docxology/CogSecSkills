@@ -25,10 +25,10 @@ Write the validity-threat table with columns: dimension, threat name, evidence f
 - Low for Research Design Critique: the validity critique rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Research Design Critique cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Research Design Critique should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Research Design Critique, use only authorized study text, and claim under review, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Research Design Critique, use only authorized study text, claim under review, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Research Design Critique, minimize person-level detail in the validity critique; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Research Design Critique, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

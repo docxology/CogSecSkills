@@ -10,6 +10,8 @@ from __future__ import annotations
 import textwrap
 from pathlib import Path
 
+from cogsecskills.core.locate import resolve_root
+
 from .figure_theme import (
     AXIS_LABEL_SIZE,
     COLOR_FAMILIES,
@@ -22,7 +24,6 @@ from .figure_theme import (
     TITLE_SIZE,
     TOKENS,
 )
-from .paths import _project_root
 from .rows import GroupSummary, SkillRow, _group_ids, _group_title
 
 
@@ -190,7 +191,7 @@ def _publication_doi(root: Path | None = None) -> str:
     """
     import yaml
 
-    config_path = _project_root(root) / "manuscript" / "config.yaml"
+    config_path = resolve_root(root) / "manuscript" / "config.yaml"
     try:
         data = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
     except (OSError, yaml.YAMLError):

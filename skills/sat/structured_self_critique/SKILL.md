@@ -43,11 +43,11 @@ If a request asks Structured Self-Critique to force a preferred conclusion, hide
 - Low for Structured Self-Critique: the critique report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Self-Critique cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Structured Self-Critique should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Structured Self-Critique, use only authorized analysis draft, key judgments, and supporting evidence, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Self-Critique, use only authorized analysis draft, key judgments, supporting evidence, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Structured Self-Critique, minimize person-level detail in the critique report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Structured Self-Critique, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

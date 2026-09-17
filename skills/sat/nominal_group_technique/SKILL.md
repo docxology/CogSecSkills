@@ -41,11 +41,11 @@ If a request asks Nominal Group Technique to force a preferred conclusion, hide 
 - Low for Nominal Group Technique: the ngt record rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Nominal Group Technique cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Nominal Group Technique should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Nominal Group Technique, use only authorized focal question, participant idea sets, and prior context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Nominal Group Technique, use only authorized focal question, participant idea sets, prior context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Nominal Group Technique, minimize person-level detail in the ngt record; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Nominal Group Technique, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

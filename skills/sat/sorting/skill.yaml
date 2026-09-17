@@ -55,7 +55,7 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter 5 (Sorting).
 defensive_boundary: 'Use Sorting only for structured analytic technique support: recognize,
   assess, document, or defend analytic rigor, alternative hypotheses, and calibrated
@@ -88,10 +88,10 @@ uncertainty_handling:
 - State what Sorting cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Sorting
+  should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Sorting, use only authorized evidence set, and sort dimensions, public or source-approved
+- For Sorting, use only authorized evidence set, sort dimensions, public or source-approved
   records, and caller-provided context needed for the defensive task.
 - For Sorting, minimize person-level detail in the sorted table; prefer aggregate,
   artifact-level, role-level, or case-level summaries unless an individual is essential

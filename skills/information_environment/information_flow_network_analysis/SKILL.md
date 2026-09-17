@@ -43,11 +43,11 @@ If a request asks Information Flow Network Analysis to amplify coordinated behav
 - Low for Information Flow Network Analysis: the network role map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Information Flow Network Analysis cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Information Flow Network Analysis should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Information Flow Network Analysis, use only authorized propagation data, narrative seed, and account metadata, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Information Flow Network Analysis, use only authorized propagation data, narrative seed, account metadata, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Information Flow Network Analysis, minimize person-level detail in the network role map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Information Flow Network Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

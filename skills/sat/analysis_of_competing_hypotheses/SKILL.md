@@ -40,11 +40,11 @@ If a request asks Analysis of Competing Hypotheses (ACH) to force a preferred co
 - Low for Analysis of Competing Hypotheses (ACH): the matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analysis of Competing Hypotheses (ACH) cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analysis of Competing Hypotheses (ACH) should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Analysis of Competing Hypotheses (ACH), use only authorized question, hypotheses, and evidence, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Analysis of Competing Hypotheses (ACH), use only authorized question, hypotheses, evidence, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Analysis of Competing Hypotheses (ACH), minimize person-level detail in the matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Analysis of Competing Hypotheses (ACH), do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
@@ -63,7 +63,7 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 
 ## Key discipline
 
-- **Diagnosticity over weight of evidence.** Evidence consistent with *every*
+- **Diagnosticity over weight of evidence.** Evidence consistent with *every* hypothesis has little diagnostic value; the analysis lives in rows that discriminate.
 - **Disconfirm, don't confirm.** Rank by inconsistency, not consistency.
-- **Absence of evidence is evidence.** A missing observation a hypothesis
-- **Sensitivity check.** Identify which one or two items, if wrong, flip the
+- **Absence of evidence is evidence.** A missing observation a hypothesis predicts should be present counts against that hypothesis.
+- **Sensitivity check.** Identify which one or two items, if wrong, flip the ranking.

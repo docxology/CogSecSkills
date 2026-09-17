@@ -41,11 +41,11 @@ If a request asks Analytic Process Hardening to evade detection, improve elicita
 - Low for Analytic Process Hardening: the vulnerability map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analytic Process Hardening cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analytic Process Hardening should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Analytic Process Hardening, use only authorized workflow description, adversary context, and prior incidents, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Analytic Process Hardening, use only authorized workflow description, adversary context, prior incidents, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Analytic Process Hardening, minimize person-level detail in the vulnerability map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Analytic Process Hardening, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -42,11 +42,11 @@ If a request asks Diagnostic Reasoning to force a preferred conclusion, hide unc
 - Low for Diagnostic Reasoning: the diagnostic table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Diagnostic Reasoning cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Diagnostic Reasoning should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Diagnostic Reasoning, use only authorized new datum, competing hypotheses, and prior assessments, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Diagnostic Reasoning, use only authorized new datum, competing hypotheses, prior assessments, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Diagnostic Reasoning, minimize person-level detail in the diagnostic table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Diagnostic Reasoning, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

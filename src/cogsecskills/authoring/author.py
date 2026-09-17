@@ -549,37 +549,11 @@ def render_definition(
     ``cogsecskills.yaml`` via :func:`cogsecskills.config.load_config`); an adapter
     is generated for each, binding every declared verb.
     """
-    if not isinstance(definition, dict):
-        raise AuthorError("definition must be a mapping")
-    targets = harnesses if harnesses is not None else HARNESSES
-    skill_id = str(_require(definition, "id")).strip()
-    registry = load_registry(root)
-    entry = registry.get(skill_id)
-    if entry is None:
-        raise AuthorError(f"id {skill_id!r} is not in the registry")
-    verbs = _verbs_of(definition)
-
-    base = registry_path(root).parents[1]
-    target = base / "skills" / entry.group / _slug(skill_id)
-    (target / "harness").mkdir(parents=True, exist_ok=True)
-
-    written: list[Path] = []
-    files = {
-        "skill.yaml": _skill_yaml(entry, definition, verbs, targets),
-        "SKILL.md": _skill_md(entry, definition),
-        "workflow.md": _workflow_md(entry, definition, verbs),
-    }
-    for name, content in files.items():
-        path = target / name
+    files = rendered_definition_files(definition, root=root, harnesses=harnesses)
+    for path, content in files.items():
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content, encoding="utf-8")
-        written.append(path)
-    for harness in targets:
-        path = target / "harness" / f"{harness}.md"
-        path.write_text(
-            _adapter_md(harness, entry, definition, verbs), encoding="utf-8"
-        )
-        written.append(path)
-    return written
+    return list(files)
 
 
 def rendered_definition_files(
@@ -614,11 +588,14 @@ def promote_to_implemented(ids: list[str], root: Path | None = None) -> int:
     """Flip the registry status of each id from stub/planned to implemented.
 
     Targeted per-line text edit so the registry's grouping and comments survive.
-    Returns the number of entries changed.
+    Returns the number of entries changed. Every requested id must match a
+    stub/planned entry; silently skipping a typo'd or already-implemented id
+    would leave the registry disagreeing with the just-rendered skills.
     """
     path = registry_path(root)
     text = path.read_text(encoding="utf-8")
     changed = 0
+    unmatched: list[str] = []
     for skill_id in ids:
         pattern = re.compile(
             r"(\{id:\s*" + re.escape(skill_id) + r",[^}]*?status:\s*)(stub|planned)"
@@ -627,6 +604,12 @@ def promote_to_implemented(ids: list[str], root: Path | None = None) -> int:
         if n:
             text = new_text
             changed += n
+        else:
+            unmatched.append(skill_id)
+    if unmatched:
+        raise AuthorError(
+            "no stub/planned registry entry matched: " + ", ".join(unmatched)
+        )
     path.write_text(text, encoding="utf-8")
     return changed
 
@@ -642,8 +625,6 @@ def author_batch(
 
     Returns ``{"rendered": [...ids], "failed": {id: error}}``.
     """
-    import json
-
     base = registry_path(root).parents[1]
     skills_tree = base / "skills"
     rendered: list[str] = []
@@ -657,7 +638,7 @@ def author_batch(
             rendered.append(definition["id"])
             if delete_defs:
                 def_path.unlink()
-        except (AuthorError, SpecError, ValueError, KeyError) as exc:
+        except (ValueError, KeyError) as exc:
             failed[skill_id] = str(exc)
     if promote and rendered:
         promote_to_implemented(rendered, root)

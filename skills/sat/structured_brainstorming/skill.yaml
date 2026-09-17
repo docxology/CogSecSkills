@@ -68,7 +68,7 @@ harness:
 references:
 - 'Osborn, A. F. (1953). Applied Imagination: Principles and Procedures of Creative
   Problem-Solving. Scribner.'
-- Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press.
 defensive_boundary: 'Use Structured Brainstorming only for structured analytic technique
   support: recognize, assess, document, or defend analytic rigor, alternative hypotheses,
@@ -105,12 +105,12 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Structured
+  Brainstorming should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Structured Brainstorming, use only authorized problem statement, prior framing,
-  and convergence criteria, public or source-approved records, and caller-provided
-  context needed for the defensive task.
+  convergence criteria, public or source-approved records, and caller-provided context
+  needed for the defensive task.
 - For Structured Brainstorming, minimize person-level detail in the raw idea inventory;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
   individual is essential to the defensive question.

@@ -31,10 +31,10 @@ Compile the above into a structured baseline document: primary question, subordi
 - Low for Getting Started Checklist: the getting started baseline rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Getting Started Checklist cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Getting Started Checklist should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Getting Started Checklist, use only authorized analytic task, and background material, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Getting Started Checklist, use only authorized analytic task, background material, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Getting Started Checklist, minimize person-level detail in the getting started baseline; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Getting Started Checklist, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

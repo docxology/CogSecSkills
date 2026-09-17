@@ -168,11 +168,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating research_methods evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Structured
+  Reporting & BLUF should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Structured Reporting & BLUF, use only authorized analytic judgment, evidence
-  and sources, and assumptions, public or source-approved records, and caller-provided
+  and sources, assumptions, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Structured Reporting & BLUF, minimize person-level detail in the structured
   report; prefer aggregate, artifact-level, role-level, or case-level summaries unless

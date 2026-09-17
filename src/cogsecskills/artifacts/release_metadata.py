@@ -45,10 +45,6 @@ class ReleaseWriteResult(TypedDict):
     git_dirty: bool
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def _read_toml(path: Path) -> Mapping[str, Any]:
     return tomllib.loads(path.read_text(encoding="utf-8"))
 
@@ -116,7 +112,7 @@ def _has_doi(*objects: Mapping[str, Any]) -> bool:
 
 
 def _metadata_payload(root: Path | None = None, *, mode: ReleaseMode = "local") -> dict:
-    base = _project_root(root)
+    base = resolve_root(root)
     pyproject = _read_toml(base / "pyproject.toml")
     cff = _read_yaml(base / "CITATION.cff")
     codemeta = _read_json(base / "codemeta.json")
@@ -296,7 +292,7 @@ def _expected_outputs(
 def write_release_metadata(
     root: Path | None = None, *, mode: ReleaseMode = "local"
 ) -> ReleaseWriteResult:
-    base = _project_root(root)
+    base = resolve_root(root)
     outputs = _expected_outputs(base, mode=mode)
     for rel_path, text in outputs.items():
         path = base / rel_path
@@ -315,7 +311,7 @@ def write_release_metadata(
 def check_release_metadata(
     root: Path | None = None, *, mode: ReleaseMode = "local"
 ) -> list[str]:
-    base = _project_root(root)
+    base = resolve_root(root)
     payload = _metadata_payload(base, mode=mode)
     findings = _findings(payload, mode=mode, runtime_git=_git_info(base))
     outputs = _expected_outputs(base, mode=mode)

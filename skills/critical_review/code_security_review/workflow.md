@@ -31,10 +31,10 @@ Write the findings table with all rated defects. Write the security review narra
 - Low for Code Security Review: the findings table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Code Security Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Code Security Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Code Security Review, use only authorized code, threat model, and review scope, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Code Security Review, use only authorized code, threat model, review scope, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Code Security Review, minimize person-level detail in the findings table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Code Security Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

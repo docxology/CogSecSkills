@@ -28,10 +28,10 @@ Apply Meadows' hierarchy: interventions on numbers (quantities) are weak; on fee
 - Low for Causal Flow Diagramming: the causal flow diagram rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Causal Flow Diagramming cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Causal Flow Diagramming should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Causal Flow Diagramming, use only authorized system description, known variables, and scope boundary, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Causal Flow Diagramming, use only authorized system description, known variables, scope boundary, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Causal Flow Diagramming, minimize person-level detail in the causal flow diagram; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Causal Flow Diagramming, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

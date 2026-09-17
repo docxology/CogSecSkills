@@ -69,7 +69,7 @@ harness:
 references:
 - 'Lowenthal, M. M. (2019). Intelligence: From Secrets to Policy (8th ed.). CQ Press.'
 - NATO (2016). Open Source Intelligence Handbook. NATO Open Source Intelligence Reader.
-- Pherson, R. H. & Heuer, R. J. (2021). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2021). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). CQ Press.
 defensive_boundary: 'Use Collection Plan Design only for OSINT integrity and source-verification
   defense: recognize, assess, document, or defend source provenance, privacy, chain
@@ -106,11 +106,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Collection
+  Plan Design should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Collection Plan Design, use only authorized intelligence requirement, legal
-  and policy constraints, and available resources, public or source-approved records,
+  and policy constraints, available resources, public or source-approved records,
   and caller-provided context needed for the defensive task.
 - For Collection Plan Design, minimize person-level detail in the collection plan;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an

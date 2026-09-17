@@ -60,11 +60,11 @@ outputs:
   description: What manipulation surfaces remain after controls are applied and what
     would be needed to eliminate them
 references:
-- Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+- Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
   of Intelligence. (Chapters 4, 14).
 - Wirtz, J.J. (1994). 'Deception and the Frosting on the Cake.' Intelligence and National
   Security 9(2).
-- Pherson, R.H. & Pherson, K.H. (2021). Critical Thinking for Strategic Intelligence,
+- Pherson, R. H., & Pherson, K. H. (2021). Critical Thinking for Strategic Intelligence,
   3rd ed. CQ Press.
 - 'Jones, M.D. (1998). The Thinker''s Toolkit: 14 Powerful Techniques for Problem
   Solving. Three Rivers Press.'
@@ -180,11 +180,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analytic
+  Process Hardening should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Analytic Process Hardening, use only authorized workflow description, adversary
-  context, and prior incidents, public or source-approved records, and caller-provided
+  context, prior incidents, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Analytic Process Hardening, minimize person-level detail in the vulnerability
   map; prefer aggregate, artifact-level, role-level, or case-level summaries unless

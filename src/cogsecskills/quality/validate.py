@@ -6,7 +6,7 @@ Three layers of checks:
    spec promises (``SKILL.md``, the workflow doc, and one adapter per harness),
    and the spec's id matches its on-disk location.
 2. **Multiharness conformance** — the spec maps onto every supported harness
-   (see :mod:`cogsecskills.harness`).
+   (see :mod:`cogsecskills.core.harness`).
 3. **Library/registry coherence** — every on-disk skill is enumerated in the
    registry with a matching group, and every registry entry marked
    ``implemented`` actually exists on disk.
@@ -19,6 +19,7 @@ expected state of an un-built area — not an error.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -109,6 +110,55 @@ def _adapter_bound_verbs(text: str) -> frozenset[ToolVerb]:
     return frozenset(verbs)
 
 
+#: Step-heading grammar shared with the authoring renderer's ``_workflow_steps``
+#: (kept as a local copy so validation does not depend on the authoring stack):
+#: ``## Step N — Title (verb, verb)``.
+_WORKFLOW_STEP_HEADING = re.compile(
+    r"^## Step (?P<num>\d+) [—-] (?P<title>.*?) \((?P<verbs>[^)]*)\)\s*$",
+    re.MULTILINE,
+)
+
+
+def _workflow_declared_verbs(workflow_text: str) -> tuple[str, ...]:
+    """Verbs tagged on ``## Step N — Title (verb, verb)`` workflow headings."""
+    verbs: list[str] = []
+    for match in _WORKFLOW_STEP_HEADING.finditer(workflow_text):
+        for raw in match.group("verbs").split(","):
+            verb = raw.strip().lower()
+            if verb:
+                verbs.append(verb)
+    return tuple(verbs)
+
+
+def _check_workflow_verbs(
+    spec: SkillSpec, workflow_path: Path, result: ValidationResult
+) -> None:
+    """Error when workflow step headings tag verbs the spec does not declare.
+
+    The workflow doc is the operational contract; a step that uses a verb
+    outside ``spec.verbs`` promises a capability the spec never authorises.
+    """
+    try:
+        workflow_text = workflow_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        result.error(spec.id, f"workflow document {spec.workflow!r} unreadable: {exc}")
+        return
+    spec_verbs = {verb.value for verb in spec.verbs}
+    undeclared = sorted(
+        {
+            verb
+            for verb in _workflow_declared_verbs(workflow_text)
+            if verb not in spec_verbs
+        }
+    )
+    if undeclared:
+        result.error(
+            spec.id,
+            "workflow steps tag verbs not declared in the spec: "
+            + ", ".join(undeclared),
+        )
+
+
 def validate_skill(
     spec: SkillSpec,
     directory: Path,
@@ -137,6 +187,8 @@ def validate_skill(
     )
     if workflow_path is not None and not workflow_path.is_file():
         result.error(spec.id, f"missing workflow document {spec.workflow!r}")
+    elif workflow_path is not None:
+        _check_workflow_verbs(spec, workflow_path, result)
 
     # 3. One adapter file per harness, both declared, present, and binding every
     #    neutral verb the spec uses.
@@ -295,13 +347,20 @@ def validate_library(
     return result
 
 
-def conformance_report(root: Path | None = None) -> dict[str, object]:
-    """Build a machine-readable summary of library + registry state."""
+def conformance_report(
+    root: Path | None = None, harnesses: tuple[str, ...] | None = None
+) -> dict[str, object]:
+    """Build a machine-readable summary of library + registry state.
+
+    ``harnesses`` overrides the harness set checked by the underlying
+    :func:`validate_library` call — pass the configured set so ``report``
+    inspects the same harnesses ``validate`` does.
+    """
     try:
         specs = discover_skills(root)
     except (FileNotFoundError, SpecError):
         specs = []
-    result = validate_library(root)
+    result = validate_library(root, harnesses=harnesses)
     try:
         registry = load_registry(root)
         counts = registry.status_counts()

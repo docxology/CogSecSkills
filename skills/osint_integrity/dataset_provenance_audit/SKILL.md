@@ -41,11 +41,11 @@ If a request asks Dataset Provenance Audit to dox, deanonymize, harass, bypass a
 - Low for Dataset Provenance Audit: the provenance audit report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Dataset Provenance Audit cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Dataset Provenance Audit should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Dataset Provenance Audit, use only authorized dataset, analytic question, and dataset documentation, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Dataset Provenance Audit, use only authorized dataset, analytic question, dataset documentation, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Dataset Provenance Audit, minimize person-level detail in the provenance audit report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Dataset Provenance Audit, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

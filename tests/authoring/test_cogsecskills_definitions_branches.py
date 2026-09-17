@@ -262,7 +262,8 @@ def test_check_definitions_render_failure(tmp_path):
 
 
 def test_definitions_for_write_planned_entry(tmp_path):
-    """definitions.py line 238: _definitions_for_write with existing def and planned entry having on-disk skill."""
+    """_definitions_for_write includes both a definition-backed entry and a
+    planned entry that only exists as an on-disk skill."""
     from cogsecskills.authoring.definitions import (
         _definitions_for_write,
         _reused_negative_control_findings,
@@ -319,7 +320,8 @@ def test_definitions_for_write_planned_entry(tmp_path):
 
 
 def test_definitions_check_definitions_exception_branch(tmp_path):
-    """definitions.py lines 464->471: check_definitions catching AuthorError/SpecError on rendered_definition_files."""
+    """A definition that fails to render is reported as a finding, not a crash
+    (AuthorError/SpecError from rendered_definition_files are caught)."""
     from cogsecskills.authoring.definitions import check_definitions
     from cogsecskills.core.spec import SpecError
 

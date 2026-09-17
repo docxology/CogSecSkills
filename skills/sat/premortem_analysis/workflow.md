@@ -25,10 +25,10 @@ Produce the final failure-modes document. Flag any causes that require a plan re
 - Low for Premortem Analysis: the failure modes rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Premortem Analysis cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Premortem Analysis should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Premortem Analysis, use only authorized plan or assessment, and time horizon, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Premortem Analysis, use only authorized plan or assessment, time horizon, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Premortem Analysis, minimize person-level detail in the failure modes; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Premortem Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

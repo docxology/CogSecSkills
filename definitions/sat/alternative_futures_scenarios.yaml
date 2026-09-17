@@ -60,7 +60,7 @@ outputs:
   description: Assessment of how well the current strategy or plan performs under
     each scenario
 references:
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). CQ Press. Chapter on Alternative Futures Analysis.
 - 'Schwartz, P. (1991). The Art of the Long View: Planning for the Future in an Uncertain
   World. Doubleday.'
@@ -178,11 +178,11 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Alternative
+  Futures (Scenarios) should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Alternative Futures (Scenarios), use only authorized problem statement, known
-  drivers, and current assessment, public or source-approved records, and caller-provided
+  drivers, current assessment, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Alternative Futures (Scenarios), minimize person-level detail in the scenario
   matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless

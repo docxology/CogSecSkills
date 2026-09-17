@@ -44,6 +44,7 @@ def _def(
     tools=None,
     tags=None,
     status: str = "implemented",
+    workflow_verbs=None,
 ) -> dict:
     return {
         "id": skill_id,
@@ -58,7 +59,11 @@ def _def(
             {"verb": "write", "purpose": "emit"},
         ],
         "workflow_steps": [
-            {"verbs": ["reason"], "title": f"Step {i}", "text": "do it"}
+            {
+                "verbs": list(workflow_verbs) if workflow_verbs else ["reason"],
+                "title": f"Step {i}",
+                "text": "do it",
+            }
             for i in range(steps)
         ],
         "anti_criteria": ["do not cheat", "do not skip evidence"],
@@ -80,6 +85,8 @@ def _library(root: Path) -> None:
                 {"verb": "web", "purpose": "y"},
                 {"verb": "write", "purpose": "z"},
             ],
+            # Workflow steps may only tag verbs the spec declares.
+            workflow_verbs=["read", "web", "write"],
         ),
         root=root,
     )

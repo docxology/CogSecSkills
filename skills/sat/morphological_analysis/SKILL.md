@@ -41,11 +41,11 @@ If a request asks Morphological Analysis to force a preferred conclusion, hide u
 - Low for Morphological Analysis: the morphological box rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Morphological Analysis cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Morphological Analysis should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Morphological Analysis, use only authorized problem statement, and known constraints, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Morphological Analysis, use only authorized problem statement, known constraints, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Morphological Analysis, minimize person-level detail in the morphological box; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Morphological Analysis, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

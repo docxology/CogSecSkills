@@ -109,11 +109,11 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Chain-of-Custody
+  Documentation should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Chain-of-Custody Documentation, use only authorized evidence items, collection
-  context, and prior custody log, public or source-approved records, and caller-provided
+  context, prior custody log, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Chain-of-Custody Documentation, minimize person-level detail in the custody
   log; prefer aggregate, artifact-level, role-level, or case-level summaries unless

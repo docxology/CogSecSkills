@@ -28,10 +28,10 @@ Write the structured assumption register table and the review narrative. The nar
 - Low for Assumption Surfacing Review: the assumption register rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Assumption Surfacing Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Assumption Surfacing Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Assumption Surfacing Review, use only authorized target text, and domain context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Assumption Surfacing Review, use only authorized target text, domain context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Assumption Surfacing Review, minimize person-level detail in the assumption register; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Assumption Surfacing Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

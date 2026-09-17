@@ -112,13 +112,9 @@ RUBRIC_KEYS = (
 )
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def scenario_path(root: Path | None = None) -> Path:
     """Return the canonical scenario fixture path."""
-    return _project_root(root) / SCENARIOS_DIRNAME / SCENARIO_FILENAME
+    return resolve_root(root) / SCENARIOS_DIRNAME / SCENARIO_FILENAME
 
 
 def _as_text_list(value: object, *, field: str) -> tuple[str, ...]:
@@ -272,7 +268,7 @@ def load_scenarios(root: Path | None = None) -> list[Scenario]:
     path = scenario_path(root)
     if not path.is_file():
         raise ValueError(
-            f"missing scenario fixture: {path.relative_to(_project_root(root))}"
+            f"missing scenario fixture: {path.relative_to(resolve_root(root))}"
         )
     loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
     if not isinstance(loaded, Mapping):
@@ -302,7 +298,7 @@ def scenario_summary(root: Path | None = None) -> ScenarioSummary:
 
 def check_scenarios(root: Path | None = None) -> list[str]:
     """Return findings for deterministic scenario-readiness drift."""
-    base = _project_root(root)
+    base = resolve_root(root)
     findings: list[str] = []
     try:
         scenarios = load_scenarios(base)

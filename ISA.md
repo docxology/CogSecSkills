@@ -36,8 +36,6 @@ moment a definition, rendered skill, or adapter drifts."
 
 - Offensive influence-operation tooling or manipulation how-tos. The library is
   strictly defensive, educational, and accountable (inherited from AGEINT).
-- Live external API integrations for OSINT collection (skills declare the
-  capability; wiring real connectors is downstream).
 - Claiming the manuscript is an externally validated or publication-ready paper.
   The manuscript is a documentation surface for the skills system; local render
   readiness is not field validation.

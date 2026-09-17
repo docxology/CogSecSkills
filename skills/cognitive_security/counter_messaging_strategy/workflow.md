@@ -28,10 +28,10 @@ Write the full counter_messaging_strategy document. For each message variant in 
 - Low for Counter-Messaging Strategy: the counter messaging strategy rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Counter-Messaging Strategy cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Counter-Messaging Strategy should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Counter-Messaging Strategy, use only authorized false claim or narrative, audience profile, and intervention timing, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Counter-Messaging Strategy, use only authorized false claim or narrative, audience profile, intervention timing, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Counter-Messaging Strategy, minimize person-level detail in the counter messaging strategy; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Counter-Messaging Strategy, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

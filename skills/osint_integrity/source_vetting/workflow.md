@@ -34,10 +34,10 @@ Write the source-reliability assessment covering: verified identity, access plau
 - Low for Source Vetting: the source reliability assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Vetting cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Source Vetting should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Source Vetting, use only authorized source identifier, claim context, and prior assessments, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Source Vetting, use only authorized source identifier, claim context, prior assessments, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Source Vetting, minimize person-level detail in the source reliability assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Source Vetting, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

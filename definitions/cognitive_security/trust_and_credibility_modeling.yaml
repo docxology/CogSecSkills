@@ -226,11 +226,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Trust
+  & Credibility Modeling should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Trust & Credibility Modeling, use only authorized information environment, actor
-  set, and threat actor context, public or source-approved records, and caller-provided
+  set, threat actor context, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Trust & Credibility Modeling, minimize person-level detail in the trust model;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an

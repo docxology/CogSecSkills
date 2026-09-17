@@ -43,11 +43,11 @@ If a request asks Team A / Team B to force a preferred conclusion, hide uncertai
 - Low for Team A / Team B: the team debate summary rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Team A / Team B cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Team A / Team B should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Team A / Team B, use only authorized shared evidence, hypothesis a, and hypothesis b, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Team A / Team B, use only authorized shared evidence, hypothesis a, hypothesis b, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Team A / Team B, minimize person-level detail in the team debate summary; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Team A / Team B, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

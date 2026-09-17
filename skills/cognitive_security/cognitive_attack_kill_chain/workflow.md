@@ -25,10 +25,10 @@ Write the stage-by-stage kill-chain map with completion assessments, confidence 
 - Low for Cognitive Attack Kill Chain: the kill chain map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cognitive Attack Kill Chain cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cognitive Attack Kill Chain should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Cognitive Attack Kill Chain, use only authorized campaign evidence, target context, and prior threat intel, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cognitive Attack Kill Chain, use only authorized campaign evidence, target context, prior threat intel, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Cognitive Attack Kill Chain, minimize person-level detail in the kill chain map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Cognitive Attack Kill Chain, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -59,10 +59,6 @@ class EvalWriteResult(TypedDict):
     evaluations: int
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def _section_from_obj(
     obj: object, *, path: Path, scenario_id: str
 ) -> EvaluationSection:
@@ -145,7 +141,7 @@ def _expected_source_text(root: Path | None = None) -> str:
 
 
 def load_evaluations(root: Path | None = None) -> list[EvaluationReview]:
-    path = _project_root(root) / EVALS_SOURCE_PATH
+    path = resolve_root(root) / EVALS_SOURCE_PATH
     if not path.is_file():
         raise ValueError(f"missing offline evaluation source: {EVALS_SOURCE_PATH}")
     loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
@@ -176,7 +172,7 @@ def _review_text(review: EvaluationReview) -> str:
 
 def _payload(root: Path | None = None) -> dict[str, Any]:
     """Build the full eval payload (summary + evaluation rows)."""
-    base = _project_root(root)
+    base = resolve_root(root)
     scenarios = load_scenarios(base)
     reviews = load_evaluations(base)
     scenario_by_id = {scenario.id: scenario for scenario in scenarios}
@@ -354,7 +350,7 @@ def _content_findings(base: Path, reviews: list[EvaluationReview]) -> list[str]:
 
 
 def write_evals(root: Path | None = None) -> EvalWriteResult:
-    base = _project_root(root)
+    base = resolve_root(root)
     source = base / EVALS_SOURCE_PATH
     source.parent.mkdir(parents=True, exist_ok=True)
     source.write_text(_expected_source_text(base), encoding="utf-8")
@@ -372,7 +368,7 @@ def write_evals(root: Path | None = None) -> EvalWriteResult:
 
 
 def check_evals(root: Path | None = None) -> list[str]:
-    base = _project_root(root)
+    base = resolve_root(root)
     source = base / EVALS_SOURCE_PATH
     if not source.is_file():
         return [f"missing offline evaluation source: {EVALS_SOURCE_PATH}"]

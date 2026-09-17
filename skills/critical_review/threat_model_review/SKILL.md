@@ -43,11 +43,11 @@ If a request asks Threat Model Review to launder weak claims, fabricate review f
 - Low for Threat Model Review: the gap report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Threat Model Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Threat Model Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Threat Model Review, use only authorized threat model, system description, and review focus, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Threat Model Review, use only authorized threat model, system description, review focus, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Threat Model Review, minimize person-level detail in the gap report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Threat Model Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

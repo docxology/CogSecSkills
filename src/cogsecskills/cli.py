@@ -13,13 +13,19 @@ Usage::
     python -m cogsecskills catalogue --markdown [--output docs/catalogue.md]
     python -m cogsecskills doctor
     python -m cogsecskills definitions --write|--check
-    python -m cogsecskills scenarios --check
+    python -m cogsecskills scenarios [--check]
     python -m cogsecskills examples --write|--check
     python -m cogsecskills evals --write|--check
     python -m cogsecskills dashboard --write|--check
     python -m cogsecskills release-metadata --write|--check
     python -m cogsecskills manuscript-assets --write|--check
     python -m cogsecskills scaffold <skill-id> [--root PATH]
+    python -m cogsecskills author <definition.(json|yaml)>
+    python -m cogsecskills author-batch [--keep-defs]
+    python -m cogsecskills eval-live --harness H [--scenario ID] [--mode M]
+    python -m cogsecskills export
+    python -m cogsecskills stats
+    python -m cogsecskills groups [--format F]
 """
 
 from __future__ import annotations
@@ -61,9 +67,19 @@ from cogsecskills.runtime_eval import (
     format_report,
     run_live_eval,
 )
-from cogsecskills.quality.validate import conformance_report, validate_library
+from cogsecskills.quality.validate import (
+    ValidationResult,
+    conformance_report,
+    validate_library,
+)
 
 from . import __version__
+
+
+def _print_validation(result: ValidationResult) -> None:
+    """Print one line per validation issue (shared by validate and doctor)."""
+    for issue in result.issues:
+        print(f"{issue.severity.upper():7}  {issue.skill_id:40}  {issue.message}")
 
 
 def _cmd_list(args: argparse.Namespace) -> int:
@@ -134,8 +150,7 @@ def _cmd_validate(args: argparse.Namespace) -> int:
             )
         )
         return 0 if result.ok else 1
-    for issue in result.issues:
-        print(f"{issue.severity.upper():7}  {issue.skill_id:40}  {issue.message}")
+    _print_validation(result)
     print(f"\n{len(result.errors)} error(s), {len(result.warnings)} warning(s)")
     return 0 if result.ok else 1
 
@@ -220,6 +235,7 @@ def _cmd_catalogue(args: argparse.Namespace) -> int:
         print(f"catalogue doc is current: {target}")
         return 0
     if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(markdown + "\n", encoding="utf-8")
         print(f"wrote {args.output}")
         return 0
@@ -264,8 +280,7 @@ def _cmd_doctor(args: argparse.Namespace) -> int:
             )
         )
         return 0 if result.ok and not findings else 1
-    for issue in result.issues:
-        print(f"{issue.severity.upper():7}  {issue.skill_id:40}  {issue.message}")
+    _print_validation(result)
     for f in findings:
         print(f"{f['level'].upper():7}  {f['skill_id']:40}  {f['message']}")
     print(
@@ -427,7 +442,7 @@ def _cmd_eval_live(args: argparse.Namespace) -> int:
         )
     except (RuntimeError, ValueError) as exc:
         print(f"eval-live: {exc}", file=sys.stderr)
-        return 2
+        return 1
     if args.json:
         print(json.dumps(report.to_dict(), indent=2))
     else:
@@ -443,7 +458,10 @@ def _cmd_export(args: argparse.Namespace) -> int:
 
 
 def _cmd_report(args: argparse.Namespace) -> int:
-    print(json.dumps(conformance_report(args.root), indent=2))
+    config = load_config(args.root)
+    print(
+        json.dumps(conformance_report(args.root, harnesses=config.harnesses), indent=2)
+    )
     return 0
 
 
@@ -633,8 +651,7 @@ def build_parser() -> argparse.ArgumentParser:
         "scenarios",
         help="check deterministic defensive scenario-readiness fixtures",
     )
-    scenario_mode = p_scenarios.add_mutually_exclusive_group(required=True)
-    scenario_mode.add_argument(
+    p_scenarios.add_argument(
         "--check",
         action="store_true",
         help="fail if defensive scenario fixtures or referenced skills are stale",

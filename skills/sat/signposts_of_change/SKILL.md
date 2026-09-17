@@ -41,11 +41,11 @@ If a request asks Signposts of Change to force a preferred conclusion, hide unce
 - Low for Signposts of Change: the signpost matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Signposts of Change cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Signposts of Change should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Signposts of Change, use only authorized scenarios or hypotheses, current assessment, and collection resources, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Signposts of Change, use only authorized scenarios or hypotheses, current assessment, collection resources, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Signposts of Change, minimize person-level detail in the signpost matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Signposts of Change, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -42,11 +42,11 @@ If a request asks Cross-Impact Matrix to force a preferred conclusion, hide unce
 - Low for Cross-Impact Matrix: the cross impact matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cross-Impact Matrix cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cross-Impact Matrix should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Cross-Impact Matrix, use only authorized driver list, influence scale, and focal question, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cross-Impact Matrix, use only authorized driver list, influence scale, focal question, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Cross-Impact Matrix, minimize person-level detail in the cross impact matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Cross-Impact Matrix, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -1,16 +1,11 @@
-"""Final coverage tests for deep edge-case branches.
+"""Behavioral edge-case branches across the quality and artifact surfaces.
 
-Covers: validate.py (warn, _safe_declared_path escape), release_metadata
-(_read_yaml/_read_json errors, _findings license mismatch), examples
-(not-in-registry, rendered-missing, provenance, repeated-titles, operational-
-misuse), scenarios (unsafe-misuse framing, route no-match, not-implemented,
-workflow-missing, too-few-steps, adapter-missing, no-adapters), definitions
-(load_definitions missing-id/duplicate, _definitions_for_write planned entry,
-specificity fallbacks), author (_slug, _require, _list_field, _quality_list,
-render_definition/rendered_definition_files non-mapping), insights (doctor
-few-anti-criteria, empty-quality-field, missing-unsafe-redirect), dashboard
-(verified-state parsing, quality-capsule-missing), evals (check_evals stale-
-source-only), assets_io (missing cover mirror).
+Covers: validate.py (warnings vs errors, declared-path escape rejection),
+release_metadata (non-mapping metadata files, license mismatch findings),
+examples (not-in-registry, repeated-titles, operational misuse, drift checks),
+scenarios (zero-overlap routing, malformed fixtures), definitions (missing and
+duplicate ids), author helpers and rendering, insights (doctor findings),
+dashboard verified-state parsing, evals drift, and assets_io cover mirrors.
 """
 
 from __future__ import annotations
@@ -26,7 +21,7 @@ from cogsecskills.core.spec import SkillSpec, SkillTool, ToolVerb
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
-# === validate.py: warn method and _safe_declared_path escape ===
+# === validate.py: warn/error severities and declared-path escape rejection ===
 
 
 def test_validation_result_warn():
@@ -51,61 +46,66 @@ def test_validation_result_error():
     assert result.ok is False
 
 
-def test_safe_declared_path_rejects_absolute():
-    """_safe_declared_path should reject absolute paths."""
-    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
-
-    result = ValidationResult()
-    path = _safe_declared_path(Path("/tmp"), "/etc/passwd", result, "sat.demo", "test")
-    assert path is None
-    assert any("must stay inside" in i.message for i in result.errors)
-
-
-def test_safe_declared_path_rejects_parent_escape():
-    """_safe_declared_path should reject paths with .."""
-    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
-
-    result = ValidationResult()
-    path = _safe_declared_path(
-        Path("/tmp/skill"), "../../etc/passwd", result, "sat.demo", "test"
+def _spec_with_harness_path(skills_dir, declared_path: str) -> SkillSpec:
+    """Build a minimal spec whose claude adapter points at ``declared_path``."""
+    (skills_dir / "skill.yaml").write_text(
+        "id: sat.demo\nname: Demo\ngroup: sat\nsummary: s\nstatus: implemented\n"
+        "tools:\n  - {verb: read, purpose: p}\n"
+        f"harness:\n  claude: {declared_path}\n",
+        encoding="utf-8",
     )
-    assert path is None
-    assert any("must stay inside" in i.message for i in result.errors)
-
-
-def test_safe_declared_path_accepts_valid():
-    """_safe_declared_path should accept a valid relative path."""
-    from cogsecskills.quality.validate import ValidationResult, _safe_declared_path
-
-    result = ValidationResult()
-    path = _safe_declared_path(
-        Path("/tmp/skill"), "workflow.md", result, "sat.demo", "workflow"
+    return SkillSpec.from_mapping(
+        yaml.safe_load((skills_dir / "skill.yaml").read_text(encoding="utf-8"))
     )
-    assert path == Path("/tmp/skill/workflow.md")
-    assert not result.errors
 
 
-# === release_metadata: _read_yaml and _read_json errors ===
+def test_validate_skill_rejects_escaping_adapter_path(tmp_path):
+    """A declared adapter path escaping the skill dir is an error, never a read."""
+    from cogsecskills.quality.validate import validate_skill
+
+    skills_dir = tmp_path / "skills" / "sat" / "demo"
+    skills_dir.mkdir(parents=True)
+    spec = _spec_with_harness_path(skills_dir, "../../outside/adapter.md")
+    result = validate_skill(spec, skills_dir)
+    assert any("must stay inside" in i.message for i in result.errors)
+    assert not result.ok
 
 
-def test_read_yaml_not_mapping(tmp_path):
-    """_read_yaml should raise ValueError when the YAML is not a mapping."""
-    from cogsecskills.artifacts.release_metadata import _read_yaml
+def test_validate_skill_rejects_absolute_adapter_path(tmp_path):
+    """A declared absolute adapter path is an error, never a read."""
+    from cogsecskills.quality.validate import validate_skill
 
-    path = tmp_path / "bad.yaml"
-    path.write_text("- item\n", encoding="utf-8")
+    skills_dir = tmp_path / "skills" / "sat" / "demo"
+    skills_dir.mkdir(parents=True)
+    spec = _spec_with_harness_path(skills_dir, "/etc/adapter.md")
+    result = validate_skill(spec, skills_dir)
+    assert any("must stay inside" in i.message for i in result.errors)
+    assert not result.ok
+
+
+# === release_metadata: malformed metadata files surface ValueError ===
+
+
+def test_release_metadata_check_rejects_non_mapping_citation(tmp_path):
+    """A non-mapping CITATION.cff surfaces a ValueError from the release check."""
+    from cogsecskills.artifacts.release_metadata import check_release_metadata
+
+    for f in ("pyproject.toml", "codemeta.json", "LICENSE"):
+        shutil.copy2(PROJECT_ROOT / f, tmp_path / f)
+    (tmp_path / "CITATION.cff").write_text("- just a list\n", encoding="utf-8")
     with pytest.raises(ValueError, match="top level must be a mapping"):
-        _read_yaml(path)
+        check_release_metadata(tmp_path)
 
 
-def test_read_json_not_mapping(tmp_path):
-    """_read_json should raise ValueError when JSON is not a mapping."""
-    from cogsecskills.artifacts.release_metadata import _read_json
+def test_release_metadata_check_rejects_non_mapping_codemeta(tmp_path):
+    """A non-mapping codemeta.json surfaces a ValueError from the release check."""
+    from cogsecskills.artifacts.release_metadata import check_release_metadata
 
-    path = tmp_path / "bad.json"
-    path.write_text("[1, 2, 3]\n", encoding="utf-8")
+    for f in ("pyproject.toml", "CITATION.cff", "LICENSE"):
+        shutil.copy2(PROJECT_ROOT / f, tmp_path / f)
+    (tmp_path / "codemeta.json").write_text("[1, 2, 3]\n", encoding="utf-8")
     with pytest.raises(ValueError, match="top level must be a mapping"):
-        _read_json(path)
+        check_release_metadata(tmp_path)
 
 
 def test_release_findings_pyproject_license_mismatch(tmp_path):
@@ -230,7 +230,8 @@ def test_examples_check_stale_generated_md(tmp_path):
 
 
 def test_scenarios_route_no_match(tmp_path):
-    """A scenario whose expected skill doesn't appear in route results."""
+    """A query sharing no tokens with any skill's routing haystack is flagged
+    as unrouted: the expected skill is not in the (empty) route matches."""
     from cogsecskills.artifacts.scenarios import check_scenarios
 
     (tmp_path / "registry").mkdir()
@@ -265,12 +266,14 @@ def test_scenarios_route_no_match(tmp_path):
         },
         root=tmp_path,
     )
-    # Scenario with a query that won't match "sat.x" triggers
+    # Scenario whose query shares zero tokens with sat.x's routing haystack
+    # (name/triggers/tags/summary/group) and with nothing else on disk, while
+    # still naming authorized use for the safe_defensive framing check.
     sc = {
         "id": "no-route",
         "group": "sat",
         "kind": "safe_defensive",
-        "query": "defensive use with evidence for xyzzyxyzzy unrelated tokens",
+        "query": "zzqxzzwvk authorized qqpzwwkx",
         "expected_skill": "sat.x",
         "expected_output_terms": ["product"],
         "required_quality_terms": ["evidence"],
@@ -312,9 +315,10 @@ def test_scenarios_route_no_match(tmp_path):
         yaml.safe_dump({"scenarios": [sc]}, sort_keys=False), encoding="utf-8"
     )
     findings = check_scenarios(tmp_path)
-    # The route check may or may not flag depending on token overlap;
-    # the important thing is it doesn't crash
-    assert isinstance(findings, list)
+    assert any(
+        "no-route: expected skill sat.x not in top 10 route matches (none)" in f
+        for f in findings
+    )
 
 
 # === definitions: load_definitions missing-id and duplicate ===
@@ -322,18 +326,18 @@ def test_scenarios_route_no_match(tmp_path):
 
 def test_load_definitions_missing_id(tmp_path):
     """load_definitions should raise AuthorError for a definition missing id."""
-    from cogsecskills.authoring.definitions import load_definitions
+    from cogsecskills.authoring.definitions import AuthorError, load_definitions
 
     defs_dir = tmp_path / "definitions" / "sat"
     defs_dir.mkdir(parents=True)
     (defs_dir / "bad.yaml").write_text("description: no id\n", encoding="utf-8")
-    with pytest.raises(Exception, match="missing id"):
+    with pytest.raises(AuthorError, match="missing id"):
         load_definitions(tmp_path)
 
 
 def test_load_definitions_duplicate_id(tmp_path):
     """load_definitions should raise AuthorError for duplicate definition ids."""
-    from cogsecskills.authoring.definitions import load_definitions
+    from cogsecskills.authoring.definitions import AuthorError, load_definitions
 
     defs_dir = tmp_path / "definitions"
     (defs_dir / "sat").mkdir(parents=True)
@@ -341,7 +345,7 @@ def test_load_definitions_duplicate_id(tmp_path):
     content = "id: sat.dup\ndescription: d\n"
     (defs_dir / "sat" / "dup.yaml").write_text(content, encoding="utf-8")
     (defs_dir / "cog" / "dup.yaml").write_text(content, encoding="utf-8")
-    with pytest.raises(Exception, match="duplicate definition id"):
+    with pytest.raises(AuthorError, match="duplicate definition id"):
         load_definitions(tmp_path)
 
 

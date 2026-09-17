@@ -6,6 +6,22 @@ follow semantic versioning.
 
 ## [Unreleased]
 
+### Fixed
+
+- **Comprehensive review pass (2026-09-16)**: null-coercion bug class in
+  optional spec fields (explicit YAML `null` no longer renders as the string
+  `"None"`); malformed registry/config YAML now fails with the documented
+  error types instead of a raw traceback; new validator check that workflow
+  step verbs are declared in the spec tool plan; `promote_to_implemented`
+  fails loudly on unmatched ids instead of silently no-op'ing; `report` now
+  checks the configured harness set (same as `validate`); 54 new behavior
+  tests plus tautology/incidental-pin/private-helper test rewrites; citation
+  corrections in definitions (Da San Martino et al. 2019 18-technique set,
+  Silverman-edited Verification Handbook, Heuer & Pherson author order) and
+  completed truncated ACH bullets; invalid `cff-version` in `CITATION.cff`
+  fixed to 1.2.0; docs drift fixes (QUICKSTART gate description, stale module
+  paths, README duplicates). Coverage 99.74% over 990 tests.
+
 ### Added
 
 - **`--format json` for `validate` and `doctor`** (2026-08-30): machine-readable

@@ -41,10 +41,6 @@ class DashboardWriteResult(TypedDict):
     examples: int
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def _clean_cell(value: object) -> str:
     return " ".join(str(value).split()).replace("|", r"\|")
 
@@ -79,7 +75,7 @@ def _quality_present(row: SkillRow) -> bool:
 
 
 def _dashboard_payload(root: Path | None = None) -> dict:
-    base = _project_root(root)
+    base = resolve_root(root)
     rows = collect_skill_rows(base)
     scenarios = load_scenarios(base)
     examples = load_examples(base)
@@ -777,7 +773,7 @@ def _payload_findings(payload: dict) -> list[str]:
 
 
 def write_dashboard(root: Path | None = None) -> DashboardWriteResult:
-    base = _project_root(root)
+    base = resolve_root(root)
     outputs = _expected_outputs(base)
     for rel_path, text in outputs.items():
         path = base / rel_path
@@ -795,7 +791,7 @@ def write_dashboard(root: Path | None = None) -> DashboardWriteResult:
 
 
 def check_dashboard(root: Path | None = None) -> list[str]:
-    base = _project_root(root)
+    base = resolve_root(root)
     findings = _payload_findings(_dashboard_payload(base))
     for rel_path, expected in _expected_outputs(base).items():
         path = base / rel_path

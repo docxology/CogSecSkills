@@ -41,11 +41,11 @@ If a request asks Cross-Source Corroboration to dox, deanonymize, harass, bypass
 - Low for Cross-Source Corroboration: the corroboration assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Cross-Source Corroboration cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cross-Source Corroboration should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Cross-Source Corroboration, use only authorized candidate claim, source list, and source metadata, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Cross-Source Corroboration, use only authorized candidate claim, source list, source metadata, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Cross-Source Corroboration, minimize person-level detail in the corroboration assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Cross-Source Corroboration, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

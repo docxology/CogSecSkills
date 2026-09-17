@@ -66,7 +66,7 @@ references:
   Issues for Field Settings. Houghton Mifflin.'
 - Shadish, W.R., Cook, T.D. & Campbell, D.T. (2002). Experimental and Quasi-Experimental
   Designs for Generalized Causal Inference. Houghton Mifflin.
-- Heuer, R.J. & Pherson, R.H. (2014). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis. 2nd ed. CQ Press. (Chapter on Quality of Information Review)
 - Ioannidis, J.P.A. (2005). Why Most Published Research Findings Are False. PLOS Medicine,
   2(8), e124.
@@ -105,10 +105,10 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Research
+  Design Critique should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Research Design Critique, use only authorized study text, and claim under review,
+- For Research Design Critique, use only authorized study text, claim under review,
   public or source-approved records, and caller-provided context needed for the defensive
   task.
 - For Research Design Critique, minimize person-level detail in the validity critique;

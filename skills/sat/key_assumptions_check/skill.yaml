@@ -98,12 +98,12 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Key
+  Assumptions Check should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Key Assumptions Check, use only authorized judgment, analytic line, and stated
-  assumptions, public or source-approved records, and caller-provided context needed
-  for the defensive task.
+- For Key Assumptions Check, use only authorized judgment, analytic line, stated assumptions,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
 - For Key Assumptions Check, minimize person-level detail in the assumptions table;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
   individual is essential to the defensive question.

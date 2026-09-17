@@ -41,11 +41,11 @@ If a request asks Manipulation Technique Identification to increase persuasive i
 - Low for Manipulation Technique Identification: the technique catalogue rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Manipulation Technique Identification cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Manipulation Technique Identification should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Manipulation Technique Identification, use only authorized content, target audience, and distribution context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Manipulation Technique Identification, use only authorized content, target audience, distribution context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Manipulation Technique Identification, minimize person-level detail in the technique catalogue; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Manipulation Technique Identification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

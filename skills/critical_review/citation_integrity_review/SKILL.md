@@ -43,11 +43,11 @@ If a request asks Citation Integrity Review to launder weak claims, fabricate re
 - Low for Citation Integrity Review: the citation audit table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Citation Integrity Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating critical_review evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Citation Integrity Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Citation Integrity Review, use only authorized document, and citation list, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Citation Integrity Review, use only authorized document, citation list, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Citation Integrity Review, minimize person-level detail in the citation audit table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Citation Integrity Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

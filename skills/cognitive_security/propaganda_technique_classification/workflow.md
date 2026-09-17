@@ -9,7 +9,7 @@ Read the full content item and any context metadata. Note source, audience, plat
 Scan content for the seven IPA canonical techniques: (1) Name-Calling — attaching a negative label to an opponent without evidence; (2) Glittering Generalities — associating a cause with virtue words (freedom, democracy, God) without substance; (3) Transfer — borrowing authority or prestige from a respected symbol; (4) Testimonial — having a respected or disrespected person endorse or condemn an idea; (5) Plain Folks — identifying the speaker as an ordinary person; (6) Card Stacking — selecting only favorable evidence while omitting contrary evidence; (7) Bandwagon — appealing to the desire to be on the winning side. For each detected technique, record the verbatim excerpt and cognitive lever.
 
 ## Step 3 — Apply taxonomy pass 2 — extended techniques (reason)
-For content warranting deeper analysis, apply the SEMEVAL 2020 extended taxonomy (18 classes), including: Appeal to Fear/Prejudice, Loaded Language, Repetition, Exaggeration/Minimisation, Doubt, Obfuscation/Intentional Vagueness, Whataboutism, Causal Oversimplification, Black-and-White Fallacy, Thought-Terminating Cliché, Red Herring, Straw Man, and Appeal to Authority. Document technique co-occurrence patterns and their interaction effects.
+For content warranting deeper analysis, apply the Da San Martino et al. (2019) extended taxonomy (18 techniques), including: Appeal to Fear/Prejudice, Loaded Language, Repetition, Exaggeration/Minimisation, Doubt, Obfuscation/Intentional Vagueness, Whataboutism, Causal Oversimplification, Black-and-White Fallacy, Thought-Terminating Cliché, Red Herring, Straw Man, and Appeal to Authority. Document technique co-occurrence patterns and their interaction effects.
 
 ## Step 4 — Assess strategic intent and produce classification output (reason, write)
 Interpret the overall technique mix: what emotional and cognitive state is the content designed to produce in the target audience? Which audience vulnerabilities (fear, identity threat, authority deference, in-group loyalty) does the mix exploit? Rate confidence in intent attribution separately from technique identification. Compose the classification table and the analytical interpretation narrative, including suggested countermeasures appropriate to each identified technique.
@@ -20,15 +20,15 @@ Interpret the overall technique mix: what emotional and cognitive state is the c
 - Before recommending any Propaganda Technique Classification action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Propaganda Technique Classification: each labelled technique is anchored to a verbatim content excerpt and a consistently applied IPA or SemEval category, the identified technique mix is corroborated across passes and the context metadata, and no unresolved contradiction would change the analytical interpretation of strategic intent.
+- High for Propaganda Technique Classification: each labelled technique is anchored to a verbatim content excerpt and a consistently applied IPA or extended-taxonomy category, the identified technique mix is corroborated across passes and the context metadata, and no unresolved contradiction would change the analytical interpretation of strategic intent.
 - Medium for Propaganda Technique Classification: the technique classification table is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
 - Low for Propaganda Technique Classification: the technique classification table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Propaganda Technique Classification cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Propaganda Technique Classification should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Propaganda Technique Classification, use only authorized content, context metadata, and taxonomy scope, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Propaganda Technique Classification, use only authorized content, context metadata, taxonomy scope, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Propaganda Technique Classification, minimize person-level detail in the technique classification table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Propaganda Technique Classification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

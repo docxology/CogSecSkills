@@ -75,10 +75,11 @@ class SkillTool:
             raise SpecError(f"tool entry must be a mapping, got {type(obj).__name__}")
         if "verb" not in obj:
             raise SpecError("tool entry missing required key 'verb'")
-        purpose = str(obj.get("purpose", "")).strip()
-        if not purpose:
+        purpose = obj.get("purpose", None)
+        if not isinstance(purpose, str) or not purpose.strip():
+            # str(...) coercion would accept `purpose: null` as "None".
             raise SpecError(f"tool {obj.get('verb')!r} missing non-empty 'purpose'")
-        return cls(verb=ToolVerb.coerce(obj["verb"]), purpose=purpose)
+        return cls(verb=ToolVerb.coerce(obj["verb"]), purpose=purpose.strip())
 
 
 @dataclass(frozen=True)
@@ -94,8 +95,10 @@ class SkillIO:
     def from_obj(cls, obj: Any) -> SkillIO:
         if not isinstance(obj, Mapping):
             raise SpecError(f"io entry must be a mapping, got {type(obj).__name__}")
-        name = str(obj.get("name", "")).strip()
-        if not name:
+        name = obj.get("name", None)
+        if not isinstance(name, str) or not name.strip():
+            # str(...) coercion would accept `name: null` as "None", which
+            # passes the non-empty check.
             raise SpecError("io entry missing non-empty 'name'")
         required = obj.get("required", False)
         if not isinstance(required, bool):
@@ -103,10 +106,10 @@ class SkillIO:
             # required semantics. Demand a real boolean.
             raise SpecError(f"io {name!r} field 'required' must be a boolean")
         return cls(
-            name=name,
-            type=str(obj.get("type", "any")).strip() or "any",
+            name=name.strip(),
+            type=_optional_text(obj, "type", "any"),
             required=required,
-            description=str(obj.get("description", "")).strip(),
+            description=_optional_text(obj, "description", ""),
         )
 
 
@@ -120,6 +123,34 @@ def _require_text(data: Mapping, key: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise SpecError(f"skill spec key {key!r} must be a non-empty string")
     return value.strip()
+
+
+def _optional_text(data: Mapping, key: str, default: str) -> str:
+    """Return an optional string field, or *default* when absent or not a string.
+
+    Mirrors :func:`_require_text`: coercing with ``str(...)`` would turn an
+    explicit YAML ``null`` (or a number) into ``"None"`` / ``"5"``, silently
+    beating the field's declared default.
+    """
+    value = data.get(key, None)
+    if not isinstance(value, str):
+        return default
+    stripped = value.strip()
+    return stripped if stripped else default
+
+
+def _harness_paths(harness: Mapping) -> dict[str, str]:
+    """Return the ``harness`` mapping with real string keys and values.
+
+    ``str(...)`` coercion would accept ``claude: null`` as the adapter path
+    ``"None"``; demand real strings instead.
+    """
+    paths: dict[str, str] = {}
+    for key, value in harness.items():
+        if not isinstance(key, str) or not isinstance(value, str):
+            raise SpecError("field 'harness' must map harness names to string paths")
+        paths[key] = value.strip()
+    return paths
 
 
 def _as_str_list(value: object, *, field_name: str) -> tuple[str, ...]:
@@ -202,17 +233,17 @@ class SkillSpec:
             group=group,
             summary=summary,
             status=status,
-            version=str(data.get("version", "0.1.0")).strip() or "0.1.0",
-            description=str(data.get("description", "")).strip(),
-            ageint_topic=str(data.get("ageint_topic", "")).strip(),
+            version=_optional_text(data, "version", "0.1.0"),
+            description=_optional_text(data, "description", ""),
+            ageint_topic=_optional_text(data, "ageint_topic", ""),
             tags=_as_str_list(data.get("tags"), field_name="tags"),
             triggers=_as_str_list(data.get("triggers"), field_name="triggers"),
             tools=tuple(SkillTool.from_obj(t) for t in data.get("tools", []) or []),
             inputs=tuple(SkillIO.from_obj(i) for i in data.get("inputs", []) or []),
             outputs=tuple(SkillIO.from_obj(o) for o in data.get("outputs", []) or []),
             references=_as_str_list(data.get("references"), field_name="references"),
-            defensive_boundary=str(data.get("defensive_boundary", "")).strip(),
-            misuse_redirect=str(data.get("misuse_redirect", "")).strip(),
+            defensive_boundary=_optional_text(data, "defensive_boundary", ""),
+            misuse_redirect=_optional_text(data, "misuse_redirect", ""),
             evidence_requirements=_as_str_list(
                 data.get("evidence_requirements"), field_name="evidence_requirements"
             ),
@@ -232,8 +263,8 @@ class SkillSpec:
             negative_controls=_as_str_list(
                 data.get("negative_controls"), field_name="negative_controls"
             ),
-            workflow=str(data.get("workflow", "workflow.md")).strip() or "workflow.md",
-            harness={str(k): str(v) for k, v in harness.items()},
+            workflow=_optional_text(data, "workflow", "workflow.md"),
+            harness=_harness_paths(harness),
         )
 
     # --- derived properties ----------------------------------------------

@@ -42,11 +42,11 @@ If a request asks Indicators Validation to force a preferred conclusion, hide un
 - Low for Indicators Validation: the validated indicators matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Indicators Validation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Indicators Validation should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Indicators Validation, use only authorized candidate indicators, scenarios or hypotheses, and base rate context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Indicators Validation, use only authorized candidate indicators, scenarios or hypotheses, base rate context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Indicators Validation, minimize person-level detail in the validated indicators matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Indicators Validation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

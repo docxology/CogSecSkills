@@ -44,11 +44,11 @@ If a request asks Deepfake & Synthetic Media Triage to increase persuasive impac
 - Low for Deepfake & Synthetic Media Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Deepfake & Synthetic Media Triage cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Deepfake & Synthetic Media Triage should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Deepfake & Synthetic Media Triage, use only authorized media artifact, claim context, and available metadata, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Deepfake & Synthetic Media Triage, use only authorized media artifact, claim context, available metadata, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Deepfake & Synthetic Media Triage, minimize person-level detail in the triage report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Deepfake & Synthetic Media Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

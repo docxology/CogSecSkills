@@ -153,12 +153,12 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Getting
+  Started Checklist should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Getting Started Checklist, use only authorized analytic task, and background
-  material, public or source-approved records, and caller-provided context needed
-  for the defensive task.
+- For Getting Started Checklist, use only authorized analytic task, background material,
+  public or source-approved records, and caller-provided context needed for the defensive
+  task.
 - For Getting Started Checklist, minimize person-level detail in the getting started
   baseline; prefer aggregate, artifact-level, role-level, or case-level summaries
   unless an individual is essential to the defensive question.

@@ -171,7 +171,8 @@ def test_cli_scaffold_and_show(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "show", "sat.two"])
     out = capsys.readouterr().out
     assert rc == 0
-    assert '"id": "sat.two"' in out
+    payload = json.loads(out)
+    assert payload["id"] == "sat.two"
 
 
 def test_cli_scaffold_overwrite(tmp_path, capsys):
@@ -253,8 +254,6 @@ def test_cli_list_limit_json(tmp_path, capsys):
     )
     main(["--root", str(tmp_path), "list", "--limit", "1", "--format", "json"])
     out = capsys.readouterr().out
-    import json
-
     payload = json.loads(out)
     assert payload["count"] == 1
     assert payload["total"] == 3
@@ -267,8 +266,6 @@ def test_cli_groups_json_format(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "groups", "--format", "json"])
     out = capsys.readouterr().out
     assert rc == 0
-    import json
-
     groups = json.loads(out)
     assert isinstance(groups, list)
     assert len(groups) == 1

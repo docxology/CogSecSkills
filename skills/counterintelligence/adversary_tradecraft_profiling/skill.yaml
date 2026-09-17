@@ -69,7 +69,7 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Heuer, R.J. & Pherson, R.H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis, 2nd ed. CQ Press. (Chapter on Indicators).
 - 'Byman, D. & Pollack, K. (2001). ''Let Us Now Praise Great Men: Bringing the Statesman
   Back In.'' International Security 25(4).'
@@ -114,11 +114,11 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Adversary
+  Tradecraft Profiling should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Adversary Tradecraft Profiling, use only authorized incident corpus, adversary
-  identifier, and collection gaps, public or source-approved records, and caller-provided
+  identifier, collection gaps, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Adversary Tradecraft Profiling, minimize person-level detail in the tradecraft
   profile; prefer aggregate, artifact-level, role-level, or case-level summaries unless

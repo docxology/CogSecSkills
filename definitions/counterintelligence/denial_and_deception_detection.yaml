@@ -60,7 +60,7 @@ outputs:
   description: Prioritized gaps in collection that, if filled, would most sharply
     discriminate between the genuine and the deception scenario
 references:
-- 'Heuer, R.J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
+- 'Heuer, R. J. (1999). Psychology of Intelligence Analysis. CIA Center for the Study
   of Intelligence. (Chapter 10: Biases in Evaluation of Evidence).'
 - 'Godson, R. & Wirtz, J.J. (2000). ''Strategic Denial and Deception.'' International
   Journal of Intelligence and Counterintelligence 13(4): 424-437.'
@@ -182,11 +182,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Denial
+  & Deception Detection should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Denial & Deception Detection, use only authorized evidence body, current assessment,
-  and adversary profile, public or source-approved records, and caller-provided context
+  adversary profile, public or source-approved records, and caller-provided context
   needed for the defensive task.
 - For Denial & Deception Detection, minimize person-level detail in the dd assessment;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an

@@ -123,10 +123,6 @@ class LiveEvalReport:
         }
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
-
-
 def harness_commands(harness: str, root: Path | None = None) -> tuple[str, ...]:
     """Resolve the argv template for ``harness``.
 
@@ -348,7 +344,7 @@ def run_live_eval(
         template = harness_commands(harness, root)
     _validate_template(template)
 
-    base = _project_root(root)
+    base = resolve_root(root)
     scenarios = load_scenarios(base)
     by_id = {scenario.id: scenario for scenario in scenarios}
     if scenario_ids is None:

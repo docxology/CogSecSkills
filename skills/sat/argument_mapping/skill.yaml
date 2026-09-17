@@ -107,12 +107,11 @@ uncertainty_handling:
 - State what Argument Mapping cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Argument
+  Mapping should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Argument Mapping, use only authorized argument source, and focal claim, public
-  or source-approved records, and caller-provided context needed for the defensive
-  task.
+- For Argument Mapping, use only authorized argument source, focal claim, public or
+  source-approved records, and caller-provided context needed for the defensive task.
 - For Argument Mapping, minimize person-level detail in the argument map; prefer aggregate,
   artifact-level, role-level, or case-level summaries unless an individual is essential
   to the defensive question.

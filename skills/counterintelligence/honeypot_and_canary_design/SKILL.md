@@ -42,11 +42,11 @@ If a request asks Honeypot & Canary Design to evade detection, improve elicitati
 - Low for Honeypot & Canary Design: the canary design spec rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Honeypot & Canary Design cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Honeypot & Canary Design should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Honeypot & Canary Design, use only authorized threat model, asset inventory, and monitoring coverage, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Honeypot & Canary Design, use only authorized threat model, asset inventory, monitoring coverage, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Honeypot & Canary Design, minimize person-level detail in the canary design spec; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Honeypot & Canary Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

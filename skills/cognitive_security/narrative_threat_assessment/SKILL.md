@@ -40,11 +40,11 @@ If a request asks Narrative Threat Assessment to increase persuasive impact, exp
 - Low for Narrative Threat Assessment: the threat assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Narrative Threat Assessment cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Narrative Threat Assessment should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Narrative Threat Assessment, use only authorized narrative text, and context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Narrative Threat Assessment, use only authorized narrative text, context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Narrative Threat Assessment, minimize person-level detail in the threat assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Narrative Threat Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

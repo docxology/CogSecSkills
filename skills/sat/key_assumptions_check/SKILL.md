@@ -41,11 +41,11 @@ If a request asks Key Assumptions Check to force a preferred conclusion, hide un
 - Low for Key Assumptions Check: the assumptions table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Key Assumptions Check cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Key Assumptions Check should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Key Assumptions Check, use only authorized judgment, analytic line, and stated assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Key Assumptions Check, use only authorized judgment, analytic line, stated assumptions, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Key Assumptions Check, minimize person-level detail in the assumptions table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Key Assumptions Check, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

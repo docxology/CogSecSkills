@@ -41,11 +41,11 @@ If a request asks Structured Analogies to force a preferred conclusion, hide unc
 - Low for Structured Analogies: the case comparison table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Structured Analogies cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Structured Analogies should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Structured Analogies, use only authorized current situation, candidate cases, and comparison dimensions, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Structured Analogies, use only authorized current situation, candidate cases, comparison dimensions, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Structured Analogies, minimize person-level detail in the case comparison table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Structured Analogies, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

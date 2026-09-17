@@ -43,11 +43,11 @@ If a request asks Image & Media Forensics Triage to dox, deanonymize, harass, by
 - Low for Image & Media Forensics Triage: the triage report rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Image & Media Forensics Triage cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating osint_integrity evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Image & Media Forensics Triage should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Image & Media Forensics Triage, use only authorized media item, accompanying claim, and source account, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Image & Media Forensics Triage, use only authorized media item, accompanying claim, source account, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Image & Media Forensics Triage, minimize person-level detail in the triage report; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Image & Media Forensics Triage, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

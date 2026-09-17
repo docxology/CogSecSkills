@@ -43,11 +43,11 @@ If a request asks Epistemic Security Posture Review to increase persuasive impac
 - Low for Epistemic Security Posture Review: the posture scorecard rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Epistemic Security Posture Review cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Epistemic Security Posture Review should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Epistemic Security Posture Review, use only authorized organizational profile, epistemic practices, and known incidents, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Epistemic Security Posture Review, use only authorized organizational profile, epistemic practices, known incidents, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Epistemic Security Posture Review, minimize person-level detail in the posture scorecard; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Epistemic Security Posture Review, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

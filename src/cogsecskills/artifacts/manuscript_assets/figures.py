@@ -12,6 +12,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from cogsecskills.core.locate import resolve_root
+
 from .figure_helpers import (
     _add_chart_header,
     _color_for,
@@ -63,13 +65,13 @@ from .figure_theme import (
     TOKENS,
     _PNG_SIGNATURE,
 )
-from .paths import COVER_IMAGE_MIRROR_PATH, COVER_IMAGE_NAME, _project_root
+from .paths import COVER_IMAGE_MIRROR_PATH, COVER_IMAGE_NAME
 from .rows import SkillRow
 
 
 def write_figures(rows: list[SkillRow], root: Path | None = None) -> list[Path]:
     """Write deterministic PNG figures under ``output/figures``."""
-    base = _project_root(root)
+    base = resolve_root(root)
     figures_dir = base / "output" / "figures"
     figures_dir.mkdir(parents=True, exist_ok=True)
 

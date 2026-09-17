@@ -74,7 +74,7 @@ harness:
 references:
 - Gordon, T. J., & Hayward, H. (1968). Initial experiments with the cross impact matrix
   method of forecasting. Futures, 1(2), 100–116.
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis, 3rd ed. CQ Press.
 - 'Bishop, P., Hines, A., & Collins, T. (2007). The current state of scenario development:
   An overview of techniques. Foresight, 9(1), 5–25.'
@@ -111,10 +111,10 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Cross-Impact
+  Matrix should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Cross-Impact Matrix, use only authorized driver list, influence scale, and focal
+- For Cross-Impact Matrix, use only authorized driver list, influence scale, focal
   question, public or source-approved records, and caller-provided context needed
   for the defensive task.
 - For Cross-Impact Matrix, minimize person-level detail in the cross impact matrix;

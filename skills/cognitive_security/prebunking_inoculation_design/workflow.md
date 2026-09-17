@@ -25,10 +25,10 @@ Write 3–5 test items that probe resistance: recognition prompts (can the audie
 - Low for Prebunking & Inoculation Design: the inoculation content rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Prebunking & Inoculation Design cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Prebunking & Inoculation Design should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Prebunking & Inoculation Design, use only authorized manipulation technique, target audience, and deployment context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Prebunking & Inoculation Design, use only authorized manipulation technique, target audience, deployment context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Prebunking & Inoculation Design, minimize person-level detail in the inoculation content; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Prebunking & Inoculation Design, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

@@ -39,7 +39,9 @@ The full command reference is in [Usage](#usage); harness details are in
   [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585) (always
   resolves to the latest version); v1.0.0 version DOI
   [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586). Citation
-  metadata in [`CITATION.cff`](CITATION.cff).
+  metadata in [`CITATION.cff`](CITATION.cff). Note: the version DOI still
+  resolves to v1.0.0 and lags the 1.7.0 release — an updated Zenodo deposit is
+  in flight (tracked in `TODO.md`).
 - **New here?** [`QUICKSTART.md`](QUICKSTART.md) · **Docs map:**
   [`docs/README.md`](docs/README.md)
 
@@ -162,7 +164,6 @@ python -m cogsecskills dashboard --write
 python -m cogsecskills dashboard --check
 python -m cogsecskills release-metadata --write
 python -m cogsecskills release-metadata --check
-python -m cogsecskills catalogue --markdown --output docs/catalogue.md
 python -m cogsecskills catalogue --check
 
 # Run scenario fixtures through a live harness (opt-in; exploratory screening)
@@ -194,7 +195,7 @@ and `hermes`; add more harnesses in `cogsecskills.yaml` and regenerate adapters
 with `python -m cogsecskills definitions --write`.
 
 For bounded examples, see
-[`examples/harness-smoke-transcripts.md`](examples/harness-smoke-transcripts.md)
+[`examples/harness-smoke-transcripts.md`](examples/harness-smoke-transcripts.md),
 [`examples/group-worked-examples.md`](examples/group-worked-examples.md), and
 [`docs/skill-worked-examples.md`](docs/skill-worked-examples.md).
 For claim discipline, see [`docs/claim-boundaries.md`](docs/claim-boundaries.md).

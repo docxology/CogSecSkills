@@ -40,11 +40,11 @@ If a request asks Source Credibility Evaluation to increase persuasive impact, e
 - Low for Source Credibility Evaluation: the reliability grade rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Source Credibility Evaluation cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Source Credibility Evaluation should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Source Credibility Evaluation, use only authorized source, claim, and corroboration, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Source Credibility Evaluation, use only authorized source, claim, corroboration, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Source Credibility Evaluation, minimize person-level detail in the reliability grade; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Source Credibility Evaluation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

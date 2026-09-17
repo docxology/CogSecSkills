@@ -16,8 +16,8 @@ work.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
 - Test gate: `pytest --cov=cogsecskills --cov-fail-under=99` -> `899 passed`, `99.93% branch coverage`.
-- Lint gate: `ruff check` + `ruff format --check` -> clean (81 files: 38 `src/` + 43 `tests/`).
-- Type gate: `mypy` -> `no issues found in 38 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
+- Lint gate: `ruff check` + `ruff format --check` -> clean (86 files: 40 `src/` + 46 `tests/`; measured 2026-09-16).
+- Type gate: `mypy` -> `Success: no issues found in 40 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
 - Python legs: all five CI matrix interpreters (3.10–3.14) verified locally — `899 passed` each; branch coverage 99.91% (3.10, `tomli` fallback branch taken) / 99.93% (3.11–3.14).
 
 ## Ongoing Guardrails

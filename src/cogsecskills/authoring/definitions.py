@@ -65,12 +65,10 @@ class DefinitionWriteResult(TypedDict):
     rendered: list[str]
 
 
-def _project_root(root: Path | None = None) -> Path:
-    return resolve_root(root)
 
 
 def definitions_root(root: Path | None = None) -> Path:
-    return _project_root(root) / DEFINITIONS_DIRNAME
+    return resolve_root(root) / DEFINITIONS_DIRNAME
 
 
 def definition_path(skill_id: str, root: Path | None = None) -> Path:
@@ -452,7 +450,7 @@ def check_definitions(
     actual_ids = set(definitions)
     for missing in sorted(expected_ids - actual_ids):
         findings.append(
-            f"missing canonical definition: {definition_path(missing, root).relative_to(_project_root(root))}"
+            f"missing canonical definition: {definition_path(missing, root).relative_to(resolve_root(root))}"
         )
     for extra in sorted(actual_ids - expected_ids):
         findings.append(f"definition is not in registry: {extra}")
@@ -466,7 +464,7 @@ def check_definitions(
             actual_text = expected_path.read_text(encoding="utf-8")
             if actual_text != expected_text:
                 findings.append(
-                    f"stale canonical definition: {expected_path.relative_to(_project_root(root))}"
+                    f"stale canonical definition: {expected_path.relative_to(resolve_root(root))}"
                 )
         findings.extend(
             _definition_quality_findings(skill_id, definition, entries.get(skill_id))
@@ -483,11 +481,11 @@ def check_definitions(
         for path, expected in rendered.items():
             if not path.is_file():
                 findings.append(
-                    f"{skill_id}: missing rendered file: {path.relative_to(_project_root(root))}"
+                    f"{skill_id}: missing rendered file: {path.relative_to(resolve_root(root))}"
                 )
                 continue
             if path.read_text(encoding="utf-8") != expected:
                 findings.append(
-                    f"{skill_id}: stale rendered file: {path.relative_to(_project_root(root))}"
+                    f"{skill_id}: stale rendered file: {path.relative_to(resolve_root(root))}"
                 )
     return findings

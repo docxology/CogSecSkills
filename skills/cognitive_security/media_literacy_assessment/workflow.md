@@ -25,10 +25,10 @@ Compile the scored gap map as a table. For each significant gap, write a targete
 - Low for Media Literacy Assessment: the competency gap map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Media Literacy Assessment cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Media Literacy Assessment should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Media Literacy Assessment, use only authorized audience profile, sample content, and existing assessment data, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Media Literacy Assessment, use only authorized audience profile, sample content, existing assessment data, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Media Literacy Assessment, minimize person-level detail in the competency gap map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Media Literacy Assessment, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

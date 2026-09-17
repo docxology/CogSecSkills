@@ -2,7 +2,7 @@
 
 Skills live under ``<project>/skills/<group>/<slug>/`` and are identified by a
 ``skill.yaml`` file. This module turns that on-disk tree into validated
-:class:`~cogsecskills.spec.SkillSpec` objects, and resolves the conventional
+:class:`~cogsecskills.core.spec.SkillSpec` objects, and resolves the conventional
 companion files (``SKILL.md`` for Claude Code, ``workflow.md``, and the
 per-harness adapters under ``harness/``).
 """
@@ -13,7 +13,7 @@ from pathlib import Path
 
 import yaml
 
-from cogsecskills.core.locate import project_root
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.spec import SkillSpec, SpecError
 
 #: Filename that marks a directory as a skill.
@@ -23,19 +23,9 @@ SPEC_FILENAME = "skill.yaml"
 SKILLS_DIRNAME = "skills"
 
 
-def _project_root() -> Path:
-    """Best-effort project root (the directory that contains ``skills/``).
-
-    The package lives at ``<root>/src/cogsecskills/``; the skills tree at
-    ``<root>/skills/``. We resolve relative to this file so the loader works
-    regardless of the caller's working directory.
-    """
-    return project_root()
-
-
 def skills_root(root: Path | None = None) -> Path:
     """Return the path to the ``skills/`` directory."""
-    base = Path(root) if root is not None else _project_root()
+    base = resolve_root(root)
     return base / SKILLS_DIRNAME
 
 

@@ -28,10 +28,10 @@ Output the deception indicators table and a prioritized collection plan. Rank co
 - Low for Denial & Deception Detection: the dd assessment rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Denial & Deception Detection cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Denial & Deception Detection should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Denial & Deception Detection, use only authorized evidence body, current assessment, and adversary profile, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Denial & Deception Detection, use only authorized evidence body, current assessment, adversary profile, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Denial & Deception Detection, minimize person-level detail in the dd assessment; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Denial & Deception Detection, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

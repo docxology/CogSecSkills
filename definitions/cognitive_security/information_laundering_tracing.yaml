@@ -180,12 +180,12 @@ uncertainty_handling:
   authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Information
+  Laundering Tracing should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Information Laundering Tracing, use only authorized claim text, known publications,
-  and time window, public or source-approved records, and caller-provided context
-  needed for the defensive task.
+  time window, public or source-approved records, and caller-provided context needed
+  for the defensive task.
 - For Information Laundering Tracing, minimize person-level detail in the laundering
   chain; prefer aggregate, artifact-level, role-level, or case-level summaries unless
   an individual is essential to the defensive question.

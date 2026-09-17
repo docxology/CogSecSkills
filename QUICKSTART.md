@@ -41,9 +41,9 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check  # needs the
 # See docs/live-eval.md — PYTHONPATH="src:." python -m cogsecskills eval-live --harness claude
 ```
 
-The `--check` gates compare committed sources against regeneratable outputs
-under `output/` (gitignored); on a fresh clone, run the matching `--write` first
-(see "Keep Outputs Current" below).
+Most `--check` gates compare committed generated files under `docs/` and
+`skills/` against what the current sources regenerate; only run the matching
+`--write` after editing a source surface (see "Keep Outputs Current" below).
 
 Expected local state is zero validation errors, zero quality findings, and
 scenario, worked-example, offline-eval, dashboard, and release-metadata
@@ -101,6 +101,6 @@ PYTHONPATH="src:." python -m cogsecskills release-metadata --check
 PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 ```
 
-See `docs/harness-cookbook.md`, `docs/claim-boundaries.md`, and
+See `docs/harness-cookbook.md`, `docs/claim-boundaries.md`,
 `docs/skill-worked-examples.md`, and `docs/evaluation-readiness.md` for bounded
 examples.

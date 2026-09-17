@@ -221,7 +221,8 @@ def test_harness_transcript_loaded_files_exist_or_are_documented_custom_paths():
 
 def test_group_examples_cover_all_skill_groups():
     examples = _read(PROJECT_ROOT / "examples" / "group-worked-examples.md")
-    for skill_id in (
+    blocks = _transcript_blocks(examples)
+    expected_ids = (
         "sat.analysis_of_competing_hypotheses",
         "cognitive_security.narrative_threat_assessment",
         "critical_review.project_critical_review",
@@ -229,28 +230,37 @@ def test_group_examples_cover_all_skill_groups():
         "counterintelligence.denial_and_deception_detection",
         "information_environment.narrative_ecosystem_mapping",
         "research_methods.structured_literature_synthesis",
-    ):
-        assert skill_id in examples
-    assert "evidence" in examples.lower()
-    assert "inference" in examples.lower()
-    assert "confidence" in examples.lower()
-    assert "uncertainty" in examples.lower()
+    )
+    # Every exemplar appears exactly once as a `Skill:` line, none extra.
+    skill_lines = re.findall(r"^Skill: `([^`]+)`\.", examples, flags=re.MULTILINE)
+    assert sorted(skill_lines) == sorted(expected_ids)
+    # Each exemplar's own block carries the four labeled quality lines.
+    for skill_id in expected_ids:
+        marker = f"Skill: `{skill_id}`."
+        owner_blocks = [body for body in blocks.values() if marker in body]
+        assert len(owner_blocks) == 1, skill_id
+        for label in ("Evidence:", "Inference:", "Confidence:", "Uncertainty:"):
+            assert label in owner_blocks[0], f"{skill_id}: missing {label}"
 
 
-def test_todo_forward_backlog_has_expected_next_lanes():
+def test_todo_verified_state_documents_gate_results():
+    """TODO.md keeps a Verified State section whose bullets report gate runs."""
     todo = _read(PROJECT_ROOT / "TODO.md")
-    for heading in (
-        "Verified State",
-        "Ongoing Guardrails",
-        "Minor: Coverage",
-        "Minor: CI Hardening",
-        "Medium: Manuscript Refresh",
-        "Major: Empirical Evaluation",
-        "Major: Live Connector Integrations",
-    ):
-        assert heading in todo
-    assert "expected answers checked" in todo
-    assert "worked examples are current" in todo
+    blocks = _transcript_blocks(todo)
+    verified = next(
+        (body for title, body in blocks.items() if title.startswith("Verified State")),
+        None,
+    )
+    assert verified is not None, "TODO.md must keep a '## Verified State' section"
+    gate_bullets = [
+        line
+        for line in verified.splitlines()
+        if line.startswith("- ") and "gate" in line.lower()
+    ]
+    assert len(gate_bullets) >= 5, verified
+    # The drift-detection bullets that guard the generated doc mirrors.
+    assert "expected answers checked" in verified
+    assert "worked examples are current" in verified
 
 
 def test_release_checklist_and_review_protocol_name_required_gates():

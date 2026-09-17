@@ -53,7 +53,7 @@ harness:
 references:
 - Klein, G. (2007). Performing a Project Premortem. Harvard Business Review, 85(9),
   18–19.
-- 'Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- 'Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter: Premortem Analysis.'
 - 'Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux. Chapter
   24: The Engine of Capitalism.'
@@ -89,11 +89,11 @@ uncertainty_handling:
 - State what Premortem Analysis cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Premortem
+  Analysis should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Premortem Analysis, use only authorized plan or assessment, and time horizon,
-  public or source-approved records, and caller-provided context needed for the defensive
+- For Premortem Analysis, use only authorized plan or assessment, time horizon, public
+  or source-approved records, and caller-provided context needed for the defensive
   task.
 - For Premortem Analysis, minimize person-level detail in the failure modes; prefer
   aggregate, artifact-level, role-level, or case-level summaries unless an individual

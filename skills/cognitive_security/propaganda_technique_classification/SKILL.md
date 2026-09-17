@@ -5,7 +5,7 @@ description: Classify content against the canonical propaganda techniques (IPA a
 
 # Propaganda Technique Classification
 
-Propaganda Technique Classification systematically identifies and labels the specific rhetorical devices in content against the canonical taxonomy established by the Institute for Propaganda Analysis (IPA, 1937) and extended by Jowett & O'Donnell, Bernays, and contemporary computational SEMEVAL frameworks. The skill maps content to techniques including transfer, glittering generalities, plain folks, card stacking, bandwagon, name-calling, and testimonial, then assesses persuasive intent and likely audience impact. It is a defensive, recognition-oriented skill that enables analysts and educators to name and explain manipulation rather than fall prey to it.
+Propaganda Technique Classification systematically identifies and labels the specific rhetorical devices in content against the canonical taxonomy established by the Institute for Propaganda Analysis (IPA, 1937) and extended by Jowett & O'Donnell, Bernays, and contemporary computational propaganda taxonomies. The skill maps content to techniques including transfer, glittering generalities, plain folks, card stacking, bandwagon, name-calling, and testimonial, then assesses persuasive intent and likely audience impact. It is a defensive, recognition-oriented skill that enables analysts and educators to name and explain manipulation rather than fall prey to it.
 
 ## When to use
 
@@ -16,7 +16,7 @@ Propaganda Technique Classification systematically identifies and labels the spe
 
 ## What it produces
 
-- a technique classification table mapping each excerpt to its canonical IPA/SEMEVAL label, mechanism, and cognitive lever
+- a technique classification table mapping each excerpt to its canonical IPA/extended-taxonomy label, mechanism, and cognitive lever
 - an analytical interpretation of the overall technique mix, strategic intent, and countermeasures
 
 ## Defensive boundary
@@ -35,16 +35,16 @@ If a request asks Propaganda Technique Classification to increase persuasive imp
 
 ## Confidence and uncertainty
 
-- High for Propaganda Technique Classification: each labelled technique is anchored to a verbatim content excerpt and a consistently applied IPA or SemEval category, the identified technique mix is corroborated across passes and the context metadata, and no unresolved contradiction would change the analytical interpretation of strategic intent.
+- High for Propaganda Technique Classification: each labelled technique is anchored to a verbatim content excerpt and a consistently applied IPA or extended-taxonomy category, the identified technique mix is corroborated across passes and the context metadata, and no unresolved contradiction would change the analytical interpretation of strategic intent.
 - Medium for Propaganda Technique Classification: the technique classification table is plausible, but one important content source, comparison case, or alternative explanation remains incomplete.
 - Low for Propaganda Technique Classification: the technique classification table rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Propaganda Technique Classification cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Propaganda Technique Classification should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Propaganda Technique Classification, use only authorized content, context metadata, and taxonomy scope, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Propaganda Technique Classification, use only authorized content, context metadata, taxonomy scope, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Propaganda Technique Classification, minimize person-level detail in the technique classification table; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Propaganda Technique Classification, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
@@ -66,4 +66,4 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 - map each identified technique to a verbatim excerpt — vague whole-text attribution is not classification
 - distinguish technique identification (what rhetorical move is this) from intent attribution (who made this and why) — the former is evidential, the latter is inferential and must be labeled as such
 - note co-deployed technique interactions: bandwagon amplifies name-calling; glittering generalities prime transfer — the combination is more potent than the sum
-- apply the IPA/SEMEVAL taxonomy consistently before adding idiosyncratic labels — interoperability across analysts requires shared vocabulary
+- apply the IPA and extended-taxonomy labels consistently before adding idiosyncratic labels — interoperability across analysts requires shared vocabulary

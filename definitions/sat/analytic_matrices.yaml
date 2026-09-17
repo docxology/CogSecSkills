@@ -56,7 +56,7 @@ outputs:
     gaps exist, where conflicts occur, and what the overall pattern implies for the
     analytic question'
 references:
-- Heuer, R. J., & Pherson, R. H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). CQ Press. Chapter on Matrices.
 - Pherson, R. H. (2018). Handbook of Analytic Tools and Techniques (5th ed.). Pherson
   Associates.
@@ -173,12 +173,12 @@ uncertainty_handling:
 - State what Analytic Matrices cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analytic
+  Matrices should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Analytic Matrices, use only authorized analytic question, variables or hypotheses,
-  and evidence or criteria, public or source-approved records, and caller-provided
-  context needed for the defensive task.
+  evidence or criteria, public or source-approved records, and caller-provided context
+  needed for the defensive task.
 - For Analytic Matrices, minimize person-level detail in the analytic matrix; prefer
   aggregate, artifact-level, role-level, or case-level summaries unless an individual
   is essential to the defensive question.

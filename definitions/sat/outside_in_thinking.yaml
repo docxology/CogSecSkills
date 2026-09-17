@@ -52,7 +52,7 @@ outputs:
     with macro forces explicitly linked to hypotheses, (4) key assumptions exposed
     by the outside-in frame'
 references:
-- 'Pherson, R. H., & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- 'Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter: Outside-In Thinking.'
 - Pherson, K. H., & Pherson, R. H. (2020). Critical Thinking for Strategic Intelligence
   (3rd ed.). SAGE/CQ Press.
@@ -159,12 +159,12 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Outside-In
+  Thinking should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Outside-In Thinking, use only authorized focal issue, prior assessments, and
-  environmental scan, public or source-approved records, and caller-provided context
-  needed for the defensive task.
+- For Outside-In Thinking, use only authorized focal issue, prior assessments, environmental
+  scan, public or source-approved records, and caller-provided context needed for
+  the defensive task.
 - For Outside-In Thinking, minimize person-level detail in the outside in analysis;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
   individual is essential to the defensive question.

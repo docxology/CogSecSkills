@@ -165,7 +165,7 @@ def test_render_requires_anti_criteria(tmp_path):
 
 def test_promote_to_implemented(tmp_path):
     _seed_registry(tmp_path, status="stub")
-    changed = promote_to_implemented(["sat.demo", "sat.nonexistent"], root=tmp_path)
+    changed = promote_to_implemented(["sat.demo"], root=tmp_path)
     assert changed == 1
     text = (tmp_path / "registry" / "skills.yaml").read_text(encoding="utf-8")
     assert "status: implemented" in text

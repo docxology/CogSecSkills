@@ -43,11 +43,11 @@ If a request asks Belief Attack-Surface Mapping to increase persuasive impact, e
 - Low for Belief Attack-Surface Mapping: the belief attack surface map rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Belief Attack-Surface Mapping cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Belief Attack-Surface Mapping should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
 
-- For Belief Attack-Surface Mapping, use only authorized audience profile, belief inventory, and adversary playbook, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Belief Attack-Surface Mapping, use only authorized audience profile, belief inventory, adversary playbook, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Belief Attack-Surface Mapping, minimize person-level detail in the belief attack surface map; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Belief Attack-Surface Mapping, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

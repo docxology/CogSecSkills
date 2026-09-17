@@ -61,10 +61,12 @@ what_it_produces:
 - hypotheses ordered by inconsistency score, least-disconfirmed first
 - future observations that would shift the ranking
 key_discipline:
-- '**Diagnosticity over weight of evidence.** Evidence consistent with *every*'
+- '**Diagnosticity over weight of evidence.** Evidence consistent with *every* hypothesis
+  has little diagnostic value; the analysis lives in rows that discriminate.'
 - '**Disconfirm, don''t confirm.** Rank by inconsistency, not consistency.'
-- '**Absence of evidence is evidence.** A missing observation a hypothesis'
-- '**Sensitivity check.** Identify which one or two items, if wrong, flip the'
+- '**Absence of evidence is evidence.** A missing observation a hypothesis predicts
+  should be present counts against that hypothesis.'
+- '**Sensitivity check.** Identify which one or two items, if wrong, flip the ranking.'
 workflow_steps:
 - verbs:
   - reason
@@ -141,7 +143,8 @@ workflow_steps:
     \ the lead\n  hypothesis (link to `sat.indicators_generation`)."
 anti_criteria:
 - Ranking by weight of confirming evidence instead of by least inconsistency.
-- Dropping a hypothesis because it is unpopular rather than because evidence
+- Dropping a hypothesis because it is unpopular rather than because evidence disconfirms
+  it.
 - Treating non-diagnostic evidence as support.
 defensive_boundary: 'Use Analysis of Competing Hypotheses (ACH) only for structured
   analytic technique support: recognize, assess, document, or defend analytic rigor,
@@ -179,11 +182,11 @@ uncertainty_handling:
   or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Analysis
+  of Competing Hypotheses (ACH) should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Analysis of Competing Hypotheses (ACH), use only authorized question, hypotheses,
-  and evidence, public or source-approved records, and caller-provided context needed
+  evidence, public or source-approved records, and caller-provided context needed
   for the defensive task.
 - For Analysis of Competing Hypotheses (ACH), minimize person-level detail in the
   matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless

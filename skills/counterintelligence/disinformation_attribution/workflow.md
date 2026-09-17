@@ -28,10 +28,10 @@ Write the attribution assessment in structured form: (1) lead hypothesis with co
 - Low for Disinformation Attribution: the attribution matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Disinformation Attribution cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Disinformation Attribution should collect to separate the live alternatives.
 
 ## Privacy, legal, and harm constraints
-- For Disinformation Attribution, use only authorized campaign artifacts, candidate actors, and strategic context, public or source-approved records, and caller-provided context needed for the defensive task.
+- For Disinformation Attribution, use only authorized campaign artifacts, candidate actors, strategic context, public or source-approved records, and caller-provided context needed for the defensive task.
 - For Disinformation Attribution, minimize person-level detail in the attribution matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless an individual is essential to the defensive question.
 - For Disinformation Attribution, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 

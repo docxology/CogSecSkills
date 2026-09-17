@@ -219,11 +219,11 @@ uncertainty_handling:
   or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating cognitive_security evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Deepfake
+  & Synthetic Media Triage should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Deepfake & Synthetic Media Triage, use only authorized media artifact, claim
-  context, and available metadata, public or source-approved records, and caller-provided
+  context, available metadata, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Deepfake & Synthetic Media Triage, minimize person-level detail in the triage
   report; prefer aggregate, artifact-level, role-level, or case-level summaries unless

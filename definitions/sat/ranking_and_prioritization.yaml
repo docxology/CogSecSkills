@@ -60,7 +60,7 @@ outputs:
   description: identification of items whose rank would change most if key weights
     shifted; highlights where the ranking is fragile
 references:
-- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter on Ranking, Scoring, and Prioritizing.
 - Saaty, T. L. (1980). The Analytic Hierarchy Process. McGraw-Hill. (foundational
   pairwise-comparison method)
@@ -158,10 +158,10 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Ranking
+  & Prioritization should collect to separate the live alternatives.
 privacy_legal_constraints:
-- For Ranking & Prioritization, use only authorized item list, criteria, and decision
+- For Ranking & Prioritization, use only authorized item list, criteria, decision
   context, public or source-approved records, and caller-provided context needed for
   the defensive task.
 - For Ranking & Prioritization, minimize person-level detail in the scoring matrix;

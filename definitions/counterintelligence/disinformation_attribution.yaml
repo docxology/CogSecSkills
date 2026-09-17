@@ -62,7 +62,7 @@ outputs:
   description: Prioritized list of evidence that would most improve attribution confidence
     or rule out leading alternatives
 references:
-- Heuer, R.J. & Pherson, R.H. (2015). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis, 2nd ed. CQ Press. (Analysis of Competing Hypotheses, Chapter 7).
 - 'EU DisinfoLab (2019). Indian Chronicles: Deep Dive into a 15-year Operation Targeting
   the EU and UN. Brussels.'
@@ -192,11 +192,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating counterintelligence evidence to collect when confidence
-  is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Disinformation
+  Attribution should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Disinformation Attribution, use only authorized campaign artifacts, candidate
-  actors, and strategic context, public or source-approved records, and caller-provided
+  actors, strategic context, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Disinformation Attribution, minimize person-level detail in the attribution
   matrix; prefer aggregate, artifact-level, role-level, or case-level summaries unless

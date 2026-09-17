@@ -23,7 +23,7 @@ Example ``cogsecskills.yaml``::
 
 Adding a harness here makes ``scaffold``/``author`` generate an adapter for it and
 ``validate`` require one — no code change needed. An unknown harness is assumed to
-support the full closed verb vocabulary (see :mod:`cogsecskills.harness`).
+support the full closed verb vocabulary (see :mod:`cogsecskills.core.harness`).
 """
 
 from __future__ import annotations
@@ -73,7 +73,10 @@ def load_config(root: Path | None = None) -> Config:
     path = config_path(root)
     if not path.is_file():
         return Config.defaults()
-    raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    try:
+        raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    except yaml.YAMLError as exc:
+        raise ValueError(f"{path}: invalid YAML: {exc}") from exc
     if not isinstance(raw, dict):
         raise ValueError(f"{path}: expected a top-level mapping")
 

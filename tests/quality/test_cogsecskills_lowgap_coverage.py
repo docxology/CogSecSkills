@@ -1,7 +1,8 @@
-"""Coverage tests for remaining low-gap modules.
+"""Behavioral edge cases across dashboard, figures, rows, tables, and evals.
 
-dashboard.py (98.64%), figures.py (98.35%), rows.py (98.29%),
-tables.py (99.05%), evals.py (99.27%).
+Covers: group-title fallback for unknown groups, LaTeX escaping of backslashes,
+evals drift findings when the generated JSON is missing, verified-state parsing
+of TODO.md, and DOI-driven cover installation.
 """
 
 from __future__ import annotations
@@ -15,7 +16,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def test_rows_group_title_fallback():
-    """rows.py line 123: _group_title with group_id not in rows."""
+    """An unknown group id falls back to the raw id as its title."""
     from cogsecskills.artifacts.manuscript_assets.rows import SkillRow, _group_title
 
     rows = [
@@ -46,7 +47,7 @@ def test_rows_group_title_fallback():
 
 
 def test_tables_latex_escape_backslash():
-    """tables.py line 55: _latex_escape with backslash."""
+    """Backslashes are escaped for LaTeX and blank lines become newlines."""
     from cogsecskills.artifacts.manuscript_assets.tables import (
         _latex_escape,
         _latex_lines,
@@ -60,7 +61,7 @@ def test_tables_latex_escape_backslash():
 
 
 def test_evals_check_missing_generated_json(tmp_path):
-    """evals.py lines 386-387: check_evals missing generated JSON file."""
+    """A missing generated evaluation file is reported as drift."""
     from cogsecskills.artifacts.evals import EVALS_JSON_PATH, check_evals, write_evals
 
     for d in ("registry", "skills", "scenarios"):
@@ -83,7 +84,7 @@ def test_evals_check_missing_generated_json(tmp_path):
 
 
 def test_dashboard_verified_state_absent(tmp_path):
-    """dashboard.py line 60->68: _verified_state with no TODO file."""
+    """No TODO.md means no verified-state bullets."""
     from cogsecskills.artifacts.dashboard import _verified_state
 
     result = _verified_state(tmp_path)
@@ -91,7 +92,7 @@ def test_dashboard_verified_state_absent(tmp_path):
 
 
 def test_dashboard_verified_state_present(tmp_path):
-    """dashboard.py: _verified_state with a present Verified State section and non-bullet lines."""
+    """Only bullet lines under the Verified State section become bullets."""
     from cogsecskills.artifacts.dashboard import _verified_state
 
     (tmp_path / "TODO.md").write_text(
@@ -106,7 +107,7 @@ def test_dashboard_verified_state_present(tmp_path):
 
 
 def test_figures_publication_doi_present(tmp_path):
-    """figures.py line 1444->1455: cover DOI truthy branch."""
+    """A DOI configured in the manuscript config is used for cover installation."""
     from cogsecskills.artifacts.manuscript_assets.figures import _publication_doi
     from cogsecskills.artifacts.manuscript_assets.figure_cover import (
         _write_cover_installation,

@@ -72,7 +72,7 @@ harness:
   codex: harness/codex.md
   hermes: harness/hermes.md
 references:
-- Pherson, R. H. & Heuer, R. J. (2020). Structured Analytic Techniques for Intelligence
+- Heuer, R. J., & Pherson, R. H. (2020). Structured Analytic Techniques for Intelligence
   Analysis (3rd ed.). SAGE/CQ Press. Chapter on Red Hat Analysis.
 - Heuer, R. J. (1999). Psychology of Intelligence Analysis. Center for the Study of
   Intelligence, CIA. Chapter 2 (Perception; mirror imaging).
@@ -111,11 +111,11 @@ uncertainty_handling:
 - State what Red Hat Analysis cannot determine from the supplied or authorized evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating sat evidence to collect when confidence is low
-  or medium.
+- When confidence is not high, name the next discriminating piece of evidence Red
+  Hat Analysis should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Red Hat Analysis, use only authorized adversary profile, situation context,
-  and analytic question, public or source-approved records, and caller-provided context
+  analytic question, public or source-approved records, and caller-provided context
   needed for the defensive task.
 - For Red Hat Analysis, minimize person-level detail in the adversary frame; prefer
   aggregate, artifact-level, role-level, or case-level summaries unless an individual

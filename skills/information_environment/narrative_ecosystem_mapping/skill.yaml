@@ -113,11 +113,11 @@ uncertainty_handling:
   evidence.
 - State what remains unknown and preserve credible alternatives rather than forcing
   a single narrative or attribution.
-- Recommend the next discriminating information_environment evidence to collect when
-  confidence is low or medium.
+- When confidence is not high, name the next discriminating piece of evidence Narrative
+  Ecosystem Mapping should collect to separate the live alternatives.
 privacy_legal_constraints:
 - For Narrative Ecosystem Mapping, use only authorized information space definition,
-  content sample, and known actors, public or source-approved records, and caller-provided
+  content sample, known actors, public or source-approved records, and caller-provided
   context needed for the defensive task.
 - For Narrative Ecosystem Mapping, minimize person-level detail in the narrative inventory;
   prefer aggregate, artifact-level, role-level, or case-level summaries unless an
