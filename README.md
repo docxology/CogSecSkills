@@ -37,18 +37,24 @@ The full command reference is in [Usage](#usage); harness details are in
   [HTML](output/web/index.html). The manuscript's
   [release manifest](docs/manuscript/S02_release_manifest.md) records its version,
   environment, and local gate results. The sources are v1.8.0 dated 2026-10-01.
+  [Local acceptance](docs/release-1.8.0-acceptance.md) and the
+  [publication receipt](docs/release-1.8.0-publication.md) record the rendered
+  artifacts, exact release source, hosted CI, and archive verification.
   [The prior v1.7.0 review](docs/review-2026-10-01.md) preserves its own evidence
   and limits; use each release's receipt for later artifact identities.
 - **Software archive:** concept DOI
   [10.5281/zenodo.21513316](https://doi.org/10.5281/zenodo.21513316).
+  Published **v1.8.0** has version DOI
+  [10.5281/zenodo.23090954](https://doi.org/10.5281/zenodo.23090954) and a
+  [GitHub release](https://github.com/docxology/CogSecSkills/releases/tag/v1.8.0)
+  with the verified manuscript, web bundle, source archive, and distributions.
   The separate historical v1.0.0 manuscript archive has concept
   [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585), version
   [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586).
-  Citation metadata is in [`CITATION.cff`](CITATION.cff). The v1.8.0 release
-  candidate was prepared on 2026-10-01 with the software concept DOI.
-  Consult [GitHub releases](https://github.com/docxology/CogSecSkills/releases)
-  and citation metadata for the verified published version identity. Local
-  source gates do not verify archive resolution or source/version identity.
+  Citation metadata is in [`CITATION.cff`](CITATION.cff). The tag and retained
+  manuscript carry the software concept DOI; the version DOI was assigned
+  after publication and is recorded by a separate citation follow-up on main.
+  Local source gates and live archive verification remain separate evidence.
 - **New here?** [`QUICKSTART.md`](QUICKSTART.md) · **Docs map:**
   [`docs/README.md`](docs/README.md)
 
@@ -251,7 +257,9 @@ runs against the real `skills/` tree: adding a malformed skill, or an
   runner, tests, generated manuscript supplements, and figures that describe
   those source surfaces.
 - Software release chain: concept DOI
-  [10.5281/zenodo.21513316](https://doi.org/10.5281/zenodo.21513316). The existing
+  [10.5281/zenodo.21513316](https://doi.org/10.5281/zenodo.21513316).
+  [v1.8.0](https://zenodo.org/records/23090954) archives the immutable release
+  source; all 941 file payloads match its Git commit. The earlier
   [software record](https://zenodo.org/records/21520558) contains a source ZIP
   linked to the GitHub v1.7.0 tree, although its metadata says `1.0.0`.
 - Historical manuscript archive: **v1.0.0** on Zenodo — concept DOI

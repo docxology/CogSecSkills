@@ -2,8 +2,8 @@
 project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
-phase: release publication
-progress: 100/100 implemented skills; v1.8.0 — 1248 tests, 99.65% total coverage with branch measurement enabled; local gates and 71-page PDF/100-row HTML verified; hosted CI, GitHub assets, and Zenodo version acceptance pending
+phase: complete
+progress: 100/100 implemented skills; v1.8.0 — 1248 local tests, 99.65% total coverage with branch measurement enabled; 71-page PDF/100-row HTML; all five hosted CI jobs and six GitHub assets verified; Zenodo 23090954 published with 941/941 source files equal to immutable tag
 mode: algorithm
 started: 2026-06-18
 updated: 2026-10-01
@@ -219,7 +219,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17 (v1.8.0, 2026-10-01): `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `Total coverage: 99.65%` with branch measurement enabled on Python 3.14.4/macOS. Current 3.10–3.14 hosted matrix acceptance remains pending.
+- ISC-6/7/17 (v1.8.0, 2026-10-01): `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `Total coverage: 99.65%` with branch measurement enabled on Python 3.14.4/macOS. All five Python 3.10–3.14 hosted jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786` ([run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817)).
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
@@ -262,3 +262,15 @@ synchronized manuscript supplements and figures from the live library metadata.
   The current software concept is `10.5281/zenodo.21513316`; the old
   `20804585`/`20804586` manuscript archive remains historical. Existing software
   record `21520558` links to the v1.7.0 tree while its metadata says `1.0.0`.
+
+- 2026-10-01 v1.8.0 publication: [GitHub release](https://github.com/docxology/CogSecSkills/releases/tag/v1.8.0)
+  targets `38f4b8e17c97d18a69a906f4a895a7cbb730e786`; annotated tag object
+  `89f78cf3384cc96b3b8db2564dda466a9a5dd45c` remains immutable. All five
+  hosted CI jobs passed; all six downloaded release assets matched verified
+  local bytes and checksums. [Zenodo record 23090954](https://zenodo.org/records/23090954)
+  is published as v1.8.0 under software concept `21513316`, version DOI
+  `10.5281/zenodo.23090954`. Independent comparison matched all 941 archived
+  files (19,833,777 source bytes) exactly to the tagged Git blobs. The
+  [publication receipt](docs/release-1.8.0-publication.md) separates this source
+  identity from the subsequent main-branch citation/ledger update; retained
+  manuscript and released wheel bytes are preserved.

@@ -30,9 +30,10 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 - Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.
 - Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.
 - Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.
-- Python legs: CI remains configured for 3.10–3.14; this review verified Python 3.14.4 locally. The full current matrix and hosted checks are deferred to the eventual published revision.
+- Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).
 - Manuscript: the v1.8.0 71-page local PDF and HTML retain all 100 catalogue rows; root/output PDFs have identical hashes. Receipt: [`docs/release-1.8.0-acceptance.md`](docs/release-1.8.0-acceptance.md).
 - Independent review: artifact and runtime custody repros pass after repair; historical review details and limits remain in [`docs/review-2026-10-01.md`](docs/review-2026-10-01.md); current release acceptance is recorded separately.
+- Publication: [GitHub v1.8.0](https://github.com/docxology/CogSecSkills/releases/tag/v1.8.0) has six verified assets; [Zenodo version DOI `10.5281/zenodo.23090954`](https://doi.org/10.5281/zenodo.23090954) is published under software concept `10.5281/zenodo.21513316`. Independent full-inventory comparison matched all 941 archived files to the immutable tag.
 
 ## Evidence Ladder
 

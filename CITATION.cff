@@ -23,6 +23,9 @@ identifiers:
     value: 10.5281/zenodo.21513316
     description: Software concept DOI (all archived software versions)
   - type: doi
+    value: 10.5281/zenodo.23090954
+    description: Published software version DOI (v1.8.0; GitHub tag v1.8.0)
+  - type: doi
     value: 10.5281/zenodo.20804586
     description: Historical manuscript archive DOI (v1.0.0)
 keywords:

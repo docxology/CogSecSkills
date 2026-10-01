@@ -6,9 +6,10 @@ work.
 
 ## Verified State (v1.8.0, re-measured 2026-10-01)
 
-The v1.8.0 local release candidate and rendered artifacts pass the checks
-below. Hosted CI, GitHub asset publication, and Zenodo version acceptance are
-separate verification steps. The prior v1.7.0 review remains historical.
+The v1.8.0 local checks, rendered artifacts, hosted CI, GitHub release assets,
+and Zenodo source archive are verified separately below. The prior v1.7.0
+review remains historical; publication identity is recorded in
+[`docs/release-1.8.0-publication.md`](docs/release-1.8.0-publication.md).
 
 - Library gate: `validate` -> `0 error(s), 0 warning(s)`.
 - Quality gate: `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
@@ -23,9 +24,10 @@ separate verification steps. The prior v1.7.0 review remains historical.
 - Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.
 - Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.
 - Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.
-- Python legs: CI remains configured for 3.10–3.14; this review verified Python 3.14.4 locally. The full current matrix and hosted checks are deferred to the eventual published revision.
+- Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).
 - Manuscript: the v1.8.0 71-page local PDF and HTML retain all 100 catalogue rows; root/output PDFs have identical hashes. Receipt: [`docs/release-1.8.0-acceptance.md`](docs/release-1.8.0-acceptance.md).
 - Independent review: artifact and runtime custody repros pass after repair; historical review details and limits remain in [`docs/review-2026-10-01.md`](docs/review-2026-10-01.md); current release acceptance is recorded separately.
+- Publication: [GitHub v1.8.0](https://github.com/docxology/CogSecSkills/releases/tag/v1.8.0) has six verified assets; [Zenodo version DOI `10.5281/zenodo.23090954`](https://doi.org/10.5281/zenodo.23090954) is published under software concept `10.5281/zenodo.21513316`. Independent full-inventory comparison matched all 941 archived files to the immutable tag.
 
 ## Ongoing Guardrails
 
@@ -177,15 +179,13 @@ separate verification steps. The prior v1.7.0 review remains historical.
   wrapping the platform `hum-search` process contract, declared via
   `runtime_eval.harness_commands`-style config rather than direct provider SDKs.
 
-## Major: External Publication / DOI
+## Major: Publication Maintenance
 
-- Publish the authorized v1.8.0 GitHub release with verified public assets and
-  source identity; follow `docs/release-checklist.md`.
-- Verify the resulting Zenodo version record under concept
-  `10.5281/zenodo.21513316`, its version/source identity, and attached files.
-  Record an actual new version DOI in citation/manuscript metadata only after
-  verifying its reservation or publication status; see
-  `docs/cross-repo-scoping.md` §3.
+- For future releases, repeat source/render/package gates, the hosted matrix,
+  asset checksum checks, and full archive/source comparison; follow
+  `docs/release-checklist.md` and `docs/cross-repo-scoping.md` §3.
+- Preserve immutable published tags. Keep post-publication citation and ledger
+  updates separate from the deposited source and released wheel metadata.
 - Preserve the separate historical v1.0.0 manuscript archive and explicitly
   distinguish the existing software record's v1.7.0 source link from its stale
   `1.0.0` version metadata.
