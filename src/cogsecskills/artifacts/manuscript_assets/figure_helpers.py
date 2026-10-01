@@ -8,9 +8,12 @@ the functions so importing this module remains cheap.
 from __future__ import annotations
 
 import textwrap
+from collections.abc import Mapping
 from pathlib import Path
 
+from cogsecskills.artifacts.doi_metadata import normalize_doi
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.yaml_io import read_yaml
 
 from .figure_theme import (
     AXIS_LABEL_SIZE,
@@ -184,20 +187,23 @@ def _light_for(group_id: str) -> str:
 
 
 def _publication_doi(root: Path | None = None) -> str:
-    """Return ``publication.doi`` from the manuscript config, or "" if unset.
+    """Return the declared concept DOI from the canonical manuscript config.
 
-    The cover figure surfaces the archived DOI once a release reserves it; until
-    then the field is empty and the cover simply omits the DOI line.
+    This surfaces source metadata without verifying archive availability or a
+    deposit of the current source version. Missing or malformed metadata omits
+    the line rather than fabricating a declaration.
     """
-    import yaml
-
-    config_path = resolve_root(root) / "manuscript" / "config.yaml"
+    config_path = resolve_root(root) / "docs" / "manuscript" / "config.yaml"
     try:
-        data = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
-    except (OSError, yaml.YAMLError):
+        data = read_yaml(config_path)
+    except ValueError:
         return ""
-    publication = data.get("publication") or {}
-    return str(publication.get("doi") or "").strip()
+    if not isinstance(data, Mapping):
+        return ""
+    publication = data.get("publication")
+    if not isinstance(publication, Mapping):
+        return ""
+    return normalize_doi(publication.get("doi"))
 
 
 def _group_short(group_id: str) -> str:

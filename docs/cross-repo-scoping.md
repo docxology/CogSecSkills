@@ -1,37 +1,35 @@
 # Cross-Repo Scoping
 
-Work that completes CogSecSkills' major-lane goals but belongs partly or
-wholly in sibling repositories, with the prerequisites each item needs before
-it can be executed. Nothing here is claimed as done; each section states the
-boundary that currently blocks it.
+Workflows that use sibling repositories or authenticated publication services,
+with their source, ownership, and verification boundaries. The v1.7.0 local
+manuscript refresh was verified on 2026-10-01; v1.8.0 publication preparation
+uses these same workflows and records new acceptance separately.
 
-## 1. Manuscript PDF re-render — docxology template repo
+## 1. Manuscript PDF refresh — template rendering dependency
 
-The root `CogSecSkills.pdf` renders the v1.0.0-era manuscript (last
-PDF-touching commit `79da8bd`, 2026-06-22) while the library is at 1.7.0+ and
-every generated supplement (`S10`, `S11`, figures, dashboard, release matrix)
-is current per the `manuscript-assets`/`dashboard`/`release-metadata` `--check`
-gates. The render pipeline lives in the **sibling docxology template**
-checkout (`../template` relative to this repo), not here.
+Manuscript sources live in this repository's `docs/manuscript/`. The renderer
+lives in the sibling docxology template checkout (`../template`); its public
+`RenderManager` combined PDF/HTML APIs accept explicit source and output paths.
+A checkout or symlink under template/projects/ is unnecessary.
 
-Steps once a template working copy is authorized:
+Use [`manuscript/05_reproducibility.md`](manuscript/05_reproducibility.md) for the
+current portable invocation. Validate Markdown and citation/source contracts,
+render with the already installed template environment and XeLaTeX, inspect the
+PDF text and render log, then refresh the root `CogSecSkills.pdf` from a verified
+combined PDF. Preserve the previous PDF and record the source identity and
+artifact hashes. `manuscript-assets --check` remains the generated source gate;
+it does not verify a rendered PDF's freshness.
 
-1. Provide the project working copy the template expects:
-   `../template/projects/working/CogSecSkills` (a checkout or symlink of this
-   repo — the render pipeline resolves the project from there).
-2. Markdown validation from the template checkout:
-   `uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/`
-3. PDF render: `uv run python scripts/03_render_pdf.py --project working/CogSecSkills`
-   (XeLaTeX required; the cover image resolves from `docs/manuscript/` and is
-   mirrored to top-level `figures/` by `manuscript-assets --write`).
-4. Copy the rendered PDF to this repo's root `CogSecSkills.pdf`, regenerate
-   `output/pdf/` artifacts, and run this repo's full gate sweep
-   (`manuscript-assets --check` must stay current).
+The template checkout supplies imports and dependencies; configured build
+outputs stay in this repository or a staging directory. Updating or installing
+the template itself is separate scope. Acceptance: the PDF regenerates cleanly,
+all declared figures resolve, citations have no unresolved markers, and
+`S02_release_manifest.md` identifies the exact local gates supporting the source
+snapshot. A refreshed local PDF is not a new archive deposit.
 
-Boundary: steps 1–3 write inside the template checkout (dependency install,
-LaTeX build artifacts). Requires the owner's go-ahead to touch that repo, plus
-XeLaTeX locally. Acceptance: PDF regenerates cleanly and `S02_release_manifest`
-reflects the 1.7.x library numbers.
+The completed local v1.7.0 render and its hashes are recorded in
+[`review-2026-10-01.md`](review-2026-10-01.md). A new source version requires
+a new staged render and receipt; preserve the prior artifacts for rollback.
 
 ## 2. Live connector integrations — this repo + hum-search
 
@@ -51,9 +49,10 @@ Prerequisites before any connector is described as supported:
    retention, and the defensive-only boundary applied to query construction.
 3. **Source custody + rate limits** — per-provider limits, retry/backoff, and
    where evidence provenance (URL, retrieval date) is recorded.
-4. **Tests without network** — connector behavior behind an injectable fetch
-   callable (the pattern `hum-docxology` discovery uses), so CI stays
-   deterministic; live calls stay opt-in like `eval-live`.
+4. **Tests without external network** — exercise real local fixture servers
+   or executable processes with deterministic response/failure cases, following
+   this repository's no-mock rule. Live provider calls stay opt-in like
+   `eval-live`.
 5. **Boundary documentation** — update `docs/connector-boundaries.md` and the
    skill `harness/*.md` adapters for any new verb surface before claiming
    support.
@@ -62,30 +61,49 @@ The `runtime_eval.harness_commands` config pattern (see
 [`live-eval.md`](live-eval.md)) is the intended seam: connector-backed
 harnesses would be declared as command templates, not code.
 
-## 3. Zenodo deposit / version DOI — owner action
+## 3. GitHub / Zenodo publication — authorized account workflow
 
-`CITATION.cff` currently cites the v1.0.0 version DOI
-(`10.5281/zenodo.20804586`) while `codemeta.json` carries the concept DOI
-only; `.zenodo.json` now says version `1.7.0` for the next deposit. When the
-owner deposits a new version on Zenodo:
+The current software concept is `10.5281/zenodo.21513316`, recorded in
+`CITATION.cff`, `codemeta.json`, and manuscript configuration. The separate
+v1.0.0 manuscript archive has concept `10.5281/zenodo.20804585` and version
+`10.5281/zenodo.20804586`; preserve that history without using it as the
+current software release chain.
 
-1. Record the new version DOI in `CITATION.cff` (identifier list) and
-   `codemeta.json` (`identifier`), keeping the concept DOI
-   `10.5281/zenodo.20804585` as the always-latest pointer.
-2. Update the version-DOI description (currently "Version DOI (v1.0.0)") and
-   `codemeta.json` `dateModified`.
-3. Refresh README badge/DOI prose if the concept-DOI framing changes.
-4. Re-run `release-metadata --check` and update `docs/release-claim-matrix.md`
-   if the public-archive claim flips from unavailable to present.
+The existing software record
+[`21520558`](https://zenodo.org/records/21520558) contains a source ZIP linked
+to the GitHub v1.7.0 tree, while its metadata says version `1.0.0`. This
+mismatch must remain explicit. The corrected `.zenodo.json` declares v1.8.0
+for the next software deposit.
 
-This cannot be executed from the repo — it requires the owner's Zenodo
-account and a release publication decision.
+Publication can run through the authenticated GitHub account and its enabled
+Zenodo integration, or an explicitly authorized Zenodo account workflow. The
+repository supplies metadata and public assets; account authorization and live
+service verification are separate requirements. The v1.8.0 candidate was
+prepared on 2026-10-01 under publication authorization; consult its release
+receipt for final assets and live archive acceptance.
+
+1. Complete [`release-checklist.md`](release-checklist.md), publish the verified
+   source tag and public release assets, and compare the remote tag/commit and
+   asset bytes against the local receipt.
+2. Inspect the resulting Zenodo record. Confirm software concept, exact
+   version, related source/tag URL, archive files, checksums, and published
+   state. A successful GitHub release does not establish Zenodo acceptance.
+3. Record only an actual assigned version DOI and its verified status in
+   citation/manuscript metadata. Keep the software concept as the stable
+   all-version identifier and retain the historical manuscript identifier.
+   If the integration assigns the DOI after the tag is published, record it in
+   a follow-up commit; preserve the published tag's source identity.
+4. Regenerate with `release-metadata --write`, then run
+   `release-metadata --check`. The generated matrix records DOI declarations;
+   verify the external record and its version/source identity separately.
+5. Refresh public archive prose and render any manuscript metadata changes
+   using the same verified process. Record whether a deposited artifact belongs
+   to the release tag or a subsequent citation update.
 
 ## 4. Small residuals (any repo, next release PR)
 
-- `codemeta.json`: add the author email from `pyproject.toml`
-  (`daniel@activeinference.institute`) and bump `dateModified` at release
-  time.
-- `hum-docxology` manuscript collector consumes this repo's `manuscript/`
+- Keep the CodeMeta author identity and modification date synchronized with
+  the source-owned release metadata.
+- `hum-docxology` manuscript collector consumes this repo's `docs/manuscript/`
   publication source; after any `docs/manuscript/` structural change, its
   collector view should be re-synced (see its `AGENTS.md` cross-refs).

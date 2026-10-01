@@ -13,8 +13,8 @@ description: Calibrated Estimation is a disciplined probability-elicitation tech
   training, the technique combats overconfidence and inside-view bias by requiring
   analysts to compare the current case against a reference class of similar past cases
   before applying case-specific adjustments. The output is an estimate accompanied
-  by a reference class, a stated confidence interval, and the reasoning behind any
-  adjustments from the base rate.
+  by a reference class, an explicit uncertainty statement appropriate to the forecast
+  type, and the reasoning behind adjustments from the base rate.
 ageint_topic: research-methods
 tags:
 - cognitive-security
@@ -37,7 +37,7 @@ tools:
   purpose: select the reference class, derive the base rate, and apply inside-view
     adjustments with explicit logic
 - verb: write
-  purpose: emit the calibrated estimate with reference class, confidence interval,
+  purpose: emit the calibrated estimate with reference class, uncertainty statement,
     and adjustment rationale
 inputs:
 - name: question
@@ -58,7 +58,7 @@ outputs:
 - name: calibrated_estimate
   type: markdown
   description: probability estimate with reference class, base rate, adjustment narrative,
-    80% confidence interval, and resolution criteria
+    forecast-type-specific uncertainty statement, scoring plan, and resolution criteria
 workflow: workflow.md
 harness:
   claude: harness/claude.md
@@ -73,6 +73,8 @@ references:
   European Planning Studies, 16(1), 3-21.
 - Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis (2nd ed.). CQ Press.
+- Good Judgment Open. Frequently Asked Questions, forecasting accuracy and scoring.
+  https://www.gjopen.com/faq
 defensive_boundary: 'Use Calibrated Estimation only for research-methods and synthesis
   integrity: recognize, assess, document, or defend reproducibility, calibrated confidence,
   and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate
@@ -93,9 +95,9 @@ evidence_requirements:
 confidence_rubric:
 - 'High for Calibrated Estimation: the probability estimate is anchored in an explicitly
   chosen reference class with a documented base rate, the inside-view adjustments
-  are modest and individually justified, the stated 80% confidence interval is consistent
-  with the analyst''s historical calibration record, and the resolution criteria are
-  specific enough that the forecast can later be scored.'
+  are justified, the uncertainty method matches the forecast type, a documented history
+  of comparable resolved forecasts supports the calibration claim, and the resolution
+  criteria and scoring convention are explicit.'
 - 'Medium for Calibrated Estimation: the calibrated estimate is plausible, but one
   important question source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source,
@@ -119,6 +121,9 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
+- 'Calibrated Estimation: scoring a probability interval against a binary outcome,
+  confusing confidence with event probability, or calling a single untested estimate
+  calibrated without a recorded history of resolved forecasts.'
 - 'Calibrated Estimation: skipping the reference class and reasoning only from inside-view
   case features, anchoring on a single source''s number, stating vague verbal probabilities
   instead of a numeric estimate, or omitting resolution criteria, so the forecast

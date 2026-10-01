@@ -264,6 +264,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Defensive task boundary | Defensive use only: apply Analysis of Competing Hypotheses (ACH) to authorized materials and keep the output bounded to matrix, ranking, indicators. Do not treat this local fixture as a live model run or field validation. |
 | Evidence and inference | Evidence: cite the supplied question, hypotheses, evidence before each matrix, ranking, indicators claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for matrix, ranking, indicators. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
+| Synthetic collection-gap check | Synthetic evidence: an authorized service has two plausible hypotheses, scheduled maintenance and unexpected failure. A missing error record is not disconfirmation when the error collector was offline. Mark that cell unknown, preserve the collection gap in the matrix, keep the ranking provisional, and list restoration of authorized observation as an indicator check. Do not invent a third explanation or count the absent record as an inconsistency. |
 
 **Provenance:** reviewed local fixture.
 
@@ -1200,6 +1201,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Defensive task boundary | Defensive use only: apply Calibrated Estimation to authorized materials and keep the output bounded to calibrated_estimate. Do not treat this local fixture as a live model run or field validation. |
 | Evidence and inference | Evidence: cite the supplied question, evidence, prior_estimate before each calibrated_estimate claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for calibrated_estimate. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
+| Synthetic event-scoring check | Synthetic evidence: 30 of 100 comparable resolved cases meet the stated event rule. With no justified adjustment, record probability 0.30 and mark the calibrated_estimate provisional. If the event later occurs, a declared one-event Brier convention gives (0.30 - 1)^2 = 0.49; the two-option convention gives 0.98. Log the convention and forecast before resolution. One outcome does not establish calibration, and an interval around probability 0.30 is not an outcome prediction interval to test against the binary result. |
 
 **Provenance:** reviewed local fixture.
 

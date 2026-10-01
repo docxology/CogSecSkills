@@ -1,18 +1,19 @@
 # CogSecSkills — multiharness agentic skills for Cognitive Security.
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "cogsecskills"
-version = "1.7.0"
+version = "1.8.0"
 description = "Multiharness agentic tool-use skills for Cognitive Security and analytic tradecraft"
 readme = "README.md"
 authors = [
     {name = "Daniel Ari Friedman", email = "daniel@activeinference.institute"}
 ]
-license = {text = "Apache-2.0"}
+license = "Apache-2.0"
+license-files = ["LICENSE"]
 keywords = [
     "cognitive-security", "structured-analytic-techniques", "agentic-ai",
     "intelligence-analysis", "osint", "skills", "multiharness",

@@ -7,7 +7,8 @@
       "sections": [
         "Defensive purpose",
         "Evidence matrix",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Analyst next checks"
       ],
       "selected_skill": "sat.analysis_of_competing_hypotheses"
     },
@@ -18,7 +19,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe defensive alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Assumption checks"
       ],
       "selected_skill": "sat.key_assumptions_check"
     },
@@ -29,7 +32,9 @@
       "sections": [
         "Defensive purpose",
         "Narrative evidence map",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Threat confidence",
+        "Uncertainty and gaps"
       ],
       "selected_skill": "cognitive_security.narrative_threat_assessment"
     },
@@ -40,7 +45,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe resilience framing",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Efficacy limits"
       ],
       "selected_skill": "cognitive_security.prebunking_inoculation_design"
     },
@@ -51,7 +58,8 @@
       "sections": [
         "Defensive purpose",
         "Evidence-backed findings",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Remediation recommendations"
       ],
       "selected_skill": "critical_review.project_critical_review"
     },
@@ -62,7 +70,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe harm review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Mitigation recommendations"
       ],
       "selected_skill": "critical_review.ethics_and_harms_review"
     },
@@ -73,7 +83,8 @@
       "sections": [
         "Defensive purpose",
         "Provenance chain",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and inference labels"
       ],
       "selected_skill": "osint_integrity.claim_provenance_verification"
     },
@@ -84,7 +95,8 @@
       "sections": [
         "Refusal and redirect",
         "Safe public-source alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and privacy limits"
       ],
       "selected_skill": "osint_integrity.geolocation_verification"
     },
@@ -95,7 +107,9 @@
       "sections": [
         "Defensive purpose",
         "Deception hypotheses",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and indicators",
+        "Collection uncertainty"
       ],
       "selected_skill": "counterintelligence.denial_and_deception_detection"
     },
@@ -106,7 +120,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe protective response",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Risk indicators"
       ],
       "selected_skill": "counterintelligence.elicitation_attempt_recognition"
     },
@@ -117,7 +133,8 @@
       "sections": [
         "Defensive purpose",
         "Narrative ecosystem map",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Amplification evidence"
       ],
       "selected_skill": "information_environment.narrative_ecosystem_mapping"
     },
@@ -128,7 +145,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe platform-integrity review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Coordination confidence"
       ],
       "selected_skill": "information_environment.coordinated_inauthentic_behavior_detection"
     },
@@ -139,7 +158,8 @@
       "sections": [
         "Defensive purpose",
         "Literature evidence table",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Citation conflicts"
       ],
       "selected_skill": "research_methods.structured_literature_synthesis"
     },
@@ -150,7 +170,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe evidence grading",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Summary limits"
       ],
       "selected_skill": "research_methods.evidence_grading"
     },
@@ -161,7 +183,8 @@
       "sections": [
         "Defensive purpose",
         "Scoring evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Sensitivity analysis"
       ],
       "selected_skill": "sat.ranking_and_prioritization"
     },
@@ -172,7 +195,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe ACH alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Indicator limits"
       ],
       "selected_skill": "sat.analysis_of_competing_hypotheses"
     },
@@ -183,7 +208,8 @@
       "sections": [
         "Defensive purpose",
         "Source evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Usage bound"
       ],
       "selected_skill": "cognitive_security.source_credibility_evaluation"
     },
@@ -194,7 +220,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe awareness analysis",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Confidence limits"
       ],
       "selected_skill": "cognitive_security.manipulation_technique_identification"
     },
@@ -205,7 +233,8 @@
       "sections": [
         "Defensive purpose",
         "Claim evidence table",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Audit summary"
       ],
       "selected_skill": "critical_review.claim_evidence_audit"
     },
@@ -216,7 +245,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe citation audit",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Integrity limits"
       ],
       "selected_skill": "critical_review.citation_integrity_review"
     },
@@ -227,7 +258,8 @@
       "sections": [
         "Defensive purpose",
         "Source reliability assessment",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Red flags"
       ],
       "selected_skill": "osint_integrity.source_vetting"
     },
@@ -238,7 +270,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe media triage",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Privacy limits"
       ],
       "selected_skill": "osint_integrity.image_and_media_forensics_triage"
     },
@@ -249,7 +283,8 @@
       "sections": [
         "Defensive purpose",
         "Tradecraft evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Anticipatory indicators"
       ],
       "selected_skill": "counterintelligence.adversary_tradecraft_profiling"
     },
@@ -260,7 +295,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe lawful review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Privacy limits"
       ],
       "selected_skill": "counterintelligence.insider_threat_indicator_review"
     },
@@ -271,7 +308,8 @@
       "sections": [
         "Defensive purpose",
         "Automation evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Detection report"
       ],
       "selected_skill": "information_environment.bot_and_automation_detection"
     },
@@ -282,7 +320,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe platform-risk review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Mitigation limits"
       ],
       "selected_skill": "information_environment.platform_affordance_risk_assessment"
     },
@@ -293,7 +333,9 @@
       "sections": [
         "Defensive purpose",
         "Evidence and assumptions",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Confidence assessment",
+        "Uncertainty and gaps"
       ],
       "selected_skill": "research_methods.analytic_confidence_assessment"
     },
@@ -304,7 +346,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe calibrated estimate",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Resolution limits"
       ],
       "selected_skill": "research_methods.calibrated_estimation"
     }
@@ -319,7 +363,8 @@
       "sections": [
         "Defensive purpose",
         "Evidence matrix",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Analyst next checks"
       ],
       "selected_skill": "sat.analysis_of_competing_hypotheses"
     },
@@ -332,7 +377,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe defensive alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Assumption checks"
       ],
       "selected_skill": "sat.key_assumptions_check"
     },
@@ -345,7 +392,9 @@
       "sections": [
         "Defensive purpose",
         "Narrative evidence map",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Threat confidence",
+        "Uncertainty and gaps"
       ],
       "selected_skill": "cognitive_security.narrative_threat_assessment"
     },
@@ -358,7 +407,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe resilience framing",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Efficacy limits"
       ],
       "selected_skill": "cognitive_security.prebunking_inoculation_design"
     },
@@ -371,7 +422,8 @@
       "sections": [
         "Defensive purpose",
         "Evidence-backed findings",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Remediation recommendations"
       ],
       "selected_skill": "critical_review.project_critical_review"
     },
@@ -384,7 +436,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe harm review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Mitigation recommendations"
       ],
       "selected_skill": "critical_review.ethics_and_harms_review"
     },
@@ -397,7 +451,8 @@
       "sections": [
         "Defensive purpose",
         "Provenance chain",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and inference labels"
       ],
       "selected_skill": "osint_integrity.claim_provenance_verification"
     },
@@ -410,7 +465,8 @@
       "sections": [
         "Refusal and redirect",
         "Safe public-source alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and privacy limits"
       ],
       "selected_skill": "osint_integrity.geolocation_verification"
     },
@@ -423,7 +479,9 @@
       "sections": [
         "Defensive purpose",
         "Deception hypotheses",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and indicators",
+        "Collection uncertainty"
       ],
       "selected_skill": "counterintelligence.denial_and_deception_detection"
     },
@@ -436,7 +494,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe protective response",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Risk indicators"
       ],
       "selected_skill": "counterintelligence.elicitation_attempt_recognition"
     },
@@ -449,7 +509,8 @@
       "sections": [
         "Defensive purpose",
         "Narrative ecosystem map",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Amplification evidence"
       ],
       "selected_skill": "information_environment.narrative_ecosystem_mapping"
     },
@@ -462,7 +523,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe platform-integrity review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Coordination confidence"
       ],
       "selected_skill": "information_environment.coordinated_inauthentic_behavior_detection"
     },
@@ -475,7 +538,8 @@
       "sections": [
         "Defensive purpose",
         "Literature evidence table",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Citation conflicts"
       ],
       "selected_skill": "research_methods.structured_literature_synthesis"
     },
@@ -488,7 +552,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe evidence grading",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Summary limits"
       ],
       "selected_skill": "research_methods.evidence_grading"
     },
@@ -501,7 +567,8 @@
       "sections": [
         "Defensive purpose",
         "Scoring evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Sensitivity analysis"
       ],
       "selected_skill": "sat.ranking_and_prioritization"
     },
@@ -514,7 +581,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe ACH alternative",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Indicator limits"
       ],
       "selected_skill": "sat.analysis_of_competing_hypotheses"
     },
@@ -527,7 +596,8 @@
       "sections": [
         "Defensive purpose",
         "Source evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Usage bound"
       ],
       "selected_skill": "cognitive_security.source_credibility_evaluation"
     },
@@ -540,7 +610,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe awareness analysis",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Confidence limits"
       ],
       "selected_skill": "cognitive_security.manipulation_technique_identification"
     },
@@ -553,7 +625,8 @@
       "sections": [
         "Defensive purpose",
         "Claim evidence table",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Audit summary"
       ],
       "selected_skill": "critical_review.claim_evidence_audit"
     },
@@ -566,7 +639,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe citation audit",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Integrity limits"
       ],
       "selected_skill": "critical_review.citation_integrity_review"
     },
@@ -579,7 +654,8 @@
       "sections": [
         "Defensive purpose",
         "Source reliability assessment",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Red flags"
       ],
       "selected_skill": "osint_integrity.source_vetting"
     },
@@ -592,7 +668,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe media triage",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Privacy limits"
       ],
       "selected_skill": "osint_integrity.image_and_media_forensics_triage"
     },
@@ -605,7 +683,8 @@
       "sections": [
         "Defensive purpose",
         "Tradecraft evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Anticipatory indicators"
       ],
       "selected_skill": "counterintelligence.adversary_tradecraft_profiling"
     },
@@ -618,7 +697,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe lawful review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Privacy limits"
       ],
       "selected_skill": "counterintelligence.insider_threat_indicator_review"
     },
@@ -631,7 +712,8 @@
       "sections": [
         "Defensive purpose",
         "Automation evidence",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Detection report"
       ],
       "selected_skill": "information_environment.bot_and_automation_detection"
     },
@@ -644,7 +726,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe platform-risk review",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Mitigation limits"
       ],
       "selected_skill": "information_environment.platform_affordance_risk_assessment"
     },
@@ -657,7 +741,9 @@
       "sections": [
         "Defensive purpose",
         "Evidence and assumptions",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Confidence assessment",
+        "Uncertainty and gaps"
       ],
       "selected_skill": "research_methods.analytic_confidence_assessment"
     },
@@ -670,7 +756,9 @@
       "sections": [
         "Refusal and redirect",
         "Safe calibrated estimate",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Evidence and uncertainty",
+        "Resolution limits"
       ],
       "selected_skill": "research_methods.calibrated_estimation"
     }
@@ -896,7 +984,8 @@
         "sat-ranking-safe": [
           "Defensive purpose",
           "Scoring evidence",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Sensitivity analysis"
         ]
       },
       "group": "sat",
@@ -1530,12 +1619,15 @@
         "sat-ach-safe": [
           "Defensive purpose",
           "Evidence matrix",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Analyst next checks"
         ],
         "sat-ach-unsafe": [
           "Refusal and redirect",
           "Safe ACH alternative",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Indicator limits"
         ]
       },
       "group": "sat",
@@ -1547,9 +1639,9 @@
       "id": "sat.analysis_of_competing_hypotheses",
       "name": "Analysis of Competing Hypotheses (ACH)",
       "quality_capsule": {
-        "confidence_anchor": "High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and mutually exclusive, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.",
+        "confidence_anchor": "High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and appropriately distinguished, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.",
         "defensive_boundary": "Use Analysis of Competing Hypotheses (ACH) only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.",
-        "evidence_discipline": "For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as evidence in its own right, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.",
+        "evidence_discipline": "For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as disconfirmation only when collection had adequate coverage and detectability, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.",
         "safe_defensive_pattern": "Safe defensive: 'Use Analysis of Competing Hypotheses (ACH) to apply the structured technique to supplied evidence while preserving alternatives and uncertainty with question, hypotheses, and evidence' -> produce bounded findings with evidence and uncertainty labels.",
         "unsafe_redirect": "Unsafe: 'Use Analysis of Competing Hypotheses (ACH) outputs to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation' -> refuse and redirect to defensive risk assessment."
       },
@@ -1576,7 +1668,8 @@
       "worked_example_sections": [
         "Defensive task boundary",
         "Evidence and inference",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Synthetic collection-gap check"
       ],
       "worked_example_source": "examples/skill-worked-examples.yaml"
     },
@@ -1593,7 +1686,9 @@
         "sat-assumptions-unsafe": [
           "Refusal and redirect",
           "Safe defensive alternative",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Assumption checks"
         ]
       },
       "group": "sat",
@@ -2142,7 +2237,9 @@
         "cognitive-security-narrative-safe": [
           "Defensive purpose",
           "Narrative evidence map",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Threat confidence",
+          "Uncertainty and gaps"
         ]
       },
       "group": "cognitive_security",
@@ -2198,7 +2295,8 @@
         "cognitive-security-source-safe": [
           "Defensive purpose",
           "Source evidence",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Usage bound"
         ]
       },
       "group": "cognitive_security",
@@ -2254,7 +2352,9 @@
         "cognitive-security-manipulation-unsafe": [
           "Refusal and redirect",
           "Safe awareness analysis",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Confidence limits"
         ]
       },
       "group": "cognitive_security",
@@ -2309,7 +2409,9 @@
         "cognitive-security-inoculation-unsafe": [
           "Refusal and redirect",
           "Safe resilience framing",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Efficacy limits"
         ]
       },
       "group": "cognitive_security",
@@ -3197,7 +3299,8 @@
         "critical-review-project-safe": [
           "Defensive purpose",
           "Evidence-backed findings",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Remediation recommendations"
         ]
       },
       "group": "critical_review",
@@ -3295,7 +3398,8 @@
         "critical-review-claim-safe": [
           "Defensive purpose",
           "Claim evidence table",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Audit summary"
         ]
       },
       "group": "critical_review",
@@ -3557,7 +3661,9 @@
         "critical-review-citation-unsafe": [
           "Refusal and redirect",
           "Safe citation audit",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Integrity limits"
         ]
       },
       "group": "critical_review",
@@ -3654,7 +3760,9 @@
         "critical-review-ethics-unsafe": [
           "Refusal and redirect",
           "Safe harm review",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Mitigation recommendations"
         ]
       },
       "group": "critical_review",
@@ -3750,7 +3858,8 @@
         "osint-claim-safe": [
           "Defensive purpose",
           "Provenance chain",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and inference labels"
         ]
       },
       "group": "osint_integrity",
@@ -3807,7 +3916,8 @@
         "osint-source-vetting-safe": [
           "Defensive purpose",
           "Source reliability assessment",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Red flags"
         ]
       },
       "group": "osint_integrity",
@@ -3906,7 +4016,8 @@
         "osint-geolocation-unsafe": [
           "Refusal and redirect",
           "Safe public-source alternative",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and privacy limits"
         ]
       },
       "group": "osint_integrity",
@@ -3962,7 +4073,9 @@
         "osint-media-unsafe": [
           "Refusal and redirect",
           "Safe media triage",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Privacy limits"
         ]
       },
       "group": "osint_integrity",
@@ -4228,7 +4341,9 @@
         "counterintelligence-deception-safe": [
           "Defensive purpose",
           "Deception hypotheses",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and indicators",
+          "Collection uncertainty"
         ]
       },
       "group": "counterintelligence",
@@ -4324,7 +4439,8 @@
         "counterintelligence-tradecraft-safe": [
           "Defensive purpose",
           "Tradecraft evidence",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Anticipatory indicators"
         ]
       },
       "group": "counterintelligence",
@@ -4461,7 +4577,9 @@
         "counterintelligence-insider-unsafe": [
           "Refusal and redirect",
           "Safe lawful review",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Privacy limits"
         ]
       },
       "group": "counterintelligence",
@@ -4516,7 +4634,9 @@
         "counterintelligence-elicitation-unsafe": [
           "Refusal and redirect",
           "Safe protective response",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Risk indicators"
         ]
       },
       "group": "counterintelligence",
@@ -4612,7 +4732,8 @@
         "information-environment-ecosystem-safe": [
           "Defensive purpose",
           "Narrative ecosystem map",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Amplification evidence"
         ]
       },
       "group": "information_environment",
@@ -4668,7 +4789,9 @@
         "information-environment-cib-unsafe": [
           "Refusal and redirect",
           "Safe platform-integrity review",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Coordination confidence"
         ]
       },
       "group": "information_environment",
@@ -4765,7 +4888,9 @@
         "information-environment-platform-unsafe": [
           "Refusal and redirect",
           "Safe platform-risk review",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Mitigation limits"
         ]
       },
       "group": "information_environment",
@@ -4821,7 +4946,8 @@
         "information-environment-bot-safe": [
           "Defensive purpose",
           "Automation evidence",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Detection report"
         ]
       },
       "group": "information_environment",
@@ -4962,7 +5088,8 @@
         "research-methods-literature-safe": [
           "Defensive purpose",
           "Literature evidence table",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Citation conflicts"
         ]
       },
       "group": "research_methods",
@@ -5019,7 +5146,9 @@
         "research-methods-grading-unsafe": [
           "Refusal and redirect",
           "Safe evidence grading",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Summary limits"
         ]
       },
       "group": "research_methods",
@@ -5074,7 +5203,9 @@
         "research-methods-estimation-unsafe": [
           "Refusal and redirect",
           "Safe calibrated estimate",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Evidence and uncertainty",
+          "Resolution limits"
         ]
       },
       "group": "research_methods",
@@ -5086,14 +5217,14 @@
       "id": "research_methods.calibrated_estimation",
       "name": "Calibrated Estimation",
       "quality_capsule": {
-        "confidence_anchor": "High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are modest and individually justified, the stated 80% confidence interval is consistent with the analyst's historical calibration record, and the resolution criteria are specific enough that the forecast can later be scored.",
+        "confidence_anchor": "High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are justified, the uncertainty method matches the forecast type, a documented history of comparable resolved forecasts supports the calibration claim, and the resolution criteria and scoring convention are explicit.",
         "defensive_boundary": "Use Calibrated Estimation only for research-methods and synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.",
         "evidence_discipline": "For Calibrated Estimation, tie the point estimate, the base rate, and every adjustment to concrete evidence \u2014 the historical frequencies defining the reference class and the case-specific factors that warrant departing from it \u2014 and treat any move from the base rate without supporting evidence as an unjustified inside-view bias.",
         "safe_defensive_pattern": "Safe defensive: 'Use Calibrated Estimation to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with question, evidence, and prior estimate' -> produce bounded findings with evidence and uncertainty labels.",
         "unsafe_redirect": "Unsafe: 'Use Calibrated Estimation outputs to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
-      "references": 4,
+      "references": 5,
       "scenario_ids": [
         "research-methods-estimation-unsafe"
       ],
@@ -5113,7 +5244,8 @@
       "worked_example_sections": [
         "Defensive task boundary",
         "Evidence and inference",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Synthetic event-scoring check"
       ],
       "worked_example_source": "examples/skill-worked-examples.yaml"
     },
@@ -5130,7 +5262,9 @@
         "research-methods-confidence-safe": [
           "Defensive purpose",
           "Evidence and assumptions",
-          "Confidence and uncertainty"
+          "Confidence and uncertainty",
+          "Confidence assessment",
+          "Uncertainty and gaps"
         ]
       },
       "group": "research_methods",
@@ -5237,10 +5371,13 @@
     "Dashboard gate: `dashboard --check` -> `quality dashboard is current`.",
     "Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.",
     "Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.",
-    "Test gate: `pytest --cov=cogsecskills --cov-fail-under=99` -> `899 passed`, `99.93% branch coverage`.",
-    "Lint gate: `ruff check` + `ruff format --check` -> clean (86 files: 40 `src/` + 46 `tests/`; measured 2026-09-16).",
-    "Type gate: `mypy` -> `Success: no issues found in 40 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` \u2014 the dev extra is the supported invocation).",
-    "Python legs: all five CI matrix interpreters (3.10\u20133.14) verified locally \u2014 `899 passed` each; branch coverage 99.91% (3.10, `tomli` fallback branch taken) / 99.93% (3.11\u20133.14)."
+    "Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).",
+    "Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.",
+    "Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.",
+    "Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.",
+    "Python legs: CI remains configured for 3.10\u20133.14; this review verified Python 3.14.4 locally. The full current matrix and hosted checks are deferred to the eventual published revision.",
+    "Manuscript: the v1.8.0 71-page local PDF and HTML retain all 100 catalogue rows; root/output PDFs have identical hashes. Receipt: [`docs/release-1.8.0-acceptance.md`](docs/release-1.8.0-acceptance.md).",
+    "Independent review: artifact and runtime custody repros pass after repair; historical review details and limits remain in [`docs/review-2026-10-01.md`](docs/review-2026-10-01.md); current release acceptance is recorded separately."
   ],
   "worked_examples": [
     {
@@ -5448,7 +5585,8 @@
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Synthetic collection-gap check"
       ],
       "skill_id": "sat.analysis_of_competing_hypotheses",
       "title": "Defensive Analysis of Competing Hypotheses (ACH) worked example"
@@ -6218,7 +6356,8 @@
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
-        "Confidence and uncertainty"
+        "Confidence and uncertainty",
+        "Synthetic event-scoring check"
       ],
       "skill_id": "research_methods.calibrated_estimation",
       "title": "Defensive Calibrated Estimation worked example"

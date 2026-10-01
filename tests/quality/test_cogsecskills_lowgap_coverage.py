@@ -114,21 +114,18 @@ def test_figures_publication_doi_present(tmp_path):
     )
     from cogsecskills.artifacts.manuscript_assets.rows import collect_skill_rows
 
-    config_dir = tmp_path / "manuscript"
-    config_dir.mkdir()
+    config_dir = tmp_path / "docs" / "manuscript"
+    config_dir.mkdir(parents=True)
     (config_dir / "config.yaml").write_text(
         "publication:\n  doi: 10.5281/zenodo.20804585\n", encoding="utf-8"
     )
     result = _publication_doi(tmp_path)
     assert result == "10.5281/zenodo.20804585"
 
-    # Also test _write_cover_installation with DOI present to cover line 209->220
-    with pytest.MonkeyPatch.context() as mp:
-        mp.setattr(
-            "cogsecskills.artifacts.manuscript_assets.figure_cover._publication_doi",
-            lambda *a, **kw: "10.5281/zenodo.20804585",
-        )
-        rows = collect_skill_rows(PROJECT_ROOT)
-        fig_dir = tmp_path / "cover_figs"
-        fig_dir.mkdir()
-        _write_cover_installation(rows, fig_dir)
+    # Render against the real temporary metadata rather than replacing its reader.
+    rows = collect_skill_rows(PROJECT_ROOT)
+    fig_dir = tmp_path / "cover_figs"
+    fig_dir.mkdir()
+    cover = _write_cover_installation(rows, fig_dir, root=tmp_path)
+    assert cover.is_file()
+    assert cover.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")

@@ -11,16 +11,18 @@ skills, default harness adapters, optional harness configuration, and the
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
 uv sync
-PYTHONPATH="src:." python -m cogsecskills validate
-PYTHONPATH="src:." python -m cogsecskills doctor
-PYTHONPATH="src:." python -m cogsecskills scenarios --check
-PYTHONPATH="src:." python -m cogsecskills examples --check
-PYTHONPATH="src:." python -m cogsecskills dashboard --check
+uv run python -m cogsecskills validate
+uv run python -m cogsecskills doctor
+uv run python -m cogsecskills scenarios --check
+uv run python -m cogsecskills examples --check
+uv run python -m cogsecskills dashboard --check
 ```
 
 If you are not using `uv`, install the package in editable mode:
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
 python -m pip install -e .
 cogsecskills validate
 ```
@@ -48,8 +50,8 @@ For a concrete harness handoff, route a task, inspect the selected skill, then
 load the three local files together:
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills route "verify a viral claim before sharing it" --limit 5
-PYTHONPATH="src:." python -m cogsecskills show osint_integrity.claim_provenance_verification
+uv run python -m cogsecskills route "verify a viral claim before sharing it" --limit 5
+uv run python -m cogsecskills show osint_integrity.claim_provenance_verification
 ```
 
 The harness should treat `SKILL.md` as the entry-point description,
@@ -107,12 +109,12 @@ harnesses: [claude, codex, hermes, your_harness]
 Then regenerate and validate adapters:
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills definitions --write
-PYTHONPATH="src:." python -m cogsecskills definitions --check
-PYTHONPATH="src:." python -m cogsecskills validate
-PYTHONPATH="src:." python -m cogsecskills scenarios --check
-PYTHONPATH="src:." python -m cogsecskills examples --check
-PYTHONPATH="src:." python -m cogsecskills dashboard --check
+uv run python -m cogsecskills definitions --write
+uv run python -m cogsecskills definitions --check
+uv run python -m cogsecskills validate
+uv run python -m cogsecskills scenarios --check
+uv run python -m cogsecskills examples --check
+uv run python -m cogsecskills dashboard --check
 ```
 
 Unknown harness names are treated as supporting the full closed verb set unless
@@ -122,8 +124,8 @@ are structurally valid but should be reviewed and refined for the real runtime.
 ## Route To The Right Skill
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills route "verify a viral claim before sharing it"
-PYTHONPATH="src:." python -m cogsecskills show osint_integrity.claim_provenance_verification
+uv run python -m cogsecskills route "verify a viral claim before sharing it"
+uv run python -m cogsecskills show osint_integrity.claim_provenance_verification
 ```
 
 The route command helps an operator or harness choose the appropriate skill.
@@ -136,7 +138,7 @@ stdout that harness integration and CI wrappers can parse instead of scraping
 human text. Exit codes are unchanged: `0` on success, `1` on errors/findings.
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills validate --format json
+uv run python -m cogsecskills validate --format json
 ```
 
 ```json
@@ -149,7 +151,7 @@ PYTHONPATH="src:." python -m cogsecskills validate --format json
 ```
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills doctor --format json
+uv run python -m cogsecskills doctor --format json
 ```
 
 ```json

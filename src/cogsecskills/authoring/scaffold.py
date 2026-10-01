@@ -15,6 +15,7 @@ from pathlib import Path
 import yaml
 
 from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.paths import contained_path, skill_components, validate_harnesses
 from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
 from cogsecskills.core.spec import SpecError
 from cogsecskills.core.text_utils import yaml_scalar
@@ -122,14 +123,22 @@ def scaffold_skill(
     not in the registry, or if files already exist and ``overwrite`` is False.
     ``harnesses`` overrides the default harness set (one adapter per harness).
     """
-    targets = harnesses if harnesses is not None else HARNESSES
+    try:
+        targets = validate_harnesses(harnesses if harnesses is not None else HARNESSES)
+    except ValueError as exc:
+        raise SpecError(str(exc)) from exc
     registry = load_registry(root)
     entry = registry.get(skill_id)
     if entry is None:
         raise SpecError(f"skill id {skill_id!r} is not in the registry")
 
     base = registry_path(root).parents[1]
-    target = base / "skills" / entry.group / _slug_from_id(entry.id)
+    try:
+        group, slug = skill_components(entry.id, entry.group)
+        target = contained_path(base, Path("skills") / group / slug)
+        contained_path(base / "skills", Path(group) / slug)
+    except (ValueError, OSError, RuntimeError) as exc:
+        raise SpecError(f"unsafe scaffold destination: {exc}") from exc
     if target.exists():
         if not overwrite:
             raise SpecError(f"skill directory already exists: {target}")

@@ -23,8 +23,10 @@ from cogsecskills.authoring.author import (
     render_definition,
     rendered_definition_files,
 )
+from cogsecskills.authoring.schema import validate_definition_fields
 from cogsecskills.core.loader import discover_skills, skills_root
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.paths import contained_path, skill_components
 from cogsecskills.core.quality_constants import (
     ALLOWED_SHARED_QUALITY_ITEMS,
     GENERIC_NEGATIVE_CONTROL_PHRASES,
@@ -53,7 +55,7 @@ REQUIRED_DEFINITION_FIELDS: tuple[str, ...] = (
     "anti_criteria",
     *QUALITY_FIELDS,
 )
-OPTIONAL_DEFINITION_FIELDS: tuple[str, ...] = ("harness_bindings",)
+OPTIONAL_DEFINITION_FIELDS: tuple[str, ...] = ("harness_bindings", "version")
 ALLOWED_DEFINITION_FIELDS: tuple[str, ...] = (
     *REQUIRED_DEFINITION_FIELDS,
     *OPTIONAL_DEFINITION_FIELDS,
@@ -65,15 +67,22 @@ class DefinitionWriteResult(TypedDict):
     rendered: list[str]
 
 
-
-
 def definitions_root(root: Path | None = None) -> Path:
     return resolve_root(root) / DEFINITIONS_DIRNAME
 
 
 def definition_path(skill_id: str, root: Path | None = None) -> Path:
-    group, slug = skill_id.split(".", 1)
-    return definitions_root(root) / group / f"{slug}{DEFINITION_SUFFIX}"
+    try:
+        group, slug = skill_components(skill_id, skill_id.split(".", 1)[0])
+        contained_path(
+            resolve_root(root),
+            Path(DEFINITIONS_DIRNAME) / group / f"{slug}{DEFINITION_SUFFIX}",
+        )
+        return contained_path(
+            definitions_root(root), Path(group) / f"{slug}{DEFINITION_SUFFIX}"
+        )
+    except (ValueError, OSError, RuntimeError) as exc:
+        raise AuthorError(f"unsafe definition path for {skill_id!r}: {exc}") from exc
 
 
 def load_definitions(root: Path | None = None) -> dict[str, dict]:
@@ -83,10 +92,16 @@ def load_definitions(root: Path | None = None) -> dict[str, dict]:
         return {}
     definitions: dict[str, dict] = {}
     for path in sorted(base.glob(f"*/*{DEFINITION_SUFFIX}")):
+        try:
+            contained_path(resolve_root(root), path.relative_to(resolve_root(root)))
+            contained_path(base, path.relative_to(base))
+        except (ValueError, OSError, RuntimeError) as exc:
+            raise AuthorError(f"unsafe definition source {path}: {exc}") from exc
         definition = load_definition_file(path)
-        skill_id = str(definition.get("id", "")).strip()
-        if not skill_id:
+        raw_id = definition.get("id")
+        if not isinstance(raw_id, str) or not raw_id.strip():
             raise AuthorError(f"definition {path} missing id")
+        skill_id = raw_id.strip()
         if skill_id in definitions:
             raise AuthorError(f"duplicate definition id {skill_id!r}")
         definitions[skill_id] = definition
@@ -151,10 +166,16 @@ def _field_or_default(spec: SkillSpec, key: str) -> object:
 
 def definition_from_skill(spec: SkillSpec, root: Path | None = None) -> dict:
     """Bootstrap a canonical definition from the current rendered skill files."""
-    group, slug = spec.id.split(".", 1)
-    directory = skills_root(root) / group / slug
-    skill_md = (directory / "SKILL.md").read_text(encoding="utf-8")
-    workflow_md = (directory / spec.workflow).read_text(encoding="utf-8")
+    try:
+        group, slug = skill_components(spec.id, spec.group)
+        contained_path(resolve_root(root), Path("skills") / group / slug)
+        directory = contained_path(skills_root(root), Path(group) / slug)
+        skill_md = contained_path(directory, "SKILL.md").read_text(encoding="utf-8")
+        workflow_md = contained_path(directory, spec.workflow).read_text(
+            encoding="utf-8"
+        )
+    except (ValueError, OSError, RuntimeError) as exc:
+        raise AuthorError(f"cannot bootstrap definition {spec.id!r}: {exc}") from exc
     steps = _workflow_steps(workflow_md)
     if not steps:
         steps = [
@@ -169,6 +190,7 @@ def definition_from_skill(spec: SkillSpec, root: Path | None = None) -> dict:
     ]
     return {
         "id": spec.id,
+        "version": spec.version,
         "description": spec.description or spec.summary,
         "tags": list(spec.tags),
         "triggers": list(spec.triggers),
@@ -244,6 +266,10 @@ def write_definitions(
 ) -> DefinitionWriteResult:
     """Write canonical definitions and render every definition-owned skill."""
     definitions = _definitions_for_write(root)
+    # Validate all sources before canonicalization can modify any file.
+    for skill_id, definition in sorted(definitions.items()):
+        definition_path(skill_id, root)
+        rendered_definition_files(definition, root=root, harnesses=harnesses)
     written_defs: list[Path] = []
     rendered: list[str] = []
     for skill_id, definition in sorted(definitions.items()):
@@ -422,14 +448,14 @@ def _definition_quality_findings(
             f"{skill_id}: misuse_redirect must refuse and redirect defensively"
         )
     evidence = "\n".join(
-        str(item).lower() for item in definition.get("evidence_requirements", [])
+        str(item).lower() for item in definition.get("evidence_requirements", []) or []
     )
     if "evidence" not in evidence or "inference" not in evidence:
         findings.append(
             f"{skill_id}: evidence_requirements must label evidence and inference"
         )
     uncertainty = "\n".join(
-        str(item).lower() for item in definition.get("uncertainty_handling", [])
+        str(item).lower() for item in definition.get("uncertainty_handling", []) or []
     )
     if "unknown" not in uncertainty or "alternative" not in uncertainty:
         findings.append(
@@ -454,8 +480,16 @@ def check_definitions(
         )
     for extra in sorted(actual_ids - expected_ids):
         findings.append(f"definition is not in registry: {extra}")
-    findings.extend(_reused_negative_control_findings(definitions))
-    findings.extend(_reused_quality_field_findings(definitions))
+    valid_fields: dict[str, dict] = {}
+    for skill_id, definition in sorted(definitions.items()):
+        try:
+            validate_definition_fields(definition)
+        except ValueError as exc:
+            findings.append(f"{skill_id}: cannot render definition: {exc}")
+        else:
+            valid_fields[skill_id] = definition
+    findings.extend(_reused_negative_control_findings(valid_fields))
+    findings.extend(_reused_quality_field_findings(valid_fields))
 
     for skill_id, definition in sorted(definitions.items()):
         expected_path = definition_path(skill_id, root)
@@ -466,6 +500,12 @@ def check_definitions(
                 findings.append(
                     f"stale canonical definition: {expected_path.relative_to(resolve_root(root))}"
                 )
+        else:
+            findings.append(
+                f"missing canonical definition at expected path: {expected_path.relative_to(resolve_root(root))}"
+            )
+        if skill_id not in valid_fields:
+            continue
         findings.extend(
             _definition_quality_findings(skill_id, definition, entries.get(skill_id))
         )

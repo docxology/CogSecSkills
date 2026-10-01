@@ -18,7 +18,7 @@ Devil's Advocacy is a Heuer & Pherson challenge-analysis technique in which an a
 
 - A restatement of the consensus and the explicit assumptions and evidence it rests on.
 - The strongest good-faith counter-case a capable adversary-analyst would mount, with its supporting evidence and reasoning.
-- {'A robustness verdict': 'did the consensus survive the challenge whole, with caveats, or not at all, plus the new collection that would resolve the dispute.'}
+- A robustness verdict: did the consensus survive the challenge whole, with caveats, or not at all, plus the new collection that would resolve the dispute.
 
 ## Defensive boundary
 

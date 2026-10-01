@@ -11,6 +11,9 @@ and generator layer over declarative project data.
   validation, and harness conformance.
 - `core/locate.py` provides project-root discovery (`project_root`,
   `resolve_root`) — the shared helper replacing per-module `_project_root`.
+- `core/paths.py` owns path-component, harness-name, and physical containment
+  checks for declared sources and generated destinations; `core/yaml_io.py`
+  normalizes YAML read failures and rejects duplicate mapping keys.
 - `core/quality_constants.py` holds shared quality-policy constants used by both
   `quality/insights.py` and `authoring/definitions.py`.
 - `core/text_utils.py` holds shared `clean_cell` and `as_text` helpers used by
@@ -18,14 +21,23 @@ and generator layer over declarative project data.
   `artifacts/manuscript_assets/rows.py`.
 - `authoring/author.py`, `authoring/definitions.py`, and `authoring/scaffold.py`
   own skill rendering and drift checks from canonical definitions.
+- `authoring/schema.py` checks source-definition field types before rendering;
+  render preflight validates the generated spec and all output destinations
+  before any definition or skill file is modified.
 - `quality/insights.py`, `artifacts/scenarios.py`, `artifacts/examples.py`,
   `artifacts/evals.py`, `artifacts/dashboard.py`, `artifacts/release_metadata.py`,
   and `artifacts/manuscript_assets/` own local navigation, deterministic scenario
   checks, worked examples, offline output-review fixtures, generated dashboard
   output, release claim metadata, manuscript supplements, data exports, and figures.
+- `artifacts/response_contract.py` checks literal answer headings and terms;
+  `artifacts/text_outputs.py` owns shared text-output preflight and drift checks.
+  `artifacts/doi_metadata.py` normalizes plausible DOI declarations without
+  resolving an archive or certifying the current source version.
 - `runtime_eval.py` owns the opt-in live-runtime eval harness (`eval-live`):
   real harness subprocesses, mechanical transcript screening, and claim-boundary
-  reporting. Never imported by the gate suite; no network calls of its own.
+  reporting. Its `runtime/` helpers separate result models, screening, report
+  persistence, and bounded process execution. Default gates never invoke a live
+  harness; this code makes no network calls of its own.
 
 ### `artifacts/manuscript_assets/` layout
 
@@ -42,6 +54,7 @@ Figure code is split by concern rather than living in one module:
 | `figures.py` | The `write_figures` orchestrator, re-exporting the names above |
 | `png_probe.py` | Dependency-free PNG checks used by the generated-figure drift gate |
 | `paths.py`, `rows.py`, `tables.py`, `assets_io.py` | Output paths, row collection, table rendering, write/check orchestration |
+| `table_html.py` | Escaped HTML counterparts with raw-block isolation for print-specific tables |
 
 Add a new figure by appending to `FIGURES` in `figure_specs.py` and adding its
 `_write_*` panel to whichever of `figure_charts` / `figure_diagrams` /

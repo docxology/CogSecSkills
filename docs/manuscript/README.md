@@ -29,11 +29,11 @@ A defensive, educational, harness-neutral library of Cognitive Security and anal
 - `README.md`
 - `SYNTAX.md`
 
-Generated figures are written under `../output/figures/` and referenced by the
-main manuscript. The title-page cover is also mirrored to `../figures/` because
+Generated figures are written under `../../output/figures/` and referenced by the
+main manuscript. The title-page cover is also mirrored to `../../figures/` because
 the shared PDF renderer resolves configured cover images from `docs/manuscript/` but
 XeLaTeX compiles from `output/pdf`. Generated catalogue, worked-example, and
-quality-dashboard data are written under `../output/data/`.
+quality-dashboard data are written under `../../output/data/`.
 
 ## Source Surfaces
 
@@ -55,8 +55,8 @@ quality-dashboard data are written under `../output/data/`.
 Regenerate synchronized manuscript assets from the project root:
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills manuscript-assets --write
-PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
+uv run python -m cogsecskills manuscript-assets --write
+uv run python -m cogsecskills manuscript-assets --check
 ```
 
 `--write` updates:
@@ -79,6 +79,11 @@ If generated Markdown or data is wrong, fix the generator under
 `src/cogsecskills/artifacts/manuscript_assets/` or the source registry/skill
 metadata, then regenerate.
 
+The catalogue and verb matrix supply separate generated LaTeX and HTML table
+payloads. The PDF and web manuscript retain the same 100 skill rows, exact
+identifiers, evidence fields, and group-level verb counts. Keep both payloads
+current when changing table layout or source fields.
+
 ## Citations And Provenance
 
 `references.bib` contains verified manuscript-level references only. Use Pandoc
@@ -91,31 +96,36 @@ metadata; they are not the rendered manuscript bibliography.
 `S02_release_manifest.md` records the repository URL, version, license, source
 revision descriptor, environment versions, lockfile presence, generated figure
 inventory, and final gate results for the local manuscript snapshot. DOI fields
-remain unavailable unless a real archive DOI exists.
+are declarations in source metadata; local gates do not check archive
+resolution, DOI/version identity, or deposition of the current revision. Verify
+the external record before describing this snapshot as archived.
+
+The current software concept is `10.5281/zenodo.21513316`. The separate
+historical v1.0.0 manuscript archive remains under concept
+`10.5281/zenodo.20804585`, version `10.5281/zenodo.20804586`; it does not
+identify the current software release chain.
 
 ## Verification
 
 From the project root:
 
 ```bash
-PYTHONPATH="src:." python -m cogsecskills definitions --write
-PYTHONPATH="src:." python -m cogsecskills definitions --check
-PYTHONPATH="src:." python -m cogsecskills scenarios --check
-PYTHONPATH="src:." python -m cogsecskills examples --write
-PYTHONPATH="src:." python -m cogsecskills examples --check
-PYTHONPATH="src:." python -m cogsecskills dashboard --write
-PYTHONPATH="src:." python -m cogsecskills dashboard --check
-PYTHONPATH="src:." python -m cogsecskills manuscript-assets --write
-PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
-PYTHONPATH="src:." python -m cogsecskills validate
-PYTHONPATH="src:." python -m cogsecskills report
-PYTHONPATH="src:." python -m cogsecskills doctor
+uv run python -m cogsecskills definitions --write
+uv run python -m cogsecskills definitions --check
+uv run python -m cogsecskills scenarios --check
+uv run python -m cogsecskills examples --write
+uv run python -m cogsecskills examples --check
+uv run python -m cogsecskills dashboard --write
+uv run python -m cogsecskills dashboard --check
+uv run python -m cogsecskills manuscript-assets --write
+uv run python -m cogsecskills manuscript-assets --check
+uv run python -m cogsecskills validate
+uv run python -m cogsecskills report
+uv run python -m cogsecskills doctor
 uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
-From the sibling template checkout:
-
-```bash
-uv run python -m infrastructure.validation.cli markdown projects/working/CogSecSkills/manuscript/
-uv run python scripts/03_render_pdf.py --project working/CogSecSkills
-```
+For the sibling template environment, follow the explicit combined-render
+invocation in [`05_reproducibility.md`](05_reproducibility.md). It uses the
+public `RenderManager` APIs with this checkout's source and output paths; no
+legacy template project mirror is required.

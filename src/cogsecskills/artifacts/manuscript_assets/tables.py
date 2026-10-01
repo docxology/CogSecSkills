@@ -33,6 +33,7 @@ from .rows import (
     _join,
     collect_skill_rows,
 )
+from .table_html import render_html_skill_table, render_html_verb_matrix
 
 
 def _latex_escape(value: object) -> str:
@@ -63,7 +64,11 @@ def _latex_labeled(label: str, value: object) -> str:
 
 def _latex_breakable_path(value: object) -> str:
     escaped = _latex_escape(value)
-    return escaped.replace("/", r"/\allowbreak{}").replace(r"\_", r"\_\allowbreak{}")
+    return (
+        escaped.replace("/", r"/\allowbreak{}")
+        .replace(r"\_", r"\_\allowbreak{}")
+        .replace("→", r"→\allowbreak{}")
+    )
 
 
 def render_skill_catalogue(rows: list[SkillRow]) -> str:
@@ -123,9 +128,9 @@ def render_skill_catalogue(rows: list[SkillRow]) -> str:
             metadata = r"\newline ".join(
                 (
                     _latex_escape(f"Verbs: {_join(row.verbs)}"),
-                    _latex_escape(f"Inputs: {_join(row.inputs)}"),
-                    _latex_escape(f"Outputs: {_join(row.outputs)}"),
-                    _latex_escape(
+                    _latex_breakable_path(f"Inputs: {_join(row.inputs)}"),
+                    _latex_breakable_path(f"Outputs: {_join(row.outputs)}"),
+                    _latex_breakable_path(
                         f"AGEINT: {row.ageint_topic}; refs: {row.references_count}"
                     ),
                     rf"Source: {_latex_breakable_path(row.source_path)}",
@@ -149,8 +154,8 @@ def render_skill_catalogue(rows: list[SkillRow]) -> str:
                 " & ".join(
                     (
                         skill,
-                        _latex_escape(row.functionality),
-                        _latex_escape(row.use_when),
+                        _latex_breakable_path(row.functionality),
+                        _latex_breakable_path(row.use_when),
                         metadata,
                         quality,
                     )
@@ -158,6 +163,7 @@ def render_skill_catalogue(rows: list[SkillRow]) -> str:
                 + r"\\"
             )
         lines.extend([r"\end{longtable}", r"\endgroup", ""])
+        lines.extend([render_html_skill_table(group_rows), ""])
 
     return "\n".join(lines).rstrip() + "\n"
 
@@ -189,26 +195,55 @@ def render_metadata_matrix(rows: list[SkillRow]) -> str:
             f"{group_counts[group_id]} |"
         )
 
+    by_group_verb: dict[str, Counter[str]] = defaultdict(Counter)
+    for row in rows:
+        for verb in row.verbs:
+            by_group_verb[row.group][verb] += 1
+    columns = r">{\raggedright\arraybackslash}p{0.27\linewidth}" + "".join(
+        r">{\raggedleft\arraybackslash}p{"
+        + ("0.095" if verb == "delegate" else "0.075")
+        + r"\linewidth}"
+        for verb in verbs
+    )
+    heading = (
+        " & ".join(rf"\textbf{{{_latex_escape(value)}}}" for value in ("Group", *verbs))
+        + r"\\"
+    )
     lines.extend(
         [
             "",
             "## Tool Verb Usage By Group",
             "",
-            "| Group | " + " | ".join(f"`{verb}`" for verb in verbs) + " |",
-            "| --- | " + " | ".join("---:" for _ in verbs) + " |",
+            r"\begingroup",
+            r"\setlength{\tabcolsep}{2pt}",
+            rf"\begin{{longtable}}{{@{{}}{columns}@{{}}}}",
+            r"\toprule",
+            heading,
+            r"\midrule",
+            r"\endfirsthead",
+            r"\toprule",
+            heading,
+            r"\midrule",
+            r"\endhead",
+            r"\bottomrule",
+            r"\endfoot",
         ]
     )
-    by_group_verb: dict[str, Counter[str]] = defaultdict(Counter)
-    for row in rows:
-        for verb in row.verbs:
-            by_group_verb[row.group][verb] += 1
     for group_id in _group_ids(rows):
         counts = by_group_verb[group_id]
         lines.append(
-            f"| `{group_id}` | "
-            + " | ".join(str(counts.get(verb, 0)) for verb in verbs)
-            + " |"
+            rf"\texttt{{{_latex_breakable_path(group_id)}}} & "
+            + " & ".join(str(counts.get(verb, 0)) for verb in verbs)
+            + r"\\"
         )
+    lines.extend(
+        [
+            r"\end{longtable}",
+            r"\endgroup",
+            "",
+            render_html_verb_matrix(_group_ids(rows), verbs, by_group_verb),
+        ]
+    )
 
     lines.extend(
         [

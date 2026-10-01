@@ -13,7 +13,8 @@ source coherence and structural readiness, but they are not field validation.
 | `scenarios --check` | Curated safe-use and unsafe-redirect fixtures route to expected skills and include expected response-shape and expected-answer contracts. |
 | `examples --check` | Source-owned worked examples cover all 100 skills and generated example docs/data are current. |
 | `dashboard --check` | Generated quality dashboard matches the live registry, skills, scenarios, worked examples, quality capsules, and verified-state lines. |
-| `manuscript-assets --check` | Generated supplements, data exports, and figures match the live library metadata. |
+| `manuscript-assets --check` | Generated supplements/data match the live library metadata; PNGs pass structural checks, are distinct, and the cover mirror matches its canonical bytes. The gate does not re-render or prove figure pixel/source equivalence. |
+| `release-metadata --check` | Source metadata and generated release mirrors agree; stricter modes require clean git state and, for public-archive, a valid DOI declaration. It does not contact the archive or verify DOI/version/revision identity. |
 | pytest and coverage | Runner behavior is covered by the checked regression suite. |
 
 ## Not Proved

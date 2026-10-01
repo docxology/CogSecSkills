@@ -26,10 +26,10 @@ Use Pandoc citation syntax only, for example `[@sandve2013reproducible]`. Every 
 
 ## Figures
 
-Generated figures live under `../output/figures/` and are referenced with labels such as:
+Generated figures live under `../../output/figures/` and are referenced with labels such as:
 
 ```markdown
-![Caption text.](../output/figures/cogsecskills_taxonomy_counts.png){#fig:taxonomy-counts width=80%}
+![Caption text.](../../output/figures/cogsecskills_taxonomy_counts.png){#fig:taxonomy-counts width=80%}
 ```
 
 Current generated figure labels:
@@ -65,6 +65,9 @@ PYTHONPATH="src:." python -m cogsecskills manuscript-assets --check
 
 Generated supplements must keep their generated-file header. Edit the generator
 or source metadata instead of editing `S10_` or `S11_` by hand.
+The catalogue and verb matrix include generated print and web table payloads;
+raw HTML blocks are omitted from the PDF and raw LaTeX is omitted from HTML.
+Check both formats after changing their layout or content.
 
 ## Scenario Fixtures
 

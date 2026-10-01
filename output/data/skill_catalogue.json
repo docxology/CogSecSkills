@@ -837,9 +837,9 @@
   },
   {
     "ageint_topic": "structured-analytic-techniques",
-    "confidence_anchor": "High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and mutually exclusive, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.",
+    "confidence_anchor": "High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and appropriately distinguished, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.",
     "defensive_boundary": "Use Analysis of Competing Hypotheses (ACH) only for structured analytic technique support: recognize, assess, document, or defend analytic rigor, alternative hypotheses, and calibrated judgment. Do not use this skill to force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.",
-    "evidence_discipline": "For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as evidence in its own right, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.",
+    "evidence_discipline": "For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as disconfirmation only when collection had adequate coverage and detectability, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.",
     "functionality": "Score evidence by diagnosticity across a full hypothesis set to find the least-disconfirmed explanation.",
     "group": "sat",
     "group_title": "Structured Analytic Techniques",
@@ -4100,7 +4100,7 @@
   },
   {
     "ageint_topic": "research-methods",
-    "confidence_anchor": "High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are modest and individually justified, the stated 80% confidence interval is consistent with the analyst's historical calibration record, and the resolution criteria are specific enough that the forecast can later be scored.",
+    "confidence_anchor": "High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are justified, the uncertainty method matches the forecast type, a documented history of comparable resolved forecasts supports the calibration claim, and the resolution criteria and scoring convention are explicit.",
     "defensive_boundary": "Use Calibrated Estimation only for research-methods and synthesis integrity: recognize, assess, document, or defend reproducibility, calibrated confidence, and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.",
     "evidence_discipline": "For Calibrated Estimation, tie the point estimate, the base rate, and every adjustment to concrete evidence \u2014 the historical frequencies defining the reference class and the case-specific factors that warrant departing from it \u2014 and treat any move from the base rate without supporting evidence as an unjustified inside-view bias.",
     "functionality": "Produce calibrated probability estimates with explicit reference classes and ranges.",
@@ -4121,7 +4121,7 @@
     "outputs": [
       "calibrated_estimate"
     ],
-    "references_count": 4,
+    "references_count": 5,
     "safe_defensive_pattern": "Safe defensive: 'Use Calibrated Estimation to synthesize supplied or authorized sources with explicit confidence and uncertainty labels with question, evidence, and prior estimate' -> produce bounded findings with evidence and uncertainty labels.",
     "source_path": "skills/research_methods/calibrated_estimation/SKILL.md",
     "status": "implemented",

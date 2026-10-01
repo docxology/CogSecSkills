@@ -5,7 +5,7 @@ description: Produce calibrated probability estimates with explicit reference cl
 
 # Calibrated Estimation
 
-Calibrated Estimation is a disciplined probability-elicitation technique in which an analyst produces numeric probability estimates (or ranges) for uncertain outcomes and grounds those estimates in explicitly chosen reference classes, base rates, and adjustment logic. Developed in the forecasting literature by Tetlock, Kahneman, and others, and operationalized in prediction tournaments and intelligence training, the technique combats overconfidence and inside-view bias by requiring analysts to compare the current case against a reference class of similar past cases before applying case-specific adjustments. The output is an estimate accompanied by a reference class, a stated confidence interval, and the reasoning behind any adjustments from the base rate.
+Calibrated Estimation is a disciplined probability-elicitation technique in which an analyst produces numeric probability estimates (or ranges) for uncertain outcomes and grounds those estimates in explicitly chosen reference classes, base rates, and adjustment logic. Developed in the forecasting literature by Tetlock, Kahneman, and others, and operationalized in prediction tournaments and intelligence training, the technique combats overconfidence and inside-view bias by requiring analysts to compare the current case against a reference class of similar past cases before applying case-specific adjustments. The output is an estimate accompanied by a reference class, an explicit uncertainty statement appropriate to the forecast type, and the reasoning behind adjustments from the base rate.
 
 ## When to use
 
@@ -19,7 +19,7 @@ Calibrated Estimation is a disciplined probability-elicitation technique in whic
 - a numeric probability estimate (or range) for the target question
 - an explicit reference class and the base rate derived from it
 - a documented adjustment narrative explaining why the estimate departs from the base rate
-- an 80% confidence interval and stated resolution criteria
+- an uncertainty statement, stated resolution criteria, and a scoring plan
 
 ## Defensive boundary
 
@@ -37,7 +37,7 @@ If a request asks Calibrated Estimation to cherry-pick sources, fabricate citati
 
 ## Confidence and uncertainty
 
-- High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are modest and individually justified, the stated 80% confidence interval is consistent with the analyst's historical calibration record, and the resolution criteria are specific enough that the forecast can later be scored.
+- High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are justified, the uncertainty method matches the forecast type, a documented history of comparable resolved forecasts supports the calibration claim, and the resolution criteria and scoring convention are explicit.
 - Medium for Calibrated Estimation: the calibrated estimate is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
 - Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Calibrated Estimation cannot determine from the supplied or authorized evidence.
@@ -52,6 +52,7 @@ If a request asks Calibrated Estimation to cherry-pick sources, fabricate citati
 
 ## Failure modes and negative controls
 
+- Calibrated Estimation: scoring a probability interval against a binary outcome, confusing confidence with event probability, or calling a single untested estimate calibrated without a recorded history of resolved forecasts.
 - Calibrated Estimation: skipping the reference class and reasoning only from inside-view case features, anchoring on a single source's number, stating vague verbal probabilities instead of a numeric estimate, or omitting resolution criteria, so the forecast cannot be scored and overconfidence goes uncorrected.
 - Calibrated Estimation: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Calibrated Estimation: reporting the calibrated estimate without uncertainty labels, alternative explanations, and the next discriminating check.
@@ -68,4 +69,5 @@ See [`workflow.md`](workflow.md). Harness bindings in [`harness/`](harness/).
 - start outside — choose a reference class of similar cases and obtain its base rate before looking at case-specific details
 - adjustments from the base rate require explicit justification and should be modest unless case-specific evidence is strong
 - express uncertainty numerically; vague words like 'likely' carry idiosyncratic interpretations across recipients
-- calibration is measured over many forecasts — track outcomes and score forecasts to improve future calibration
+- calibration is measured over many forecasts — log predictions before resolution, compare forecast probabilities with observed frequencies, and score accuracy with a declared proper scoring rule; a single forecast cannot establish calibration
+- distinguish uncertainty about an estimated probability from an interval predicting a numeric outcome; do not score an interval around a probability by checking whether the binary outcome zero or one lies inside it

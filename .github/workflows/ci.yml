@@ -61,3 +61,19 @@ jobs:
           uv run cogsecskills release-metadata --check
           uv run cogsecskills catalogue --check
           uv run cogsecskills manuscript-assets --check
+
+      - name: Clean wheel smoke (outside the checkout)
+        # The wheel contains the runner; the skill corpus stays in the checkout.
+        # -I prevents the editable install and PYTHONPATH from masking missing
+        # wheel modules or dependencies in this separate runtime-only venv.
+        run: |
+          uv build --wheel --out-dir "$RUNNER_TEMP/cogsecskills-wheel"
+          uv venv "$RUNNER_TEMP/cogsecskills-wheel-env" --python "${{ matrix.python-version }}"
+          uv pip install --python "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" "$RUNNER_TEMP"/cogsecskills-wheel/*.whl
+          cd "$RUNNER_TEMP"
+          "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" -I -m cogsecskills --version
+          "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" -I -m cogsecskills --root "$GITHUB_WORKSPACE" doctor
+          "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" -I -m cogsecskills --root "$GITHUB_WORKSPACE" definitions --check
+          "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" -I -m cogsecskills --root "$GITHUB_WORKSPACE" scenarios --check
+          cd "$GITHUB_WORKSPACE"
+          "$RUNNER_TEMP/cogsecskills-wheel-env/bin/python" -I -m cogsecskills doctor

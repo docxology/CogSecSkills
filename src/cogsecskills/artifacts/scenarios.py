@@ -14,12 +14,17 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, TypedDict
 
-import yaml
-
+from cogsecskills.artifacts.response_contract import (
+    normalized_text,
+    response_contract_findings,
+    response_text,
+)
 from cogsecskills.core.loader import discover_skills, skills_root
 from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.registry import load_registry
 from cogsecskills.core.spec import SkillSpec
+from cogsecskills.core.text_utils import as_text
+from cogsecskills.core.yaml_io import read_yaml
 from cogsecskills.quality.insights import route_query
 
 SCENARIOS_DIRNAME = "scenarios"
@@ -127,7 +132,9 @@ def _as_text_list(value: object, *, field: str) -> tuple[str, ...]:
     if isinstance(value, Iterable):
         items: list[str] = []
         for item in value:
-            text = str(item).strip()
+            if not isinstance(item, str):
+                raise ValueError(f"{field} must be a string or list of strings")
+            text = item.strip()
             if text:
                 items.append(text)
         return tuple(items)
@@ -169,14 +176,19 @@ def _answer_sections_from_obj(
                 f"{path}: scenario {scenario_id!r} expected_answer.sections[{index}] "
                 "must be a mapping"
             )
-        title = str(item.get("title", "")).strip()
-        body = str(item.get("body", "")).strip()
-        if not title or not body:
+        title = item.get("title")
+        body = item.get("body")
+        if (
+            not isinstance(title, str)
+            or not isinstance(body, str)
+            or not title.strip()
+            or not body.strip()
+        ):
             raise ValueError(
                 f"{path}: scenario {scenario_id!r} expected_answer.sections[{index}] "
                 "must include title and body"
             )
-        sections.append(AnswerSection(title=title, body=body))
+        sections.append(AnswerSection(title=title.strip(), body=body.strip()))
     return tuple(sections)
 
 
@@ -191,7 +203,7 @@ def _rubric_scores_from_obj(
     scores: dict[str, int] = {}
     for key in RUBRIC_KEYS:
         value = obj.get(key)
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise ValueError(
                 f"{path}: scenario {scenario_id!r} expected_answer.rubric_scores."
                 f"{key} must be an integer"
@@ -207,16 +219,21 @@ def _expected_answer_from_mapping(
         raise ValueError(
             f"{path}: scenario {scenario_id!r} expected_answer must be a mapping"
         )
-    selected_skill = str(obj.get("selected_skill", "")).strip()
-    answer_kind = str(obj.get("answer_kind", "")).strip()
-    if not selected_skill or not answer_kind:
+    selected_skill = obj.get("selected_skill")
+    answer_kind = obj.get("answer_kind")
+    if (
+        not isinstance(selected_skill, str)
+        or not isinstance(answer_kind, str)
+        or not selected_skill.strip()
+        or not answer_kind.strip()
+    ):
         raise ValueError(
             f"{path}: scenario {scenario_id!r} expected_answer must include "
             "selected_skill and answer_kind"
         )
     return ExpectedAnswer(
-        selected_skill=selected_skill,
-        answer_kind=answer_kind,
+        selected_skill=selected_skill.strip(),
+        answer_kind=answer_kind.strip(),
         sections=_answer_sections_from_obj(
             obj.get("sections"), path=path, scenario_id=scenario_id
         ),
@@ -230,24 +247,25 @@ def _scenario_from_mapping(obj: Any, *, path: Path) -> Scenario:
     if not isinstance(obj, Mapping):
         raise ValueError(f"{path}: scenario entry must be a mapping")
     required = ("id", "group", "kind", "query", "expected_skill")
-    missing = [key for key in required if not str(obj.get(key, "")).strip()]
+    missing = [key for key in required if key not in obj]
     if missing:
         raise ValueError(
             f"{path}: scenario missing required fields: {', '.join(missing)}"
         )
-    kind = str(obj["kind"]).strip()
+    values = {key: as_text(obj[key], field=key, path=path) for key in required}
+    kind = values["kind"]
     if kind not in SCENARIO_KINDS:
         raise ValueError(
             f"{path}: scenario {obj['id']!r} kind {kind!r} must be one of "
             f"{', '.join(SCENARIO_KINDS)}"
         )
-    scenario_id = str(obj["id"]).strip()
+    scenario_id = values["id"]
     return Scenario(
         id=scenario_id,
-        group=str(obj["group"]).strip(),
+        group=values["group"],
         kind=kind,
-        query=str(obj["query"]).strip(),
-        expected_skill=str(obj["expected_skill"]).strip(),
+        query=values["query"],
+        expected_skill=values["expected_skill"],
         expected_output_terms=_as_text_list(
             obj.get("expected_output_terms"), field="expected_output_terms"
         ),
@@ -270,7 +288,7 @@ def load_scenarios(root: Path | None = None) -> list[Scenario]:
         raise ValueError(
             f"missing scenario fixture: {path.relative_to(resolve_root(root))}"
         )
-    loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+    loaded = read_yaml(path)
     if not isinstance(loaded, Mapping):
         raise ValueError(f"{path}: top level must be a mapping")
     raw_scenarios = loaded.get("scenarios")
@@ -387,7 +405,7 @@ def _check_expected_response(scenario: Scenario, findings: list[str]) -> None:
             f"{scenario.id}: expected response must declare at least 2 exclude terms"
         )
 
-    sections = {section.lower() for section in contract.required_sections}
+    sections = {normalized_text(section) for section in contract.required_sections}
     if len(sections) != len(contract.required_sections):
         findings.append(f"{scenario.id}: expected response repeats section labels")
 
@@ -395,9 +413,13 @@ def _check_expected_response(scenario: Scenario, findings: list[str]) -> None:
         (
             *contract.required_sections,
             *contract.must_include_terms,
-            *contract.must_exclude_terms,
         )
     ).lower()
+    for term in contract.must_exclude_terms:
+        if normalized_text(term) in normalized_text(response_text):
+            findings.append(
+                f"{scenario.id}: expected response excludes required term {term!r}"
+            )
     expected_basics = {"evidence", "uncertainty", "confidence"}
     if scenario.kind == "safe_defensive":
         expected_basics |= {"defensive"}
@@ -450,12 +472,17 @@ def _check_expected_answer(scenario: Scenario, findings: list[str]) -> None:
             f"{scenario.id}: expected answer must include at least 3 sections"
         )
 
-    answer_text = " ".join(
-        [
-            *(section.title for section in answer.sections),
-            *(section.body for section in answer.sections),
-        ]
-    ).lower()
+    contract = scenario.expected_response
+    findings.extend(
+        response_contract_findings(
+            answer.sections,
+            required_sections=contract.required_sections,
+            must_include_terms=contract.must_include_terms,
+            must_exclude_terms=contract.must_exclude_terms,
+            label=f"{scenario.id}: expected answer",
+        )
+    )
+    answer_text = response_text(answer.sections)
     required_terms = {
         "evidence",
         "inference",

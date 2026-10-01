@@ -1,6 +1,6 @@
 # Architecture
 
-CogSecSkills is a mature, published library of 100 analytic skills —
+CogSecSkills is a source-owned library of 100 implemented analytic skills —
 Structured Analytic Techniques (`sat`), cognitive-security defenses
 (`cognitive_security`), critical review (`critical_review`), OSINT integrity
 (`osint_integrity`), counterintelligence (`counterintelligence`), the
@@ -137,6 +137,9 @@ mirror the data flow above and form a clean dependency DAG (`core` ← `authorin
   (defensive-readiness), `examples.py`, `evals.py`, `dashboard.py`,
   `release_metadata.py`, and the `manuscript_assets/` package (split into
   `paths`, `rows`, `tables`, `figures`, `assets_io` behind a façade `__init__`).
+- **`runtime/`** — live report models, transcript screening, bounded retained
+  process capture, and exclusive receipt persistence. `runtime_eval.py` owns
+  opt-in scenario orchestration and preserves its public imports.
 - **`cli.py`** — the thin command-line orchestrator over all of the above.
 
 Each subpackage has a single responsibility, so a reader can open one folder and
@@ -155,7 +158,7 @@ Each module in detail:
 | [`author.py`](../src/cogsecskills/authoring/author.py) | The deterministic renderer. `render_definition` turns a structured JSON or YAML definition into the conforming files; adapters are generated to bind **exactly** the declared verbs. `author_batch` remains as a compatibility path for `_def.json`. |
 | [`definitions.py`](../src/cogsecskills/authoring/definitions.py) | The canonical definition layer. `definitions --write` renders all 100 skills from `definitions/<group>/<slug>.yaml`; `definitions --check` proves the YAML definitions and rendered skill files have not drifted. |
 | [`config.py`](../src/cogsecskills/core/config.py) | Configuration. Optional `cogsecskills.yaml` overrides the harness set and `doctor` quality thresholds; everything has a default, so the file is never required. A present-but-malformed config raises rather than silently falling back. |
-| [`locate.py`](../src/cogsecskills/core/locate.py) | Project-root discovery. Walks up from the module file to find `registry/skills.yaml` or `pyproject.toml`, replacing fragile `parents[N]` magic-depths. Fails loud if no sentinel is found. |
+| [`locate.py`](../src/cogsecskills/core/locate.py) | Project-root discovery. First finds `registry/skills.yaml` above the current directory; then checks module ancestors for the registry or `pyproject.toml`. This supports installed wheels used from a checkout; unrelated directories need an explicit root. Fails loudly if no sentinel is found. |
 | [`quality_constants.py`](../src/cogsecskills/core/quality_constants.py) | Shared quality-policy constants (field names, generic-phrase lists, sensitive groups/terms, normalization helper) used by both `insights.py` and `definitions.py`. Prevents drift between the two quality-check modules. |
 | [`text_utils.py`](../src/cogsecskills/core/text_utils.py) | Shared text utilities (`clean_cell`, `as_text`) used by `evals.py`, `examples.py`, and `rows.py`. Prevents drift between the three artifact generators. |
 | [`insights.py`](../src/cogsecskills/quality/insights.py) | Affordances over the catalogue: `route_query` (rank skills for a free-text need), `library_stats` (counts by group/status/verb), `render_catalogue_markdown` (navigable index), `doctor` (quality lint vs configurable thresholds — depth, not conformance). |
@@ -170,7 +173,7 @@ Each implemented area is a folder of six files:
 ```
 skills/<group>/<slug>/
   skill.yaml          # generated harness-neutral spec
-  SKILL.md            # Claude Code native entry point (frontmatter + doc)
+  SKILL.md            # harness-facing entry point (frontmatter + doc)
   workflow.md         # the agentic procedure, each step tagged with a tool verb
   harness/
     claude.md         # default adapter: verb -> Claude Code tools

@@ -18,15 +18,46 @@ This generated matrix view summarizes group sizes, tool-verb coverage, AGEINT cr
 
 ## Tool Verb Usage By Group
 
-| Group | `read` | `search` | `write` | `exec` | `reason` | `web` | `delegate` | `ask` |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| `sat` | 34 | 3 | 34 | 0 | 34 | 0 | 0 | 5 |
-| `cognitive_security` | 24 | 10 | 24 | 0 | 24 | 4 | 0 | 1 |
-| `critical_review` | 12 | 1 | 12 | 3 | 12 | 1 | 0 | 0 |
-| `osint_integrity` | 10 | 4 | 10 | 2 | 10 | 5 | 0 | 1 |
-| `counterintelligence` | 8 | 0 | 8 | 0 | 8 | 0 | 0 | 0 |
-| `information_environment` | 7 | 6 | 7 | 0 | 7 | 1 | 0 | 0 |
-| `research_methods` | 5 | 2 | 5 | 0 | 5 | 1 | 0 | 0 |
+\begingroup
+\setlength{\tabcolsep}{2pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}>{\raggedleft\arraybackslash}p{0.095\linewidth}>{\raggedleft\arraybackslash}p{0.075\linewidth}@{}}
+\toprule
+\textbf{Group} & \textbf{read} & \textbf{search} & \textbf{write} & \textbf{exec} & \textbf{reason} & \textbf{web} & \textbf{delegate} & \textbf{ask}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Group} & \textbf{read} & \textbf{search} & \textbf{write} & \textbf{exec} & \textbf{reason} & \textbf{web} & \textbf{delegate} & \textbf{ask}\\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{sat} & 34 & 3 & 34 & 0 & 34 & 0 & 0 & 5\\
+\texttt{cognitive\_\allowbreak{}security} & 24 & 10 & 24 & 0 & 24 & 4 & 0 & 1\\
+\texttt{critical\_\allowbreak{}review} & 12 & 1 & 12 & 3 & 12 & 1 & 0 & 0\\
+\texttt{osint\_\allowbreak{}integrity} & 10 & 4 & 10 & 2 & 10 & 5 & 0 & 1\\
+\texttt{counterintelligence} & 8 & 0 & 8 & 0 & 8 & 0 & 0 & 0\\
+\texttt{information\_\allowbreak{}environment} & 7 & 6 & 7 & 0 & 7 & 1 & 0 & 0\\
+\texttt{research\_\allowbreak{}methods} & 5 & 2 & 5 & 0 & 5 & 1 & 0 & 0\\
+\end{longtable}
+\endgroup
+
+```{=html}
+<div style="overflow-x:auto">
+<table class="verb-matrix" style="width:100%;min-width:52rem;table-layout:fixed;border-collapse:collapse;overflow-wrap:anywhere">
+<colgroup><col style="width:28%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"></colgroup>
+<thead><tr><th scope="col">Group</th><th scope="col">read</th><th scope="col">search</th><th scope="col">write</th><th scope="col">exec</th><th scope="col">reason</th><th scope="col">web</th><th scope="col">delegate</th><th scope="col">ask</th></tr></thead>
+<tbody>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">sat</code></th><td style="vertical-align:top">34</td><td style="vertical-align:top">3</td><td style="vertical-align:top">34</td><td style="vertical-align:top">0</td><td style="vertical-align:top">34</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td><td style="vertical-align:top">5</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">cognitive_security</code></th><td style="vertical-align:top">24</td><td style="vertical-align:top">10</td><td style="vertical-align:top">24</td><td style="vertical-align:top">0</td><td style="vertical-align:top">24</td><td style="vertical-align:top">4</td><td style="vertical-align:top">0</td><td style="vertical-align:top">1</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">critical_review</code></th><td style="vertical-align:top">12</td><td style="vertical-align:top">1</td><td style="vertical-align:top">12</td><td style="vertical-align:top">3</td><td style="vertical-align:top">12</td><td style="vertical-align:top">1</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">osint_integrity</code></th><td style="vertical-align:top">10</td><td style="vertical-align:top">4</td><td style="vertical-align:top">10</td><td style="vertical-align:top">2</td><td style="vertical-align:top">10</td><td style="vertical-align:top">5</td><td style="vertical-align:top">0</td><td style="vertical-align:top">1</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">counterintelligence</code></th><td style="vertical-align:top">8</td><td style="vertical-align:top">0</td><td style="vertical-align:top">8</td><td style="vertical-align:top">0</td><td style="vertical-align:top">8</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">information_environment</code></th><td style="vertical-align:top">7</td><td style="vertical-align:top">6</td><td style="vertical-align:top">7</td><td style="vertical-align:top">0</td><td style="vertical-align:top">7</td><td style="vertical-align:top">1</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td></tr>
+<tr><th scope="row" style="font-weight:normal;text-align:left;vertical-align:top;background:transparent;color:#1d2933"><code style="white-space:normal;overflow-wrap:anywhere">research_methods</code></th><td style="vertical-align:top">5</td><td style="vertical-align:top">2</td><td style="vertical-align:top">5</td><td style="vertical-align:top">0</td><td style="vertical-align:top">5</td><td style="vertical-align:top">1</td><td style="vertical-align:top">0</td><td style="vertical-align:top">0</td></tr>
+</tbody></table>
+</div>
+```
+
 
 ## AGEINT Crosswalk
 
@@ -58,11 +89,11 @@ This generated matrix view summarizes group sizes, tool-verb coverage, AGEINT cr
 
 | Figure source | Reader question answered |
 | --- | --- |
-| `../output/figures/cogsecskills_taxonomy_counts.png` | How are skills distributed across the seven taxonomy groups? |
-| `../output/figures/cogsecskills_skill_grid.png` | Can the reader scan all 100 skills as one compact library surface? |
-| `../output/figures/cogsecskills_verb_heatmap.png` | Which groups exercise which neutral tool verbs most often? |
-| `../output/figures/cogsecskills_ageint_network.png` | How do skill groups connect to AGEINT teaching topics? |
-| `../output/figures/cogsecskills_plan_build_teach_flow.png` | How do plan, build, teach, validation, and manuscript generation fit together? |
-| `../output/figures/cogsecskills_reference_density.png` | Which groups carry the deepest declared source-reference backing per skill? |
-| `../output/figures/cogsecskills_harness_contract.png` | Does each group maintain configured harness adapter coverage? |
-| `../output/figures/cogsecskills_cover_installation.png` | How does a reader install CogSecSkills from GitHub into an agent harness? |
+| `../../output/figures/cogsecskills_taxonomy_counts.png` | How are skills distributed across the seven taxonomy groups? |
+| `../../output/figures/cogsecskills_skill_grid.png` | Can the reader scan all 100 skills as one compact library surface? |
+| `../../output/figures/cogsecskills_verb_heatmap.png` | Which groups exercise which neutral tool verbs most often? |
+| `../../output/figures/cogsecskills_ageint_network.png` | How do skill groups connect to AGEINT teaching topics? |
+| `../../output/figures/cogsecskills_plan_build_teach_flow.png` | How do plan, build, teach, validation, and manuscript generation fit together? |
+| `../../output/figures/cogsecskills_reference_density.png` | Which groups carry the deepest declared source-reference backing per skill? |
+| `../../output/figures/cogsecskills_harness_contract.png` | Does each group maintain configured harness adapter coverage? |
+| `../../output/figures/cogsecskills_cover_installation.png` | How does a reader install CogSecSkills from GitHub into an agent harness? |

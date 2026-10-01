@@ -121,6 +121,7 @@ def _library(root: Path, *, harnesses: tuple[str, ...] | None = None) -> None:
             tools=[
                 {"verb": "read", "purpose": "inspect supplied material"},
                 {"verb": "web", "purpose": "fetch source pages"},
+                {"verb": "reason", "purpose": "evaluate provenance"},
                 {"verb": "write", "purpose": "emit provenance note"},
             ],
         ),

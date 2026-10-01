@@ -1,6 +1,6 @@
 # CogSecSkills
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20804585.svg)](https://doi.org/10.5281/zenodo.20804585)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21513316.svg)](https://doi.org/10.5281/zenodo.21513316)
 [![CI](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml/badge.svg)](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
@@ -18,11 +18,11 @@ additional configured harness.
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
 uv sync
-PYTHONPATH="src:." python -m cogsecskills validate     # 0 errors over all 100 skills
+uv run python -m cogsecskills validate     # 0 errors over all 100 skills
 
 # Find the right skill for an analytic need, then inspect it
-python -m cogsecskills route "verify a viral claim before sharing it"
-python -m cogsecskills show sat.analysis_of_competing_hypotheses
+uv run python -m cogsecskills route "verify a viral claim before sharing it"
+uv run python -m cogsecskills show sat.analysis_of_competing_hypotheses
 ```
 
 To connect an agent harness, point it at `skills/<group>/<slug>/SKILL.md`, run
@@ -33,15 +33,22 @@ The full command reference is in [Usage](#usage); harness details are in
 
 ## Read it / cite it
 
-- **Manuscript (PDF):** [`CogSecSkills.pdf`](CogSecSkills.pdf) — the full,
-  reproducible skills-system report (also attached to each release).
-- **Archived on Zenodo:** concept DOI
-  [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585) (always
-  resolves to the latest version); v1.0.0 version DOI
-  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586). Citation
-  metadata in [`CITATION.cff`](CITATION.cff). Note: the version DOI still
-  resolves to v1.0.0 and lags the 1.7.0 release — an updated Zenodo deposit is
-  in flight (tracked in `TODO.md`).
+- **Manuscript:** [`CogSecSkills.pdf`](CogSecSkills.pdf) and
+  [HTML](output/web/index.html). The manuscript's
+  [release manifest](docs/manuscript/S02_release_manifest.md) records its version,
+  environment, and local gate results. The sources are v1.8.0 dated 2026-10-01.
+  [The prior v1.7.0 review](docs/review-2026-10-01.md) preserves its own evidence
+  and limits; use each release's receipt for later artifact identities.
+- **Software archive:** concept DOI
+  [10.5281/zenodo.21513316](https://doi.org/10.5281/zenodo.21513316).
+  The separate historical v1.0.0 manuscript archive has concept
+  [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585), version
+  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586).
+  Citation metadata is in [`CITATION.cff`](CITATION.cff). The v1.8.0 release
+  candidate was prepared on 2026-10-01 with the software concept DOI.
+  Consult [GitHub releases](https://github.com/docxology/CogSecSkills/releases)
+  and citation metadata for the verified published version identity. Local
+  source gates do not verify archive resolution or source/version identity.
 - **New here?** [`QUICKSTART.md`](QUICKSTART.md) · **Docs map:**
   [`docs/README.md`](docs/README.md)
 
@@ -106,7 +113,7 @@ runtime rather than embedded in committed generated files.
 ```
 skills/<group>/<slug>/
   skill.yaml          # generated harness-neutral spec
-  SKILL.md            # Claude Code native entry point (frontmatter + doc)
+  SKILL.md            # harness-facing entry point (frontmatter + doc)
   workflow.md         # the agentic procedure, each step tagged with a tool verb
   harness/
     claude.md         # default adapter: Claude Code tools
@@ -132,61 +139,62 @@ are the generated, harness-facing build outputs.
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
 uv sync
-PYTHONPATH="src:." python -m cogsecskills validate
+uv run python -m cogsecskills validate
 
 # List the catalogue (all 100 areas)
-python -m cogsecskills list
-python -m cogsecskills list --group sat --status implemented
-python -m cogsecskills list --limit 10 --format json
+uv run python -m cogsecskills list
+uv run python -m cogsecskills list --group sat --status implemented
+uv run python -m cogsecskills list --limit 10 --format json
 
 # Inspect one skill
-python -m cogsecskills show sat.analysis_of_competing_hypotheses
+uv run python -m cogsecskills show sat.analysis_of_competing_hypotheses
 
 # Find the best skill for a free-text analytic need
-python -m cogsecskills route "verify a viral claim before sharing it"
+uv run python -m cogsecskills route "verify a viral claim before sharing it"
 
 # Validate the whole library (plan <-> build coherence + multiharness conformance)
-python -m cogsecskills validate
+uv run python -m cogsecskills validate
 
 # JSON status report
-python -m cogsecskills report
+uv run python -m cogsecskills report
 
 # Statistics, grouped catalogue, and quality lint
-python -m cogsecskills stats
-python -m cogsecskills catalogue --markdown --output docs/catalogue.md
-python -m cogsecskills doctor
-python -m cogsecskills scenarios --check
-python -m cogsecskills examples --write
-python -m cogsecskills examples --check
-python -m cogsecskills evals --write
-python -m cogsecskills evals --check
-python -m cogsecskills dashboard --write
-python -m cogsecskills dashboard --check
-python -m cogsecskills release-metadata --write
-python -m cogsecskills release-metadata --check
-python -m cogsecskills catalogue --check
+uv run python -m cogsecskills stats
+uv run python -m cogsecskills catalogue --markdown --output docs/catalogue.md
+uv run python -m cogsecskills doctor
+uv run python -m cogsecskills scenarios --check
+uv run python -m cogsecskills examples --write
+uv run python -m cogsecskills examples --check
+uv run python -m cogsecskills evals --write
+uv run python -m cogsecskills evals --check
+uv run python -m cogsecskills dashboard --write
+uv run python -m cogsecskills dashboard --check
+uv run python -m cogsecskills release-metadata --write
+uv run python -m cogsecskills release-metadata --check
+uv run python -m cogsecskills catalogue --check
 
 # Run scenario fixtures through a live harness (opt-in; exploratory screening)
-python -m cogsecskills eval-live --harness claude --scenario sat-ach-safe
-python -m cogsecskills eval-live --harness claude --mode routed --json
+uv run python -m cogsecskills eval-live --harness claude --scenario sat-ach-safe
+uv run python -m cogsecskills eval-live --harness claude --mode routed --json
 
 # Regenerate manuscript supplements and figures from the live library
-python -m cogsecskills manuscript-assets --write
-python -m cogsecskills manuscript-assets --check
+uv run python -m cogsecskills manuscript-assets --write
+uv run python -m cogsecskills manuscript-assets --check
 
 # Regenerate all rendered skills from canonical YAML definitions
-python -m cogsecskills definitions --write
-python -m cogsecskills definitions --check
+uv run python -m cogsecskills definitions --write
+uv run python -m cogsecskills definitions --check
 
 # Author a full skill deterministically from a structured JSON/YAML definition
-python -m cogsecskills author path/to/definition.yaml     # render one
-python -m cogsecskills author-batch                      # compatibility path for skills/**/_def.json
+uv run python -m cogsecskills author path/to/definition.yaml     # render one
+uv run python -m cogsecskills author-batch                      # compatibility path for skills/**/_def.json
 
 # Scaffold a brand-new planned area from the registry (skeleton to deepen)
-python -m cogsecskills scaffold sat.some_new_area
+uv run python -m cogsecskills scaffold sat.some_new_area
 ```
 
-(From the project root, with `PYTHONPATH="src:."` or after `uv sync`.)
+(Run from the project root. `uv run` selects the environment created by
+`uv sync`; it does not require shell activation.)
 
 To connect a harness, point it at `skills/<group>/<slug>/SKILL.md`, use
 `workflow.md` for the neutral procedure, and bind tools through the matching
@@ -242,12 +250,18 @@ runs against the real `skills/` tree: adding a malformed skill, or an
   the **deliverable is the skills system**: registry, skills, AGEINT docs,
   runner, tests, generated manuscript supplements, and figures that describe
   those source surfaces.
-- Archived release: **v1.0.0** on Zenodo — concept DOI
+- Software release chain: concept DOI
+  [10.5281/zenodo.21513316](https://doi.org/10.5281/zenodo.21513316). The existing
+  [software record](https://zenodo.org/records/21520558) contains a source ZIP
+  linked to the GitHub v1.7.0 tree, although its metadata says `1.0.0`.
+- Historical manuscript archive: **v1.0.0** on Zenodo — concept DOI
   [10.5281/zenodo.20804585](https://doi.org/10.5281/zenodo.20804585) (all
-  versions), version DOI
-  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586). GitHub
-  releases at <https://github.com/docxology/CogSecSkills/releases> carry the
-  rendered manuscript PDF.
+  manuscript versions), version DOI
+  [10.5281/zenodo.20804586](https://doi.org/10.5281/zenodo.20804586).
+  The historical [v1.0.0 GitHub release](https://github.com/docxology/CogSecSkills/releases/tag/v1.0.0)
+  includes its manuscript PDF. Inspect each
+  [GitHub release](https://github.com/docxology/CogSecSkills/releases) for its
+  actual assets; a tag alone does not establish a manuscript deposit.
 - Educational upstream: [AGEINT](https://github.com/docxology/AGEINT)
   (concept DOI [10.5281/zenodo.20732274](https://doi.org/10.5281/zenodo.20732274)).
 - The skill catalogue draws on Heuer & Pherson, *Structured Analytic Techniques

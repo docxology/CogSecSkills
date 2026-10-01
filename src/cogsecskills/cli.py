@@ -515,6 +515,13 @@ def _spec_dict(spec: SkillSpec) -> dict:
     }
 
 
+def _nonnegative_integer(value: str) -> int:
+    parsed = int(value)
+    if parsed < 0:
+        raise argparse.ArgumentTypeError("must be a nonnegative integer")
+    return parsed
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="cogsecskills", description=__doc__)
     parser.add_argument(
@@ -528,7 +535,7 @@ def build_parser() -> argparse.ArgumentParser:
     p_list.add_argument("--status")
     p_list.add_argument(
         "--limit",
-        type=int,
+        type=_nonnegative_integer,
         default=None,
         help="cap the number of results (applies after filtering)",
     )
@@ -583,7 +590,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     p_route = sub.add_parser("route", help="rank skills matching a free-text need")
     p_route.add_argument("query")
-    p_route.add_argument("--limit", type=int, default=5)
+    p_route.add_argument("--limit", type=_nonnegative_integer, default=5)
     p_route.add_argument(
         "--format",
         choices=("text", "json"),
@@ -792,4 +799,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    return int(args.func(args))
+    try:
+        return int(args.func(args))
+    except (OSError, ValueError, RuntimeError) as exc:
+        print(f"cogsecskills {args.command}: {exc}", file=sys.stderr)
+        return 1

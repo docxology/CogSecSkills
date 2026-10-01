@@ -10,13 +10,14 @@
         "name": "Active Inference Institute"
       },
       "familyName": "Friedman",
-      "givenName": "Daniel Ari"
+      "givenName": "Daniel Ari",
+      "email": "daniel@activeinference.institute"
     }
   ],
   "codeRepository": "https://github.com/docxology/CogSecSkills",
-  "dateModified": "2026-07-22",
-  "identifier": "10.5281/zenodo.20804585",
-  "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft, runnable identically under Claude Code, Codex, and Hermes.",
+  "dateModified": "2026-10-01",
+  "identifier": "10.5281/zenodo.21513316",
+  "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft, with configured structural adapters for Claude Code, Codex, and Hermes.",
   "keywords": [
     "cognitive security",
     "structured analytic techniques",
@@ -29,5 +30,5 @@
   "license": "https://spdx.org/licenses/Apache-2.0",
   "name": "CogSecSkills: Multiharness Agentic Skills for Cognitive Security",
   "programmingLanguage": "Python",
-  "version": "1.7.0"
+  "version": "1.8.0"
 }

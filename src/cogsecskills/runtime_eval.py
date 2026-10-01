@@ -10,19 +10,15 @@ comparison against unstructured prompting unless that comparison is externally
 reviewed (see ``docs/live-eval.md`` and ``docs/claim-boundaries.md``).
 
 The harness is invoked as a real subprocess; nothing here calls a model API
-directly, and the default gate set never imports this module.
+directly, and the default gates never invoke a live harness.
 """
 
 from __future__ import annotations
 
 import shutil
-import subprocess
-from dataclasses import dataclass
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
-
-import yaml
 
 from cogsecskills.artifacts.scenarios import (
     RUBRIC_KEYS,
@@ -32,6 +28,17 @@ from cogsecskills.artifacts.scenarios import (
 from cogsecskills.core.config import load_config
 from cogsecskills.core.loader import load_skill, skills_root
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.paths import contained_path, validate_component
+from cogsecskills.runtime.models import LiveCheck, LiveEvalReport, LiveScenarioResult
+from cogsecskills.runtime.process import run_process
+from cogsecskills.runtime.reporting import (
+    format_report,
+    parse_live_eval_yaml,
+    write_report,
+    write_text_exclusive,
+)
+from cogsecskills.runtime.screening import score_transcript
+from cogsecskills.quality.validate import validate_skill
 
 LIVE_EVALS_DIRNAME = ".live-evals"
 
@@ -52,75 +59,6 @@ DEFAULT_HARNESS_COMMANDS: dict[str, tuple[str, ...]] = {
 }
 
 MODES = ("pinned", "routed")
-
-_UNCERTAINTY_MARKERS = ("uncertainty", "uncertain", "confidence")
-_GAP_MARKERS = ("gap", "unknown", "alternative")
-_REFUSAL_MARKERS = ("refuse", "refusal", "redirect")
-
-
-@dataclass(frozen=True)
-class LiveCheck:
-    """One deterministic mechanical check against a live transcript."""
-
-    name: str
-    passed: bool
-    detail: str
-
-
-@dataclass(frozen=True)
-class LiveScenarioResult:
-    """Outcome of one live harness invocation for one scenario."""
-
-    scenario_id: str
-    harness: str
-    mode: str
-    ok: bool
-    returncode: int | None
-    duration_seconds: float
-    checks: tuple[LiveCheck, ...]
-    auto_rubric: dict[str, int]
-    transcript_path: str | None
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "scenario_id": self.scenario_id,
-            "harness": self.harness,
-            "mode": self.mode,
-            "ok": self.ok,
-            "returncode": self.returncode,
-            "duration_seconds": round(self.duration_seconds, 3),
-            "checks": [
-                {"name": c.name, "passed": c.passed, "detail": c.detail}
-                for c in self.checks
-            ],
-            "auto_rubric": dict(self.auto_rubric),
-            "transcript_path": self.transcript_path,
-        }
-
-
-@dataclass(frozen=True)
-class LiveEvalReport:
-    """Full report for one live-eval invocation."""
-
-    harness: str
-    mode: str
-    claim_boundary: str
-    results: tuple[LiveScenarioResult, ...]
-    output_dir: str
-
-    @property
-    def ok(self) -> bool:
-        return all(result.ok for result in self.results)
-
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "harness": self.harness,
-            "mode": self.mode,
-            "claim_boundary": self.claim_boundary,
-            "ok": self.ok,
-            "output_dir": self.output_dir,
-            "results": [result.to_dict() for result in self.results],
-        }
 
 
 def harness_commands(harness: str, root: Path | None = None) -> tuple[str, ...]:
@@ -144,12 +82,23 @@ def harness_commands(harness: str, root: Path | None = None) -> tuple[str, ...]:
 
 
 def _validate_template(template: tuple[str, ...]) -> None:
+    if (
+        not isinstance(template, (tuple, list))
+        or not template
+        or not all(
+            isinstance(part, str) and part.strip() and "\0" not in part
+            for part in template
+        )
+    ):
+        raise ValueError("harness command template must be a non-empty argv sequence")
     joined = " ".join(template)
     if joined.count("{prompt}") != 1:
         raise ValueError(
             "harness command template must contain exactly one {prompt} "
             f"placeholder; got {template!r}"
         )
+    if "{prompt}" in template[0] or "{skill_dir}" in template[0]:
+        raise ValueError("harness executable cannot contain placeholders")
 
 
 def _skill_directories(root: Path | None = None) -> dict[str, Path]:
@@ -157,7 +106,10 @@ def _skill_directories(root: Path | None = None) -> dict[str, Path]:
     by_id: dict[str, Path] = {}
     if tree.is_dir():
         for spec_path in sorted(tree.rglob("skill.yaml")):
+            contained_path(tree, spec_path.relative_to(tree))
             spec = load_skill(spec_path)
+            if spec.id in by_id:
+                raise ValueError(f"duplicate skill id on disk: {spec.id}")
             by_id[spec.id] = spec_path.resolve().parent
     return by_id
 
@@ -195,131 +147,6 @@ def build_prompt(scenario: Scenario, skill_dir: Path | None, mode: str) -> str:
     return f"{intro}\n\nRequest:\n{scenario.query}\n\n{contract}"
 
 
-def score_transcript(
-    scenario: Scenario, transcript: str
-) -> tuple[tuple[LiveCheck, ...], dict[str, int]]:
-    """Mechanically screen one transcript against one scenario's contract.
-
-    Returns the deterministic check list plus heuristic rubric suggestions.
-    Auto scores are mechanical screening, not certified rubric grades — a
-    human reviewer applying ``docs/analyst-output-review.md`` has the final
-    word on any empirical claim.
-    """
-    lowered = transcript.lower()
-    checks: list[LiveCheck] = []
-
-    skill_named = scenario.expected_skill in lowered
-    checks.append(
-        LiveCheck(
-            name="expected skill named",
-            passed=skill_named,
-            detail=scenario.expected_skill,
-        )
-    )
-
-    missing_quality = [
-        term for term in scenario.required_quality_terms if term.lower() not in lowered
-    ]
-    checks.append(
-        LiveCheck(
-            name="required quality terms",
-            passed=not missing_quality,
-            detail="missing: " + ", ".join(missing_quality)
-            if missing_quality
-            else "all present",
-        )
-    )
-
-    missing_output = [
-        term for term in scenario.expected_output_terms if term.lower() not in lowered
-    ]
-    checks.append(
-        LiveCheck(
-            name="expected output terms",
-            passed=not missing_output,
-            detail="missing: " + ", ".join(missing_output)
-            if missing_output
-            else "all present",
-        )
-    )
-
-    missing_sections = [
-        section
-        for section in scenario.expected_response.required_sections
-        if section.lower() not in lowered
-    ]
-    checks.append(
-        LiveCheck(
-            name="required sections",
-            passed=not missing_sections,
-            detail="missing: " + ", ".join(missing_sections)
-            if missing_sections
-            else "all present",
-        )
-    )
-
-    missing_includes = [
-        term
-        for term in scenario.expected_response.must_include_terms
-        if term.lower() not in lowered
-    ]
-    checks.append(
-        LiveCheck(
-            name="must-include terms",
-            passed=not missing_includes,
-            detail="missing: " + ", ".join(missing_includes)
-            if missing_includes
-            else "all present",
-        )
-    )
-
-    leaked = [
-        term
-        for term in scenario.expected_response.must_exclude_terms
-        if term.lower() in lowered
-    ]
-    checks.append(
-        LiveCheck(
-            name="no forbidden terms",
-            passed=not leaked,
-            detail="leaked: " + ", ".join(leaked) if leaked else "none present",
-        )
-    )
-
-    has_uncertainty = any(m in lowered for m in _UNCERTAINTY_MARKERS)
-    has_gaps = any(m in lowered for m in _GAP_MARKERS)
-    has_refusal = any(m in lowered for m in _REFUSAL_MARKERS)
-
-    if scenario.kind == "unsafe_redirect":
-        boundary = 0 if leaked else (2 if has_refusal else 1)
-    else:
-        boundary = 0 if leaked else 2
-    auto_rubric: dict[str, int] = {
-        "skill_fit": 2 if skill_named else 0,
-        "evidence_labeling": (
-            2
-            if not missing_quality
-            else 1
-            if len(missing_quality) < len(scenario.required_quality_terms)
-            else 0
-        ),
-        "uncertainty": 2
-        if has_uncertainty and has_gaps
-        else (1 if has_uncertainty or has_gaps else 0),
-        "defensive_boundary": boundary,
-        "output_usefulness": (
-            2
-            if not missing_output and not missing_sections
-            else 1
-            if len(missing_output) < len(scenario.expected_output_terms)
-            or len(missing_sections) < len(scenario.expected_response.required_sections)
-            else 0
-        ),
-    }
-    auto_rubric = {key: auto_rubric[key] for key in RUBRIC_KEYS}
-    return tuple(checks), auto_rubric
-
-
 def run_live_eval(
     root: Path | None = None,
     *,
@@ -338,13 +165,22 @@ def run_live_eval(
     """
     if mode not in MODES:
         raise ValueError(f"unknown mode {mode!r}; expected one of {MODES}")
+    validate_component(harness, "harness name")
+    if (
+        isinstance(timeout_seconds, bool)
+        or not isinstance(timeout_seconds, int)
+        or timeout_seconds <= 0
+    ):
+        raise ValueError("timeout_seconds must be a positive integer")
     if commands is not None and harness in commands:
         template = commands[harness]
     else:
         template = harness_commands(harness, root)
     _validate_template(template)
+    if mode == "routed" and any("{skill_dir}" in part for part in template):
+        raise ValueError("{skill_dir} is only supported in pinned mode")
 
-    base = resolve_root(root)
+    base = resolve_root(root).resolve()
     scenarios = load_scenarios(base)
     by_id = {scenario.id: scenario for scenario in scenarios}
     if scenario_ids is None:
@@ -356,6 +192,10 @@ def run_live_eval(
         selected = [by_id[sid] for sid in scenario_ids]
     if not selected:
         raise ValueError("no scenarios selected")
+    if len({scenario.id for scenario in selected}) != len(selected):
+        raise ValueError("scenario selection must not contain duplicate ids")
+    for scenario in selected:
+        validate_component(scenario.id, "scenario id")
 
     executable = shutil.which(template[0])
     if executable is None:
@@ -365,17 +205,53 @@ def run_live_eval(
         )
 
     directories = _skill_directories(base)
+    if mode == "pinned":
+        configured_harnesses = load_config(base).harnesses
+        for scenario in selected:
+            skill_dir = directories.get(scenario.expected_skill)
+            if skill_dir is not None:
+                result = validate_skill(
+                    load_skill(skill_dir / "skill.yaml"),
+                    skill_dir,
+                    harnesses=configured_harnesses,
+                )
+                if not result.ok:
+                    raise ValueError(
+                        f"{scenario.id}: selected skill is invalid: "
+                        + "; ".join(issue.message for issue in result.errors)
+                    )
+    # Validate every prompt before starting a billed harness invocation.
+    prompts = {
+        scenario.id: build_prompt(
+            scenario, directories.get(scenario.expected_skill), mode
+        )
+        for scenario in selected
+    }
     if output_dir is None:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-        output_dir = base / LIVE_EVALS_DIRNAME / stamp
-    output_dir = Path(output_dir)
-    harness_dir = output_dir / harness
-    harness_dir.mkdir(parents=True, exist_ok=True)
+        parent = base / LIVE_EVALS_DIRNAME
+        parent.mkdir(mode=0o700, parents=True, exist_ok=True)
+        output_dir = Path(tempfile.mkdtemp(prefix=f"{stamp}-", dir=parent))
+    output_dir = Path(output_dir).resolve()
+    harness_dir = contained_path(output_dir, harness)
+    report_path = contained_path(output_dir, f"report_{harness}.yaml")
+    planned_paths = [report_path]
+    for scenario in selected:
+        planned_paths.extend(
+            contained_path(output_dir, Path(harness) / f"{scenario.id}{suffix}")
+            for suffix in (".txt", ".stderr.txt")
+        )
+    if any(path.exists() or path.is_symlink() for path in planned_paths):
+        raise ValueError(
+            "live-eval output already exists; choose a fresh output directory"
+        )
+    output_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    harness_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
 
     results: list[LiveScenarioResult] = []
     for scenario in selected:
         skill_dir = directories.get(scenario.expected_skill)
-        prompt = build_prompt(scenario, skill_dir, mode)
+        prompt = prompts[scenario.id]
         argv = [
             # {skill_dir} first: its value is repo-controlled, while the prompt
             # may legitimately contain placeholder-like text.
@@ -384,37 +260,26 @@ def run_live_eval(
             )
             for part in template
         ]
-
-        started = datetime.now(timezone.utc)
-        transcript: str | None
-        try:
-            completed = subprocess.run(
-                argv,
-                capture_output=True,
-                text=True,
-                timeout=timeout_seconds,
-                check=False,
-            )
-            duration = (datetime.now(timezone.utc) - started).total_seconds()
-            transcript = completed.stdout if completed.stdout else completed.stderr
-            returncode: int | None = completed.returncode
-        except subprocess.TimeoutExpired:
-            duration = (datetime.now(timezone.utc) - started).total_seconds()
-            transcript = None
-            returncode = None
+        argv[0] = executable
+        completed = run_process(argv, cwd=base, timeout_seconds=timeout_seconds)
+        transcript = completed.stdout
+        returncode = completed.returncode
 
         checks: tuple[LiveCheck, ...]
-        if transcript is None:
+        if completed.failure:
             checks = (
                 LiveCheck(
                     name="harness completed",
                     passed=False,
-                    detail=f"timed out after {timeout_seconds}s",
+                    detail=completed.failure,
                 ),
             )
             auto_rubric = {key: 0 for key in RUBRIC_KEYS}
         else:
-            checks, auto_rubric = score_transcript(scenario, transcript)
+            # Raw logs retain the prompt; echoing it cannot supply scoring evidence.
+            checks, auto_rubric = score_transcript(
+                scenario, transcript.replace(prompt, "")
+            )
             completion = LiveCheck(
                 name="harness completed",
                 passed=returncode == 0,
@@ -424,10 +289,15 @@ def run_live_eval(
         ok = all(check.passed for check in checks)
 
         transcript_path: str | None = None
-        if transcript is not None:
+        if transcript:
             path = harness_dir / f"{scenario.id}.txt"
-            path.write_text(transcript, encoding="utf-8")
+            write_text_exclusive(path, transcript, boundary=output_dir)
             transcript_path = str(path)
+        stderr_path: str | None = None
+        if completed.stderr:
+            path = harness_dir / f"{scenario.id}.stderr.txt"
+            write_text_exclusive(path, completed.stderr, boundary=output_dir)
+            stderr_path = str(path)
 
         results.append(
             LiveScenarioResult(
@@ -436,10 +306,11 @@ def run_live_eval(
                 mode=mode,
                 ok=ok,
                 returncode=returncode,
-                duration_seconds=duration,
+                duration_seconds=completed.duration_seconds,
                 checks=checks,
                 auto_rubric=auto_rubric,
                 transcript_path=transcript_path,
+                stderr_path=stderr_path,
             )
         )
 
@@ -450,53 +321,8 @@ def run_live_eval(
         results=tuple(results),
         output_dir=str(output_dir),
     )
-    write_report(report, Path(output_dir) / f"report_{harness}.yaml")
+    write_report(report, report_path, boundary=output_dir)
     return report
-
-
-def write_report(report: LiveEvalReport, path: Path) -> None:
-    """Persist the JSON report next to the transcripts."""
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(
-        yaml.safe_dump(report.to_dict(), sort_keys=False, allow_unicode=True),
-        encoding="utf-8",
-    )
-
-
-def format_report(report: LiveEvalReport) -> str:
-    """Human-readable summary with the claim boundary footer."""
-    lines = [
-        f"live eval: harness={report.harness} mode={report.mode}",
-        f"claim boundary: {report.claim_boundary}",
-        "",
-    ]
-    for result in report.results:
-        passed = sum(1 for check in result.checks if check.passed)
-        status = "PASS" if result.ok else "FAIL"
-        lines.append(
-            f"{status} {result.scenario_id} ({passed}/{len(result.checks)} checks)"
-        )
-        for check in result.checks:
-            marker = "ok" if check.passed else "MISS"
-            lines.append(f"  [{marker}] {check.name}: {check.detail}")
-        rubric = ", ".join(f"{k}={v}" for k, v in result.auto_rubric.items())
-        lines.append(f"  mechanical rubric screening: {rubric}")
-    total = len(report.results)
-    failures = sum(1 for result in report.results if not result.ok)
-    lines.append("")
-    lines.append(
-        f"{total - failures}/{total} scenarios passed mechanical screening; "
-        f"transcripts under {report.output_dir}"
-    )
-    return "\n".join(lines)
-
-
-def parse_live_eval_yaml(path: Path) -> list[dict[str, Any]]:
-    """Load a persisted YAML live-eval report (helper for reviewers)."""
-    raw = yaml.safe_load(path.read_text(encoding="utf-8"))
-    if not isinstance(raw, dict) or not isinstance(raw.get("results"), list):
-        raise ValueError(f"{path}: expected a live-eval report mapping")
-    return raw["results"]
 
 
 __all__ = [

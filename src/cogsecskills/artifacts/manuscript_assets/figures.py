@@ -88,7 +88,7 @@ def write_figures(rows: list[SkillRow], root: Path | None = None) -> list[Path]:
         _write_plan_build_teach_flow(figures_dir),
         _write_reference_density(rows, figures_dir),
         _write_harness_contract(rows, figures_dir),
-        _write_cover_installation(rows, figures_dir),
+        _write_cover_installation(rows, figures_dir, root=base),
     ]
     cover_mirror = base / COVER_IMAGE_MIRROR_PATH
     cover_mirror.parent.mkdir(parents=True, exist_ok=True)

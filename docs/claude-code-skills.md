@@ -26,7 +26,8 @@ The library's on-disk layout does not match that shape directly:
   form is not a valid Claude Code skill name.
 
 So the skills must be **flattened and renamed** into `.claude/skills/`. The
-canonical `skills/` tree stays the source of truth; the `.claude/skills/` copies
+canonical definitions own the substance; the rendered `skills/` tree supplies
+the install files, and the `.claude/skills/` copies
 are a generated install target.
 
 ## Install all skills into a project
@@ -36,26 +37,49 @@ Run from the repository root. This installs every skill as
 and `harness/` stay intact) and rewriting each `SKILL.md` frontmatter `name:` to
 the kebab folder name.
 
+The first-install procedure below checks every destination before copying and
+refuses to replace an existing directory, file, or symlink. Run it in Bash (the
+snippet starts Bash explicitly, including on macOS):
+
 ```bash
-DEST=".claude/skills"
-mkdir -p "$DEST"
-find skills -name SKILL.md | sort | while IFS= read -r skillmd; do
+bash <<'BASH'
+set -euo pipefail
+test -d skills  # run from the library checkout
+DEST=".claude/skills"  # personal install: "$HOME/.claude/skills"
+# Preflight the complete set before writing any skill folder.
+while IFS= read -r skillmd; do
   dir="$(dirname "$skillmd")"
   slug="$(basename "$dir")"
-  name="cogsec-${slug//_/-}"            # group-cluster prefix; underscores -> hyphens
+  name="cogsec-${slug//_/-}"
+  if [ -e "$DEST/$name" ] || [ -L "$DEST/$name" ]; then
+    echo "Existing destination: $DEST/$name; review it before installing." >&2
+    exit 1
+  fi
+done < <(find skills -name SKILL.md | sort)
+
+mkdir -p "$DEST"
+count=0
+while IFS= read -r skillmd; do
+  dir="$(dirname "$skillmd")"
+  slug="$(basename "$dir")"
+  name="cogsec-${slug//_/-}"
   d="$DEST/$name"
-  rm -rf "$d"
-  cp -R "$dir" "$d"
+  mkdir "$d"  # fails if a destination appeared after preflight
+  cp -R "$dir/." "$d/"
   awk -v n="$name" 'BEGIN{done=0} /^name:/ && !done {print "name: " n; done=1; next} {print}' \
-    "$d/SKILL.md" > "$d/SKILL.md.tmp" && mv "$d/SKILL.md.tmp" "$d/SKILL.md"
-done
-echo "Installed $(ls -1 "$DEST" | wc -l) skills into $DEST"
+    "$d/SKILL.md" > "$d/SKILL.md.tmp"
+  mv "$d/SKILL.md.tmp" "$d/SKILL.md"
+  count=$((count + 1))
+done < <(find skills -name SKILL.md | sort)
+echo "Installed $count skills into $DEST"
+BASH
 ```
 
-To install for **every** project instead, set `DEST="$HOME/.claude/skills"`. The
-personal directory is watched live, so skills appear without restarting; a brand
--new project-level `.claude/skills/` directory is only watched after the next
-Claude Code start.
+For a personal install, change `DEST` inside the script to
+`"$HOME/.claude/skills"`. See the [official Claude Code skill
+locations](https://code.claude.com/docs/en/skills#choose-where-skills-load) for
+current discovery behavior. Start a fresh Claude Code session after installation
+and verify the loaded skills there.
 
 ## Verify
 
@@ -73,8 +97,10 @@ Then, in a Claude Code session started in this repo, the skills appear in `/`
 
 `.claude/skills/` is a generated copy, not a source. After editing canonical
 skills (`definitions/<group>/<slug>.yaml` → `definitions --write`), re-run the
-install snippet to re-sync. Treat `.claude/skills/` like other regeneratable
-outputs: it can be rebuilt from `skills/` at any time.
+first-install snippet into a fresh staging directory. Compare the regenerated
+files with the existing installed copies, preserve any local changes, and replace
+only the specific copies you own after review. The first-install snippet stops
+on existing destinations; it never deletes another skill.
 
 ## Boundary
 

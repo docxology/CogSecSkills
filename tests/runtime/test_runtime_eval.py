@@ -380,7 +380,7 @@ def test_harness_commands_fallback_and_unknown(tmp_path):
         harness_commands("mystery", tmp_path)
 
 
-def test_run_live_eval_screens_stderr_when_stdout_empty(tmp_path):
+def test_run_live_eval_preserves_stderr_without_scoring_it(tmp_path):
     root = _copy_fixture(tmp_path)
     script = _script(
         tmp_path,
@@ -396,7 +396,11 @@ def test_run_live_eval_screens_stderr_when_stdout_empty(tmp_path):
         commands={"fake": (script, "{prompt}")},
     )
 
-    assert report.ok
+    assert not report.ok
+    result = report.results[0]
+    assert result.transcript_path is None
+    assert Path(result.stderr_path).read_text(encoding="utf-8") == PASSING_TRANSCRIPT
+    assert result.auto_rubric["skill_fit"] == 0
 
 
 def test_report_yaml_round_trips(tmp_path):

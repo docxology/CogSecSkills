@@ -420,7 +420,11 @@ def test_check_scenarios_output_term_missing_from_spec(tmp_path):
             "description": "A skill.",
             "tags": ["test"],
             "triggers": ["defensive use"],
-            "tools": [{"verb": "read", "purpose": "p"}],
+            "tools": [
+                {"verb": "read", "purpose": "ingest evidence"},
+                {"verb": "reason", "purpose": "assess evidence"},
+                {"verb": "write", "purpose": "report findings"},
+            ],
             "inputs": [{"name": "ctx", "type": "text", "required": True}],
             "outputs": [
                 {"name": "product", "type": "md", "description": "the product"}

@@ -14,7 +14,9 @@ from pathlib import Path
 import yaml
 
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.paths import contained_path
 from cogsecskills.core.spec import SkillSpec, SpecError
+from cogsecskills.core.yaml_io import read_yaml
 
 #: Filename that marks a directory as a skill.
 SPEC_FILENAME = "skill.yaml"
@@ -35,9 +37,13 @@ def load_skill(spec_path: Path) -> SkillSpec:
     if not spec_path.is_file():
         raise FileNotFoundError(f"no skill spec at {spec_path}")
     try:
-        raw = yaml.safe_load(spec_path.read_text(encoding="utf-8"))
-    except yaml.YAMLError as exc:
-        raise SpecError(f"{spec_path}: invalid YAML: {exc}") from exc
+        raw = read_yaml(spec_path)
+    except ValueError as exc:
+        if isinstance(exc.__cause__, yaml.YAMLError):
+            raise SpecError(
+                f"{spec_path}: invalid YAML: {exc.__cause__}"
+            ) from exc.__cause__
+        raise SpecError(str(exc)) from exc
     try:
         return SkillSpec.from_mapping(raw)
     except SpecError as exc:
@@ -54,8 +60,20 @@ def discover_skills(root: Path | None = None) -> list[SkillSpec]:
     if not tree.is_dir():
         return []
     specs: list[SkillSpec] = []
+    seen: set[str] = set()
     for spec_path in sorted(tree.rglob(SPEC_FILENAME)):
-        specs.append(load_skill(spec_path))
+        try:
+            contained_path(
+                resolve_root(root), spec_path.relative_to(resolve_root(root))
+            )
+            contained_path(tree, spec_path.relative_to(tree))
+        except (ValueError, OSError, RuntimeError) as exc:
+            raise SpecError(f"unsafe skill source {spec_path}: {exc}") from exc
+        spec = load_skill(spec_path)
+        if spec.id in seen:
+            raise SpecError(f"duplicate on-disk skill id {spec.id!r}")
+        seen.add(spec.id)
+        specs.append(spec)
     return sorted(specs, key=lambda s: s.id)
 
 

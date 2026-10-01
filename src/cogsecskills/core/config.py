@@ -35,6 +35,8 @@ import yaml
 
 from cogsecskills.core.harness import HARNESSES
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.paths import validate_component, validate_harnesses
+from cogsecskills.core.yaml_io import read_yaml
 
 CONFIG_FILENAME = "cogsecskills.yaml"
 
@@ -74,20 +76,29 @@ def load_config(root: Path | None = None) -> Config:
     if not path.is_file():
         return Config.defaults()
     try:
-        raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-    except yaml.YAMLError as exc:
-        raise ValueError(f"{path}: invalid YAML: {exc}") from exc
+        raw = read_yaml(path)
+    except ValueError as exc:
+        if isinstance(exc.__cause__, yaml.YAMLError):
+            raise ValueError(
+                f"{path}: invalid YAML: {exc.__cause__}"
+            ) from exc.__cause__
+        raise
+    if raw is None:
+        raw = {}
     if not isinstance(raw, dict):
         raise ValueError(f"{path}: expected a top-level mapping")
 
     harnesses = raw.get("harnesses", list(HARNESSES))
     if not isinstance(harnesses, list) or not harnesses:
         raise ValueError(f"{path}: 'harnesses' must be a non-empty list")
-    harnesses = tuple(str(h).strip() for h in harnesses if str(h).strip())
-    if not harnesses:
-        raise ValueError(f"{path}: 'harnesses' resolved to empty after cleaning")
+    try:
+        harnesses = validate_harnesses(harnesses)
+    except ValueError as exc:
+        raise ValueError(f"{path}: {exc}") from exc
 
-    quality = raw.get("quality", {}) or {}
+    quality = raw.get("quality", {})
+    if quality is None:
+        quality = {}
     if not isinstance(quality, dict):
         raise ValueError(f"{path}: 'quality' must be a mapping")
 
@@ -95,23 +106,32 @@ def load_config(root: Path | None = None) -> Config:
         value = quality.get(key, default)
         if not isinstance(value, int) or isinstance(value, bool):
             raise ValueError(f"{path}: quality.{key} must be an integer")
+        if value < 0:
+            raise ValueError(f"{path}: quality.{key} must be non-negative")
         return value
 
+    require_references = quality.get("require_references", False)
+    if not isinstance(require_references, bool):
+        raise ValueError(f"{path}: quality.require_references must be a boolean")
     return Config(
         harnesses=harnesses,
         min_workflow_steps=_int("min_workflow_steps", 3),
         min_anti_criteria=_int("min_anti_criteria", 2),
-        require_references=bool(quality.get("require_references", False)),
+        require_references=require_references,
         runtime_eval_commands=_runtime_eval_commands(path, raw),
     )
 
 
 def _runtime_eval_commands(path: Path, raw: dict) -> dict[str, tuple[str, ...]]:
     """Parse the optional ``runtime_eval.harness_commands`` mapping."""
-    section = raw.get("runtime_eval", {}) or {}
+    section = raw.get("runtime_eval", {})
+    if section is None:
+        section = {}
     if not isinstance(section, dict):
         raise ValueError(f"{path}: 'runtime_eval' must be a mapping")
-    commands = section.get("harness_commands", {}) or {}
+    commands = section.get("harness_commands", {})
+    if commands is None:
+        commands = {}
     if not isinstance(commands, dict):
         raise ValueError(f"{path}: 'runtime_eval.harness_commands' must be a mapping")
     parsed: dict[str, tuple[str, ...]] = {}
@@ -120,14 +140,23 @@ def _runtime_eval_commands(path: Path, raw: dict) -> dict[str, tuple[str, ...]]:
             raise ValueError(
                 f"{path}: runtime_eval.harness_commands keys must be non-empty strings"
             )
+        try:
+            name = validate_component(harness.strip(), "runtime harness name")
+        except ValueError as exc:
+            raise ValueError(f"{path}: {exc}") from exc
+        if name in parsed:
+            raise ValueError(f"{path}: duplicate runtime harness name {name!r}")
         if (
             not isinstance(template, list)
             or not template
-            or not all(isinstance(part, str) and part for part in template)
+            or not all(
+                isinstance(part, str) and part.strip() and "\x00" not in part
+                for part in template
+            )
         ):
             raise ValueError(
                 f"{path}: runtime_eval.harness_commands.{harness} must be a "
-                "non-empty list of non-empty strings"
+                "non-empty list of non-empty strings without NUL bytes"
             )
-        parsed[harness] = tuple(template)
+        parsed[name] = tuple(template)
     return parsed

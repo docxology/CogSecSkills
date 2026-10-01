@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from cogsecskills.artifacts.text_outputs import check_text_outputs, write_text_outputs
 from cogsecskills.core.locate import resolve_root
 
 from .figures import FIGURE_NAMES, write_figures
@@ -34,10 +35,7 @@ def write_assets(root: Path | None = None) -> AssetWriteResult:
     base = resolve_root(root)
     rows = collect_skill_rows(base)
     text_outputs = _expected_texts(base)
-    for rel_path, text in text_outputs.items():
-        path = base / rel_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+    write_text_outputs(base, text_outputs)
 
     figure_paths = write_figures(rows, base)
     return {
@@ -51,15 +49,7 @@ def write_assets(root: Path | None = None) -> AssetWriteResult:
 def check_assets(root: Path | None = None) -> list[str]:
     """Return drift findings for generated manuscript assets."""
     base = resolve_root(root)
-    findings: list[str] = []
-    for rel_path, expected in _expected_texts(base).items():
-        path = base / rel_path
-        if not path.is_file():
-            findings.append(f"missing generated file: {rel_path}")
-            continue
-        actual = path.read_text(encoding="utf-8")
-        if actual != expected:
-            findings.append(f"stale generated file: {rel_path}")
+    findings = check_text_outputs(base, _expected_texts(base))
 
     figures_dir = base / "output" / "figures"
     figure_bytes: dict[str, bytes] = {}

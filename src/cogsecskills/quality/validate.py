@@ -31,7 +31,9 @@ from cogsecskills.core.loader import (
     skill_dir,
     skills_root,
 )
+from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.registry import SkillRegistry, load_registry
+from cogsecskills.core.paths import contained_path
 from cogsecskills.core.spec import SkillSpec, SpecError, ToolVerb
 
 SEVERITY_ERROR = "error"
@@ -80,14 +82,14 @@ def _safe_declared_path(
     label: str,
 ) -> Path | None:
     """Resolve a spec-declared companion path without allowing path escape."""
-    declared_path = Path(declared)
-    if declared_path.is_absolute() or ".." in declared_path.parts:
+    try:
+        return contained_path(directory, declared)
+    except (ValueError, OSError, RuntimeError):
         result.error(
             skill_id,
             f"{label} path {declared!r} must stay inside the skill directory",
         )
         return None
-    return directory / declared_path
 
 
 def _adapter_bound_verbs(text: str) -> frozenset[ToolVerb]:
@@ -140,7 +142,7 @@ def _check_workflow_verbs(
     """
     try:
         workflow_text = workflow_path.read_text(encoding="utf-8")
-    except OSError as exc:
+    except (OSError, UnicodeError) as exc:
         result.error(spec.id, f"workflow document {spec.workflow!r} unreadable: {exc}")
         return
     spec_verbs = {verb.value for verb in spec.verbs}
@@ -178,7 +180,8 @@ def validate_skill(
     targets = harnesses if harnesses is not None else HARNESSES
 
     # 1. Claude Code native entry point.
-    if not (directory / "SKILL.md").is_file():
+    entry_path = _safe_declared_path(directory, "SKILL.md", result, spec.id, "SKILL.md")
+    if entry_path is not None and not entry_path.is_file():
         result.error(spec.id, "missing SKILL.md (Claude Code native entry point)")
 
     # 2. Workflow document referenced by the spec.
@@ -211,7 +214,7 @@ def validate_skill(
             continue
         try:
             bound_verbs = _adapter_bound_verbs(adapter_path.read_text(encoding="utf-8"))
-        except OSError as exc:
+        except (OSError, UnicodeError) as exc:
             result.error(spec.id, f"{harness!r} adapter {declared!r} unreadable: {exc}")
             continue
         missing = tuple(
@@ -270,10 +273,14 @@ def _discover_with_dirs(root: Path | None) -> list[tuple[SkillSpec, Path]]:
     tree = skills_root(root)
     if not tree.is_dir():
         return []
-    pairs = [
-        (load_skill(path), skill_dir(path))
-        for path in sorted(tree.rglob(SPEC_FILENAME))
-    ]
+    pairs: list[tuple[SkillSpec, Path]] = []
+    for path in sorted(tree.rglob(SPEC_FILENAME)):
+        try:
+            contained_path(resolve_root(root), path.relative_to(resolve_root(root)))
+            contained_path(tree, path.relative_to(tree))
+        except (ValueError, OSError, RuntimeError) as exc:
+            raise SpecError(f"unsafe skill source {path}: {exc}") from exc
+        pairs.append((load_skill(path), skill_dir(path)))
     return sorted(pairs, key=lambda p: p[0].id)
 
 
@@ -293,6 +300,11 @@ def validate_library(
         pairs = []
     specs = [spec for spec, _ in pairs]
     on_disk_ids = {spec.id for spec in specs}
+    seen: set[str] = set()
+    for spec in specs:
+        if spec.id in seen:
+            result.error(spec.id, "duplicate on-disk skill id")
+        seen.add(spec.id)
 
     try:
         registry: SkillRegistry | None = load_registry(root)

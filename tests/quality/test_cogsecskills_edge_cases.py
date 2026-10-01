@@ -251,7 +251,11 @@ def test_scenarios_route_no_match(tmp_path):
             "description": "A skill.",
             "tags": ["test"],
             "triggers": ["defensive use with evidence"],
-            "tools": [{"verb": "read", "purpose": "p"}],
+            "tools": [
+                {"verb": "read", "purpose": "p"},
+                {"verb": "reason", "purpose": "assess evidence"},
+                {"verb": "write", "purpose": "report findings"},
+            ],
             "inputs": [{"name": "ctx", "type": "text", "required": True}],
             "outputs": [
                 {"name": "product", "type": "md", "description": "the product"}
@@ -559,7 +563,10 @@ def test_check_evals_stale_source_only(tmp_path):
     for d in ("registry", "skills", "scenarios"):
         shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
     write_evals(tmp_path)
-    # Corrupt only the source
-    (tmp_path / EVALS_SOURCE_PATH).write_text("manual edit\n", encoding="utf-8")
+    # Make the valid source noncanonical without introducing a parse failure.
+    source = tmp_path / EVALS_SOURCE_PATH
+    source.write_text(
+        source.read_text(encoding="utf-8") + "# manual edit\n", encoding="utf-8"
+    )
     findings = check_evals(tmp_path)
     assert any("stale offline evaluation source" in f for f in findings)

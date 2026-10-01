@@ -2,11 +2,11 @@
 project: CogSecSkills
 task: Build and verify the CogSecSkills multiharness skill library — framework, 100-area taxonomy, 100 implemented skills, AGEINT upstream
 effort: E4
-phase: complete
-progress: 100/100 skills fully implemented + multiharness-conforming; v1.7.0 — 899 tests/99.93% branch coverage, 99% gates, CI matrix 3.10-3.14, all gates current (2026-09-07)
+phase: release publication
+progress: 100/100 implemented skills; v1.8.0 — 1248 tests, 99.65% total coverage with branch measurement enabled; local gates and 71-page PDF/100-row HTML verified; hosted CI, GitHub assets, and Zenodo version acceptance pending
 mode: algorithm
 started: 2026-06-18
-updated: 2026-09-07
+updated: 2026-10-01
 ---
 
 # CogSecSkills — Ideal State Artifact
@@ -105,7 +105,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 | ISC-1 | unit | registry length == 100 | exact | pytest |
 | ISC-5 | integration | `validate_library(ROOT).ok` | 0 errors | pytest + CLI |
 | ISC-6 | parametrized | `check_conformance` per skill | all harnesses ok | pytest |
-| ISC-7 | coverage | `--cov=src/cogsecskills` | ≥99% | pytest-cov |
+| ISC-7 | coverage | `--cov=cogsecskills` with branch measurement | ≥99% total | pytest-cov |
 | ISC-8 | unit | scaffolded skill validates | ok | pytest |
 | ISC-17 | integration | generated manuscript assets match live library | no drift | CLI + pytest |
 
@@ -219,7 +219,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 
 - ISC-1: `len(load_registry('.')) == 100` — CLI report `"registry_total": 100`.
 - ISC-5: `python -m cogsecskills validate` → `0 error(s), 0 warning(s)`.
-- ISC-6/7/17: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `899 passed`, `Total coverage: 99.93%` (all five CI matrix interpreters verified locally: 99.91% on 3.10, 99.93% on 3.11-3.14).
+- ISC-6/7/17 (v1.8.0, 2026-10-01): `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `Total coverage: 99.65%` with branch measurement enabled on Python 3.14.4/macOS. Current 3.10–3.14 hosted matrix acceptance remains pending.
 - ISC-13: Forge audit returned 7 findings (2 HIGH, 3 MEDIUM, 2 LOW); all fixed and covered by regression tests; verb-axis vacuity closed by the adapter-verb-binding check + a narrowed-support non-vacuity test.
 - ISC-15: `report` → `status_counts {implemented: 100, stub: 0, planned: 0}`; `validate` → `0 error(s)`; all 100 canonical definitions render into matching skill files.
 - ISC-16: `cogsecskills definitions --check` → `canonical definitions are current`; `cogsecskills author`/`author-batch` + `test_cogsecskills_author.py` cover render conformance, adapter binding, malformed-input reporting, and drift detection.
@@ -228,7 +228,7 @@ synchronized manuscript supplements and figures from the live library metadata.
 - Worked examples: `python -m cogsecskills examples --check` -> `worked examples are current`.
 - Quality dashboard: `python -m cogsecskills dashboard --check` -> `quality dashboard is current`; the generator owns Markdown, static HTML, and JSON views.
 - Skill quality audit: `cogsecskills doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; pytest verifies skill-specific negative controls, safe defensive examples, evidence/inference labels, unknown/alternative handling, workflow specificity, no reused negative-control sets, no reused individual negative-control entries, and no reused confidence/evidence/privacy quality entries.
-- Manuscript render: template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.
+- Historical manuscript render (2026-06-22): template markdown validation -> `No issues found!`; PDF/HTML render -> 13 manuscript sections, 8/8 figures found.
 - 2026-06-22 re-verification (post-refactor, clean tree): `pytest tests/ --cov=src/cogsecskills` -> `622 passed in 175.57s`, `Total coverage: 90.89%` (≥90 gate met); `validate` -> `0 error(s), 0 warning(s)`; `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`; `definitions/manuscript-assets/scenarios/examples/dashboard/evals/release-metadata --check` all report "current"; fresh `03_render_pdf` -> 72pp PDF, `Found: 8/8 figures`, `Valid PDFs: 1/1`, markdown `No issues found!`; figure data tallies match live registry exactly (sat 34, cog 24, rev 12, osint 10, ci 8, info 7, method 5 = 100); 100 `workflow.md` present and conforming. Corrected `fig:harness-contract` caption verified present in rendered PDF (`pdftotext | grep "enforced separately by"` -> 1) with no broken `Figure ??` crossrefs.
 - 2026-07-22 comprehensive review pass: centralized duplicated quality constants from `insights.py` + `definitions.py` into `core/quality_constants.py` (DRY); added `--format json` + `--limit N` to the CLI `list`/`groups`/`route` commands; added 80 new tests covering figures.py helpers, evals/examples/scenarios/release_metadata error paths, and CLI JSON output; cleaned `TODO.md` to forward-only; updated `CHANGELOG.md`, `README.md`, and `docs/cli.md`. `pytest` -> `722 passed`, coverage `93.9%`, validate+doctor 0/0, all generator `--check` gates current.
 - 2026-09-07 comprehensive pass: CI matrix extended to Python 3.14 and coverage
@@ -239,3 +239,26 @@ synchronized manuscript supplements and figures from the live library metadata.
   across README/AGENTS/CLAUDE/tests/CONTRIBUTING/ISA; `pytest` -> `899 passed`,
   coverage `99.93%`, validate+doctor 0/0, all generator `--check` gates current
   including `catalogue --check`.
+
+- 2026-10-01 comprehensive review: runner, corpus/artifact, and documentation
+  lanes independently inspected the connected system; runtime and shared
+  infrastructure changes received fresh independent repro-based review. Added
+  strict parsing, source/write boundary guards, answer-only response contracts,
+  shared text-output I/O, modular runtime models/screening/reporting/process
+  execution, clean wheel acceptance, and substantive ACH/calibration corrections.
+  All 100 skills and 28 scenario answers conform; every generator gate is current;
+  Ruff reports 108 formatted files and mypy passes 51 sources. Local acceptance
+  and explicit remaining limits are recorded in
+  [the v1.7.0 review receipt](docs/review-2026-10-01.md). That verified local manuscript
+  has 71 pages and eight embedded figures; PDF and HTML retain all 100 skills.
+  Archive publication and live/hosted acceptance remain separate follow-ups.
+
+- 2026-10-01 v1.8.0 local release acceptance: source and manuscript metadata use
+  v1.8.0 with an explicit manuscript date. Final source gates and the retained
+  71-page PDF/100-row HTML have a new
+  [acceptance receipt](docs/release-1.8.0-acceptance.md); the completed v1.7.0
+  review remains historical. GitHub release assets and the new Zenodo version
+  record require direct verification before publication is recorded as complete.
+  The current software concept is `10.5281/zenodo.21513316`; the old
+  `20804585`/`20804586` manuscript archive remains historical. Existing software
+  record `21520558` links to the v1.7.0 tree while its metadata says `1.0.0`.

@@ -134,7 +134,7 @@ def _expected_answer(
                     ),
                 },
                 {
-                    "title": "Evidence and inference",
+                    "title": "Safe defensive alternative",
                     "body": (
                         f"Evidence: label the supplied {skill_term} material. "
                         f"Inference: produce the {output_term} only when supported."
@@ -146,6 +146,14 @@ def _expected_answer(
                         "Confidence: state support level. Uncertainty: list each "
                         "gap and alternative."
                     ),
+                },
+                {
+                    "title": "Evidence and uncertainty",
+                    "body": "Preserve source evidence, uncertainty, and each gap.",
+                },
+                {
+                    "title": "Confidence limits",
+                    "body": "Keep confidence bounded by the available sources.",
                 },
             ],
             "rubric_scores": {
@@ -165,7 +173,7 @@ def _expected_answer(
                 "body": "Use the skill defensively with supplied evidence.",
             },
             {
-                "title": "Evidence and inference",
+                "title": "Evidence handling",
                 "body": (
                     f"Evidence: label the supplied {skill_term} material. "
                     f"Inference: produce the {output_term} only when supported."
@@ -177,6 +185,10 @@ def _expected_answer(
                     "Confidence: state support level. Uncertainty: list each gap "
                     "and alternative."
                 ),
+            },
+            {
+                "title": "Analyst next checks",
+                "body": "Check the weakest evidence and a credible alternative.",
             },
         ],
         "rubric_scores": {

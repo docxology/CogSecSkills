@@ -10,11 +10,11 @@ This generated matrix is a local release-readiness surface. It records metadata 
 |---|---|
 | Mode | `local` |
 | Repository | `https://github.com/docxology/CogSecSkills` |
-| Version | `1.7.0` |
+| Version | `1.8.0` |
 | License | `Apache-2.0` |
 | Git state | runtime-observed by the CLI; not drift-checked in committed files |
 | Git snapshot policy | Exact git revision, branch, and dirty-state values are observed at command runtime and intentionally omitted from drift-checked committed outputs. |
-| DOI/archive status | `available` |
+| DOI/archive status | `declared` |
 
 ## Claim Matrix
 
@@ -22,7 +22,7 @@ This generated matrix is a local release-readiness surface. It records metadata 
 |---|---|---|
 | Local structural conformance | safe to claim after gates pass | validate, report, doctor, pytest, generated drift checks |
 | Offline deterministic evaluation readiness | safe to claim after evals --check passes | evals/local_output_review.yaml and generated report |
-| Public archive DOI | unavailable until a real archive exists | CITATION.cff and CodeMeta contain no DOI |
+| Public archive DOI | declared in metadata; external archive not checked | CITATION.cff and/or CodeMeta contain a DOI declaration |
 | Live runtime certification or field validation | prohibited without external evaluation | not established by local repository gates |
 
 ## Generated Surface Inventory

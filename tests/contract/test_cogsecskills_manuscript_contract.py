@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -92,6 +93,11 @@ EXPECTED_MANUSCRIPT_H1S = (
         "06_limitations_and_next_steps.md",
         "Evidence Boundaries, Defensive Governance, and Next Steps",
         "sec:limitations_next_steps",
+    ),
+    (
+        "07_ethics_and_responsible_use.md",
+        "Ethics, Dual-Use, and Responsible Use",
+        "sec:ethics_responsible_use",
     ),
     (
         "S01_source_surface.md",
@@ -190,12 +196,24 @@ def test_manuscript_config_exposes_repository_and_license_metadata():
         "https://github.com/docxology/CogSecSkills"
     )
     assert config["metadata"]["license"] == "Apache-2.0"
-    # Published v1.0.0: concept + version DOIs are present and well-formed.
+    # Current source version and historical archive identity are separate.
+    from cogsecskills import __version__
+
+    assert config["paper"]["version"] == __version__
     assert re.fullmatch(r"10\.5281/zenodo\.\d+", config["publication"]["doi"])
-    assert re.fullmatch(r"10\.5281/zenodo\.\d+", config["publication"]["version_doi"])
-    assert config["paper"]["cover"]["image"] == (
-        "../figures/cogsecskills_cover_installation.png"
+    if config["publication"].get("version_doi"):
+        assert re.fullmatch(
+            r"10\.5281/zenodo\.\d+", config["publication"]["version_doi"]
+        )
+    prior = config["publication"]["prior_archive"]
+    assert prior["version"] == "1.0.0"
+    assert re.fullmatch(r"10\.5281/zenodo\.\d+", prior["version_doi"])
+    cover_path = (MANUSCRIPT / config["paper"]["cover"]["image"]).resolve()
+    assert (
+        cover_path
+        == (PROJECT_ROOT / "figures/cogsecskills_cover_installation.png").resolve()
     )
+    assert cover_path.is_file()
     assert "Install" in config["paper"]["cover"]["alt"]
 
 
@@ -231,17 +249,23 @@ def test_formalism_uses_labeled_equations_without_inline_math_hazards():
 
 
 def test_figure_captions_are_interpretive_and_name_sources():
-    manuscript_text = "\n".join(_read(path) for path in MANUSCRIPT.glob("*.md"))
     for figure_name in BODY_FIGURE_NAMES:
-        matches = re.findall(
-            rf"!\[([^\]]*{re.escape(figure_name)}[^\]]*)\]"
-            rf"\(\.\./output/figures/{re.escape(figure_name)}\)",
-            manuscript_text,
-        )
+        matches = []
+        for source in MANUSCRIPT.glob("*.md"):
+            for caption, target in re.findall(
+                rf"!\[([^\]]*{re.escape(figure_name)}[^\]]*)\]\(([^)\n]+)\)",
+                _read(source),
+            ):
+                matches.append((source, caption, target))
         assert matches, figure_name
-        caption = matches[0]
+        caption = matches[0][1]
         assert len(caption) >= 120
         assert "does not" in caption
+        for source, _, target in matches:
+            resolved = (source.parent / target).resolve()
+            expected = (PROJECT_ROOT / "output" / "figures" / figure_name).resolve()
+            assert resolved == expected, (source, target)
+            assert resolved.is_file(), (source, target)
 
 
 def test_release_manifest_records_provenance_surfaces():
@@ -251,8 +275,20 @@ def test_release_manifest_records_provenance_surfaces():
     assert "Apache-2.0" in text
     assert "Source revision" in text
     assert "Verification Gates" in text
-    assert "Archive DOI" in text
-    assert "unavailable" in text
+    publication = yaml.safe_load(_read(MANUSCRIPT / "config.yaml"))["publication"]
+    assert publication["doi"] in text
+    assert publication["prior_archive"]["version_doi"] in text
+    assert publication["prior_archive"]["concept_doi"] in text
+    assert publication["doi"] != publication["prior_archive"]["concept_doi"]
+    cff = yaml.safe_load(_read(PROJECT_ROOT / "CITATION.cff"))
+    codemeta = json.loads(_read(PROJECT_ROOT / "codemeta.json"))
+    assert cff["doi"] == codemeta["identifier"] == publication["doi"]
+    assert "Software archive" in text
+    assert "Historical manuscript archive" in text
+    if publication.get("version_doi"):
+        assert publication["version_doi"] in text
+    else:
+        assert "unavailable" in text
 
 
 def test_manuscript_docs_include_release_manifest_and_full_figure_set():

@@ -19,6 +19,7 @@ import yaml
 
 from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.spec import SKILL_STATUSES, SpecError
+from cogsecskills.core.yaml_io import read_yaml
 
 
 def registry_path(root: Path | None = None) -> Path:
@@ -108,11 +109,17 @@ def load_registry(root: Path | None = None) -> SkillRegistry:
     if not skills_file.is_file():
         raise FileNotFoundError(f"no registry at {skills_file}")
     try:
-        raw = yaml.safe_load(skills_file.read_text(encoding="utf-8")) or {}
-    except yaml.YAMLError as exc:
-        raise SpecError(f"{skills_file}: invalid YAML: {exc}") from exc
+        raw = read_yaml(skills_file)
+    except ValueError as exc:
+        if isinstance(exc.__cause__, yaml.YAMLError):
+            raise SpecError(
+                f"{skills_file}: invalid YAML: {exc.__cause__}"
+            ) from exc.__cause__
+        raise SpecError(str(exc)) from exc
     if not isinstance(raw, dict) or "skills" not in raw:
         raise SpecError(f"{skills_file}: expected top-level mapping with 'skills' key")
+    if not isinstance(raw["skills"], list):
+        raise SpecError(f"{skills_file}: 'skills' must be a list")
     entries = tuple(RegistryEntry.from_obj(item) for item in raw["skills"])
 
     seen: set[str] = set()
@@ -125,17 +132,30 @@ def load_registry(root: Path | None = None) -> SkillRegistry:
     groups_file = groups_path(root)
     if groups_file.is_file():
         try:
-            graw = yaml.safe_load(groups_file.read_text(encoding="utf-8")) or {}
-        except yaml.YAMLError as exc:
-            raise SpecError(f"{groups_file}: invalid YAML: {exc}") from exc
+            graw = read_yaml(groups_file)
+        except ValueError as exc:
+            if isinstance(exc.__cause__, yaml.YAMLError):
+                raise SpecError(
+                    f"{groups_file}: invalid YAML: {exc.__cause__}"
+                ) from exc.__cause__
+            raise SpecError(str(exc)) from exc
+        if graw is None:
+            graw = {}
         if not isinstance(graw, dict):
             raise SpecError(f"{groups_file}: expected a top-level mapping")
-        for item in graw.get("groups", []):
-            if not isinstance(item, dict) or not str(item.get("id", "")).strip():
+        group_rows = graw.get("groups", [])
+        if not isinstance(group_rows, list):
+            raise SpecError(f"{groups_file}: 'groups' must be a list")
+        for item in group_rows:
+            if (
+                not isinstance(item, dict)
+                or not isinstance(item.get("id"), str)
+                or not item["id"].strip()
+            ):
                 raise SpecError(
                     f"{groups_file}: each group must be a mapping with a non-empty 'id'"
                 )
-            gid = str(item["id"]).strip()
+            gid = item["id"].strip()
             if gid in groups:
                 raise SpecError(f"{groups_file}: duplicate group id {gid!r}")
             groups[gid] = str(item.get("title", gid)).strip() or gid

@@ -5,7 +5,7 @@ abstract: >-
   A defensive, educational, harness-neutral library of 100 agentic tool-use
   skills for Cognitive Security and analytic tradecraft — Structured Analytic
   Techniques, source verification, deception detection, and critical review —
-  each runnable identically under Claude Code, Codex, and Hermes, with a
+  with configured structural adapters for Claude Code, Codex, and Hermes, a
   registry, an AGEINT educational upstream, and machine-checkable conformance.
 type: software
 authors:
@@ -15,16 +15,16 @@ authors:
     orcid: https://orcid.org/0000-0001-6232-9096
 repository-code: https://github.com/docxology/CogSecSkills
 license: Apache-2.0
-doi: 10.5281/zenodo.20804585
-version: 1.7.0
-date-released: '2026-07-22'
+doi: 10.5281/zenodo.21513316
+version: 1.8.0
+date-released: '2026-10-01'
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.20804585
-    description: Concept DOI (all versions)
+    value: 10.5281/zenodo.21513316
+    description: Software concept DOI (all archived software versions)
   - type: doi
     value: 10.5281/zenodo.20804586
-    description: Version DOI (v1.0.0)
+    description: Historical manuscript archive DOI (v1.0.0)
 keywords:
   - cognitive security
   - structured analytic techniques

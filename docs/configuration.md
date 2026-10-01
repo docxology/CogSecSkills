@@ -223,7 +223,11 @@ Used **only** by the opt-in `eval-live` command (see
 [`live-eval.md`](live-eval.md)); the gate suite never invokes a model runtime.
 Each harness maps to an argv template containing exactly one `{prompt}`
 placeholder; `{skill_dir}` is optional and expands to the expected skill's
-directory in `pinned` mode.
+directory in `pinned` mode. Routed mode rejects `{skill_dir}` so a runtime
+cannot receive the expected selection through its argv template. The executable
+(first argument) must not contain placeholders. Templates execute without an
+implicit shell from the resolved library root. Stdout supplies the screened
+answer; stderr is stored separately for diagnosis.
 
 ```yaml
 runtime_eval:

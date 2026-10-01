@@ -11,24 +11,29 @@ results.
 
 ## Invocation
 
-The CLI is exposed as a Python module and (after install) as a console script:
+The CLI is exposed as a Python module and as a console script. From a checkout:
 
 ```bash
-# As a module (no install required; run from the project root)
-python -m cogsecskills <command> [options]
-
-# After install (pip install -e . / uv sync)
-cogsecskills <command> [options]
+uv sync
+uv run python -m cogsecskills <command> [options]
+uv run cogsecskills <command> [options]
 ```
 
-This reference uses `cogsecskills <command>` throughout; substitute
-`python -m cogsecskills <command>` if you have not installed the console script.
+`uv run` selects the project virtual environment. With an activated environment
+and `python -m pip install -e .`, use `cogsecskills` or `python -m cogsecskills`
+directly. A source-only invocation needs the runtime dependencies installed and
+`PYTHONPATH="src:." python -m cogsecskills` from the project root.
+
+This reference uses `cogsecskills <command>` throughout; prefix it with `uv run`
+when using the uv setup. The wheel installs the runner, not the skill corpus;
+keep a library checkout and use `--root /path/to/CogSecSkills` when invoking the
+installed runner from an unrelated directory.
 
 ### Global options
 
 | Option | Applies to | Meaning |
 | --- | --- | --- |
-| `--root PATH` | every subcommand | Project-root override. Points the CLI at a different CogSecSkills tree (registry, `skills/`, and `cogsecskills.yaml`) than the installed package's own root. Defaults to the package's project root. |
+| `--root PATH` | every subcommand | Project-root override. Points the CLI at a different CogSecSkills tree (registry, `skills/`, and `cogsecskills.yaml`) than the installed package's own root. Defaults to the nearest library checkout above the current directory, then the package's source checkout. |
 
 `--root` is parsed on the top-level parser, so it must appear **before** the
 subcommand:
@@ -44,13 +49,15 @@ A subcommand is required; running `cogsecskills` with no command is an error.
 | Code | Meaning |
 | --- | --- |
 | `0` | Success (or, for `validate`, zero errors). |
-| `1` | Command-specific failure: `validate`/`doctor` found errors (and `doctor` also fails on quality findings), `route` found no matching skill, `show` got an unknown id, `definitions --check`, `scenarios --check`, `examples --check`, `dashboard --check`, or `manuscript-assets --check` found drift, or `author-batch` had at least one failed definition. |
+| `1` | Invalid source/configuration or command-specific failure: `validate`/`doctor` found errors (and `doctor` also fails on quality findings), `route` found no matching skill, `show` got an unknown id, `definitions --check`, `scenarios --check`, `examples --check`, `dashboard --check`, or `manuscript-assets --check` found drift, or `author-batch` had at least one failed definition. |
+| `2` | Command-line usage error reported by argparse (including a negative `--limit`). |
 
 ### Config awareness
 
 `validate`, `doctor`, `scaffold`, `author`, `author-batch`, and `definitions`
 load `cogsecskills.yaml` (via `cogsecskills.core.config.load_config`) and honour its
-`harnesses` list and `quality` thresholds. With no config file the defaults are
+`harnesses` list and `quality` thresholds. Harness names must be unique safe path components;
+quality counts must be nonnegative integers and reference policy a YAML boolean. With no config file the defaults are
 used: harnesses `claude, codex, hermes`, `min_workflow_steps: 3`,
 `min_anti_criteria: 2`, `require_references: false`. See
 [configuration.md](configuration.md).
@@ -504,8 +511,11 @@ coverage, worked-example coverage, local claim-boundary status, and source paths
 ### `release-metadata` — generate or check release claim metadata
 
 Generate a local release claim matrix and JSON metadata snapshot. Default
-`local` mode reports dirty git state truthfully without failing; stricter modes
-can be used before public archive work.
+`local` mode reports dirty git state truthfully without failing.
+`release-candidate` requires available git metadata and a clean worktree.
+`public-archive` adds a syntactically valid DOI declaration in citation/CodeMeta
+metadata. These modes do not contact an archive or verify that a DOI resolves
+to this revision, version, or manuscript.
 Exact git revision, branch, and dirty-state values are runtime observations,
 not drift-checked committed values.
 
@@ -791,9 +801,11 @@ cogsecskills export > skills.json
 **Add a new skill (from registry to deep, conforming files).**
 
 ```bash
-# Option A — scaffold a stub, then deepen it by hand
+# Option A — bootstrap a new planned area
 cogsecskills scaffold <group>.<slug>
-# ...edit the generated files...
+# ...author definitions/<group>/<slug>.yaml from the skeleton...
+cogsecskills definitions --write
+cogsecskills definitions --check
 cogsecskills validate
 
 # Option B — author from a JSON/YAML definition (see authoring-skills.md)

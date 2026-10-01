@@ -34,7 +34,9 @@ from .paths import COVER_IMAGE_NAME
 from .rows import SkillRow, _group_ids
 
 
-def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
+def _write_cover_installation(
+    rows: list[SkillRow], figures_dir: Path, *, root: Path | None = None
+) -> Path:
     import matplotlib.pyplot as plt
     from matplotlib import patches
 
@@ -71,7 +73,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
             (x, y),
             w,
             h,
-            boxstyle=f"round,pad=0.010,rounding_size={radius}",
+            boxstyle=f"round,pad=0.004,rounding_size={radius}",
             facecolor=face,
             edgecolor=edge,
             linewidth=linewidth,
@@ -86,10 +88,10 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         edge: str,
         text_color: str | None = None,
     ) -> None:
-        ax.add_patch(box(x, y, 0.052, 0.032, face=face, edge=edge, radius=0.013))
+        ax.add_patch(box(x, y, 0.040, 0.025, face=face, edge=edge, radius=0.007))
         ax.text(
-            x + 0.026,
-            y + 0.016,
+            x + 0.020,
+            y + 0.0125,
             text,
             ha="center",
             va="center",
@@ -136,14 +138,14 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     ) -> None:
         label_chip(
             x,
-            y - 0.003,
+            y - 0.025,
             step,
             face=COLOR_FAMILIES["neutral"]["light"],
             edge=COLOR_FAMILIES["neutral"]["mid"],
             text_color=TOKENS["ink"],
         )
         ax.text(
-            x + 0.066,
+            x + 0.054,
             y,
             text,
             ha="left",
@@ -196,7 +198,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     )
     ax.text(
         0.062,
-        0.822,
+        0.834,
         "github.com/docxology/CogSecSkills",
         ha="left",
         va="top",
@@ -204,12 +206,12 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
         color=COLOR_FAMILIES["blue"]["dark"],
         fontfamily="monospace",
     )
-    cover_doi = _publication_doi()
+    cover_doi = _publication_doi(root)
     if cover_doi:
         ax.text(
             0.662,
             0.838,
-            f"DOI: {cover_doi}",
+            f"Concept DOI: {cover_doi}",
             ha="left",
             va="top",
             fontsize=14.5,
@@ -354,10 +356,10 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     command_line(
         0.082,
         0.402,
-        'export PYTHONPATH="src:."',
+        "uv run cogsecskills doctor",
         step="3",
     )
-    command_line(0.082, 0.365, "python -m cogsecskills validate", step="4")
+    command_line(0.082, 0.365, "uv run cogsecskills validate", step="4")
 
     ax.add_patch(
         box(
@@ -382,7 +384,7 @@ def _write_cover_installation(rows: list[SkillRow], figures_dir: Path) -> Path:
     command_line(
         0.532,
         0.476,
-        "python -m cogsecskills route",
+        'uv run cogsecskills route "need"',
         step="1",
     )
     command_line(

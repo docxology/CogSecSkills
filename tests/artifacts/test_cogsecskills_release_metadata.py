@@ -118,7 +118,8 @@ def test_release_metadata_public_archive_mode_requires_real_archive(tmp_path):
     findings = check_release_metadata(root, mode="public-archive")
 
     assert any(
-        "public-archive mode requires a real DOI" in finding for finding in findings
+        "public-archive mode requires a valid DOI declaration" in finding
+        for finding in findings
     )
 
 

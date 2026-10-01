@@ -1,7 +1,8 @@
 {
   "archive": {
     "doi_present": true,
-    "status": "available"
+    "resolution_checked": false,
+    "status": "declared"
   },
   "claim_matrix": [
     {
@@ -16,8 +17,8 @@
     },
     {
       "claim": "Public archive DOI",
-      "evidence": "CITATION.cff and CodeMeta contain no DOI",
-      "status": "unavailable until a real archive exists"
+      "evidence": "CITATION.cff and/or CodeMeta contain a DOI declaration",
+      "status": "declared in metadata; external archive not checked"
     },
     {
       "claim": "Live runtime certification or field validation",
@@ -71,8 +72,8 @@
     "pyproject": "https://github.com/docxology/CogSecSkills"
   },
   "version": {
-    "citation_cff": "1.7.0",
-    "codemeta": "1.7.0",
-    "pyproject": "1.7.0"
+    "citation_cff": "1.8.0",
+    "codemeta": "1.8.0",
+    "pyproject": "1.8.0"
   }
 }

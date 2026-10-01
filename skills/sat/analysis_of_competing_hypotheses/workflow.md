@@ -3,15 +3,12 @@
 Harness-neutral agentic procedure. Each step names the tool verb(s) it uses (see `skill.yaml` → `tools`); a harness adapter binds each verb.
 
 ## Step 1 — Enumerate hypotheses (reason, search)
-Generate a **complete and mutually exclusive** set of hypotheses. Include the
-deception hypothesis ("someone wants me to believe H1") and a residual
-"something we haven't thought of". If the user supplied a partial set, complete
-it; never evaluate fewer than three.
+Generate a sufficiently distinct set of plausible competing hypotheses and state the bounds of its coverage. Consider deception and a residual explanation where relevant. If the user supplied a partial set, expand it before scoring; do not manufacture a third hypothesis just to meet a count. Treat deception as a cross-cutting possibility when it can coexist with substantive explanations rather than falsely calling every hypothesis exclusive.
 
 ## Step 2 — List evidence and arguments (read, search)
 Assemble every relevant item: facts, arguments, assumptions, and **absence of
 evidence** (things that should be present under some hypothesis but are not).
-Tag each item with source and reliability (link to
+For missing observations, record what collection was performed and whether it could reasonably have detected the observation. Tag each item with source and reliability (link to
 `cognitive_security.source_credibility_evaluation` if grading is needed).
 
 ## Step 3 — Build the matrix (reason)
@@ -49,12 +46,12 @@ Emit:
   hypothesis (link to `sat.indicators_generation`).
 
 ## Evidence requirements
-- For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as evidence in its own right, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.
+- For Analysis of Competing Hypotheses (ACH), tie every consistency rating and the final ranking to specific evidence items with their source and reliability, treat absence of expected evidence as disconfirmation only when collection had adequate coverage and detectability, and flag any row that is consistent with all hypotheses as non-diagnostic rather than as support.
 - For Analysis of Competing Hypotheses (ACH), label observations, derived features, assumptions, inferences, contradictions, and missing inputs separately before writing the matrix.
 - Before recommending any Analysis of Competing Hypotheses (ACH) action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and mutually exclusive, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.
+- High for Analysis of Competing Hypotheses (ACH): the hypothesis set is complete and appropriately distinguished, the inconsistency ranking is driven by diagnostic evidence that survives the sensitivity check on its one or two load-bearing items, multiple independent sources corroborate those items, and no unresolved contradiction would reorder the least-disconfirmed hypothesis.
 - Medium for Analysis of Competing Hypotheses (ACH): the matrix is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
 - Low for Analysis of Competing Hypotheses (ACH): the matrix rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Analysis of Competing Hypotheses (ACH) cannot determine from the supplied or authorized evidence.
@@ -67,6 +64,7 @@ Emit:
 - For Analysis of Competing Hypotheses (ACH), do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
+- Analysis of Competing Hypotheses (ACH): treating an uncollected or undetectable observation as disconfirmation, assuming deception cannot coexist with other explanations, or inventing alternatives solely to satisfy an arbitrary count.
 - Analysis of Competing Hypotheses (ACH): ranking the hypothesis with the most confirming marks as strongest instead of the least disconfirmed, or omitting the deception and residual hypotheses, so an unfalsified favourite survives because rival explanations were never seriously tested.
 - Analysis of Competing Hypotheses (ACH): producing advice that would help a requester force a preferred conclusion, hide uncertainty, or use the technique to rationalize manipulation.
 - Analysis of Competing Hypotheses (ACH): reporting the matrix without uncertainty labels, alternative explanations, and the next discriminating check.

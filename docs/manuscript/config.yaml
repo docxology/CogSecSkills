@@ -6,10 +6,10 @@
 paper:
   title: "CogSecSkills: Multiharness Cognitive Security Skill Library"
   subtitle: "A reproducible skills-system manuscript for defensive analytic tradecraft"
-  version: "1.0.0"
-  date: ""
+  version: "1.8.0"
+  date: "2026-10-01"
   cover:
-    image: "../figures/cogsecskills_cover_installation.png"
+    image: "../../figures/cogsecskills_cover_installation.png"
     alt: "Install CogSecSkills from github.com/docxology/CogSecSkills, validate the library, and bind default or configured agent harness adapters."
 
 authors:
@@ -20,9 +20,13 @@ authors:
     corresponding: true
 
 publication:
-  doi: "10.5281/zenodo.20804585"
-  version_doi: "10.5281/zenodo.20804586"
-  version_record: "https://zenodo.org/records/20804586"
+  doi: "10.5281/zenodo.21513316"
+  # Separate historical manuscript archive; not the software release chain.
+  prior_archive:
+    version: "1.0.0"
+    concept_doi: "10.5281/zenodo.20804585"
+    version_doi: "10.5281/zenodo.20804586"
+    version_record: "https://zenodo.org/records/20804586"
   github_repository: "https://github.com/docxology/CogSecSkills"
   year: "2026"
   transmission_bookends:

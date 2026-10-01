@@ -6,7 +6,34 @@ follow semantic versioning.
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-10-01
+
+Adds exploratory live-harness screening and machine-readable validation,
+hardens source and subprocess boundaries, modularizes shared runner logic, and
+keeps the complete 100-skill manuscript catalogue in both PDF and HTML.
+Release and archive publication are verified separately from these source changes.
+
 ### Fixed
+
+- **Reliability review (2026-10-01):** install examples now select the uv
+  environment explicitly; contribution and release instructions use canonical
+  definitions and the full per-concern test suite. Manuscript figures and cover
+  resolve from their actual source location, current source version metadata is
+  separated from the historical archive DOI, and render instructions use the
+  template's public combined-render APIs. Generated catalogue rows now appear
+  in HTML, print cells wrap without overlap, and multiline raw-block fences
+  preserve table isolation. Cover DOI declarations use the requested source root
+  and the same normalization as release metadata. Native Claude installation refuses
+  existing files, directories, and symlinks instead of deleting destinations.
+
+- **Source and runtime custody (2026-10-01):** malformed and duplicate-key
+  YAML, unsafe paths, policy coercion, incomplete selected skills, and
+  undeclared workflow verbs now fail before writes or invocation. Artifact
+  answer contracts inspect actual sections; all 28 expected answers were
+  repaired. Eval source and mirrors preflight together. Live evaluation
+  preserves separate stdout/stderr, rejects conflicting or redirected receipts,
+  cleans ordinary POSIX descendants, and rejects misleading prompt echoes.
+  ACH, calibrated estimation, and Devil's Advocacy source defects were fixed.
 
 - **Comprehensive review pass (2026-09-16)**: null-coercion bug class in
   optional spec fields (explicit YAML `null` no longer renders as the string
@@ -22,7 +49,24 @@ follow semantic versioning.
   fixed to 1.2.0; docs drift fixes (QUICKSTART gate description, stale module
   paths, README duplicates). Coverage 99.74% over 990 tests.
 
+### Changed
+
+- **Module boundaries (2026-10-01):** shared YAML/path/authoring-schema helpers,
+  response-contract and text-output modules, and separate runtime
+  models/screening/reporting/process helpers keep policy and orchestration
+  independently reviewable while preserving existing public runtime imports.
+- **Build metadata (2026-10-01):** SPDX license metadata and explicit license
+  files replace the deprecated TOML license table. The build backend declares
+  `setuptools>=77.0.3`; wheel and sdist acceptance covers both the normal
+  environment and that minimum backend on Python 3.10.
+
 ### Added
+
+- **Clean wheel CI smoke (2026-10-01):** each configured Python matrix leg
+  installs the built runner in a separate runtime-only environment, checks it
+  outside the checkout with an explicit library root, and checks checkout-root
+  discovery. These checks complement the editable-install suite; no new hosted
+  run is implied by the local workflow change.
 
 - **`--format json` for `validate` and `doctor`** (2026-08-30): machine-readable
   CI diagnostics with failure-path payload tests; documented in `docs/cli.md`

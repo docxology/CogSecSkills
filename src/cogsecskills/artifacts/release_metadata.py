@@ -16,10 +16,11 @@ if sys.version_info >= (3, 11):
 else:  # pragma: no cover - exercised only on the Python 3.10 CI leg
     import tomli as tomllib
 
-import yaml
-
+from cogsecskills.artifacts.doi_metadata import normalize_doi
 from cogsecskills.artifacts.manuscript_assets import FIGURE_NAMES
+from cogsecskills.artifacts.text_outputs import check_text_outputs, write_text_outputs
 from cogsecskills.core.locate import resolve_root
+from cogsecskills.core.yaml_io import read_yaml
 
 RELEASE_MD_PATH = Path("docs/release-claim-matrix.md")
 RELEASE_JSON_PATH = Path("output/data/release_metadata.json")
@@ -50,7 +51,7 @@ def _read_toml(path: Path) -> Mapping[str, Any]:
 
 
 def _read_yaml(path: Path) -> Mapping[str, Any]:
-    loaded = yaml.safe_load(path.read_text(encoding="utf-8"))
+    loaded = read_yaml(path)
     if not isinstance(loaded, Mapping):
         raise ValueError(f"{path}: top level must be a mapping")
     return loaded
@@ -95,6 +96,8 @@ def _git_info(root: Path) -> dict[str, Any]:
 
 
 def _has_doi(*objects: Mapping[str, Any]) -> bool:
+    """Check for a plausible DOI declaration, without claiming archive resolution."""
+
     for obj in objects:
         identifiers = obj.get("identifiers")
         if isinstance(identifiers, list):
@@ -102,11 +105,12 @@ def _has_doi(*objects: Mapping[str, Any]) -> bool:
                 if (
                     isinstance(identifier, Mapping)
                     and str(identifier.get("type", "")).lower() == "doi"
+                    and normalize_doi(identifier.get("value"))
                 ):
                     return True
         for key in ("doi", "identifier"):
             value = obj.get(key)
-            if isinstance(value, str) and "10." in value:
+            if normalize_doi(value):
                 return True
     return False
 
@@ -158,7 +162,8 @@ def _metadata_payload(root: Path | None = None, *, mode: ReleaseMode = "local") 
         },
         "archive": {
             "doi_present": doi_present,
-            "status": "unavailable" if not doi_present else "available",
+            "status": "unavailable" if not doi_present else "declared",
+            "resolution_checked": False,
         },
         "git": {
             "snapshot_policy": GIT_RUNTIME_POLICY,
@@ -190,8 +195,16 @@ def _metadata_payload(root: Path | None = None, *, mode: ReleaseMode = "local") 
             },
             {
                 "claim": "Public archive DOI",
-                "status": "unavailable until a real archive exists",
-                "evidence": "CITATION.cff and CodeMeta contain no DOI",
+                "status": (
+                    "declared in metadata; external archive not checked"
+                    if doi_present
+                    else "unavailable until a valid DOI is declared"
+                ),
+                "evidence": (
+                    "CITATION.cff and/or CodeMeta contain a DOI declaration"
+                    if doi_present
+                    else "CITATION.cff and CodeMeta contain no valid DOI declaration"
+                ),
             },
             {
                 "claim": "Live runtime certification or field validation",
@@ -230,7 +243,7 @@ def _findings(
     if mode in {"release-candidate", "public-archive"} and runtime_git.get("dirty"):
         findings.append(f"{mode} mode requires a clean git worktree")
     if mode == "public-archive" and not payload["archive"]["doi_present"]:
-        findings.append("public-archive mode requires a real DOI/archive identifier")
+        findings.append("public-archive mode requires a valid DOI declaration")
     return findings
 
 
@@ -294,10 +307,7 @@ def write_release_metadata(
 ) -> ReleaseWriteResult:
     base = resolve_root(root)
     outputs = _expected_outputs(base, mode=mode)
-    for rel_path, text in outputs.items():
-        path = base / rel_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+    write_text_outputs(base, outputs)
     runtime_git = _git_info(base)
     return {
         "markdown": str(RELEASE_MD_PATH),
@@ -315,11 +325,7 @@ def check_release_metadata(
     payload = _metadata_payload(base, mode=mode)
     findings = _findings(payload, mode=mode, runtime_git=_git_info(base))
     outputs = _expected_outputs(base, mode=mode)
-    for rel_path, expected in outputs.items():
-        path = base / rel_path
-        if not path.is_file():
-            findings.append(f"missing generated release metadata file: {rel_path}")
-            continue
-        if path.read_text(encoding="utf-8") != expected:
-            findings.append(f"stale generated release metadata file: {rel_path}")
+    findings.extend(
+        check_text_outputs(base, outputs, label="generated release metadata file")
+    )
     return findings

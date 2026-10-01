@@ -34,7 +34,11 @@ def _render_skill(root: Path) -> None:
             "description": "A skill.",
             "tags": ["test"],
             "triggers": ["defensive use with evidence"],
-            "tools": [{"verb": "read", "purpose": "p"}],
+            "tools": [
+                {"verb": "read", "purpose": "ingest evidence"},
+                {"verb": "reason", "purpose": "assess evidence"},
+                {"verb": "write", "purpose": "report findings"},
+            ],
             "inputs": [{"name": "ctx", "type": "text", "required": True}],
             "outputs": [
                 {"name": "product", "type": "md", "description": "the product"}

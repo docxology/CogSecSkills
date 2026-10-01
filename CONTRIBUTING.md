@@ -19,38 +19,48 @@ Thanks for helping build a dependable, defensive Cognitive-Security skill librar
 ## Setup
 
 ```bash
-uv sync --extra dev          # or: pip install -e ".[dev]"
-python -m cogsecskills validate
-python -m pytest --cov=cogsecskills --cov-report=term-missing
+uv sync --locked --extra dev --extra figures  # or: pip install -e ".[dev,figures]"
+uv run python -m cogsecskills validate
+uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 ```
 
 The coverage gate is **99%** on the `cogsecskills` package; the suite uses no mocks.
 
 ## Adding or deepening a skill
 
-The preferred path is the deterministic author command — see
+The preferred path is the canonical definition renderer — see
 [`docs/authoring-skills.md`](docs/authoring-skills.md):
 
 ```bash
 # 1. (new area) add a row to registry/skills.yaml (status: planned)
-# 2. write a JSON definition, then:
-python -m cogsecskills author my_skill_def.json
-# 3.
-python -m cogsecskills validate     # 0 errors
-python -m cogsecskills doctor         # quality lint
+# 2. create or deepen definitions/<group>/<slug>.yaml
+uv run python -m cogsecskills definitions --write
+uv run python -m cogsecskills definitions --check
+# 3. validate structure and skill-specific quality
+uv run python -m cogsecskills validate
+uv run python -m cogsecskills doctor
 ```
 
 Use only the closed tool-verb vocabulary: `read, search, write, exec, reason,
 web, delegate, ask`.
 
+The `figures` extra is needed for the real figure-generation tests in the full
+suite. One-off `author`, `author-batch`, and `scaffold` output must be promoted
+into canonical definitions before it becomes library-owned skill substance.
+
 ## Before opening a PR
 
-1. `python -m cogsecskills validate` → 0 errors.
-2. `python -m cogsecskills doctor` → no quality findings (or justify them).
-3. `python -m pytest` → green, coverage ≥ 99%.
-4. `ruff check src/cogsecskills tests/` and `ruff format` → clean.
-5. If you changed the catalogue size, regenerate `docs/catalogue.md`
-   (`python -m cogsecskills catalogue --markdown --output docs/catalogue.md`) and
+1. `uv run python -m cogsecskills validate` → 0 errors.
+2. `uv run python -m cogsecskills doctor` → no quality findings (or justify them).
+3. `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99`
+   → green, coverage ≥ 99%.
+4. `uv run ruff check src/cogsecskills tests`,
+   `uv run ruff format --check src/cogsecskills tests`, and `uv run mypy` → clean.
+5. Run the generated-output gates in [`AGENTS.md`](AGENTS.md) after any skill,
+   scenario, registry, example, or manuscript source change. Regenerate with
+   the owning command; do not edit generated files by hand.
+6. If you changed the catalogue size, regenerate `docs/catalogue.md`
+   (`uv run python -m cogsecskills catalogue --markdown --output docs/catalogue.md`) and
    update the README group-count table and the conformance test's expected total.
 
 ## Project layout

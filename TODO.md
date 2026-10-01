@@ -4,7 +4,11 @@ Forward-only tracker for source-owned work. Keep history in completed changelog
 or commit messages; keep this file focused on the current state and next useful
 work.
 
-## Verified State (re-measured 2026-09-07)
+## Verified State (v1.8.0, re-measured 2026-10-01)
+
+The v1.8.0 local release candidate and rendered artifacts pass the checks
+below. Hosted CI, GitHub asset publication, and Zenodo version acceptance are
+separate verification steps. The prior v1.7.0 review remains historical.
 
 - Library gate: `validate` -> `0 error(s), 0 warning(s)`.
 - Quality gate: `doctor` -> `validation: 0 error(s); quality: 0 finding(s)`.
@@ -15,10 +19,13 @@ work.
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `pytest --cov=cogsecskills --cov-fail-under=99` -> `899 passed`, `99.93% branch coverage`.
-- Lint gate: `ruff check` + `ruff format --check` -> clean (86 files: 40 `src/` + 46 `tests/`; measured 2026-09-16).
-- Type gate: `mypy` -> `Success: no issues found in 40 source files` (requires the `dev` extra: `uv sync --extra dev` installs `types-pyyaml`; a bare env reports 11 `import-untyped` errors for `yaml` — the dev extra is the supported invocation).
-- Python legs: all five CI matrix interpreters (3.10–3.14) verified locally — `899 passed` each; branch coverage 99.91% (3.10, `tomli` fallback branch taken) / 99.93% (3.11–3.14).
+- Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).
+- Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.
+- Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.
+- Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.
+- Python legs: CI remains configured for 3.10–3.14; this review verified Python 3.14.4 locally. The full current matrix and hosted checks are deferred to the eventual published revision.
+- Manuscript: the v1.8.0 71-page local PDF and HTML retain all 100 catalogue rows; root/output PDFs have identical hashes. Receipt: [`docs/release-1.8.0-acceptance.md`](docs/release-1.8.0-acceptance.md).
+- Independent review: artifact and runtime custody repros pass after repair; historical review details and limits remain in [`docs/review-2026-10-01.md`](docs/review-2026-10-01.md); current release acceptance is recorded separately.
 
 ## Ongoing Guardrails
 
@@ -104,8 +111,8 @@ work.
 
 ## Minor: Coverage
 
-- Maintain 99.9%+ test coverage across all modules (`examples.py`, `scenarios.py`, `definitions.py`, `validate.py`, `author.py`, `dashboard.py`, `evals.py`, `figure_helpers.py`, `tables.py`, `loader.py`, `registry.py` all at 99%+ to 100%).
-- Ensure any newly authored utility or artifact renderer includes full branch coverage fixtures.
+- Maintain the declared 99% total coverage floor with branch measurement enabled.
+- Add meaningful real-file and real-process regressions for new contracts and failure cases; preserve platform limits explicitly.
 
 ## Minor: CI Hardening
 
@@ -114,20 +121,31 @@ work.
   leg measured locally: 99.91% on 3.10 with the `tomli` fallback branch taken,
   99.93% on 3.11–3.14).
 
+## Minor: Build Metadata
+
+- Preserve SPDX license metadata and the declared setuptools minimum; repeat
+  wheel and sdist acceptance when build metadata changes, including the oldest
+  supported Python and declared minimum backend.
+
 ## Medium: Skill Definition Depth
 
 - Audit all 100 canonical definitions periodically for potential domain deepening in evidence requirements and uncertainty handling.
 - Expand scholarly anchors and reference density across emerging intelligence literature.
 
-## Medium: Manuscript Refresh
+## Medium: Manuscript Maintenance
 
-- Re-render the manuscript PDF from the live library after v1.7.0 updates.
-- Re-run template markdown validation and PDF render pipeline to update PDF artifacts.
-- Verified 2026-09-07: the root `CogSecSkills.pdf` still renders the v1.0.0-era
-  manuscript (last PDF-touching commit `79da8bd`, 2026-06-22) while the library
-  is at 1.7.x and the generated supplements are current. Re-rendering needs the
-  sibling docxology template working copy (`../template` with
-  `projects/working/CogSecSkills`) and XeLaTeX; not run in this session.
+- Verified v1.7.0 baseline on 2026-10-01: the root and output PDFs are identical
+  local renders (71 pages, cover plus seven body figures, all 100 skill
+  identifiers). HTML retains all 100 catalogue rows. Render/content/visual
+  receipts and artifact hashes are in `docs/review-2026-10-01.md`.
+- Verified v1.8.0 local render on 2026-10-01: both retained PDFs are identical;
+  PDF and HTML retain all 100 skills. The new hashes and content/layout evidence
+  are in `docs/release-1.8.0-acceptance.md`.
+- Repeat source validation and rendering after future source changes. The
+  explicit combined-render APIs in
+  `docs/manuscript/05_reproducibility.md` use the installed sibling template and
+  XeLaTeX against this checkout directly.
+- Keep an updated archive deposit separate from local render acceptance.
 
 ## Medium: AGEINT Docs
 
@@ -161,5 +179,14 @@ work.
 
 ## Major: External Publication / DOI
 
-- Update `CITATION.cff` and `codemeta.json` with the new version DOI once deposited on Zenodo (owner action; checklist in `docs/cross-repo-scoping.md` §3 — `.zenodo.json` already says 1.7.0 for the next deposit).
+- Publish the authorized v1.8.0 GitHub release with verified public assets and
+  source identity; follow `docs/release-checklist.md`.
+- Verify the resulting Zenodo version record under concept
+  `10.5281/zenodo.21513316`, its version/source identity, and attached files.
+  Record an actual new version DOI in citation/manuscript metadata only after
+  verifying its reservation or publication status; see
+  `docs/cross-repo-scoping.md` §3.
+- Preserve the separate historical v1.0.0 manuscript archive and explicitly
+  distinguish the existing software record's v1.7.0 source link from its stale
+  `1.0.0` version metadata.
 - Add verified external citations only when a manuscript claim needs external literature rather than project-local evidence.

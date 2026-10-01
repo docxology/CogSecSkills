@@ -6,7 +6,7 @@
       "orcid": "0000-0001-6232-9096"
     }
   ],
-  "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft (Structured Analytic Techniques, source verification, deception detection, critical review), runnable identically under Claude Code, Codex, and Hermes, with a registry, an AGEINT educational upstream, and machine-checkable conformance.",
+  "description": "A defensive, educational, harness-neutral library of 100 agentic tool-use skills for Cognitive Security and analytic tradecraft (Structured Analytic Techniques, source verification, deception detection, critical review), with configured structural adapters for Claude Code, Codex, and Hermes, with a registry, an AGEINT educational upstream, and machine-checkable conformance.",
   "keywords": [
     "cognitive security",
     "structured analytic techniques",
@@ -19,5 +19,6 @@
   "license": "Apache-2.0",
   "title": "CogSecSkills: Multiharness Agentic Skills for Cognitive Security",
   "upload_type": "software",
-  "version": "1.7.0"
+  "version": "1.8.0",
+  "publication_date": "2026-10-01"
 }

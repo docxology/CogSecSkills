@@ -43,7 +43,7 @@ python -m cogsecskills doctor    # validate + the quality findings in Part 5
 ```
 skills/<group>/<slug>/
   skill.yaml          # generated harness-neutral spec
-  SKILL.md            # Claude Code native entry point (required)
+  SKILL.md            # harness-facing entry point (required)
   workflow.md         # the procedure (filename must match the spec's `workflow:`)
   harness/
     claude.md         # default adapter; one adapter per configured harness
@@ -98,8 +98,9 @@ than producing a half-built spec. Checklist:
 overridden from `cogsecskills.yaml` when the CLI runs; every configured harness
 is part of the same structural contract.
 
-- [ ] **`SKILL.md` is present.** Missing `SKILL.md` (the Claude Code native
-  entry point) is an error.
+- [ ] **`SKILL.md` is present.** Missing the harness-facing `SKILL.md` entry
+  point is an error. Native Claude discovery also needs the flatten/name install
+  transformation in [`claude-code-skills.md`](claude-code-skills.md).
 - [ ] **The workflow document is present.** The file named by the spec's
   `workflow:` field must exist. Its declared path may not escape the skill
   directory — `_safe_declared_path` rejects an absolute path or any path

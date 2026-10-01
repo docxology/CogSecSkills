@@ -157,7 +157,7 @@ def _as_str_list(value: object, *, field_name: str) -> tuple[str, ...]:
     if value is None:
         return ()
     if isinstance(value, str):
-        return (value,) if value.strip() else ()
+        return (value.strip(),) if value.strip() else ()
     if isinstance(value, Sequence):
         items: list[str] = []
         for item in value:
@@ -170,6 +170,16 @@ def _as_str_list(value: object, *, field_name: str) -> tuple[str, ...]:
                 items.append(item.strip())
         return tuple(items)
     raise SpecError(f"field {field_name!r} must be a string or list of strings")
+
+
+def _entry_list(data: Mapping, key: str) -> list:
+    """Read an optional YAML sequence without accepting scalar iterables."""
+    value = data.get(key)
+    if value is None:
+        return []
+    if not isinstance(value, list):
+        raise SpecError(f"field {key!r} must be a list")
+    return value
 
 
 @dataclass(frozen=True)
@@ -223,7 +233,9 @@ class SkillSpec:
                 f"status {status!r} invalid; allowed: {', '.join(SKILL_STATUSES)}"
             )
 
-        harness = data.get("harness", {}) or {}
+        harness = data.get("harness", {})
+        if harness is None:
+            harness = {}
         if not isinstance(harness, Mapping):
             raise SpecError("field 'harness' must be a mapping of harness->path")
 
@@ -238,9 +250,9 @@ class SkillSpec:
             ageint_topic=_optional_text(data, "ageint_topic", ""),
             tags=_as_str_list(data.get("tags"), field_name="tags"),
             triggers=_as_str_list(data.get("triggers"), field_name="triggers"),
-            tools=tuple(SkillTool.from_obj(t) for t in data.get("tools", []) or []),
-            inputs=tuple(SkillIO.from_obj(i) for i in data.get("inputs", []) or []),
-            outputs=tuple(SkillIO.from_obj(o) for o in data.get("outputs", []) or []),
+            tools=tuple(SkillTool.from_obj(t) for t in _entry_list(data, "tools")),
+            inputs=tuple(SkillIO.from_obj(i) for i in _entry_list(data, "inputs")),
+            outputs=tuple(SkillIO.from_obj(o) for o in _entry_list(data, "outputs")),
             references=_as_str_list(data.get("references"), field_name="references"),
             defensive_boundary=_optional_text(data, "defensive_boundary", ""),
             misuse_redirect=_optional_text(data, "misuse_redirect", ""),

@@ -13,6 +13,13 @@ from pathlib import Path
 def project_root() -> Path:
     """Return the project root: the nearest ancestor containing the skill
     registry (``registry/skills.yaml``) or ``pyproject.toml``."""
+    # Installed packages do not have the library's declarative data beside
+    # their module files. Prefer the checkout the command is operating in;
+    # generic pyproject.toml files in unrelated cwd trees are not sentinels.
+    cwd = Path.cwd().resolve()
+    for parent in (cwd, *cwd.parents):
+        if (parent / "registry" / "skills.yaml").is_file():
+            return parent
     here = Path(__file__).resolve()
     for parent in here.parents:
         if (parent / "registry" / "skills.yaml").is_file() or (

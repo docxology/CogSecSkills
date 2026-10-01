@@ -25,11 +25,14 @@ uv run cogsecskills eval-live --harness claude --scenario sat-ach-safe
 uv run cogsecskills eval-live --harness claude --mode routed --json
 ```
 
-Exit codes: `0` every scenario passed mechanical screening, `1` at least one
-failed, `2` configuration error (unknown scenario, no command template, or the
-harness executable is not on PATH). The runner fails closed before any
-invocation in the exit-2 cases — a missing harness never produces a partial
-report.
+Exit codes: `0` every scenario passed mechanical screening; `1` a scenario
+failed or preflight rejected the runtime configuration; `2` argparse rejected
+command-line syntax. Preflight validates a positive integer timeout, safe
+harness and scenario identifiers, unique selection, available executable, and
+command-template placeholders before invoking a harness. Pinned mode validates
+each selected skill's entry point, workflow, configured adapters, and structural
+contract before creating run outputs. It prepares every pinned prompt before starting the first selected scenario,
+so a missing later skill cannot cause a partly billed run.
 
 ## Modes
 
@@ -41,7 +44,10 @@ report.
 
 ## Configuring harness commands
 
-Each harness is an argv template with exactly one `{prompt}` placeholder.
+Each harness is an argv template with exactly one `{prompt}` placeholder. The
+runner executes the argument vector directly, with the resolved library root
+as its working directory. It does not invoke a shell for the template; shell
+syntax is literal unless you explicitly configure a shell executable.
 Built-in defaults exist for `claude`, `codex`, and `hermes`; override or add
 harnesses in `cogsecskills.yaml`:
 
@@ -53,20 +59,39 @@ runtime_eval:
 ```
 
 `{skill_dir}` (optional) expands to the expected skill's directory in pinned
-mode. The gate suite never invokes a model runtime: `eval-live` is opt-in,
+mode; it is rejected in routed mode because it would reveal the expected
+selection. The executable itself cannot contain either placeholder. The gate
+suite never invokes a model runtime: `eval-live` is opt-in,
 local, and writes nothing inside CI.
 
 ## Outputs
 
-Transcripts and the YAML report are written under `.live-evals/<timestamp>/`
+Transcripts and the YAML report are written under `.live-evals/<timestamp>-<unique-suffix>/`
 (gitignored — transcripts are run artifacts, not deliverables):
 
-- `<harness>/<scenario-id>.txt` — the raw model transcript;
+- `<harness>/<scenario-id>.txt` — raw stdout, when nonempty;
+- `<harness>/<scenario-id>.stderr.txt` — separate stderr diagnostics, when nonempty;
 - `report_<harness>.yaml` — the full machine-readable report (also printed as
   JSON with `--json`).
+
+An explicit `--output-dir` must have unused report and transcript filenames;
+existing artifacts cause preflight to fail. Transcript, stderr, and report
+receipts use exclusive creation, reject symlink escapes, and recheck their
+output boundary after the harness returns. These checks protect local evidence
+persistence; they do not sandbox the configured harness. Only stdout is
+screened as the answer. Stderr remains diagnostic evidence, and an exact echoed prompt is
+removed from the scoring view while remaining in the raw stdout file. This
+prevents prompt or diagnostic text from satisfying answer checks.
+
+`--timeout` bounds each harness invocation (default 300 seconds). POSIX
+runs start a separate process group and terminate any remaining ordinary
+descendants after direct-child completion or timeout. The direct child is
+reaped; Windows currently cleans up the direct child on timeout only. Retained stdout and stderr are capped at
+4 MiB each, and oversized output fails screening. The file-backed spool during
+execution is not a disk-quota guarantee.
 
 Each report carries the claim boundary and, per scenario: deterministic checks
 (skill named, quality terms, output terms, required sections, must-include
 terms, no forbidden terms, harness exit code), the mechanical rubric
-screening, the harness exit code, and the transcript path. Transcripts may
-contain model output — review them before quoting anywhere.
+screening, the harness exit code, transcript path, and stderr path.
+Transcripts may contain model output — review them before quoting anywhere.

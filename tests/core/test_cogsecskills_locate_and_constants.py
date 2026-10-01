@@ -34,11 +34,12 @@ def test_project_root_is_absolute_and_resolved():
     assert root == root.resolve()
 
 
-def test_project_root_outside_tree_raises(tmp_path):
+def test_project_root_outside_tree_raises(tmp_path, monkeypatch):
     """If we monkeypatch __file__ to a location outside any project tree,
     the function should raise RuntimeError."""
     from cogsecskills.core import locate
 
+    monkeypatch.chdir(tmp_path)
     original_file = locate.__file__
     fake_file = tmp_path / "fake_module.py"
     fake_file.write_text("# placeholder", encoding="utf-8")

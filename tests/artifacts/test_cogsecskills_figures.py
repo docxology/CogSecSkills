@@ -12,6 +12,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
+import yaml
 
 from cogsecskills.artifacts.manuscript_assets.figures import (
     _PNG_SIGNATURE,
@@ -340,8 +341,8 @@ def test_publication_doi_missing_config(tmp_path):
 
 def test_publication_doi_from_config(tmp_path):
     """A config with publication.doi should return that DOI."""
-    config_dir = tmp_path / "manuscript"
-    config_dir.mkdir()
+    config_dir = tmp_path / "docs" / "manuscript"
+    config_dir.mkdir(parents=True)
     (config_dir / "config.yaml").write_text(
         "publication:\n  doi: 10.5281/zenodo.12345\n", encoding="utf-8"
     )
@@ -351,13 +352,91 @@ def test_publication_doi_from_config(tmp_path):
 
 def test_publication_doi_malformed_config(tmp_path):
     """A malformed config file should return empty string, not crash."""
-    config_dir = tmp_path / "manuscript"
-    config_dir.mkdir()
+    config_dir = tmp_path / "docs" / "manuscript"
+    config_dir.mkdir(parents=True)
     (config_dir / "config.yaml").write_text(
         "not: valid: yaml: at: all\n", encoding="utf-8"
     )
     result = _publication_doi(tmp_path)
     assert result == ""
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "[]\n",
+        "publication: []\n",
+        "publication: null\n",
+        "publication:\n  doi: 42\n",
+        "publication:\n  doi: null\n",
+        "publication:\n  doi: not-a-doi\n",
+        "publication:\n  doi: 10.5281/zenodo.12345 trailing words\n",
+        "publication:\n  version_doi: 10.5281/zenodo.12345\n",
+    ],
+)
+def test_publication_doi_omits_malformed_or_nonconcept_metadata(tmp_path, source):
+    config = tmp_path / "docs/manuscript/config.yaml"
+    config.parent.mkdir(parents=True)
+    config.write_text(source, encoding="utf-8")
+    assert _publication_doi(tmp_path) == ""
+
+
+def test_publication_doi_reads_the_actual_canonical_config():
+    config = PROJECT_ROOT / "docs/manuscript/config.yaml"
+    metadata = yaml.safe_load(config.read_text(encoding="utf-8"))
+    expected = metadata["publication"]["doi"]
+    assert expected
+    assert _publication_doi(PROJECT_ROOT) == expected
+
+
+@pytest.mark.parametrize(
+    "doi",
+    [
+        "10.5281/zenodo.12345",
+        "doi:10.5281/zenodo.12345",
+        "https://doi.org/10.5281/zenodo.12345",
+        "HTTP://DOI.ORG/10.5281/zenodo.12345",
+    ],
+)
+def test_publication_doi_normalizes_declared_prefixes(tmp_path, doi):
+    config = tmp_path / "docs/manuscript/config.yaml"
+    config.parent.mkdir(parents=True)
+    config.write_text(yaml.safe_dump({"publication": {"doi": doi}}), encoding="utf-8")
+    assert _publication_doi(tmp_path) == "10.5281/zenodo.12345"
+
+
+def test_cover_render_uses_the_explicit_root_and_concept_doi(tmp_path):
+    """Identical skill rows in two real roots must use each root's declaration."""
+    rows = [_make_row()]
+    roots = [tmp_path / "first", tmp_path / "second"]
+    covers = []
+    for root, doi in zip(roots, ("10.5281/zenodo.11111", "10.5281/zenodo.22222")):
+        config = root / "docs/manuscript/config.yaml"
+        config.parent.mkdir(parents=True)
+        config.write_text(
+            yaml.safe_dump(
+                {
+                    "publication": {
+                        "doi": doi,
+                        "prior_archive": {"version_doi": "10.5281/zenodo.99999"},
+                    }
+                }
+            ),
+            encoding="utf-8",
+        )
+        # An obsolete config must neither override nor supply the declaration.
+        stale = root / "manuscript/config.yaml"
+        stale.parent.mkdir()
+        stale.write_text("publication: {doi: 10.5281/zenodo.99999}\n", encoding="utf-8")
+        assert _publication_doi(root) == doi
+        paths = write_figures(rows, root)
+        cover = next(
+            path for path in paths if path.name.endswith("cover_installation.png")
+        )
+        covers.append(cover.read_bytes())
+    # Covers are rendered in one environment with identical inputs except DOI.
+    # Omitting the explicit root in the orchestration makes these bytes equal.
+    assert covers[0] != covers[1]
 
 
 # ---------------------------------------------------------------------------

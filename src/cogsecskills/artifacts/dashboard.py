@@ -20,6 +20,7 @@ from cogsecskills.artifacts.scenarios import (
     load_scenarios,
     scenario_summary,
 )
+from cogsecskills.artifacts.text_outputs import check_text_outputs, write_text_outputs
 from cogsecskills.core.locate import resolve_root
 from cogsecskills.core.registry import load_registry
 
@@ -775,10 +776,7 @@ def _payload_findings(payload: dict) -> list[str]:
 def write_dashboard(root: Path | None = None) -> DashboardWriteResult:
     base = resolve_root(root)
     outputs = _expected_outputs(base)
-    for rel_path, text in outputs.items():
-        path = base / rel_path
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+    write_text_outputs(base, outputs)
     payload = _dashboard_payload(base)
     return {
         "markdown": str(DASHBOARD_MD_PATH),
@@ -792,12 +790,10 @@ def write_dashboard(root: Path | None = None) -> DashboardWriteResult:
 
 def check_dashboard(root: Path | None = None) -> list[str]:
     base = resolve_root(root)
-    findings = _payload_findings(_dashboard_payload(base))
-    for rel_path, expected in _expected_outputs(base).items():
-        path = base / rel_path
-        if not path.is_file():
-            findings.append(f"missing generated dashboard file: {rel_path}")
-            continue
-        if path.read_text(encoding="utf-8") != expected:
-            findings.append(f"stale generated dashboard file: {rel_path}")
+    try:
+        findings = _payload_findings(_dashboard_payload(base))
+        outputs = _expected_outputs(base)
+    except ValueError as exc:
+        return [str(exc)]
+    findings.extend(check_text_outputs(base, outputs, label="generated dashboard file"))
     return findings

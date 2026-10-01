@@ -42,11 +42,14 @@ from pathlib import Path
 from typing import TypeAlias
 
 import yaml
+from cogsecskills.authoring.schema import validate_definition_fields
 from cogsecskills.core.text_utils import yaml_scalar
 
 from cogsecskills.core.harness import HARNESSES
+from cogsecskills.core.paths import contained_path, skill_components, validate_harnesses
 from cogsecskills.core.registry import RegistryEntry, load_registry, registry_path
-from cogsecskills.core.spec import SpecError, ToolVerb
+from cogsecskills.core.spec import SkillSpec, SpecError, ToolVerb
+from cogsecskills.core.yaml_io import read_yaml
 
 #: Default verb -> (tool, note) bindings per harness. Used when a definition does
 #: not override a binding. Every closed-set verb has an entry for every harness,
@@ -132,11 +135,13 @@ QualityFieldMap: TypeAlias = dict[str, QualityValue]
 def load_definition_file(path: Path | str) -> dict:
     """Load a JSON or YAML definition file."""
     definition_path = Path(path)
-    text = definition_path.read_text(encoding="utf-8")
-    if definition_path.suffix.lower() == ".json":
-        loaded = json.loads(text)
-    else:
-        loaded = yaml.safe_load(text)
+    try:
+        if definition_path.suffix.lower() == ".json":
+            loaded = json.loads(definition_path.read_text(encoding="utf-8"))
+        else:
+            loaded = read_yaml(definition_path)
+    except (ValueError, OSError) as exc:
+        raise AuthorError(f"definition file {definition_path}: {exc}") from exc
     if not isinstance(loaded, dict):
         raise AuthorError(f"definition file {definition_path} must contain a mapping")
     return loaded
@@ -161,7 +166,8 @@ def _verbs_of(definition: dict) -> list[str]:
         if not isinstance(tool, dict) or "verb" not in tool:
             raise AuthorError(f"each tool needs a 'verb': {tool!r}")
         verb = ToolVerb.coerce(tool["verb"]).value  # validates closed set
-        if not str(tool.get("purpose", "")).strip():
+        purpose = tool.get("purpose")
+        if not isinstance(purpose, str) or not purpose.strip():
             raise AuthorError(f"tool {verb!r} needs a non-empty 'purpose'")
         verbs.append(verb)
     return verbs
@@ -444,10 +450,16 @@ def _workflow_md(entry: RegistryEntry, definition: dict, verbs: list[str]) -> st
     for i, step in enumerate(steps, start=1):
         if not isinstance(step, dict):
             raise AuthorError(f"workflow step {i} must be a mapping")
-        step_verbs = (
-            ", ".join(ToolVerb.coerce(v).value for v in (step.get("verbs") or []))
-            or "reason"
-        )
+        raw_verbs = step.get("verbs")
+        if raw_verbs is not None and not isinstance(raw_verbs, list):
+            raise AuthorError(f"workflow step {i} verbs must be a list")
+        used = [ToolVerb.coerce(v).value for v in (raw_verbs or ["reason"])]
+        undeclared = sorted(set(used) - set(verbs))
+        if undeclared:
+            raise AuthorError(
+                f"workflow step {i} uses undeclared tool verbs: {', '.join(undeclared)}"
+            )
+        step_verbs = ", ".join(used)
         title = str(step.get("title", f"Step {i}")).strip()
         text = str(step.get("text", "")).strip()
         lines.append(f"## Step {i} — {title} ({step_verbs})\n{text}\n")
@@ -485,8 +497,12 @@ def _workflow_md(entry: RegistryEntry, definition: dict, verbs: list[str]) -> st
         + "\n".join(f"- {item}" for item in _quality_list(quality, "negative_controls"))
         + "\n"
     )
-    anti = definition.get("anti_criteria") or []
-    if not anti:
+    anti = definition.get("anti_criteria")
+    if (
+        not isinstance(anti, list)
+        or not anti
+        or not all(isinstance(item, str) and item.strip() for item in anti)
+    ):
         raise AuthorError("definition needs at least one 'anti_criteria' entry")
     lines.append(
         "## Anti-criteria (must NOT happen)\n"
@@ -562,16 +578,30 @@ def rendered_definition_files(
     """Return the files ``render_definition`` would write, without mutating disk."""
     if not isinstance(definition, dict):
         raise AuthorError("definition must be a mapping")
-    targets = harnesses if harnesses is not None else HARNESSES
-    skill_id = str(_require(definition, "id")).strip()
+    try:
+        targets = validate_harnesses(harnesses if harnesses is not None else HARNESSES)
+    except ValueError as exc:
+        raise AuthorError(str(exc)) from exc
+    raw_id = _require(definition, "id")
+    if not isinstance(raw_id, str) or not raw_id.strip():
+        raise AuthorError("definition id must be a non-empty string")
+    skill_id = raw_id.strip()
     registry = load_registry(root)
     entry = registry.get(skill_id)
     if entry is None:
         raise AuthorError(f"id {skill_id!r} is not in the registry")
+    try:
+        group, slug = skill_components(skill_id, entry.group)
+    except ValueError as exc:
+        raise AuthorError(str(exc)) from exc
     verbs = _verbs_of(definition)
+    try:
+        validate_definition_fields(definition)
+    except ValueError as exc:
+        raise AuthorError(str(exc)) from exc
 
     base = registry_path(root).parents[1]
-    target = base / "skills" / entry.group / _slug(skill_id)
+    target = base / "skills" / group / slug
     files = {
         target / "skill.yaml": _skill_yaml(entry, definition, verbs, targets),
         target / "SKILL.md": _skill_md(entry, definition),
@@ -581,6 +611,21 @@ def rendered_definition_files(
         files[target / "harness" / f"{harness}.md"] = _adapter_md(
             harness, entry, definition, verbs
         )
+    # Exercise the actual parser before any write rather than allowing a
+    # successful author command to leave an unparseable skill.yaml behind.
+    SkillSpec.from_mapping(yaml.safe_load(files[target / "skill.yaml"]))
+    # This pure preflight is also used before canonical-definition writes.
+    # Check all destinations so one symlink cannot cause a partial render.
+    try:
+        contained_path(base / "skills", Path(group) / slug)
+    except (ValueError, OSError, RuntimeError) as exc:
+        raise AuthorError(f"unsafe generated destination {target}: {exc}") from exc
+    for path in files:
+        try:
+            contained_path(base, path.relative_to(base))
+            contained_path(target, path.relative_to(target))
+        except (ValueError, OSError, RuntimeError) as exc:
+            raise AuthorError(f"unsafe generated destination {path}: {exc}") from exc
     return files
 
 
@@ -632,7 +677,7 @@ def author_batch(
     for def_path in sorted(skills_tree.rglob("_def.json")):
         skill_id = f"{def_path.parent.parent.name}.{def_path.parent.name}"
         try:
-            definition = json.loads(def_path.read_text(encoding="utf-8"))
+            definition = load_definition_file(def_path)
             definition.setdefault("id", skill_id)
             render_definition(definition, root, harnesses=harnesses)
             rendered.append(definition["id"])

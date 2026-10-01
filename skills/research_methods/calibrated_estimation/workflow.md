@@ -8,11 +8,11 @@ Make the question specific and resolvable: what outcome, by what date, adjudicat
 ## Step 2 — Apply inside-view adjustments (reason)
 Identify two or three case-specific factors that genuinely distinguish this situation from the reference class average. Adjust the base rate incrementally for each factor; resist moving far from the base rate without strong independent evidence. Note that the inside view systematically underestimates variance.
 
-## Step 3 — Set confidence interval and check for overconfidence (reason)
-State an 80% confidence interval around the point estimate. As a calibration check, verify that past 80% intervals contain the true answer roughly 80% of the time. If intervals have been too narrow historically, widen them. Identify which assumption, if wrong, would most shift the estimate.
+## Step 3 — Match uncertainty and scoring to the forecast (reason)
+For an event forecast, report a probability and any justified uncertainty about that estimate; assess calibration across resolved comparable forecasts using observed frequencies and a declared accuracy score such as the Brier score. For a numeric outcome forecast, an 80% prediction interval can be checked for outcome coverage over many comparable cases. Label an interval around an estimated probability separately and explain its method. If no feedback history exists, state that calibration is unverified. Identify the assumption most likely to shift the estimate.
 
 ## Step 4 — Document and communicate the estimate (write)
-Write the calibrated estimate report: the numeric probability, the reference class and base rate, a one-paragraph adjustment narrative, the confidence interval, resolution criteria, and a note on what new evidence would trigger a significant update.
+Write the calibrated estimate report: the numeric probability, the reference class and base rate, adjustment narrative, forecast type and uncertainty method, resolution criteria, scoring plan, and the evidence that would trigger an update. Save a timestamped forecast before the outcome is known.
 
 ## Evidence requirements
 - For Calibrated Estimation, tie the point estimate, the base rate, and every adjustment to concrete evidence — the historical frequencies defining the reference class and the case-specific factors that warrant departing from it — and treat any move from the base rate without supporting evidence as an unjustified inside-view bias.
@@ -20,7 +20,7 @@ Write the calibrated estimate report: the numeric probability, the reference cla
 - Before recommending any Calibrated Estimation action, identify the weakest evidence link, the alternative most likely to overturn it, and the next discriminating check.
 
 ## Confidence and uncertainty
-- High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are modest and individually justified, the stated 80% confidence interval is consistent with the analyst's historical calibration record, and the resolution criteria are specific enough that the forecast can later be scored.
+- High for Calibrated Estimation: the probability estimate is anchored in an explicitly chosen reference class with a documented base rate, the inside-view adjustments are justified, the uncertainty method matches the forecast type, a documented history of comparable resolved forecasts supports the calibration claim, and the resolution criteria and scoring convention are explicit.
 - Medium for Calibrated Estimation: the calibrated estimate is plausible, but one important question source, comparison case, or alternative explanation remains incomplete.
 - Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source, contested, or mostly inferential evidence; keep the result provisional and list the next check.
 - State what Calibrated Estimation cannot determine from the supplied or authorized evidence.
@@ -33,6 +33,7 @@ Write the calibrated estimate report: the numeric probability, the reference cla
 - For Calibrated Estimation, do not infer protected traits, private identity, intent, location, legal culpability, or platform account ownership beyond the supplied and authorized evidence.
 
 ## Failure modes
+- Calibrated Estimation: scoring a probability interval against a binary outcome, confusing confidence with event probability, or calling a single untested estimate calibrated without a recorded history of resolved forecasts.
 - Calibrated Estimation: skipping the reference class and reasoning only from inside-view case features, anchoring on a single source's number, stating vague verbal probabilities instead of a numeric estimate, or omitting resolution criteria, so the forecast cannot be scored and overconfidence goes uncorrected.
 - Calibrated Estimation: producing advice that would help a requester cherry-pick sources, fabricate citations, or overstate certainty from weak evidence.
 - Calibrated Estimation: reporting the calibrated estimate without uncertainty labels, alternative explanations, and the next discriminating check.
@@ -47,6 +48,7 @@ Write the calibrated estimate report: the numeric probability, the reference cla
 - do not skip the reference class step and reason only from inside-view case features
 - do not treat a single authoritative source's estimate as the reference class — that is anchoring, not calibration
 - do not omit resolution criteria; an unresolvable question cannot be used to score or improve calibration
+- do not confuse outcome prediction intervals with confidence or credible intervals for estimated probabilities, or claim calibration from one forecast
 
 ## AGEINT upstream
 `docs/ageint/research-methods.md`

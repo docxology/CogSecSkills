@@ -7,8 +7,8 @@ description: Calibrated Estimation is a disciplined probability-elicitation tech
   training, the technique combats overconfidence and inside-view bias by requiring
   analysts to compare the current case against a reference class of similar past cases
   before applying case-specific adjustments. The output is an estimate accompanied
-  by a reference class, a stated confidence interval, and the reasoning behind any
-  adjustments from the base rate.
+  by a reference class, an explicit uncertainty statement appropriate to the forecast
+  type, and the reasoning behind adjustments from the base rate.
 tags:
 - cognitive-security
 - research_methods
@@ -30,7 +30,7 @@ tools:
   purpose: select the reference class, derive the base rate, and apply inside-view
     adjustments with explicit logic
 - verb: write
-  purpose: emit the calibrated estimate with reference class, confidence interval,
+  purpose: emit the calibrated estimate with reference class, uncertainty statement,
     and adjustment rationale
 inputs:
 - name: question
@@ -51,7 +51,7 @@ outputs:
 - name: calibrated_estimate
   type: markdown
   description: probability estimate with reference class, base rate, adjustment narrative,
-    80% confidence interval, and resolution criteria
+    forecast-type-specific uncertainty statement, scoring plan, and resolution criteria
 references:
 - 'Tetlock, P. E., & Gardner, D. (2015). Superforecasting: The Art and Science of
   Prediction. Crown.'
@@ -61,6 +61,8 @@ references:
   European Planning Studies, 16(1), 3-21.
 - Heuer, R. J., & Pherson, R. H. (2014). Structured Analytic Techniques for Intelligence
   Analysis (2nd ed.). CQ Press.
+- Good Judgment Open. Frequently Asked Questions, forecasting accuracy and scoring.
+  https://www.gjopen.com/faq
 when_to_use:
 - when a decision requires a probability estimate for a future or uncertain event
 - when inside-view reasoning is dominating and base rate anchoring is needed
@@ -71,7 +73,7 @@ what_it_produces:
 - an explicit reference class and the base rate derived from it
 - a documented adjustment narrative explaining why the estimate departs from the base
   rate
-- an 80% confidence interval and stated resolution criteria
+- an uncertainty statement, stated resolution criteria, and a scoring plan
 key_discipline:
 - start outside — choose a reference class of similar cases and obtain its base rate
   before looking at case-specific details
@@ -79,8 +81,12 @@ key_discipline:
   unless case-specific evidence is strong
 - express uncertainty numerically; vague words like 'likely' carry idiosyncratic interpretations
   across recipients
-- calibration is measured over many forecasts — track outcomes and score forecasts
-  to improve future calibration
+- calibration is measured over many forecasts — log predictions before resolution,
+  compare forecast probabilities with observed frequencies, and score accuracy with
+  a declared proper scoring rule; a single forecast cannot establish calibration
+- distinguish uncertainty about an estimated probability from an interval predicting
+  a numeric outcome; do not score an interval around a probability by checking whether
+  the binary outcome zero or one lies inside it
 workflow_steps:
 - verbs:
   - read
@@ -98,18 +104,21 @@ workflow_steps:
     evidence. Note that the inside view systematically underestimates variance.
 - verbs:
   - reason
-  title: Set confidence interval and check for overconfidence
-  text: State an 80% confidence interval around the point estimate. As a calibration
-    check, verify that past 80% intervals contain the true answer roughly 80% of the
-    time. If intervals have been too narrow historically, widen them. Identify which
-    assumption, if wrong, would most shift the estimate.
+  title: Match uncertainty and scoring to the forecast
+  text: For an event forecast, report a probability and any justified uncertainty
+    about that estimate; assess calibration across resolved comparable forecasts using
+    observed frequencies and a declared accuracy score such as the Brier score. For
+    a numeric outcome forecast, an 80% prediction interval can be checked for outcome
+    coverage over many comparable cases. Label an interval around an estimated probability
+    separately and explain its method. If no feedback history exists, state that calibration
+    is unverified. Identify the assumption most likely to shift the estimate.
 - verbs:
   - write
   title: Document and communicate the estimate
   text: 'Write the calibrated estimate report: the numeric probability, the reference
-    class and base rate, a one-paragraph adjustment narrative, the confidence interval,
-    resolution criteria, and a note on what new evidence would trigger a significant
-    update.'
+    class and base rate, adjustment narrative, forecast type and uncertainty method,
+    resolution criteria, scoring plan, and the evidence that would trigger an update.
+    Save a timestamped forecast before the outcome is known.'
 anti_criteria:
 - do not substitute vague verbal probability terms (likely, possible, probable) for
   numeric estimates — they defeat calibration
@@ -118,6 +127,8 @@ anti_criteria:
   is anchoring, not calibration
 - do not omit resolution criteria; an unresolvable question cannot be used to score
   or improve calibration
+- do not confuse outcome prediction intervals with confidence or credible intervals
+  for estimated probabilities, or claim calibration from one forecast
 defensive_boundary: 'Use Calibrated Estimation only for research-methods and synthesis
   integrity: recognize, assess, document, or defend reproducibility, calibrated confidence,
   and transparent synthesis. Do not use this skill to cherry-pick sources, fabricate
@@ -138,9 +149,9 @@ evidence_requirements:
 confidence_rubric:
 - 'High for Calibrated Estimation: the probability estimate is anchored in an explicitly
   chosen reference class with a documented base rate, the inside-view adjustments
-  are modest and individually justified, the stated 80% confidence interval is consistent
-  with the analyst''s historical calibration record, and the resolution criteria are
-  specific enough that the forecast can later be scored.'
+  are justified, the uncertainty method matches the forecast type, a documented history
+  of comparable resolved forecasts supports the calibration claim, and the resolution
+  criteria and scoring convention are explicit.'
 - 'Medium for Calibrated Estimation: the calibrated estimate is plausible, but one
   important question source, comparison case, or alternative explanation remains incomplete.'
 - 'Low for Calibrated Estimation: the calibrated estimate rests on sparse, single-source,
@@ -164,6 +175,9 @@ privacy_legal_constraints:
   location, legal culpability, or platform account ownership beyond the supplied and
   authorized evidence.
 failure_modes:
+- 'Calibrated Estimation: scoring a probability interval against a binary outcome,
+  confusing confidence with event probability, or calling a single untested estimate
+  calibrated without a recorded history of resolved forecasts.'
 - 'Calibrated Estimation: skipping the reference class and reasoning only from inside-view
   case features, anchoring on a single source''s number, stating vague verbal probabilities
   instead of a numeric estimate, or omitting resolution criteria, so the forecast
