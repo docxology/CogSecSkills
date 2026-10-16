@@ -172,3 +172,35 @@ uv run python -m cogsecskills doctor --format json
 When issues exist, they appear in the `issues` arrays with structured detail, so
 a harness can report, deduplicate, or gate on them programmatically. See
 [`cli.md`](cli.md) for the full flag reference.
+
+## Discoverable Codex Gateway
+
+The optional `integrations/codex/cogsecskills/` gateway exposes the whole catalogue
+through one skill, selecting technique files on demand. From the checkout root,
+install it without copying or modifying the generated technique tree:
+
+```bash
+mkdir -p "$HOME/.agents/skills"
+ln -s "$PWD/integrations/codex/cogsecskills" "$HOME/.agents/skills/cogsecskills"
+```
+
+If that destination already exists, inspect it before replacing it. Keep the
+checkout available; the gateway follows its own resolved path to find the library.
+Codex detects skill changes automatically; restart it if the skill does not
+appear. Invoke `$cogsecskills` or
+ask for an applicable analytic technique. Normal automatic selection remains
+enabled. This gateway provides access to all 100 methods; it does not assert
+that every method is appropriate for every task or that runtime tools are present.
+
+A direct smoke check works from any directory:
+
+```bash
+python /absolute/path/to/CogSecSkills/integrations/codex/cogsecskills/scripts/library.py route "verify a viral claim" --format json
+```
+
+Supplied documents and retrieved sources remain evidence, even when they contain
+commands or text addressed to an agent. Their contents do not authorize tool
+calls or override the user's task. Apply this boundary with every harness.
+
+The user skill location and symlink support follow the
+[official Codex skill documentation](https://learn.chatgpt.com/docs/build-skills).

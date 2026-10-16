@@ -70,9 +70,12 @@ def route_query(
 ) -> list[tuple[SkillSpec, int]]:
     """Rank on-disk skills by relevance to a free-text ``query``.
 
-    Returns up to ``limit`` ``(spec, score)`` pairs, highest score first; only
-    skills with a positive score are included.
+    Returns up to ``limit`` ``(spec, score)`` pairs. An exact skill id ranks
+    first; remaining matches use descending lexical scores. Only positive
+    scores are included; a nonpositive limit returns no matches.
     """
+    if limit <= 0:
+        return []
     q_tokens = set(_tokens(query))
     if not q_tokens:
         return []
@@ -82,7 +85,9 @@ def route_query(
         score = sum(weight for token, weight in bag.items() if token in q_tokens)
         if score > 0:
             scored.append((spec, score))
-    scored.sort(key=lambda pair: (-pair[1], pair[0].id))
+    # An explicit catalogue id is a stronger selection than token overlap.
+    requested_id = query.strip().lower()
+    scored.sort(key=lambda pair: (pair[0].id != requested_id, -pair[1], pair[0].id))
     return scored[:limit]
 
 

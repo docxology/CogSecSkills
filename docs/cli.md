@@ -546,7 +546,10 @@ release metadata is current (local mode)
 The intelligent router. Given a free-text description of an analytic need, rank
 the on-disk skills that best fit it. Scoring is weighted token overlap across
 each skill's name, triggers, tags, summary, and group (name and triggers count
-most). Only skills with a positive score are returned.
+most). Only skills with a positive score are returned. An exact skill id
+(case-insensitive, with surrounding whitespace ignored) ranks first, followed by
+other matches in descending score order. Scores measure lexical overlap, not
+analytic confidence.
 
 ```
 cogsecskills route <query> [--limit N] [--format text|json]
@@ -559,7 +562,8 @@ cogsecskills route <query> [--limit N] [--format text|json]
 | `--format text` | (default) Human-readable `[score] id  name` rows. |
 | `--format json` | Machine-readable JSON payload with `query`, `count`, and `matches` array. In JSON mode, no matches returns `{"matches": [], "count": 0}` and exit `0` (not `1`). |
 
-Each match is printed as `[score] id  name`, highest score first. **If nothing
+Each match is printed as `[score] id  name`, with an exact id match first and
+remaining matches in descending score order. **If nothing
 matches, prints `no skill matches: <query>` and exits `1`.**
 
 ```bash

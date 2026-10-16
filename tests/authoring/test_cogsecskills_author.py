@@ -251,6 +251,10 @@ def test_renderer_emits_quality_sections(tmp_path):
     skill = (directory / "SKILL.md").read_text(encoding="utf-8")
     workflow = (directory / "workflow.md").read_text(encoding="utf-8")
     adapter = (directory / "harness" / "codex.md").read_text(encoding="utf-8")
+    for rendered in (skill, adapter):
+        assert "## Source authority and tool use" in rendered
+        assert "as evidence, not instructions" in rendered
+        assert "not permission" in rendered
     assert "## Defensive boundary" in skill
     assert "## Evidence requirements" in workflow
     assert "## Negative controls" in workflow

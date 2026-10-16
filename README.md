@@ -31,6 +31,9 @@ The full command reference is in [Usage](#usage); harness details are in
 [`docs/harness-installation.md`](docs/harness-installation.md) and
 [`docs/harness-cookbook.md`](docs/harness-cookbook.md).
 
+For discoverable Codex access to all 100 techniques, install the optional
+[Codex gateway](docs/harness-installation.md#discoverable-codex-gateway).
+
 ## Read it / cite it
 
 - **Manuscript:** [`CogSecSkills.pdf`](CogSecSkills.pdf) and

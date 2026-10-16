@@ -317,3 +317,13 @@ def test_cli_doctor_returns_1_for_quality_findings(tmp_path, capsys):
     render_definition(_def("sat.ach", steps=1), root=tmp_path)
     assert main(["--root", str(tmp_path), "doctor"]) == 1
     assert "workflow steps" in capsys.readouterr().out
+
+
+def test_route_explicit_id_and_nonpositive_limits(tmp_path):
+    _library(tmp_path)
+    for skill_id in ("sat.ach", "osint_integrity.verify"):
+        assert (
+            route_query(f"  {skill_id.upper()}  ", root=tmp_path)[0][0].id == skill_id
+        )
+    assert route_query("evidence", root=tmp_path, limit=0) == []
+    assert route_query("evidence", root=tmp_path, limit=-1) == []
