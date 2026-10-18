@@ -33,3 +33,7 @@ output/pdf/_xelatex_stdout.log
 output/pdf/references.bib
 output/web/_combined_manuscript.md
 output/pdf/_latex_stdout.log
+
+# Python wheel/sdist staging; final manuscript outputs remain tracked.
+/build/
+/dist/
