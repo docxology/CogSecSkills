@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 import yaml
+import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MANUSCRIPT = PROJECT_ROOT / "docs" / "manuscript"
@@ -62,71 +63,6 @@ FORMALISM_FILES = (
     "03_methods.md",
 )
 
-EXPECTED_MANUSCRIPT_H1S = (
-    ("00_abstract.md", "Abstract", "sec:abstract"),
-    (
-        "01_introduction.md",
-        "Library Purpose, Scope, and Reader Map",
-        "sec:introduction",
-    ),
-    (
-        "02_system_context.md",
-        "Source Boundary and the Harness-Neutral Skill Contract",
-        "sec:system_context",
-    ),
-    (
-        "03_methods.md",
-        "Source-Owned Skill Authoring and Manuscript Generation",
-        "sec:methods",
-    ),
-    (
-        "04_artifacts_and_evidence.md",
-        "Evidence Surfaces, Generated Views, and Claim Discipline",
-        "sec:artifacts_evidence",
-    ),
-    (
-        "05_reproducibility.md",
-        "Reproducibility, Local Verification, and Render Gates",
-        "sec:reproducibility",
-    ),
-    (
-        "06_limitations_and_next_steps.md",
-        "Evidence Boundaries, Defensive Governance, and Next Steps",
-        "sec:limitations_next_steps",
-    ),
-    (
-        "07_ethics_and_responsible_use.md",
-        "Ethics, Dual-Use, and Responsible Use",
-        "sec:ethics_responsible_use",
-    ),
-    (
-        "S01_source_surface.md",
-        "Supplemental Claim-Provenance Source Map",
-        "sec:source_surface",
-    ),
-    (
-        "S02_release_manifest.md",
-        "Supplemental Local Release and Render Manifest",
-        "sec:release_manifest",
-    ),
-    (
-        "S10_skill_catalogue.md",
-        "Supplemental 100-Skill Catalogue",
-        "sec:supplemental_skill_catalogue",
-    ),
-    (
-        "S11_skill_metadata_matrix.md",
-        "Supplemental Skill Metadata and Figure Matrix",
-        "sec:supplemental_skill_metadata_matrix",
-    ),
-    (
-        "98_symbols_glossary.md",
-        "Symbols and Skill-System Glossary",
-        "sec:symbols_glossary",
-    ),
-    ("99_references.md", "References", "sec:references"),
-)
-
 
 def _read(path: Path) -> str:
     return path.read_text(encoding="utf-8")
@@ -155,14 +91,74 @@ def test_references_bib_has_verified_non_placeholder_entries():
     assert len(keys) >= len(REQUIRED_BIB_KEYS)
 
 
-def test_manuscript_h1_inventory_is_informative_and_stable():
-    seen: list[tuple[str, str, str]] = []
-    for filename, _, _ in EXPECTED_MANUSCRIPT_H1S:
-        text = _read(MANUSCRIPT / filename)
-        match = re.search(r"^#\s+(.+?)\s+\{#([^}]+)\}", text, re.MULTILINE)
-        assert match, filename
-        seen.append((filename, match.group(1), match.group(2)))
-    assert tuple(seen) == EXPECTED_MANUSCRIPT_H1S
+def _section_headings(paths: list[Path]) -> dict[str, tuple[str, str]]:
+    inventory = {}
+    anchors = set()
+    for path in paths:
+        text = re.sub(r"(?ms)^(`{3,}|~{3,})[^\n]*\n.*?^\1[ \t]*$", "", _read(path))
+        headings = re.findall(r"^# +(.+)$", text, re.MULTILINE)
+        if len(headings) != 1:
+            raise ValueError(f"{path.name}: requires exactly one H1")
+        match = re.fullmatch(r"(.+?)\s+\{#(sec:[a-z][a-z0-9_-]*)\}", headings[0])
+        if match is None:
+            raise ValueError(f"{path.name}: H1 requires a section anchor")
+        title, anchor = match.groups()
+        if anchor in anchors:
+            raise ValueError(f"{path.name}: duplicate section anchor {anchor}")
+        anchors.add(anchor)
+        inventory[path.name] = (title, anchor)
+    return inventory
+
+
+def test_manuscript_sections_have_one_h1_with_unique_anchor():
+    paths = sorted(
+        path
+        for path in MANUSCRIPT.glob("*.md")
+        if re.match(r"(?:[0-9]{2}|S[0-9]{2})_", path.name)
+    )
+    inventory = _section_headings(paths)
+    assert {"00_abstract.md", "99_references.md"} <= inventory.keys()
+    anchors = {anchor for _, anchor in inventory.values()}
+    referenced = {
+        anchor
+        for path in paths
+        for anchor in re.findall(r"@(sec:[a-z][a-z0-9_-]*)", _read(path))
+    }
+    assert referenced <= anchors
+
+
+def test_heading_contract_accepts_copy_edits_and_ignores_code_examples(tmp_path):
+    first = tmp_path / "00_first.md"
+    first.write_text(
+        "# A revised reader-facing title {#sec:first}\n\n```markdown\n# Example only\n```\n",
+        encoding="utf-8",
+    )
+    assert _section_headings([first]) == {
+        "00_first.md": ("A revised reader-facing title", "sec:first")
+    }
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "No heading\n",
+        "# One {#sec:one}\n# Two {#sec:two}\n",
+        "# A heading without an anchor\n",
+    ],
+)
+def test_heading_contract_rejects_missing_or_ambiguous_structure(tmp_path, text):
+    path = tmp_path / "00_invalid.md"
+    path.write_text(text, encoding="utf-8")
+    with pytest.raises(ValueError, match="requires"):
+        _section_headings([path])
+
+
+def test_heading_contract_rejects_shared_anchors(tmp_path):
+    paths = [tmp_path / "00_one.md", tmp_path / "01_two.md"]
+    for path in paths:
+        path.write_text(f"# {path.stem} {{#sec:duplicate}}\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="duplicate section anchor"):
+        _section_headings(paths)
 
 
 def test_manuscript_citations_resolve_to_references_bib():

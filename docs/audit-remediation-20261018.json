@@ -1,5 +1,5 @@
 {
-  "state": "qualified_source_dispositions_with_four_explicit_open_followups",
+  "state": "all_51_source_dispositions_implemented_qualification_recorded_separately",
   "original_audit_head": "f2c15ca4bce17d1f8b58bd9f02b1b4f98b4c04be",
   "rows": [
     {
@@ -140,7 +140,7 @@
       "summary": "Negative result limits fail rather than becoming negative Python slices.",
       "evidence_paths": [
         "src/cogsecskills/cli.py",
-        "tests/quality/test_cogsecskills_coverage_gaps.py"
+        "tests/authoring/test_cli_error_paths.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
       "qualification": "source_verified_with_qualified_runtime_receipt"
@@ -318,15 +318,15 @@
       "finding": "EVAL-04",
       "issue": 30,
       "url": "https://github.com/docxology/CogSecSkills/issues/30",
-      "disposition": "partially repaired; follow-up remains open",
-      "summary": "The docs state that queries/routes are co-authored closed-set regression fixtures, not held-out or independent routing accuracy. No benchmark results are invented.",
+      "disposition": "implemented in followup; qualified publication required",
+      "summary": "Name-free authored paraphrase, distractor and noninformative controls exposed grammatical-token domination. Corpus rarity and stop-word filtering repair those regressions while preserving integer scores and exact-ID priority. These are authored software controls, not independent routing accuracy.",
       "evidence_paths": [
-        "docs/claim-boundaries.md",
-        "tests/artifacts/test_response_contracts.py"
+        "src/cogsecskills/quality/insights.py",
+        "tests/quality/test_routing_paraphrases.py",
+        "tests/fixtures/routing_paraphrases.yaml"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "source_verified_with_qualified_runtime_receipt",
-      "remaining_work": "Independent paraphrase/adversarial routing regression probes remain to be implemented; the claim boundary is repaired."
+      "qualification": "followup_full_qualification_pending"
     },
     {
       "finding": "EVAL-05",
@@ -544,7 +544,7 @@
       "summary": "Artifact and adapter failure controls use actual malformed registry/UTF-8 files instead of fake project behavior. Cwd changes exercise real filesystem state, not mocked project data.",
       "evidence_paths": [
         "tests/artifacts/test_cogsecskills_examples_branches.py",
-        "tests/quality/test_cogsecskills_validate_coverage.py"
+        "tests/quality/test_adapter_input_errors.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
       "qualification": "source_verified_with_qualified_runtime_receipt"
@@ -556,7 +556,7 @@
       "disposition": "prior repair verified",
       "summary": "The cited route/empty-findings controls now assert concrete diagnostic content. Nonempty live rows are explicit before subset palette checks.",
       "evidence_paths": [
-        "tests/quality/test_cogsecskills_edge_cases.py",
+        "tests/artifacts/test_artifact_source_errors.py",
         "tests/artifacts/test_cogsecskills_manuscript_assets.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
@@ -595,7 +595,7 @@
       "disposition": "repaired",
       "summary": "A real invalid UTF-8 adapter exercises unreadable-file behavior independently of root/chmod semantics.",
       "evidence_paths": [
-        "tests/quality/test_cogsecskills_validate_coverage.py",
+        "tests/quality/test_adapter_input_errors.py",
         "tests/quality/test_validation_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
@@ -605,15 +605,14 @@
       "finding": "TEST-06",
       "issue": 52,
       "url": "https://github.com/docxology/CogSecSkills/issues/52",
-      "disposition": "partially repaired; follow-up remains open",
-      "summary": "Existing style constants remain explicit print/design policy checks, paired with actual figure generation and malformed/collapsed PNG rejection. They are not presented as empirical quality or semantic figure validation. Coverage-variant tests assert concrete behavior and diagnostics; no failing tests are discarded.",
+      "disposition": "implemented in followup; qualified publication required",
+      "summary": "Two redundant passing constant-pin cases were removed; actual producer PNG signature, DPI and dimensions are now checked. Schema/theme-key contracts and real figure/PNG drift controls remain. Six mixed variant files are folded into topical owner leaves with all72 moved test ASTs, original helper ASTs, and1290-node marker membership preserved.",
       "evidence_paths": [
         "tests/artifacts/test_cogsecskills_figures.py",
-        "tests/artifacts/test_cogsecskills_png_probe.py"
+        "docs/audit-controls-layout-20261018.json"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "source_verified_with_qualified_runtime_receipt",
-      "remaining_work": "Further replacement/consolidation of implementation-only test oracles remains open; real render and PNG controls are retained."
+      "qualification": "followup_full_qualification_pending"
     },
     {
       "finding": "TEST-07",
@@ -632,15 +631,14 @@
       "finding": "TEST-08",
       "issue": 54,
       "url": "https://github.com/docxology/CogSecSkills/issues/54",
-      "disposition": "partially repaired; follow-up remains open",
-      "summary": "Removed the global 24-line transcript pin in favor of per-block skill/workflow/adapter contracts and real path checks. Stable section anchors and evidence-boundary wording remain deliberate public contracts.",
+      "disposition": "implemented in followup; qualified publication required",
+      "summary": "Exact manuscript title inventory is replaced by one anchored H1 per section, unique anchors and resolved section references. Copy-edit and malformed/duplicate-anchor controls prove the structural oracle. Real path/citation/claim-boundary checks remain.",
       "evidence_paths": [
-        "tests/contract/test_cogsecskills_docs_contract.py",
-        "tests/contract/test_cogsecskills_manuscript_contract.py"
+        "tests/contract/test_cogsecskills_manuscript_contract.py",
+        "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "source_verified_with_qualified_runtime_receipt",
-      "remaining_work": "Transcript count coupling is repaired; manuscript heading/prose inventory coupling still needs structural-oracle work."
+      "qualification": "followup_full_qualification_pending"
     },
     {
       "finding": "TEST-09",
@@ -659,18 +657,25 @@
       "finding": "TEST-10",
       "issue": 56,
       "url": "https://github.com/docxology/CogSecSkills/issues/56",
-      "disposition": "partially repaired; follow-up remains open",
-      "summary": "Real registry/config negative cases cover collection, duplicate-key, type and path interactions. Reused quality-entry controls cover all three governed fields; no shared-item exemptions are configured or claimed tested as future behavior.",
+      "disposition": "implemented in followup; qualified publication required",
+      "summary": "Actual YAML definitions exercise normalized field-scoped quality allowances, non-allowed duplicates and cross-field rejection. Negative controls remain non-exempt. A real subprocess rejects a missing registry root with exit1/path diagnostics/no traceback, while valid-library report findings retain the documented JSON/exit0 contract.",
       "evidence_paths": [
-        "tests/core/test_input_boundaries.py",
-        "tests/authoring/test_cogsecskills_author.py"
+        "src/cogsecskills/authoring/definitions.py",
+        "tests/conformance/test_reuse_policy.py",
+        "src/cogsecskills/cli.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "source_verified_with_qualified_runtime_receipt",
-      "remaining_work": "All governed duplicate-quality fields are exercised; the requested whitelist-policy disposition and nonexistent-root CLI control remain open."
+      "qualification": "followup_full_qualification_pending"
     }
   ],
   "open_followup_issues": [
+    30,
+    52,
+    54,
+    56
+  ],
+  "publication_boundary": "The four issues were still externally open when this followup source snapshot was prepared; qualified main publication controls closure. This is not a live issue inventory.",
+  "implemented_followup_issues": [
     30,
     52,
     54,

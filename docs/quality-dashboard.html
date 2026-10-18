@@ -226,8 +226,8 @@
 <li>Dashboard gate: `dashboard --check` -&gt; `quality dashboard is current`.</li>
 <li>Release gate: `release-metadata --check` -&gt; `release metadata is current (local mode)`.</li>
 <li>Manuscript gate: `manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
-<li>Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -&gt; `1264 passed in 95.56s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).</li>
-<li>Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -&gt; clean; 111 files already formatted.</li>
+<li>Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -&gt; `1291 passed in 103.27s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).</li>
+<li>Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -&gt; clean; 124 files already formatted.</li>
 <li>Type gate: `uv run mypy` -&gt; `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.</li>
 <li>Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.</li>
 <li>Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).</li>

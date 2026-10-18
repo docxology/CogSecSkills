@@ -2903,7 +2903,7 @@ Identity</h2>
 <td><code>1.8.0</code></td>
 </tr>
 <tr>
-<td>Manuscript date</td>
+<td>Declared manuscript base date</td>
 <td><code>2026-10-01</code></td>
 </tr>
 <tr>
@@ -2946,12 +2946,12 @@ class="header-section-number">10.2</span> Environment And Locking</h2>
 </thead>
 <tbody>
 <tr>
-<td>Python</td>
-<td><code>Python 3.14.4</code></td>
+<td>Python (local candidate checks)</td>
+<td><code>Python 3.14.8</code></td>
 </tr>
 <tr>
-<td>uv</td>
-<td><code>uv 0.12.19</code></td>
+<td>uv (local candidate checks)</td>
+<td><code>uv 0.13.0</code></td>
 </tr>
 <tr>
 <td>Python requirement</td>
@@ -3024,15 +3024,17 @@ Inventory</h2>
 </table></div>
 <h2 data-number="10.4" id="verification-gates"><span
 class="header-section-number">10.4</span> Verification Gates</h2>
-<p>The v1.8.0 source gates below were measured on 2026-10-01. The
-separate v1.7.0 review baseline is retained in
-<code>docs/review-2026-10-01.md</code>; each rendered release artifact
-has its own acceptance receipt. Results describe the local source/render
-snapshot. They do not establish a hosted CI result, a fresh run of every
-supported Python version, live model behavior, or a new archive deposit.
-The archive DOI fields above are historical source declarations; this
-local gate sweep does not check their resolution or source/version
-identity.</p>
+<p>The current post-v1.8.0 source gates below were measured on
+2026-10-18. The published v1.8.0 acceptance remains historical in
+<code>docs/release-1.8.0-acceptance.md</code>; the earlier v1.7.0 review
+remains in <code>docs/review-2026-10-01.md</code>. Each rendered source
+snapshot has its own receipt. These maintenance checks do not create a
+new software release or archive. Results describe the local
+source/render snapshot. They do not establish a hosted CI result, a
+fresh run of every supported Python version, live model behavior, or a
+new archive deposit. The archive DOI fields above are historical source
+declarations; this local gate sweep does not check their resolution or
+source/version identity.</p>
 <p>The earlier software record <code>10.5281/zenodo.21520558</code>
 links to the GitHub v1.7.0 tree and contains its source ZIP, while its
 public metadata says version <code>1.0.0</code>. That metadata mismatch
@@ -3047,7 +3049,7 @@ current software concept.</p>
 <thead>
 <tr>
 <th>Gate</th>
-<th>Current local result</th>
+<th>Local candidate result (2026-10-18)</th>
 </tr>
 </thead>
 <tbody>
@@ -3098,7 +3100,7 @@ current software concept.</p>
 </tr>
 <tr>
 <td><code>ruff format --check src/cogsecskills tests</code></td>
-<td><code>108 files already formatted</code></td>
+<td><code>124 files already formatted</code></td>
 </tr>
 <tr>
 <td><code>mypy</code></td>
@@ -3106,8 +3108,8 @@ current software concept.</p>
 </tr>
 <tr>
 <td><code>uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99</code></td>
-<td><code>1248 passed</code> in <code>276.31s</code>; total coverage
-<code>99.65%</code> with branch measurement enabled (Python 3.14.4,
+<td><code>1291 passed</code> in <code>103.27s</code>; total coverage
+<code>99.54%</code> with branch measurement enabled (Python 3.14.8,
 macOS)</td>
 </tr>
 <tr>

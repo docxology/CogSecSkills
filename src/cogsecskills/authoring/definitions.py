@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
+from collections.abc import Collection, Mapping
 from pathlib import Path
 from typing import TypedDict
 
@@ -353,7 +354,16 @@ def _reused_negative_control_findings(definitions: dict[str, dict]) -> list[str]
     return findings
 
 
-def _reused_quality_field_findings(definitions: dict[str, dict]) -> list[str]:
+def _reused_quality_field_findings(
+    definitions: dict[str, dict],
+    *,
+    allowed_shared_items: Mapping[str, Collection[str]] | None = None,
+) -> list[str]:
+    policy = (
+        ALLOWED_SHARED_QUALITY_ITEMS
+        if allowed_shared_items is None
+        else allowed_shared_items
+    )
     findings: list[str] = []
     for field in REUSED_QUALITY_FIELDS:
         seen: dict[str, list[str]] = defaultdict(list)
@@ -362,7 +372,7 @@ def _reused_quality_field_findings(definitions: dict[str, dict]) -> list[str]:
                 normalized = normalize_quality_item(item)
                 if normalized:
                     seen[normalized].append(skill_id)
-        allowed = ALLOWED_SHARED_QUALITY_ITEMS.get(field, set())
+        allowed = {normalize_quality_item(item) for item in policy.get(field, ())}
         for normalized, skill_ids in sorted(seen.items()):
             if normalized in allowed or len(skill_ids) <= 1:
                 continue

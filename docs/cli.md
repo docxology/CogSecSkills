@@ -201,7 +201,9 @@ entry per issue (`severity`, `skill_id`, `message`). The exit code is unchanged:
 ### `report` — JSON conformance report
 
 Print a machine-readable conformance summary. Unlike `validate`, this command
-always exits `0`; consume the JSON `ok` / `errors` fields programmatically.
+exits `0` for findings in an established library; consume the JSON `ok` /
+`errors` fields programmatically. A missing or malformed registry/root is a
+command error: it exits `1` with a source-path diagnostic on stderr.
 
 ```
 cogsecskills report
@@ -415,10 +417,11 @@ worked examples are current
 
 ### `evals` — generate or check offline output-review fixtures
 
-Generate scenario-linked offline review fixtures and a Markdown/JSON report
-from the deterministic scenario expected answers. These fixtures use the
-analyst-output review rubric; they are not live model outputs or benchmark
-results.
+Generate authored, unscored expected-answer fixtures and Markdown/JSON mirrors
+from the deterministic scenario source. The legacy command and filename do not
+establish an independent review event. Authored fixtures cannot carry rubric
+scores; the analyst-output rubric is reserved for separately recorded reviews.
+These are not live model outputs or benchmark results.
 
 ```
 cogsecskills evals (--write | --check)
@@ -427,7 +430,7 @@ cogsecskills evals (--write | --check)
 | Flag | Meaning |
 | --- | --- |
 | `--write` | Write `evals/local_output_review.yaml`, `docs/evaluation-readiness.md`, and `output/data/evaluation_readiness.json`. |
-| `--check` | Fail if offline review fixtures are missing, stale, below the passing rubric score, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
+| `--check` | Fail if offline review fixtures are missing, stale, carrying fabricated rubric ratings, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
 
 ```bash
 cogsecskills evals --write
@@ -546,10 +549,12 @@ release metadata is current (local mode)
 
 ### `route` — rank skills matching a free-text need
 
-The intelligent router. Given a free-text description of an analytic need, rank
+The lexical router. Given a free-text description of an analytic need, rank
 the on-disk skills that best fit it. Scoring is weighted token overlap across
 each skill's name, triggers, tags, summary, and group (name and triggers count
-most). Only skills with a positive score are returned. An exact skill id
+most), ignoring grammatical stop words and multiplying each matched token by
+its integer corpus rarity (`number of skills - token document frequency + 1`).
+Only skills with a positive score are returned. An exact skill id
 (case-insensitive, with surrounding whitespace ignored) ranks first, followed by
 other matches in descending score order. Scores measure lexical overlap, not
 analytic confidence.

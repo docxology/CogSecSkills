@@ -13,7 +13,7 @@ public package publication, or empirical field validation.
 | Citation metadata | `CITATION.cff` |
 | Code metadata | `codemeta.json` |
 | Package version | `1.8.0` |
-| Manuscript date | `2026-10-01` |
+| Declared manuscript base date | `2026-10-01` |
 | License | `Apache-2.0` |
 | Source revision | runtime-observed by `release-metadata --write`; not embedded in committed files |
 | Software archive | concept `10.5281/zenodo.21513316`; v1.8.0 version DOI unavailable in this snapshot |
@@ -28,8 +28,8 @@ The revision descriptor and dirty-state are intentionally observed at runtime by
 
 | Field | Value |
 |---|---|
-| Python | `Python 3.14.4` |
-| uv | `uv 0.12.19` |
+| Python (local candidate checks) | `Python 3.14.8` |
+| uv (local candidate checks) | `uv 0.13.0` |
 | Python requirement | `>=3.10` |
 | Runtime dependencies | `pyyaml>=6.0`; `tomli>=2.0` on Python 3.10 |
 | Development gates | `pytest`, `pytest-cov`, `mypy`, `ruff` |
@@ -50,9 +50,11 @@ The revision descriptor and dirty-state are intentionally observed at runtime by
 
 ## Verification Gates
 
-The v1.8.0 source gates below were measured on 2026-10-01. The separate
-v1.7.0 review baseline is retained in `docs/review-2026-10-01.md`; each rendered
-release artifact has its own acceptance receipt.
+The current post-v1.8.0 source gates below were measured on 2026-10-18.
+The published v1.8.0 acceptance remains historical in
+`docs/release-1.8.0-acceptance.md`; the earlier v1.7.0 review remains in
+`docs/review-2026-10-01.md`. Each rendered source snapshot has its own receipt.
+These maintenance checks do not create a new software release or archive.
 Results describe the local source/render snapshot. They do not establish
 a hosted CI result, a fresh run of every supported Python version, live model
 behavior, or a new archive deposit. The archive DOI fields above are historical
@@ -65,7 +67,7 @@ v1.7.0 tree and contains its source ZIP, while its public metadata says version
 v1.8.0 deposit. The separate historical manuscript archive contains the v1.0.0
 PDF and is not the current software concept.
 
-| Gate | Current local result |
+| Gate | Local candidate result (2026-10-18) |
 |---|---|
 | `definitions --check` | `canonical definitions are current` |
 | `scenarios --check` | `scenario readiness fixtures are current: 28 scenarios across 7 groups; 28 expected answers checked` |
@@ -78,9 +80,9 @@ PDF and is not the current software concept.
 | `report` | `registry_total: 100`, `implemented: 100`, `on_disk_skills: 100`, `ok: true` |
 | `doctor` | `validation: 0 error(s); quality: 0 finding(s)` |
 | `ruff check src/cogsecskills tests` | `All checks passed!` |
-| `ruff format --check src/cogsecskills tests` | `108 files already formatted` |
+| `ruff format --check src/cogsecskills tests` | `124 files already formatted` |
 | `mypy` | `Success: no issues found in 51 source files` |
-| `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` | `1248 passed` in `276.31s`; total coverage `99.65%` with branch measurement enabled (Python 3.14.4, macOS) |
+| `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` | `1291 passed` in `103.27s`; total coverage `99.54%` with branch measurement enabled (Python 3.14.8, macOS) |
 | Template Markdown and pre-render validation | No issues found; no render-blocking pitfalls or undefined citations |
 | Template PDF/HTML render | Required: all 14 source sections, seven body figures, and resolved references; the PDF includes the title-page cover; both formats retain all 100 catalogue rows; final receipt accompanies the generated artifacts |
 | PDF content smoke | Required: References, Supplemental 100-Skill Catalogue, Reference Density, Harness Contract, Evidence Ladder, Skill Worked Examples, Scenario Readiness, expected answers, Quality Dashboard, Release Manifest, and install cover text |

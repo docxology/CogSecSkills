@@ -20,9 +20,12 @@ source coherence and structural readiness, but they are not field validation.
 ## Authored fixtures and routing limits
 
 Scenario queries and expected routes are authored together. Passing those probes
-checks regressions on that closed fixture set; it does not measure routing
+is query-echo self-consistency: it checks regressions on that closed fixture set; it does not measure routing
 accuracy on unseen or independently labeled requests. The default gate has no
-held-out paraphrase benchmark. Answer keys are authored and unscored. Heading
+held-out paraphrase benchmark. Separately authored name-free paraphrase and
+distractor controls live in `tests/fixtures/routing_paraphrases.yaml`. They test
+software retrieval behavior without skill names or full triggers, but remain
+authored software controls, not independently labeled performance evidence. Answer keys are authored and unscored. Heading
 and vocabulary-presence checks do not grade truth, uncertainty calibration, or
 defensive judgment. Independent scoring requires a separately produced output,
 review record, and provenance as described in `future-validation-protocols.md`.

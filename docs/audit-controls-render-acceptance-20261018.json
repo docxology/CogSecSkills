@@ -1,0 +1,42 @@
+{
+  "state": "accepted_local_render",
+  "template_commit": "4670c48cc490636455f2eac09ba4396baed9ffd7",
+  "source_sha256": {
+    "docs/manuscript/00_abstract.md": "90fe79e68d2bd57f91e64ea841f63d85053805336d6cda5055f709c633990d69",
+    "docs/manuscript/01_introduction.md": "62d23551d8502286634136bdf0f8828911127ce3dfa1be99f5a70661c70e67a7",
+    "docs/manuscript/02_system_context.md": "87a847bfe62ceb5b4e929afe3b36d55120080d862c214a148aba8e04fc58a995",
+    "docs/manuscript/03_methods.md": "f957687b89b612064f84d7857bbd0def600c8409b493f4a5a2822e52d882a9ca",
+    "docs/manuscript/04_artifacts_and_evidence.md": "82f3e4bd63521528596daf9c00979a0af2a2998443818fcf283707b2212fda7a",
+    "docs/manuscript/05_reproducibility.md": "ea510f3056db8e749603c9abfb4f85afbe6500b4842dc99243cf3e65445939f8",
+    "docs/manuscript/06_limitations_and_next_steps.md": "e48bc98f0219391226612eb08e499bd4adef6b525d452cce9ac3b7a1d79a7bf3",
+    "docs/manuscript/07_ethics_and_responsible_use.md": "6322197da48a7045fac021e348d10caad908a8c3508993186d5f29bdd20744f7",
+    "docs/manuscript/S01_source_surface.md": "88572900f58ac3f017f824a31364fe078f3c261fd9ad05bd5847284517df6387",
+    "docs/manuscript/S02_release_manifest.md": "03a9091af76fc5922402590002ab4882d3f8428be952a970bbf2d3e3e7f83f4f",
+    "docs/manuscript/S10_skill_catalogue.md": "f7ab42bf4fc62f6814a788f5c2dec86f716a2fd1a4879ba113df8ace6aae9c6d",
+    "docs/manuscript/S11_skill_metadata_matrix.md": "ca584816e564df59ddee2904224d076a5cd664c1bef37ef99973f897683cbd6d",
+    "docs/manuscript/98_symbols_glossary.md": "b76da283be6d4c409b94d32d8fb3a6f42290636fa3a6a685690a4deef5105305",
+    "docs/manuscript/99_references.md": "97ca5cf33d03ce540add04391f9e6a58e0befe2cc0285f45c9346fddedef1907"
+  },
+  "seconds": 21.86343187499733,
+  "no_new_release_or_archive": true,
+  "pages": 71,
+  "pdf_sha256": "c72efb1e3a6d1c49a90d1e35190a528015a78c1000c35f793ec663ed981fd01f",
+  "catalogue_identifiers_found": 100,
+  "overfull_boxes": 0,
+  "material_latex_errors": 0,
+  "visual_review": {
+    "all71_pages_overview": true,
+    "detailed_pages": [
+      28,
+      29
+    ],
+    "clipped_or_overlapping_content_observed": false,
+    "current_source_measurement_verified": "1291 passed,99.54%"
+  },
+  "outputs": {
+    "CogSecSkills.pdf": "c72efb1e3a6d1c49a90d1e35190a528015a78c1000c35f793ec663ed981fd01f",
+    "output/pdf/CogSecSkills_combined.pdf": "c72efb1e3a6d1c49a90d1e35190a528015a78c1000c35f793ec663ed981fd01f",
+    "output/web/index.html": "e52e4f2ef9c1f232cc2df386e59d7ecd98a233003a08d67708252bd3aeee3160"
+  },
+  "boundary": "Post-v1.8.0 local maintenance source; no new release, archive, independent scoring or field validation."
+}
