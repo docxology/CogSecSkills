@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # TEST-02: Vacuous/tautological assertions: tests that only check 'it doesn't crash' or 'list is non-empty'
 
 |Field|Value|

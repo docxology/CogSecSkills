@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # TEST-01: CONTRIBUTING.md's 'No mocks in tests' rule violated by monkeypatching that fakes real behavior in 6 files
 
 |Field|Value|

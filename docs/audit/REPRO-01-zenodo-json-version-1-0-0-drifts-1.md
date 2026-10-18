@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # REPRO-01: .zenodo.json version (1.0.0) drifts from the 1.7.0 declared everywhere else, and the drift gate cannot see it
 
 |Field|Value|

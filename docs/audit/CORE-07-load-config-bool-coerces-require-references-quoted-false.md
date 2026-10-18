@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # CORE-07: load_config bool()-coerces require_references, so quoted `"false"` silently becomes true
 
 |Field|Value|

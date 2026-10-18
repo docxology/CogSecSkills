@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # CORE-09: definition_path / definition_from_skill unpack `split('.', 1)` into two variables and crash with an opaque ValueError on a dot-less id
 
 |Field|Value|

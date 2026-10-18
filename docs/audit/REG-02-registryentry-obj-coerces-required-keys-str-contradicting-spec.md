@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # REG-02: RegistryEntry.from_obj coerces required keys with str(), contradicting the spec layer's explicit anti-coercion policy
 
 |Field|Value|

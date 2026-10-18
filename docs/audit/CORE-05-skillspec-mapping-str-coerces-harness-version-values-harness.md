@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # CORE-05: SkillSpec.from_mapping str()-coerces harness and version values: `harness: {claude: null}` becomes the adapter path 'None' and passes the conformance has_adapter check
 
 |Field|Value|

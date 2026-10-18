@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # TEST-03: Hard-coded catalogue totals (100/28/7/8) pinned in many tests — silent drift pins acknowledged in CONTRIBUTING but spread across 5+ files
 
 |Field|Value|

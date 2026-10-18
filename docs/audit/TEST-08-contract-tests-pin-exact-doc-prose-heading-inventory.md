@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # TEST-08: Contract tests pin exact doc prose and heading inventory — high churn coupling
 
 |Field|Value|

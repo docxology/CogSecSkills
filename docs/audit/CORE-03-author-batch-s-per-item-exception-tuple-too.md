@@ -1,3 +1,5 @@
+> Historical audit snapshot, 2026-09-10. Quoted code and verdicts describe that epoch. See [the 2026-10-18 current disposition](../audit-remediation-20261018.md) for repair and qualification evidence.
+
 # CORE-03: author_batch's per-item exception tuple is too narrow; a malformed _def.json aborts the whole batch with a raw traceback instead of the promised failed-report
 
 |Field|Value|
