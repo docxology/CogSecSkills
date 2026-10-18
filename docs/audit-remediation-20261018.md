@@ -221,7 +221,7 @@ Evidence: [`docs/analyst-output-review.md`](../docs/analyst-output-review.md), [
 
 ### EVAL-04
 
-[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **implemented in followup; qualified publication required**.
+[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **implemented and locally qualified; hosted main publication required**.
 
 Name-free authored paraphrase, distractor and noninformative controls exposed grammatical-token domination. Corpus rarity and stop-word filtering repair those regressions while preserving integer scores and exact-ID priority. These are authored software controls, not independent routing accuracy.
 
@@ -397,7 +397,7 @@ Evidence: [`tests/quality/test_adapter_input_errors.py`](../tests/quality/test_a
 
 ### TEST-06
 
-[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **implemented in followup; qualified publication required**.
+[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **implemented and locally qualified; hosted main publication required**.
 
 Two redundant passing constant-pin cases were removed; actual producer PNG signature, DPI and dimensions are now checked. Schema/theme-key contracts and real figure/PNG drift controls remain. Six mixed variant files are folded into topical owner leaves with all72 moved test ASTs, original helper ASTs, and1290-node marker membership preserved.
 
@@ -413,7 +413,7 @@ Evidence: [`tests/project_fixtures.py`](../tests/project_fixtures.py), [`tests/a
 
 ### TEST-08
 
-[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **implemented in followup; qualified publication required**.
+[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **implemented and locally qualified; hosted main publication required**.
 
 Exact manuscript title inventory is replaced by one anchored H1 per section, unique anchors and resolved section references. Copy-edit and malformed/duplicate-anchor controls prove the structural oracle. Real path/citation/claim-boundary checks remain.
 
@@ -429,7 +429,7 @@ Evidence: [`tests/authoring/test_cogsecskills_cli_scaffold.py`](../tests/authori
 
 ### TEST-10
 
-[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **implemented in followup; qualified publication required**.
+[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **implemented and locally qualified; hosted main publication required**.
 
 Actual YAML definitions exercise normalized field-scoped quality allowances, non-allowed duplicates and cross-field rejection. Negative controls remain non-exempt. A real subprocess rejects a missing registry root with exit1/path diagnostics/no traceback, while valid-library report findings retain the documented JSON/exit0 contract.
 

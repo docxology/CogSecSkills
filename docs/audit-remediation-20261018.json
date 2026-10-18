@@ -318,7 +318,7 @@
       "finding": "EVAL-04",
       "issue": 30,
       "url": "https://github.com/docxology/CogSecSkills/issues/30",
-      "disposition": "implemented in followup; qualified publication required",
+      "disposition": "implemented and locally qualified; hosted main publication required",
       "summary": "Name-free authored paraphrase, distractor and noninformative controls exposed grammatical-token domination. Corpus rarity and stop-word filtering repair those regressions while preserving integer scores and exact-ID priority. These are authored software controls, not independent routing accuracy.",
       "evidence_paths": [
         "src/cogsecskills/quality/insights.py",
@@ -326,7 +326,7 @@
         "tests/fixtures/routing_paraphrases.yaml"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "followup_full_qualification_pending"
+      "qualification": "audit-controls-acceptance-20261018.json"
     },
     {
       "finding": "EVAL-05",
@@ -605,14 +605,14 @@
       "finding": "TEST-06",
       "issue": 52,
       "url": "https://github.com/docxology/CogSecSkills/issues/52",
-      "disposition": "implemented in followup; qualified publication required",
+      "disposition": "implemented and locally qualified; hosted main publication required",
       "summary": "Two redundant passing constant-pin cases were removed; actual producer PNG signature, DPI and dimensions are now checked. Schema/theme-key contracts and real figure/PNG drift controls remain. Six mixed variant files are folded into topical owner leaves with all72 moved test ASTs, original helper ASTs, and1290-node marker membership preserved.",
       "evidence_paths": [
         "tests/artifacts/test_cogsecskills_figures.py",
         "docs/audit-controls-layout-20261018.json"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "followup_full_qualification_pending"
+      "qualification": "audit-controls-acceptance-20261018.json"
     },
     {
       "finding": "TEST-07",
@@ -631,14 +631,14 @@
       "finding": "TEST-08",
       "issue": 54,
       "url": "https://github.com/docxology/CogSecSkills/issues/54",
-      "disposition": "implemented in followup; qualified publication required",
+      "disposition": "implemented and locally qualified; hosted main publication required",
       "summary": "Exact manuscript title inventory is replaced by one anchored H1 per section, unique anchors and resolved section references. Copy-edit and malformed/duplicate-anchor controls prove the structural oracle. Real path/citation/claim-boundary checks remain.",
       "evidence_paths": [
         "tests/contract/test_cogsecskills_manuscript_contract.py",
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "followup_full_qualification_pending"
+      "qualification": "audit-controls-acceptance-20261018.json"
     },
     {
       "finding": "TEST-09",
@@ -657,7 +657,7 @@
       "finding": "TEST-10",
       "issue": 56,
       "url": "https://github.com/docxology/CogSecSkills/issues/56",
-      "disposition": "implemented in followup; qualified publication required",
+      "disposition": "implemented and locally qualified; hosted main publication required",
       "summary": "Actual YAML definitions exercise normalized field-scoped quality allowances, non-allowed duplicates and cross-field rejection. Negative controls remain non-exempt. A real subprocess rejects a missing registry root with exit1/path diagnostics/no traceback, while valid-library report findings retain the documented JSON/exit0 contract.",
       "evidence_paths": [
         "src/cogsecskills/authoring/definitions.py",
@@ -665,14 +665,8 @@
         "src/cogsecskills/cli.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "followup_full_qualification_pending"
+      "qualification": "audit-controls-acceptance-20261018.json"
     }
-  ],
-  "open_followup_issues": [
-    30,
-    52,
-    54,
-    56
   ],
   "publication_boundary": "The four issues were still externally open when this followup source snapshot was prepared; qualified main publication controls closure. This is not a live issue inventory.",
   "implemented_followup_issues": [
@@ -680,5 +674,12 @@
     52,
     54,
     56
-  ]
+  ],
+  "prepared_open_followup_issues": [
+    30,
+    52,
+    54,
+    56
+  ],
+  "followup_acceptance": "audit-controls-acceptance-20261018.json"
 }
