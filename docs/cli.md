@@ -415,10 +415,11 @@ worked examples are current
 
 ### `evals` — generate or check offline output-review fixtures
 
-Generate scenario-linked offline review fixtures and a Markdown/JSON report
-from the deterministic scenario expected answers. These fixtures use the
-analyst-output review rubric; they are not live model outputs or benchmark
-results.
+Generate authored, unscored expected-answer fixtures and Markdown/JSON mirrors
+from the deterministic scenario source. The legacy command and filename do not
+establish an independent review event. Authored fixtures cannot carry rubric
+scores; the analyst-output rubric is reserved for separately recorded reviews.
+These are not live model outputs or benchmark results.
 
 ```
 cogsecskills evals (--write | --check)
@@ -427,7 +428,7 @@ cogsecskills evals (--write | --check)
 | Flag | Meaning |
 | --- | --- |
 | `--write` | Write `evals/local_output_review.yaml`, `docs/evaluation-readiness.md`, and `output/data/evaluation_readiness.json`. |
-| `--check` | Fail if offline review fixtures are missing, stale, below the passing rubric score, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
+| `--check` | Fail if offline review fixtures are missing, stale, carrying fabricated rubric ratings, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
 
 ```bash
 cogsecskills evals --write
