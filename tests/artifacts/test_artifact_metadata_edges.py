@@ -1,18 +1,13 @@
-"""Behavioral edge cases across dashboard, figures, rows, tables, and evals.
-
-Covers: group-title fallback for unknown groups, LaTeX escaping of backslashes,
-evals drift findings when the generated JSON is missing, verified-state parsing
-of TODO.md, and DOI-driven cover installation.
-"""
+"""Behavioral artifacts failures using real source inputs."""
 
 from __future__ import annotations
 
-import shutil
-from pathlib import Path
 
-import pytest
-
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+from tests._support.artifact_metadata import (
+    PROJECT_ROOT,
+    pytest,
+    shutil,
+)
 
 
 def test_rows_group_title_fallback():

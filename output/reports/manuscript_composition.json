@@ -1,9 +1,9 @@
 {
   "algorithm": "web-renderer-combine-v1",
-  "binding_sha256": "31d98ebcec6022c3a9bba4182865be2dd9c047fe4dc750798f4f6cb15b667247",
+  "binding_sha256": "e930007cb3898667b9394ad4eef187e84675dd2712b23b671a2f4d778541db78",
   "combined_path": "output/web/_combined_manuscript.md",
-  "combined_sha256": "dd186564feac2b86ecf05249fbb1e807e33f78505b9643f9984d75a51da5d7c0",
-  "combined_size_bytes": 581433,
+  "combined_sha256": "dc9b36aa716b50dfa64fb89e0c94af240d6cb890f396bb90987b179097d04c65",
+  "combined_size_bytes": 581662,
   "input_root_kind": "source",
   "ordered_inputs": [
     {
@@ -63,8 +63,8 @@
     {
       "ordinal": 10,
       "path": "docs/manuscript/S02_release_manifest.md",
-      "sha256": "3bbb32d4a0aae7e87017f349f9c87fab5ee513269af4437228cf4e31ec530d07",
-      "size_bytes": 5092
+      "sha256": "03a9091af76fc5922402590002ab4882d3f8428be952a970bbf2d3e3e7f83f4f",
+      "size_bytes": 5321
     },
     {
       "ordinal": 11,
@@ -91,7 +91,7 @@
       "size_bytes": 204
     }
   ],
-  "ordered_inputs_sha256": "6bd5d0e4259edcb1967a1726d21728dbcd5a8d416df4ab2eb54c96a1c44faac8",
+  "ordered_inputs_sha256": "20c705a7ffb89d2cb624b9e8b631f84effd3212c720aca3f155d37e844d6c4c6",
   "project": "CogSecSkills",
   "schema_version": "template-manuscript-composition-v1"
 }

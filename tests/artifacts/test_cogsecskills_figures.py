@@ -17,7 +17,6 @@ import yaml
 from cogsecskills.artifacts.manuscript_assets.figures import (
     _PNG_SIGNATURE,
     COLOR_FAMILIES,
-    FIGURE_DPI,
     FIGURE_NAMES,
     FIGURE_SIZES,
     FIGURES,
@@ -45,14 +44,21 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # ---------------------------------------------------------------------------
 
 
-def test_png_signature_is_correct():
-    """The PNG signature is the standard 8-byte header."""
-    assert _PNG_SIGNATURE == b"\x89PNG\r\n\x1a\n"
+def test_saved_plot_has_png_signature_and_print_resolution(tmp_path):
+    import matplotlib.pyplot as plt
+    from PIL import Image
 
+    from cogsecskills.artifacts.manuscript_assets.figure_helpers import _save
 
-def test_figure_dpi_is_reasonable():
-    """Figures render at at least 200 DPI for print quality."""
-    assert FIGURE_DPI >= 200
+    figure, axes = plt.subplots(figsize=(2, 1))
+    axes.plot([0, 1], [0, 1])
+    path = _save(figure, tmp_path / "actual_plot.png")
+    assert path.read_bytes().startswith(b"\x89PNG\r\n\x1a\n")
+    with Image.open(path) as image:
+        assert image.format == "PNG"
+        assert min(image.info["dpi"]) >= 200
+        assert image.width >= 300
+        assert image.height >= 150
 
 
 def test_figure_names_match_metadata():

@@ -1,41 +1,13 @@
-"""Behavioral edge cases of the validate gate.
-
-Covers: an adapter that exists but cannot be read is reported as unreadable
-(real invalid UTF-8 adapter — permission-independent), a harness support map that
-cannot realise a declared verb fails conformance, and a malformed registry is
-reported by ``conformance_report`` instead of raising.
-"""
+"""Behavioral quality failures using real source inputs."""
 
 from __future__ import annotations
 
-from pathlib import Path
 
-import pytest
-import yaml
-
-from cogsecskills.core.spec import SkillSpec, ToolVerb
-
-
-def _make_spec(skills_dir: Path) -> SkillSpec:
-    (skills_dir / "skill.yaml").write_text(
-        "id: sat.demo\nname: Demo\ngroup: sat\nsummary: s\nstatus: implemented\n"
-        "tools:\n  - {verb: read, purpose: p}\n"
-        "harness:\n  claude: harness/claude.md\n  codex: harness/codex.md\n  hermes: harness/hermes.md\n",
-        encoding="utf-8",
-    )
-    (skills_dir / "SKILL.md").write_text("# Demo\n", encoding="utf-8")
-    (skills_dir / "workflow.md").write_text(
-        "# W\n\n## Step 1 — S (read)\nText.\n", encoding="utf-8"
-    )
-    harness_dir = skills_dir / "harness"
-    harness_dir.mkdir()
-    for h in ("claude", "codex", "hermes"):
-        (harness_dir / f"{h}.md").write_text(
-            "| `read` | tool | note |\n", encoding="utf-8"
-        )
-    return SkillSpec.from_mapping(
-        yaml.safe_load((skills_dir / "skill.yaml").read_text(encoding="utf-8"))
-    )
+from tests._support.adapter_inputs import (
+    ToolVerb,
+    _make_spec,
+    pytest,
+)
 
 
 def test_adapter_read_failure_reported_as_unreadable(tmp_path):

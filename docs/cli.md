@@ -201,7 +201,9 @@ entry per issue (`severity`, `skill_id`, `message`). The exit code is unchanged:
 ### `report` — JSON conformance report
 
 Print a machine-readable conformance summary. Unlike `validate`, this command
-always exits `0`; consume the JSON `ok` / `errors` fields programmatically.
+exits `0` for findings in an established library; consume the JSON `ok` /
+`errors` fields programmatically. A missing or malformed registry/root is a
+command error: it exits `1` with a source-path diagnostic on stderr.
 
 ```
 cogsecskills report
@@ -547,10 +549,12 @@ release metadata is current (local mode)
 
 ### `route` — rank skills matching a free-text need
 
-The intelligent router. Given a free-text description of an analytic need, rank
+The lexical router. Given a free-text description of an analytic need, rank
 the on-disk skills that best fit it. Scoring is weighted token overlap across
 each skill's name, triggers, tags, summary, and group (name and triggers count
-most). Only skills with a positive score are returned. An exact skill id
+most), ignoring grammatical stop words and multiplying each matched token by
+its integer corpus rarity (`number of skills - token document frequency + 1`).
+Only skills with a positive score are returned. An exact skill id
 (case-insensitive, with surrounding whitespace ignored) ranks first, followed by
 other matches in descending score order. Scores measure lexical overlap, not
 analytic confidence.

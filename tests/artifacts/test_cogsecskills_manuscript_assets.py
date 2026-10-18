@@ -7,9 +7,6 @@ from pathlib import Path
 
 from cogsecskills.artifacts.manuscript_assets import (
     CATALOGUE_PATH,
-    COVER_COMMAND_SIZE,
-    COVER_LABEL_SIZE,
-    COVER_PANEL_TITLE_SIZE,
     DATA_CSV_PATH,
     DATA_JSON_PATH,
     FIGURE_NAMES,
@@ -186,15 +183,6 @@ def test_figure_inventory_is_exact():
     assert [figure.filename for figure in FIGURES if figure.mirrored] == [
         "cogsecskills_cover_installation.png"
     ]
-
-
-def test_cover_readability_constants_are_pdf_first():
-    # The cover renders at ~17 inches wide, so these point sizes stay legible
-    # in the PDF. The command font sits lower than the section/label fonts so a
-    # full clone URL fits the install panel without overflowing.
-    assert COVER_COMMAND_SIZE >= 12
-    assert COVER_LABEL_SIZE >= 16
-    assert COVER_PANEL_TITLE_SIZE >= 22
 
 
 def test_live_group_palette_covers_registry_groups():

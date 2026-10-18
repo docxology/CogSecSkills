@@ -1,26 +1,22 @@
-"""Coverage tests for definitions.py and author.py remaining lines."""
+"""Behavioral authoring failures using real source inputs."""
 
 from __future__ import annotations
 
-import pytest
 
-from cogsecskills.authoring.author import (
+from tests._support.definition_inputs import (
     AuthorError,
-    _list_field,
-    _quality_list,
-    load_definition_file,
-    rendered_definition_files,
-)
-from cogsecskills.authoring.definitions import (
+    RegistryEntry,
     _definitions_for_write,
+    _list_field,
     _negative_control_item_is_specific,
     _negative_controls_are_specific,
     _quality_item_is_specific,
+    _quality_list,
     check_definitions,
+    load_definition_file,
+    pytest,
+    rendered_definition_files,
 )
-from cogsecskills.core.registry import RegistryEntry
-
-# --- definitions.py ---
 
 
 def test_definitions_for_write_planned_entry(tmp_path):
@@ -155,9 +151,6 @@ def test_check_definitions_render_failure(tmp_path):
     )
     findings = check_definitions(tmp_path)
     assert any("sat.bad: missing rendered file" in f for f in findings)
-
-
-# --- author.py ---
 
 
 def test_load_definition_file_non_dict(tmp_path):

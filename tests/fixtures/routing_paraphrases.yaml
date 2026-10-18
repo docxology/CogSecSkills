@@ -1,0 +1,37 @@
+provenance: authored natural-language regression probes; not independent or held-out
+  evaluation
+claim_boundary: Closed-set software controls only. No benchmark accuracy or external
+  runtime result is measured.
+probes:
+- id: chronology
+  expected_skill: sat.chronologies_and_timelines
+  query: Arrange these dated events from earliest to latest and show missing intervals
+    before suggesting causal links.
+- id: rival-explanations
+  expected_skill: sat.analysis_of_competing_hypotheses
+  query: We have three rival explanations. Score how strongly every observation would
+    disconfirm each alternative instead of favoring the first story.
+- id: unstated-premises
+  expected_skill: sat.key_assumptions_check
+  query: List the unstated premises supporting this estimate, identify which are load-bearing,
+    and describe observations that could break them.
+- id: failed-proposal
+  expected_skill: sat.premortem_analysis
+  query: Imagine the proposal has failed a year from now. Work backward from that
+    outcome to identify plausible causes and early warnings.
+- id: repeat-a-result
+  expected_skill: critical_review.reproducibility_assessment
+  query: A reported result should be regenerated using only the supplied code, data
+    and random seeds. Identify missing instructions and what cannot yet be repeated.
+- id: locate-a-photograph
+  expected_skill: osint_integrity.geolocation_verification
+  query: Determine where this photograph was taken by comparing visible buildings,
+    road geometry and terrain with geographic sources; report uncertainty.
+- id: source-ratings
+  expected_skill: research_methods.evidence_grading
+  query: Assign separate quality and relevance ratings to these sources, explain the
+    rubric, and avoid treating weak material as strong support.
+- id: conceal-or-plant
+  expected_skill: counterintelligence.denial_and_deception_detection
+  query: Consider what an adversary would conceal or plant in this reporting; test
+    competing explanations before trusting the apparent pattern.

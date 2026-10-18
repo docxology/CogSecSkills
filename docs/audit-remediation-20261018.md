@@ -11,13 +11,19 @@ candidate gates; this local document alone does not establish a main merge.
 Authored fixtures are not independent evaluations. No live harness benchmark,
 field-effectiveness result, release, or archive is created by this repair.
 
-Local runtime qualification:1264 tests passed at99.54% coverage; Ruff and
+Local followup runtime qualification:1291 tests passed at99.54% coverage; Ruff and
 mypy51 source files passed. The 99% floor is unchanged. Final generated-file,
-installed-wheel and hosted qualification are recorded in the acceptance receipt.
+installed-wheel qualification is recorded in `audit-controls-acceptance-20261018.json`;
+hosted gates must qualify the published head before main integration.
 The fresh71-page PDF retains all100 catalogue identifiers and was visually
-reviewed after repairing clipped commands; see [render acceptance](audit-render-acceptance-20261018.json).
+reviewed after repairing clipped commands; see [render acceptance](audit-controls-render-acceptance-20261018.json).
 
-Four findings remain open for additional work: [#30](https://github.com/docxology/CogSecSkills/issues/30), [#52](https://github.com/docxology/CogSecSkills/issues/52), [#54](https://github.com/docxology/CogSecSkills/issues/54), and [#56](https://github.com/docxology/CogSecSkills/issues/56). The qualified repair addresses the other47 findings. No closure is claimed for those four.
+These source repairs address all51 dispositions, including the four followups
+(#30,#52,#54,#56). Issue closure is handled by qualified main publication; this
+document is not a live GitHub issue inventory. The preceding47-finding
+acceptance remains an immutable dated source snapshot. Its runtime or render
+receipts are not silently refreshed by these later changes. See
+[the test-layout membership](audit-controls-layout-20261018.json).
 
 ## Individual dispositions
 
@@ -107,7 +113,7 @@ Evidence: [`src/cogsecskills/cli.py`](../src/cogsecskills/cli.py), [`tests/autho
 
 Negative result limits fail rather than becoming negative Python slices.
 
-Evidence: [`src/cogsecskills/cli.py`](../src/cogsecskills/cli.py), [`tests/quality/test_cogsecskills_coverage_gaps.py`](../tests/quality/test_cogsecskills_coverage_gaps.py).
+Evidence: [`src/cogsecskills/cli.py`](../src/cogsecskills/cli.py), [`tests/authoring/test_cli_error_paths.py`](../tests/authoring/test_cli_error_paths.py).
 
 ### CORE-12
 
@@ -215,13 +221,11 @@ Evidence: [`docs/analyst-output-review.md`](../docs/analyst-output-review.md), [
 
 ### EVAL-04
 
-[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **partially repaired; follow-up remains open**.
+[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **implemented and locally qualified; hosted main publication required**.
 
-The docs state that queries/routes are co-authored closed-set regression fixtures, not held-out or independent routing accuracy. No benchmark results are invented.
+Name-free authored paraphrase, distractor and noninformative controls exposed grammatical-token domination. Corpus rarity and stop-word filtering repair those regressions while preserving integer scores and exact-ID priority. These are authored software controls, not independent routing accuracy.
 
-Evidence: [`docs/claim-boundaries.md`](../docs/claim-boundaries.md), [`tests/artifacts/test_response_contracts.py`](../tests/artifacts/test_response_contracts.py).
-
-Remaining work: Independent paraphrase/adversarial routing regression probes remain to be implemented; the claim boundary is repaired.
+Evidence: [`src/cogsecskills/quality/insights.py`](../src/cogsecskills/quality/insights.py), [`tests/quality/test_routing_paraphrases.py`](../tests/quality/test_routing_paraphrases.py), [`tests/fixtures/routing_paraphrases.yaml`](../tests/fixtures/routing_paraphrases.yaml).
 
 ### EVAL-05
 
@@ -357,7 +361,7 @@ Evidence: [`pyproject.toml`](../pyproject.toml), [`tests/artifacts/test_cogsecsk
 
 Artifact and adapter failure controls use actual malformed registry/UTF-8 files instead of fake project behavior. Cwd changes exercise real filesystem state, not mocked project data.
 
-Evidence: [`tests/artifacts/test_cogsecskills_examples_branches.py`](../tests/artifacts/test_cogsecskills_examples_branches.py), [`tests/quality/test_cogsecskills_validate_coverage.py`](../tests/quality/test_cogsecskills_validate_coverage.py).
+Evidence: [`tests/artifacts/test_cogsecskills_examples_branches.py`](../tests/artifacts/test_cogsecskills_examples_branches.py), [`tests/quality/test_adapter_input_errors.py`](../tests/quality/test_adapter_input_errors.py).
 
 ### TEST-02
 
@@ -365,7 +369,7 @@ Evidence: [`tests/artifacts/test_cogsecskills_examples_branches.py`](../tests/ar
 
 The cited route/empty-findings controls now assert concrete diagnostic content. Nonempty live rows are explicit before subset palette checks.
 
-Evidence: [`tests/quality/test_cogsecskills_edge_cases.py`](../tests/quality/test_cogsecskills_edge_cases.py), [`tests/artifacts/test_cogsecskills_manuscript_assets.py`](../tests/artifacts/test_cogsecskills_manuscript_assets.py).
+Evidence: [`tests/artifacts/test_artifact_source_errors.py`](../tests/artifacts/test_artifact_source_errors.py), [`tests/artifacts/test_cogsecskills_manuscript_assets.py`](../tests/artifacts/test_cogsecskills_manuscript_assets.py).
 
 ### TEST-03
 
@@ -389,17 +393,15 @@ Evidence: [`tests/artifacts/test_cogsecskills_scenarios.py`](../tests/artifacts/
 
 A real invalid UTF-8 adapter exercises unreadable-file behavior independently of root/chmod semantics.
 
-Evidence: [`tests/quality/test_cogsecskills_validate_coverage.py`](../tests/quality/test_cogsecskills_validate_coverage.py), [`tests/quality/test_validation_boundaries.py`](../tests/quality/test_validation_boundaries.py).
+Evidence: [`tests/quality/test_adapter_input_errors.py`](../tests/quality/test_adapter_input_errors.py), [`tests/quality/test_validation_boundaries.py`](../tests/quality/test_validation_boundaries.py).
 
 ### TEST-06
 
-[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **partially repaired; follow-up remains open**.
+[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **implemented and locally qualified; hosted main publication required**.
 
-Existing style constants remain explicit print/design policy checks, paired with actual figure generation and malformed/collapsed PNG rejection. They are not presented as empirical quality or semantic figure validation. Coverage-variant tests assert concrete behavior and diagnostics; no failing tests are discarded.
+Two redundant passing constant-pin cases were removed; actual producer PNG signature, DPI and dimensions are now checked. Schema/theme-key contracts and real figure/PNG drift controls remain. Six mixed variant files are folded into topical owner leaves with all72 moved test ASTs, original helper ASTs, and1290-node marker membership preserved.
 
-Evidence: [`tests/artifacts/test_cogsecskills_figures.py`](../tests/artifacts/test_cogsecskills_figures.py), [`tests/artifacts/test_cogsecskills_png_probe.py`](../tests/artifacts/test_cogsecskills_png_probe.py).
-
-Remaining work: Further replacement/consolidation of implementation-only test oracles remains open; real render and PNG controls are retained.
+Evidence: [`tests/artifacts/test_cogsecskills_figures.py`](../tests/artifacts/test_cogsecskills_figures.py), [`docs/audit-controls-layout-20261018.json`](../docs/audit-controls-layout-20261018.json).
 
 ### TEST-07
 
@@ -411,13 +413,11 @@ Evidence: [`tests/project_fixtures.py`](../tests/project_fixtures.py), [`tests/a
 
 ### TEST-08
 
-[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **partially repaired; follow-up remains open**.
+[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **implemented and locally qualified; hosted main publication required**.
 
-Removed the global 24-line transcript pin in favor of per-block skill/workflow/adapter contracts and real path checks. Stable section anchors and evidence-boundary wording remain deliberate public contracts.
+Exact manuscript title inventory is replaced by one anchored H1 per section, unique anchors and resolved section references. Copy-edit and malformed/duplicate-anchor controls prove the structural oracle. Real path/citation/claim-boundary checks remain.
 
-Evidence: [`tests/contract/test_cogsecskills_docs_contract.py`](../tests/contract/test_cogsecskills_docs_contract.py), [`tests/contract/test_cogsecskills_manuscript_contract.py`](../tests/contract/test_cogsecskills_manuscript_contract.py).
-
-Remaining work: Transcript count coupling is repaired; manuscript heading/prose inventory coupling still needs structural-oracle work.
+Evidence: [`tests/contract/test_cogsecskills_manuscript_contract.py`](../tests/contract/test_cogsecskills_manuscript_contract.py), [`tests/contract/test_cogsecskills_docs_contract.py`](../tests/contract/test_cogsecskills_docs_contract.py).
 
 ### TEST-09
 
@@ -429,10 +429,8 @@ Evidence: [`tests/authoring/test_cogsecskills_cli_scaffold.py`](../tests/authori
 
 ### TEST-10
 
-[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **partially repaired; follow-up remains open**.
+[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **implemented and locally qualified; hosted main publication required**.
 
-Real registry/config negative cases cover collection, duplicate-key, type and path interactions. Reused quality-entry controls cover all three governed fields; no shared-item exemptions are configured or claimed tested as future behavior.
+Actual YAML definitions exercise normalized field-scoped quality allowances, non-allowed duplicates and cross-field rejection. Negative controls remain non-exempt. A real subprocess rejects a missing registry root with exit1/path diagnostics/no traceback, while valid-library report findings retain the documented JSON/exit0 contract.
 
-Evidence: [`tests/core/test_input_boundaries.py`](../tests/core/test_input_boundaries.py), [`tests/authoring/test_cogsecskills_author.py`](../tests/authoring/test_cogsecskills_author.py).
-
-Remaining work: All governed duplicate-quality fields are exercised; the requested whitelist-policy disposition and nonexistent-root CLI control remain open.
+Evidence: [`src/cogsecskills/authoring/definitions.py`](../src/cogsecskills/authoring/definitions.py), [`tests/conformance/test_reuse_policy.py`](../tests/conformance/test_reuse_policy.py), [`src/cogsecskills/cli.py`](../src/cogsecskills/cli.py).

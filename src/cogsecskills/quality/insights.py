@@ -41,6 +41,15 @@ from cogsecskills.core.registry import load_registry
 from cogsecskills.core.spec import SkillSpec
 
 _TOKEN = re.compile(r"[a-z0-9]+")
+# Grammatical overlap is not evidence of an analytic task match. Keep negation
+# out of this set; this remains lexical retrieval, not intent interpretation.
+_ROUTING_STOP_WORDS = frozenset(
+    "a an and are as at be been before but by can could did do does each for "
+    "from has have how i if in into is it its may might most must of on only or "
+    "our should so some than that the their them then there these they this "
+    "those through to using was we were what when where which while who will "
+    "with would you your".split()
+)
 
 
 def _tokens(text: str) -> list[str]:
@@ -71,22 +80,32 @@ def route_query(
     """Rank on-disk skills by relevance to a free-text ``query``.
 
     Returns up to ``limit`` ``(spec, score)`` pairs. An exact skill id ranks
-    first; remaining matches use descending lexical scores. Only positive
+    first; remaining matches use descending corpus-rarity-weighted lexical
+    scores, ignoring grammatical stop words. Scores remain positive integers; only positive
     scores are included; a nonpositive limit returns no matches.
     """
     if limit <= 0:
         return []
-    q_tokens = set(_tokens(query))
-    if not q_tokens:
-        return []
-    scored: list[tuple[SkillSpec, int]] = []
-    for spec in discover_skills(root):
-        bag = _spec_haystack(spec)
-        score = sum(weight for token, weight in bag.items() if token in q_tokens)
-        if score > 0:
-            scored.append((spec, score))
-    # An explicit catalogue id is a stronger selection than token overlap.
     requested_id = query.strip().lower()
+    raw_tokens = set(_tokens(query))
+    if not raw_tokens:
+        return []
+    q_tokens = raw_tokens - _ROUTING_STOP_WORDS
+    specs = discover_skills(root)
+    bags = [_spec_haystack(spec) for spec in specs]
+    document_frequency = Counter(token for bag in bags for token in bag)
+    scored: list[tuple[SkillSpec, int]] = []
+    for spec, bag in zip(specs, bags, strict=True):
+        # Integer rarity preserves the score API. A token in every skill gets
+        # weight 1; one present in only one gets weight len(specs).
+        score = sum(
+            weight * (len(specs) - document_frequency[token] + 1)
+            for token, weight in bag.items()
+            if token in q_tokens
+        )
+        if score > 0 or spec.id == requested_id:
+            scored.append((spec, max(1, score)))
+    # An explicit catalogue id is a stronger selection than token overlap.
     scored.sort(key=lambda pair: (pair[0].id != requested_id, -pair[1], pair[0].id))
     return scored[:limit]
 

@@ -466,6 +466,9 @@ def _cmd_export(args: argparse.Namespace) -> int:
 
 
 def _cmd_report(args: argparse.Namespace) -> int:
+    # A missing or malformed data root is a command error, not an empty report.
+    # Findings in an established library still travel in the JSON verdict.
+    load_registry(args.root)
     config = load_config(args.root)
     print(
         json.dumps(conformance_report(args.root, harnesses=config.harnesses), indent=2)
