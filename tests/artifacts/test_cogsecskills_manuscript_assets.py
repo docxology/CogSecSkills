@@ -166,7 +166,7 @@ def test_render_supplements_include_skill_metadata(tmp_path):
     assert "Safe defensive:" in catalogue
     assert "Claim Provenance Verification" in catalogue
     assert r"\begin{longtable}" in catalogue
-    assert r"p{0.455\linewidth}" in catalogue
+    assert r"p{0.45\linewidth}" in catalogue
     assert r"\scriptsize" in catalogue
     assert r"Source: skills/\allowbreak{}osint\_\allowbreak{}integrity/" in catalogue
     assert "Supplemental Skill Metadata and Figure Matrix" in matrix
