@@ -30,7 +30,7 @@ keep a library checkout and use `--root /path/to/CogSecSkills` when invoking the
 installed runner from an unrelated directory.
 
 Global options precede the subcommand, for example:
-`cogsecskills --root /path/to/CogSecSkills scaffold sat.ach`.
+`cogsecskills --root /path/to/CogSecSkills show sat.analysis_of_competing_hypotheses`.
 
 ### Global options
 
