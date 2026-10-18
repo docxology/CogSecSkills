@@ -1,0 +1,350 @@
+{
+  "state": "qualified_local_source_candidate_not_new_release",
+  "executed_runtime_head": "a8de652b26a4c943efc2d70a4b738d651bc06e88",
+  "qualified_ignore_hygiene_head": "dcc24ad2a8420d2da0ba5dabe0cc059f504489be",
+  "runtime_reuse_boundary": "Whole suite, source checks, coherence gates and wheel executed at the runtime head. Only .gitignore changed afterward to exclude standard /build/ and /dist/. Actual installed release-policy and unrelated-cwd controls execute again at the new head; no runtime, test, lock, source-data or workflow bytes changed.",
+  "tests": {
+    "passed": 1264,
+    "seconds": 97.63,
+    "coverage_percent": 99.54,
+    "required_floor": 99
+  },
+  "local_checks": [
+    {
+      "name": "ruff",
+      "returncode": 0,
+      "seconds": 0.04631745899678208,
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "name": "format",
+      "returncode": 0,
+      "seconds": 0.0451080839993665,
+      "log_sha256": "f4d501ad7405c927e0a57b16f24ccd530ee06a8c4da5838f861086d20077e073"
+    },
+    {
+      "name": "typing",
+      "returncode": 0,
+      "seconds": 0.1363203750079265,
+      "log_sha256": "918734ea957dd4753b8d4ca0aba97793773f2fcb1fa479a6e2953922f26612f8"
+    },
+    {
+      "name": "whole-suite",
+      "returncode": 0,
+      "seconds": 98.16845908301184,
+      "log_sha256": "010410abcabc95b188e94e13f13ef98eeacd7fb3a303a6cdc2bef39b5be37172"
+    },
+    {
+      "name": "validate",
+      "returncode": 0,
+      "seconds": 0.4169548750069225,
+      "log_sha256": "63661399ba858923e9a85511c2b4c419663c7c4b9890c6f25391820ce1b5b266"
+    },
+    {
+      "name": "doctor",
+      "returncode": 0,
+      "seconds": 0.6633245839911979,
+      "log_sha256": "fc04e1b886e22fc2fb068f7615c949a04c4a1fdca6df9033ff96d84af31dca5d"
+    },
+    {
+      "name": "definitions",
+      "returncode": 0,
+      "seconds": 2.546918874999392,
+      "log_sha256": "da7f82138c0eb8a721bf0ee61372d2ed61ff9a60a947bb3d2cb56b23d4da6a64"
+    },
+    {
+      "name": "scenarios",
+      "returncode": 0,
+      "seconds": 7.99072558300395,
+      "log_sha256": "ea21f995bee4a49e8dfbe8c5527d6c3d7b8a8c9832f8cdf95ccec9043bc7b6c3"
+    },
+    {
+      "name": "examples",
+      "returncode": 0,
+      "seconds": 0.47577266598818824,
+      "log_sha256": "985d2e1998e1e91bd7091fc960e1d0a839c0417dc6872a196327160f0a06a130"
+    },
+    {
+      "name": "evals",
+      "returncode": 0,
+      "seconds": 0.20194733400421683,
+      "log_sha256": "77821de6a36eda154de32fca459dd4f97a168b3cd1ba827fc128b00edf8cfa2f"
+    },
+    {
+      "name": "dashboard",
+      "returncode": 0,
+      "seconds": 0.8430313749995548,
+      "log_sha256": "4adc2c584fcd994946d2905944739b8eba45bad8cd0dbae80de36d77abbe3685"
+    },
+    {
+      "name": "release-metadata",
+      "returncode": 0,
+      "seconds": 0.14964337499986868,
+      "log_sha256": "3aab2c40bee52e43852554911eae977ab3ffca355d8bd98a693dbee310816e4a"
+    },
+    {
+      "name": "catalogue",
+      "returncode": 0,
+      "seconds": 0.08994358300697058,
+      "log_sha256": "33e5550e6783b17e5147f313d4a881a84e6d3b44524c1cb208e4896551889b46"
+    },
+    {
+      "name": "manuscript-assets",
+      "returncode": 0,
+      "seconds": 0.36775974999181926,
+      "log_sha256": "6e8389dbb8a8499bbff31f7a8eb7682386a863047a2f10c6b0f642822b49ba64"
+    },
+    {
+      "name": "clean-release-policy",
+      "returncode": 0,
+      "seconds": 0.14140445800148882,
+      "log_sha256": "20940115433af69622ea5f7b7a28672371af39c625a51fa8949ad99b8f3dc83b"
+    },
+    {
+      "name": "wheel-build",
+      "returncode": 0,
+      "seconds": 0.6678856670041569,
+      "log_sha256": "5c7cfb1058d4082e690f734aa3163fef11d4f190ca48cf3a064ebfbc94dcfcc1"
+    },
+    {
+      "name": "wheel-environment",
+      "returncode": 0,
+      "seconds": 0.02457975001016166,
+      "log_sha256": "3351a46dd5c02cff584db229ff1f3c5cb312d6f684b397545fe523949f652545"
+    },
+    {
+      "name": "wheel-install",
+      "returncode": 0,
+      "seconds": 0.3060559169971384,
+      "log_sha256": "26790bd1e8762be59e291334b6a8188ed8205ff39fb65cabbd3e85c67a9c6a0c"
+    },
+    {
+      "name": "installed-version",
+      "returncode": 0,
+      "seconds": 0.2084788330103038,
+      "log_sha256": "3bcb9126ea6af199ba43fef851364bd44da5acece19dcd86dd61935942d286d3"
+    },
+    {
+      "name": "installed-doctor",
+      "returncode": 0,
+      "seconds": 0.7066822500055423,
+      "log_sha256": "fc04e1b886e22fc2fb068f7615c949a04c4a1fdca6df9033ff96d84af31dca5d"
+    },
+    {
+      "name": "installed-definitions",
+      "returncode": 0,
+      "seconds": 2.5820874579949304,
+      "log_sha256": "da7f82138c0eb8a721bf0ee61372d2ed61ff9a60a947bb3d2cb56b23d4da6a64"
+    },
+    {
+      "name": "installed-scenarios",
+      "returncode": 0,
+      "seconds": 7.550935291001224,
+      "log_sha256": "ea21f995bee4a49e8dfbe8c5527d6c3d7b8a8c9832f8cdf95ccec9043bc7b6c3"
+    },
+    {
+      "name": "installed-examples",
+      "returncode": 0,
+      "seconds": 0.48352604199317284,
+      "log_sha256": "985d2e1998e1e91bd7091fc960e1d0a839c0417dc6872a196327160f0a06a130"
+    },
+    {
+      "name": "installed-evals",
+      "returncode": 0,
+      "seconds": 0.18944654100050684,
+      "log_sha256": "77821de6a36eda154de32fca459dd4f97a168b3cd1ba827fc128b00edf8cfa2f"
+    },
+    {
+      "name": "installed-dashboard",
+      "returncode": 0,
+      "seconds": 0.9442154159914935,
+      "log_sha256": "4adc2c584fcd994946d2905944739b8eba45bad8cd0dbae80de36d77abbe3685"
+    },
+    {
+      "name": "installed-release-metadata",
+      "returncode": 0,
+      "seconds": 0.13275600000633858,
+      "log_sha256": "3aab2c40bee52e43852554911eae977ab3ffca355d8bd98a693dbee310816e4a"
+    },
+    {
+      "name": "installed-catalogue",
+      "returncode": 0,
+      "seconds": 0.13693845800298732,
+      "log_sha256": "33e5550e6783b17e5147f313d4a881a84e6d3b44524c1cb208e4896551889b46"
+    },
+    {
+      "name": "installed-manuscript-assets",
+      "returncode": 0,
+      "seconds": 0.4198186660069041,
+      "log_sha256": "6e8389dbb8a8499bbff31f7a8eb7682386a863047a2f10c6b0f642822b49ba64"
+    },
+    {
+      "name": "installed-default-root",
+      "returncode": 0,
+      "seconds": 0.8141519999917364,
+      "log_sha256": "fc04e1b886e22fc2fb068f7615c949a04c4a1fdca6df9033ff96d84af31dca5d"
+    },
+    {
+      "name": "installed-clean-release-policy",
+      "returncode": 0,
+      "seconds": 0.09024633299850393,
+      "log_sha256": "20940115433af69622ea5f7b7a28672371af39c625a51fa8949ad99b8f3dc83b",
+      "executed_at_head": "dcc24ad2a8420d2da0ba5dabe0cc059f504489be"
+    },
+    {
+      "name": "unrelated-cwd-regression",
+      "returncode": 0,
+      "seconds": 15.247980291998829,
+      "log_sha256": "5b6db21cbea387661681fbdd7e92979d94340ddf3330213383a11c2b45cf168f",
+      "executed_at_head": "dcc24ad2a8420d2da0ba5dabe0cc059f504489be"
+    }
+  ],
+  "wheel_sha256": "e6f15531724af318e693abd85b410cdc40e318bbf7d0cb16d4c1bad64f3f77af",
+  "unrelated_cwd_tests_passed": 19,
+  "file_map": {
+    ".github/workflows/ci.yml": "276bddbe8b960fe4801aa8d66629d09d6e01500858193e3b2f3c6373072f6c45",
+    "evals/local_output_review.yaml": "58f03583e6652d16cffe676a3ce2e4503144ad593131976210fc39d2a84fbeb4",
+    "examples/group-worked-examples.md": "26c810311fde5a1d217af2ead9e40663d5cc6e3cd01cc22fca16dd278b7b10b0",
+    "examples/harness-smoke-transcripts.md": "592af18ca010cc2ac1500bd5a66d6eb75c7c1d6668258e80802da86da8576117",
+    "examples/skill-worked-examples.yaml": "e0c04a5b62dc1d5cab6d298964144775fa517a36d4eaf4418bbbfdf0b427bdac",
+    "pyproject.toml": "15e0f28d91f710f483565fab3302c2f67fcca4a86b7045687d6d202728bf6e74",
+    "registry/AGENTS.md": "9abec3c6769dc774a3db1b17a308fea06128fc99eb2afb42b167268a1bec5847",
+    "registry/groups.yaml": "a27d1bf5fb980ccadab478c8fc863d92ba8f9007a217eef2ef2f02f938c9c4c2",
+    "registry/harness_profiles.yaml": "cdd735f1ea3f70658690329de0431c1dc8252bf9ffa7c027fb21cc2ad2cd63ce",
+    "registry/skills.yaml": "4e1305cd4029d75042105cd74616c8df477bf9472aa877a0c98c4299494b1a59",
+    "scenarios/AGENTS.md": "4ff15c197b94e7414a6bbb961d2a4547d19b9ca122900169b6e254429410faa9",
+    "scenarios/defensive_readiness.yaml": "9cada997a1a56532bc19dc5ce4683ca8beba89d5e4edfd69a2199c8d05b831c5",
+    "src/__init__.py": "fe7c9eb44d03ca865e3d359abbe36d645323a2624ba204173de4d0f4a4b560e7",
+    "src/cogsecskills/AGENTS.md": "b1ba53ce25672a5f698c76a9c39ff18d704eb5ad06a239fb74ca5d7aebb0b27f",
+    "src/cogsecskills/__init__.py": "2bc77436c0e2a83f825d02b5f60f6d550a5a7ebe2cc88015c92ed3ceaf1a9a5c",
+    "src/cogsecskills/__main__.py": "6e9b9d07549d1e012ba5105f435071d590a46c04ae367572a1b58cb1b7818136",
+    "src/cogsecskills/artifacts/__init__.py": "529f515882f395dcd40cae47b12e0d7b34e393f1cab4f3bc18161e71b3502f5b",
+    "src/cogsecskills/artifacts/dashboard.py": "86d7ce30f45c80a22b9e6ccd01a91c8437c99f645deae3c49442912b3c655c4a",
+    "src/cogsecskills/artifacts/doi_metadata.py": "801d1bc3904efa29ad08e8c44994207e20b5cad8c6943d932ae0348cf46ff0ba",
+    "src/cogsecskills/artifacts/evals.py": "da6d9335b783705780703fe48014d442e56754d33ce807122bf9b2179d36c650",
+    "src/cogsecskills/artifacts/examples.py": "30a7fa7700bf877f7ac8a3af36e515f181f13100904002b941328f13154caabd",
+    "src/cogsecskills/artifacts/manuscript_assets/__init__.py": "a82f38252129ad18f9c9f757bab070a9814cf2b3e2b844bce8b8d25c584b2825",
+    "src/cogsecskills/artifacts/manuscript_assets/assets_io.py": "42ebf6bb845a04004f84a80f75bc156af7a03752714340faa541207a385fbf0a",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_charts.py": "3e7d0527804cb1ced382873a00ee307e24ace4bfe32ce867c1970045ff1ca948",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_cover.py": "44f47abd2d37e4c155d73b4f35221d0c4540d9d058c10aceb2a40199cd278581",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_diagrams.py": "025d6c96adcdbdf96d28913e96e37529f2456d364669d5b3b162c301fd8a4cb8",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_helpers.py": "5e05429a418eb16e1867005c8c4a6f807e3fc1a04a3bf114e46da2b0fa7bdc99",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_specs.py": "bca17e2e48965c7668e29ff81514cf7b47400be3b5057a62ff4c95f47308cee3",
+    "src/cogsecskills/artifacts/manuscript_assets/figure_theme.py": "ab40196e37bac514b367011bf2431771dddb8cf8db95504118f7210583d051d6",
+    "src/cogsecskills/artifacts/manuscript_assets/figures.py": "d1a06e72fa939d7718cf1114587825354e26d9bc6bcec1bab68e065b52d5c4bd",
+    "src/cogsecskills/artifacts/manuscript_assets/paths.py": "55cbaa3fd3f2f5f44643e0de8bce086289c3c0171351ac0516137e82f4c2a414",
+    "src/cogsecskills/artifacts/manuscript_assets/png_probe.py": "584eebc6fe68767d6ed4ae378d8ba87d4290319a82f086c71a565bab94d12bc0",
+    "src/cogsecskills/artifacts/manuscript_assets/rows.py": "9847c30a529ecfc4020621b9acaa0018392101517edfa6c201876459b89c0651",
+    "src/cogsecskills/artifacts/manuscript_assets/table_html.py": "4339c36ebd0480324954881889da09b3001974de2ba139ad2a8161767ff68625",
+    "src/cogsecskills/artifacts/manuscript_assets/tables.py": "2f858a3d07076938a6d202367b70f15ab66973fc3fdf00ca5fb9fa70912eb599",
+    "src/cogsecskills/artifacts/release_metadata.py": "e62d987244f0e1cbfb1867079f38d20a26060cc41bcba9fdf189a18612bc14ba",
+    "src/cogsecskills/artifacts/response_contract.py": "0eb1585afc329edc220de013e2fb6ddd34f6e55af9e0b69f813fe61c15087bc3",
+    "src/cogsecskills/artifacts/scenarios.py": "a308937b643a7e520b5fde445d3d671f666e341db2cb92c23d3caa46aedb6252",
+    "src/cogsecskills/artifacts/text_outputs.py": "aa0a7ba7cbf4114c59eb49eba259ad66d86e03e73e1221918f65afdb549ccdba",
+    "src/cogsecskills/authoring/__init__.py": "ddc5dbcade943cbce56374d523ffe812e36ea8823f1d76e98c647d15d1d445e6",
+    "src/cogsecskills/authoring/author.py": "fcd16d24499eaf7d3300cf6b19c38a765c057531b6f2ff5481b244639419b6b6",
+    "src/cogsecskills/authoring/definitions.py": "a1eafe761207edd7b7067df54f5d4d9b68f5869cac3f6c4db6a5dfbb2ddd1ab1",
+    "src/cogsecskills/authoring/scaffold.py": "76d56a262dfd7d615aa3ce5b20a780a2d0bede4642ee325f07c2f0a9ab3f7308",
+    "src/cogsecskills/authoring/schema.py": "8bb93397b42f33a0ad10823277a0c0bac77a423b46bd81c09bb87a2ff1655837",
+    "src/cogsecskills/cli.py": "3e18fe29eea151997bcd5095205fd50c3ebcd76dcc2c6b03bc05cd892b63b506",
+    "src/cogsecskills/core/__init__.py": "1af0dc1e53984f3d07e3a8fc421d991d08642710d46098be9e8c3a9abc757044",
+    "src/cogsecskills/core/config.py": "01494cc70e1c5da6d5ac532386862cdfda45c1324e6ff607c098488494a1bf26",
+    "src/cogsecskills/core/harness.py": "3cb3961643732751d88b67a241bbdcf070ffc18380777167b7c4dd6f0642aa89",
+    "src/cogsecskills/core/loader.py": "10743f3414f9b06068c4f4eddda86785d6941f124cb4d56838bd437bccebef50",
+    "src/cogsecskills/core/locate.py": "4df735d157b084e5de14c839cfa1e5a9277830a7ba5070656e5876f3e8ea6727",
+    "src/cogsecskills/core/paths.py": "fcb93b43dd93b16a6a8535603925ce0d70e3fda877dc54c8bd2737e92cf239dd",
+    "src/cogsecskills/core/quality_constants.py": "af419369e659e07436732845e33eb5a120fb7516580ae5b881f92ce95954c6e6",
+    "src/cogsecskills/core/registry.py": "2385308252ec5a4310ed003f70b126ba7e678349e7f2a641dfa554742bf31933",
+    "src/cogsecskills/core/spec.py": "7751a4e2b08e159cc197fb6a84427447e9d37f99a18849af354349946e32fe7e",
+    "src/cogsecskills/core/text_utils.py": "d4c0cdc9367007fee9f216c8bb2ca3bbacfe6969644f674bd3d19df76a2ea169",
+    "src/cogsecskills/core/yaml_io.py": "4f8898b888c6761464c680e232b1167d479ed0e931ff81aaac9c2634b16947dc",
+    "src/cogsecskills/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cogsecskills/quality/__init__.py": "5b409192ea6d4da6d943bb09d2a9412274fb132116f04e74bf527300075501f1",
+    "src/cogsecskills/quality/insights.py": "0a8160e9147d567e7117e5d8a32a58d6e9aa0190d00d31e28507336ee96c97a5",
+    "src/cogsecskills/quality/validate.py": "85005eb8144e446401f62bef258dfc31b2bbc97a90eb2afebf4335c711073943",
+    "src/cogsecskills/runtime/__init__.py": "6ff2afe05800d36af452d3b60cbb306c6cfe2391bdf0fe1cb80dd8bf8b01ca3f",
+    "src/cogsecskills/runtime/models.py": "58dbc2a179f9251a0c0ed20dd3a4f18475cffbeed6aedb7bea443dfbd8eabdf8",
+    "src/cogsecskills/runtime/process.py": "6b2b1059d45b7db5a6e4d9ec9e05bb9c8dee6e42bdde5c87c4144792d650f22e",
+    "src/cogsecskills/runtime/reporting.py": "0fee10ac6f655b978e64cc8b5933968ed23fc90d4828f4a9b291b72f03857fb4",
+    "src/cogsecskills/runtime/screening.py": "92e245a5f1dcb987edc1695df09191a83e9e850a72079849eb6f1758cd69ee4b",
+    "src/cogsecskills/runtime_eval.py": "c6d36c37c8e4ce6ac08f8811bff72433af1a214937ee663eda6dd2897efff8d6",
+    "tests/AGENTS.md": "f39c6aa566b4962f09c1dc2907853b7d5a265b1dd601ea8400327a339a168afc",
+    "tests/README.md": "1c55e4b93c99780693cb793569cdf8d4c9920b3fc694780d53284c0def68535e",
+    "tests/__init__.py": "5067c9a31bb9817f13322715ba1a5c45164ae08874c3c12f48721fa0ec75ceb9",
+    "tests/artifacts/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/artifacts/test_cogsecskills_artifact_branches.py": "16c72d0478a57f0b16c500f4f52f654aacd1cd02f49851271e962a7cab70e627",
+    "tests/artifacts/test_cogsecskills_dashboard.py": "95b78e8382e27be7880c83fe8f8d3c29ac3bed3352564037b581628c583a9467",
+    "tests/artifacts/test_cogsecskills_evals.py": "3cb327df9537ae12c8e299563e0d5f375cf86609d3440b6b9205b787d8fdaeb2",
+    "tests/artifacts/test_cogsecskills_evals_branches.py": "e7dd754258ef8b68de90aa098ead2796e3f99dd2370436fc7b6495a5d84d67fd",
+    "tests/artifacts/test_cogsecskills_examples.py": "6f9b6f4dc51e75907292df15d076a1a9fe9c0067ad9263b164c2403a35257e1c",
+    "tests/artifacts/test_cogsecskills_examples_branches.py": "f5731242ca0c567cf36d98fa14672c2cc48d430b1aa803fdfa2347690d1d8d61",
+    "tests/artifacts/test_cogsecskills_figures.py": "49d086ed21b67982cfa2c239968ea82f3865b35a217114cf2cc06f8b2358fa93",
+    "tests/artifacts/test_cogsecskills_manuscript_assets.py": "df9821d32082b11bfe58604f92d3f9704101b4c06d9dc01ecc2a802565081639",
+    "tests/artifacts/test_cogsecskills_png_probe.py": "1f48085b37e41248155109c96833e4d2a69612342c55d4cfdd2555126b8e5833",
+    "tests/artifacts/test_cogsecskills_release_metadata.py": "0c71b8e54ed051c1eb4b02428d7d9f462533555ec5c4d0f9307cd042870fd52f",
+    "tests/artifacts/test_cogsecskills_release_metadata_branches.py": "fee0f325ced6f3af2b00a2984d34c81f8e525ff41f12dce6daff7c1fbb3f0df9",
+    "tests/artifacts/test_cogsecskills_scenarios.py": "6e974e2c7ad42666dbad4f7e63513a2ec1f3b4d5f703e65e93a9d0405ff0fcd6",
+    "tests/artifacts/test_cogsecskills_scenarios_branches.py": "793cae48173948553cd38284c5a07b07964c081e1fa79442e6da114fc719e899",
+    "tests/artifacts/test_cogsecskills_scenarios_coverage.py": "0f98c0ec64b059a540b73213a2898a24aeb1593a20162884d58991a02ec6a842",
+    "tests/artifacts/test_fixture_provenance.py": "744f5d4fe725b8014d6a18edbe2852741186d23727ba908f720281bf7a0440d3",
+    "tests/artifacts/test_manuscript_table_layout.py": "9b1d6fdb6b677490b685aaa8c823efc7188b3974fb209fa022d26f4f54d6fc7a",
+    "tests/artifacts/test_response_contracts.py": "6a72c3c165fe61a576f6655f345edd76b360b48d29b90da0e86c9b9b7b035447",
+    "tests/authoring/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/authoring/test_authoring_boundaries.py": "93d45d80d032dac7fff8851473560ab11ccfae77fc25496c87e070553144b88f",
+    "tests/authoring/test_cogsecskills_author.py": "e0274cf06c12b0f0442ceddbd655aee56f5ab78253934873693dad7f33faffb7",
+    "tests/authoring/test_cogsecskills_author_defs_coverage.py": "0ae18691e30f5dd7edafe7f2d7c6e7a2b67b9f514cb3bb7747c85275111f3fe4",
+    "tests/authoring/test_cogsecskills_cli_additions.py": "06cfc4ef1311f4dcdbb2e62b338fa162389cc956cfbcefdc85121b2781405e43",
+    "tests/authoring/test_cogsecskills_cli_scaffold.py": "739fdd89b4ef0dc37e5ba24805dd31a67cdf734076eab24ed4658c9f3b094afa",
+    "tests/authoring/test_cogsecskills_definitions_branches.py": "30cb9954b22f6e48b6e9e68af8cbcd0d8a74e2bb5ea63e019b18df98251c7e39",
+    "tests/authoring/test_cogsecskills_promote_strict.py": "1238ed7ddbf7dbcdfd73ca834bd0001ea84dba75a23357665cbea3a2fddbf8ea",
+    "tests/conformance/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/conformance/test_codex_gateway.py": "e667fd4de6a03bcbde5b4afe8e9cf963b71e0f0c1c04482eaeb155c7c2311052",
+    "tests/conformance/test_skill_library_conformance.py": "012270ff27b2e7d267069161f535c5ecff81c422ff34c3c8c044514f99d3197b",
+    "tests/conftest.py": "e256c5388528d5889518d74b49f587ecc8a8562590e50ce4cbeb5e6796f64f7e",
+    "tests/contract/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/contract/test_cogsecskills_agents_contract.py": "f34532605629a2bff8abda3358bc14384fe3e748bd61165019ad49a1cfe8e2d1",
+    "tests/contract/test_cogsecskills_cli_catalogue.py": "82d0e1de332ff9e731fe45fd99b90b2f190245b1bfb0211e5b22f4116056f451",
+    "tests/contract/test_cogsecskills_docs_contract.py": "2bb7f7f1ac7cbcd0056f1e5d559b099a7e4cb295f085c17557126b3314c43bd3",
+    "tests/contract/test_cogsecskills_manuscript_contract.py": "0efb0433089ab68ee039c145d59335b5b9bba007f3be98ac344cb4972bd1669d",
+    "tests/core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/core/test_cogsecskills_config.py": "4a8f64f8cda7588b57497928720c79abed66a69f84e2ebfdab2a84074cf358d9",
+    "tests/core/test_cogsecskills_loader_registry.py": "f4cf91ecdc068d08e02f68ac1385f0fd322d31f1c69d9242adec131ac903746c",
+    "tests/core/test_cogsecskills_locate_and_constants.py": "ce41e1e9c07fdf1cce86dec0a3f13820f57cc42df531d916448c013678a2625c",
+    "tests/core/test_cogsecskills_registry_yaml_robustness.py": "9b0837be95d77bdaf2ad1ffdaaa8beb8c14f8acf59c9545a81ecc19a8517c1c9",
+    "tests/core/test_cogsecskills_spec.py": "ce6a0c7b5f68b585e923cdef8f8de1d3a392200ee8eb39c3ab841563d3f45dfc",
+    "tests/core/test_cogsecskills_spec_nulls.py": "01a6eff66e26f4a20d3b6d0c7ce3b7763cb4b3251b96837fd539f7e6360c8b55",
+    "tests/core/test_cogsecskills_text_utils.py": "d3d5ff80b25ca87219e9e517e62a675f5aa71c1703e1edfc632d98b3751d3ac6",
+    "tests/core/test_input_boundaries.py": "0f755547e1f71850d6fbfa4b72abb572626fd63816382e390acf17a42dfe5f8d",
+    "tests/project_fixtures.py": "7b2277cf758b0d837911234b8b9c686cb561b140a265e71cc4650748c68b9115",
+    "tests/quality/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/quality/test_cogsecskills_coverage_gaps.py": "bd7c664de858f759f49695c0b890a40098842e6a7d88fc216442f5fb52536175",
+    "tests/quality/test_cogsecskills_edge_cases.py": "499af0d1528e3169acca6633dc5ac19d972542785a69fe9403d377c96640ff51",
+    "tests/quality/test_cogsecskills_final_coverage.py": "e5b3ccc0693dface85ec1ac10f6db02b285be0e1bba1c74f5328ad2cce6cb194",
+    "tests/quality/test_cogsecskills_harness_validate.py": "b1f5a6f76f28773ebb5075bdafeca4d148edc4c845ef655ec98f611cb3c0fd33",
+    "tests/quality/test_cogsecskills_insights.py": "b82ead22b716ec15b99c60209c4f171503ffd84a0949a83576ad785aaa2ab78e",
+    "tests/quality/test_cogsecskills_insights_branches.py": "32ea6ea102041d4168f133f74355d0c5d45fc2e110fe4632c563054140a59774",
+    "tests/quality/test_cogsecskills_lowgap_coverage.py": "7f7cf2bc69ac2cf50e2eff9f304ae3e31553ad89394d8e6c29dccfbd5ac0733d",
+    "tests/quality/test_cogsecskills_validate_coverage.py": "111235870a1ac1560e2abf710c6a096ed23825caeb3afb8c100a0cc7ce9e746a",
+    "tests/quality/test_validate_workflow_verbs.py": "91c679693eeda9845efde64017260551885c88f6861320c99983312ac0555297",
+    "tests/quality/test_validation_boundaries.py": "960d5fb497772f9f280b211ade40247be4389ffe229e97b6039b0599f6e42c73",
+    "tests/runtime/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/runtime/test_runtime_eval.py": "1c1bcd0ec2910293c118625f6f8374db7c4a32a7575b15190accb03848518ba5",
+    "tests/runtime/test_runtime_safety.py": "b36eb865693445ffa6c61414b20eb625c3cd1637ae923c54c84264a9033ec359",
+    "uv.lock": "f031764f07f7875758ae74a2ce296fa76941c3beba49fa98d15eada46d0c75fa"
+  },
+  "file_map_sha256": "3081f1977b7d2c97c6209c6323f5a25ff54f21bbcdafbdd837a86c2e958cd27a",
+  "four_open_followups": [
+    30,
+    52,
+    54,
+    56
+  ],
+  "original_audit_head": "f2c15ca4bce17d1f8b58bd9f02b1b4f98b4c04be",
+  "hosted_qualification": "Required on the published PR head before main integration; no future hosted success is claimed here.",
+  "retained_initial_failures": [
+    "Initial provenance controls and group-vocabulary controls failed on baseline.",
+    "A historical-width assertion rejected the verified layout change; the explicit width policy was updated to the accepted render.",
+    "The actual wheel build exposed an unignored build/ staging directory; only standard Python build/dist staging is now ignored."
+  ],
+  "render_acceptance": "audit-render-acceptance-20261018.json"
+}

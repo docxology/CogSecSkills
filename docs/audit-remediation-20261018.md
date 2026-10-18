@@ -17,6 +17,8 @@ installed-wheel and hosted qualification are recorded in the acceptance receipt.
 The fresh71-page PDF retains all100 catalogue identifiers and was visually
 reviewed after repairing clipped commands; see [render acceptance](audit-render-acceptance-20261018.json).
 
+Four findings remain open for additional work: [#30](https://github.com/docxology/CogSecSkills/issues/30), [#52](https://github.com/docxology/CogSecSkills/issues/52), [#54](https://github.com/docxology/CogSecSkills/issues/54), and [#56](https://github.com/docxology/CogSecSkills/issues/56). The qualified repair addresses the other47 findings. No closure is claimed for those four.
+
 ## Individual dispositions
 
 ### CORE-01
@@ -213,11 +215,13 @@ Evidence: [`docs/analyst-output-review.md`](../docs/analyst-output-review.md), [
 
 ### EVAL-04
 
-[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **repaired by claim boundary**.
+[Issue #30](https://github.com/docxology/CogSecSkills/issues/30) — **partially repaired; follow-up remains open**.
 
 The docs state that queries/routes are co-authored closed-set regression fixtures, not held-out or independent routing accuracy. No benchmark results are invented.
 
 Evidence: [`docs/claim-boundaries.md`](../docs/claim-boundaries.md), [`tests/artifacts/test_response_contracts.py`](../tests/artifacts/test_response_contracts.py).
+
+Remaining work: Independent paraphrase/adversarial routing regression probes remain to be implemented; the claim boundary is repaired.
 
 ### EVAL-05
 
@@ -389,11 +393,13 @@ Evidence: [`tests/quality/test_cogsecskills_validate_coverage.py`](../tests/qual
 
 ### TEST-06
 
-[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **addressed with bounded policy oracles**.
+[Issue #52](https://github.com/docxology/CogSecSkills/issues/52) — **partially repaired; follow-up remains open**.
 
 Existing style constants remain explicit print/design policy checks, paired with actual figure generation and malformed/collapsed PNG rejection. They are not presented as empirical quality or semantic figure validation. Coverage-variant tests assert concrete behavior and diagnostics; no failing tests are discarded.
 
 Evidence: [`tests/artifacts/test_cogsecskills_figures.py`](../tests/artifacts/test_cogsecskills_figures.py), [`tests/artifacts/test_cogsecskills_png_probe.py`](../tests/artifacts/test_cogsecskills_png_probe.py).
+
+Remaining work: Further replacement/consolidation of implementation-only test oracles remains open; real render and PNG controls are retained.
 
 ### TEST-07
 
@@ -405,11 +411,13 @@ Evidence: [`tests/project_fixtures.py`](../tests/project_fixtures.py), [`tests/a
 
 ### TEST-08
 
-[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **repaired with intentional contracts retained**.
+[Issue #54](https://github.com/docxology/CogSecSkills/issues/54) — **partially repaired; follow-up remains open**.
 
 Removed the global 24-line transcript pin in favor of per-block skill/workflow/adapter contracts and real path checks. Stable section anchors and evidence-boundary wording remain deliberate public contracts.
 
 Evidence: [`tests/contract/test_cogsecskills_docs_contract.py`](../tests/contract/test_cogsecskills_docs_contract.py), [`tests/contract/test_cogsecskills_manuscript_contract.py`](../tests/contract/test_cogsecskills_manuscript_contract.py).
+
+Remaining work: Transcript count coupling is repaired; manuscript heading/prose inventory coupling still needs structural-oracle work.
 
 ### TEST-09
 
@@ -421,8 +429,10 @@ Evidence: [`tests/authoring/test_cogsecskills_cli_scaffold.py`](../tests/authori
 
 ### TEST-10
 
-[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **repaired**.
+[Issue #56](https://github.com/docxology/CogSecSkills/issues/56) — **partially repaired; follow-up remains open**.
 
 Real registry/config negative cases cover collection, duplicate-key, type and path interactions. Reused quality-entry controls cover all three governed fields; no shared-item exemptions are configured or claimed tested as future behavior.
 
 Evidence: [`tests/core/test_input_boundaries.py`](../tests/core/test_input_boundaries.py), [`tests/authoring/test_cogsecskills_author.py`](../tests/authoring/test_cogsecskills_author.py).
+
+Remaining work: All governed duplicate-quality fields are exercised; the requested whitelist-policy disposition and nonexistent-root CLI control remain open.

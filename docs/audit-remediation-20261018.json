@@ -1,5 +1,5 @@
 {
-  "state": "local_repairs_not_yet_published_or_issue_closed",
+  "state": "qualified_source_dispositions_with_four_explicit_open_followups",
   "original_audit_head": "f2c15ca4bce17d1f8b58bd9f02b1b4f98b4c04be",
   "rows": [
     {
@@ -13,7 +13,7 @@
         "tests/authoring/test_cogsecskills_author.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-02",
@@ -26,7 +26,7 @@
         "tests/authoring/test_cogsecskills_cli_scaffold.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-03",
@@ -39,7 +39,7 @@
         "tests/authoring/test_authoring_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-04",
@@ -52,7 +52,7 @@
         "tests/authoring/test_authoring_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-05",
@@ -65,7 +65,7 @@
         "tests/core/test_cogsecskills_spec_nulls.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-06",
@@ -78,7 +78,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-07",
@@ -91,7 +91,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-08",
@@ -104,7 +104,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-09",
@@ -117,7 +117,7 @@
         "tests/authoring/test_authoring_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-10",
@@ -130,7 +130,7 @@
         "tests/authoring/test_cogsecskills_cli_additions.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-11",
@@ -143,7 +143,7 @@
         "tests/quality/test_cogsecskills_coverage_gaps.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-12",
@@ -156,7 +156,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-13",
@@ -169,7 +169,7 @@
         "tests/authoring/test_cogsecskills_promote_strict.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-14",
@@ -182,7 +182,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "CORE-15",
@@ -195,7 +195,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-01",
@@ -208,7 +208,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-04",
@@ -221,7 +221,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-07",
@@ -234,7 +234,7 @@
         "tests/contract/test_cogsecskills_agents_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-08",
@@ -247,7 +247,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-09",
@@ -260,7 +260,7 @@
         "tests/contract/test_cogsecskills_agents_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "DOCS-10",
@@ -273,7 +273,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-01",
@@ -286,7 +286,7 @@
         "tests/artifacts/test_fixture_provenance.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-02",
@@ -299,7 +299,7 @@
         "tests/artifacts/test_fixture_provenance.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-03",
@@ -312,20 +312,21 @@
         "tests/artifacts/test_fixture_provenance.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-04",
       "issue": 30,
       "url": "https://github.com/docxology/CogSecSkills/issues/30",
-      "disposition": "repaired by claim boundary",
+      "disposition": "partially repaired; follow-up remains open",
       "summary": "The docs state that queries/routes are co-authored closed-set regression fixtures, not held-out or independent routing accuracy. No benchmark results are invented.",
       "evidence_paths": [
         "docs/claim-boundaries.md",
         "tests/artifacts/test_response_contracts.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt",
+      "remaining_work": "Independent paraphrase/adversarial routing regression probes remain to be implemented; the claim boundary is repaired."
     },
     {
       "finding": "EVAL-05",
@@ -338,7 +339,7 @@
         "tests/artifacts/test_fixture_provenance.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-07",
@@ -351,7 +352,7 @@
         "tests/artifacts/test_response_contracts.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-08",
@@ -364,7 +365,7 @@
         "tests/artifacts/test_response_contracts.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "EVAL-09",
@@ -377,7 +378,7 @@
         "tests/artifacts/test_fixture_provenance.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REG-01",
@@ -390,7 +391,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REG-02",
@@ -403,7 +404,7 @@
         "tests/core/test_cogsecskills_registry_yaml_robustness.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REG-03",
@@ -416,7 +417,7 @@
         "tests/quality/test_validation_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-01",
@@ -429,7 +430,7 @@
         "tests/artifacts/test_cogsecskills_release_metadata.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-02",
@@ -442,7 +443,7 @@
         "tests/artifacts/test_cogsecskills_release_metadata.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-03",
@@ -455,7 +456,7 @@
         "tests/artifacts/test_cogsecskills_release_metadata.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-04",
@@ -468,7 +469,7 @@
         "tests/artifacts/test_cogsecskills_manuscript_assets.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-05",
@@ -481,7 +482,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-06",
@@ -494,7 +495,7 @@
         "tests/contract/test_cogsecskills_docs_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-07",
@@ -507,7 +508,7 @@
         "tests/artifacts/test_cogsecskills_release_metadata.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-08",
@@ -520,7 +521,7 @@
         "docs/manuscript/05_reproducibility.md"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "REPRO-09",
@@ -533,7 +534,7 @@
         "tests/artifacts/test_cogsecskills_figures.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-01",
@@ -546,7 +547,7 @@
         "tests/quality/test_cogsecskills_validate_coverage.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-02",
@@ -559,7 +560,7 @@
         "tests/artifacts/test_cogsecskills_manuscript_assets.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-03",
@@ -572,7 +573,7 @@
         "tests/artifacts/test_manuscript_table_layout.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-04",
@@ -585,7 +586,7 @@
         "tests/core/test_input_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-05",
@@ -598,20 +599,21 @@
         "tests/quality/test_validation_boundaries.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-06",
       "issue": 52,
       "url": "https://github.com/docxology/CogSecSkills/issues/52",
-      "disposition": "addressed with bounded policy oracles",
+      "disposition": "partially repaired; follow-up remains open",
       "summary": "Existing style constants remain explicit print/design policy checks, paired with actual figure generation and malformed/collapsed PNG rejection. They are not presented as empirical quality or semantic figure validation. Coverage-variant tests assert concrete behavior and diagnostics; no failing tests are discarded.",
       "evidence_paths": [
         "tests/artifacts/test_cogsecskills_figures.py",
         "tests/artifacts/test_cogsecskills_png_probe.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt",
+      "remaining_work": "Further replacement/consolidation of implementation-only test oracles remains open; real render and PNG controls are retained."
     },
     {
       "finding": "TEST-07",
@@ -624,20 +626,21 @@
         "tests/artifacts/test_cogsecskills_evals.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-08",
       "issue": 54,
       "url": "https://github.com/docxology/CogSecSkills/issues/54",
-      "disposition": "repaired with intentional contracts retained",
+      "disposition": "partially repaired; follow-up remains open",
       "summary": "Removed the global 24-line transcript pin in favor of per-block skill/workflow/adapter contracts and real path checks. Stable section anchors and evidence-boundary wording remain deliberate public contracts.",
       "evidence_paths": [
         "tests/contract/test_cogsecskills_docs_contract.py",
         "tests/contract/test_cogsecskills_manuscript_contract.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt",
+      "remaining_work": "Transcript count coupling is repaired; manuscript heading/prose inventory coupling still needs structural-oracle work."
     },
     {
       "finding": "TEST-09",
@@ -650,20 +653,27 @@
         "tests/quality/test_cogsecskills_insights.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt"
     },
     {
       "finding": "TEST-10",
       "issue": 56,
       "url": "https://github.com/docxology/CogSecSkills/issues/56",
-      "disposition": "repaired",
+      "disposition": "partially repaired; follow-up remains open",
       "summary": "Real registry/config negative cases cover collection, duplicate-key, type and path interactions. Reused quality-entry controls cover all three governed fields; no shared-item exemptions are configured or claimed tested as future behavior.",
       "evidence_paths": [
         "tests/core/test_input_boundaries.py",
         "tests/authoring/test_cogsecskills_author.py"
       ],
       "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
-      "qualification": "candidate_not_yet_published"
+      "qualification": "source_verified_with_qualified_runtime_receipt",
+      "remaining_work": "All governed duplicate-quality fields are exercised; the requested whitelist-policy disposition and nonexistent-root CLI control remain open."
     }
+  ],
+  "open_followup_issues": [
+    30,
+    52,
+    54,
+    56
   ]
 }
