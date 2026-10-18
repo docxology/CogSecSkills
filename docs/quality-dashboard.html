@@ -226,8 +226,8 @@
 <li>Dashboard gate: `dashboard --check` -&gt; `quality dashboard is current`.</li>
 <li>Release gate: `release-metadata --check` -&gt; `release metadata is current (local mode)`.</li>
 <li>Manuscript gate: `manuscript-assets --check` -&gt; `manuscript assets are current`.</li>
-<li>Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -&gt; `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).</li>
-<li>Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -&gt; clean; 108 files already formatted.</li>
+<li>Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -&gt; `1264 passed in 95.56s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).</li>
+<li>Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -&gt; clean; 111 files already formatted.</li>
 <li>Type gate: `uv run mypy` -&gt; `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.</li>
 <li>Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.</li>
 <li>Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).</li>
@@ -244,8 +244,8 @@
           <thead><tr><th>Surface</th><th>Local evidence checked</th><th>Boundary</th></tr></thead>
           <tbody>
 <tr><td>Scenario readiness</td><td>Routed safe and unsafe fixtures with expected answers</td><td>No live model runtime or field-effectiveness claim</td></tr>
-<tr><td>Skill worked examples</td><td>One deterministic local worked example per skill</td><td>Reviewed examples are fixtures, not model transcripts</td></tr>
-<tr><td>Offline output review</td><td>Scenario-linked reviewed answers scored with the analyst-output rubric</td><td>Deterministic local fixture only, not benchmark or runtime certification</td></tr>
+<tr><td>Skill worked examples</td><td>One deterministic local worked example per skill</td><td>Authored examples are fixtures, not model transcripts</td></tr>
+<tr><td>Offline output review</td><td>Scenario-linked authored answer keys; no independent review or measured scores</td><td>Deterministic local fixture only, not benchmark or runtime certification</td></tr>
 <tr><td>Quality dashboard</td><td>Cross-checks quality capsule text, scenarios, worked examples, harnesses, references, and source paths</td><td>Drift and navigation surface only</td></tr>
           </tbody>
         </table>

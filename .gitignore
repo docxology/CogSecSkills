@@ -26,3 +26,14 @@ __pycache__/
 .ruff_cache/
 .mypy_cache/
 *.egg-info/
+
+# Reproducible deliverables remain tracked; compiler intermediates stay local.
+output/pdf/_combined_manuscript.*
+output/pdf/_xelatex_stdout.log
+output/pdf/references.bib
+output/web/_combined_manuscript.md
+output/pdf/_latex_stdout.log
+
+# Python wheel/sdist staging; final manuscript outputs remain tracked.
+/build/
+/dist/

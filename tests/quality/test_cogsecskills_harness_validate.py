@@ -170,6 +170,10 @@ def _write_registry(root: Path, rows: list[str]) -> None:
         "skills:\n" + "\n".join(rows) + "\n", encoding="utf-8"
     )
 
+    (root / "registry/groups.yaml").write_text(
+        "groups: [{id: sat, title: SAT}]\n", encoding="utf-8"
+    )
+
 
 def test_validate_library_coherent(tmp_path):
     spec = _spec()

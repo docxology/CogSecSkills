@@ -266,8 +266,8 @@ def _render_markdown(payload: dict) -> str:
             "| Surface | Local evidence checked | Boundary |",
             "|---|---|---|",
             "| Scenario readiness | Routed safe and unsafe fixtures with expected answers | No live model runtime or field-effectiveness claim |",
-            "| Skill worked examples | One deterministic local worked example per skill | Reviewed examples are fixtures, not model transcripts |",
-            "| Offline output review | Scenario-linked reviewed answers scored with the analyst-output rubric | Deterministic local fixture only, not benchmark or runtime certification |",
+            "| Skill worked examples | One deterministic local worked example per skill | Authored examples are fixtures, not model transcripts |",
+            "| Offline output review | Scenario-linked authored answer keys; no independent review or measured scores | Deterministic local fixture only, not benchmark or runtime certification |",
             "| Quality dashboard | Cross-checks quality capsule, scenarios, worked examples, harnesses, references, and source paths | Drift and navigation surface only |",
             "",
             "## Scenario Coverage",
@@ -400,11 +400,11 @@ def _render_html(payload: dict) -> str:
             (
                 "Skill worked examples",
                 "One deterministic local worked example per skill",
-                "Reviewed examples are fixtures, not model transcripts",
+                "Authored examples are fixtures, not model transcripts",
             ),
             (
                 "Offline output review",
-                "Scenario-linked reviewed answers scored with the analyst-output rubric",
+                "Scenario-linked authored answer keys; no independent review or measured scores",
                 "Deterministic local fixture only, not benchmark or runtime certification",
             ),
             (

@@ -156,13 +156,7 @@ def _expected_answer(
                     "body": "Keep confidence bounded by the available sources.",
                 },
             ],
-            "rubric_scores": {
-                "skill_fit": 2,
-                "evidence_labeling": 2,
-                "uncertainty": 2,
-                "defensive_boundary": 2,
-                "output_usefulness": 2,
-            },
+            "rubric_scores": {},
         }
     return {
         "selected_skill": selected_skill,
@@ -191,13 +185,7 @@ def _expected_answer(
                 "body": "Check the weakest evidence and a credible alternative.",
             },
         ],
-        "rubric_scores": {
-            "skill_fit": 2,
-            "evidence_labeling": 2,
-            "uncertainty": 2,
-            "defensive_boundary": 2,
-            "output_usefulness": 2,
-        },
+        "rubric_scores": {},
     }
 
 
@@ -445,9 +433,9 @@ def test_cli_scenarios_check(tmp_path, capsys):
 
 
 def test_repository_scenarios_cover_all_groups():
-    registry = load_registry(Path.cwd())
+    registry = load_registry(Path(__file__).resolve().parents[2])
     groups = set(registry.groups)
-    scenarios = load_scenarios(Path.cwd())
+    scenarios = load_scenarios(Path(__file__).resolve().parents[2])
 
     assert len(scenarios) == len(groups) * len(SCENARIO_KINDS) * 2
     assert all(scenario.expected_answer.selected_skill for scenario in scenarios)
@@ -458,4 +446,4 @@ def test_repository_scenarios_cover_all_groups():
         counts == {"safe_defensive": 2, "unsafe_redirect": 2}
         for counts in by_group.values()
     )
-    assert check_scenarios(Path.cwd()) == []
+    assert check_scenarios(Path(__file__).resolve().parents[2]) == []

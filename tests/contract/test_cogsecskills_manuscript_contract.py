@@ -329,7 +329,7 @@ def test_manuscript_describes_scenario_readiness_gate():
     assert "python -m cogsecskills scenarios --check" in text
     assert "28 curated fixtures" in text
     assert "python -m cogsecskills examples --check" in text
-    assert "one reviewed local worked example per skill" in text
+    assert "one authored local worked example per skill" in text
     assert "expected defensive response shape" in text
     assert "do not ask Claude, Codex, Hermes" in text
     assert "live runtime" in text

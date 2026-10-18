@@ -10,8 +10,9 @@ sections, output not named.
 
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+
+from tests.project_fixtures import copy_project_dirs
 
 import yaml
 
@@ -35,9 +36,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_fixture(tmp_path: Path, *dirnames: str) -> Path:
-    for d in dirnames:
-        shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
-    return tmp_path
+    return copy_project_dirs(tmp_path, *dirnames)
 
 
 # --- evals.py: _section_from_obj error paths ---
@@ -106,7 +105,7 @@ def test_evals_review_from_obj_rubric_scores_not_mapping(tmp_path):
         "sections": [{"title": "A", "body": "B"}],
         "rubric_scores": "notamapping",
     }
-    with pytest.raises(ValueError, match="rubric_scores must be a mapping"):
+    with pytest.raises(ValueError, match="rubric_scores must be an empty mapping"):
         _review_from_obj(entry, path=path)
 
 
@@ -121,7 +120,7 @@ def test_evals_review_from_obj_rubric_score_not_int(tmp_path):
         "rubric_scores": {k: 2 for k in RUBRIC_KEYS},
     }
     entry["rubric_scores"]["skill_fit"] = "notint"
-    with pytest.raises(ValueError, match="rubric_scores.skill_fit must be int"):
+    with pytest.raises(ValueError, match="authored fixture cannot carry rubric scores"):
         _review_from_obj(entry, path=path)
 
 

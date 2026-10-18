@@ -1,4 +1,4 @@
-"""Mechanical checks shared by reviewed scenario and offline answer fixtures.
+"""Mechanical checks shared by authored scenario and offline answer fixtures.
 
 Only answer sections supply response evidence. Source ids, provenance, request
 text, rubric labels, and other metadata cannot satisfy an answer contract.

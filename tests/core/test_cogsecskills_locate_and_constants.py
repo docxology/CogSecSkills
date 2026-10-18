@@ -35,20 +35,19 @@ def test_project_root_is_absolute_and_resolved():
 
 
 def test_project_root_outside_tree_raises(tmp_path, monkeypatch):
-    """If we monkeypatch __file__ to a location outside any project tree,
-    the function should raise RuntimeError."""
+    """An actual copied module outside a project tree fails root discovery."""
+    import runpy
+    import shutil
+    from pathlib import Path
+
     from cogsecskills.core import locate
 
+    copied = tmp_path / "copied_locate.py"
+    shutil.copy2(Path(locate.__file__), copied)
     monkeypatch.chdir(tmp_path)
-    original_file = locate.__file__
-    fake_file = tmp_path / "fake_module.py"
-    fake_file.write_text("# placeholder", encoding="utf-8")
-    try:
-        locate.__file__ = str(fake_file)
-        with pytest.raises(RuntimeError, match="could not locate"):
-            locate.project_root()
-    finally:
-        locate.__file__ = original_file
+    namespace = runpy.run_path(str(copied))
+    with pytest.raises(RuntimeError, match="could not locate"):
+        namespace["project_root"]()
 
 
 # ---------------------------------------------------------------------------

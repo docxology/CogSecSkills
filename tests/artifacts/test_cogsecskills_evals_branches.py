@@ -8,8 +8,9 @@ missing/extra evaluation fixtures, wrong count).
 
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+
+from tests.project_fixtures import copy_project_dirs
 
 import yaml
 
@@ -19,15 +20,13 @@ from cogsecskills.artifacts.evals import (
     load_evaluations,
     write_evals,
 )
-from cogsecskills.artifacts.scenarios import RUBRIC_KEYS
+
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_fixture(tmp_path: Path) -> Path:
-    for dirname in ("registry", "skills", "scenarios"):
-        shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
-    return tmp_path
+    return copy_project_dirs(tmp_path, "registry", "skills", "scenarios")
 
 
 def _make_eval_entry(scenario_id: str = "sat-safe-1") -> dict:
@@ -54,8 +53,8 @@ def _make_eval_entry(scenario_id: str = "sat-safe-1") -> dict:
                 "body": "State confidence and uncertainty with alternatives.",
             },
         ],
-        "rubric_scores": {key: 2 for key in RUBRIC_KEYS},
-        "provenance": "reviewed local fixture",
+        "rubric_scores": {},
+        "provenance": "authored expected-answer fixture",
         "claim_boundary": (
             "deterministic offline review fixture; not a live model output, "
             "runtime certification, or field validation"

@@ -121,12 +121,12 @@ def test_evaluation_cannot_satisfy_contract_with_metadata(tmp_path):
         source,
         lambda raw: raw["scenarios"][0]["expected_response"][
             "must_include_terms"
-        ].append("reviewed local fixture"),
+        ].append("authored expected-answer fixture"),
     )
     write_evals(tmp_path)
     findings = check_evals(tmp_path)
     assert any(
-        "required response term 'reviewed local fixture' is missing" in f
+        "required response term 'authored expected-answer fixture' is missing" in f
         for f in findings
     )
 
@@ -183,10 +183,10 @@ def test_boolean_cannot_be_a_rubric_integer(tmp_path, surface):
         row = raw[key][0]
         if score_field:
             row = row[score_field]
-        row["rubric_scores"]["skill_fit"] = True
+        row["rubric_scores"] = {"skill_fit": True}
 
     _update(source, change)
-    with pytest.raises(ValueError, match="rubric_scores.skill_fit must be"):
+    with pytest.raises(ValueError, match="cannot carry rubric scores"):
         load(tmp_path)
 
 

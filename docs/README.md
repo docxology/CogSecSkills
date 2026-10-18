@@ -29,7 +29,7 @@ The complete documentation map. Start with whichever row matches what you need.
 | **Run scenarios through a live harness** | [`live-eval.md`](live-eval.md) — opt-in `eval-live` runtime screening with claim boundaries and harness command templates |
 | **Scope work that lives in sibling repos** | [`cross-repo-scoping.md`](cross-repo-scoping.md) — PDF render via the docxology template, connector prerequisites, Zenodo deposit checklist |
 | **Prepare a release candidate** | [`release-checklist.md`](release-checklist.md) — source, style, type, manuscript, and human review gates |
-| **Browse all 100 skills** | [`catalogue.md`](catalogue.md) — generated index, grouped (regenerate: `cogsecskills catalogue`) |
+| **Browse all 100 skills** | [`catalogue.md`](catalogue.md) — generated index, grouped (regenerate: `cogsecskills catalogue --markdown --output docs/catalogue.md`) |
 | **Regenerate manuscript supplements and figures** | [`cli.md#manuscript-assets--generate-or-check-manuscript-supplements-and-figures`](cli.md#manuscript-assets--generate-or-check-manuscript-supplements-and-figures) — `manuscript-assets --write|--check` |
 | **Learn the concepts** (the *why*) | [`ageint/`](ageint/README.md) — the AGEINT educational upstream + 7 topic primers |
 | **Work in this repo as an agent** | [`../AGENTS.md`](../AGENTS.md) — contributor rules for AI agents |

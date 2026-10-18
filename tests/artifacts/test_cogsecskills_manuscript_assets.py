@@ -159,14 +159,14 @@ def test_render_supplements_include_skill_metadata(tmp_path):
     rows = collect_skill_rows(tmp_path)
     catalogue = render_skill_catalogue(rows)
     matrix = render_metadata_matrix(rows)
-    assert "Supplemental 100-Skill Catalogue" in catalogue
+    assert f"Supplemental {len(rows)}-Skill Catalogue" in catalogue
     assert "Use when" in catalogue
     assert "Quality capsule" in catalogue
     assert "Unsafe redirect:" in catalogue
     assert "Safe defensive:" in catalogue
     assert "Claim Provenance Verification" in catalogue
     assert r"\begin{longtable}" in catalogue
-    assert r"p{0.455\linewidth}" in catalogue
+    assert r"p{0.45\linewidth}" in catalogue
     assert r"\scriptsize" in catalogue
     assert r"Source: skills/\allowbreak{}osint\_\allowbreak{}integrity/" in catalogue
     assert "Supplemental Skill Metadata and Figure Matrix" in matrix
@@ -198,8 +198,9 @@ def test_cover_readability_constants_are_pdf_first():
 
 
 def test_live_group_palette_covers_registry_groups():
-    rows = collect_skill_rows(Path.cwd())
+    rows = collect_skill_rows(Path(__file__).resolve().parents[2])
     groups = {row.group for row in rows}
+    assert rows
     assert groups <= set(GROUP_COLORS)
 
 

@@ -43,7 +43,8 @@ dependencies installed (`--no-sync` preserves that environment).
 export PROJECT_ROOT="${PROJECT_ROOT:-/path/to/CogSecSkills}"
 export TEMPLATE_ROOT="${TEMPLATE_ROOT:-/path/to/template}"
 cd "${TEMPLATE_ROOT}"
-uv run --no-sync python -m infrastructure.validation.cli markdown "${PROJECT_ROOT}/docs/manuscript" --repo-root "${PROJECT_ROOT}"
+uv run --no-sync python -m infrastructure.validation.cli markdown \
+  "${PROJECT_ROOT}/docs/manuscript" --repo-root "${PROJECT_ROOT}"
 uv run --no-sync python - <<'PYRENDER'
 from dataclasses import replace
 from pathlib import Path
@@ -66,8 +67,17 @@ sources = [p for p in discover_manuscript_files(manuscript) if p.suffix == ".md"
 print(manager.render_combined_pdf(sources, manuscript, "CogSecSkills"))
 print(manager.render_combined_web(sources, manuscript, "CogSecSkills"))
 PYRENDER
-pdftotext "${PROJECT_ROOT}/output/pdf/CogSecSkills_combined.pdf" - | rg "References|Supplemental 100-Skill Catalogue|Use when|Claim Provenance Verification|Taxonomy|Reference Density|Harness Contract|Evidence Ladder|Skill Worked Examples|Scenario Readiness|expected answers|Quality Dashboard|Release Manifest"
-rg -n "Citation .*undefined|undefined references|LaTeX Warning: Reference.*undefined|Missing character|Package .* Error|File .* not found" "${PROJECT_ROOT}/output/pdf/_combined_manuscript.log"
+RENDER_MARKERS='References|Supplemental 100-Skill Catalogue'
+RENDER_MARKERS+='|Use when|Claim Provenance Verification|Taxonomy'
+RENDER_MARKERS+='|Reference Density|Harness Contract|Evidence Ladder'
+RENDER_MARKERS+='|Skill Worked Examples|Scenario Readiness|expected answers'
+RENDER_MARKERS+='|Quality Dashboard|Release Manifest'
+pdftotext "${PROJECT_ROOT}/output/pdf/CogSecSkills_combined.pdf" - \
+  | rg "${RENDER_MARKERS}"
+LOG_ERRORS='Citation .*undefined|undefined references'
+LOG_ERRORS+='|LaTeX Warning: Reference.*undefined|Missing character'
+LOG_ERRORS+='|Package .* Error|File .* not found'
+rg -n "${LOG_ERRORS}" "${PROJECT_ROOT}/output/pdf/_combined_manuscript.log"
 ```
 
 Rendering updates the combined PDF under `output/pdf/` and HTML under

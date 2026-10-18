@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
-import shutil
 from pathlib import Path
+
+from tests.project_fixtures import copy_project_dirs
 
 import yaml
 
@@ -18,9 +19,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_examples_fixture(tmp_path: Path) -> Path:
-    for dirname in ("registry", "skills", "examples"):
-        shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
-    return tmp_path
+    return copy_project_dirs(tmp_path, "registry", "skills", "examples")
 
 
 def test_repository_examples_cover_all_rendered_skills():
@@ -33,18 +32,21 @@ def test_repository_examples_cover_all_rendered_skills():
         )["skills"]
     }
 
-    assert len(examples) == 100
+    assert len(examples) == len(registry_ids)
     assert skill_ids == registry_ids
     assert check_examples(PROJECT_ROOT) == []
-    assert all(example.provenance == "reviewed local fixture" for example in examples)
+    assert all(example.provenance == "authored local example" for example in examples)
 
 
 def test_examples_write_and_check_generate_markdown_and_json(tmp_path):
     root = _copy_examples_fixture(tmp_path)
 
+    expected_count = len(
+        yaml.safe_load((root / "registry/skills.yaml").read_text())["skills"]
+    )
     result = write_examples(root)
 
-    assert result["examples"] == 100
+    assert result["examples"] == expected_count
     assert result["markdown"] == str(EXAMPLES_MD_PATH)
     assert result["data"] == str(EXAMPLES_JSON_PATH)
     assert check_examples(root) == []
@@ -53,8 +55,8 @@ def test_examples_write_and_check_generate_markdown_and_json(tmp_path):
     payload = json.loads((root / EXAMPLES_JSON_PATH).read_text(encoding="utf-8"))
     assert "# CogSecSkills Skill Worked Examples" in markdown
     assert "deterministic local examples" in markdown
-    assert payload["summary"]["examples"] == 100
-    assert len(payload["examples"]) == 100
+    assert payload["summary"]["examples"] == expected_count
+    assert len(payload["examples"]) == expected_count
     assert all(item["skill_id"] for item in payload["examples"])
 
 

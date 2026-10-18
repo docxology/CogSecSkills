@@ -1,6 +1,6 @@
 """Command-line interface for the CogSecSkills runner.
 
-Thin orchestrator over the library API. All logic lives in the sibling modules;
+Thin orchestrator over the library API. Logic lives in the core, authoring, quality, artifacts, and runtime packages;
 this file only parses arguments, calls them, and prints results.
 
 Usage::
@@ -19,7 +19,7 @@ Usage::
     python -m cogsecskills dashboard --write|--check
     python -m cogsecskills release-metadata --write|--check
     python -m cogsecskills manuscript-assets --write|--check
-    python -m cogsecskills scaffold <skill-id> [--root PATH]
+    python -m cogsecskills [--root PATH] scaffold <skill-id>
     python -m cogsecskills author <definition.(json|yaml)>
     python -m cogsecskills author-batch [--keep-defs]
     python -m cogsecskills eval-live --harness H [--scenario ID] [--mode M]
@@ -41,6 +41,7 @@ from cogsecskills.artifacts.examples import check_examples, write_examples
 from cogsecskills.artifacts.manuscript_assets import check_assets, write_assets
 from cogsecskills.artifacts.release_metadata import (
     check_release_metadata,
+    check_release_policy,
     write_release_metadata,
 )
 from cogsecskills.artifacts.scenarios import check_scenarios, scenario_summary
@@ -420,13 +421,20 @@ def _cmd_release_metadata(args: argparse.Namespace) -> int:
         )
         return 0
 
-    findings = check_release_metadata(args.root, mode=args.mode)
+    findings = (
+        check_release_policy(args.root, mode=args.mode)
+        if args.check_policy
+        else check_release_metadata(args.root, mode=args.mode)
+    )
     if findings:
         for finding in findings:
             print(f"RELEASE  {finding}")
         print(f"\n{len(findings)} release metadata issue(s)")
         return 1
-    print(f"release metadata is current ({args.mode} mode)")
+    if args.check_policy:
+        print(f"release policy passes ({args.mode} mode)")
+    else:
+        print(f"release metadata is current ({args.mode} mode)")
     return 0
 
 
@@ -742,6 +750,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--check",
         action="store_true",
         help="fail if release metadata outputs are stale or inconsistent",
+    )
+    release_mode.add_argument(
+        "--check-policy",
+        action="store_true",
+        help="check runtime git/archive policy without rewriting local projections",
     )
     p_release.add_argument(
         "--mode",

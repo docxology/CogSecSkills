@@ -76,7 +76,7 @@ def render_skill_catalogue(rows: list[SkillRow]) -> str:
     lines = [
         GENERATED_HEADER,
         "",
-        "# Supplemental 100-Skill Catalogue {#sec:supplemental_skill_catalogue}",
+        f"# Supplemental {len(rows)}-Skill Catalogue {{#sec:supplemental_skill_catalogue}}",
         "",
         "This generated supplement lists the live CogSecSkills library by taxonomy "
         "group. Each row is derived from `registry/skills.yaml` and the matching "
@@ -101,9 +101,9 @@ def render_skill_catalogue(rows: list[SkillRow]) -> str:
                 r"\begin{longtable}{@{}"
                 r">{\raggedright\arraybackslash}p{0.105\linewidth}"
                 r">{\raggedright\arraybackslash}p{0.13\linewidth}"
-                r">{\raggedright\arraybackslash}p{0.095\linewidth}"
+                r">{\raggedright\arraybackslash}p{0.10\linewidth}"
                 r">{\raggedright\arraybackslash}p{0.135\linewidth}"
-                r">{\raggedright\arraybackslash}p{0.455\linewidth}@{}}",
+                r">{\raggedright\arraybackslash}p{0.45\linewidth}@{}}",
                 r"\toprule",
                 (
                     r"\textbf{Skill} & \textbf{Functionality} & "

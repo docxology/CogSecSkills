@@ -153,7 +153,7 @@ def test_cli_report_json(tmp_path, capsys):
     rc = main(["--root", str(tmp_path), "report"])
     out = capsys.readouterr().out
     assert rc == 0
-    assert '"registry_total": 1' in out
+    assert json.loads(out)["registry_total"] == 1
 
 
 def test_cli_scaffold_and_show(tmp_path, capsys):

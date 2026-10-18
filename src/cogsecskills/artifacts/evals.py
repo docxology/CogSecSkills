@@ -32,9 +32,10 @@ EVALS_SOURCE_PATH = Path("evals/local_output_review.yaml")
 EVALS_MD_PATH = Path("docs/evaluation-readiness.md")
 EVALS_JSON_PATH = Path("output/data/evaluation_readiness.json")
 
-PROVENANCE = "reviewed local fixture"
+PROVENANCE = "authored expected-answer fixture"
 CLAIM_BOUNDARY = (
-    "deterministic offline review fixture; not a live model output, runtime "
+    "authored expected-answer fixture without independent review or measured scores; "
+    "not a live model output, runtime "
     "certification, or field validation"
 )
 
@@ -47,6 +48,8 @@ class EvaluationSection:
 
 @dataclass(frozen=True)
 class EvaluationReview:
+    """Legacy API name for an authored fixture; loaded fixtures leave rubric_scores empty."""
+
     scenario_id: str
     group: str
     kind: str
@@ -83,15 +86,16 @@ def _review_from_obj(obj: object, *, path: Path) -> EvaluationReview:
     sections_raw = obj.get("sections")
     if not isinstance(sections_raw, list) or not sections_raw:
         raise ValueError(f"{path}: {scenario_id}: sections must be a non-empty list")
-    scores_raw = obj.get("rubric_scores")
+    scores_raw = obj.get("rubric_scores", {})
     if not isinstance(scores_raw, Mapping):
-        raise ValueError(f"{path}: {scenario_id}: rubric_scores must be a mapping")
+        raise ValueError(
+            f"{path}: {scenario_id}: rubric_scores must be an empty mapping"
+        )
+    if scores_raw:
+        raise ValueError(
+            f"{path}: {scenario_id}: authored fixture cannot carry rubric scores"
+        )
     scores: dict[str, int] = {}
-    for key in RUBRIC_KEYS:
-        value = scores_raw.get(key)
-        if type(value) is not int:
-            raise ValueError(f"{path}: {scenario_id}: rubric_scores.{key} must be int")
-        scores[key] = value
     return EvaluationReview(
         scenario_id=scenario_id,
         group=as_text(obj.get("group"), field="group", path=path),
@@ -120,7 +124,6 @@ def _review_from_scenario(scenario: Scenario) -> dict[str, Any]:
         "selected_skill": scenario.expected_answer.selected_skill,
         "answer_kind": scenario.expected_answer.answer_kind,
         "sections": [asdict(section) for section in scenario.expected_answer.sections],
-        "rubric_scores": dict(scenario.expected_answer.rubric_scores),
         "provenance": PROVENANCE,
         "claim_boundary": CLAIM_BOUNDARY,
     }
@@ -130,15 +133,16 @@ def _expected_source_text(root: Path | None = None) -> str:
     """Return the canonical YAML text for the offline-evals source file."""
     scenarios = load_scenarios(root)
     payload = {
-        "version": 1,
+        "version": 2,
         "description": (
-            "Offline reviewed local output fixtures derived from defensive "
-            "scenario expected answers. These are not live model outputs."
+            "Authored expected-answer fixtures derived from defensive scenarios. "
+            "The legacy filename does not establish an independent review event. "
+            "No measured rubric scores or live outputs are supplied."
         ),
         "rubric": {
             "source": "docs/analyst-output-review.md",
             "scale": "0, 1, 2",
-            "passing_score": 2,
+            "intended_use": "future independent review; not applied to these fixtures",
             "dimensions": list(RUBRIC_KEYS),
         },
         "evaluations": [_review_from_scenario(scenario) for scenario in scenarios],
@@ -175,6 +179,8 @@ def _payload(
     scenario_by_id = {scenario.id: scenario for scenario in scenarios}
     rows = []
     for review in reviews:
+        if review.rubric_scores:
+            raise ValueError("authored fixture cannot carry rubric scores")
         scenario = scenario_by_id.get(review.scenario_id)
         rows.append(
             {
@@ -185,17 +191,19 @@ def _payload(
                 "expected_skill": scenario.expected_skill if scenario else "",
                 "answer_kind": review.answer_kind,
                 "sections": [asdict(section) for section in review.sections],
-                "rubric_scores": dict(review.rubric_scores),
                 "provenance": review.provenance,
                 "claim_boundary": review.claim_boundary,
             }
         )
     return {
+        "schema_version": 2,
+        "artifact_kind": "authored_expected_answer_fixtures",
         "summary": {
             "evaluations": len(reviews),
             "scenarios": len(scenarios),
             "groups": len({review.group for review in reviews}),
-            "passing_score": 2,
+            "independent_review_records": 0,
+            "measured_score_records": 0,
             "rubric_dimensions": list(RUBRIC_KEYS),
             "source": str(EVALS_SOURCE_PATH),
         },
@@ -211,10 +219,15 @@ def _render_markdown(payload: dict[str, Any]) -> str:
         "",
         "# CogSecSkills Evaluation Readiness",
         "",
-        "This generated report summarizes deterministic offline output-review "
-        "fixtures. The fixtures are reviewed local answers linked to scenario "
-        "ids; they are not live model outputs, runtime certification, field "
-        "validation, or benchmark results.",
+        "This generated report summarizes authored expected-answer fixtures. "
+        "The legacy `evals` command and filename do not establish independent "
+        "review, measured rubric scores, live model outputs, runtime certification, "
+        "field validation, or benchmark results.",
+        "",
+        "Heading and vocabulary presence checks establish literal contract "
+        "coherence only. They do not assess reasoning quality or rubric conformance. "
+        "Use [the future independent review protocol](future-validation-protocols.md) "
+        "before publishing an output-quality assessment.",
         "",
         "## Summary",
         "",
@@ -223,9 +236,10 @@ def _render_markdown(payload: dict[str, Any]) -> str:
         f"| Evaluation fixtures | {summary['evaluations']} |",
         f"| Scenario fixtures | {summary['scenarios']} |",
         f"| Groups | {summary['groups']} |",
-        f"| Passing score per dimension | {summary['passing_score']} |",
+        f"| Independent review records in this artifact | {summary['independent_review_records']} |",
+        f"| Measured score records in this artifact | {summary['measured_score_records']} |",
         "",
-        "## Rubric Dimensions",
+        "## Future Review Dimensions (Not Applied Here)",
         "",
     ]
     for key in summary["rubric_dimensions"]:
@@ -235,14 +249,11 @@ def _render_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Fixture Matrix",
             "",
-            "| Scenario | Kind | Skill | Answer kind | Scores | Claim boundary |",
-            "|---|---|---|---|---|---|",
+            "| Scenario | Kind | Skill | Answer kind | Claim boundary |",
+            "|---|---|---|---|---|",
         ]
     )
     for row in payload["evaluations"]:
-        scores = ", ".join(
-            f"{key}={value}" for key, value in row["rubric_scores"].items()
-        )
         lines.append(
             "| "
             + " | ".join(
@@ -251,7 +262,6 @@ def _render_markdown(payload: dict[str, Any]) -> str:
                     clean_cell(row["kind"]),
                     f"`{clean_cell(row['selected_skill'])}`",
                     clean_cell(row["answer_kind"]),
-                    clean_cell(scores),
                     clean_cell(row["claim_boundary"]),
                 ]
             )
@@ -299,9 +309,10 @@ def _content_findings(base: Path, reviews: list[EvaluationReview]) -> list[str]:
             findings.append(f"{review.scenario_id}: provenance must be {PROVENANCE!r}")
         if "not a live model output" not in review.claim_boundary:
             findings.append(f"{review.scenario_id}: claim boundary is too broad")
-        for key in RUBRIC_KEYS:
-            if review.rubric_scores.get(key) != 2:
-                findings.append(f"{review.scenario_id}: rubric {key} must be 2")
+        if review.rubric_scores:
+            findings.append(
+                f"{review.scenario_id}: authored fixture cannot carry rubric scores"
+            )
         titles = [section.title.strip().lower() for section in review.sections]
         if len(review.sections) < 3:
             findings.append(f"{review.scenario_id}: at least 3 sections are required")

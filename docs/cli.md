@@ -2,12 +2,12 @@
 
 The `cogsecskills` command-line interface is a thin orchestrator over the
 library API. It catalogues, validates, routes, scaffolds, authors, reports on,
-and generates manuscript assets from the skill library. All business logic lives
-in the sibling modules
-(`insights.py`, `validate.py`, `author.py`, `scaffold.py`, `registry.py`,
-`config.py`, `definitions.py`, `scenarios.py`, `examples.py`, `dashboard.py`,
-`manuscript_assets.py`); the CLI only parses arguments, calls them, and prints
-results.
+and generates manuscript assets from the skill library. Business logic lives
+in the `core/`, `authoring/`, `quality/`, `artifacts/`, and `runtime/` packages,
+with `runtime_eval.py` as the runtime facade. Artifact owners include definitions,
+scenarios, examples, evals, dashboard, release metadata, and the
+`artifacts/manuscript_assets/` package. The CLI parses arguments, calls those
+owners, and prints results.
 
 ## Invocation
 
@@ -28,6 +28,9 @@ This reference uses `cogsecskills <command>` throughout; prefix it with `uv run`
 when using the uv setup. The wheel installs the runner, not the skill corpus;
 keep a library checkout and use `--root /path/to/CogSecSkills` when invoking the
 installed runner from an unrelated directory.
+
+Global options precede the subcommand, for example:
+`cogsecskills --root /path/to/CogSecSkills show sat.analysis_of_competing_hypotheses`.
 
 ### Global options
 
@@ -356,7 +359,7 @@ Check the curated repository-local scenario fixtures under
 `scenarios/defensive_readiness.yaml`. The gate validates that each fixture routes
 to the expected implemented skill, names a safe defensive or unsafe redirect
 case, references declared output terms, declares an expected defensive response
-shape, carries a reviewed local expected-answer fixture, and points at skills
+shape, carries a authored local expected-answer fixture, and points at skills
 with the required quality, evidence, uncertainty, and refusal/redirect metadata.
 
 ```
@@ -386,7 +389,7 @@ scenario use and describe the expected answer shape.
 
 Generate Markdown and JSON worked-example views from the source-owned
 `examples/skill-worked-examples.yaml` file. The source file contains one
-reviewed local fixture per skill. The generated outputs are deterministic
+authored local fixture per skill. The generated outputs are deterministic
 examples, not live model transcripts or runtime certification.
 
 ```
@@ -412,10 +415,11 @@ worked examples are current
 
 ### `evals` — generate or check offline output-review fixtures
 
-Generate scenario-linked offline review fixtures and a Markdown/JSON report
-from the deterministic scenario expected answers. These fixtures use the
-analyst-output review rubric; they are not live model outputs or benchmark
-results.
+Generate authored, unscored expected-answer fixtures and Markdown/JSON mirrors
+from the deterministic scenario source. The legacy command and filename do not
+establish an independent review event. Authored fixtures cannot carry rubric
+scores; the analyst-output rubric is reserved for separately recorded reviews.
+These are not live model outputs or benchmark results.
 
 ```
 cogsecskills evals (--write | --check)
@@ -424,7 +428,7 @@ cogsecskills evals (--write | --check)
 | Flag | Meaning |
 | --- | --- |
 | `--write` | Write `evals/local_output_review.yaml`, `docs/evaluation-readiness.md`, and `output/data/evaluation_readiness.json`. |
-| `--check` | Fail if offline review fixtures are missing, stale, below the passing rubric score, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
+| `--check` | Fail if offline review fixtures are missing, stale, carrying fabricated rubric ratings, unsafe, mismatched to scenarios, or generated outputs are missing or stale. |
 
 ```bash
 cogsecskills evals --write
@@ -520,7 +524,7 @@ Exact git revision, branch, and dirty-state values are runtime observations,
 not drift-checked committed values.
 
 ```
-cogsecskills release-metadata (--write | --check) [--mode local|release-candidate|public-archive]
+cogsecskills release-metadata (--write | --check | --check-policy) [--mode local|release-candidate|public-archive]
 ```
 
 | Flag | Meaning |
@@ -873,3 +877,9 @@ cogsecskills list --status implemented
 - [skill-contract.md](skill-contract.md) — the validation contract enforced by
   `validate` and `doctor`.
 - [catalogue.md](catalogue.md) — the generated catalogue (`catalogue --markdown`).
+
+The `--check-policy` action checks actual runtime Git and archive policy without
+rewriting the committed local projection. Release tags (`v*`) run both local
+coherence and `--check-policy --mode release-candidate` before builds. A dirty
+checkout fails that candidate policy. This does not create a release or assert
+DOI archival; `public-archive` additionally requires a valid DOI declaration.

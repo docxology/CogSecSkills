@@ -101,7 +101,7 @@ profiles:
     recommended_config_name: autogen
     instruction_surface: AgentChat/Core agent definitions, messages, and application prompts.
     tool_surface: AgentChat, Core, extensions, MCP workbenches, and code-execution components.
-    official_doc_url: https://microsoft.github.io/autogen/stable//index.html
+    official_doc_url: https://microsoft.github.io/autogen/stable/index.html
     claim_boundary: Programmatic profile only; integration must be evaluated in its concrete application.
   - id: crewai
     display_name: CrewAI

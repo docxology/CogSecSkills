@@ -138,7 +138,7 @@ def _render_markdown(payload: dict[str, Any]) -> str:
         "# CogSecSkills Skill Worked Examples",
         "",
         "These deterministic local examples show the expected shape of defensive "
-        "skill use. They are reviewed fixtures, not live model outputs, runtime "
+        "skill use. They are authored fixtures, not live model outputs, runtime "
         "certification, or field validation.",
         "",
         "## Summary",
@@ -207,9 +207,9 @@ def _content_findings(base: Path, examples: list[WorkedExample]) -> list[str]:
         if spec is None:
             findings.append(f"{example.skill_id}: rendered skill is missing")
             continue
-        if example.provenance != "reviewed local fixture":
+        if example.provenance != "authored local example":
             findings.append(
-                f"{example.skill_id}: provenance must be reviewed local fixture"
+                f"{example.skill_id}: provenance must be authored local example"
             )
         titles = [section.title.strip().lower() for section in example.sections]
         if len(example.sections) < 3:
@@ -271,7 +271,10 @@ def check_examples(root: Path | None = None) -> list[str]:
         examples = load_examples(base)
     except ValueError as exc:
         return [str(exc)]
-    findings = _content_findings(base, examples)
+    try:
+        findings = _content_findings(base, examples)
+    except ValueError as exc:
+        return [str(exc)]
     try:
         outputs = _expected_outputs(base)
     except ValueError as exc:

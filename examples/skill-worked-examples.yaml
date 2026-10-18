@@ -18,7 +18,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for getting_started_baseline. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.customer_aims_checklist
   title: Defensive Customer (AIMS) Checklist worked example
   request: Use Customer (AIMS) Checklist defensively on authorized product_or_outline, consumer_context
@@ -36,7 +36,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for aims_worksheet, gap_and_misalignment_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.issue_redefinition
   title: Defensive Issue Redefinition worked example
   request: Use Issue Redefinition defensively on authorized original_question, tasking_context and
@@ -53,7 +53,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for restatements_register, preferred_framing. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.chronologies_and_timelines
   title: Defensive Chronologies & Timelines worked example
   request: Use Chronologies & Timelines defensively on authorized event_sources, analytic_question,
@@ -72,7 +72,7 @@ examples:
     body: 'Confidence: state the support level for chronology, gap_and_anomaly_report, key_findings.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.sorting
   title: Defensive Sorting worked example
   request: Use Sorting defensively on authorized evidence_set, sort_dimensions and produce sorted_table,
@@ -88,7 +88,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for sorted_table, outlier_flags. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.ranking_and_prioritization
   title: Defensive Ranking & Prioritization worked example
   request: Use Ranking & Prioritization defensively on authorized item_list, criteria, decision_context
@@ -107,7 +107,7 @@ examples:
     body: 'Confidence: state the support level for scoring_matrix, ranked_list, sensitivity_analysis.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.analytic_matrices
   title: Defensive Analytic Matrices worked example
   request: Use Analytic Matrices defensively on authorized analytic_question, variables_or_hypotheses,
@@ -125,7 +125,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for analytic_matrix, pattern_summary. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.network_analysis
   title: Defensive Network Analysis worked example
   request: Use Network Analysis defensively on authorized node_list, edge_list, analytic_question
@@ -144,7 +144,7 @@ examples:
     body: 'Confidence: state the support level for centrality_report, structural_findings, collection_gaps.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.mind_maps_and_concept_maps
   title: Defensive Mind Maps & Concept Maps worked example
   request: Use Mind Maps & Concept Maps defensively on authorized source_material, central_topic,
@@ -162,7 +162,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for concept_graph, gap_and_conflict_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.process_and_gantt_mapping
   title: Defensive Process & Gantt Mapping worked example
   request: Use Process & Gantt Mapping defensively on authorized activity_description, known_steps,
@@ -179,7 +179,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for process_map, gantt_table. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.structured_brainstorming
   title: Defensive Structured Brainstorming worked example
   request: Use Structured Brainstorming defensively on authorized problem_statement, prior_framing,
@@ -197,7 +197,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for raw_idea_inventory, ranked_shortlist. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.nominal_group_technique
   title: Defensive Nominal Group Technique worked example
   request: Use Nominal Group Technique defensively on authorized focal_question, participant_idea_sets,
@@ -213,7 +213,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for ngt_record. Uncertainty: preserve unknowns, alternatives,
       and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.starbursting
   title: Defensive Starbursting worked example
   request: Use Starbursting defensively on authorized topic_or_artifact, context and produce question_map,
@@ -230,7 +230,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for question_map, key_unknowns_summary. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.cross_impact_matrix
   title: Defensive Cross-Impact Matrix worked example
   request: Use Cross-Impact Matrix defensively on authorized driver_list, influence_scale, focal_question
@@ -249,7 +249,7 @@ examples:
     body: 'Confidence: state the support level for cross_impact_matrix, loop_inventory, leverage_ranking,
       analytic_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before
       using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.morphological_analysis
   title: Defensive Morphological Analysis worked example
   request: Use Morphological Analysis defensively on authorized problem_statement, known_constraints
@@ -268,7 +268,7 @@ examples:
     body: 'Confidence: state the support level for morphological_box, scenario_inventory, priority_findings.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.quadrant_crunching
   title: Defensive Quadrant Crunching worked example
   request: Use Quadrant Crunching defensively on authorized problem_statement, dominant_assessment,
@@ -287,7 +287,7 @@ examples:
     body: 'Confidence: state the support level for scenario_matrix, scenario_narratives, neglected_cells.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.alternative_futures_scenarios
   title: Defensive Alternative Futures (Scenarios) worked example
   request: Use Alternative Futures (Scenarios) defensively on authorized problem_statement, known_drivers,
@@ -306,7 +306,7 @@ examples:
     body: 'Confidence: state the support level for scenario_matrix, scenario_narratives, indicator_set,
       strategy_stress_test. Uncertainty: preserve unknowns, alternatives, and follow-up checks before
       using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.indicators_generation
   title: Defensive Indicators Generation worked example
   request: Use Indicators Generation defensively on authorized scenarios_or_hypotheses, actor_profile,
@@ -324,7 +324,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for indicators_matrix, indicators_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.indicators_validation
   title: Defensive Indicators Validation worked example
   request: Use Indicators Validation defensively on authorized candidate_indicators, scenarios_or_hypotheses,
@@ -343,7 +343,7 @@ examples:
     body: 'Confidence: state the support level for validated_indicators_matrix, validation_report.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.signposts_of_change
   title: Defensive Signposts of Change worked example
   request: Use Signposts of Change defensively on authorized scenarios_or_hypotheses, current_assessment,
@@ -362,7 +362,7 @@ examples:
     body: 'Confidence: state the support level for signpost_matrix, collection_guidance, update_protocol.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.analysis_of_competing_hypotheses
   title: Defensive Analysis of Competing Hypotheses (ACH) worked example
   request: Use Analysis of Competing Hypotheses (ACH) defensively on authorized question, hypotheses,
@@ -386,7 +386,7 @@ examples:
       preserve the collection gap in the matrix, keep the ranking provisional, and
       list restoration of authorized observation as an indicator check. Do not invent
       a third explanation or count the absent record as an inconsistency.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.key_assumptions_check
   title: Defensive Key Assumptions Check worked example
   request: Use Key Assumptions Check defensively on authorized judgment, analytic_line, stated_assumptions
@@ -405,7 +405,7 @@ examples:
     body: 'Confidence: state the support level for assumptions_table, key_assumptions, revised_judgment.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.multiple_hypothesis_generation
   title: Defensive Multiple Hypothesis Generation worked example
   request: Use Multiple Hypothesis Generation defensively on authorized evidence_set, initial_hypotheses,
@@ -423,7 +423,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for hypothesis_set, completeness_check. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.diagnostic_reasoning
   title: Defensive Diagnostic Reasoning worked example
   request: Use Diagnostic Reasoning defensively on authorized new_datum, competing_hypotheses, prior_assessments
@@ -442,7 +442,7 @@ examples:
     body: 'Confidence: state the support level for diagnostic_table, updated_ranking, diagnostic_value_assessment.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.argument_mapping
   title: Defensive Argument Mapping worked example
   request: Use Argument Mapping defensively on authorized argument_source, focal_claim and produce
@@ -461,7 +461,7 @@ examples:
     body: 'Confidence: state the support level for argument_map, load_bearing_assumption_list, logical_gap_report.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.structured_analogies
   title: Defensive Structured Analogies worked example
   request: Use Structured Analogies defensively on authorized current_situation, candidate_cases,
@@ -480,7 +480,7 @@ examples:
     body: 'Confidence: state the support level for case_comparison_table, lessons_and_predictions.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.red_hat_analysis
   title: Defensive Red Hat Analysis worked example
   request: Use Red Hat Analysis defensively on authorized adversary_profile, situation_context, analytic_question
@@ -499,7 +499,7 @@ examples:
     body: 'Confidence: state the support level for adversary_frame, courses_of_action, mirror_imaging_flags.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.outside_in_thinking
   title: Defensive Outside-In Thinking worked example
   request: Use Outside-In Thinking defensively on authorized focal_issue, prior_assessments, environmental_scan
@@ -516,7 +516,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for outside_in_analysis. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.causal_flow_diagramming
   title: Defensive Causal Flow Diagramming worked example
   request: Use Causal Flow Diagramming defensively on authorized system_description, known_variables,
@@ -535,7 +535,7 @@ examples:
     body: 'Confidence: state the support level for causal_flow_diagram, loop_inventory, leverage_point_assessment.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.premortem_analysis
   title: Defensive Premortem Analysis worked example
   request: Use Premortem Analysis defensively on authorized plan_or_assessment, time_horizon and produce
@@ -551,7 +551,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for failure_modes. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.devils_advocacy
   title: Defensive Devil's Advocacy worked example
   request: Use Devil's Advocacy defensively on authorized consensus_judgment, evidence_base and produce
@@ -568,7 +568,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for counter_case, robustness_verdict. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.team_a_team_b
   title: Defensive Team A / Team B worked example
   request: Use Team A / Team B defensively on authorized shared_evidence, hypothesis_a, hypothesis_b,
@@ -584,7 +584,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for team_debate_summary. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.structured_self_critique
   title: Defensive Structured Self-Critique worked example
   request: Use Structured Self-Critique defensively on authorized analysis_draft, key_judgments, supporting_evidence
@@ -601,7 +601,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for critique_report. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: sat.what_if_analysis
   title: Defensive What-If Analysis worked example
   request: Use What-If Analysis defensively on authorized scenario_posit, current_context, time_horizon
@@ -617,7 +617,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for what_if_report. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.narrative_threat_assessment
   title: Defensive Narrative Threat Assessment worked example
   request: Use Narrative Threat Assessment defensively on authorized narrative_text, context and produce
@@ -634,7 +634,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for threat_assessment, defensive_recommendations. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.source_credibility_evaluation
   title: Defensive Source Credibility Evaluation worked example
   request: Use Source Credibility Evaluation defensively on authorized source, claim, corroboration
@@ -653,7 +653,7 @@ examples:
     body: 'Confidence: state the support level for reliability_grade, credibility_grade, usage_bound.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.manipulation_technique_identification
   title: Defensive Manipulation Technique Identification worked example
   request: Use Manipulation Technique Identification defensively on authorized content, target_audience,
@@ -671,7 +671,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for technique_catalogue, analysis_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.prebunking_inoculation_design
   title: Defensive Prebunking & Inoculation Design worked example
   request: Use Prebunking & Inoculation Design defensively on authorized manipulation_technique, target_audience,
@@ -691,7 +691,7 @@ examples:
     body: 'Confidence: state the support level for inoculation_content, efficacy_check_items, design_rationale.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.cognitive_bias_audit
   title: Defensive Cognitive Bias Audit worked example
   request: Use Cognitive Bias Audit defensively on authorized analysis_or_decision, domain_context,
@@ -709,7 +709,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for bias_audit_report, priority_bias_summary. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.influence_operation_mapping
   title: Defensive Influence Operation Mapping worked example
   request: Use Influence Operation Mapping defensively on authorized evidence_collection, hypothesis,
@@ -728,7 +728,7 @@ examples:
     body: 'Confidence: state the support level for abcd_operation_map, attribution_assessment, counter_operation_brief.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.disinformation_campaign_analysis
   title: Defensive Disinformation Campaign Analysis worked example
   request: Use Disinformation Campaign Analysis defensively on authorized campaign_artifacts, known_context,
@@ -748,7 +748,7 @@ examples:
     body: 'Confidence: state the support level for campaign_analysis_report, narrative_taxonomy_table,
       ttp_inventory_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before
       using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.rumor_and_virality_assessment
   title: Defensive Rumor & Virality Assessment worked example
   request: Use Rumor & Virality Assessment defensively on authorized claim, originating_context, audience_profile,
@@ -766,7 +766,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for virality_assessment, factor_table. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.epistemic_security_posture_review
   title: Defensive Epistemic Security Posture Review worked example
   request: Use Epistemic Security Posture Review defensively on authorized organizational_profile,
@@ -785,7 +785,7 @@ examples:
     body: 'Confidence: state the support level for posture_scorecard, attack_surface_narrative, remediation_roadmap.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.trust_and_credibility_modeling
   title: Defensive Trust & Credibility Modeling worked example
   request: Use Trust & Credibility Modeling defensively on authorized information_environment, actor_set,
@@ -804,7 +804,7 @@ examples:
     body: 'Confidence: state the support level for trust_model, exploitation_vulnerability_audit.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.information_provenance_tracing
   title: Defensive Information Provenance Tracing worked example
   request: Use Information Provenance Tracing defensively on authorized artifact, known_context, scope
@@ -821,7 +821,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for provenance_chain, origin_assessment. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.deepfake_synthetic_media_triage
   title: Defensive Deepfake & Synthetic Media Triage worked example
   request: Use Deepfake & Synthetic Media Triage defensively on authorized media_artifact, claim_context,
@@ -839,7 +839,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for triage_report, anomaly_log. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.astroturfing_detection
   title: Defensive Astroturfing Detection worked example
   request: Use Astroturfing Detection defensively on authorized campaign_sample, baseline_context
@@ -856,7 +856,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for detection_report, indicator_table. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.emotional_manipulation_analysis
   title: Defensive Emotional Manipulation Analysis worked example
   request: Use Emotional Manipulation Analysis defensively on authorized content, context and produce
@@ -873,7 +873,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for emotional_lever_map, defensive_brief. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.framing_and_priming_analysis
   title: Defensive Framing & Priming Analysis worked example
   request: Use Framing & Priming Analysis defensively on authorized content, alternative_versions,
@@ -891,7 +891,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for frame_inventory, reframing_brief. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.logical_fallacy_detection
   title: Defensive Logical Fallacy Detection worked example
   request: Use Logical Fallacy Detection defensively on authorized argument_text, context and produce
@@ -908,7 +908,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for fallacy_catalogue, argument_assessment. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.propaganda_technique_classification
   title: Defensive Propaganda Technique Classification worked example
   request: Use Propaganda Technique Classification defensively on authorized content, context_metadata,
@@ -927,7 +927,7 @@ examples:
     body: 'Confidence: state the support level for technique_classification_table, analytical_interpretation.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.attack_surface_of_belief_mapping
   title: Defensive Belief Attack-Surface Mapping worked example
   request: Use Belief Attack-Surface Mapping defensively on authorized audience_profile, belief_inventory,
@@ -946,7 +946,7 @@ examples:
     body: 'Confidence: state the support level for belief_attack_surface_map, priority_interventions.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.counter_messaging_strategy
   title: Defensive Counter-Messaging Strategy worked example
   request: Use Counter-Messaging Strategy defensively on authorized false_claim_or_narrative, audience_profile,
@@ -965,7 +965,7 @@ examples:
     body: 'Confidence: state the support level for counter_messaging_strategy, message_variants_table.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.media_literacy_assessment
   title: Defensive Media Literacy Assessment worked example
   request: Use Media Literacy Assessment defensively on authorized audience_profile, sample_content,
@@ -984,7 +984,7 @@ examples:
     body: 'Confidence: state the support level for competency_gap_map, intervention_recommendations.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.cognitive_attack_kill_chain
   title: Defensive Cognitive Attack Kill Chain worked example
   request: Use Cognitive Attack Kill Chain defensively on authorized campaign_evidence, target_context,
@@ -1003,7 +1003,7 @@ examples:
     body: 'Confidence: state the support level for kill_chain_map, defender_action_plan, residual_uncertainty_log.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.audience_vulnerability_segmentation
   title: Defensive Audience Vulnerability Segmentation worked example
   request: Use Audience Vulnerability Segmentation defensively on authorized audience_research, threat_vectors,
@@ -1021,7 +1021,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for segment_profiles, intervention_map. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.information_laundering_tracing
   title: Defensive Information Laundering Tracing worked example
   request: Use Information Laundering Tracing defensively on authorized claim_text, known_publications,
@@ -1039,7 +1039,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for laundering_chain, analysis_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: cognitive_security.resilience_metrics_design
   title: Defensive Resilience Metrics Design worked example
   request: Use Resilience Metrics Design defensively on authorized ecosystem_definition, stakeholder_goals,
@@ -1059,7 +1059,7 @@ examples:
     body: 'Confidence: state the support level for indicator_schema, measurement_protocol, implementation_guidance.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.project_critical_review
   title: Defensive Project Critical Review worked example
   request: Use Project Critical Review defensively on authorized artifact, decision, success_criteria
@@ -1076,7 +1076,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for report, findings, recommendation. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.research_design_critique
   title: Defensive Research Design Critique worked example
   request: Use Research Design Critique defensively on authorized study_text, claim_under_review and
@@ -1095,7 +1095,7 @@ examples:
     body: 'Confidence: state the support level for validity_critique, inferential_reach_assessment.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.claim_evidence_audit
   title: Defensive Claim-Evidence Audit worked example
   request: Use Claim-Evidence Audit defensively on authorized document, claim_taxonomy and produce
@@ -1112,7 +1112,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for claim_evidence_table, audit_summary. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.reproducibility_assessment
   title: Defensive Reproducibility Assessment worked example
   request: Use Reproducibility Assessment defensively on authorized artifact, key_claims, environment_spec
@@ -1129,7 +1129,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for reproducibility_scorecard, gap_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.code_security_review
   title: Defensive Code Security Review worked example
   request: Use Code Security Review defensively on authorized code, threat_model, review_scope and
@@ -1146,7 +1146,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for findings_table, security_review_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.statistical_validity_review
   title: Defensive Statistical Validity Review worked example
   request: Use Statistical Validity Review defensively on authorized study_text, primary_claim and
@@ -1165,7 +1165,7 @@ examples:
     body: 'Confidence: state the support level for statistical_findings_table, corrected_inference.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.assumption_surfacing_review
   title: Defensive Assumption Surfacing Review worked example
   request: Use Assumption Surfacing Review defensively on authorized target_text, domain_context and
@@ -1184,7 +1184,7 @@ examples:
     body: 'Confidence: state the support level for assumption_register, assumption_review_narrative.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.logical_coherence_review
   title: Defensive Logical Coherence Review worked example
   request: Use Logical Coherence Review defensively on authorized argument_text, key_claims and produce
@@ -1202,7 +1202,7 @@ examples:
     body: 'Confidence: state the support level for argument_map, fallacy_register, coherence_verdict.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.citation_integrity_review
   title: Defensive Citation Integrity Review worked example
   request: Use Citation Integrity Review defensively on authorized document, citation_list and produce
@@ -1219,7 +1219,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for citation_audit_table, integrity_summary. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.threat_model_review
   title: Defensive Threat Model Review worked example
   request: Use Threat Model Review defensively on authorized threat_model, system_description, review_focus
@@ -1238,7 +1238,7 @@ examples:
     body: 'Confidence: state the support level for gap_report, assumption_register, revised_scope_recommendation.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.ethics_and_harms_review
   title: Defensive Ethics & Harms Review worked example
   request: Use Ethics & Harms Review defensively on authorized artifact, intended_use, deployment_context
@@ -1255,7 +1255,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for harm_register, ethics_assessment. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: critical_review.red_team_review
   title: Defensive Red-Team Review worked example
   request: Use Red-Team Review defensively on authorized artifact, adversary_profile, review_scope
@@ -1272,7 +1272,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for vulnerability_catalog, red_team_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.claim_provenance_verification
   title: Defensive Claim Provenance Verification worked example
   request: Use Claim Provenance Verification defensively on authorized claim, starting_sources and
@@ -1289,7 +1289,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for provenance_chain, verdict. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.source_vetting
   title: Defensive Source Vetting worked example
   request: Use Source Vetting defensively on authorized source_identifier, claim_context, prior_assessments
@@ -1306,7 +1306,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for source_reliability_assessment, red_flags. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.chain_of_custody_documentation
   title: Defensive Chain-of-Custody Documentation worked example
   request: Use Chain-of-Custody Documentation defensively on authorized evidence_items, collection_context,
@@ -1324,7 +1324,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for custody_log, integrity_summary. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.geolocation_verification
   title: Defensive Geolocation Verification worked example
   request: Use Geolocation Verification defensively on authorized image_or_video, claimed_location,
@@ -1341,7 +1341,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for geolocation_assessment. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.image_and_media_forensics_triage
   title: Defensive Image & Media Forensics Triage worked example
   request: Use Image & Media Forensics Triage defensively on authorized media_item, accompanying_claim,
@@ -1358,7 +1358,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for triage_report. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.cross_source_corroboration
   title: Defensive Cross-Source Corroboration worked example
   request: Use Cross-Source Corroboration defensively on authorized candidate_claim, source_list,
@@ -1376,7 +1376,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for corroboration_assessment, promotion_decision. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.metadata_integrity_check
   title: Defensive Metadata Integrity Check worked example
   request: Use Metadata Integrity Check defensively on authorized media_file_or_post, claimed_provenance
@@ -1393,7 +1393,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for metadata_assessment, integrity_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.collection_plan_design
   title: Defensive Collection Plan Design worked example
   request: Use Collection Plan Design defensively on authorized intelligence_requirement, legal_and_policy_constraints,
@@ -1411,7 +1411,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for collection_plan, source_priority_matrix. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.sock_puppet_detection
   title: Defensive Sock-Puppet Detection worked example
   request: Use Sock-Puppet Detection defensively on authorized account_identifier, platform, related_accounts,
@@ -1429,7 +1429,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for indicator_assessment, inauthenticity_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: osint_integrity.dataset_provenance_audit
   title: Defensive Dataset Provenance Audit worked example
   request: Use Dataset Provenance Audit defensively on authorized dataset, analytic_question, dataset_documentation
@@ -1448,7 +1448,7 @@ examples:
     body: 'Confidence: state the support level for provenance_audit_report, integrity_check_results.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.denial_and_deception_detection
   title: Defensive Denial & Deception Detection worked example
   request: Use Denial & Deception Detection defensively on authorized evidence_body, current_assessment,
@@ -1467,7 +1467,7 @@ examples:
     body: 'Confidence: state the support level for dd_assessment, deception_indicators, collection_recommendations.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.indicators_of_deception_analysis
   title: Defensive Indicators of Deception Analysis worked example
   request: Use Indicators of Deception Analysis defensively on authorized evidence_corpus, source_profile,
@@ -1485,7 +1485,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for deception_assessment_report. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.adversary_tradecraft_profiling
   title: Defensive Adversary Tradecraft Profiling worked example
   request: Use Adversary Tradecraft Profiling defensively on authorized incident_corpus, adversary_identifier,
@@ -1504,7 +1504,7 @@ examples:
     body: 'Confidence: state the support level for tradecraft_profile, anticipatory_indicators, profile_caveats.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.honeypot_and_canary_design
   title: Defensive Honeypot & Canary Design worked example
   request: Use Honeypot & Canary Design defensively on authorized threat_model, asset_inventory, monitoring_coverage
@@ -1521,7 +1521,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for canary_design_spec. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.analytic_process_hardening
   title: Defensive Analytic Process Hardening worked example
   request: Use Analytic Process Hardening defensively on authorized workflow_description, adversary_context,
@@ -1540,7 +1540,7 @@ examples:
     body: 'Confidence: state the support level for vulnerability_map, hardening_plan, residual_risk_statement.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.insider_threat_indicator_review
   title: Defensive Insider Threat Indicator Review worked example
   request: Use Insider Threat Indicator Review defensively on authorized behavioral_observations,
@@ -1558,7 +1558,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for insider_threat_indicator_review_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.elicitation_attempt_recognition
   title: Defensive Elicitation Attempt Recognition worked example
   request: Use Elicitation Attempt Recognition defensively on authorized conversation_or_description,
@@ -1575,7 +1575,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for elicitation_recognition_report. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: counterintelligence.disinformation_attribution
   title: Defensive Disinformation Attribution worked example
   request: Use Disinformation Attribution defensively on authorized campaign_artifacts, candidate_actors,
@@ -1594,7 +1594,7 @@ examples:
     body: 'Confidence: state the support level for attribution_matrix, attribution_assessment, intelligence_gaps.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.narrative_ecosystem_mapping
   title: Defensive Narrative Ecosystem Mapping worked example
   request: Use Narrative Ecosystem Mapping defensively on authorized information_space_definition,
@@ -1612,7 +1612,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for narrative_inventory, ecosystem_map. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.coordinated_inauthentic_behavior_detection
   title: Defensive Coordinated Inauthentic Behavior Detection worked example
   request: Use Coordinated Inauthentic Behavior Detection defensively on authorized account_activity_dataset,
@@ -1630,7 +1630,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for coordination_clusters, cib_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.information_flow_network_analysis
   title: Defensive Information Flow Network Analysis worked example
   request: Use Information Flow Network Analysis defensively on authorized propagation_data, narrative_seed,
@@ -1648,7 +1648,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for network_role_map, flow_analysis_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.platform_affordance_risk_assessment
   title: Defensive Platform Affordance Risk Assessment worked example
   request: Use Platform Affordance Risk Assessment defensively on authorized platform_name, threat_actor_profile,
@@ -1666,7 +1666,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for affordance_risk_matrix, risk_narrative. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.bot_and_automation_detection
   title: Defensive Bot & Automation Detection worked example
   request: Use Bot & Automation Detection defensively on authorized account_data, context and produce
@@ -1683,7 +1683,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for account_classifications, detection_report. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.trend_and_emergence_monitoring
   title: Defensive Trend & Emergence Monitoring worked example
   request: Use Trend & Emergence Monitoring defensively on authorized monitoring_scope, watchlist,
@@ -1701,7 +1701,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for signal_log, monitoring_report. Uncertainty: preserve
       unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: information_environment.narrative_competition_analysis
   title: Defensive Narrative Competition Analysis worked example
   request: Use Narrative Competition Analysis defensively on authorized narrative_corpus, topic_definition,
@@ -1720,7 +1720,7 @@ examples:
     body: 'Confidence: state the support level for narrative_competition_map, competition_assessment_report.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: research_methods.structured_literature_synthesis
   title: Defensive Structured Literature Synthesis worked example
   request: Use Structured Literature Synthesis defensively on authorized synthesis_question, sources,
@@ -1738,7 +1738,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for synthesis_briefing, evidence_table. Uncertainty:
       preserve unknowns, alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: research_methods.evidence_grading
   title: Defensive Evidence Grading worked example
   request: Use Evidence Grading defensively on authorized analytic_question, evidence_items, grading_rubric
@@ -1757,7 +1757,7 @@ examples:
     body: 'Confidence: state the support level for graded_evidence_table, weight_of_evidence_summary.
       Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive
       result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: research_methods.calibrated_estimation
   title: Defensive Calibrated Estimation worked example
   request: Use Calibrated Estimation defensively on authorized question, evidence, prior_estimate
@@ -1782,7 +1782,7 @@ examples:
       0.98. Log the convention and forecast before resolution. One outcome does not
       establish calibration, and an interval around probability 0.30 is not an outcome
       prediction interval to test against the binary result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: research_methods.analytic_confidence_assessment
   title: Defensive Analytic Confidence Assessment worked example
   request: Use Analytic Confidence Assessment defensively on authorized judgment, evidence_set, key_assumptions
@@ -1799,7 +1799,7 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for confidence_assessment. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example
 - skill_id: research_methods.structured_reporting_and_bluf
   title: Defensive Structured Reporting & BLUF worked example
   request: Use Structured Reporting & BLUF defensively on authorized analytic_judgment, evidence_and_sources,
@@ -1817,4 +1817,4 @@ examples:
   - title: Confidence and uncertainty
     body: 'Confidence: state the support level for structured_report. Uncertainty: preserve unknowns,
       alternatives, and follow-up checks before using the defensive result.'
-  provenance: reviewed local fixture
+  provenance: authored local example

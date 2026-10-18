@@ -2,7 +2,7 @@
   "offline_evaluations": [
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "sat-ach-safe",
       "sections": [
         "Defensive purpose",
@@ -14,7 +14,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "sat-assumptions-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -27,7 +27,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "cognitive-security-narrative-safe",
       "sections": [
         "Defensive purpose",
@@ -40,7 +40,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "cognitive-security-inoculation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -53,7 +53,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "critical-review-project-safe",
       "sections": [
         "Defensive purpose",
@@ -65,7 +65,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "critical-review-ethics-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -78,7 +78,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "osint-claim-safe",
       "sections": [
         "Defensive purpose",
@@ -90,7 +90,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "osint-geolocation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -102,7 +102,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "counterintelligence-deception-safe",
       "sections": [
         "Defensive purpose",
@@ -115,7 +115,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "counterintelligence-elicitation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -128,7 +128,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "information-environment-ecosystem-safe",
       "sections": [
         "Defensive purpose",
@@ -140,7 +140,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "information-environment-cib-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -153,7 +153,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "research-methods-literature-safe",
       "sections": [
         "Defensive purpose",
@@ -165,7 +165,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "research-methods-grading-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -178,7 +178,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "sat-ranking-safe",
       "sections": [
         "Defensive purpose",
@@ -190,7 +190,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "sat-ach-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -203,7 +203,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "cognitive-security-source-safe",
       "sections": [
         "Defensive purpose",
@@ -215,7 +215,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "cognitive-security-manipulation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -228,7 +228,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "critical-review-claim-safe",
       "sections": [
         "Defensive purpose",
@@ -240,7 +240,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "critical-review-citation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -253,7 +253,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "osint-source-vetting-safe",
       "sections": [
         "Defensive purpose",
@@ -265,7 +265,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "osint-media-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -278,7 +278,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "counterintelligence-tradecraft-safe",
       "sections": [
         "Defensive purpose",
@@ -290,7 +290,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "counterintelligence-insider-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -303,7 +303,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "information-environment-bot-safe",
       "sections": [
         "Defensive purpose",
@@ -315,7 +315,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "information-environment-platform-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -328,7 +328,7 @@
     },
     {
       "answer_kind": "defensive_output",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "research-methods-confidence-safe",
       "sections": [
         "Defensive purpose",
@@ -341,7 +341,7 @@
     },
     {
       "answer_kind": "refusal_redirect",
-      "provenance": "reviewed local fixture",
+      "provenance": "authored expected-answer fixture",
       "scenario_id": "research-methods-estimation-unsafe",
       "sections": [
         "Refusal and redirect",
@@ -5371,8 +5371,8 @@
     "Dashboard gate: `dashboard --check` -> `quality dashboard is current`.",
     "Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.",
     "Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.",
-    "Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).",
-    "Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.",
+    "Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1264 passed in 95.56s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).",
+    "Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 111 files already formatted.",
     "Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.",
     "Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.",
     "Python legs: all five Python 3.10\u20133.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).",
@@ -5382,7 +5382,7 @@
   ],
   "worked_examples": [
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5392,7 +5392,7 @@
       "title": "Defensive Getting Started Checklist worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5402,7 +5402,7 @@
       "title": "Defensive Customer (AIMS) Checklist worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5412,7 +5412,7 @@
       "title": "Defensive Issue Redefinition worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5422,7 +5422,7 @@
       "title": "Defensive Chronologies & Timelines worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5432,7 +5432,7 @@
       "title": "Defensive Sorting worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5442,7 +5442,7 @@
       "title": "Defensive Ranking & Prioritization worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5452,7 +5452,7 @@
       "title": "Defensive Analytic Matrices worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5462,7 +5462,7 @@
       "title": "Defensive Network Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5472,7 +5472,7 @@
       "title": "Defensive Mind Maps & Concept Maps worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5482,7 +5482,7 @@
       "title": "Defensive Process & Gantt Mapping worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5492,7 +5492,7 @@
       "title": "Defensive Structured Brainstorming worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5502,7 +5502,7 @@
       "title": "Defensive Nominal Group Technique worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5512,7 +5512,7 @@
       "title": "Defensive Starbursting worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5522,7 +5522,7 @@
       "title": "Defensive Cross-Impact Matrix worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5532,7 +5532,7 @@
       "title": "Defensive Morphological Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5542,7 +5542,7 @@
       "title": "Defensive Quadrant Crunching worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5552,7 +5552,7 @@
       "title": "Defensive Alternative Futures (Scenarios) worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5562,7 +5562,7 @@
       "title": "Defensive Indicators Generation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5572,7 +5572,7 @@
       "title": "Defensive Indicators Validation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5582,7 +5582,7 @@
       "title": "Defensive Signposts of Change worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5593,7 +5593,7 @@
       "title": "Defensive Analysis of Competing Hypotheses (ACH) worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5603,7 +5603,7 @@
       "title": "Defensive Key Assumptions Check worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5613,7 +5613,7 @@
       "title": "Defensive Multiple Hypothesis Generation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5623,7 +5623,7 @@
       "title": "Defensive Diagnostic Reasoning worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5633,7 +5633,7 @@
       "title": "Defensive Argument Mapping worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5643,7 +5643,7 @@
       "title": "Defensive Structured Analogies worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5653,7 +5653,7 @@
       "title": "Defensive Red Hat Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5663,7 +5663,7 @@
       "title": "Defensive Outside-In Thinking worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5673,7 +5673,7 @@
       "title": "Defensive Causal Flow Diagramming worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5683,7 +5683,7 @@
       "title": "Defensive Premortem Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5693,7 +5693,7 @@
       "title": "Defensive Devil's Advocacy worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5703,7 +5703,7 @@
       "title": "Defensive Team A / Team B worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5713,7 +5713,7 @@
       "title": "Defensive Structured Self-Critique worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5723,7 +5723,7 @@
       "title": "Defensive What-If Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5733,7 +5733,7 @@
       "title": "Defensive Narrative Threat Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5743,7 +5743,7 @@
       "title": "Defensive Source Credibility Evaluation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5753,7 +5753,7 @@
       "title": "Defensive Manipulation Technique Identification worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5763,7 +5763,7 @@
       "title": "Defensive Prebunking & Inoculation Design worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5773,7 +5773,7 @@
       "title": "Defensive Cognitive Bias Audit worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5783,7 +5783,7 @@
       "title": "Defensive Influence Operation Mapping worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5793,7 +5793,7 @@
       "title": "Defensive Disinformation Campaign Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5803,7 +5803,7 @@
       "title": "Defensive Rumor & Virality Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5813,7 +5813,7 @@
       "title": "Defensive Epistemic Security Posture Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5823,7 +5823,7 @@
       "title": "Defensive Trust & Credibility Modeling worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5833,7 +5833,7 @@
       "title": "Defensive Information Provenance Tracing worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5843,7 +5843,7 @@
       "title": "Defensive Deepfake & Synthetic Media Triage worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5853,7 +5853,7 @@
       "title": "Defensive Astroturfing Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5863,7 +5863,7 @@
       "title": "Defensive Emotional Manipulation Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5873,7 +5873,7 @@
       "title": "Defensive Framing & Priming Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5883,7 +5883,7 @@
       "title": "Defensive Logical Fallacy Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5893,7 +5893,7 @@
       "title": "Defensive Propaganda Technique Classification worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5903,7 +5903,7 @@
       "title": "Defensive Belief Attack-Surface Mapping worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5913,7 +5913,7 @@
       "title": "Defensive Counter-Messaging Strategy worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5923,7 +5923,7 @@
       "title": "Defensive Media Literacy Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5933,7 +5933,7 @@
       "title": "Defensive Cognitive Attack Kill Chain worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5943,7 +5943,7 @@
       "title": "Defensive Audience Vulnerability Segmentation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5953,7 +5953,7 @@
       "title": "Defensive Information Laundering Tracing worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5963,7 +5963,7 @@
       "title": "Defensive Resilience Metrics Design worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5973,7 +5973,7 @@
       "title": "Defensive Project Critical Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5983,7 +5983,7 @@
       "title": "Defensive Research Design Critique worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -5993,7 +5993,7 @@
       "title": "Defensive Claim-Evidence Audit worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6003,7 +6003,7 @@
       "title": "Defensive Reproducibility Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6013,7 +6013,7 @@
       "title": "Defensive Code Security Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6023,7 +6023,7 @@
       "title": "Defensive Statistical Validity Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6033,7 +6033,7 @@
       "title": "Defensive Assumption Surfacing Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6043,7 +6043,7 @@
       "title": "Defensive Logical Coherence Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6053,7 +6053,7 @@
       "title": "Defensive Citation Integrity Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6063,7 +6063,7 @@
       "title": "Defensive Threat Model Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6073,7 +6073,7 @@
       "title": "Defensive Ethics & Harms Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6083,7 +6083,7 @@
       "title": "Defensive Red-Team Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6093,7 +6093,7 @@
       "title": "Defensive Claim Provenance Verification worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6103,7 +6103,7 @@
       "title": "Defensive Source Vetting worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6113,7 +6113,7 @@
       "title": "Defensive Chain-of-Custody Documentation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6123,7 +6123,7 @@
       "title": "Defensive Geolocation Verification worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6133,7 +6133,7 @@
       "title": "Defensive Image & Media Forensics Triage worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6143,7 +6143,7 @@
       "title": "Defensive Cross-Source Corroboration worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6153,7 +6153,7 @@
       "title": "Defensive Metadata Integrity Check worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6163,7 +6163,7 @@
       "title": "Defensive Collection Plan Design worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6173,7 +6173,7 @@
       "title": "Defensive Sock-Puppet Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6183,7 +6183,7 @@
       "title": "Defensive Dataset Provenance Audit worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6193,7 +6193,7 @@
       "title": "Defensive Denial & Deception Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6203,7 +6203,7 @@
       "title": "Defensive Indicators of Deception Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6213,7 +6213,7 @@
       "title": "Defensive Adversary Tradecraft Profiling worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6223,7 +6223,7 @@
       "title": "Defensive Honeypot & Canary Design worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6233,7 +6233,7 @@
       "title": "Defensive Analytic Process Hardening worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6243,7 +6243,7 @@
       "title": "Defensive Insider Threat Indicator Review worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6253,7 +6253,7 @@
       "title": "Defensive Elicitation Attempt Recognition worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6263,7 +6263,7 @@
       "title": "Defensive Disinformation Attribution worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6273,7 +6273,7 @@
       "title": "Defensive Narrative Ecosystem Mapping worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6283,7 +6283,7 @@
       "title": "Defensive Coordinated Inauthentic Behavior Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6293,7 +6293,7 @@
       "title": "Defensive Information Flow Network Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6303,7 +6303,7 @@
       "title": "Defensive Platform Affordance Risk Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6313,7 +6313,7 @@
       "title": "Defensive Bot & Automation Detection worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6323,7 +6323,7 @@
       "title": "Defensive Trend & Emergence Monitoring worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6333,7 +6333,7 @@
       "title": "Defensive Narrative Competition Analysis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6343,7 +6343,7 @@
       "title": "Defensive Structured Literature Synthesis worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6353,7 +6353,7 @@
       "title": "Defensive Evidence Grading worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6364,7 +6364,7 @@
       "title": "Defensive Calibrated Estimation worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
@@ -6374,7 +6374,7 @@
       "title": "Defensive Analytic Confidence Assessment worked example"
     },
     {
-      "provenance": "reviewed local fixture",
+      "provenance": "authored local example",
       "sections": [
         "Defensive task boundary",
         "Evidence and inference",
