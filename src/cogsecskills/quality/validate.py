@@ -335,8 +335,12 @@ def validate_library(
                     entry.id,
                     "registry marks skill 'implemented' but no on-disk skill found",
                 )
-        # Every catalogued group must be defined in groups.yaml (when defined).
-        if defined_groups:
+        # A missing or empty vocabulary must never disable group coherence.
+        if not defined_groups:
+            result.error(
+                "registry", "group vocabulary is missing or empty: registry/groups.yaml"
+            )
+        else:
             for entry in registry.entries:
                 if entry.group not in defined_groups:
                     result.error(

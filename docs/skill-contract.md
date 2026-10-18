@@ -195,8 +195,9 @@ connector policy, or application wrapper.
   registry row whose status is `implemented`, a matching on-disk skill id must
   exist — otherwise it is a hard error
   (*"registry marks skill 'implemented' but no on-disk skill found"*).
-- [ ] **Catalogued groups are defined in `groups.yaml`.** When `groups.yaml`
-  defines any groups, every registry entry's `group` must be one of them.
+- [ ] **Catalogued groups are defined in `groups.yaml`.** Library validation
+  requires a nonempty group vocabulary; every registry entry's `group` must
+  belong to it.
 - [ ] **Every on-disk skill is catalogued with a matching group.** Each
   discovered skill id must appear in the registry; if it does, the registry
   entry's `group` must equal the spec's `group`.

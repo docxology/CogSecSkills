@@ -21,7 +21,7 @@ and figures that document those source surfaces.
    unsafe-redirect probes (the scenario check).
 6. **`examples/skill-worked-examples.yaml`** — one deterministic worked example
    source row per implemented skill.
-7. **`evals/local_output_review.yaml`** — offline reviewed output fixtures
+7. **`evals/local_output_review.yaml`** — authored expected-answer fixtures
    linked to deterministic scenarios.
 8. **`docs/quality-dashboard.md`**, **`docs/quality-dashboard.html`**,
    **`docs/evaluation-readiness.md`**,

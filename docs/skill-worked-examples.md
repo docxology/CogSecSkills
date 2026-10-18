@@ -2,7 +2,7 @@
 
 # CogSecSkills Skill Worked Examples
 
-These deterministic local examples show the expected shape of defensive skill use. They are reviewed fixtures, not live model outputs, runtime certification, or field validation.
+These deterministic local examples show the expected shape of defensive skill use. They are authored fixtures, not live model outputs, runtime certification, or field validation.
 
 ## Summary
 
@@ -25,7 +25,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analytic_task, background_material before each getting_started_baseline claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for getting_started_baseline. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.customer_aims_checklist` — Defensive Customer (AIMS) Checklist worked example
 
@@ -37,7 +37,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied product_or_outline, consumer_context before each aims_worksheet, gap_and_misalignment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for aims_worksheet, gap_and_misalignment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.issue_redefinition` — Defensive Issue Redefinition worked example
 
@@ -49,7 +49,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied original_question, tasking_context before each restatements_register, preferred_framing claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for restatements_register, preferred_framing. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.chronologies_and_timelines` — Defensive Chronologies & Timelines worked example
 
@@ -61,7 +61,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied event_sources, analytic_question, parallel_streams before each chronology, gap_and_anomaly_report, key_findings claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for chronology, gap_and_anomaly_report, key_findings. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.sorting` — Defensive Sorting worked example
 
@@ -73,7 +73,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_set, sort_dimensions before each sorted_table, outlier_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for sorted_table, outlier_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.ranking_and_prioritization` — Defensive Ranking & Prioritization worked example
 
@@ -85,7 +85,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied item_list, criteria, decision_context before each scoring_matrix, ranked_list, sensitivity_analysis claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for scoring_matrix, ranked_list, sensitivity_analysis. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.analytic_matrices` — Defensive Analytic Matrices worked example
 
@@ -97,7 +97,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analytic_question, variables_or_hypotheses, evidence_or_criteria before each analytic_matrix, pattern_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for analytic_matrix, pattern_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.network_analysis` — Defensive Network Analysis worked example
 
@@ -109,7 +109,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied node_list, edge_list, analytic_question before each centrality_report, structural_findings, collection_gaps claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for centrality_report, structural_findings, collection_gaps. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.mind_maps_and_concept_maps` — Defensive Mind Maps & Concept Maps worked example
 
@@ -121,7 +121,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied source_material, central_topic, map_type before each concept_graph, gap_and_conflict_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for concept_graph, gap_and_conflict_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.process_and_gantt_mapping` — Defensive Process & Gantt Mapping worked example
 
@@ -133,7 +133,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied activity_description, known_steps, time_constraints before each process_map, gantt_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for process_map, gantt_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.structured_brainstorming` — Defensive Structured Brainstorming worked example
 
@@ -145,7 +145,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied problem_statement, prior_framing, convergence_criteria before each raw_idea_inventory, ranked_shortlist claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for raw_idea_inventory, ranked_shortlist. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.nominal_group_technique` — Defensive Nominal Group Technique worked example
 
@@ -157,7 +157,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied focal_question, participant_idea_sets, prior_context before each ngt_record claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for ngt_record. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.starbursting` — Defensive Starbursting worked example
 
@@ -169,7 +169,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied topic_or_artifact, context before each question_map, key_unknowns_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for question_map, key_unknowns_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.cross_impact_matrix` — Defensive Cross-Impact Matrix worked example
 
@@ -181,7 +181,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied driver_list, influence_scale, focal_question before each cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for cross_impact_matrix, loop_inventory, leverage_ranking, analytic_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.morphological_analysis` — Defensive Morphological Analysis worked example
 
@@ -193,7 +193,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied problem_statement, known_constraints before each morphological_box, scenario_inventory, priority_findings claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for morphological_box, scenario_inventory, priority_findings. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.quadrant_crunching` — Defensive Quadrant Crunching worked example
 
@@ -205,7 +205,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied problem_statement, dominant_assessment, candidate_assumptions before each scenario_matrix, scenario_narratives, neglected_cells claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for scenario_matrix, scenario_narratives, neglected_cells. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.alternative_futures_scenarios` — Defensive Alternative Futures (Scenarios) worked example
 
@@ -217,7 +217,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied problem_statement, known_drivers, current_assessment before each scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for scenario_matrix, scenario_narratives, indicator_set, strategy_stress_test. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.indicators_generation` — Defensive Indicators Generation worked example
 
@@ -229,7 +229,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied scenarios_or_hypotheses, actor_profile, collection_environment before each indicators_matrix, indicators_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for indicators_matrix, indicators_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.indicators_validation` — Defensive Indicators Validation worked example
 
@@ -241,7 +241,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied candidate_indicators, scenarios_or_hypotheses, base_rate_context before each validated_indicators_matrix, validation_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for validated_indicators_matrix, validation_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.signposts_of_change` — Defensive Signposts of Change worked example
 
@@ -253,7 +253,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied scenarios_or_hypotheses, current_assessment, collection_resources before each signpost_matrix, collection_guidance, update_protocol claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for signpost_matrix, collection_guidance, update_protocol. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.analysis_of_competing_hypotheses` — Defensive Analysis of Competing Hypotheses (ACH) worked example
 
@@ -266,7 +266,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Confidence and uncertainty | Confidence: state the support level for matrix, ranking, indicators. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 | Synthetic collection-gap check | Synthetic evidence: an authorized service has two plausible hypotheses, scheduled maintenance and unexpected failure. A missing error record is not disconfirmation when the error collector was offline. Mark that cell unknown, preserve the collection gap in the matrix, keep the ranking provisional, and list restoration of authorized observation as an indicator check. Do not invent a third explanation or count the absent record as an inconsistency. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.key_assumptions_check` — Defensive Key Assumptions Check worked example
 
@@ -278,7 +278,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied judgment, analytic_line, stated_assumptions before each assumptions_table, key_assumptions, revised_judgment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for assumptions_table, key_assumptions, revised_judgment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.multiple_hypothesis_generation` — Defensive Multiple Hypothesis Generation worked example
 
@@ -290,7 +290,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_set, initial_hypotheses, domain_context before each hypothesis_set, completeness_check claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for hypothesis_set, completeness_check. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.diagnostic_reasoning` — Defensive Diagnostic Reasoning worked example
 
@@ -302,7 +302,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied new_datum, competing_hypotheses, prior_assessments before each diagnostic_table, updated_ranking, diagnostic_value_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for diagnostic_table, updated_ranking, diagnostic_value_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.argument_mapping` — Defensive Argument Mapping worked example
 
@@ -314,7 +314,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied argument_source, focal_claim before each argument_map, load_bearing_assumption_list, logical_gap_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for argument_map, load_bearing_assumption_list, logical_gap_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.structured_analogies` — Defensive Structured Analogies worked example
 
@@ -326,7 +326,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied current_situation, candidate_cases, comparison_dimensions before each case_comparison_table, lessons_and_predictions claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for case_comparison_table, lessons_and_predictions. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.red_hat_analysis` — Defensive Red Hat Analysis worked example
 
@@ -338,7 +338,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied adversary_profile, situation_context, analytic_question before each adversary_frame, courses_of_action, mirror_imaging_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for adversary_frame, courses_of_action, mirror_imaging_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.outside_in_thinking` — Defensive Outside-In Thinking worked example
 
@@ -350,7 +350,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied focal_issue, prior_assessments, environmental_scan before each outside_in_analysis claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for outside_in_analysis. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.causal_flow_diagramming` — Defensive Causal Flow Diagramming worked example
 
@@ -362,7 +362,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied system_description, known_variables, scope_boundary before each causal_flow_diagram, loop_inventory, leverage_point_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for causal_flow_diagram, loop_inventory, leverage_point_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.premortem_analysis` — Defensive Premortem Analysis worked example
 
@@ -374,7 +374,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied plan_or_assessment, time_horizon before each failure_modes claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for failure_modes. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.devils_advocacy` — Defensive Devil's Advocacy worked example
 
@@ -386,7 +386,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied consensus_judgment, evidence_base before each counter_case, robustness_verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for counter_case, robustness_verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.team_a_team_b` — Defensive Team A / Team B worked example
 
@@ -398,7 +398,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied shared_evidence, hypothesis_a, hypothesis_b, context before each team_debate_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for team_debate_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.structured_self_critique` — Defensive Structured Self-Critique worked example
 
@@ -410,7 +410,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analysis_draft, key_judgments, supporting_evidence before each critique_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for critique_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `sat.what_if_analysis` — Defensive What-If Analysis worked example
 
@@ -422,7 +422,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied scenario_posit, current_context, time_horizon before each what_if_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for what_if_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `cognitive_security`
 
@@ -436,7 +436,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied narrative_text, context before each threat_assessment, defensive_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for threat_assessment, defensive_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.source_credibility_evaluation` — Defensive Source Credibility Evaluation worked example
 
@@ -448,7 +448,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied source, claim, corroboration before each reliability_grade, credibility_grade, usage_bound claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for reliability_grade, credibility_grade, usage_bound. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.manipulation_technique_identification` — Defensive Manipulation Technique Identification worked example
 
@@ -460,7 +460,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied content, target_audience, distribution_context before each technique_catalogue, analysis_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for technique_catalogue, analysis_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.prebunking_inoculation_design` — Defensive Prebunking & Inoculation Design worked example
 
@@ -472,7 +472,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied manipulation_technique, target_audience, deployment_context, existing_prebunking_assets before each inoculation_content, efficacy_check_items, design_rationale claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for inoculation_content, efficacy_check_items, design_rationale. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.cognitive_bias_audit` — Defensive Cognitive Bias Audit worked example
 
@@ -484,7 +484,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analysis_or_decision, domain_context, known_pressures before each bias_audit_report, priority_bias_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for bias_audit_report, priority_bias_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.influence_operation_mapping` — Defensive Influence Operation Mapping worked example
 
@@ -496,7 +496,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_collection, hypothesis, threat_actor_profiles before each abcd_operation_map, attribution_assessment, counter_operation_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for abcd_operation_map, attribution_assessment, counter_operation_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.disinformation_campaign_analysis` — Defensive Disinformation Campaign Analysis worked example
 
@@ -508,7 +508,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied campaign_artifacts, known_context, target_audience_indicators, prior_reports before each campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for campaign_analysis_report, narrative_taxonomy_table, ttp_inventory_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.rumor_and_virality_assessment` — Defensive Rumor & Virality Assessment worked example
 
@@ -520,7 +520,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied claim, originating_context, audience_profile, propagation_data before each virality_assessment, factor_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for virality_assessment, factor_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.epistemic_security_posture_review` — Defensive Epistemic Security Posture Review worked example
 
@@ -532,7 +532,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied organizational_profile, epistemic_practices, known_incidents before each posture_scorecard, attack_surface_narrative, remediation_roadmap claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for posture_scorecard, attack_surface_narrative, remediation_roadmap. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.trust_and_credibility_modeling` — Defensive Trust & Credibility Modeling worked example
 
@@ -544,7 +544,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied information_environment, actor_set, threat_actor_context, existing_credibility_signals before each trust_model, exploitation_vulnerability_audit claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for trust_model, exploitation_vulnerability_audit. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.information_provenance_tracing` — Defensive Information Provenance Tracing worked example
 
@@ -556,7 +556,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied artifact, known_context, scope before each provenance_chain, origin_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for provenance_chain, origin_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.deepfake_synthetic_media_triage` — Defensive Deepfake & Synthetic Media Triage worked example
 
@@ -568,7 +568,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied media_artifact, claim_context, available_metadata before each triage_report, anomaly_log claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for triage_report, anomaly_log. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.astroturfing_detection` — Defensive Astroturfing Detection worked example
 
@@ -580,7 +580,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied campaign_sample, baseline_context before each detection_report, indicator_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for detection_report, indicator_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.emotional_manipulation_analysis` — Defensive Emotional Manipulation Analysis worked example
 
@@ -592,7 +592,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied content, context before each emotional_lever_map, defensive_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for emotional_lever_map, defensive_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.framing_and_priming_analysis` — Defensive Framing & Priming Analysis worked example
 
@@ -604,7 +604,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied content, alternative_versions, audience_context before each frame_inventory, reframing_brief claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for frame_inventory, reframing_brief. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.logical_fallacy_detection` — Defensive Logical Fallacy Detection worked example
 
@@ -616,7 +616,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied argument_text, context before each fallacy_catalogue, argument_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for fallacy_catalogue, argument_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.propaganda_technique_classification` — Defensive Propaganda Technique Classification worked example
 
@@ -628,7 +628,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied content, context_metadata, taxonomy_scope before each technique_classification_table, analytical_interpretation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for technique_classification_table, analytical_interpretation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.attack_surface_of_belief_mapping` — Defensive Belief Attack-Surface Mapping worked example
 
@@ -640,7 +640,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied audience_profile, belief_inventory, adversary_playbook before each belief_attack_surface_map, priority_interventions claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for belief_attack_surface_map, priority_interventions. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.counter_messaging_strategy` — Defensive Counter-Messaging Strategy worked example
 
@@ -652,7 +652,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied false_claim_or_narrative, audience_profile, intervention_timing, channel_constraints before each counter_messaging_strategy, message_variants_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for counter_messaging_strategy, message_variants_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.media_literacy_assessment` — Defensive Media Literacy Assessment worked example
 
@@ -664,7 +664,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied audience_profile, sample_content, existing_assessment_data before each competency_gap_map, intervention_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for competency_gap_map, intervention_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.cognitive_attack_kill_chain` — Defensive Cognitive Attack Kill Chain worked example
 
@@ -676,7 +676,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied campaign_evidence, target_context, prior_threat_intel before each kill_chain_map, defender_action_plan, residual_uncertainty_log claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for kill_chain_map, defender_action_plan, residual_uncertainty_log. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.audience_vulnerability_segmentation` — Defensive Audience Vulnerability Segmentation worked example
 
@@ -688,7 +688,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied audience_research, threat_vectors, intervention_constraints before each segment_profiles, intervention_map claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for segment_profiles, intervention_map. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.information_laundering_tracing` — Defensive Information Laundering Tracing worked example
 
@@ -700,7 +700,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied claim_text, known_publications, time_window before each laundering_chain, analysis_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for laundering_chain, analysis_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `cognitive_security.resilience_metrics_design` — Defensive Resilience Metrics Design worked example
 
@@ -712,7 +712,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied ecosystem_definition, stakeholder_goals, existing_data_sources, prior_metrics_or_assessments before each indicator_schema, measurement_protocol, implementation_guidance claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for indicator_schema, measurement_protocol, implementation_guidance. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `critical_review`
 
@@ -726,7 +726,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied artifact, decision, success_criteria before each report, findings, recommendation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for report, findings, recommendation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.research_design_critique` — Defensive Research Design Critique worked example
 
@@ -738,7 +738,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied study_text, claim_under_review before each validity_critique, inferential_reach_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for validity_critique, inferential_reach_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.claim_evidence_audit` — Defensive Claim-Evidence Audit worked example
 
@@ -750,7 +750,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied document, claim_taxonomy before each claim_evidence_table, audit_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for claim_evidence_table, audit_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.reproducibility_assessment` — Defensive Reproducibility Assessment worked example
 
@@ -762,7 +762,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied artifact, key_claims, environment_spec before each reproducibility_scorecard, gap_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for reproducibility_scorecard, gap_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.code_security_review` — Defensive Code Security Review worked example
 
@@ -774,7 +774,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied code, threat_model, review_scope before each findings_table, security_review_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for findings_table, security_review_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.statistical_validity_review` — Defensive Statistical Validity Review worked example
 
@@ -786,7 +786,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied study_text, primary_claim before each statistical_findings_table, corrected_inference claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for statistical_findings_table, corrected_inference. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.assumption_surfacing_review` — Defensive Assumption Surfacing Review worked example
 
@@ -798,7 +798,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied target_text, domain_context before each assumption_register, assumption_review_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for assumption_register, assumption_review_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.logical_coherence_review` — Defensive Logical Coherence Review worked example
 
@@ -810,7 +810,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied argument_text, key_claims before each argument_map, fallacy_register, coherence_verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for argument_map, fallacy_register, coherence_verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.citation_integrity_review` — Defensive Citation Integrity Review worked example
 
@@ -822,7 +822,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied document, citation_list before each citation_audit_table, integrity_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for citation_audit_table, integrity_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.threat_model_review` — Defensive Threat Model Review worked example
 
@@ -834,7 +834,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied threat_model, system_description, review_focus before each gap_report, assumption_register, revised_scope_recommendation claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for gap_report, assumption_register, revised_scope_recommendation. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.ethics_and_harms_review` — Defensive Ethics & Harms Review worked example
 
@@ -846,7 +846,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied artifact, intended_use, deployment_context before each harm_register, ethics_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for harm_register, ethics_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `critical_review.red_team_review` — Defensive Red-Team Review worked example
 
@@ -858,7 +858,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied artifact, adversary_profile, review_scope before each vulnerability_catalog, red_team_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for vulnerability_catalog, red_team_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `osint_integrity`
 
@@ -872,7 +872,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied claim, starting_sources before each provenance_chain, verdict claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for provenance_chain, verdict. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.source_vetting` — Defensive Source Vetting worked example
 
@@ -884,7 +884,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied source_identifier, claim_context, prior_assessments before each source_reliability_assessment, red_flags claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for source_reliability_assessment, red_flags. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.chain_of_custody_documentation` — Defensive Chain-of-Custody Documentation worked example
 
@@ -896,7 +896,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_items, collection_context, prior_custody_log before each custody_log, integrity_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for custody_log, integrity_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.geolocation_verification` — Defensive Geolocation Verification worked example
 
@@ -908,7 +908,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied image_or_video, claimed_location, claimed_date_time before each geolocation_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for geolocation_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.image_and_media_forensics_triage` — Defensive Image & Media Forensics Triage worked example
 
@@ -920,7 +920,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied media_item, accompanying_claim, source_account before each triage_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for triage_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.cross_source_corroboration` — Defensive Cross-Source Corroboration worked example
 
@@ -932,7 +932,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied candidate_claim, source_list, source_metadata before each corroboration_assessment, promotion_decision claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for corroboration_assessment, promotion_decision. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.metadata_integrity_check` — Defensive Metadata Integrity Check worked example
 
@@ -944,7 +944,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied media_file_or_post, claimed_provenance before each metadata_assessment, integrity_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for metadata_assessment, integrity_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.collection_plan_design` — Defensive Collection Plan Design worked example
 
@@ -956,7 +956,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied intelligence_requirement, legal_and_policy_constraints, available_resources before each collection_plan, source_priority_matrix claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for collection_plan, source_priority_matrix. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.sock_puppet_detection` — Defensive Sock-Puppet Detection worked example
 
@@ -968,7 +968,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied account_identifier, platform, related_accounts, narrative_context before each indicator_assessment, inauthenticity_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for indicator_assessment, inauthenticity_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `osint_integrity.dataset_provenance_audit` — Defensive Dataset Provenance Audit worked example
 
@@ -980,7 +980,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied dataset, analytic_question, dataset_documentation before each provenance_audit_report, integrity_check_results claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for provenance_audit_report, integrity_check_results. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `counterintelligence`
 
@@ -994,7 +994,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_body, current_assessment, adversary_profile before each dd_assessment, deception_indicators, collection_recommendations claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for dd_assessment, deception_indicators, collection_recommendations. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.indicators_of_deception_analysis` — Defensive Indicators of Deception Analysis worked example
 
@@ -1006,7 +1006,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied evidence_corpus, source_profile, baseline_expectations before each deception_assessment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for deception_assessment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.adversary_tradecraft_profiling` — Defensive Adversary Tradecraft Profiling worked example
 
@@ -1018,7 +1018,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied incident_corpus, adversary_identifier, collection_gaps before each tradecraft_profile, anticipatory_indicators, profile_caveats claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for tradecraft_profile, anticipatory_indicators, profile_caveats. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.honeypot_and_canary_design` — Defensive Honeypot & Canary Design worked example
 
@@ -1030,7 +1030,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied threat_model, asset_inventory, monitoring_coverage before each canary_design_spec claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for canary_design_spec. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.analytic_process_hardening` — Defensive Analytic Process Hardening worked example
 
@@ -1042,7 +1042,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied workflow_description, adversary_context, prior_incidents before each vulnerability_map, hardening_plan, residual_risk_statement claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for vulnerability_map, hardening_plan, residual_risk_statement. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.insider_threat_indicator_review` — Defensive Insider Threat Indicator Review worked example
 
@@ -1054,7 +1054,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied behavioral_observations, access_and_technical_indicators, contextual_background before each insider_threat_indicator_review_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for insider_threat_indicator_review_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.elicitation_attempt_recognition` — Defensive Elicitation Attempt Recognition worked example
 
@@ -1066,7 +1066,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied conversation_or_description, context before each elicitation_recognition_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for elicitation_recognition_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `counterintelligence.disinformation_attribution` — Defensive Disinformation Attribution worked example
 
@@ -1078,7 +1078,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied campaign_artifacts, candidate_actors, strategic_context before each attribution_matrix, attribution_assessment, intelligence_gaps claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for attribution_matrix, attribution_assessment, intelligence_gaps. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `information_environment`
 
@@ -1092,7 +1092,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied information_space_definition, content_sample, known_actors before each narrative_inventory, ecosystem_map claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for narrative_inventory, ecosystem_map. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.coordinated_inauthentic_behavior_detection` — Defensive Coordinated Inauthentic Behavior Detection worked example
 
@@ -1104,7 +1104,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied account_activity_dataset, investigation_scope, known_seed_accounts before each coordination_clusters, cib_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for coordination_clusters, cib_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.information_flow_network_analysis` — Defensive Information Flow Network Analysis worked example
 
@@ -1116,7 +1116,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied propagation_data, narrative_seed, account_metadata before each network_role_map, flow_analysis_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for network_role_map, flow_analysis_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.platform_affordance_risk_assessment` — Defensive Platform Affordance Risk Assessment worked example
 
@@ -1128,7 +1128,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied platform_name, threat_actor_profile, prior_incident_reports before each affordance_risk_matrix, risk_narrative claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for affordance_risk_matrix, risk_narrative. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.bot_and_automation_detection` — Defensive Bot & Automation Detection worked example
 
@@ -1140,7 +1140,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied account_data, context before each account_classifications, detection_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for account_classifications, detection_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.trend_and_emergence_monitoring` — Defensive Trend & Emergence Monitoring worked example
 
@@ -1152,7 +1152,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied monitoring_scope, watchlist, baseline_report before each signal_log, monitoring_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for signal_log, monitoring_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `information_environment.narrative_competition_analysis` — Defensive Narrative Competition Analysis worked example
 
@@ -1164,7 +1164,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied narrative_corpus, topic_definition, engagement_metrics before each narrative_competition_map, competition_assessment_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for narrative_competition_map, competition_assessment_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 ### `research_methods`
 
@@ -1178,7 +1178,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied synthesis_question, sources, inclusion_criteria before each synthesis_briefing, evidence_table claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for synthesis_briefing, evidence_table. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `research_methods.evidence_grading` — Defensive Evidence Grading worked example
 
@@ -1190,7 +1190,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analytic_question, evidence_items, grading_rubric before each graded_evidence_table, weight_of_evidence_summary claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for graded_evidence_table, weight_of_evidence_summary. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `research_methods.calibrated_estimation` — Defensive Calibrated Estimation worked example
 
@@ -1203,7 +1203,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Confidence and uncertainty | Confidence: state the support level for calibrated_estimate. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 | Synthetic event-scoring check | Synthetic evidence: 30 of 100 comparable resolved cases meet the stated event rule. With no justified adjustment, record probability 0.30 and mark the calibrated_estimate provisional. If the event later occurs, a declared one-event Brier convention gives (0.30 - 1)^2 = 0.49; the two-option convention gives 0.98. Log the convention and forecast before resolution. One outcome does not establish calibration, and an interval around probability 0.30 is not an outcome prediction interval to test against the binary result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `research_methods.analytic_confidence_assessment` — Defensive Analytic Confidence Assessment worked example
 
@@ -1215,7 +1215,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied judgment, evidence_set, key_assumptions before each confidence_assessment claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for confidence_assessment. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.
 
 #### `research_methods.structured_reporting_and_bluf` — Defensive Structured Reporting & BLUF worked example
 
@@ -1227,4 +1227,4 @@ These deterministic local examples show the expected shape of defensive skill us
 | Evidence and inference | Evidence: cite the supplied analytic_judgment, evidence_and_sources, assumptions, audience_and_purpose before each structured_report claim. Inference: explain how the evidence supports the result and mark any gap that prevents a stronger conclusion. |
 | Confidence and uncertainty | Confidence: state the support level for structured_report. Uncertainty: preserve unknowns, alternatives, and follow-up checks before using the defensive result. |
 
-**Provenance:** reviewed local fixture.
+**Provenance:** authored local example.

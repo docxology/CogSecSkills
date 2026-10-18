@@ -131,3 +131,69 @@ def test_cli_release_metadata_write_and_check(tmp_path, capsys):
     assert "wrote release metadata" in capsys.readouterr().out
     assert main(["--root", str(root), "release-metadata", "--check"]) == 0
     assert "release metadata is current" in capsys.readouterr().out
+
+
+def test_release_policy_observes_real_clean_and_dirty_git_without_rewriting(
+    tmp_path, capsys
+):
+    import subprocess
+
+    from cogsecskills.artifacts.release_metadata import check_release_policy
+    from cogsecskills.cli import main
+
+    root = _copy_release_fixture(tmp_path)
+    write_release_metadata(root)
+    for args in [
+        ["init"],
+        ["config", "user.name", "Test"],
+        ["config", "user.email", "test@example.invalid"],
+        ["add", "."],
+        ["commit", "-m", "real candidate fixture"],
+    ]:
+        subprocess.run(["git", *args], cwd=root, check=True, capture_output=True)
+    before = (root / "output/data/release_metadata.json").read_bytes()
+    assert check_release_policy(root) == []
+    assert (
+        main(
+            [
+                "--root",
+                str(root),
+                "release-metadata",
+                "--check-policy",
+                "--mode",
+                "release-candidate",
+            ]
+        )
+        == 0
+    )
+    assert "release policy passes" in capsys.readouterr().out
+    (root / "LICENSE").write_text("modified\n", encoding="utf-8")
+    assert (
+        "release-candidate mode requires a clean git worktree"
+        in check_release_policy(root)
+    )
+    assert (
+        main(
+            [
+                "--root",
+                str(root),
+                "release-metadata",
+                "--check-policy",
+                "--mode",
+                "release-candidate",
+            ]
+        )
+        == 1
+    )
+    assert "requires a clean git worktree" in capsys.readouterr().out
+    assert (root / "output/data/release_metadata.json").read_bytes() == before
+
+
+def test_release_policy_rejects_unversioned_candidate(tmp_path):
+    from cogsecskills.artifacts.release_metadata import check_release_policy
+
+    root = _copy_release_fixture(tmp_path)
+    assert any(
+        "git revision metadata is unavailable" == finding
+        for finding in check_release_policy(root)
+    )

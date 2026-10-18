@@ -52,3 +52,15 @@ def test_internal_companion_symlink_is_valid(tmp_path):
     workflow.rename(actual)
     workflow.symlink_to(actual)
     assert validate_skill(spec, directory).ok
+
+
+@pytest.mark.parametrize("group_source", [None, "groups: []\n"])
+def test_library_cannot_drop_its_group_vocabulary(tmp_path, group_source):
+    from cogsecskills.quality.validate import validate_library
+
+    _skill(tmp_path)
+    if group_source is not None:
+        (tmp_path / "registry/groups.yaml").write_text(group_source, encoding="utf-8")
+    result = validate_library(tmp_path)
+    assert not result.ok
+    assert any("group vocabulary" in issue.message for issue in result.errors)

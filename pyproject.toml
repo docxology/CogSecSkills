@@ -69,7 +69,7 @@ ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true
 
-# The optional `figures` extra (matplotlib/numpy/seaborn/pandas) is needed only
+# The optional `figures` extra (matplotlib/numpy/seaborn) is needed only
 # to regenerate figures, not to type-check the runner. When it is installed
 # alongside `dev`, mypy must not descend into those third-party stubs (numpy's
 # stubs use 3.12-only `type` statements that abort the 3.10-targeted check). The

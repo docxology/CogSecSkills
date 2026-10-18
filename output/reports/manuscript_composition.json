@@ -1,0 +1,97 @@
+{
+  "algorithm": "web-renderer-combine-v1",
+  "binding_sha256": "31d98ebcec6022c3a9bba4182865be2dd9c047fe4dc750798f4f6cb15b667247",
+  "combined_path": "output/web/_combined_manuscript.md",
+  "combined_sha256": "dd186564feac2b86ecf05249fbb1e807e33f78505b9643f9984d75a51da5d7c0",
+  "combined_size_bytes": 581433,
+  "input_root_kind": "source",
+  "ordered_inputs": [
+    {
+      "ordinal": 1,
+      "path": "docs/manuscript/00_abstract.md",
+      "sha256": "90fe79e68d2bd57f91e64ea841f63d85053805336d6cda5055f709c633990d69",
+      "size_bytes": 4476
+    },
+    {
+      "ordinal": 2,
+      "path": "docs/manuscript/01_introduction.md",
+      "sha256": "62d23551d8502286634136bdf0f8828911127ce3dfa1be99f5a70661c70e67a7",
+      "size_bytes": 8952
+    },
+    {
+      "ordinal": 3,
+      "path": "docs/manuscript/02_system_context.md",
+      "sha256": "87a847bfe62ceb5b4e929afe3b36d55120080d862c214a148aba8e04fc58a995",
+      "size_bytes": 11446
+    },
+    {
+      "ordinal": 4,
+      "path": "docs/manuscript/03_methods.md",
+      "sha256": "f957687b89b612064f84d7857bbd0def600c8409b493f4a5a2822e52d882a9ca",
+      "size_bytes": 8218
+    },
+    {
+      "ordinal": 5,
+      "path": "docs/manuscript/04_artifacts_and_evidence.md",
+      "sha256": "82f3e4bd63521528596daf9c00979a0af2a2998443818fcf283707b2212fda7a",
+      "size_bytes": 15182
+    },
+    {
+      "ordinal": 6,
+      "path": "docs/manuscript/05_reproducibility.md",
+      "sha256": "ea510f3056db8e749603c9abfb4f85afbe6500b4842dc99243cf3e65445939f8",
+      "size_bytes": 7112
+    },
+    {
+      "ordinal": 7,
+      "path": "docs/manuscript/06_limitations_and_next_steps.md",
+      "sha256": "e48bc98f0219391226612eb08e499bd4adef6b525d452cce9ac3b7a1d79a7bf3",
+      "size_bytes": 6126
+    },
+    {
+      "ordinal": 8,
+      "path": "docs/manuscript/07_ethics_and_responsible_use.md",
+      "sha256": "6322197da48a7045fac021e348d10caad908a8c3508993186d5f29bdd20744f7",
+      "size_bytes": 3662
+    },
+    {
+      "ordinal": 9,
+      "path": "docs/manuscript/S01_source_surface.md",
+      "sha256": "88572900f58ac3f017f824a31364fe078f3c261fd9ad05bd5847284517df6387",
+      "size_bytes": 3967
+    },
+    {
+      "ordinal": 10,
+      "path": "docs/manuscript/S02_release_manifest.md",
+      "sha256": "3bbb32d4a0aae7e87017f349f9c87fab5ee513269af4437228cf4e31ec530d07",
+      "size_bytes": 5092
+    },
+    {
+      "ordinal": 11,
+      "path": "docs/manuscript/S10_skill_catalogue.md",
+      "sha256": "f7ab42bf4fc62f6814a788f5c2dec86f716a2fd1a4879ba113df8ace6aae9c6d",
+      "size_bytes": 496276
+    },
+    {
+      "ordinal": 12,
+      "path": "docs/manuscript/S11_skill_metadata_matrix.md",
+      "sha256": "ca584816e564df59ddee2904224d076a5cd664c1bef37ef99973f897683cbd6d",
+      "size_bytes": 8417
+    },
+    {
+      "ordinal": 13,
+      "path": "docs/manuscript/98_symbols_glossary.md",
+      "sha256": "b76da283be6d4c409b94d32d8fb3a6f42290636fa3a6a685690a4deef5105305",
+      "size_bytes": 2367
+    },
+    {
+      "ordinal": 14,
+      "path": "docs/manuscript/99_references.md",
+      "sha256": "97ca5cf33d03ce540add04391f9e6a58e0befe2cc0285f45c9346fddedef1907",
+      "size_bytes": 204
+    }
+  ],
+  "ordered_inputs_sha256": "6bd5d0e4259edcb1967a1726d21728dbcd5a8d416df4ab2eb54c96a1c44faac8",
+  "project": "CogSecSkills",
+  "schema_version": "template-manuscript-composition-v1"
+}

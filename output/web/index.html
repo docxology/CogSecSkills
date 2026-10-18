@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.11" />
+  <meta name="generator" content="pandoc 3.12.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Daniel Ari Friedman" />
   <meta name="description" content="A reproducible skills-system manuscript for defensive analytic tradecraft" />
@@ -14,7 +14,10 @@ Library</title>
     */
     html {
       color: #1a1a1a;
+      color: light-dark(#1a1a1a, #fdfdfd);
       background-color: #fdfdfd;
+      background-color: light-dark(#fdfdfd, #1a1a1a);
+      color-scheme: light dark;
     }
     body {
       margin: 0 auto;
@@ -39,11 +42,16 @@ Library</title>
     }
     @media print {
       html {
-        background-color: white;
+        color-scheme: light only;
       }
-      body {
+      html, body, pre, code {
         background-color: transparent;
+      }
+      body, a, a:visited, blockquote {
         color: black;
+      }
+      pre, code {
+        padding: 0;
       }
       p, h2, h3 {
         orphans: 3;
@@ -56,11 +64,8 @@ Library</title>
     p {
       margin: 1em 0;
     }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
+    a, a:visited {
+      color: inherit;
     }
     img {
       max-width: 100%;
@@ -89,8 +94,11 @@ Library</title>
     blockquote {
       margin: 1em 0 1em 1.7em;
       padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
+      border-left: 2px solid;
+      border-color: #e6e6e6;
+      border-color: light-dark(#e6e6e6, #4c4c4c);
       color: #606060;
+      color: light-dark(#606060, #b6b6b6);
     }
     code {
       white-space: pre-wrap;
@@ -114,7 +122,7 @@ Library</title>
     }
     hr {
       border: none;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       height: 1px;
       margin: 1em 0;
     }
@@ -131,11 +139,11 @@ Library</title>
     }
     tbody {
       margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
     }
     th {
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid currentColor;
       padding: 0.25em 0.5em 0.25em 0.5em;
     }
     td {
@@ -501,6 +509,9 @@ pre {
 }
 
 pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
   overflow-wrap: inherit;
   white-space: inherit;
   word-break: inherit;
@@ -713,6 +724,7 @@ mjx-container[display="true"] {
 }
 
 </style>
+<script data-template-source-font-loader src="assets/source-web-fonts.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1059,8 +1071,8 @@ confidence rubrics, privacy and legal constraints, uncertainty handling,
 failure modes, and negative controls are not merely present but specific
 to that skill and not reused across the corpus, while an evidence ladder
 adds curated safe-use and unsafe-redirect scenarios with expected
-defensive response-shape contracts, reviewed expected answers, and one
-source-owned worked example per skill, and a generated quality
+defensive response-shape contracts, authored, unscored expected answers,
+and one source-owned worked example per skill, and a generated quality
 dashboard, supplemental catalogue, metadata matrix, data exports, and a
 family of deterministic figures — taxonomy counts, the hundred-skill
 atlas, tool-verb coverage, AGEINT topic crosswalks, the Plan-Build-Teach
@@ -2118,13 +2130,13 @@ probes for each of the seven groups.
 <code>python -m cogsecskills scenarios --check</code> loads those
 fixtures, runs the local router, confirms the expected implemented skill
 appears in the top route matches, checks declared output terms, verifies
-the fixture’s expected defensive response shape, verifies reviewed
-expected-answer sections and all-2 rubric scores, verifies quality terms
-such as defensive boundary, evidence/inference labeling, unknowns,
-alternatives, safe defensive examples, and unsafe refusal/redirect
-markers, and rejects fixture or expected-answer wording that embeds
-operational misuse detail.</p>
-<p><code>examples/skill-worked-examples.yaml</code> adds one reviewed
+the fixture’s expected defensive response shape, verifies authored,
+unscored expected-answer sections, verifies quality terms such as
+defensive boundary, evidence/inference labeling, unknowns, alternatives,
+safe defensive examples, and unsafe refusal/redirect markers, and
+rejects fixture or expected-answer wording that embeds operational
+misuse detail.</p>
+<p><code>examples/skill-worked-examples.yaml</code> adds one authored
 local worked example per skill.
 <code>python -m cogsecskills examples --check</code> verifies exact
 100-skill coverage, defensive evidence/inference/gap labeling,
@@ -2363,31 +2375,41 @@ environment).</p>
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">PROJECT_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${PROJECT_ROOT</span><span class="op">:-</span>/path/to/CogSecSkills<span class="va">}</span><span class="st">&quot;</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">TEMPLATE_ROOT</span><span class="op">=</span><span class="st">&quot;</span><span class="va">${TEMPLATE_ROOT</span><span class="op">:-</span>/path/to/template<span class="va">}</span><span class="st">&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">&quot;</span><span class="va">${TEMPLATE_ROOT}</span><span class="st">&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-sync</span> python <span class="at">-m</span> infrastructure.validation.cli markdown <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/docs/manuscript&quot;</span> <span class="at">--repo-root</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">&quot;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-sync</span> python <span class="at">-</span> <span class="op">&lt;&lt;&#39;PYRENDER&#39;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="st">from dataclasses import replace</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">from pathlib import Path</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">import os</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">import yaml</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">from infrastructure.rendering import RenderManager, RenderingConfig</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">from infrastructure.rendering.manuscript_discovery import discover_manuscript_files</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">project = Path(os.environ[&quot;PROJECT_ROOT&quot;]).resolve()</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">manuscript = project / &quot;docs&quot; / &quot;manuscript&quot;</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">source_config = yaml.safe_load((manuscript / &quot;config.yaml&quot;).read_text())</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">config = replace(</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">    RenderingConfig.from_project_config(source_config, env={}),</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">    manuscript_dir=str(manuscript), figures_dir=str(project / &quot;output/figures&quot;),</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">    output_dir=str(project / &quot;output&quot;), pdf_dir=str(project / &quot;output/pdf&quot;),</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">    web_dir=str(project / &quot;output/web&quot;),</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">manager = RenderManager(config)</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">sources = [p for p in discover_manuscript_files(manuscript) if p.suffix == &quot;.md&quot;]</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">print(manager.render_combined_pdf(sources, manuscript, &quot;CogSecSkills&quot;))</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">print(manager.render_combined_web(sources, manuscript, &quot;CogSecSkills&quot;))</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="op">PYRENDER</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ex">pdftotext</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/CogSecSkills_combined.pdf&quot;</span> <span class="at">-</span> <span class="kw">|</span> <span class="ex">rg</span> <span class="st">&quot;References|Supplemental 100-Skill Catalogue|Use when|Claim Provenance Verification|Taxonomy|Reference Density|Harness Contract|Evidence Ladder|Skill Worked Examples|Scenario Readiness|expected answers|Quality Dashboard|Release Manifest&quot;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ex">rg</span> <span class="at">-n</span> <span class="st">&quot;Citation .*undefined|undefined references|LaTeX Warning: Reference.*undefined|Missing character|Package .* Error|File .* not found&quot;</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/_combined_manuscript.log&quot;</span></span></code></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-sync</span> python <span class="at">-m</span> infrastructure.validation.cli markdown <span class="dt">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/docs/manuscript&quot;</span> <span class="at">--repo-root</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">&quot;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run <span class="at">--no-sync</span> python <span class="at">-</span> <span class="op">&lt;&lt;&#39;PYRENDER&#39;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="st">from dataclasses import replace</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">from pathlib import Path</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">import os</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="st">import yaml</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">from infrastructure.rendering import RenderManager, RenderingConfig</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">from infrastructure.rendering.manuscript_discovery import discover_manuscript_files</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">project = Path(os.environ[&quot;PROJECT_ROOT&quot;]).resolve()</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">manuscript = project / &quot;docs&quot; / &quot;manuscript&quot;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">source_config = yaml.safe_load((manuscript / &quot;config.yaml&quot;).read_text())</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">config = replace(</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">    RenderingConfig.from_project_config(source_config, env={}),</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">    manuscript_dir=str(manuscript), figures_dir=str(project / &quot;output/figures&quot;),</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">    output_dir=str(project / &quot;output&quot;), pdf_dir=str(project / &quot;output/pdf&quot;),</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">    web_dir=str(project / &quot;output/web&quot;),</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">)</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">manager = RenderManager(config)</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">sources = [p for p in discover_manuscript_files(manuscript) if p.suffix == &quot;.md&quot;]</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">print(manager.render_combined_pdf(sources, manuscript, &quot;CogSecSkills&quot;))</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">print(manager.render_combined_web(sources, manuscript, &quot;CogSecSkills&quot;))</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="op">PYRENDER</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="va">RENDER_MARKERS</span><span class="op">=</span><span class="st">&#39;References|Supplemental 100-Skill Catalogue&#39;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="va">RENDER_MARKERS</span><span class="op">+=</span><span class="st">&#39;|Use when|Claim Provenance Verification|Taxonomy&#39;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="va">RENDER_MARKERS</span><span class="op">+=</span><span class="st">&#39;|Reference Density|Harness Contract|Evidence Ladder&#39;</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="va">RENDER_MARKERS</span><span class="op">+=</span><span class="st">&#39;|Skill Worked Examples|Scenario Readiness|expected answers&#39;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="va">RENDER_MARKERS</span><span class="op">+=</span><span class="st">&#39;|Quality Dashboard|Release Manifest&#39;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="ex">pdftotext</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/CogSecSkills_combined.pdf&quot;</span> <span class="at">-</span> <span class="dt">\</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="kw">|</span> <span class="ex">rg</span> <span class="st">&quot;</span><span class="va">${RENDER_MARKERS}</span><span class="st">&quot;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="va">LOG_ERRORS</span><span class="op">=</span><span class="st">&#39;Citation .*undefined|undefined references&#39;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="va">LOG_ERRORS</span><span class="op">+=</span><span class="st">&#39;|LaTeX Warning: Reference.*undefined|Missing character&#39;</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="va">LOG_ERRORS</span><span class="op">+=</span><span class="st">&#39;|Package .* Error|File .* not found&#39;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="ex">rg</span> <span class="at">-n</span> <span class="st">&quot;</span><span class="va">${LOG_ERRORS}</span><span class="st">&quot;</span> <span class="st">&quot;</span><span class="va">${PROJECT_ROOT}</span><span class="st">/output/pdf/_combined_manuscript.log&quot;</span></span></code></pre></div>
 <p>Rendering updates the combined PDF under <code>output/pdf/</code> and
 HTML under <code>output/web/</code>; the root
 <code>CogSecSkills.pdf</code> is a separately published copy and must be
@@ -3498,7 +3520,7 @@ Inventory</h2>
 </tr>
 <tr>
 <td><code>../figures/cogsecskills_skill_grid.png</code></td>
-<td>Can the reader scan all 100 skills as one compact library
+<td>Can the reader scan all registry skills as one compact library
 surface?</td>
 </tr>
 <tr>

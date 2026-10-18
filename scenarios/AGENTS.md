@@ -7,7 +7,9 @@ This directory owns deterministic local readiness fixtures.
 - `defensive_readiness.yaml` contains curated safe-use and unsafe-redirect
   probes across the seven groups. The current source target is two safe and two
   unsafe fixtures per group.
-- `expected_answer` blocks are reviewed local fixtures, not live model outputs.
+- `expected_answer` blocks are authored, unscored answer keys, not independent
+  reviews. They are not live model outputs. Measured rubric ratings do not belong
+  in these deterministic fixtures.
 - Unsafe scenarios must demonstrate refusal or defensive redirection without
   operational misuse detail.
 - Safe scenarios must preserve evidence, inference, gap, confidence, and

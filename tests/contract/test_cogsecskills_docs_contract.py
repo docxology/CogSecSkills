@@ -209,7 +209,17 @@ def test_harness_transcript_loaded_files_exist_or_are_documented_custom_paths():
         for line in transcripts.splitlines()
         if line.startswith("- skills/")
     ]
-    assert len(file_lines) == 24
+    assert file_lines
+    for name, block in _transcript_blocks(transcripts).items():
+        loaded = [
+            line[2:].strip()
+            for line in block.splitlines()
+            if line.startswith("- skills/")
+        ]
+        assert loaded, f"{name}: missing loaded-file contract"
+        assert sum(path.endswith("/SKILL.md") for path in loaded) == 1
+        assert sum(path.endswith("/workflow.md") for path in loaded) == 1
+        assert sum("/harness/" in path for path in loaded) == 1
     for rel_path in file_lines:
         path = PROJECT_ROOT / rel_path
         if rel_path.endswith("/harness/custom_harness.md"):

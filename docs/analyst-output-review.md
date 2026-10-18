@@ -4,6 +4,11 @@ This protocol is for future scenario-output review. It is not an empirical
 claim by itself; it defines what a reviewer should inspect when CogSecSkills is
 used to produce a defensive answer.
 
+The default scenario, example, and `evals` artifacts contain authored fixtures,
+not independent review events or measured rubric ratings. Their literal heading
+and vocabulary checks do not grade reasoning. Apply the following rubric only
+to separately produced outputs with distinct reviewer and provenance records.
+
 ## Rubric
 
 Score each dimension as `0`, `1`, or `2`.

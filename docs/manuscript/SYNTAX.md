@@ -79,7 +79,7 @@ passes:
 PYTHONPATH="src:." python -m cogsecskills scenarios --check
 ```
 
-Those fixtures include expected-response metadata and reviewed expected-answer
+Those fixtures include expected-response metadata and authored expected-answer
 bodies. Do not describe them as live harness runs, external model evaluations,
 or field validation.
 

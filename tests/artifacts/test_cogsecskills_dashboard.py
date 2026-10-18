@@ -7,6 +7,8 @@ import shutil
 from copy import deepcopy
 from pathlib import Path
 
+import yaml
+
 from cogsecskills.artifacts.dashboard import (
     _dashboard_payload,
     _payload_findings,
@@ -15,6 +17,15 @@ from cogsecskills.artifacts.dashboard import (
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+
+def source_count(relative: str, key: str) -> int:
+    return len(yaml.safe_load((PROJECT_ROOT / relative).read_text())[key])
+
+
+SKILL_COUNT = source_count("registry/skills.yaml", "skills")
+GROUP_COUNT = source_count("registry/groups.yaml", "groups")
+SCENARIO_COUNT = source_count("scenarios/defensive_readiness.yaml", "scenarios")
 
 
 def _copy_dashboard_fixture(tmp_path: Path) -> Path:
@@ -29,9 +40,9 @@ def test_dashboard_write_and_check_on_repo_shaped_fixture(tmp_path):
 
     result = write_dashboard(root)
 
-    assert result["skills"] == 100
-    assert result["scenarios"] == 28
-    assert result["examples"] == 100
+    assert result["skills"] == SKILL_COUNT
+    assert result["scenarios"] == SCENARIO_COUNT
+    assert result["examples"] == SKILL_COUNT
     assert check_dashboard(root) == []
 
     markdown = (root / "docs" / "quality-dashboard.md").read_text(encoding="utf-8")
@@ -50,15 +61,15 @@ def test_dashboard_write_and_check_on_repo_shaped_fixture(tmp_path):
     assert "Answer kinds" in html
     assert "Source" in html
     assert "not field validation" in markdown
-    assert payload["summary"]["skills"] == 100
-    assert payload["summary"]["groups"] == 7
-    assert payload["summary"]["expected_answers"] == 28
-    assert payload["summary"]["worked_examples"] == 100
-    assert payload["summary"]["offline_evaluations"] == 28
-    assert len(payload["skills"]) == 100
-    assert len(payload["worked_examples"]) == 100
-    assert len(payload["offline_evaluations"]) == 28
-    assert len({row["group"] for row in payload["skills"]}) == 7
+    assert payload["summary"]["skills"] == SKILL_COUNT
+    assert payload["summary"]["groups"] == GROUP_COUNT
+    assert payload["summary"]["expected_answers"] == SCENARIO_COUNT
+    assert payload["summary"]["worked_examples"] == SKILL_COUNT
+    assert payload["summary"]["offline_evaluations"] == SCENARIO_COUNT
+    assert len(payload["skills"]) == SKILL_COUNT
+    assert len(payload["worked_examples"]) == SKILL_COUNT
+    assert len(payload["offline_evaluations"]) == SCENARIO_COUNT
+    assert len({row["group"] for row in payload["skills"]}) == GROUP_COUNT
     assert all("claim_boundary_status" in row for row in payload["skills"])
     assert all("worked_example_id" in row for row in payload["skills"])
     assert all("expected_answer_kinds" in row for row in payload["skills"])
@@ -83,7 +94,7 @@ def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
         )
     )
     scenario_ids = {scenario["id"] for scenario in payload["scenarios"]}
-    assert len(scenario_ids) == 28
+    assert len(scenario_ids) == SCENARIO_COUNT
     for scenario_id in scenario_ids:
         assert f"`{scenario_id}`" in markdown
         assert scenario_id in html
@@ -94,7 +105,7 @@ def test_dashboard_json_and_markdown_cover_all_scenarios(tmp_path):
     assert "Offline output review" in markdown
     assert "Offline output review" in html
     assert "local deterministic fixture only" in html
-    assert html.count("data-skill-id=") == 100
+    assert html.count("data-skill-id=") == SKILL_COUNT
 
 
 def test_dashboard_check_detects_missing_and_stale_outputs(tmp_path):

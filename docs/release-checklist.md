@@ -30,6 +30,11 @@ uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 git diff --check
 ```
 
+After committing the generated source and before tagging, run
+`uv run cogsecskills release-metadata --check-policy --mode release-candidate`
+from the clean checkout. The `v*` tag CI repeats both coherence and runtime
+policy checks before builds; neither step publishes a release.
+
 ## Style And Type Gates
 
 ```bash

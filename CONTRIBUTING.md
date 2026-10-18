@@ -59,6 +59,22 @@ into canonical definitions before it becomes library-owned skill substance.
 5. Run the generated-output gates in [`AGENTS.md`](AGENTS.md) after any skill,
    scenario, registry, example, or manuscript source change. Regenerate with
    the owning command; do not edit generated files by hand.
+The generated-output gate set is explicit:
+
+```bash
+uv run cogsecskills definitions --check
+uv run cogsecskills scenarios --check
+uv run cogsecskills examples --check
+uv run cogsecskills evals --check
+uv run cogsecskills dashboard --check
+uv run cogsecskills release-metadata --check
+uv run cogsecskills catalogue --check
+uv run cogsecskills manuscript-assets --check
+```
+
+CI also builds and installs the real wheel in an isolated environment outside
+the checkout and runs the consumer commands there.
+
 6. If you changed the catalogue size, regenerate `docs/catalogue.md`
    (`uv run python -m cogsecskills catalogue --markdown --output docs/catalogue.md`) and
    update the README group-count table and the conformance test's expected total.

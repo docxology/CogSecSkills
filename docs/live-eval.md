@@ -4,7 +4,7 @@
 harness and mechanically screens each returned transcript against the
 scenario's expected-answer contract. It is the live-runtime counterpart of the
 deterministic `evals` fixtures: the same scenarios, the same rubric
-dimensions, but a real model invocation instead of a reviewed local fixture.
+dimensions, but a real model invocation instead of a authored local fixture.
 
 ## Claim boundary
 

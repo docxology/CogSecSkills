@@ -196,7 +196,7 @@ def _write_skill_grid(rows: list[SkillRow], figures_dir: Path) -> Path:
     _add_chart_header(
         fig,
         ax,
-        "Library atlas of all 100 implemented skills",
+        f"Library atlas of all {len(rows)} implemented skills",
         "Each numbered cell is one registry skill in source order; color, short code, and heavy boundaries identify the taxonomy group without relying on a separate lookup.",
         top=0.87,
     )

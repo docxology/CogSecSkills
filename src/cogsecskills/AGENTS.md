@@ -27,7 +27,7 @@ and generator layer over declarative project data.
 - `quality/insights.py`, `artifacts/scenarios.py`, `artifacts/examples.py`,
   `artifacts/evals.py`, `artifacts/dashboard.py`, `artifacts/release_metadata.py`,
   and `artifacts/manuscript_assets/` own local navigation, deterministic scenario
-  checks, worked examples, offline output-review fixtures, generated dashboard
+  checks, worked examples, authored expected-answer fixtures, generated dashboard
   output, release claim metadata, manuscript supplements, data exports, and figures.
 - `artifacts/response_contract.py` checks literal answer headings and terms;
   `artifacts/text_outputs.py` owns shared text-output preflight and drift checks.

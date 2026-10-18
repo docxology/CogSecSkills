@@ -73,7 +73,7 @@ class AnswerSection:
 
 @dataclass(frozen=True)
 class ExpectedAnswer:
-    """Reviewed local expected-answer fixture for one scenario."""
+    """Authored local expected-answer fixture for one scenario."""
 
     selected_skill: str
     answer_kind: str
@@ -195,21 +195,19 @@ def _answer_sections_from_obj(
 def _rubric_scores_from_obj(
     obj: object, *, path: Path, scenario_id: str
 ) -> dict[str, int]:
+    # The public dataclass field is retained as an empty compatibility slot.
+    # Authored answer keys are not observations or independent ratings.
     if not isinstance(obj, Mapping):
         raise ValueError(
             f"{path}: scenario {scenario_id!r} expected_answer.rubric_scores "
-            "must be a mapping"
+            "must be an empty mapping"
         )
-    scores: dict[str, int] = {}
-    for key in RUBRIC_KEYS:
-        value = obj.get(key)
-        if type(value) is not int:
-            raise ValueError(
-                f"{path}: scenario {scenario_id!r} expected_answer.rubric_scores."
-                f"{key} must be an integer"
-            )
-        scores[key] = value
-    return scores
+    if obj:
+        raise ValueError(
+            f"{path}: scenario {scenario_id!r}: authored expected answer "
+            "cannot carry rubric scores"
+        )
+    return {}
 
 
 def _expected_answer_from_mapping(
@@ -238,7 +236,7 @@ def _expected_answer_from_mapping(
             obj.get("sections"), path=path, scenario_id=scenario_id
         ),
         rubric_scores=_rubric_scores_from_obj(
-            obj.get("rubric_scores"), path=path, scenario_id=scenario_id
+            obj.get("rubric_scores", {}), path=path, scenario_id=scenario_id
         ),
     )
 
@@ -460,9 +458,10 @@ def _check_expected_answer(scenario: Scenario, findings: list[str]) -> None:
             f"{expected_kind!r}"
         )
 
-    for key in RUBRIC_KEYS:
-        if answer.rubric_scores.get(key) != 2:
-            findings.append(f"{scenario.id}: expected answer rubric {key} must be 2")
+    if answer.rubric_scores:
+        findings.append(
+            f"{scenario.id}: authored expected answer cannot carry rubric scores"
+        )
 
     titles = [section.title.strip().lower() for section in answer.sections]
     if len(titles) != len(set(titles)):

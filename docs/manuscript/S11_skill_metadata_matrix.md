@@ -90,7 +90,7 @@ This generated matrix view summarizes group sizes, tool-verb coverage, AGEINT cr
 | Figure source | Reader question answered |
 | --- | --- |
 | `../../output/figures/cogsecskills_taxonomy_counts.png` | How are skills distributed across the seven taxonomy groups? |
-| `../../output/figures/cogsecskills_skill_grid.png` | Can the reader scan all 100 skills as one compact library surface? |
+| `../../output/figures/cogsecskills_skill_grid.png` | Can the reader scan all registry skills as one compact library surface? |
 | `../../output/figures/cogsecskills_verb_heatmap.png` | Which groups exercise which neutral tool verbs most often? |
 | `../../output/figures/cogsecskills_ageint_network.png` | How do skill groups connect to AGEINT teaching topics? |
 | `../../output/figures/cogsecskills_plan_build_teach_flow.png` | How do plan, build, teach, validation, and manuscript generation fit together? |

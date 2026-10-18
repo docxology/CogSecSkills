@@ -12,7 +12,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -113,7 +113,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -194,7 +194,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -251,7 +251,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -304,7 +304,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -353,7 +353,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule
@@ -400,7 +400,7 @@ This generated supplement lists the live CogSecSkills library by taxonomy group.
 \scriptsize
 \setlength{\tabcolsep}{1.8pt}
 \renewcommand{\arraystretch}{1.02}
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.095\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.455\linewidth}@{}}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.105\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}>{\raggedright\arraybackslash}p{0.10\linewidth}>{\raggedright\arraybackslash}p{0.135\linewidth}>{\raggedright\arraybackslash}p{0.45\linewidth}@{}}
 \toprule
 \textbf{Skill} & \textbf{Functionality} & \textbf{Use when} & \textbf{Metadata} & \textbf{Quality capsule}\\
 \midrule

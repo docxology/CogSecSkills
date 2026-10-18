@@ -30,8 +30,8 @@ FIGURES = (
     FigureMetadata(
         "cogsecskills_skill_grid.png",
         "../../output/figures/cogsecskills_skill_grid.png",
-        "Can the reader scan all 100 skills as one compact library surface?",
-        ("100 skills", "library atlas", "group"),
+        "Can the reader scan all registry skills as one compact library surface?",
+        ("registry skills", "library atlas", "group"),
     ),
     FigureMetadata(
         "cogsecskills_verb_heatmap.png",

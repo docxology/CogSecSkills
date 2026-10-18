@@ -101,11 +101,11 @@ deterministically from that source layer, and `definitions --check` proves the
 definitions and rendered files have not drifted.
 `python -m cogsecskills scenarios --check` adds a deterministic defensive
 readiness gate over curated safe-use and unsafe-redirect fixtures; it checks
-routing, local skill contracts, expected response-shape metadata, and reviewed
+routing, local skill contracts, expected response-shape metadata, and authored
 expected-answer fixtures without calling external model runtimes.
 `python -m cogsecskills examples --write` generates one worked defensive
 example per skill from `examples/skill-worked-examples.yaml`.
-`python -m cogsecskills evals --write` generates offline local output-review
+`python -m cogsecskills evals --write` generates authored expected-answer
 fixtures and reports from scenario expected answers; it does not call live
 models.
 `python -m cogsecskills dashboard --write` generates a 100-skill quality

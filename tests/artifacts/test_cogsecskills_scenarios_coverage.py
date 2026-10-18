@@ -85,16 +85,7 @@ def _safe_sc() -> dict:
                 {"title": "B", "body": "evidence"},
                 {"title": "C", "body": "evidence"},
             ],
-            "rubric_scores": {
-                k: 2
-                for k in (
-                    "skill_fit",
-                    "evidence_labeling",
-                    "uncertainty",
-                    "defensive_boundary",
-                    "output_usefulness",
-                )
-            },
+            "rubric_scores": {},
         },
     }
 

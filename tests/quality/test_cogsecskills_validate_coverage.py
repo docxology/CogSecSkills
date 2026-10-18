@@ -1,7 +1,7 @@
 """Behavioral edge cases of the validate gate.
 
 Covers: an adapter that exists but cannot be read is reported as unreadable
-(fault-injected OSError — permission-independent), a harness support map that
+(real invalid UTF-8 adapter — permission-independent), a harness support map that
 cannot realise a declared verb fails conformance, and a malformed registry is
 reported by ``conformance_report`` instead of raising.
 """
@@ -38,7 +38,7 @@ def _make_spec(skills_dir: Path) -> SkillSpec:
     )
 
 
-def test_adapter_read_failure_reported_as_unreadable(tmp_path, monkeypatch):
+def test_adapter_read_failure_reported_as_unreadable(tmp_path):
     """An adapter that exists but cannot be read is an error, not a crash."""
     from cogsecskills.quality.validate import validate_skill
 
@@ -47,17 +47,7 @@ def test_adapter_read_failure_reported_as_unreadable(tmp_path, monkeypatch):
     spec = _make_spec(skills_dir)
     claude = skills_dir / "harness" / "claude.md"
 
-    # Fault injection at the filesystem seam: an unreadable adapter (e.g. a
-    # directory-shaped path) surfaces as IsADirectoryError/OSError. Injected via
-    # monkeypatch so the test is permission-independent (root ignores chmod).
-    original_read_text = Path.read_text
-
-    def fail_on_claude(path, *args, **kwargs):
-        if path == claude:
-            raise IsADirectoryError(21, "Is a directory", str(path))
-        return original_read_text(path, *args, **kwargs)
-
-    monkeypatch.setattr(Path, "read_text", fail_on_claude)
+    claude.write_bytes(b"\xff")
     result = validate_skill(spec, skills_dir)
     assert any("unreadable" in i.message for i in result.errors)
 

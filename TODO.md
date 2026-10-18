@@ -4,10 +4,11 @@ Forward-only tracker for source-owned work. Keep history in completed changelog
 or commit messages; keep this file focused on the current state and next useful
 work.
 
-## Verified State (v1.8.0, re-measured 2026-10-01)
+## Verified State (post-v1.8.0 local candidate, 2026-10-18)
 
-The v1.8.0 local checks, rendered artifacts, hosted CI, GitHub release assets,
-and Zenodo source archive are verified separately below. The prior v1.7.0
+The current source candidate has local checks recorded below. The v1.8.0
+rendered artifacts, hosted CI, GitHub assets and archive remain historical
+release evidence; no new release or archive is asserted. The prior v1.7.0
 review remains historical; publication identity is recorded in
 [`docs/release-1.8.0-publication.md`](docs/release-1.8.0-publication.md).
 
@@ -20,8 +21,8 @@ review remains historical; publication identity is recorded in
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).
-- Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.
+- Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1264 passed in 95.56s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).
+- Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 111 files already formatted.
 - Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.
 - Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.
 - Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).

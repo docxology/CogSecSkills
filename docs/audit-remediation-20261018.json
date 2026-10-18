@@ -1,0 +1,669 @@
+{
+  "state": "local_repairs_not_yet_published_or_issue_closed",
+  "original_audit_head": "f2c15ca4bce17d1f8b58bd9f02b1b4f98b4c04be",
+  "rows": [
+    {
+      "finding": "CORE-01",
+      "issue": 6,
+      "url": "https://github.com/docxology/CogSecSkills/issues/6",
+      "disposition": "prior repair verified",
+      "summary": "Front matter uses YAML scalar escaping and is parsed in a real render regression.",
+      "evidence_paths": [
+        "src/cogsecskills/authoring/author.py",
+        "tests/authoring/test_cogsecskills_author.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-02",
+      "issue": 7,
+      "url": "https://github.com/docxology/CogSecSkills/issues/7",
+      "disposition": "repaired",
+      "summary": "Documented --root before the subcommand, matching argparse; no unsupported trailing-global-option promise.",
+      "evidence_paths": [
+        "src/cogsecskills/cli.py",
+        "tests/authoring/test_cogsecskills_cli_scaffold.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-03",
+      "issue": 8,
+      "url": "https://github.com/docxology/CogSecSkills/issues/8",
+      "disposition": "prior repair verified",
+      "summary": "Definition loading wraps read/parse errors and rejects non-mappings before setdefault; compatibility batch returns a per-file failure.",
+      "evidence_paths": [
+        "src/cogsecskills/authoring/author.py",
+        "tests/authoring/test_authoring_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-04",
+      "issue": 9,
+      "url": "https://github.com/docxology/CogSecSkills/issues/9",
+      "disposition": "prior repair verified",
+      "summary": "Authoring preflights definition fields, the actual SkillSpec parser and every output before writing.",
+      "evidence_paths": [
+        "src/cogsecskills/authoring/author.py",
+        "tests/authoring/test_authoring_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-05",
+      "issue": 10,
+      "url": "https://github.com/docxology/CogSecSkills/issues/10",
+      "disposition": "prior repair verified",
+      "summary": "Non-text harness paths and numeric versions are rejected, while documented optional null defaults remain explicit.",
+      "evidence_paths": [
+        "src/cogsecskills/core/spec.py",
+        "tests/core/test_cogsecskills_spec_nulls.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-06",
+      "issue": 11,
+      "url": "https://github.com/docxology/CogSecSkills/issues/11",
+      "disposition": "prior repair verified",
+      "summary": "Scalar and sequence strings both strip whitespace; the real YAML regression verifies the scalar result.",
+      "evidence_paths": [
+        "src/cogsecskills/core/spec.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-07",
+      "issue": 12,
+      "url": "https://github.com/docxology/CogSecSkills/issues/12",
+      "disposition": "prior repair verified",
+      "summary": "require_references requires a real bool; quoted false/null are source-labeled errors.",
+      "evidence_paths": [
+        "src/cogsecskills/core/config.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-08",
+      "issue": 13,
+      "url": "https://github.com/docxology/CogSecSkills/issues/13",
+      "disposition": "prior repair verified",
+      "summary": "Registry collection shapes raise source-labeled SpecError for null/bool/scalar/mapping values.",
+      "evidence_paths": [
+        "src/cogsecskills/core/registry.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-09",
+      "issue": 14,
+      "url": "https://github.com/docxology/CogSecSkills/issues/14",
+      "disposition": "prior repair verified",
+      "summary": "Shared skill_components validates group/slug and path containment before definition destinations are constructed.",
+      "evidence_paths": [
+        "src/cogsecskills/authoring/definitions.py",
+        "tests/authoring/test_authoring_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-10",
+      "issue": 15,
+      "url": "https://github.com/docxology/CogSecSkills/issues/15",
+      "disposition": "prior repair verified",
+      "summary": "Catalogue output creates its parents; the CLI regression writes a real nested path.",
+      "evidence_paths": [
+        "src/cogsecskills/cli.py",
+        "tests/authoring/test_cogsecskills_cli_additions.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-11",
+      "issue": 16,
+      "url": "https://github.com/docxology/CogSecSkills/issues/16",
+      "disposition": "prior repair verified",
+      "summary": "Negative result limits fail rather than becoming negative Python slices.",
+      "evidence_paths": [
+        "src/cogsecskills/cli.py",
+        "tests/quality/test_cogsecskills_coverage_gaps.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-12",
+      "issue": 17,
+      "url": "https://github.com/docxology/CogSecSkills/issues/17",
+      "disposition": "prior repair verified",
+      "summary": "Harness entries are validated as safe nonempty unique text components, not coerced from null/numbers.",
+      "evidence_paths": [
+        "src/cogsecskills/core/config.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-13",
+      "issue": 18,
+      "url": "https://github.com/docxology/CogSecSkills/issues/18",
+      "disposition": "prior repair verified",
+      "summary": "Promotion rejects unmatched/already-implemented rows and leaves the registry unchanged on failure.",
+      "evidence_paths": [
+        "src/cogsecskills/authoring/author.py",
+        "tests/authoring/test_cogsecskills_promote_strict.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-14",
+      "issue": 19,
+      "url": "https://github.com/docxology/CogSecSkills/issues/19",
+      "disposition": "prior repair verified",
+      "summary": "Shared strict YAML reader rejects duplicate mappings including merge ambiguity; actual source-file regressions exercise boundaries.",
+      "evidence_paths": [
+        "src/cogsecskills/core/yaml_io.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "CORE-15",
+      "issue": 20,
+      "url": "https://github.com/docxology/CogSecSkills/issues/20",
+      "disposition": "prior repair verified",
+      "summary": "Discovery rejects duplicate on-disk skill identifiers and external source symlinks.",
+      "evidence_paths": [
+        "src/cogsecskills/core/loader.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-01",
+      "issue": 21,
+      "url": "https://github.com/docxology/CogSecSkills/issues/21",
+      "disposition": "prior repair verified",
+      "summary": "Cookbook names the actual SKILL.md, workflow.md and harness adapter paths; transcript files are checked on disk.",
+      "evidence_paths": [
+        "docs/harness-cookbook.md",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-04",
+      "issue": 22,
+      "url": "https://github.com/docxology/CogSecSkills/issues/22",
+      "disposition": "prior repair verified",
+      "summary": "CLAUDE, contributor, package and CI floors agree at 99%.",
+      "evidence_paths": [
+        "CLAUDE.md",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-07",
+      "issue": 23,
+      "url": "https://github.com/docxology/CogSecSkills/issues/23",
+      "disposition": "repaired",
+      "summary": "CLI reference and module docstring identify real concern packages and include evals and release metadata owners.",
+      "evidence_paths": [
+        "docs/cli.md",
+        "tests/contract/test_cogsecskills_agents_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-08",
+      "issue": 24,
+      "url": "https://github.com/docxology/CogSecSkills/issues/24",
+      "disposition": "repaired",
+      "summary": "The docs index gives the complete catalogue write command, including --output.",
+      "evidence_paths": [
+        "docs/README.md",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-09",
+      "issue": 25,
+      "url": "https://github.com/docxology/CogSecSkills/issues/25",
+      "disposition": "prior repair verified",
+      "summary": "ISA constraints name the canonical public repository and the sibling template as a rendering dependency. Historical log entries remain dated history.",
+      "evidence_paths": [
+        "ISA.md",
+        "tests/contract/test_cogsecskills_agents_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "DOCS-10",
+      "issue": 26,
+      "url": "https://github.com/docxology/CogSecSkills/issues/26",
+      "disposition": "prior repair verified",
+      "summary": "README example links are separated in the current reader flow.",
+      "evidence_paths": [
+        "README.md",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-01",
+      "issue": 27,
+      "url": "https://github.com/docxology/CogSecSkills/issues/27",
+      "disposition": "repaired",
+      "summary": "Generated mirrors are explicitly authored answer keys; copying them is not an independent evaluation. No fabricated review is added.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/evals.py",
+        "tests/artifacts/test_fixture_provenance.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-02",
+      "issue": 28,
+      "url": "https://github.com/docxology/CogSecSkills/issues/28",
+      "disposition": "repaired",
+      "summary": "Removed all-2 self-ratings and passing-score claims. Loaded and direct-API authored fixtures reject attached scores; schema v2 records zero measured scores.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/evals.py",
+        "tests/artifacts/test_fixture_provenance.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-03",
+      "issue": 29,
+      "url": "https://github.com/docxology/CogSecSkills/issues/29",
+      "disposition": "repaired",
+      "summary": "Generated and authored docs explicitly limit checks to headings and vocabulary presence; independent scoring is a separate future protocol.",
+      "evidence_paths": [
+        "docs/analyst-output-review.md",
+        "tests/artifacts/test_fixture_provenance.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-04",
+      "issue": 30,
+      "url": "https://github.com/docxology/CogSecSkills/issues/30",
+      "disposition": "repaired by claim boundary",
+      "summary": "The docs state that queries/routes are co-authored closed-set regression fixtures, not held-out or independent routing accuracy. No benchmark results are invented.",
+      "evidence_paths": [
+        "docs/claim-boundaries.md",
+        "tests/artifacts/test_response_contracts.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-05",
+      "issue": 31,
+      "url": "https://github.com/docxology/CogSecSkills/issues/31",
+      "disposition": "repaired",
+      "summary": "Canonical example and answer-key provenance says authored; no nonexistent review event is asserted. Rendered manuscript/docs/data are synchronized.",
+      "evidence_paths": [
+        "examples/skill-worked-examples.yaml",
+        "tests/artifacts/test_fixture_provenance.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-07",
+      "issue": 32,
+      "url": "https://github.com/docxology/CogSecSkills/issues/32",
+      "disposition": "prior repair verified and count oracles repaired",
+      "summary": "Production counts derive from loaded scenarios; independent source-count expectations replace replicated 28 literals in generated-report tests.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/evals.py",
+        "tests/artifacts/test_response_contracts.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-08",
+      "issue": 33,
+      "url": "https://github.com/docxology/CogSecSkills/issues/33",
+      "disposition": "prior repair verified",
+      "summary": "Required sections/terms and excluded terms are checked against answer bodies only; provenance/request metadata cannot satisfy contracts.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/response_contract.py",
+        "tests/artifacts/test_response_contracts.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "EVAL-09",
+      "issue": 34,
+      "url": "https://github.com/docxology/CogSecSkills/issues/34",
+      "disposition": "repaired",
+      "summary": "Current local measurements are dated and separate from immutable historical release receipts; fixture reports no longer display rubric pass scores.",
+      "evidence_paths": [
+        "TODO.md",
+        "tests/artifacts/test_fixture_provenance.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REG-01",
+      "issue": 35,
+      "url": "https://github.com/docxology/CogSecSkills/issues/35",
+      "disposition": "repaired",
+      "summary": "Removed the doubled path slash; the canonical AutoGen documentation URL was opened successfully on 2026-10-18.",
+      "evidence_paths": [
+        "registry/harness_profiles.yaml",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REG-02",
+      "issue": 36,
+      "url": "https://github.com/docxology/CogSecSkills/issues/36",
+      "disposition": "prior repair verified",
+      "summary": "Required registry keys must be actual nonempty strings; null/numeric identifiers are not coerced.",
+      "evidence_paths": [
+        "src/cogsecskills/core/registry.py",
+        "tests/core/test_cogsecskills_registry_yaml_robustness.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REG-03",
+      "issue": 37,
+      "url": "https://github.com/docxology/CogSecSkills/issues/37",
+      "disposition": "repaired",
+      "summary": "validate_library rejects an absent or empty group vocabulary, retaining lightweight loader compatibility without silently dropping validation. Both controls fail on baseline.",
+      "evidence_paths": [
+        "src/cogsecskills/quality/validate.py",
+        "tests/quality/test_validation_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-01",
+      "issue": 38,
+      "url": "https://github.com/docxology/CogSecSkills/issues/38",
+      "disposition": "prior repair verified",
+      "summary": "Current package, citation, CodeMeta, manuscript and Zenodo metadata version checks agree; original deposits remain historical identities.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/release_metadata.py",
+        "tests/artifacts/test_cogsecskills_release_metadata.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-02",
+      "issue": 39,
+      "url": "https://github.com/docxology/CogSecSkills/issues/39",
+      "disposition": "prior repair verified",
+      "summary": "CFF schema-version and DOI normalization are separate from software version; current metadata is checked against source.",
+      "evidence_paths": [
+        "CITATION.cff",
+        "tests/artifacts/test_cogsecskills_release_metadata.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-03",
+      "issue": 40,
+      "url": "https://github.com/docxology/CogSecSkills/issues/40",
+      "disposition": "prior repair verified",
+      "summary": "DOI claim rows derive from normalized declared metadata, not a hardcoded absence claim; declaration is not network/archive identity verification.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/release_metadata.py",
+        "tests/artifacts/test_cogsecskills_release_metadata.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-04",
+      "issue": 41,
+      "url": "https://github.com/docxology/CogSecSkills/issues/41",
+      "disposition": "repaired",
+      "summary": "Atlas title and catalogue heading use len(rows); figure metadata names registry skills instead of a frozen numeric count. A two-row real fixture renders a two-skill heading. Pixel/source equivalence remains explicitly outside the structural drift gate.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/manuscript_assets/tables.py",
+        "tests/artifacts/test_cogsecskills_manuscript_assets.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-05",
+      "issue": 42,
+      "url": "https://github.com/docxology/CogSecSkills/issues/42",
+      "disposition": "prior repair verified",
+      "summary": "Contributor/source gate commands include all generated coherence checks and isolated-wheel validation; tag policy adds explicit runtime release checks.",
+      "evidence_paths": [
+        "CONTRIBUTING.md",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-06",
+      "issue": 43,
+      "url": "https://github.com/docxology/CogSecSkills/issues/43",
+      "disposition": "prior repair verified",
+      "summary": "Package default, contributor and CI coverage floors are 99%; current measurement does not change the required floor.",
+      "evidence_paths": [
+        "pyproject.toml",
+        "tests/contract/test_cogsecskills_docs_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-07",
+      "issue": 44,
+      "url": "https://github.com/docxology/CogSecSkills/issues/44",
+      "disposition": "repaired",
+      "summary": "v* tags run local coherence plus --check-policy --mode release-candidate before builds; real clean/dirty/unversioned Git controls exercise the policy without rewriting local projection bytes.",
+      "evidence_paths": [
+        "src/cogsecskills/artifacts/release_metadata.py",
+        "tests/artifacts/test_cogsecskills_release_metadata.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-08",
+      "issue": 45,
+      "url": "https://github.com/docxology/CogSecSkills/issues/45",
+      "disposition": "repaired",
+      "summary": "Ten tracked compiler intermediates are removed from the candidate index and ignored. Prior bytes are preserved outside the source and in Git history. The current source gets a fresh pinned-SDK render and composition/acceptance receipt; final PDF/HTML deliverables remain tracked.",
+      "evidence_paths": [
+        ".gitignore",
+        "docs/manuscript/05_reproducibility.md"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "REPRO-09",
+      "issue": 46,
+      "url": "https://github.com/docxology/CogSecSkills/issues/46",
+      "disposition": "repaired",
+      "summary": "The figures-extra comment lists only its actual matplotlib/numpy/seaborn dependencies.",
+      "evidence_paths": [
+        "pyproject.toml",
+        "tests/artifacts/test_cogsecskills_figures.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-01",
+      "issue": 47,
+      "url": "https://github.com/docxology/CogSecSkills/issues/47",
+      "disposition": "repaired",
+      "summary": "Artifact and adapter failure controls use actual malformed registry/UTF-8 files instead of fake project behavior. Cwd changes exercise real filesystem state, not mocked project data.",
+      "evidence_paths": [
+        "tests/artifacts/test_cogsecskills_examples_branches.py",
+        "tests/quality/test_cogsecskills_validate_coverage.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-02",
+      "issue": 48,
+      "url": "https://github.com/docxology/CogSecSkills/issues/48",
+      "disposition": "prior repair verified",
+      "summary": "The cited route/empty-findings controls now assert concrete diagnostic content. Nonempty live rows are explicit before subset palette checks.",
+      "evidence_paths": [
+        "tests/quality/test_cogsecskills_edge_cases.py",
+        "tests/artifacts/test_cogsecskills_manuscript_assets.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-03",
+      "issue": 49,
+      "url": "https://github.com/docxology/CogSecSkills/issues/49",
+      "disposition": "repaired",
+      "summary": "Repeated report-count expectations derive independently from canonical YAML or rendered rows; the sole intentional 100-area taxonomy conformance contract remains explicit.",
+      "evidence_paths": [
+        "tests/artifacts/test_cogsecskills_dashboard.py",
+        "tests/artifacts/test_manuscript_table_layout.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-04",
+      "issue": 50,
+      "url": "https://github.com/docxology/CogSecSkills/issues/50",
+      "disposition": "repaired",
+      "summary": "Repository-wide scenarios and palette tests use __file__-anchored source roots; actual subprocess cwd controls cover discovery.",
+      "evidence_paths": [
+        "tests/artifacts/test_cogsecskills_scenarios.py",
+        "tests/core/test_input_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-05",
+      "issue": 51,
+      "url": "https://github.com/docxology/CogSecSkills/issues/51",
+      "disposition": "repaired",
+      "summary": "A real invalid UTF-8 adapter exercises unreadable-file behavior independently of root/chmod semantics.",
+      "evidence_paths": [
+        "tests/quality/test_cogsecskills_validate_coverage.py",
+        "tests/quality/test_validation_boundaries.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-06",
+      "issue": 52,
+      "url": "https://github.com/docxology/CogSecSkills/issues/52",
+      "disposition": "addressed with bounded policy oracles",
+      "summary": "Existing style constants remain explicit print/design policy checks, paired with actual figure generation and malformed/collapsed PNG rejection. They are not presented as empirical quality or semantic figure validation. Coverage-variant tests assert concrete behavior and diagnostics; no failing tests are discarded.",
+      "evidence_paths": [
+        "tests/artifacts/test_cogsecskills_figures.py",
+        "tests/artifacts/test_cogsecskills_png_probe.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-07",
+      "issue": 53,
+      "url": "https://github.com/docxology/CogSecSkills/issues/53",
+      "disposition": "repaired",
+      "summary": "Exact AST inventory finds shared fixture helpers, no exact duplicate test functions. Shared real-directory copying is centralized while independently meaningful test cases and assertions remain.",
+      "evidence_paths": [
+        "tests/project_fixtures.py",
+        "tests/artifacts/test_cogsecskills_evals.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-08",
+      "issue": 54,
+      "url": "https://github.com/docxology/CogSecSkills/issues/54",
+      "disposition": "repaired with intentional contracts retained",
+      "summary": "Removed the global 24-line transcript pin in favor of per-block skill/workflow/adapter contracts and real path checks. Stable section anchors and evidence-boundary wording remain deliberate public contracts.",
+      "evidence_paths": [
+        "tests/contract/test_cogsecskills_docs_contract.py",
+        "tests/contract/test_cogsecskills_manuscript_contract.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-09",
+      "issue": 55,
+      "url": "https://github.com/docxology/CogSecSkills/issues/55",
+      "disposition": "repaired",
+      "summary": "CLI report/count assertions parse JSON and inspect values instead of serialized fragments.",
+      "evidence_paths": [
+        "tests/authoring/test_cogsecskills_cli_scaffold.py",
+        "tests/quality/test_cogsecskills_insights.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    },
+    {
+      "finding": "TEST-10",
+      "issue": 56,
+      "url": "https://github.com/docxology/CogSecSkills/issues/56",
+      "disposition": "repaired",
+      "summary": "Real registry/config negative cases cover collection, duplicate-key, type and path interactions. Reused quality-entry controls cover all three governed fields; no shared-item exemptions are configured or claimed tested as future behavior.",
+      "evidence_paths": [
+        "tests/core/test_input_boundaries.py",
+        "tests/authoring/test_cogsecskills_author.py"
+      ],
+      "source_baseline": "81f1d7411c46f56d221d85d01410dd8624cb031c",
+      "qualification": "candidate_not_yet_published"
+    }
+  ]
+}

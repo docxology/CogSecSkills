@@ -13,6 +13,8 @@ import re
 import shutil
 from pathlib import Path
 
+from tests.project_fixtures import copy_project_dirs
+
 import pytest
 import yaml
 
@@ -37,9 +39,7 @@ _ROW = (
 
 
 def _copy_fixture(tmp_path: Path, *dirnames: str) -> Path:
-    for d in dirnames:
-        shutil.copytree(PROJECT_ROOT / d, tmp_path / d)
-    return tmp_path
+    return copy_project_dirs(tmp_path, *dirnames)
 
 
 # --- CLI: list with empty results ----------------------------------------
@@ -187,13 +187,7 @@ _VALID_SCENARIO: dict = {
             {"title": "B", "body": "uncertainty"},
             {"title": "C", "body": "defensive"},
         ],
-        "rubric_scores": {
-            "skill_fit": 2,
-            "evidence_labeling": 2,
-            "uncertainty": 2,
-            "defensive_boundary": 2,
-            "output_usefulness": 2,
-        },
+        "rubric_scores": {},
     },
 }
 
@@ -231,12 +225,12 @@ def _write_scenario_fixture(root: Path, scenario: dict) -> None:
         (
             "expected_answer.rubric_scores",
             "notamapping",
-            "rubric_scores must be a mapping",
+            "rubric_scores must be an empty mapping",
         ),
         (
             "expected_answer.rubric_scores",
             {"skill_fit": "notint"},
-            "rubric_scores.skill_fit must be an integer",
+            "cannot carry rubric scores",
         ),
     ],
 )

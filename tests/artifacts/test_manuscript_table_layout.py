@@ -99,8 +99,9 @@ def test_web_catalogue_retains_every_skill_and_evidence_field():
     catalogue = render_skill_catalogue(rows)
     parser = _parse_html_blocks(catalogue)
     web_rows = [row for table in parser.tables for row in table]
-    assert len(web_rows) == len(rows) == 100
-    assert len(parser.tables) == 7
+    assert rows
+    assert len(web_rows) == len(rows)
+    assert len(parser.tables) == len({row.group for row in rows})
     for source, cells in zip(rows, web_rows, strict=True):
         assert len(cells) == 5
         assert source.id in cells[0]
@@ -148,7 +149,8 @@ def test_print_and_web_verb_matrix_preserve_exact_ids_and_counts():
         for group in groups
     }
     web_rows = _parse_html_blocks(matrix).tables[0]
-    assert len(web_rows) == len(groups) == 7
+    assert groups
+    assert len(web_rows) == len(groups)
     for group, cells in zip(groups, web_rows, strict=True):
         assert cells[0] == group
         assert cells[1:] == [str(counts[group][verb]) for verb in verbs]

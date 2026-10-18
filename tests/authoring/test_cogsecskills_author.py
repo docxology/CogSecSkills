@@ -379,7 +379,10 @@ def test_check_definitions_reports_reused_negative_control_entry(tmp_path):
     )
 
 
-def test_check_definitions_reports_reused_quality_entry(tmp_path):
+@pytest.mark.parametrize(
+    "field", ["confidence_rubric", "evidence_requirements", "privacy_legal_constraints"]
+)
+def test_check_definitions_reports_reused_quality_entry(tmp_path, field):
     from cogsecskills.authoring.definitions import (
         canonical_definition_text,
         check_definitions,
@@ -398,13 +401,11 @@ def test_check_definitions_reports_reused_quality_entry(tmp_path):
     second_path = definition_path("sat.second_demo", tmp_path)
     first = yaml.safe_load(first_path.read_text(encoding="utf-8"))
     second = yaml.safe_load(second_path.read_text(encoding="utf-8"))
-    second["confidence_rubric"][1] = first["confidence_rubric"][1]
+    second[field][0] = first[field][0]
     second_path.write_text(canonical_definition_text(second), encoding="utf-8")
 
     findings = check_definitions(tmp_path)
-    assert any(
-        "confidence_rubric entry reused across definitions" in f for f in findings
-    )
+    assert any(f"{field} entry reused across definitions" in f for f in findings)
 
 
 # --- additional branch coverage -------------------------------------------

@@ -10,6 +10,8 @@ from __future__ import annotations
 import shutil
 from pathlib import Path
 
+from tests.project_fixtures import copy_project_dirs
+
 import pytest
 import yaml
 
@@ -24,10 +26,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
 
 def _copy_fixture(tmp_path: Path) -> Path:
-    """Copy registry, skills, and examples for full-fixture tests."""
-    for dirname in ("registry", "skills", "examples"):
-        shutil.copytree(PROJECT_ROOT / dirname, tmp_path / dirname)
-    return tmp_path
+    return copy_project_dirs(tmp_path, "registry", "skills", "examples")
 
 
 def _copy_fixture_no_examples(tmp_path: Path) -> Path:
@@ -144,16 +143,13 @@ def test_check_examples_load_examples_error(tmp_path):
     assert any("missing worked examples source" in f for f in findings)
 
 
-def test_check_examples_expected_outputs_error(tmp_path, monkeypatch):
+def test_check_examples_expected_outputs_error(tmp_path):
     root = _copy_fixture(tmp_path)
     write_examples(root)
 
-    def _raise(*args, **kwargs):
-        raise ValueError("synthetic error in _expected_outputs")
-
-    monkeypatch.setattr(
-        "cogsecskills.artifacts.examples._expected_outputs",
-        _raise,
-    )
+    registry = root / "registry" / "skills.yaml"
+    registry.write_text("skills: not-a-list\n", encoding="utf-8")
     findings = check_examples(root)
-    assert any("synthetic error in _expected_outputs" in f for f in findings)
+    assert any(
+        "skills" in finding and "must be a list" in finding for finding in findings
+    )

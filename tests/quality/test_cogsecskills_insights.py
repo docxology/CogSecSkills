@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 from pathlib import Path
 
 import yaml
@@ -274,13 +276,13 @@ def test_cli_route_stats_groups_catalogue_export(tmp_path, capsys):
     assert main(["--root", str(tmp_path), "route", "competing hypotheses"]) == 0
     assert "sat.ach" in capsys.readouterr().out
     assert main(["--root", str(tmp_path), "stats"]) == 0
-    assert '"registry_total": 2' in capsys.readouterr().out
+    assert json.loads(capsys.readouterr().out)["registry_total"] == 2
     assert main(["--root", str(tmp_path), "groups"]) == 0
     assert "sat" in capsys.readouterr().out
     assert main(["--root", str(tmp_path), "catalogue", "--markdown"]) == 0
     assert "Skill Catalogue" in capsys.readouterr().out
     assert main(["--root", str(tmp_path), "export"]) == 0
-    assert '"count": 2' in capsys.readouterr().out
+    assert json.loads(capsys.readouterr().out)["count"] == 2
 
 
 def test_cli_catalogue_output_file(tmp_path, capsys):

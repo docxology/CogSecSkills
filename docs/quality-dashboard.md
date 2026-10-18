@@ -26,8 +26,8 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 - Dashboard gate: `dashboard --check` -> `quality dashboard is current`.
 - Release gate: `release-metadata --check` -> `release metadata is current (local mode)`.
 - Manuscript gate: `manuscript-assets --check` -> `manuscript assets are current`.
-- Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1248 passed in 276.31s`, `99.65% total coverage` with branch measurement enabled (Python 3.14.4, macOS).
-- Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 108 files already formatted.
+- Test gate: `uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99` -> `1264 passed in 95.56s`, `99.54% total coverage` with branch measurement enabled (Python 3.14.8, macOS).
+- Lint gate: `uv run ruff check src/cogsecskills tests` + `uv run ruff format --check src/cogsecskills tests` -> clean; 111 files already formatted.
 - Type gate: `uv run mypy` -> `Success: no issues found in 51 source files`; use `uv sync --locked --extra dev --extra figures` for the complete development environment.
 - Installed wheel: v1.8.0 runtime-only isolated environments on Python 3.14.4 and 3.10.20 pass version, doctor, definitions, and scenarios from an unrelated working directory with `--root`; default doctor from the library checkout also passes.
 - Python legs: all five Python 3.10–3.14 hosted CI jobs passed at release commit `38f4b8e17c97d18a69a906f4a895a7cbb730e786`, including clean-wheel smoke; [run 36925387817](https://github.com/docxology/CogSecSkills/actions/runs/36925387817).
@@ -40,8 +40,8 @@ This generated dashboard is a local navigation and drift surface. It summarizes 
 | Surface | Local evidence checked | Boundary |
 |---|---|---|
 | Scenario readiness | Routed safe and unsafe fixtures with expected answers | No live model runtime or field-effectiveness claim |
-| Skill worked examples | One deterministic local worked example per skill | Reviewed examples are fixtures, not model transcripts |
-| Offline output review | Scenario-linked reviewed answers scored with the analyst-output rubric | Deterministic local fixture only, not benchmark or runtime certification |
+| Skill worked examples | One deterministic local worked example per skill | Authored examples are fixtures, not model transcripts |
+| Offline output review | Scenario-linked authored answer keys; no independent review or measured scores | Deterministic local fixture only, not benchmark or runtime certification |
 | Quality dashboard | Cross-checks quality capsule, scenarios, worked examples, harnesses, references, and source paths | Drift and navigation surface only |
 
 ## Scenario Coverage

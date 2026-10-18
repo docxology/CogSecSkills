@@ -17,6 +17,16 @@ source coherence and structural readiness, but they are not field validation.
 | `release-metadata --check` | Source metadata and generated release mirrors agree; stricter modes require clean git state and, for public-archive, a valid DOI declaration. It does not contact the archive or verify DOI/version/revision identity. |
 | pytest and coverage | Runner behavior is covered by the checked regression suite. |
 
+## Authored fixtures and routing limits
+
+Scenario queries and expected routes are authored together. Passing those probes
+checks regressions on that closed fixture set; it does not measure routing
+accuracy on unseen or independently labeled requests. The default gate has no
+held-out paraphrase benchmark. Answer keys are authored and unscored. Heading
+and vocabulary-presence checks do not grade truth, uncertainty calibration, or
+defensive judgment. Independent scoring requires a separately produced output,
+review record, and provenance as described in `future-validation-protocols.md`.
+
 ## Not Proved
 
 - A live model will select the same skill.

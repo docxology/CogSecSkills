@@ -302,16 +302,7 @@ def test_scenarios_route_no_match(tmp_path):
                 {"title": "B", "body": "evidence"},
                 {"title": "C", "body": "evidence"},
             ],
-            "rubric_scores": {
-                k: 2
-                for k in (
-                    "skill_fit",
-                    "evidence_labeling",
-                    "uncertainty",
-                    "defensive_boundary",
-                    "output_usefulness",
-                )
-            },
+            "rubric_scores": {},
         },
     }
     (tmp_path / "scenarios").mkdir()

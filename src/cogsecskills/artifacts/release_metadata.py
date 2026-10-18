@@ -329,3 +329,17 @@ def check_release_metadata(
         check_text_outputs(base, outputs, label="generated release metadata file")
     )
     return findings
+
+
+def check_release_policy(
+    root: Path | None = None, *, mode: ReleaseMode = "release-candidate"
+) -> list[str]:
+    """Check runtime release policy without changing committed local projections.
+
+    The normal --check remains responsible for generated-file coherence. Tag CI
+    runs both checks: this one observes the actual clean checkout before builds.
+    """
+    base = resolve_root(root)
+    return _findings(
+        _metadata_payload(base, mode=mode), mode=mode, runtime_git=_git_info(base)
+    )

@@ -144,16 +144,7 @@ def test_check_scenarios_duplicate_id(tmp_path):
                 {"title": "B", "body": "evidence"},
                 {"title": "C", "body": "evidence"},
             ],
-            "rubric_scores": {
-                k: 2
-                for k in (
-                    "skill_fit",
-                    "evidence_labeling",
-                    "uncertainty",
-                    "defensive_boundary",
-                    "output_usefulness",
-                )
-            },
+            "rubric_scores": {},
         },
     }
     path = tmp_path / "scenarios" / "defensive_readiness.yaml"
@@ -224,16 +215,7 @@ def _make_safe_scenario(
                 {"title": "B", "body": "evidence"},
                 {"title": "C", "body": "evidence"},
             ],
-            "rubric_scores": {
-                k: 2
-                for k in (
-                    "skill_fit",
-                    "evidence_labeling",
-                    "uncertainty",
-                    "defensive_boundary",
-                    "output_usefulness",
-                )
-            },
+            "rubric_scores": {},
         },
     }
 
@@ -357,14 +339,14 @@ def test_check_scenarios_answer_kind_mismatch(tmp_path):
     assert any("answer kind" in f and "must be" in f for f in findings)
 
 
-def test_check_scenarios_rubric_not_two(tmp_path):
-    """A rubric score that is not 2 should be flagged."""
+def test_check_scenarios_rejects_authored_rating(tmp_path):
+    """An authored answer cannot claim an observed rubric rating."""
     _seed_minimal(tmp_path)
     sc = _make_safe_scenario()
-    sc["expected_answer"]["rubric_scores"]["skill_fit"] = 1
+    sc["expected_answer"]["rubric_scores"] = {"skill_fit": 1}
     _write_scenarios(tmp_path, [sc])
     findings = check_scenarios(tmp_path)
-    assert any("rubric" in f and "must be 2" in f for f in findings)
+    assert any("cannot carry rubric scores" in f for f in findings)
 
 
 def test_check_scenarios_repeated_answer_section_titles(tmp_path):
