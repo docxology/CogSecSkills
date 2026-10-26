@@ -76,6 +76,7 @@ python -m cogsecskills examples --check  # prove generated worked examples are c
 python -m cogsecskills evals --check  # prove offline output-review fixtures are current
 python -m cogsecskills dashboard --check  # prove the generated quality dashboard is current
 python -m cogsecskills release-metadata --check  # prove local release metadata is current
+python -m cogsecskills catalogue --check  # prove the generated catalogue is current
 python -m cogsecskills manuscript-assets --check  # prove generated manuscript assets are current
 ```
 

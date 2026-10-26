@@ -6,6 +6,17 @@ follow semantic versioning.
 
 ## [Unreleased]
 
+### Changed
+
+- **Tooling currency:** CI runs on `actions/checkout@v7` and
+  `astral-sh/setup-uv@v10` (was `@v4` and `@v5`). No runtime dependency,
+  lockfile, runner behavior, or skill contract changed.
+
+### Fixed
+
+- **Docs:** the `docs/README.md` gate list now includes `catalogue --check`,
+  matching CI and `CLAUDE.md`.
+
 ## [1.8.0] - 2026-10-01
 
 Adds exploratory live-harness screening and machine-readable validation,
