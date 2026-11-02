@@ -18,7 +18,7 @@ keywords = [
     "cognitive-security", "structured-analytic-techniques", "agentic-ai",
     "intelligence-analysis", "osint", "skills", "multiharness",
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 # The runner is deliberately lightweight: PyYAML is the only unconditional
 # runtime dependency. `tomli` is the stdlib `tomllib` backport and installs only
 # on Python 3.10, which predates `tomllib`; on >=3.11 nothing extra is pulled in.
