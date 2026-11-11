@@ -191,3 +191,7 @@ review remains historical; publication identity is recorded in
   distinguish the existing software record's v1.7.0 source link from its stale
   `1.0.0` version metadata.
 - Add verified external citations only when a manuscript claim needs external literature rather than project-local evidence.
+
+## Workflowz review — 2026-11-10
+
+Review coverage (bounded; no new actionable findings): read the root `AGENTS.md`, `README.md`, `TODO.md`, `pyproject.toml`, and `.python-version`; inspected supplied excerpts of the CLI, core loaders/registry/config/spec/YAML handling, authoring and validation modules, live-eval process/template handling, and representative test fixtures. The `pass` in `src/cogsecskills/runtime/process.py:34` is an intentional `ProcessLookupError` race handler; scaffold `status: "stub"` values in `src/cogsecskills/authoring/scaffold.py:86` are explicit authoring lifecycle states, not silent production substitutes; test `stub` rows and `/fake` paths are real-input fixtures. Python evidence is internally mixed: `.python-version:1` requests `3.15`, `pyproject.toml:21` declares `>=3.11` while README.md:6 advertises `3.10+`, and `pyproject.toml:62,90` target mypy/ruff at 3.10; the packet contains no dependency, fixture, CI, or deployment evidence sufficient to prescribe a runtime change. No mock/fallback/NotImplemented production defect or other concrete improvement survived the supplied evidence. Re-review when a concrete failure, dependency/runtime constraint, or relevant source change provides new evidence.
