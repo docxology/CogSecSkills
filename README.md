@@ -12,6 +12,8 @@ each authored once as a **harness-neutral skill** with default adapters for
 Claude Code, Codex, and Hermes, and the same structural contract for any
 additional configured harness.
 
+![CogSecSkills overview: 100 analytic skills in seven taxonomy groups, install-and-verify steps, agent-harness connection and the source-owned run flow](figures/cogsecskills_cover_installation.png)
+
 ## Install
 
 ```bash
