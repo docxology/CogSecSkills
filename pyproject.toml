@@ -59,7 +59,7 @@ include = ["cogsecskills*"]
 cogsecskills = ["py.typed"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.11"
 files = ["src/cogsecskills"]
 # src-layout: treat src/ as the import base so nested subpackages resolve to a
 # single canonical module name (cogsecskills.<sub>.<mod>), not src.cogsecskills.*.
@@ -87,7 +87,7 @@ follow_imports_for_stubs = true
 ignore_missing_imports = true
 
 [tool.ruff]
-target-version = "py310"
+target-version = "py311"
 line-length = 88
 
 [tool.ruff.lint]
