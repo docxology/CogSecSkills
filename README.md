@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21513316.svg)](https://doi.org/10.5281/zenodo.21513316)
 [![CI](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml/badge.svg)](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](pyproject.toml)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 
 **Agentic tool-use skills for Cognitive Security and analytic tradecraft** — a
 library of **100 analytic skills** (Structured Analytic Techniques, cognitive-
