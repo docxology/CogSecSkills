@@ -34,6 +34,7 @@ dev = [
     "mypy>=1.8",
     "ruff>=0.6",
     "types-PyYAML>=6.0",
+    "pytest-xdist>=3.6",
 ]
 # Manuscript/release figure rendering only (manuscript-assets --write). The core
 # runner and every CI gate run without these; they are needed solely to
