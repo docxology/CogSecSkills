@@ -14,7 +14,7 @@ Install CogSec Evidence through Claude's plugin interface and start a new conver
 
 ## Data handling
 
-The skills use only excerpts pasted in the conversation. Paste the relevant portions of public sources and remove personal or sensitive details first. The skills do not request credentials, open uploads or links, read local files, search the web, or send material to another service. The plugin has no scripts, hooks, servers, telemetry, or storage of its own. Pasted inputs and the resulting analysis are part of the Claude conversation and are subject to its normal data handling. The plugin is intended for adults doing evidence review.
+The skills use excerpts from public sources that you paste into Claude. Include a credited author's public name only when needed to check attribution. Remove private, sensitive, and unrelated personal details first. The plugin keeps no logs or separate records and sends no excerpts to other services. Read the [privacy policy](PRIVACY.md) for details. The plugin is intended for adults doing evidence review.
 
 ## Troubleshooting
 

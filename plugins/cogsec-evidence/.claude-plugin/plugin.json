@@ -1,7 +1,7 @@
 {
   "name": "cogsec-evidence",
   "displayName": "CogSec Evidence",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Assess source credibility, trace public claims to their reported origin, and audit citations using excerpts you provide.",
   "author": {
     "name": "docxology",
@@ -9,6 +9,7 @@
   },
   "homepage": "https://github.com/docxology/CogSecSkills",
   "repository": "https://github.com/docxology/CogSecSkills",
+  "privacyPolicyUrl": "https://github.com/docxology/CogSecSkills/blob/main/plugins/cogsec-evidence/PRIVACY.md",
   "license": "Apache-2.0",
   "keywords": ["evidence", "provenance", "citations", "critical-review"]
 }
