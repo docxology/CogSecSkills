@@ -1075,7 +1075,7 @@ examples:
     body: >
       Evidence: the README claims all gates pass. The supplied receipt covers
       the clean commit and the reviewed patch is untested. Inference: candidate
-      gate results remain unverified.
+      gate results remain unverified. This evidence gap matters to the release decision.
   - title: Confidence and uncertainty
     body: >
       Confidence: high for the receipt mismatch and unresolved for live gate behavior.
@@ -1154,7 +1154,7 @@ examples:
     body: >
       Evidence: the reviewed revision shows an allow result after a policy-check error.
       Inference: exposure depends on the deployment wiring. A supplied advisory remains
-      provisional until the resolved dependency version and applicability are confirmed.
+      provisional because of a gap in the resolved version and applicability evidence.
   - title: Confidence and uncertainty
     body: >
       Confidence: high in the observed branch and unresolved for deployment exposure.
@@ -1374,8 +1374,8 @@ examples:
   - title: Confidence and uncertainty
     body: >
       Confidence: stronger for the caption conflict than for the file history.
-      Uncertainty: reverse lookup was unrun, and earlier circulation or editing
-      remains unresolved until comparable authorized evidence is available.
+      Uncertainty: the unrun reverse lookup leaves an evidence gap. Earlier circulation
+      and editing remain unresolved until comparable authorized evidence is available.
   provenance: authored local example
 - skill_id: osint_integrity.cross_source_corroboration
   title: Defensive Cross-Source Corroboration worked example

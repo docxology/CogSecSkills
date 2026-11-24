@@ -1291,7 +1291,7 @@
           "title": "Defensive task boundary"
         },
         {
-          "body": "Evidence: the README claims all gates pass. The supplied receipt covers the clean commit and the reviewed patch is untested. Inference: candidate gate results remain unverified.",
+          "body": "Evidence: the README claims all gates pass. The supplied receipt covers the clean commit and the reviewed patch is untested. Inference: candidate gate results remain unverified. This evidence gap matters to the release decision.",
           "title": "Evidence and inference"
         },
         {
@@ -1379,7 +1379,7 @@
           "title": "Defensive task boundary"
         },
         {
-          "body": "Evidence: the reviewed revision shows an allow result after a policy-check error. Inference: exposure depends on the deployment wiring. A supplied advisory remains provisional until the resolved dependency version and applicability are confirmed.",
+          "body": "Evidence: the reviewed revision shows an allow result after a policy-check error. Inference: exposure depends on the deployment wiring. A supplied advisory remains provisional because of a gap in the resolved version and applicability evidence.",
           "title": "Evidence and inference"
         },
         {
@@ -1647,7 +1647,7 @@
           "title": "Evidence and inference"
         },
         {
-          "body": "Confidence: stronger for the caption conflict than for the file history. Uncertainty: reverse lookup was unrun, and earlier circulation or editing remains unresolved until comparable authorized evidence is available.",
+          "body": "Confidence: stronger for the caption conflict than for the file history. Uncertainty: the unrun reverse lookup leaves an evidence gap. Earlier circulation and editing remain unresolved until comparable authorized evidence is available.",
           "title": "Confidence and uncertainty"
         }
       ],

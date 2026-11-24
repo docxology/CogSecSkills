@@ -723,7 +723,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Section | Expected body |
 |---|---|
 | Defensive task boundary | The report, findings, and recommendation rely on supplied artifacts and revision-bound receipts. Keep the active checkout and local edits intact. |
-| Evidence and inference | Evidence: the README claims all gates pass. The supplied receipt covers the clean commit and the reviewed patch is untested. Inference: candidate gate results remain unverified. |
+| Evidence and inference | Evidence: the README claims all gates pass. The supplied receipt covers the clean commit and the reviewed patch is untested. Inference: candidate gate results remain unverified. This evidence gap matters to the release decision. |
 | Confidence and uncertainty | Confidence: high for the receipt mismatch and unresolved for live gate behavior. Uncertainty: record the gate and negative control as unrun and identify a reviewed, authorized disposable run as the next check. |
 
 **Provenance:** authored local example.
@@ -771,7 +771,7 @@ These deterministic local examples show the expected shape of defensive skill us
 | Section | Expected body |
 |---|---|
 | Defensive task boundary | Produce a findings_table and security_review_narrative from supplied artifacts. Record any unavailable scanner as unrun and keep code and dependency data local. |
-| Evidence and inference | Evidence: the reviewed revision shows an allow result after a policy-check error. Inference: exposure depends on the deployment wiring. A supplied advisory remains provisional until the resolved dependency version and applicability are confirmed. |
+| Evidence and inference | Evidence: the reviewed revision shows an allow result after a policy-check error. Inference: exposure depends on the deployment wiring. A supplied advisory remains provisional because of a gap in the resolved version and applicability evidence. |
 | Confidence and uncertainty | Confidence: high in the observed branch and unresolved for deployment exposure. Uncertainty: seek the active configuration and verify the remediation with a regression whose expected result is denial on a benign simulated policy error. |
 
 **Provenance:** authored local example.
@@ -918,7 +918,7 @@ These deterministic local examples show the expected shape of defensive skill us
 |---|---|
 | Defensive task boundary | Keep the original, derived frames, and private link local. Scope the triage_report to authorized observations and permitted public contextual research. |
 | Evidence and inference | Evidence: a dated supplied archive page conflicts with the current event caption. Local inspection finds compression artifacts in a derivative. Inference: the caption warrants scrutiny; the derivative's artifacts have multiple possible causes. |
-| Confidence and uncertainty | Confidence: stronger for the caption conflict than for the file history. Uncertainty: reverse lookup was unrun, and earlier circulation or editing remains unresolved until comparable authorized evidence is available. |
+| Confidence and uncertainty | Confidence: stronger for the caption conflict than for the file history. Uncertainty: the unrun reverse lookup leaves an evidence gap. Earlier circulation and editing remain unresolved until comparable authorized evidence is available. |
 
 **Provenance:** authored local example.
 
