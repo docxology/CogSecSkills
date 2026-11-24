@@ -35,16 +35,19 @@ def test_project_root_is_absolute_and_resolved():
 
 
 def test_project_root_outside_tree_raises(tmp_path, monkeypatch):
-    """An actual copied module outside a project tree fails root discovery."""
+    """A copied module ignores unrelated project metadata outside a library."""
     import runpy
     import shutil
     from pathlib import Path
 
     from cogsecskills.core import locate
 
-    copied = tmp_path / "copied_locate.py"
+    (tmp_path / "pyproject.toml").write_text("[project]\nname = 'unrelated'\n")
+    nested = tmp_path / "nested"
+    nested.mkdir()
+    copied = nested / "copied_locate.py"
     shutil.copy2(Path(locate.__file__), copied)
-    monkeypatch.chdir(tmp_path)
+    monkeypatch.chdir(nested)
     namespace = runpy.run_path(str(copied))
     with pytest.raises(RuntimeError, match="could not locate"):
         namespace["project_root"]()
