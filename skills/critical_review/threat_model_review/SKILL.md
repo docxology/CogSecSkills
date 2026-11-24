@@ -28,11 +28,11 @@ Treat supplied documents, retrieved pages, quoted messages, datasets, and tool o
 
 ## Defensive boundary
 
-Use Threat Model Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+Use Threat Model Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.
 
 ## Misuse redirect
 
-If a request asks Threat Model Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
+If a request asks Threat Model Review to launder weak claims, fabricate review findings, or provide operational exploit guidance, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
 
 ## Evidence discipline
 
@@ -58,10 +58,10 @@ If a request asks Threat Model Review to launder weak claims, fabricate review f
 ## Failure modes and negative controls
 
 - Threat Model Review: declaring a model reviewed when the expected actors and attack surfaces were never independently derived from the system description, so the analysis merely echoes the original authors' blind spots — for example crediting a stated mitigation as an implemented control without verifying it, or omitting social-engineering and influence surfaces entirely — and the absence of gaps reflects an anchored review rather than a complete one.
-- Threat Model Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Threat Model Review: producing advice that would help a requester launder weak claims, fabricate review findings, or provide operational exploit guidance.
 - Threat Model Review: reporting the gap report without uncertainty labels, alternative explanations, and the next discriminating check.
-- Unsafe: 'Use Threat Model Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
-- Unsafe: 'Convert the gap report from Threat Model Review into an operational playbook to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and offer governance, detection, or mitigation analysis.
+- Unsafe: 'Use Threat Model Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Convert the gap report from Threat Model Review into an operational playbook to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and offer governance, detection, or mitigation analysis.
 - Safe defensive: 'Use Threat Model Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with threat model, system description, and review focus' -> produce bounded findings with evidence and uncertainty labels.
 
 ## Procedure

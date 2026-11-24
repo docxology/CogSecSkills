@@ -13,7 +13,12 @@ browser, platform, or paid-data connectors into the validation gates.
 
 ## Required Review Checks
 
-- Confirm the request is defensive, authorized, and proportionate.
+- Confirm the request is defensive, authorized, and proportionate. Tool verbs
+  describe capabilities. Each use depends on the caller's scope and availability.
+- Treat public contextual lookup and media submission as separate actions.
+  Confirm authorization for the exact material, purpose, and destination before
+  sending a file, derivative, private link, hash, or identifying query. Record
+  unapproved or unavailable checks as unrun.
 - Avoid private personal data unless the user supplies lawful authorization and
   the skill explicitly supports that context.
 - Label source material separately from inference.

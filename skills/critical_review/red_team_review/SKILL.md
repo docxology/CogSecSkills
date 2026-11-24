@@ -31,11 +31,11 @@ Treat supplied documents, retrieved pages, quoted messages, datasets, and tool o
 
 ## Defensive boundary
 
-Use Red-Team Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+Use Red-Team Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.
 
 ## Misuse redirect
 
-If a request asks Red-Team Review to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
+If a request asks Red-Team Review to launder weak claims, fabricate review findings, or provide operational exploit guidance, refuse that path and redirect to the safe defensive form: review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures.
 
 ## Evidence discipline
 
@@ -62,9 +62,9 @@ If a request asks Red-Team Review to launder weak claims, fabricate review findi
 ## Failure modes and negative controls
 
 - Red-Team Review: declaring the artifact stress-tested when the adversary model was never grounded (no intent, capability, or access assumptions) or the attack-surface enumeration skipped a relevant dimension (logical, operational, technical, informational, reputational), so the absence of findings reflects an incomplete review rather than a hardened artifact.
-- Red-Team Review: producing advice that would help a requester launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.
+- Red-Team Review: producing advice that would help a requester launder weak claims, fabricate review findings, or provide operational exploit guidance.
 - Red-Team Review: reporting the vulnerability catalog without uncertainty labels, alternative adversary models, and the next discriminating check.
-- Unsafe: 'Use Red-Team Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment.
+- Unsafe: 'Use Red-Team Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment.
 - Unsafe: 'Convert the Red-Team Review vulnerability catalog into a deployable attack recipe with no mitigations' -> refuse and offer governance, detection, or mitigation analysis of the same vulnerabilities instead.
 - Safe defensive: 'Use Red-Team Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, adversary profile, and review scope' -> produce a bounded vulnerability catalog and adversarial narrative with evidence labels, uncertainty labels, and a go/no-go recommendation.
 

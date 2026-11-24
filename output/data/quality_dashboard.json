@@ -3312,11 +3312,11 @@
       "id": "critical_review.project_critical_review",
       "name": "Project Critical Review",
       "quality_capsule": {
-        "confidence_anchor": "High for Project Critical Review: each finding is bound to file-and-line or captured command output, the project's own gates were run and shown to fail on an injected defect rather than trusted on a self-reported 'all passing', severity and confidence are calibrated independently, and no unresolved contradiction would change the calibrated go/no-go recommendation.",
-        "defensive_boundary": "Use Project Critical Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
-        "evidence_discipline": "For Project Critical Review, bind every finding and strength to concrete evidence \u2014 a file-and-line excerpt, a config value, or reproduced command output from running the project's own gates \u2014 and label any defect that was inferred but not reproduced as needing verification rather than presenting it as established evidence.",
+        "confidence_anchor": "High for Project Critical Review: direct artifact evidence or source-bound receipts establish the result at the stated scope, severity and confidence are calibrated independently, and no unresolved contradiction would change the recommendation. Any gate claim includes the checks that were actually run.",
+        "defensive_boundary": "Use Project Critical Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
+        "evidence_discipline": "Bind each finding and strength to the exact reviewed source or artifact, file and line, configuration, or a matching gate receipt. Distinguish direct artifact evidence from inferred runtime behavior and state the evidence source for each.",
         "safe_defensive_pattern": "Safe defensive: 'Use Project Critical Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, decision, and success criteria' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Project Critical Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Project Critical Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 2,
@@ -3360,10 +3360,10 @@
       "name": "Research Design Critique",
       "quality_capsule": {
         "confidence_anchor": "High for Research Design Critique: each validity threat is tied to specific design evidence from the study's methods, sampling frame, and measures, the assessments across internal, external, construct, and statistical-conclusion validity are made independently, and no unresolved contradiction would change the narrowed claim the design is judged to actually support.",
-        "defensive_boundary": "Use Research Design Critique only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Research Design Critique only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Research Design Critique, bind each validity threat and severity rating to concrete evidence quoted from the study's design and report the narrowest defensible claim that evidence actually supports, distinguishing a merely theoretical threat from one for which the study shows positive evidence of bias.",
         "safe_defensive_pattern": "Safe defensive: 'Use Research Design Critique to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with study text, and claim under review' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Research Design Critique outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Research Design Critique outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 4,
@@ -3412,10 +3412,10 @@
       "name": "Claim-Evidence Audit",
       "quality_capsule": {
         "confidence_anchor": "High for Claim-Evidence Audit: each substantive claim's sufficiency verdict is anchored to the specific evidence the document actually offers for it, the evidence-type classification and overclaim or unsupported ratings remain stable when any single claim-evidence pair is re-examined, and no unresolved contradiction would change the overall judgment of whether the conclusions can be trusted as stated.",
-        "defensive_boundary": "Use Claim-Evidence Audit only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Claim-Evidence Audit only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Claim-Evidence Audit, bind each claim's verdict to concrete evidence by recording exactly what the document offers in support and classifying its type, and treat confidence language such as 'clearly' or 'obviously' as a claim about evidence strength to be evaluated, never as the evidence itself.",
         "safe_defensive_pattern": "Safe defensive: 'Use Claim-Evidence Audit to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with document, and claim taxonomy' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Claim-Evidence Audit outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Claim-Evidence Audit outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 5,
@@ -3456,11 +3456,11 @@
       "id": "critical_review.reproducibility_assessment",
       "name": "Reproducibility Assessment",
       "quality_capsule": {
-        "confidence_anchor": "High for Reproducibility Assessment: each scorecard criterion's status is backed by an actual execution attempt against the stated data, code, seeds, and environment, the direct-versus-replication-versus-conceptual tier assignments hold when the documented procedure is re-run, and no unresolved contradiction between claimed and reproduced results would change the overall reproducibility tier.",
-        "defensive_boundary": "Use Reproducibility Assessment only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
-        "evidence_discipline": "For Reproducibility Assessment, tie each scorecard status to concrete evidence \u2014 the available data and code, the pinned environment spec, and captured output from the reproduction attempt compared against the claimed numbers \u2014 and classify any input that is missing or unversioned as a not-assessable gap rather than as supporting evidence.",
+        "confidence_anchor": "High for Reproducibility Assessment: direct evidence establishes the specific criterion. An inventory can establish a missing input or environment pin. Agreement or mismatch requires a comparable completed run and its recorded comparison. Assess each tier from evidence appropriate to that tier.",
+        "defensive_boundary": "Use Reproducibility Assessment only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
+        "evidence_discipline": "For each scorecard status, cite supplied artifact versions, availability, and the stated method. For executed checks, cite the pinned run and comparison outcome. Keep execution status, comparability, and agreement separate, and record absent or unversioned requirements as gaps.",
         "safe_defensive_pattern": "Safe defensive: 'Use Reproducibility Assessment to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, key claims, and environment spec' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Reproducibility Assessment outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Reproducibility Assessment outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 4,
@@ -3498,11 +3498,11 @@
       "id": "critical_review.code_security_review",
       "name": "Code Security Review",
       "quality_capsule": {
-        "confidence_anchor": "High for Code Security Review: each finding in the table is pinned to a specific file and line and corroborated by both manual tracing and automated scanner output, the severity and exploitability ratings hold when the trust-boundary path is re-traced, and no unresolved contradiction about a silent-failure or unsafe-fallback path would change the deployment recommendation.",
-        "defensive_boundary": "Use Code Security Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
-        "evidence_discipline": "For Code Security Review, bind every finding to concrete evidence \u2014 a specific file-and-line excerpt, a dependency manifest entry, or captured scanner or static-analysis command output \u2014 and name the trust boundary and adversary action that would turn that evidence into an exploit, never suppressing stderr or exit codes while gathering it.",
+        "confidence_anchor": "High for Code Security Review: direct source evidence establishes the control behavior and the affected configuration confirms the stated exposure. State the scope of any independent corroboration and identify unresolved deployment assumptions.",
+        "defensive_boundary": "Use Code Security Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
+        "evidence_discipline": "Bind each security finding to a revision or identified artifact, file and line or manifest entry, observed control behavior, and the deployment evidence supporting any exposure claim. For scanner-derived findings, cite the rule or advisory and record the command result and version without sensitive values.",
         "safe_defensive_pattern": "Safe defensive: 'Use Code Security Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with code, threat model, and review scope' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Code Security Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Code Security Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 6,
@@ -3541,10 +3541,10 @@
       "name": "Statistical Validity Review",
       "quality_capsule": {
         "confidence_anchor": "High for Statistical Validity Review: every row of the statistical findings table cites a specific passage from the methods, results, or supplementary tables; the power, multiple-comparisons, test-appropriateness, and Type S/M assessments each rest on independently checkable figures rather than a single source; the corrected-inference verdict stays stable when any single excerpt is removed; and no unresolved contradiction in the reported statistics would change whether the primary claim is supported, partially supported, or insufficiently supported.",
-        "defensive_boundary": "Use Statistical Validity Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Statistical Validity Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Statistical Validity Review, bind each findings-table row and the corrected-inference statement to concrete evidence drawn from the supplied study text or primary claim \u2014 a specific reported sample size, p-value, effect size, confidence interval, or pre-registration record \u2014 and state the inferential consequence that evidence supports; a severity rating asserted without a cited statistical artifact is speculation, not a finding, and must be labelled as such.",
         "safe_defensive_pattern": "Safe defensive: 'Use Statistical Validity Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with study text, and primary claim' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Statistical Validity Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Statistical Validity Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 5,
@@ -3582,10 +3582,10 @@
       "name": "Assumption Surfacing Review",
       "quality_capsule": {
         "confidence_anchor": "High for Assumption Surfacing Review: every load-bearing assumption in the register is grounded in a specific passage of the target text, the critical/supporting/peripheral classification and evidentiary-support rating hold up when any single excerpt is reconsidered, and no unresolved contradiction would change which premises are flagged as the most dangerous to the conclusion.",
-        "defensive_boundary": "Use Assumption Surfacing Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Assumption Surfacing Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Assumption Surfacing Review, bind each surfaced assumption and its load-bearing and support ratings to concrete evidence drawn from the specific target-text passage or domain-context detail that reveals it, and label any premise resting only on confident assertion as an unsupported assumption rather than established evidence.",
         "safe_defensive_pattern": "Safe defensive: 'Use Assumption Surfacing Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with target text, and domain context' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Assumption Surfacing Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Assumption Surfacing Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 3,
@@ -3623,10 +3623,10 @@
       "name": "Logical Coherence Review",
       "quality_capsule": {
         "confidence_anchor": "High for Logical Coherence Review: each entry in the argument map and fallacy register is tied to a specific passage and a named formal or informal fallacy, the coherence verdict and its validity-versus-soundness separation hold when hidden premises are made explicit, and no unresolved contradiction in the inferential chain would change whether the conclusion is judged to follow from its premises.",
-        "defensive_boundary": "Use Logical Coherence Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Logical Coherence Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Logical Coherence Review, bind each mapped premise, inferential step, and named fallacy to concrete textual evidence showing where it occurs, and assess the validity of the inference separately from the truth of the premises so that weak evidence for a premise is never confused with an invalid inference.",
         "safe_defensive_pattern": "Safe defensive: 'Use Logical Coherence Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with argument text, and key claims' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Logical Coherence Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Logical Coherence Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 4,
@@ -3676,10 +3676,10 @@
       "name": "Citation Integrity Review",
       "quality_capsule": {
         "confidence_anchor": "High for Citation Integrity Review: each citation's existence verdict and accurate/partial/distorted/fabricated match assessment is corroborated by the retrieved source text itself, the severity ratings are stable when any single citation is rechecked against the original passage, and no unresolved contradiction would change the document's overall trustworthiness recommendation.",
-        "defensive_boundary": "Use Citation Integrity Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Citation Integrity Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Citation Integrity Review, tie every match verdict and severity rating to concrete evidence from the retrieved source passage and the exact in-text claim it is meant to support, and treat a citation whose source text could not be located or compared as unverified evidence rather than as accurate.",
         "safe_defensive_pattern": "Safe defensive: 'Use Citation Integrity Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with document, and citation list' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Citation Integrity Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Citation Integrity Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 4,
@@ -3722,10 +3722,10 @@
       "name": "Threat Model Review",
       "quality_capsule": {
         "confidence_anchor": "High for Threat Model Review: every gap-report row ties a missing actor, surface, trust-boundary error, or unvalidated assumption to a specific element absent from the reviewed model and present in the independently derived expected set; the assumption register and revised scope recommendation are each corroborated by the system description rather than a single anchoring read of the model; the prioritized remediation ordering holds when any one finding is set aside; and no unresolved contradiction about realistic threats would change the scope conclusion.",
-        "defensive_boundary": "Use Threat Model Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Threat Model Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Threat Model Review, bind every gap, flagged assumption, and scope recommendation to concrete evidence from the supplied threat model, system description, or review focus \u2014 a quoted scope exclusion, a named actor or trust relationship, or a mitigation statement \u2014 and identify what an attacker would do where that element is missing; an unsupported gap is a conjecture, not a finding, and must be labelled as such.",
         "safe_defensive_pattern": "Safe defensive: 'Use Threat Model Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with threat model, system description, and review focus' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Threat Model Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Threat Model Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 5,
@@ -3775,10 +3775,10 @@
       "name": "Ethics & Harms Review",
       "quality_capsule": {
         "confidence_anchor": "High for Ethics & Harms Review: each scenario in the harm register names a concrete affected party with likelihood and severity grounded in the artifact and its deployment context, at least two incommensurable ethical frameworks converge on the assessment, and no unresolved contradiction about a dual-use misuse path would change the go/no-go recommendation.",
-        "defensive_boundary": "Use Ethics & Harms Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Ethics & Harms Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Ethics & Harms Review, tie each harm scenario, mitigation, and residual-risk rating to concrete evidence from the artifact's capability boundaries, stated intended use, and deployment context, and treat a claimed mitigation as effective only when the evidence shows it is enforceable rather than aspirational.",
         "safe_defensive_pattern": "Safe defensive: 'Use Ethics & Harms Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, intended use, and deployment context' -> produce bounded findings with evidence and uncertainty labels.",
-        "unsafe_redirect": "Unsafe: 'Use Ethics & Harms Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Ethics & Harms Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 4,
@@ -3820,10 +3820,10 @@
       "name": "Red-Team Review",
       "quality_capsule": {
         "confidence_anchor": "High for Red-Team Review: the highest-ranked vulnerabilities are each tied to specific artifact excerpts and a coherent adversary capability, the exploitability-by-impact ranking is stable when any single excerpt is removed, the adversary model and the enumerated attack surface are mutually consistent, and no unresolved contradiction in the adversarial narrative would change the go/no-go conclusion.",
-        "defensive_boundary": "Use Red-Team Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation.",
+        "defensive_boundary": "Use Red-Team Review only for critical review and assurance: recognize, assess, document, or defend evidence quality, implementation integrity, and decision accountability. Do not use this skill to launder weak claims, fabricate review findings, or provide operational exploit guidance.",
         "evidence_discipline": "For Red-Team Review, tie every entry in the vulnerability catalog and every claim in the red-team narrative to concrete evidence \u2014 a quoted excerpt from the artifact, a referenced row of the artifact map, a stated capability in the adversary profile, a review-scope item, an observation, or a command result \u2014 and name the adversary capability that would turn that evidence into an exploit. A vulnerability with no cited evidence and no plausible exploitation path is a speculation, not a finding, and is labelled as such.",
         "safe_defensive_pattern": "Safe defensive: 'Use Red-Team Review to review supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures with artifact, adversary profile, and review scope' -> produce a bounded vulnerability catalog and adversarial narrative with evidence labels, uncertainty labels, and a go/no-go recommendation.",
-        "unsafe_redirect": "Unsafe: 'Use Red-Team Review outputs to launder weak claims, fabricate review findings, or produce exploit guidance without mitigation' -> refuse and redirect to defensive risk assessment."
+        "unsafe_redirect": "Unsafe: 'Use Red-Team Review outputs to launder weak claims, fabricate review findings, or provide operational exploit guidance' -> refuse and redirect to defensive risk assessment."
       },
       "quality_capsule_present": true,
       "references": 6,
@@ -4087,9 +4087,9 @@
       "id": "osint_integrity.image_and_media_forensics_triage",
       "name": "Image & Media Forensics Triage",
       "quality_capsule": {
-        "confidence_anchor": "High for Image & Media Forensics Triage: the reuse verdict rests on reverse-image and archive results that pin earlier or unrelated appearances, editing red flags are interpreted against the media's re-encoding history rather than in isolation, the context-collapse check confirms the visual is plausible for the claimed time and place, and no unresolved anomaly would change the recommended disposition.",
+        "confidence_anchor": "High for Image & Media Forensics Triage: a specific reuse, editing, or context conclusion rests on direct evidence with independently supported provenance or context and a documented comparison. Scope confidence to that conclusion and state what remains unknown about the other dimensions.",
         "defensive_boundary": "Use Image & Media Forensics Triage only for OSINT integrity and source-verification defense: recognize, assess, document, or defend source provenance, privacy, chain of custody, and public-source accountability. Do not use this skill to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence.",
-        "evidence_discipline": "For Image & Media Forensics Triage, tie every line of the triage report to concrete evidence \u2014 the reverse-image hit and its date, the specific compression or cloning artifact observed, and the contextual feature that matches or contradicts the claimed time and place \u2014 and label a clean triage as no-red-flags-found rather than authenticated, because triage is a filter and unsupported escalation or acceptance is a judgment, not a finding.",
+        "evidence_discipline": "Bind each triage observation to a specific preserved file or derivative, dated source result, or contextual comparison. For unperformed or no-hit checks, state the reason or coverage. Give separate evidence for editing, earlier circulation, and plausibility of the claimed event, location, or date.",
         "safe_defensive_pattern": "Safe defensive: 'Use Image & Media Forensics Triage to verify supplied claims, media, sources, or datasets with documented public-source methods with media item, accompanying claim, and source account' -> produce bounded findings with evidence and uncertainty labels.",
         "unsafe_redirect": "Unsafe: 'Use Image & Media Forensics Triage outputs to dox, deanonymize, harass, bypass access controls, or attribute identity beyond evidence' -> refuse and redirect to defensive risk assessment."
       },
@@ -5970,7 +5970,7 @@
         "Confidence and uncertainty"
       ],
       "skill_id": "critical_review.project_critical_review",
-      "title": "Defensive Project Critical Review worked example"
+      "title": "Project review with an active checkout"
     },
     {
       "provenance": "authored local example",
@@ -6000,7 +6000,7 @@
         "Confidence and uncertainty"
       ],
       "skill_id": "critical_review.reproducibility_assessment",
-      "title": "Defensive Reproducibility Assessment worked example"
+      "title": "Reproducibility with execution unavailable"
     },
     {
       "provenance": "authored local example",
@@ -6010,7 +6010,7 @@
         "Confidence and uncertainty"
       ],
       "skill_id": "critical_review.code_security_review",
-      "title": "Defensive Code Security Review worked example"
+      "title": "Source review of an authorization fallback"
     },
     {
       "provenance": "authored local example",
@@ -6130,7 +6130,7 @@
         "Confidence and uncertainty"
       ],
       "skill_id": "osint_integrity.image_and_media_forensics_triage",
-      "title": "Defensive Image & Media Forensics Triage worked example"
+      "title": "Triage of a private photo and a public caption"
     },
     {
       "provenance": "authored local example",

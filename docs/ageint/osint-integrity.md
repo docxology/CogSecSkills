@@ -77,14 +77,14 @@ Because each skill emits a verification record tied to the underlying evidence, 
 
 A clip is circulating that purportedly shows a current event, shared with high volume and strong emotional valence. An integrity-disciplined pass composes several skills in this group:
 
-1. **Triage the media** (`image_and_media_forensics_triage`) — reverse-image search returns an earlier upload from an unrelated event two years prior. That single hit reframes everything: the artifact is likely authentic but *context-collapsed*.
+1. **Triage the media** (`image_and_media_forensics_triage`) — an authorized search returns a dated upload from an unrelated event two years prior. The match supports earlier circulation and challenges the caption. The origin and editing history require separate evidence.
 2. **Check metadata** (`metadata_integrity_check`) — platform re-encoding has stripped the original EXIF, so timestamps cannot be treated as ground truth; their absence is recorded and explained rather than ignored.
 3. **Verify location** (`geolocation_verification`) — architecture and signage in the frame match the *original* location, not the one now claimed, corroborating the reuse finding with an independent anchor.
 4. **Trace the claim** (`claim_provenance_verification`) — the outlets repeating the claim all cite one anonymous account, i.e., circular reporting converging on a single unverified origin.
 5. **Attempt corroboration** (`cross_source_corroboration`) — no genuinely independent origin exists, so the claim is *held*, not promoted to a finding.
 6. **Preserve custody** (`chain_of_custody_documentation`) — the original upload, the reverse-image hits, and the geolocation references are archived and hashed so the assessment can be re-verified later.
 
-The verdict is not "fake" in the abstract; it is a documented chain showing real media, a false context, a single unverified origin, and a named weakest link — exactly the form that survives challenge.
+The documented evidence supports earlier circulation and a contradicted caption. The report identifies the unverified origin and the weakest link in the source chain.
 
 ## Privacy, ethics, and the defensive boundary
 

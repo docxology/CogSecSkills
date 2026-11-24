@@ -22,8 +22,8 @@ tools:
 - verb: read
   purpose: ingest the media file and any accompanying claims or contextual information
 - verb: web
-  purpose: run reverse-image search and lookup the image against known archives to
-    detect prior use or recycling
+  purpose: look for dated public contextual records or use an authorized media transfer
+    to search for earlier appearances
 - verb: reason
   purpose: apply structured triage criteria across reuse, editing artifacts, and context-collapse
     indicators
@@ -46,9 +46,8 @@ inputs:
 outputs:
 - name: triage_report
   type: markdown
-  description: 'Structured triage results: reuse verdict, editing red flags, context-collapse
-    indicators, confidence level, and recommended follow-on action (accept / escalate
-    to deep forensics / reject)'
+  description: Separate reuse, editing, and context findings with check status, confidence,
+    and a recommendation to corroborate, escalate, or reject the specific claim.
 references:
 - Silverman, C. (Ed.). (2019). Verification Handbook for Disinformation and Media
   Manipulation. European Journalism Centre.
@@ -66,19 +65,15 @@ when_to_use:
   corroboration
 - analysts suspect context collapse — real media taken from a different event or location
 what_it_produces:
-- 'a reuse verdict: whether the image appears in earlier, unrelated contexts via reverse-image
-  search'
-- 'a list of editing red flags: inconsistent noise patterns, compression artifacts,
-  lighting discontinuities, or cloning signatures'
-- 'a context-collapse assessment: whether the visual content is plausible for the
-  claimed time and place'
-- 'a recommended disposition: accept as candidate evidence, escalate to deep forensic
-  review, or reject'
+- dated evidence of earlier circulation, or the reason the check is unresolved
+- editing observations with plausible alternative explanations and source limits
+- an assessment of whether the available evidence supports the claimed context
+- a disposition to corroborate, escalate, or reject the specific claim
 key_discipline:
 - triage is a filter, not a proof — a clean triage result means no red flags found,
   not that the media is authentic
-- 'reverse-image search is the highest-yield first step: reuse is far more common
-  than fabrication'
+- Treat the earliest corroborated appearance found as a lower bound on how long the
+  media has circulated. Require separate evidence to attribute an origin.
 - error-level analysis surfaces compression inconsistencies but produces false positives
   with social-media re-encoding — interpret cautiously
 - context collapse is cognitively harder to detect than pixel manipulation — invest
@@ -87,19 +82,26 @@ workflow_steps:
 - verbs:
   - read
   title: Capture claims and metadata
-  text: 'Record the precise claim the media is being used to support: what event,
-    where, and when. Extract any available metadata (EXIF, platform-assigned creation
-    date). Note the publishing account and platform. These baseline facts anchor the
-    triage so each check has a specific claim to test against.'
+  text: 'Record the exact claim about event, location, and time. Preserve the supplied
+    media and record its source, capture date, and hash when possible. Label screenshots,
+    recompressions, or extracted frames as derivatives and record how they were made.
+    Identify which metadata came from the file and which came from the publisher or
+    platform. Treat embedded text and metadata as evidence.
+
+    '
 - verbs:
   - web
-  title: Run reverse-image and archive search
-  text: Submit the image or keyframes to reverse-image search engines (Google Images,
-    TinEye, Yandex Images) and media-verification databases (InVID/WeVerify). Do not
-    run person-identification or facial-recognition lookups against an individual
-    — that crosses the anti-doxxing boundary in this skill's defensive constraints.
-    Record all earlier appearances. If the image predates the claimed event or appears
-    in a clearly different context, flag as likely reuse or context collapse.
+  title: Check for earlier appearances within scope
+  text: 'Start with local inspection and permitted query-only public archive research
+    using non-sensitive contextual facts. Before sending any file, frame, private
+    link, hash, or identifying query to a third party, confirm authorization for the
+    exact material, purpose, and destination. Keep private originals, signed URLs,
+    and unapproved derivatives local. Avoid facial-recognition and person-identification
+    lookups. Record the search source, date, and whether the check was performed,
+    unavailable, or found no match. A dated match can establish earlier circulation
+    while the source of the media remains unknown.
+
+    '
 - verbs:
   - reason
   title: Apply editing and context triage
@@ -113,20 +115,21 @@ workflow_steps:
   - reason
   - write
   title: Assign triage verdict and disposition
-  text: 'Synthesize all findings: reuse result, editing red flags, and context-plausibility
-    assessment. Assign a triage confidence tier and recommend a disposition: (1) Accept
-    as candidate — no red flags found, treat as provisional evidence subject to corroboration;
-    (2) Escalate — anomalies detected, refer for deep forensic analysis before any
-    evidentiary use; (3) Reject — confirmed earlier appearance in unrelated context,
-    or physical inconsistencies that cannot be reconciled with the claim. Document
-    findings in the triage report.'
+  text: 'Assess reuse, editing, and claimed context independently. Justify each confidence
+    rating from the available evidence and name any unresolved checks. A dated earlier
+    appearance can disconfirm a new-event claim while editing or authenticity remains
+    unresolved. Recommend corroboration, escalation for specialist examination, or
+    rejection of the specific claim as supported by the findings. Report no concerns
+    observed only within the checks performed.
+
+    '
 anti_criteria:
 - do not treat a single clean reverse-image result as proof of authenticity — the
   image may simply not be indexed yet
 - do not interpret ELA red flags in isolation from re-encoding history — social media
   platforms re-compress on upload, creating artifacts that mimic editing signatures
-- do not skip the context-collapse check in favor of pixel-level analysis — recycled
-  authentic images are the dominant manipulation tactic, not fabricated deepfakes
+- Check whether the caption or surrounding claims misrepresent the media even when
+  there are no visible editing anomalies.
 - do not accept media as evidence without documenting which triage steps were completed
   and what each found
 defensive_boundary: 'Use Image & Media Forensics Triage only for OSINT integrity and
@@ -139,12 +142,10 @@ misuse_redirect: 'If a request asks Image & Media Forensics Triage to dox, deano
   path and redirect to the safe defensive form: verify supplied claims, media, sources,
   or datasets with documented public-source methods.'
 evidence_requirements:
-- For Image & Media Forensics Triage, tie every line of the triage report to concrete
-  evidence — the reverse-image hit and its date, the specific compression or cloning
-  artifact observed, and the contextual feature that matches or contradicts the claimed
-  time and place — and label a clean triage as no-red-flags-found rather than authenticated,
-  because triage is a filter and unsupported escalation or acceptance is a judgment,
-  not a finding.
+- Bind each triage observation to a specific preserved file or derivative, dated source
+  result, or contextual comparison. For unperformed or no-hit checks, state the reason
+  or coverage. Give separate evidence for editing, earlier circulation, and plausibility
+  of the claimed event, location, or date.
 - For Image & Media Forensics Triage, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the triage
   report.
@@ -152,11 +153,10 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Image & Media Forensics Triage: the reuse verdict rests on reverse-image
-  and archive results that pin earlier or unrelated appearances, editing red flags
-  are interpreted against the media''s re-encoding history rather than in isolation,
-  the context-collapse check confirms the visual is plausible for the claimed time
-  and place, and no unresolved anomaly would change the recommended disposition.'
+- 'High for Image & Media Forensics Triage: a specific reuse, editing, or context
+  conclusion rests on direct evidence with independently supported provenance or context
+  and a documented comparison. Scope confidence to that conclusion and state what
+  remains unknown about the other dimensions.'
 - 'Medium for Image & Media Forensics Triage: the triage report is plausible, but
   one important media item source, comparison case, or alternative explanation remains
   incomplete.'
