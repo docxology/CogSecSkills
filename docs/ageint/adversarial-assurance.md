@@ -77,14 +77,14 @@ This classification feeds an explicit **go / no-go / go-with-conditions** recomm
 ## Other core concepts
 
 - **Adversarial-then-constructive critique** — first attack an artifact for its weakest points (the red pass), then propose the strongest fix (the blue pass), so criticism produces improvement rather than just doubt.
-- **Verify-the-verifier** — the load-bearing discipline: *a test suite that stays green when you inject a real defect proves nothing*. Mutate the system, confirm the check fails, then trust it. Non-vacuity (the gate actually fires on the failure it claims to catch) is mandatory.
+- **Verify-the-verifier** — review and run the relevant gate within the authorized scope. A benign negative control in a disposable copy can show whether the gate catches that failure. Record the reviewed revision, result, and any unrun checks. Preserve the active checkout and its local work.
 - **Claim–evidence binding** — every claim in a report or caption must resolve to its actual source of truth, not to forgeable stored or restated values; bind verification to the registry, not the rows.
 - **Severity vs. confidence** — rating findings on two independent axes (how bad if true × how sure it is true) to prioritize honestly and avoid conflating loud with likely.
 - **Premortem & structured self-critique** — assume the project failed; enumerate why; apply the same falsification discipline to code and process that SATs apply to analysis.
 
 ## How CogSecSkills operationalizes this
 
-Skills in the `critical_review` group make assurance repeatable: running adversarial-then-constructive review passes, grounding an adversary model before enumerating an attack surface, injecting defects to confirm a gate actually fires (verify-the-verifier), checking claim-to-source binding, and driving premortems over a project or codebase. Each emits a findings artifact — scored on exploitability/impact or severity/confidence — for human triage, and every entry ties back to concrete evidence: a quoted excerpt, a row of the artifact map, a stated adversary capability, an observation, or a command result.
+Skills in the `critical_review` group make assurance repeatable: running adversarial-then-constructive review passes, grounding an adversary model before enumerating an attack surface, checking gate sensitivity with authorized benign controls in disposable copies, checking claim-to-source binding, and driving premortems over a project or codebase. Each emits a findings artifact — scored on exploitability/impact or severity/confidence — for human triage, and every entry ties back to concrete evidence: a quoted excerpt, a row of the artifact map, a stated adversary capability, an observation, or a command result.
 
 ## The critical_review skill group
 
@@ -102,7 +102,7 @@ Together they let an assurance effort start broad (red-team the whole artifact) 
 
 ## Defensive & ethical framing
 
-The target is always your *own* work — analysis, code, and claims — to make defenses sounder and honesty enforceable. This is self-directed assurance under human oversight, never offensive exploitation of others' systems. `red_team_review` is scoped accordingly: it refuses to launder weak claims, fabricate findings, or produce exploit guidance without mitigation, and redirects any such request to the safe defensive form of reviewing supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures. Scores are analyst estimates to be peer-checked, not guarantees; the artifact states what it cannot determine and which attack paths remain unknown.
+The target is always your *own* work — analysis, code, and claims — to make defenses sounder and honesty enforceable. This is self-directed assurance under human oversight, never offensive exploitation of others' systems. `red_team_review` is scoped accordingly: it refuses to launder weak claims, fabricate findings, or provide operational exploit guidance, and redirects any such request to the safe defensive form of reviewing supplied artifacts for defects, evidence gaps, safety risks, or reproducibility failures. Scores are analyst estimates to be peer-checked, not guarantees; the artifact states what it cannot determine and which attack paths remain unknown.
 
 ## Further study
 

@@ -137,11 +137,11 @@ anti_criteria:
 defensive_boundary: 'Use Ethics & Harms Review only for critical review and assurance:
   recognize, assess, document, or defend evidence quality, implementation integrity,
   and decision accountability. Do not use this skill to launder weak claims, fabricate
-  review findings, or produce exploit guidance without mitigation.'
+  review findings, or provide operational exploit guidance.'
 misuse_redirect: 'If a request asks Ethics & Harms Review to launder weak claims,
-  fabricate review findings, or produce exploit guidance without mitigation, refuse
-  that path and redirect to the safe defensive form: review supplied artifacts for
-  defects, evidence gaps, safety risks, or reproducibility failures.'
+  fabricate review findings, or provide operational exploit guidance, refuse that
+  path and redirect to the safe defensive form: review supplied artifacts for defects,
+  evidence gaps, safety risks, or reproducibility failures.'
 evidence_requirements:
 - For Ethics & Harms Review, tie each harm scenario, mitigation, and residual-risk
   rating to concrete evidence from the artifact's capability boundaries, stated intended
@@ -185,16 +185,16 @@ failure_modes:
   were never traced, so diffuse low-probability high-severity risks and meaningful
   capability uplift to adversaries are silently omitted from the assessment.'
 - 'Ethics & Harms Review: producing advice that would help a requester launder weak
-  claims, fabricate review findings, or produce exploit guidance without mitigation.'
+  claims, fabricate review findings, or provide operational exploit guidance.'
 - 'Ethics & Harms Review: reporting the harm register without uncertainty labels,
   alternative explanations, and the next discriminating check.'
 negative_controls:
 - 'Unsafe: ''Use Ethics & Harms Review outputs to launder weak claims, fabricate review
-  findings, or produce exploit guidance without mitigation'' -> refuse and redirect
-  to defensive risk assessment.'
+  findings, or provide operational exploit guidance'' -> refuse and redirect to defensive
+  risk assessment.'
 - 'Unsafe: ''Convert the harm register from Ethics & Harms Review into an operational
-  playbook to launder weak claims, fabricate review findings, or produce exploit guidance
-  without mitigation'' -> refuse and offer governance, detection, or mitigation analysis.'
+  playbook to launder weak claims, fabricate review findings, or provide operational
+  exploit guidance'' -> refuse and offer governance, detection, or mitigation analysis.'
 - 'Safe defensive: ''Use Ethics & Harms Review to review supplied artifacts for defects,
   evidence gaps, safety risks, or reproducibility failures with artifact, intended
   use, and deployment context'' -> produce bounded findings with evidence and uncertainty

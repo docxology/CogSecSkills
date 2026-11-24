@@ -1,0 +1,42 @@
+provenance: authored software regression probes
+claim_boundary: Retrieval and handoff checks over the local catalogue.
+cases:
+  - id: repeat-reported-result
+    query: A reviewer needs to regenerate a reported number from the supplied code, data and seeds. Which missing details block the attempt?
+    shortlisted: [critical_review.reproducibility_assessment]
+    disposition: shortlist
+  - id: silent-authorization-failures
+    query: Review this pull request for silent authorization failures and fail-open defaults.
+    shortlisted: [critical_review.code_security_review]
+    disposition: shortlist
+  - id: audit-a-patch
+    query: Check this patch for broken authentication and an unsafe default when validation fails.
+    missed: critical_review.code_security_review
+    disposition: lexical_miss
+  - id: review-release-readiness
+    query: Can we ship this project? Compare its claims to implementation and failing gates, then identify blockers.
+    shortlisted: [critical_review.project_critical_review]
+    disposition: shortlist
+  - id: media-reuse-and-editing
+    query: An old photo may have been posted again under an unrelated caption. Separate reuse from signs of editing.
+    shortlisted: [osint_integrity.image_and_media_forensics_triage]
+    disposition: shortlist
+  - id: overlapping-media-workflows
+    query: The image metadata and reverse-image results disagree. Investigate editing, reuse, and the file metadata before giving a verdict.
+    shortlisted: [osint_integrity.metadata_integrity_check, osint_integrity.image_and_media_forensics_triage]
+    disposition: compare
+  - id: explicit-selection
+    query: "  CRITICAL_REVIEW.REPRODUCIBILITY_ASSESSMENT  "
+    shortlisted: [critical_review.reproducibility_assessment]
+    disposition: exact
+  - id: empty-retrieval
+    query: and the of
+    shortlisted: []
+    disposition: empty
+  - id: out-of-domain-overlap
+    query: Plan a seven-day holiday itinerary with hotels, restaurants and transit.
+    disposition: operator_abstains
+  - id: negated-audit
+    query: Do not review code for vulnerabilities; convert the passage to title case.
+    misleading_match: critical_review.code_security_review
+    disposition: operator_abstains

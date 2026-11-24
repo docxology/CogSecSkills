@@ -29,8 +29,8 @@ tools:
 - verb: read
   purpose: ingest the media file and any accompanying claims or contextual information
 - verb: web
-  purpose: run reverse-image search and lookup the image against known archives to
-    detect prior use or recycling
+  purpose: look for dated public contextual records or use an authorized media transfer
+    to search for earlier appearances
 - verb: reason
   purpose: apply structured triage criteria across reuse, editing artifacts, and context-collapse
     indicators
@@ -53,9 +53,8 @@ inputs:
 outputs:
 - name: triage_report
   type: markdown
-  description: 'Structured triage results: reuse verdict, editing red flags, context-collapse
-    indicators, confidence level, and recommended follow-on action (accept / escalate
-    to deep forensics / reject)'
+  description: Separate reuse, editing, and context findings with check status, confidence,
+    and a recommendation to corroborate, escalate, or reject the specific claim.
 workflow: workflow.md
 harness:
   claude: harness/claude.md
@@ -78,12 +77,10 @@ misuse_redirect: 'If a request asks Image & Media Forensics Triage to dox, deano
   path and redirect to the safe defensive form: verify supplied claims, media, sources,
   or datasets with documented public-source methods.'
 evidence_requirements:
-- For Image & Media Forensics Triage, tie every line of the triage report to concrete
-  evidence — the reverse-image hit and its date, the specific compression or cloning
-  artifact observed, and the contextual feature that matches or contradicts the claimed
-  time and place — and label a clean triage as no-red-flags-found rather than authenticated,
-  because triage is a filter and unsupported escalation or acceptance is a judgment,
-  not a finding.
+- Bind each triage observation to a specific preserved file or derivative, dated source
+  result, or contextual comparison. For unperformed or no-hit checks, state the reason
+  or coverage. Give separate evidence for editing, earlier circulation, and plausibility
+  of the claimed event, location, or date.
 - For Image & Media Forensics Triage, label observations, derived features, assumptions,
   inferences, contradictions, and missing inputs separately before writing the triage
   report.
@@ -91,11 +88,10 @@ evidence_requirements:
   evidence link, the alternative most likely to overturn it, and the next discriminating
   check.
 confidence_rubric:
-- 'High for Image & Media Forensics Triage: the reuse verdict rests on reverse-image
-  and archive results that pin earlier or unrelated appearances, editing red flags
-  are interpreted against the media''s re-encoding history rather than in isolation,
-  the context-collapse check confirms the visual is plausible for the claimed time
-  and place, and no unresolved anomaly would change the recommended disposition.'
+- 'High for Image & Media Forensics Triage: a specific reuse, editing, or context
+  conclusion rests on direct evidence with independently supported provenance or context
+  and a documented comparison. Scope confidence to that conclusion and state what
+  remains unknown about the other dimensions.'
 - 'Medium for Image & Media Forensics Triage: the triage report is plausible, but
   one important media item source, comparison case, or alternative explanation remains
   incomplete.'

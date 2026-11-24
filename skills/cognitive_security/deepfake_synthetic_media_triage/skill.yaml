@@ -66,8 +66,8 @@ outputs:
   type: markdown
   description: 'Structured report covering: media characterization, tell-tale checklist
     results, provenance chain findings, contextual inconsistencies, overall suspicion
-    rating (Suspicious/Uncertain/Likely Authentic) with confidence level, and escalation
-    recommendation'
+    rating (Suspicious/Uncertain/No Concerns Observed) with confidence level, and
+    escalation recommendation'
 - name: anomaly_log
   type: table
   description: 'Table of observed anomalies: anomaly type, description, diagnostic

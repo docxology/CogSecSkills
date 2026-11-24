@@ -59,8 +59,8 @@ outputs:
   type: markdown
   description: 'Structured report covering: media characterization, tell-tale checklist
     results, provenance chain findings, contextual inconsistencies, overall suspicion
-    rating (Suspicious/Uncertain/Likely Authentic) with confidence level, and escalation
-    recommendation'
+    rating (Suspicious/Uncertain/No Concerns Observed) with confidence level, and
+    escalation recommendation'
 - name: anomaly_log
   type: table
   description: 'Table of observed anomalies: anomaly type, description, diagnostic
@@ -100,8 +100,8 @@ what_it_produces:
   media
 - 'contextual plausibility assessment: does the media''s claimed context (location,
   time, event) cohere with verifiable external facts'
-- a calibrated suspicion rating — Suspicious / Uncertain / Likely Authentic — with
-  an explicit confidence level and the specific observations driving it
+- a calibrated suspicion rating — Suspicious / Uncertain / No Concerns Observed —
+  with an explicit confidence level and the specific observations driving it
 - 'a clear escalation recommendation: whether laboratory forensic analysis, platform
   reporting, or expert consultation is warranted'
 key_discipline:
@@ -127,12 +127,15 @@ workflow_steps:
 - verbs:
   - web
   title: Provenance trace
-  text: 'Perform reverse-image or reverse-video search (Google Lens, TinEye, InVID/WeVerify)
-    to find the earliest known appearance of the media. Check whether the media has
-    been documented before in a different context (re-used archival footage, mis-dated
-    photographs, previously debunked synthetic content). Look for C2PA Content Credentials
-    or similar provenance attestations. Document the provenance chain: origin, spread
-    path, and any context changes.'
+  text: 'Examine supplied provenance locally and use permitted public contextual records.
+    Confirm authorization for the exact material and destination before sending media,
+    frames, hashes, private links, or identifying search terms to a third party. Use
+    dated results to report the earliest appearance found and record coverage or reasons
+    a lookup was unrun. For any Content Credentials, record verification and what
+    the attestation binds. Presence or absence alone cannot establish the truth of
+    the surrounding claim.
+
+    '
 - verbs:
   - reason
   title: Apply tell-tale checklist
@@ -157,12 +160,14 @@ workflow_steps:
   - reason
   - write
   title: Synthesize rating and draft report
-  text: 'Integrate tell-tale checklist, provenance findings, and contextual plausibility
-    into an overall suspicion rating: Suspicious (multiple strong anomalies or provenance
-    disconfirmation), Uncertain (mixed signals, some anomalies but no definitive disconfirmation),
-    or Likely Authentic (no significant anomalies, provenance consistent, context
-    plausible). State confidence level explicitly. Determine escalation recommendation.
-    Write the triage_report and anomaly_log.'
+  text: 'Use Suspicious when the evidence supports a specific provenance conflict
+    or pattern of anomalies. Use Uncertain when evidence is mixed or important checks
+    are unavailable. Use No Concerns Observed for the checks actually completed when
+    provenance and context are independently supported and no material anomalies were
+    observed. Report confidence, coverage, benign alternatives, and any escalation
+    in the triage_report and anomaly_log.
+
+    '
 - verbs:
   - write
   title: Emit triage report with caveats
@@ -180,8 +185,8 @@ anti_criteria:
   pattern or a strong provenance disconfirmation
 - do not name or assert the identity of persons depicted in the media as part of the
   triage — identity claims require separate verification
-- do not provide an assessment that could be used to certify media for legal proceedings
-  — triage outputs are not admissible forensic evidence
+- Refer forensic certification and admissibility questions to the appropriate qualified
+  decision-maker with the required evidence.
 defensive_boundary: 'Use Deepfake & Synthetic Media Triage only for cognitive-security
   defense: recognize, assess, document, or defend audiences, decision-makers, and
   public discourse. Do not use this skill to increase persuasive impact, exploit audience

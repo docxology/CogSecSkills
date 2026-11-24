@@ -13,17 +13,20 @@ analytic gap.
 
 Run the bundled `scripts/library.py` with Python, passing `route "<analytic need>"
 --format json`. It resolves the repository from its own location, including when
-this gateway is symlinked into a skills directory. It requires `uv` and the
-repository environment (`uv sync` from the checkout).
+this gateway is symlinked into a skills directory. Prepare the checkout's
+standard `.venv` separately with `uv sync --locked` from the checkout. The
+gateway runs only `route`, `list`, and `show` using the existing environment.
 
-Compare candidate descriptions with the user's actual question. Routing scores
-are lexical relevance, not confidence or evidence of method effectiveness. For
-an explicit skill id, use `show <group.slug>`. Run `list --format json` if routing
-does not find a suitable technique. Do not force a poor match.
+Routing scores measure lexical overlap. Use `show <group.slug>` to inspect
+a shortlisted method's summary, triggers, and inputs, or to open an explicitly
+requested ID. Compare plausible candidates against the user's goal. Browse
+with `list --format json` if the shortlist misses the task. For an unresolved
+ambiguity, ask a focused question when the answer would change the approach.
+Proceed without a technique when the task falls outside the catalogue.
 
 The checkout is four parent directories above the resolved script file. Read
-`skills/<group>/<slug>/SKILL.md`, its linked `workflow.md`, and
-`harness/codex.md` there. Follow the technique using the available runtime tools;
+`skills/<group>/<slug>/SKILL.md`, its linked `workflow.md`, and the
+`harness.codex` path returned by `show`, relative to that skill directory. Follow the technique using the available runtime tools;
 binding names describe capabilities and may differ from this session's tools.
 Read `skill.yaml` when the input or output contract needs clarification.
 
