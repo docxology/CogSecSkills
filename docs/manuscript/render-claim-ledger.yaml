@@ -1,0 +1,13 @@
+# The Template evidence scanner reads numeric values from generated LaTeX
+# alongside prose. These entries identify the table builder's design values.
+claims:
+  - {claim_id: catalogue_row_spacing, value: 1.02, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: catalogue_skill_width, value: 0.105, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: catalogue_metadata_width, value: 0.135, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: catalogue_capsule_width, value: 0.45, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: matrix_group_width, value: 0.27, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: matrix_verb_width, value: 0.075, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: matrix_delegate_width, value: 0.095, artifact_path: src/cogsecskills/artifacts/manuscript_assets/tables.py}
+  - {claim_id: sat_registry_entries, value: 34, artifact_path: registry/skills.yaml}
+  - {claim_id: cognitive_security_registry_entries, value: 24, artifact_path: registry/skills.yaml}
+  - {claim_id: offline_scenario_count, value: 28, artifact_path: output/data/evaluation_readiness.json}

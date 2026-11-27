@@ -6,6 +6,8 @@ The complete documentation map. Start with whichever row matches what you need.
 |------------|------|
 | **Understand what this is** | [`../README.md`](../README.md) — overview, quick start, the 3 artifacts |
 | **Start from clone to first harness use** | [`../QUICKSTART.md`](../QUICKSTART.md) — install, validate, route, inspect, and bind one skill |
+| **Replay static source verification** | [Static evidence verification](static-evidence-verification.md) — isolated local attribution checks |
+| **Read the maintained manuscript** | [Canonical manuscript](manuscript/README.md) — sections, bibliography, and render commands |
 | **Understand the design** | [`architecture.md`](architecture.md) — three artifacts, runner modules, harness model, authoring pipeline |
 | **Install into an agent harness** | [`harness-installation.md`](harness-installation.md) — clone, validate, route, and bind `SKILL.md`/`workflow.md`/`harness/<name>.md` |
 | **Install as native Claude Code `/` skills** | [`claude-code-skills.md`](claude-code-skills.md) — flatten the `skills/` tree into `.claude/skills/` so skills appear in the Claude Code skill menu |
@@ -16,7 +18,7 @@ The complete documentation map. Start with whichever row matches what you need.
 | **Review offline output fixtures** | [`evaluation-readiness.md`](evaluation-readiness.md) — generated 28-scenario offline review matrix (regenerate: `cogsecskills evals --write`) |
 | **Scan the evidence ladder** | [`quality-dashboard.md`](quality-dashboard.md) or [`quality-dashboard.html`](quality-dashboard.html) — generated 100-skill dashboard with quality, scenarios, offline evals, worked examples, harnesses, references, and claim-boundary status |
 | **Check release claims** | [`release-claim-matrix.md`](release-claim-matrix.md) — generated local release metadata and claim-boundary matrix |
-| **Review the visual contract** | [`../DESIGN.md`](../DESIGN.md) — print-first style rules for figures, cover, HTML dashboard, and manuscript tables |
+| **Review the visual contract** | [`DESIGN.md`](DESIGN.md) — print-first style rules for figures, cover, HTML dashboard, and manuscript tables |
 | **Know the exact rules a skill must satisfy** | [`skill-contract.md`](skill-contract.md) — the conformance contract `validate` enforces |
 | **Add or deepen a skill** | [`authoring-skills.md`](authoring-skills.md) — canonical `definitions/`, `definitions --write|--check`, `author`, and `scaffold` |
 | **Use the command line** | [`cli.md`](cli.md) — every `cogsecskills` subcommand with examples |

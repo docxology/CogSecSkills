@@ -58,7 +58,7 @@ def test_quickstart_and_docs_map_expose_next_reader_paths():
     quickstart = _read(PROJECT_ROOT / "QUICKSTART.md")
     docs_index = _read(PROJECT_ROOT / "docs" / "README.md")
     readme = _read(PROJECT_ROOT / "README.md")
-    design = _read(PROJECT_ROOT / "DESIGN.md")
+    design = _read(PROJECT_ROOT / "docs" / "DESIGN.md")
 
     assert "git clone https://github.com/docxology/CogSecSkills.git" in quickstart
     assert "python -m cogsecskills scenarios --check" in quickstart

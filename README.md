@@ -61,7 +61,7 @@ For discoverable Codex access to all 100 techniques, install the optional
   after publication and is recorded by a separate citation follow-up on main.
   Local source gates and live archive verification remain separate evidence.
 - **New here?** [`QUICKSTART.md`](QUICKSTART.md) · **Docs map:**
-  [`docs/README.md`](docs/README.md)
+  [`docs/README.md`](docs/README.md) · [Static evidence verification](docs/static-evidence-verification.md)
 
 The library is strictly **defensive, educational, and accountable**. Its
 educational upstream is the [AGEINT](docs/ageint/README.md) curriculum. These
@@ -222,7 +222,7 @@ For the generated quality dashboard, see
 [`docs/quality-dashboard.md`](docs/quality-dashboard.md) and
 [`docs/quality-dashboard.html`](docs/quality-dashboard.html). Visual style rules
 for generated figures, the cover image, dashboard pages, and manuscript tables
-live in [`DESIGN.md`](DESIGN.md).
+live in [`DESIGN.md`](docs/DESIGN.md).
 
 ## The 8 reference exemplars
 
