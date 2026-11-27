@@ -1,7 +1,6 @@
 # CogSecSkills
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21513316.svg)](https://doi.org/10.5281/zenodo.21513316)
-[![CI](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml/badge.svg)](https://github.com/docxology/CogSecSkills/actions/workflows/ci.yml)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue.svg)](pyproject.toml)
 
@@ -14,12 +13,20 @@ additional configured harness.
 
 ![CogSecSkills overview: 100 analytic skills in seven taxonomy groups, install-and-verify steps, agent-harness connection and the source-owned run flow](figures/cogsecskills_cover_installation.png)
 
+## Verify a local source record
+
+Use the [static evidence guide](docs/static-evidence-verification.md) to replay
+two synthetic YAML records with the production parser. It checks that a single
+source is preserved and ambiguous duplicate source keys are reported. The
+fixture needs Python 3.11 or newer and the locked development environment.
+It gives a parser result, separate from broader skill-library evidence.
+
 ## Install
 
 ```bash
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
-uv sync
+uv sync --locked
 uv run python -m cogsecskills validate     # 0 errors over all 100 skills
 
 # Find the right skill for an analytic need, then inspect it
@@ -149,7 +156,7 @@ are the generated, harness-facing build outputs.
 # Install from GitHub and validate the library
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
-uv sync
+uv sync --locked
 uv run python -m cogsecskills validate
 
 # List the catalogue (all 100 areas)
@@ -244,7 +251,7 @@ live in [`DESIGN.md`](docs/DESIGN.md).
 
 Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
 `artifacts/`, `quality/`, `contract/`, `conformance/`). Run the whole suite —
-the same command CI runs:
+the coverage gate defined in the workflow:
 
 ```bash
 uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99

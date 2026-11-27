@@ -18,6 +18,11 @@ This directory is public reader documentation for the skill system.
 
 ## Claim Rules
 
+The [static evidence check](static-evidence-verification.md) supports claims
+about the source parser on its synthetic records. Record the wider gates
+separately when changing claims about the library.
+
+
 - Local gates prove source synchronization, structural multiharness conformance,
   deterministic scenario fixture readiness, deterministic worked-example
   coverage, and render readiness.
