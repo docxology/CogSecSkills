@@ -112,7 +112,7 @@ definitions rendered into the skill tree.
 - All logic lives in `src/cogsecskills/`; definitions and skills are declarative
   data; the CLI remains a thin orchestrator over module functions.
 - No mocks in tests — real `tmp_path` dirs and real YAML.
-- Coverage floors: `pyproject.toml` sets `fail_under = 99`; CI enforces the same
+- Coverage floors: `pyproject.toml` sets `fail_under = 99`; the CI definition sets the same
   `--cov-fail-under=99`. Verify the current value with the test command
   below rather than copying stale numbers into prose.
 - Optional harness profiles are documentation metadata until their ids are added
@@ -123,9 +123,13 @@ definitions rendered into the skill tree.
 
 ## Tests
 
+Use the [static evidence check](docs/static-evidence-verification.md) for
+documentation about the source parser. Keep those claims scoped to the finite
+fixture and its duplicate-key behavior.
+
 Tests live in per-concern packages under `tests/` (`core/`, `authoring/`,
 `artifacts/`, `quality/`, `contract/`, `conformance/`). Run the whole suite —
-the same command CI runs — rather than a hand-written top-level glob:
+the coverage gate defined in CI — rather than a hand-written top-level glob:
 
 ```bash
 uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99

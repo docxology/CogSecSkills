@@ -4,12 +4,15 @@ CogSecSkills is the defensive skill library at
 `https://github.com/docxology/CogSecSkills`. This page gets a reader from clone
 to one bounded harness invocation.
 
+For a first check using only local files, follow the
+[static evidence guide](docs/static-evidence-verification.md).
+
 ## Install
 
 ```bash
 git clone https://github.com/docxology/CogSecSkills.git
 cd CogSecSkills
-uv sync
+uv sync --locked
 ```
 
 Without `uv`:
