@@ -19,6 +19,7 @@ A defensive, educational, harness-neutral library of Cognitive Security and anal
 - `05_reproducibility.md`
 - `06_limitations_and_next_steps.md`
 - `07_ethics_and_responsible_use.md`
+- [`08_static_evidence_verification.md`](08_static_evidence_verification.md)
 - `S01_source_surface.md`
 - `S02_release_manifest.md`
 - `S10_skill_catalogue.md` - generated; do not edit by hand
@@ -104,6 +105,17 @@ The current software concept is `10.5281/zenodo.21513316`. The separate
 historical v1.0.0 manuscript archive remains under concept
 `10.5281/zenodo.20804585`, version `10.5281/zenodo.20804586`; it does not
 identify the current software release chain.
+
+## Pinned renderer
+
+Use the [pinned Template checkout](https://github.com/docxology/template/tree/87704feae0a4490ef7dad9c931d268e8c30273c2). Add a disposable clean checkout to its `projects/working/CogSecSkills` path, with checked-in figures available. From the Template root, run:
+
+```sh
+uv run --no-sync python scripts/pipeline/stage_03_render.py --project working/CogSecSkills
+uv run --no-sync python scripts/pipeline/stage_04_validate.py --project working/CogSecSkills
+```
+
+This writes the PDF and HTML under the disposable project's `output/` tree. The [static evidence replay](../static-evidence-verification.md) is independently runnable.
 
 ## Verification
 

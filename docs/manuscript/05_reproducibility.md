@@ -31,64 +31,16 @@ uv run pytest --cov=cogsecskills --cov-report=term-missing --cov-fail-under=99
 
 `definitions --write` must run before rendering whenever skill substance or configured harnesses change. `definitions --check` should then pass before manuscript assets are regenerated. `scenarios --check` should pass before treating curated safe-use, unsafe-redirect, expected response-shape, and expected-answer fixtures as current. `examples --write` and `examples --check` keep the generated 100-skill worked-example views synchronized with their source YAML. `dashboard --write` should run after TODO, scenario, example, registry, or skill metadata changes, and `dashboard --check` should then pass before the Markdown, HTML, and JSON dashboard views are treated as current. `release-metadata --write` keeps committed release metadata deterministic by omitting exact git revision, branch, and dirty-state values from drift-checked files; those values are runtime observations used by stricter release modes. `manuscript-assets --write` must run before rendering whenever registry or rendered skill metadata changes. `manuscript-assets --check` should then pass with no findings; otherwise the committed manuscript sources and figures no longer match the live library.
 
-## Template Markdown/PDF Render Commands
+## Pinned Template Render and Validation
 
-Render and validate the manuscript with an installed sibling template checkout.
-The public combined-render APIs accept this checkout directly; no template
-project mirror or legacy `scripts/03_render_pdf.py` is required. Set the paths
-below, and use the template environment that already has its rendering
-dependencies installed (`--no-sync` preserves that environment).
+Use a clean disposable checkout registered as `projects/working/CogSecSkills` in the pinned docxology/template workspace. Keep `docs/manuscript/` and its checked-in figure and evidence inputs available. From the Template checkout, run the combined PDF and HTML render followed by validation.
 
 ```bash
-export PROJECT_ROOT="${PROJECT_ROOT:-/path/to/CogSecSkills}"
-export TEMPLATE_ROOT="${TEMPLATE_ROOT:-/path/to/template}"
-cd "${TEMPLATE_ROOT}"
-uv run --no-sync python -m infrastructure.validation.cli markdown \
-  "${PROJECT_ROOT}/docs/manuscript" --repo-root "${PROJECT_ROOT}"
-uv run --no-sync python - <<'PYRENDER'
-from dataclasses import replace
-from pathlib import Path
-import os
-import yaml
-from infrastructure.rendering import RenderManager, RenderingConfig
-from infrastructure.rendering.manuscript_discovery import discover_manuscript_files
-
-project = Path(os.environ["PROJECT_ROOT"]).resolve()
-manuscript = project / "docs" / "manuscript"
-source_config = yaml.safe_load((manuscript / "config.yaml").read_text())
-config = replace(
-    RenderingConfig.from_project_config(source_config, env={}),
-    manuscript_dir=str(manuscript), figures_dir=str(project / "output/figures"),
-    output_dir=str(project / "output"), pdf_dir=str(project / "output/pdf"),
-    web_dir=str(project / "output/web"),
-)
-manager = RenderManager(config)
-sources = [p for p in discover_manuscript_files(manuscript) if p.suffix == ".md"]
-print(manager.render_combined_pdf(sources, manuscript, "CogSecSkills"))
-print(manager.render_combined_web(sources, manuscript, "CogSecSkills"))
-PYRENDER
-RENDER_MARKERS='References|Supplemental 100-Skill Catalogue'
-RENDER_MARKERS+='|Use when|Claim Provenance Verification|Taxonomy'
-RENDER_MARKERS+='|Reference Density|Harness Contract|Evidence Ladder'
-RENDER_MARKERS+='|Skill Worked Examples|Scenario Readiness|expected answers'
-RENDER_MARKERS+='|Quality Dashboard|Release Manifest'
-pdftotext "${PROJECT_ROOT}/output/pdf/CogSecSkills_combined.pdf" - \
-  | rg "${RENDER_MARKERS}"
-LOG_ERRORS='Citation .*undefined|undefined references'
-LOG_ERRORS+='|LaTeX Warning: Reference.*undefined|Missing character'
-LOG_ERRORS+='|Package .* Error|File .* not found'
-rg -n "${LOG_ERRORS}" "${PROJECT_ROOT}/output/pdf/_combined_manuscript.log"
+uv run --no-sync python scripts/pipeline/stage_03_render.py --project working/CogSecSkills
+uv run --no-sync python scripts/pipeline/stage_04_validate.py --project working/CogSecSkills
 ```
 
-Rendering updates the combined PDF under `output/pdf/` and HTML under
-`output/web/`; the root `CogSecSkills.pdf` is a separately published copy and
-must be refreshed only after verifying the new combined PDF. Preserve the
-previous PDF or render a staged snapshot before replacing a release artifact.
-
-The final `rg` command is expected to produce no matches. A nonzero exit status
-from that command is acceptable when it means the searched error strings were
-absent. Avoid broad `not found` log searches because some LaTeX packages emit
-benign informational lines such as `pdfdraftmode not found`.
+The render writes `output/pdf/CogSecSkills_combined.pdf` and `output/web/index.html` in the disposable project. Validation checks the figure registry and manuscript evidence against local files. The separately published artifacts retain their own release identity.
 
 ## Traceability and Render Contract
 

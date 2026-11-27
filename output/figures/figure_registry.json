@@ -1,0 +1,51 @@
+[
+  {
+    "label": "fig:plan-build-teach-flow",
+    "filename": "cogsecskills_plan_build_teach_flow.png",
+    "caption": "Source-to-render flow for the Plan, Build, and Teach surfaces.",
+    "alt_text": "Source-to-render flow for the Plan, Build, and Teach surfaces.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:taxonomy-counts",
+    "filename": "cogsecskills_taxonomy_counts.png",
+    "caption": "Ranked group-count chart for the 100 implemented skills.",
+    "alt_text": "Ranked group-count chart for the 100 implemented skills.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:skill-grid",
+    "filename": "cogsecskills_skill_grid.png",
+    "caption": "Full-library atlas showing all 100 registry skills in source order with taxonomy colors, boundaries, and source-order spans.",
+    "alt_text": "Full-library atlas showing all 100 registry skills in source order with taxonomy colors, boundaries, and source-order spans.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:verb-heatmap",
+    "filename": "cogsecskills_verb_heatmap.png",
+    "caption": "Group-by-tool-verb heatmap over the closed neutral verb vocabulary.",
+    "alt_text": "Group-by-tool-verb heatmap over the closed neutral verb vocabulary.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:ageint-network",
+    "filename": "cogsecskills_ageint_network.png",
+    "caption": "Group-to-AGEINT-topic crosswalk with count-weighted links.",
+    "alt_text": "Group-to-AGEINT-topic crosswalk with count-weighted links.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:reference-density",
+    "filename": "cogsecskills_reference_density.png",
+    "caption": "Declared references per implemented skill by taxonomy group.",
+    "alt_text": "Declared references per implemented skill by taxonomy group.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  },
+  {
+    "label": "fig:harness-contract",
+    "filename": "cogsecskills_harness_contract.png",
+    "caption": "Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes.",
+    "alt_text": "Adapter coverage scorecard for the configured harness set, defaulting to Claude, Codex, and Hermes.",
+    "generated_by": "cogsecskills manuscript-assets --write"
+  }
+]

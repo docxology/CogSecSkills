@@ -58,7 +58,7 @@ PYTHONPATH="src:." python -m cogsecskills catalogue --check
 Opt-in and never a gate: `eval-live` runs scenario fixtures through a live
 harness (exploratory screening; see [`docs/live-eval.md`](docs/live-eval.md)).
 
-Use [`DESIGN.md`](DESIGN.md) as the visual contract for generated figures, the
+Use [`DESIGN.md`](docs/DESIGN.md) as the visual contract for generated figures, the
 cover image, the HTML dashboard, and manuscript table density.
 
 ## Local AGENTS hierarchy
